@@ -9,6 +9,9 @@
 - [Dot files](#dot-files)
 - [PowerShell](#powershell)
     - [Modules](#modules)
+- [LaTeX](#latex)
+    - [MikTeX](#miktex)
+    - [Packages](#packages)
 - [VS Code](#vs-code)
 - [Miscellaneous](#miscellaneous)
     - [git](#git)
@@ -55,6 +58,31 @@
 
 **TO DO** 🚧
 
+## LaTeX
+
+### [MikTeX](https://miktex.org/howto/deploy-miktex)
+
+- Download MiKTeX command-line installer from <https://miktex.org/download>. Extract `miktexsetup_standalone.exe`.
+- Run the following comand to download MiKTeX into a local package repository:
+
+    ```powershell
+    miktexsetup_standalone --verbose --local-package-repository=D:\miktex-repository --package-set=basic download
+    ```
+
+- Next, run:
+
+    ```powershell
+    $installFolder = 'D:\Apps\Miktex'
+    
+    $dataFolder = '"D:\ProgramData\Miktex 2.9"'
+    
+    miktexsetup_standalone --common-config=$dataFolder --common-data=$dataFolder --common-install=$installFolder --local-package-repository=D:\miktex-repository --modify-path --package-set=basic --shared=yes --user-config="env:APPDATA\MiKTeX" --user-data="env:LOCALAPPDATA\MiKTeX" --print-info-only install
+    ```
+
+### Packages
+
+**TO DO** 🚧
+
 ## VS Code
 
 **TO DO** 🚧
@@ -71,5 +99,5 @@
 
 ### Node
 
-- Change installation path for modules by setting NODE_PATH.
+- Change installation path for modules by setting `NODE_PATH`.
 - Install from <https://nodejs.org/en/download/>.
