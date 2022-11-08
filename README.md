@@ -1,6 +1,21 @@
 # Setup machine
 
-Notes and scripts to setup a new Windows machine.
+<!-- TOC -->
+
+- [Fonts](#fonts)
+- [Notepad++](#notepad)
+    - [Plugins](#plugins)
+    - [Themes](#themes)
+- [Dot files](#dot-files)
+- [PowerShell](#powershell)
+    - [Modules](#modules)
+- [VS Code](#vs-code)
+- [Miscellaneous](#miscellaneous)
+    - [git](#git)
+    - [SlickRun](#slickrun)
+    - [Node](#node)
+
+<!-- /TOC -->
 
 ## Fonts
 
@@ -13,7 +28,7 @@ Notes and scripts to setup a new Windows machine.
 ## Notepad++
 
 - Download from [web](https://notepad-plus-plus.org/download/) and install.
-- You can enable support for [fonts with ligatures in Settings](
+- Enable support for [fonts with ligatures](
     <https://github.com/notepad-plus-plus/notepad-plus-plus/pull/8326>): Preferences :arrow_right:MISC. Make sure `Use DirectWrite (May improve rendering special characters, need to restart Notepad++)` is :white_check_mark:.
 
 ### Plugins
@@ -25,6 +40,20 @@ Notes and scripts to setup a new Windows machine.
 - XML Tools
 
 ### Themes
+
+**TO DO** 🚧
+
+## Dot files
+
+**TO DO** 🚧
+
+## PowerShell
+
+- [Enabling PowerShell remoting fails due to Public network connection type](https://4sysops.com/archives/enabling-powershell-remoting-fails-due-to-public-network-connection-type/)
+
+### Modules
+
+**TO DO** 🚧
 
 ## VS Code
 
