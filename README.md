@@ -5,7 +5,6 @@
 - [Fonts](#fonts)
 - [Notepad++](#notepad)
     - [Plugins](#plugins)
-    - [Themes](#themes)
 - [Dot files](#dot-files)
 - [PowerShell](#powershell)
     - [Modules](#modules)
@@ -42,13 +41,14 @@
 - Location Navigate
 - XML Tools
 
-### Themes
-
-**TO DO** 🚧
-
 ## Dot files
 
-**TO DO** 🚧
+- Install [chezmoi](https://github.com/twpayne/chezmoi).
+- Run command:
+
+    ```shell
+    chezmoi init --apply AjayKMehta
+    ```
 
 ## PowerShell
 
@@ -56,7 +56,7 @@
 
 ### Modules
 
-**TO DO** 🚧
+Install modules in [ModulesToInstall.txt](./ModulesToInstall.txt).
 
 ## LaTeX
 
