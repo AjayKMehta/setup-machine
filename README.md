@@ -44,6 +44,7 @@
 ## Dot files
 
 - Install [chezmoi](https://github.com/twpayne/chezmoi).
+- Add to `Path`.
 - Run command:
 
     ```shell
@@ -52,7 +53,13 @@
 
 ## PowerShell
 
-- [Enabling PowerShell remoting fails due to Public network connection type](https://4sysops.com/archives/enabling-powershell-remoting-fails-due-to-public-network-connection-type/)
+- Install [Oh My Posh](https://ohmyposh.dev/docs/installation/windows):
+
+    ```powershell
+    Invoke-RestMethod https://ohmyposh.dev/install.ps1 | Invoke-Expression 
+    ```
+
+- See here for info on how to resolve the issue [Enabling PowerShell remoting fails due to Public network connection type](https://4sysops.com/archives/enabling-powershell-remoting-fails-due-to-public-network-connection-type/)
 
 ### Modules
 
