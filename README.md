@@ -8,6 +8,8 @@
 - [Dot files](#dot-files)
 - [PowerShell](#powershell)
     - [Modules](#modules)
+- [Python](#python)
+    - [JupyterLab](#jupyterlab)
 - [LaTeX](#latex)
     - [MikTeX](#miktex)
     - [Packages](#packages)
@@ -53,7 +55,7 @@
 
 ## PowerShell
 
-- Install [Oh My Posh](https://ohmyposh.dev/docs/installation/windows):
+- Install [Oh My Posh](https://ohmyposh.dev/docs/installation/windows) as theme engine:
 
     ```powershell
     Invoke-RestMethod https://ohmyposh.dev/install.ps1 | Invoke-Expression 
@@ -64,6 +66,34 @@
 ### Modules
 
 Install modules in [ModulesToInstall.txt](./ModulesToInstall.txt).
+
+## Python
+
+- Download and install [Miniconda](https://docs.conda.io/en/latest/miniconda.html).
+- To use [UTF-8 mode on Windows](https://dev.to/methane/python-use-utf-8-mode-on-windows-212i), set environment variable `PYTHONUTF8=1`.
+    - Launch "Anaconda Prompt".
+        - Enable shells:
+
+            ```shell
+            conda init powershell cmd.exe
+            ```
+
+        - Enable `pip` interoperability:
+
+            ```shell
+            conda config --set pip_interop_enabled True
+            ```
+
+        - Add environment variables:
+
+        ```shell
+        SET VS140COMNTOOLS = "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\"
+        SET VS90COMNTOOLS = %VS140COMNTOOLS%
+        ```
+
+### JupyterLab
+
+**TO DO** 🚧
 
 ## LaTeX
 
