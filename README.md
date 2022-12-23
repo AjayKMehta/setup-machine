@@ -16,7 +16,7 @@
     - [Packages](#packages)
 - [VS Code](#vs-code)
 - [git](#git)
-    - [Miscellaneous](#miscellaneous)
+- [Miscellaneous](#miscellaneous)
     - [SlickRun](#slickrun)
     - [Node](#node)
 
@@ -56,7 +56,7 @@ Install **winget** from Microsoft Store.
 ## Dot files
 
 - Install [chezmoi](https://github.com/twpayne/chezmoi).
-- Add installation path to `Path`.
+- Add installation path to `Path` environment variable.
 - Run the following command to get dot files:
 
     ```shell
@@ -116,11 +116,11 @@ Install modules in [ModulesToInstall.txt](./ModulesToInstall.txt).
 
 ### [MikTeX](https://miktex.org/howto/deploy-miktex)
 
-- Download MiKTeX command-line installer from <https://miktex.org/download>. Extract `miktexsetup_standalone.exe`.
+- Download MiKTeX command-line installer from <https://miktex.org/download>. Extract **miktexsetup_standalone.exe** and set current directory to its folder location.
 - Run the following comand to download MiKTeX into a local package repository:
 
     ```powershell
-    miktexsetup_standalone --verbose --local-package-repository=D:\miktex-repository --package-set=basic download
+    . .\miktexsetup_standalone.exe --verbose --local-package-repository=D:\miktex-repository --package-set=basic download
     ```
 
 - Next, run:
@@ -128,12 +128,32 @@ Install modules in [ModulesToInstall.txt](./ModulesToInstall.txt).
     ```powershell
     $installFolder = 'D:\Apps\Miktex'
     
-    $dataFolder = '"D:\ProgramData\Miktex 2.9"'
+    $dataFolder = 'D:\ProgramData\Miktex'
     
-    miktexsetup_standalone --common-config=$dataFolder --common-data=$dataFolder --common-install=$installFolder --local-package-repository=D:\miktex-repository --modify-path --package-set=basic --shared=yes --user-config="env:APPDATA\MiKTeX" --user-data="env:LOCALAPPDATA\MiKTeX" --print-info-only install
+    . .\miktexsetup_standalone.exe --common-config=$dataFolder --common-data=$dataFolder --common-install=$installFolder --local-package-repository=D:\miktex-repository --modify-path --package-set=basic --shared=yes --user-config="$env:APPDATA\MiKTeX" --user-data="$env:LOCALAPPDATA\MiKTeX" --print-info-only  install
     ```
 
-- Add `$installFolder\bin\x64\` to `PATH`.
+- Output should look like this:
+
+    ```shell
+    setup task: install from local package repository
+    local package repository: D:\miktex-repository
+    package set: basic
+    install for all users?: yes
+    portable? : no
+    use registry?: yes
+    modify path?: yes
+    program folder name: MiKTeX
+    common install root: D:\Apps\Miktex
+    common config root: "D:\ProgramData\Miktex"
+    common data root: "D:\ProgramData\Miktex"
+    user config root: C:\Users\Ajay\AppData\Roaming\MiKTeX
+    user data root: C:\Users\Ajay\AppData\Local\MiKTeX
+    ```
+
+- If the output looks OK, remove `--print-info-only` from above CLI command and run to install MikTex.
+
+- Add `$installFolder\bin\x64\` to `PATH` environment variable.
 
 ### Packages
 
@@ -157,5 +177,5 @@ Install modules in [ModulesToInstall.txt](./ModulesToInstall.txt).
 
 ### Node
 
-- Change installation path for modules by setting `NODE_PATH`.
+- Change installation path for modules by setting environment variable `NODE_PATH`.
 - Install from <https://nodejs.org/en/download/>.
