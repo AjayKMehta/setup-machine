@@ -11,6 +11,7 @@
     - [Modules](#modules)
 - [Python](#python)
     - [JupyterLab](#jupyterlab)
+- [NET](#net)
 - [LaTeX](#latex)
     - [MikTeX](#miktex)
     - [Packages](#packages)
@@ -77,6 +78,12 @@ Install **winget** from Microsoft Store.
     Invoke-RestMethod https://ohmyposh.dev/install.ps1 | Invoke-Expression 
     ```
 
+- Disable telemtry:
+
+    ```powershell
+    [System.Environment]::SetEnvironmentVariable('POWERSHELL_TELEMETRY_OPTOUT', 1, 'User')
+    ```
+
 - See here for info on how to resolve the issue [Enabling PowerShell remoting fails due to Public network connection type](https://4sysops.com/archives/enabling-powershell-remoting-fails-due-to-public-network-connection-type/)
 
 ### Modules
@@ -111,6 +118,28 @@ Install modules in [ModulesToInstall.txt](./ModulesToInstall.txt).
 ### JupyterLab
 
 **TO DO** 🚧
+
+## .NET
+
+- Set environment variables related to [runtime configuration for compilation](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/compilation):
+
+    ```powershell
+    [System.Environment]::SetEnvironmentVariable('DOTNET_TC_QuickJitForLoops', 1, 'User')
+    [System.Environment]::SetEnvironmentVariable('DOTNET_TieredPGO', 1, 'User')
+    ```
+
+- Disable telemtetry:
+
+    ```powershell
+    [System.Environment]::SetEnvironmentVariable('DOTNET_CLI_TELEMETRY_OPTOUT', 1, 'User')
+    [System.Environment]::SetEnvironmentVariable('DOTNET_UPGRADEASSISTANT_TELEMTRY_OPTOUT', 1, 'User')
+    ```
+
+- Change directory for NuGet packages:
+
+    ```powershell
+    [System.Environment]::SetEnvironmentVariable('NUGET_PACKAGES', 'D:\NuGet\packages', 'Machine')
+    ```
 
 ## LaTeX
 
