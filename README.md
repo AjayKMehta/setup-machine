@@ -6,6 +6,7 @@
 - [Fonts](#fonts)
 - [Notepad++](#notepad)
     - [Plugins](#plugins)
+- [KeePassXC](#keepassxc)
 - [Dot files](#dot-files)
 - [PowerShell](#powershell)
     - [Modules](#modules)
@@ -17,9 +18,9 @@
     - [Packages](#packages)
 - [VS Code](#vs-code)
 - [git](#git)
+- [SlickRun](#slickrun)
+- [Node](#node)
 - [Miscellaneous](#miscellaneous)
-    - [SlickRun](#slickrun)
-    - [Node](#node)
 
 <!-- /TOC -->
 
@@ -54,10 +55,29 @@ Install **winget** from Microsoft Store.
 - Location Navigate
 - XML Tools
 
+## KeePassXC
+
+- Install KeePassXC:
+
+    ```shell
+    winget install KeePassXCTeam.KeePassXC -l D:\Apps\KeePassXC
+    ```
+
+- See [here](https://keepassxc.org/docs/KeePassXC_GettingStarted.html) for information on getting started.
+
+- Add installation folder to Path environment variable if needed:
+
+    ```powershell
+    $path = [System.Environment]::GetEnvironmentVariable('Path', 'Machine')
+    $path += ';D:\Apps\KeePassXC'
+    [System.Environment]::SetEnvironmentVariable('Path', $path, 'Machine')
+    ```
+
 ## Dot files
 
 - Install [chezmoi](https://github.com/twpayne/chezmoi).
 - Add installation path to `Path` environment variable.
+- Provide the path to your KeePassXC database in your configuration file if any. See [here](https://www.chezmoi.io/user-guide/password-managers/keepassxc/).
 - Run the following command to get dot files:
 
     ```shell
@@ -78,7 +98,7 @@ Install **winget** from Microsoft Store.
     Invoke-RestMethod https://ohmyposh.dev/install.ps1 | Invoke-Expression 
     ```
 
-- Disable telemtry:
+- Disable telemetry:
 
     ```powershell
     [System.Environment]::SetEnvironmentVariable('POWERSHELL_TELEMETRY_OPTOUT', 1, 'User')
@@ -93,6 +113,7 @@ Install modules in [ModulesToInstall.txt](./ModulesToInstall.txt).
 ## Python
 
 - Download and install [Miniconda](https://docs.conda.io/en/latest/miniconda.html).
+- Add **bin** folder (**D:\Apps\Miniconda\condabin**) to `Path` environment variable.
 - To use [UTF-8 mode on Windows](https://dev.to/methane/python-use-utf-8-mode-on-windows-212i), set environment variable `PYTHONUTF8=1`.
 - To enable conda in PowerShell, run the following in conda prompt:
 
@@ -117,9 +138,22 @@ Install modules in [ModulesToInstall.txt](./ModulesToInstall.txt).
 
 ### JupyterLab
 
-**TO DO** 🚧
+Install following extensions:
+
+- jupyterlab-jupytext
+- jupyterlab-plotly
+- @jupyterlab/latex
+- @ryantam626/jupyterlab_code_formatter
 
 ## .NET
+
+- Install [templates for `dotnet new`](https://github.com/dotnet/templating/wiki/Available-templates-for-dotnet-new):
+
+    ```shell
+    dotnet new install "Boxed.Templates"
+    dotnet new install "Amazon.Lambda.Templates"
+    dotnet new install "NUnit3.DotNetNew.Template"
+    ```
 
 - Set environment variables related to [runtime configuration for compilation](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/compilation):
 
@@ -128,7 +162,7 @@ Install modules in [ModulesToInstall.txt](./ModulesToInstall.txt).
     [System.Environment]::SetEnvironmentVariable('DOTNET_TieredPGO', 1, 'User')
     ```
 
-- Disable telemtetry:
+- Disable telemetry:
 
     ```powershell
     [System.Environment]::SetEnvironmentVariable('DOTNET_CLI_TELEMETRY_OPTOUT', 1, 'User')
@@ -141,11 +175,18 @@ Install modules in [ModulesToInstall.txt](./ModulesToInstall.txt).
     [System.Environment]::SetEnvironmentVariable('NUGET_PACKAGES', 'D:\NuGet\packages', 'Machine')
     ```
 
+- Install ILSpy:
+
+    ```shell
+    winget install --id icsharpcode.ILSpy -l 'D:\Apps\ILSpy'
+    ```
+
 ## LaTeX
 
 ### [MikTeX](https://miktex.org/howto/deploy-miktex)
 
-- Download MiKTeX command-line installer from <https://miktex.org/download>. Extract **miktexsetup_standalone.exe** and set current directory to its folder location.
+- Download MiKTeX command-line installer from <https://miktex.org/download>.
+- Extract **miktexsetup_standalone.exe** and *set current directory to its folder location*.
 - Run the following comand to download MiKTeX into a local package repository:
 
     ```powershell
@@ -190,7 +231,13 @@ Install modules in [ModulesToInstall.txt](./ModulesToInstall.txt).
 
 ## VS Code
 
-**TO DO** 🚧
+- Install:
+
+    ```shell
+    winget install --id Microsoft.VisualStudioCode -l 'D:\Apps\Microsoft VS Code'
+    ```
+
+- Add installation folder (e.g. **D:\Apps\Microsoft VS Code\bin**) to `Path` environment variable.
 
 ## git
 
@@ -198,13 +245,35 @@ Install modules in [ModulesToInstall.txt](./ModulesToInstall.txt).
 
 - [Enable auto-signing Git commits with GnuPG](https://gist.github.com/BoGnY/f9b1be6393234537c3e247f33e74094a)
 
-## Miscellaneous
-
-### SlickRun
+## SlickRun
 
 **TO DO** 🚧
 
-### Node
+## Node
 
 - Change installation path for modules by setting environment variable `NODE_PATH`.
 - Install from <https://nodejs.org/en/download/>.
+
+## Miscellaneous
+
+- Install following apps:
+
+    ```powershell
+    winget install --id VideoLAN.VLC
+    winget install --id ImageMagick.ImageMagick
+    winget install --id Mp3tag.Mp3tag
+
+    winget install --id Graphviz.Graphviz -l 'D:\Apps\Graphviz'
+    winget install --id Kitware.CMake -l 'D:\Apps\CMake'
+    winget install --id GnuPG.GnuPG -l 'D:\Apps\GnuPG'
+    winget install --id GnuPG.Gpg4win -l 'D:\Apps\Gpg4win'
+    winget install --id WinSCP.WinSCP -l 'D:\Apps\WinSCP\'
+    ```
+
+- Add installation folders to `Path` environment variable:
+
+    ```powershell
+    $path = [System.Environment]::GetEnvironmentVariable('Path', 'User')
+    $path += ';D:\Apps\Graphviz;D:\Apps\CMake;D:\Apps\Gpg4win\;D:\Apps\GnuPG\bin;D:\Apps\WinSCP'
+    [System.Environment]::SetEnvironmentVariable('Path', $path, 'User')
+    ```

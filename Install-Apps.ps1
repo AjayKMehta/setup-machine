@@ -22,3 +22,4 @@ Install-WinGetApp -AppName GnuPG.Gpg4win -InstallFolder 'D:\Apps\Gpg4win'
 # Misc
 Install-WinGetApp -AppName Graphviz.Graphviz -InstallFolder 'D:\Apps\Graphviz'
 Install-WinGetApp -AppName Kitware.CMake -InstallFolder 'D:\Apps\CMake'
+Install-WinGetApp -AppName WinSCP.WinSCP -InstallFolder 'D:\Apps\WinSCP\'
