@@ -4,6 +4,7 @@
 
 - [winget](#winget)
 - [Fonts](#fonts)
+- [CLI Apps](#cli-apps)
 - [Notepad++](#notepad)
     - [Plugins](#plugins)
 - [KeePassXC](#keepassxc)
@@ -13,6 +14,7 @@
 - [Python](#python)
     - [JupyterLab](#jupyterlab)
 - [NET](#net)
+    - [NET Tools](#net-tools)
 - [LaTeX](#latex)
     - [MikTeX](#miktex)
     - [Packages](#packages)
@@ -35,6 +37,10 @@ Install **winget** from Microsoft Store.
 - [FiraCode](https://github.com/tonsky/FiraCode): Monospaced font with programming ligatures.
 - [Hasklig](https://github.com/i-tu/Hasklig): a code font with monospaced ligatures.
 - [Cascadia Code](https://github.com/microsoft/cascadia-code)
+
+## CLI Apps
+
+**TO DO** 🚧
 
 ## Notepad++
 
@@ -76,8 +82,8 @@ Install **winget** from Microsoft Store.
 ## Dot files
 
 - Install [chezmoi](https://github.com/twpayne/chezmoi).
-- Add installation path to `Path` environment variable.
-- Provide the path to your KeePassXC database in your configuration file if any. See [here](https://www.chezmoi.io/user-guide/password-managers/keepassxc/).
+- Add installation path to `$Path`.
+- Provide the path to your KeePassXC database in your configuration file if any. See [here](https://www.chezmoi.io/user-guide/password-managers/keepassxc/) for details.
 - Run the following command to get dot files:
 
     ```shell
@@ -113,7 +119,7 @@ Install modules in [ModulesToInstall.txt](./ModulesToInstall.txt).
 ## Python
 
 - Download and install [Miniconda](https://docs.conda.io/en/latest/miniconda.html).
-- Add **bin** folder (**D:\Apps\Miniconda\condabin**) to `Path` environment variable.
+- Add **bin** folder (**D:\Apps\Miniconda\condabin**) to `$Path`.
 - To use [UTF-8 mode on Windows](https://dev.to/methane/python-use-utf-8-mode-on-windows-212i), set environment variable `PYTHONUTF8=1`.
 - To enable conda in PowerShell, run the following in conda prompt:
 
@@ -181,6 +187,10 @@ Install following extensions:
     winget install --id icsharpcode.ILSpy -l 'D:\Apps\ILSpy'
     ```
 
+### .NET Tools
+
+**TO DO** 🚧
+
 ## LaTeX
 
 ### [MikTeX](https://miktex.org/howto/deploy-miktex)
@@ -223,7 +233,7 @@ Install following extensions:
 
 - If the output looks OK, remove `--print-info-only` from above CLI command and run to install MikTex.
 
-- Add `$installFolder\bin\x64\` to `PATH` environment variable.
+- Add `$installFolder\bin\x64\` to `$Path`.
 
 ### Packages
 
@@ -237,13 +247,28 @@ Install following extensions:
     winget install --id Microsoft.VisualStudioCode -l 'D:\Apps\Microsoft VS Code'
     ```
 
-- Add installation folder (e.g. **D:\Apps\Microsoft VS Code\bin**) to `Path` environment variable.
+- Add installation folder (e.g. **D:\Apps\Microsoft VS Code\bin**) to `$Path`.
 
 ## git
 
 - Install: `winget install --id Git.Git -e --source winget`.
 
-- [Enable auto-signing Git commits with GnuPG](https://gist.github.com/BoGnY/f9b1be6393234537c3e247f33e74094a)
+- [Enable auto-signing Git commits with GnuPG](https://gist.github.com/BoGnY/f9b1be6393234537c3e247f33e74094a):
+
+    - Install apps:
+
+        ```powershell
+        winget install --id GnuPG.GnuPG -l 'D:\Apps\GnuPG'
+        winget install --id GnuPG.Gpg4win -l 'D:\Apps\Gpg4win'
+        ```
+
+    - Add to `$Path` if needed:
+
+        ```powershell
+        $path = [System.Environment]::GetEnvironmentVariable('Path', 'Machine')
+        $path += ';D:\Apps\Gpg4win\;D:\Apps\GnuPG\bin'
+        [System.Environment]::SetEnvironmentVariable('Path', $path, 'Machine')
+        ```
 
 ## SlickRun
 
@@ -262,18 +287,19 @@ Install following extensions:
     winget install --id VideoLAN.VLC
     winget install --id ImageMagick.ImageMagick
     winget install --id Mp3tag.Mp3tag
+    winget install --id Citrix.Workspace
+    winget install --id Postman.Postman
 
     winget install --id Graphviz.Graphviz -l 'D:\Apps\Graphviz'
     winget install --id Kitware.CMake -l 'D:\Apps\CMake'
-    winget install --id GnuPG.GnuPG -l 'D:\Apps\GnuPG'
-    winget install --id GnuPG.Gpg4win -l 'D:\Apps\Gpg4win'
+
     winget install --id WinSCP.WinSCP -l 'D:\Apps\WinSCP\'
     ```
 
-- Add installation folders to `Path` environment variable:
+- Add installation folders to `$Path`:
 
     ```powershell
     $path = [System.Environment]::GetEnvironmentVariable('Path', 'User')
-    $path += ';D:\Apps\Graphviz;D:\Apps\CMake;D:\Apps\Gpg4win\;D:\Apps\GnuPG\bin;D:\Apps\WinSCP'
+    $path += ';D:\Apps\Graphviz;D:\Apps\CMake;D:\Apps\WinSCP'
     [System.Environment]::SetEnvironmentVariable('Path', $path, 'User')
     ```

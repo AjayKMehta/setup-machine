@@ -7,6 +7,8 @@ Install-WinGetApp -AppName Notepad++.Notepad++
 Install-WinGetApp -AppName ImageMagick.ImageMagick
 Install-WinGetApp -AppName VideoLAN.VLC
 Install-WinGetApp -AppName Mp3tag.Mp3tag
+Install-WinGetApp -AppName Citrix.Workspace
+Install-WinGetApp -AppName Postman.Postman
 
 # .NET
 Install-WinGetApp -AppName icsharpcode.ILSpy -InstallFolder 'D:\Apps\ILSpy'
