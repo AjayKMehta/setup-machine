@@ -14,6 +14,7 @@
 - [Python](#python)
     - [JupyterLab](#jupyterlab)
 - [NET](#net)
+    - [Useful apps](#useful-apps)
     - [NET Tools](#net-tools)
 - [LaTeX](#latex)
     - [MikTeX](#miktex)
@@ -179,6 +180,14 @@ Install following extensions:
 
     ```powershell
     [System.Environment]::SetEnvironmentVariable('NUGET_PACKAGES', 'D:\NuGet\packages', 'Machine')
+    ```
+
+### Useful apps
+
+- Install LinqPad 7:
+
+    ```shell
+    winget install --id LINQPad.LINQPad.7 -l 'D:\Apps\LINQPad7\'
     ```
 
 - Install ILSpy:
