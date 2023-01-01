@@ -2,9 +2,14 @@
 
 <!-- TOC -->
 
+- [Overview](#overview)
 - [winget](#winget)
 - [Fonts](#fonts)
 - [CLI Apps](#cli-apps)
+    - [less](#less)
+    - [fzf](#fzf)
+    - [delta](#delta)
+    - [yq](#yq)
 - [Notepad++](#notepad)
     - [Plugins](#plugins)
 - [KeePassXC](#keepassxc)
@@ -27,6 +32,14 @@
 
 <!-- /TOC -->
 
+## Overview
+
+Setting up a new Windows machine is painful.
+
+This document hopefully alleviates the pain.
+
+> 👉This assumes that your C: drive has **limited space** (e.g. SSD) and you have an extra drive (D:) which you can use to install apps on instead. If that is not the case, you can omit custom location (`-l`) in `winget install` invocation or specify a directory on your C drive instead.
+
 ## winget
 
 Install **winget** from Microsoft Store.
@@ -41,7 +54,45 @@ Install **winget** from Microsoft Store.
 
 ## CLI Apps
 
-**TO DO** 🚧
+:bulb: Install CLI apps in a common directory and add common directory to `$Path`.
+
+### less
+
+**[less](https://github.com/jftuga/less-Windows)** is a pager.
+
+- Install:
+
+    ```powershell
+    winget install JohnTaylor.less -l D:\Apps
+    winget install JohnTaylor.lesskey -l D:\Apps
+    ```
+
+- Set environment variables:
+
+    ```powershell
+    [System.Environment]::SetEnvironmentVariable('LESS', '-RX', 'Machine')
+    [System.Environment]::SetEnvironmentVariable('LESSCHARSET', 'UTF8', 'Machine')
+    ```
+
+### fzf
+
+**fzf** is a command-line fuzzy finder.
+
+Get latest binaries from [here](https://github.com/junegunn/fzf/releases).
+
+### delta
+
+**[delta](https://github.com/dandavison/delta)** is a syntax-highlighting pager for git, diff, and grep output. In order to use it with git, you need to modify .gitconfig or you can import dot files.
+
+- [Installation notes](https://dandavison.github.io/delta/installation.html)
+
+- Add to PowerShell profile: `$env:DELTA_PAGER = 'less -rFX'`
+
+### yq
+
+**[yq](https://github.com/mikefarah/yq)** is a portable command-line YAML, JSON, XML, CSV and properties processor.
+
+Install: `winget install yq -l D:\Apps -r yq.exe`.
 
 ## Notepad++
 
