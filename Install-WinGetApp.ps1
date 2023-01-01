@@ -9,15 +9,21 @@ function Install-WinGetApp {
         [ValidateNotNullOrEmpty()]
         [string] $ParentFolder,
         [ValidateNotNullOrEmpty()]
-        [string] $InstallFolder
+        [string] $InstallFolder,
+
+        [parameter(ValueFromRemainingArguments = $true)]
+        [string[]]$InstallerArgs
     )
 
     $exeArgs = [List[string]]::new()
     $exeArgs.AddRange([string[]]('install', '--id', $AppName))
     if ($ParentFolder) {
         $path = Join-Path $ParentFolder $InstallFolder
-        $args.Add('-l')
-        $args.Add($path)
+        $exeArgs.Add('-l')
+        $exeArgs.Add($path)
+    }
+    if ($InstallerArgs.Count -gt 0) {
+        exeArgs.AddRange($InstallerArgs)
     }
     winget.exe $exeArgs
 }
