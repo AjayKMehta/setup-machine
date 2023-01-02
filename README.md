@@ -10,6 +10,8 @@
     - [fzf](#fzf)
     - [delta](#delta)
     - [yq](#yq)
+    - [jq](#jq)
+    - [bat](#bat)
 - [Notepad++](#notepad)
     - [Plugins](#plugins)
 - [KeePassXC](#keepassxc)
@@ -56,7 +58,6 @@ Install **winget** from Microsoft Store.
 ## CLI Apps
 
 :bulb: Install CLI apps in a common directory and add common directory to `$Path`.
-
 ### less
 
 **[less](https://github.com/jftuga/less-Windows)** is a pager.
@@ -94,6 +95,16 @@ Get latest binaries from [here](https://github.com/junegunn/fzf/releases).
 **[yq](https://github.com/mikefarah/yq)** is a portable command-line YAML, JSON, XML, CSV and properties processor.
 
 Install: `winget install yq -l D:\Apps -r yq.exe`.
+
+### jq
+
+[jq](https://github.com/stedolan/jq) is a command-line JSON processor.
+
+Install: `winget install stedolan.jq -l D:\Apps -r jq.exe`.
+
+### bat
+
+Install [bat](https://github.com/sharkdp/bat) from [here](https://github.com/sharkdp/bat/releases).
 
 ## Notepad++
 
@@ -190,6 +201,7 @@ Install modules in [ModulesToInstall.txt](./ModulesToInstall.txt).
 
     ```powershell
     Register-SecretVault -Name SecretStore -ModuleName Microsoft.PowerShell.SecretStore -DefaultVault
+    # Assuming you created a Keepass DB with path below
     Register-SecretVault -Name 'Keepass' -ModuleName 'SecretManagement.Keepass' -VaultParameters @{
     Path = "D:\keepass\Passwords.kdbx"
     UseMasterPassword = $true
@@ -371,8 +383,9 @@ Install following extensions:
 
 ## Node
 
-- Change installation path for modules by setting environment variable `NODE_PATH`.
 - Install from <https://nodejs.org/en/download/>.
+- Change installation path for modules by setting environment variable `NODE_PATH`
+.
 
 ## Miscellaneous
 
@@ -384,6 +397,7 @@ Install following extensions:
     winget install --id Mp3tag.Mp3tag
     winget install --id Citrix.Workspace
     winget install --id Postman.Postman
+    winget install --id chrisant996.Clink
 
     winget install --id Graphviz.Graphviz -l 'D:\Apps\Graphviz'
     winget install --id Kitware.CMake -l 'D:\Apps\CMake'
