@@ -16,6 +16,7 @@
 - [Dot files](#dot-files)
 - [PowerShell](#powershell)
     - [Modules](#modules)
+    - [Secrets Management](#secrets-management)
 - [Python](#python)
     - [JupyterLab](#jupyterlab)
 - [NET](#net)
@@ -38,7 +39,7 @@ Setting up a new Windows machine is painful.
 
 This document hopefully alleviates the pain.
 
-> 👉This assumes that your C: drive has **limited space** (e.g. SSD) and you have an extra drive (D:) which you can use to install apps on instead. If that is not the case, you can omit custom location (`-l`) in `winget install` invocation or specify a directory on your C drive instead.
+> 👉This document assumes that your C: drive has **limited space** (e.g. SSD) and you have an extra drive (D:) which you can use to install apps on instead. If that is not the case, you can omit custom location (`-l`) in `winget install` invocation or specify a directory on your C drive instead.
 
 ## winget
 
@@ -167,6 +168,40 @@ Install: `winget install yq -l D:\Apps -r yq.exe`.
 ### Modules
 
 Install modules in [ModulesToInstall.txt](./ModulesToInstall.txt).
+
+### Secrets Management
+
+- Install modules if necessary:
+
+    ```powershell
+    Install-Module -Name Microsoft.PowerShell.SecretManagement -Repository PSGallery
+    Install-Module -Name Microsoft.PowerShell.SecretStore -Repository PSGallery
+    Install-Module SecretManagement.KeePass
+    ```
+
+- Configure secret store:
+
+    ```powershell
+    Set-secretstoreConfiguration -Scope CurrentUser -Authentication Password -PasswordTimeout 3600
+    Set-SecretStorePassword
+    ```
+
+- Register vaults:
+
+    ```powershell
+    Register-SecretVault -Name SecretStore -ModuleName Microsoft.PowerShell.SecretStore -DefaultVault
+    Register-SecretVault -Name 'Keepass' -ModuleName 'SecretManagement.Keepass' -VaultParameters @{
+    Path = "D:\keepass\Passwords.kdbx"
+    UseMasterPassword = $true
+    }
+    ```
+
+- Test that it works:
+
+    ```powershell
+    Get-SecretInfo
+    Test-SecretVault -Name 'Keepass'
+    ```
 
 ## Python
 
