@@ -4,6 +4,7 @@
 
 - [Overview](#overview)
 - [winget](#winget)
+- [Firefox](#firefox)
 - [Fonts](#fonts)
 - [CLI Apps](#cli-apps)
     - [less](#less)
@@ -28,6 +29,7 @@
     - [MikTeX](#miktex)
     - [Packages](#packages)
 - [VS Code](#vs-code)
+- [WinMerge](#winmerge)
 - [git](#git)
 - [SlickRun](#slickrun)
 - [Node](#node)
@@ -47,6 +49,10 @@ This document hopefully alleviates the pain.
 
 Install **winget** from Microsoft Store.
 
+## Firefox
+
+Install: `winget install Mozilla.Firefox`.
+
 ## Fonts
 
 - [Nerd fonts](https://github.com/ryanoasis/nerd-fonts)
@@ -58,6 +64,7 @@ Install **winget** from Microsoft Store.
 ## CLI Apps
 
 :bulb: Install CLI apps in a common directory and add common directory to `$Path`.
+
 ### less
 
 **[less](https://github.com/jftuga/less-Windows)** is a pager.
@@ -294,6 +301,20 @@ Install following extensions:
     winget install --id icsharpcode.ILSpy -l 'D:\Apps\ILSpy'
     ```
 
+- Install Nuget Package Explorer:
+
+    ```shell
+    winget install --id 9WZDNCRDMDM3 -l 'D:\Apps\NuGetPackageExplorer'
+    ```
+
+- Install MSBuild Structured Log Viewer:
+
+    ```shell
+    winget install --id KirillOsenkov.MSBuildStructuredLogViewer
+    ```
+
+- Install NUnit Console from [here](https://github.com/nunit/nunit-console/releases).
+
 ### .NET Tools
 
 **TO DO** 🚧
@@ -356,6 +377,24 @@ Install following extensions:
 
 - Add installation folder (e.g. **D:\Apps\Microsoft VS Code\bin**) to `$Path`.
 
+## WinMerge
+
+WinMerge is a diff/merge tool.
+
+- Install:
+
+```shell
+winget install --id WinMerge.WinMerge -l 'D:\Apps\WinMerge'
+```
+
+- Add to `$Path`:
+
+```powershell
+$path = [System.Environment]::GetEnvironmentVariable('Path', 'Machine')
+$path += ';D:\Apps\WinMerge'
+[System.Environment]::SetEnvironmentVariable('Path', $path, 'Machine')
+```
+
 ## git
 
 - Install: `winget install --id Git.Git -e --source winget`.
@@ -398,6 +437,7 @@ Install following extensions:
     winget install --id Citrix.Workspace
     winget install --id Postman.Postman
     winget install --id chrisant996.Clink
+    winget install --id 7zip.7zip
 
     winget install --id Graphviz.Graphviz -l 'D:\Apps\Graphviz'
     winget install --id Kitware.CMake -l 'D:\Apps\CMake'

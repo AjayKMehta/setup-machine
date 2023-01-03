@@ -4,6 +4,7 @@ function Install-WinGetApp {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $true)]
+        [Alias('Id')]
         [ValidateNotNullOrEmpty()]
         [string] $AppName,
         [ValidateNotNullOrEmpty()]

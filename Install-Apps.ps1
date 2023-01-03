@@ -9,6 +9,8 @@ if ($PSVersionTable.PSVersion -lt 7) {
     Install-WinGetApp -AppName Microsoft.PowerShell
 }
 
+Install-WinGetApp -AppName Mozilla.Firefox
+
 # CLI apps
 Install-WinGetApp -AppName JohnTaylor.less $CustomLocation 'CLI'
 Install-WinGetApp -AppName JohnTaylor.lesskey $CustomLocation 'CLI'
@@ -22,6 +24,7 @@ Install-WinGetApp -AppName GnuPG.GnuPG $CustomLocation 'GnuPG'
 Install-WinGetApp -AppName GnuPG.Gpg4win $CustomLocation 'Gpg4win'
 
 # Dev
+Install-WinGetApp -AppName WinMerge.WinMerge $CustomLocation 'WinMerge'
 Install-WinGetApp -AppName Git.Git
 Install-WinGetApp -AppName Microsoft.VisualStudioCode $CustomLocation 'Microsoft VS Code'
 Install-WinGetApp -AppName OpenJS.NodeJS $CustomLocation 'nodejs'
@@ -36,6 +39,8 @@ Install-WinGetApp -AppName Mp3tag.Mp3tag
 # .NET
 Install-WinGetApp -AppName icsharpcode.ILSpy $CustomLocation 'ILSpy'
 Install-WinGetApp -AppName 'LINQPad.LINQPad.7' $CustomLocation 'LINQPad7'
+Install-WinGetApp -Id '9WZDNCRDMDM3' $CustomLocation 'NuGetPackageExplorer'
+Install-WinGetApp -Id KirillOsenkov.MSBuildStructuredLogViewer
 
 # Misc
 Install-WinGetApp -AppName Graphviz.Graphviz $CustomLocation 'Graphviz'
@@ -43,3 +48,4 @@ Install-WinGetApp -AppName WinSCP.WinSCP $CustomLocation 'WinSCP'
 Install-WinGetApp -AppName Citrix.Workspace
 Install-WinGetApp -AppName Postman.Postman
 Install-WinGetApp -AppName chrisant996.Clink
+Install-WinGetApp -AppName 7zip.7zip
