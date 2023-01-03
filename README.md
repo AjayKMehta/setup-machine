@@ -313,6 +313,12 @@ Install following extensions:
     winget install --id KirillOsenkov.MSBuildStructuredLogViewer
     ```
 
+- Install NSwagStudio:
+
+    ```shell
+    winget install --id RicoSuter.NSwagStudio
+    ```
+
 - Install NUnit Console from [here](https://github.com/nunit/nunit-console/releases).
 
 ### .NET Tools
@@ -418,7 +424,8 @@ $path += ';D:\Apps\WinMerge'
 
 ## SlickRun
 
-**TO DO** 🚧
+SlickRun is a free-floating utility for Windows that can launch programs.
+Download it from [here](https://bayden.com/slickrun/).
 
 ## Node
 
