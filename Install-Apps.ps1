@@ -42,6 +42,7 @@ Install-WinGetApp -AppName 'LINQPad.LINQPad.7' $CustomLocation 'LINQPad7'
 Install-WinGetApp -Id '9WZDNCRDMDM3' $CustomLocation 'NuGetPackageExplorer'
 Install-WinGetApp -Id KirillOsenkov.MSBuildStructuredLogViewer
 Install-WinGetApp -Id RicoSuter.NSwagStudio
+Install-WinGetApp -AppName Microsoft.NuGet
 
 # Misc
 Install-WinGetApp -AppName Graphviz.Graphviz $CustomLocation 'Graphviz'

@@ -289,6 +289,8 @@ Install following extensions:
 
 ### Useful apps
 
+- Install NuGet: `winget install Microsoft.NuGet`.
+
 - Install LinqPad 7:
 
     ```shell
@@ -455,7 +457,7 @@ Download it from [here](https://bayden.com/slickrun/).
 - Add installation folders to `$Path`:
 
     ```powershell
-    $path = [System.Environment]::GetEnvironmentVariable('Path', 'User')
-    $path += ';D:\Apps\Graphviz;D:\Apps\CMake;D:\Apps\WinSCP'
-    [System.Environment]::SetEnvironmentVariable('Path', $path, 'User')
+    $path = [System.Environment]::GetEnvironmentVariable('Path', 'Machine')
+    $path += ';C:\Program Files\7-Zip;D:\Apps\Graphviz;D:\Apps\CMake;D:\Apps\WinSCP'
+    [System.Environment]::SetEnvironmentVariable('Path', $path, 'Machine')
     ```
