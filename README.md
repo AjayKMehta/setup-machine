@@ -471,6 +471,8 @@ WinMerge is a diff/merge tool.
     winget install GitHub.cli -l D:\Apps
     ```
 
+- [Create an authentication token for github.com API requests](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+- Set `$GITHUB_TOKEN` to this value to avoid being prompted to authenticate by CLI.
 
 ### GitExtensions
 
