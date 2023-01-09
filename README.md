@@ -9,6 +9,7 @@
 - [CLI Apps](#cli-apps)
     - [less](#less)
     - [fzf](#fzf)
+    - [ripgrep](#ripgrep)
     - [delta](#delta)
     - [yq](#yq)
     - [jq](#jq)
@@ -43,7 +44,7 @@ Setting up a new Windows machine is painful.
 
 This document hopefully alleviates the pain.
 
-> 👉This document assumes that your C: drive has **limited space** (e.g. SSD) and you have an extra drive (D:) which you can use to install apps on instead. If that is not the case, you can omit custom location (`-l`) in `winget install` invocation or specify a directory on your C drive instead.
+> 👉This document assumes that your C: drive has **limited space** (e.g. SSD) and you have another hard drive (D:) which you can use to install apps on instead. If that is not the case, you can omit custom location (`-l`) in `winget install` invocation or specify a directory on your C drive instead.
 
 ## winget
 
@@ -51,7 +52,8 @@ Install **winget** from Microsoft Store.
 
 ## Firefox
 
-Install: `winget install Mozilla.Firefox`.
+- Install: `winget install Mozilla.Firefox`.
+- Use Firefox account to sync various items.
 
 ## Fonts
 
@@ -88,6 +90,11 @@ Install: `winget install Mozilla.Firefox`.
 **fzf** is a command-line fuzzy finder.
 
 Get latest binaries from [here](https://github.com/junegunn/fzf/releases).
+
+### ripgrep
+
+ripgrep is a powerful search tool.
+Get it from [here](https://github.com/BurntSushi/ripgrep/releases).
 
 ### delta
 
@@ -325,7 +332,29 @@ Install following extensions:
 
 ### .NET Tools
 
-**TO DO** 🚧
+Install following tools:
+
+```shell
+dotnet tool install -g benchmarkdotnet.tool
+dotnet tool install -g coverlet.console
+dotnet tool install -g diffenginetray
+dotnet tool install -g dotnet-counters
+dotnet tool install -g dotnet-depends
+dotnet tool install -g dotnet-monitor
+dotnet tool install -g dotnet-outdated-tool
+dotnet tool install -g dotnet-reportgenerator-globaltool
+dotnet tool install -g dotnet-sos
+dotnet tool install -g dotnet-stack
+dotnet tool install -g dotnet-stryker
+dotnet tool install -g dotnet-trace
+dotnet tool install -g microsoft.coyote.cli
+dotnet tool install -g microsoft.dotnet-httprepl
+dotnet tool install -g microsoft.dotnet-interactive
+dotnet tool install -g minver-cli
+dotnet tool install -g roslynator.dotnet.cli
+dotnet tool install -g snitch
+dotnet tool install -g upgrade-assistant
+```
 
 ## LaTeX
 
@@ -452,6 +481,7 @@ Download it from [here](https://bayden.com/slickrun/).
     winget install --id Kitware.CMake -l 'D:\Apps\CMake'
 
     winget install --id WinSCP.WinSCP -l 'D:\Apps\WinSCP\'
+    winget install Microsoft.Sysinternals.ProcessExplorer
     ```
 
 - Add installation folders to `$Path`:

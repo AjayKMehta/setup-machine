@@ -16,7 +16,7 @@ Install-WinGetApp -AppName JohnTaylor.less $CustomLocation 'CLI'
 Install-WinGetApp -AppName JohnTaylor.lesskey $CustomLocation 'CLI'
 exe
 Install-WinGetApp -AppName yq $CustomLocation 'CLI' '-r' yq.exe
-Install-WinGetApp -AppName stedolan.jq $CustomLocation '-r' jq.exe
+Install-WinGetApp -AppName stedolan.jq $CustomLocation 'CLI' '-r' jq.exe
 
 # Security
 Install-WinGetApp -AppName KeePassXCTeam.KeePassXC $CustomLocation 'KeePassXC'
@@ -51,3 +51,4 @@ Install-WinGetApp -AppName Citrix.Workspace
 Install-WinGetApp -AppName Postman.Postman
 Install-WinGetApp -AppName chrisant996.Clink
 Install-WinGetApp -AppName 7zip.7zip
+Install-WinGetApp -AppName Microsoft.Sysinternals.ProcessExplorer
