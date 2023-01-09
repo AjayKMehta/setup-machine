@@ -26,6 +26,7 @@ Install-WinGetApp -AppName GnuPG.Gpg4win $CustomLocation 'Gpg4win'
 # Dev
 Install-WinGetApp -AppName WinMerge.WinMerge $CustomLocation 'WinMerge'
 Install-WinGetApp -AppName Git.Git
+Install-WinGetApp -AppName GitExtensionsTeam.GitExtensions
 Install-WinGetApp -AppName Microsoft.VisualStudioCode $CustomLocation 'Microsoft VS Code'
 Install-WinGetApp -AppName OpenJS.NodeJS $CustomLocation 'nodejs'
 Install-WinGetApp -AppName Kitware.CMake $CustomLocation 'CMake'

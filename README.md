@@ -32,6 +32,8 @@
 - [VS Code](#vs-code)
 - [WinMerge](#winmerge)
 - [git](#git)
+    - [GitHub CLI](#github-cli)
+    - [GitExtensions](#gitextensions)
 - [SlickRun](#slickrun)
 - [Node](#node)
 - [Miscellaneous](#miscellaneous)
@@ -452,6 +454,23 @@ $path += ';D:\Apps\WinMerge'
         $path += ';D:\Apps\Gpg4win\;D:\Apps\GnuPG\bin'
         [System.Environment]::SetEnvironmentVariable('Path', $path, 'Machine')
         ```
+
+### GitHub CLI
+
+Install [GitHub CLI](https://github.com/cli/cli):
+
+```powershell
+# This is not working!?
+winget install GitHub.cli -l D:\Apps
+```
+
+### GitExtensions
+
+Install:
+
+```powershell
+winget install GitExtensionsTeam.GitExtensions
+```
 
 ## SlickRun
 
