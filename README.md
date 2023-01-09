@@ -24,6 +24,7 @@
 - [Python](#python)
     - [JupyterLab](#jupyterlab)
 - [NET](#net)
+    - [NuGet](#nuget)
     - [Useful apps](#useful-apps)
     - [NET Tools](#net-tools)
 - [LaTeX](#latex)
@@ -96,7 +97,9 @@ Get latest binaries from [here](https://github.com/junegunn/fzf/releases).
 ### ripgrep
 
 ripgrep is a powerful search tool.
-Get it from [here](https://github.com/BurntSushi/ripgrep/releases).
+
+- Get it from [here](https://github.com/BurntSushi/ripgrep/releases).
+- Add installation path to `$Path`.
 
 ### delta
 
@@ -120,7 +123,8 @@ Install: `winget install stedolan.jq -l D:\Apps -r jq.exe`.
 
 ### bat
 
-Install [bat](https://github.com/sharkdp/bat) from [here](https://github.com/sharkdp/bat/releases).
+- Install [bat](https://github.com/sharkdp/bat) from [here](https://github.com/sharkdp/bat/releases).
+- Add installation path to `$Path`.
 
 ## Notepad++
 
@@ -296,9 +300,12 @@ Install following extensions:
     [System.Environment]::SetEnvironmentVariable('NUGET_PACKAGES', 'D:\NuGet\packages', 'Machine')
     ```
 
-### Useful apps
+### NuGet
 
 - Install NuGet: `winget install Microsoft.NuGet`.
+- Add installation path to `$Path`.
+
+### Useful apps
 
 - Install LinqPad 7:
 
@@ -422,17 +429,17 @@ WinMerge is a diff/merge tool.
 
 - Install:
 
-```shell
-winget install --id WinMerge.WinMerge -l 'D:\Apps\WinMerge'
-```
+    ```shell
+    winget install --id WinMerge.WinMerge -l 'D:\Apps\WinMerge'
+    ```
 
 - Add to `$Path`:
 
-```powershell
-$path = [System.Environment]::GetEnvironmentVariable('Path', 'Machine')
-$path += ';D:\Apps\WinMerge'
-[System.Environment]::SetEnvironmentVariable('Path', $path, 'Machine')
-```
+    ```powershell
+    $path = [System.Environment]::GetEnvironmentVariable('Path', 'Machine')
+    $path += ';D:\Apps\WinMerge'
+    [System.Environment]::SetEnvironmentVariable('Path', $path, 'Machine')
+    ```
 
 ## git
 
@@ -440,7 +447,7 @@ $path += ';D:\Apps\WinMerge'
 
 - [Enable auto-signing Git commits with GnuPG](https://gist.github.com/BoGnY/f9b1be6393234537c3e247f33e74094a):
 
-    - Install apps:
+    - Install required apps:
 
         ```powershell
         winget install --id GnuPG.GnuPG -l 'D:\Apps\GnuPG'
@@ -457,20 +464,19 @@ $path += ';D:\Apps\WinMerge'
 
 ### GitHub CLI
 
-Install [GitHub CLI](https://github.com/cli/cli):
+- Install [GitHub CLI](https://github.com/cli/cli):
 
-```powershell
-# This is not working!?
-winget install GitHub.cli -l D:\Apps
-```
+    ```powershell
+    # This is not working!?
+    winget install GitHub.cli -l D:\Apps
+    ```
+
 
 ### GitExtensions
 
-Install:
-
-```powershell
+Install `
 winget install GitExtensionsTeam.GitExtensions
-```
+`.
 
 ## SlickRun
 
