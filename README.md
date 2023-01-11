@@ -34,6 +34,7 @@
 - [WinMerge](#winmerge)
 - [git](#git)
     - [GitHub CLI](#github-cli)
+    - [GitLab CLI](#gitlab-cli)
     - [GitExtensions](#gitextensions)
 - [SlickRun](#slickrun)
 - [Node](#node)
@@ -473,6 +474,18 @@ WinMerge is a diff/merge tool.
 
 - [Create an authentication token for github.com API requests](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 - Set `$GITHUB_TOKEN` to this value to avoid being prompted to authenticate by CLI.
+
+### GitLab CLI
+
+- Install:
+
+    ```powershell
+    winget install Glab.Glab
+    ```
+
+- Get a GitLab PAT with at least `api` and `write_repository` scopes.
+- Setup: `glab auth login`.
+- Shell completion: `glab completion -s powershell | Out-File ~\Documents\PowerShell\Scripts\ArgumentCompleters\glab.ps1 -Encoding utf8`
 
 ### GitExtensions
 
