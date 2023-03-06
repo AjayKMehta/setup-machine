@@ -95,6 +95,18 @@ Install **winget** from Microsoft Store if it is not already installed.
 
 Get latest binaries from [here](https://github.com/junegunn/fzf/releases).
 
+If you have already installed GitHub CLI and 7zip:
+
+```powershell
+$downloadFolder = (Resolve-Path ~\Downloads).Path
+$pattern = 'fzf*windows*amd64.zip' 
+gh release download --repo junegunn/fzf --pattern $pattern -D $downloadPath
+$zipFile = Get-Item $downloadPath -Filter $pattern | Select-Item -First 1
+$destination = D:\Apps
+7z e -o"$destination" $zipFile 'fzf.exe'
+$zipFile | Delete-Item
+```
+
 ### ripgrep
 
 ripgrep is a powerful search tool.
