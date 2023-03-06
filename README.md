@@ -6,6 +6,12 @@
 - [winget](#winget)
 - [Firefox](#firefox)
 - [Fonts](#fonts)
+- [Notepad++](#notepad)
+    - [Plugins](#plugins)
+- [KeePassXC](#keepassxc)
+- [PowerShell](#powershell)
+    - [Modules](#modules)
+    - [Secrets Management](#secrets-management)
 - [CLI Apps](#cli-apps)
     - [less](#less)
     - [fzf](#fzf)
@@ -14,13 +20,7 @@
     - [yq](#yq)
     - [jq](#jq)
     - [bat](#bat)
-- [Notepad++](#notepad)
-    - [Plugins](#plugins)
-- [KeePassXC](#keepassxc)
 - [Dot files](#dot-files)
-- [PowerShell](#powershell)
-    - [Modules](#modules)
-    - [Secrets Management](#secrets-management)
 - [Python](#python)
     - [JupyterLab](#jupyterlab)
 - [NET](#net)
@@ -66,6 +66,112 @@ Install **winget** from Microsoft Store if it is not already installed.
 - [FiraCode](https://github.com/tonsky/FiraCode): Monospaced font with programming ligatures.
 - [Hasklig](https://github.com/i-tu/Hasklig): a code font with monospaced ligatures.
 - [Cascadia Code](https://github.com/microsoft/cascadia-code)
+
+## Notepad++
+
+- Download from [web](https://notepad-plus-plus.org/download/) and install or use **winget**:
+
+    ```shell
+    winget install -e Notepad++.Notepad++
+    ```
+
+- Enable support for [fonts with ligatures](
+    <https://github.com/notepad-plus-plus/notepad-plus-plus/pull/8326>): Preferences :arrow_right:MISC. Make sure `Use DirectWrite (May improve rendering special characters, need to restart Notepad++)` is :white_check_mark:.
+
+### Plugins
+
+- Compare
+- EditorConfig
+- JSTool
+- Location Navigate
+- XML Tools
+
+## KeePassXC
+
+- Install KeePassXC:
+
+    ```shell
+    winget install KeePassXCTeam.KeePassXC -l D:\Apps\KeePassXC
+    ```
+
+- See [here](https://keepassxc.org/docs/KeePassXC_GettingStarted.html) for information on getting started.
+
+- Add installation folder to Path environment variable if needed:
+
+    ```powershell
+    $path = [System.Environment]::GetEnvironmentVariable('Path', 'Machine')
+    $path += ';D:\Apps\KeePassXC'
+    [System.Environment]::SetEnvironmentVariable('Path', $path, 'Machine')
+    ```
+
+## PowerShell
+
+- Install:
+
+    ```shell
+    winget install -e --id Microsoft.PowerShell
+    ```
+
+- Install [Oh My Posh](https://ohmyposh.dev/docs/installation/windows) as theme engine:
+
+    ```powershell
+    Invoke-RestMethod https://ohmyposh.dev/install.ps1 | Invoke-Expression 
+    ```
+
+    This will add install path to `$Path`.
+
+    In a new shell:
+
+    ```powershell
+    oh-my-posh completion powershell | Out-File -encoding utf8 ~\Documents\PowerShell\Scripts\ArgumentCompleters\oh-my-posh.ps1
+    ```
+
+- Disable telemetry:
+
+    ```powershell
+    [System.Environment]::SetEnvironmentVariable('POWERSHELL_TELEMETRY_OPTOUT', 1, 'User')
+    ```
+
+- See here for info on how to resolve the issue [Enabling PowerShell remoting fails due to Public network connection type](https://4sysops.com/archives/enabling-powershell-remoting-fails-due-to-public-network-connection-type/)
+
+### Modules
+
+See [ModulesToInstall.txt](./ModulesToInstall.txt) for list of modules to install.
+
+### Secrets Management
+
+- Install modules if necessary:
+
+    ```powershell
+    Install-Module -Name Microsoft.PowerShell.SecretManagement -Repository PSGallery
+    Install-Module -Name Microsoft.PowerShell.SecretStore -Repository PSGallery
+    Install-Module SecretManagement.KeePass
+    ```
+
+- Configure secret store:
+
+    ```powershell
+    Set-secretstoreConfiguration -Scope CurrentUser -Authentication Password -PasswordTimeout 3600
+    Set-SecretStorePassword
+    ```
+
+- Register vaults:
+
+    ```powershell
+    Register-SecretVault -Name SecretStore -ModuleName Microsoft.PowerShell.SecretStore -DefaultVault
+    # Assuming you created a Keepass DB with path below
+    Register-SecretVault -Name 'Keepass' -ModuleName 'SecretManagement.Keepass' -VaultParameters @{
+    Path = "D:\keepass\Passwords.kdbx"
+    UseMasterPassword = $true
+    }
+    ```
+
+- Test that it works:
+
+    ```powershell
+    Get-SecretInfo
+    Test-SecretVault -Name 'Keepass'
+    ```
 
 ## CLI Apps
 
@@ -146,43 +252,6 @@ Install: `winget install stedolan.jq -l D:\Apps -r jq.exe`.
     bat --generate-config-file
     ```
 
-## Notepad++
-
-- Download from [web](https://notepad-plus-plus.org/download/) and install or use **winget**:
-
-    ```shell
-    winget install -e Notepad++.Notepad++
-    ```
-
-- Enable support for [fonts with ligatures](
-    <https://github.com/notepad-plus-plus/notepad-plus-plus/pull/8326>): Preferences :arrow_right:MISC. Make sure `Use DirectWrite (May improve rendering special characters, need to restart Notepad++)` is :white_check_mark:.
-
-### Plugins
-
-- Compare
-- EditorConfig
-- JSTool
-- Location Navigate
-- XML Tools
-
-## KeePassXC
-
-- Install KeePassXC:
-
-    ```shell
-    winget install KeePassXCTeam.KeePassXC -l D:\Apps\KeePassXC
-    ```
-
-- See [here](https://keepassxc.org/docs/KeePassXC_GettingStarted.html) for information on getting started.
-
-- Add installation folder to Path environment variable if needed:
-
-    ```powershell
-    $path = [System.Environment]::GetEnvironmentVariable('Path', 'Machine')
-    $path += ';D:\Apps\KeePassXC'
-    [System.Environment]::SetEnvironmentVariable('Path', $path, 'Machine')
-    ```
-
 ## Dot files
 
 - Install [chezmoi](https://github.com/twpayne/chezmoi).
@@ -192,75 +261,6 @@ Install: `winget install stedolan.jq -l D:\Apps -r jq.exe`.
 
     ```shell
     chezmoi init --apply AjayKMehta
-    ```
-
-## PowerShell
-
-- Install:
-
-    ```shell
-    winget install -e --id Microsoft.PowerShell
-    ```
-
-- Install [Oh My Posh](https://ohmyposh.dev/docs/installation/windows) as theme engine:
-
-    ```powershell
-    Invoke-RestMethod https://ohmyposh.dev/install.ps1 | Invoke-Expression 
-    ```
-
-    This will add install path to `$Path`.
-
-    In a new shell:
-
-    ```powershell
-    oh-my-posh completion powershell | Out-File -encoding utf8 ~\Documents\PowerShell\Scripts\ArgumentCompleters\oh-my-posh.ps1
-    ```
-
-- Disable telemetry:
-
-    ```powershell
-    [System.Environment]::SetEnvironmentVariable('POWERSHELL_TELEMETRY_OPTOUT', 1, 'User')
-    ```
-
-- See here for info on how to resolve the issue [Enabling PowerShell remoting fails due to Public network connection type](https://4sysops.com/archives/enabling-powershell-remoting-fails-due-to-public-network-connection-type/)
-
-### Modules
-
-Install modules in [ModulesToInstall.txt](./ModulesToInstall.txt).
-
-### Secrets Management
-
-- Install modules if necessary:
-
-    ```powershell
-    Install-Module -Name Microsoft.PowerShell.SecretManagement -Repository PSGallery
-    Install-Module -Name Microsoft.PowerShell.SecretStore -Repository PSGallery
-    Install-Module SecretManagement.KeePass
-    ```
-
-- Configure secret store:
-
-    ```powershell
-    Set-secretstoreConfiguration -Scope CurrentUser -Authentication Password -PasswordTimeout 3600
-    Set-SecretStorePassword
-    ```
-
-- Register vaults:
-
-    ```powershell
-    Register-SecretVault -Name SecretStore -ModuleName Microsoft.PowerShell.SecretStore -DefaultVault
-    # Assuming you created a Keepass DB with path below
-    Register-SecretVault -Name 'Keepass' -ModuleName 'SecretManagement.Keepass' -VaultParameters @{
-    Path = "D:\keepass\Passwords.kdbx"
-    UseMasterPassword = $true
-    }
-    ```
-
-- Test that it works:
-
-    ```powershell
-    Get-SecretInfo
-    Test-SecretVault -Name 'Keepass'
     ```
 
 ## Python
