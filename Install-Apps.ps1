@@ -31,7 +31,7 @@ Install-WinGetApp -AppName WinMerge.WinMerge $CustomLocation 'WinMerge'
 Install-WinGetApp -AppName Git.Git
 Install-WinGetApp -AppName Glab.Glab
 Install-WinGetApp -AppName GitExtensionsTeam.GitExtensions
-Install-WinGetApp -AppName Microsoft.VisualStudioCode $CustomLocation 'Microsoft VS Code'
+Install-WinGetApp -AppName Microsoft.VisualStudioCode $CustomLocation 'VSCode'
 Install-WinGetApp -AppName OpenJS.NodeJS $CustomLocation 'nodejs'
 Install-WinGetApp -AppName Kitware.CMake $CustomLocation 'CMake'
 Install-WinGetApp -AppName Notepad++.Notepad++

@@ -463,10 +463,12 @@ See [miktex_packages.txt](./miktex_packages.txt) for list of packages to install
 - Install:
 
     ```shell
-    winget install --id Microsoft.VisualStudioCode -l 'D:\Apps\Microsoft VS Code'
+    winget install --id Microsoft.VisualStudioCode -l 'D:\Apps\VSCode'
     ```
 
-- Add installation folder (e.g. **D:\Apps\Microsoft VS Code\bin**) to `$Path`.
+- Add installation folder (e.g. **D:\Apps\VSCode\bin**) to `$Path`.
+
+- Use settings sync to get settings.
 
 ## WinMerge
 
