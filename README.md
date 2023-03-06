@@ -52,7 +52,7 @@ This document hopefully alleviates the pain.
 
 ## winget
 
-Install **winget** from Microsoft Store.
+Install **winget** from Microsoft Store if it is not already installed.
 
 ## Firefox
 
@@ -189,6 +189,14 @@ Install: `winget install stedolan.jq -l D:\Apps -r jq.exe`.
     Invoke-RestMethod https://ohmyposh.dev/install.ps1 | Invoke-Expression 
     ```
 
+    This will add install path to `$Path`.
+
+    In a new shell:
+
+    ```powershell
+    oh-my-posh completion powershell | Out-File -encoding utf8 ~\Documents\PowerShell\Scripts\ArgumentCompleters\oh-my-posh.ps1
+    ```
+
 - Disable telemetry:
 
     ```powershell
@@ -323,7 +331,7 @@ Install following extensions:
 - Install Nuget Package Explorer:
 
     ```shell
-    winget install --id 9WZDNCRDMDM3 -l 'D:\Apps\NuGetPackageExplorer'
+    winget install --id 9WZDNCRDMDM3
     ```
 
 - Install MSBuild Structured Log Viewer:
