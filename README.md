@@ -456,7 +456,7 @@ dotnet tool install -g upgrade-assistant
 
 ### Packages
 
-**TO DO** 🚧
+See [miktex_packages.txt](./miktex_packages.txt) for list of packages to install.
 
 ## VS Code
 
