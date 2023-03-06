@@ -41,7 +41,7 @@ Install-WinGetApp -AppName Mp3tag.Mp3tag
 # .NET
 Install-WinGetApp -AppName icsharpcode.ILSpy $CustomLocation 'ILSpy'
 Install-WinGetApp -AppName 'LINQPad.LINQPad.7' $CustomLocation 'LINQPad7'
-Install-WinGetApp -Id '9WZDNCRDMDM3' $CustomLocation 'NuGetPackageExplorer'
+Install-WinGetApp -Id '9WZDNCRDMDM3'
 Install-WinGetApp -Id KirillOsenkov.MSBuildStructuredLogViewer
 Install-WinGetApp -Id RicoSuter.NSwagStudio
 Install-WinGetApp -AppName Microsoft.NuGet
