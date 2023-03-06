@@ -138,6 +138,13 @@ Install: `winget install stedolan.jq -l D:\Apps -r jq.exe`.
 
 - Install [bat](https://github.com/sharkdp/bat) from [here](https://github.com/sharkdp/bat/releases).
 - Add installation path to `$Path`.
+- Create folder if it does not exist: **%AppData%\Local\bat\cache**
+- Add following environment variables: `BAT_PAGER = less -RF`.
+- A default configuration file can be created with the `--generate-config-file` option.
+
+    ```shell
+    bat --generate-config-file
+    ```
 
 ## Notepad++
 
