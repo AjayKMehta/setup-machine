@@ -11,6 +11,9 @@ if ($PSVersionTable.PSVersion -lt 7) {
 
 Install-WinGetApp -AppName Mozilla.Firefox
 
+# Java
+Install-WinGetApp -AppName Oracle.JDK.17
+
 # CLI apps
 Install-WinGetApp -AppName JohnTaylor.less $CustomLocation 'CLI'
 Install-WinGetApp -AppName JohnTaylor.lesskey $CustomLocation 'CLI'

@@ -12,6 +12,7 @@
 - [PowerShell](#powershell)
     - [Modules](#modules)
     - [Secrets Management](#secrets-management)
+- [Java](#java)
 - [CLI Apps](#cli-apps)
     - [less](#less)
     - [fzf](#fzf)
@@ -172,6 +173,22 @@ See [ModulesToInstall.txt](./ModulesToInstall.txt) for list of modules to instal
     Get-SecretInfo
     Test-SecretVault -Name 'Keepass'
     ```
+
+## Java
+
+- Install:
+
+    ```powershell
+    winget install Oracle.JDK.17
+    ```
+
+- Set `JAVA_HOME`:
+
+    ```powershell
+    [System.Environment]::SetEnvironmentVariable('JAVA_HOME', 'C:\Program Files\Java\jdk-17.0.5', 'Machine')
+    ```
+
+- Add bin folder (C:\Program Files\Java\jdk-17.0.5\bin) to `$Path`.
 
 ## CLI Apps
 
