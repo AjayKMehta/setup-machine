@@ -505,7 +505,7 @@ WinMerge is a diff/merge tool.
 
         ```powershell
         $path = [System.Environment]::GetEnvironmentVariable('Path', 'Machine')
-        $path += ';D:\Apps\Gpg4win\;D:\Apps\GnuPG\bin'
+        $path += ';D:\Apps\Gpg4win\bin;D:\Apps\GnuPG\bin'
         [System.Environment]::SetEnvironmentVariable('Path', $path, 'Machine')
         ```
 
@@ -520,6 +520,7 @@ WinMerge is a diff/merge tool.
 
 - [Create an authentication token for github.com API requests](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 - Set `$GITHUB_TOKEN` to this value to avoid being prompted to authenticate by CLI.
+- Alternatively, use `gh auth login --secure-storage -h github.com` to store the access token in the system keyring.
 
 ### GitLab CLI
 
