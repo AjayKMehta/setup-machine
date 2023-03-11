@@ -116,7 +116,7 @@ Install **winget** from Microsoft Store if it is not already installed.
 - Install [Oh My Posh](https://ohmyposh.dev/docs/installation/windows) as theme engine:
 
     ```powershell
-    Invoke-RestMethod https://ohmyposh.dev/install.ps1 | Invoke-Expression 
+    Invoke-RestMethod https://ohmyposh.dev/install.ps1 | Invoke-Expression
     ```
 
     This will add install path to `$Path`.
@@ -222,7 +222,7 @@ If you have already installed GitHub CLI and 7zip:
 
 ```powershell
 $downloadFolder = (Resolve-Path ~\Downloads).Path
-$pattern = 'fzf*windows*amd64.zip' 
+$pattern = 'fzf*windows*amd64.zip'
 gh release download --repo junegunn/fzf --pattern $pattern -D $downloadPath
 $zipFile = Get-Item $downloadPath -Filter $pattern | Select-Item -First 1
 $destination = D:\Apps
@@ -434,9 +434,9 @@ dotnet tool install -g upgrade-assistant
 
     ```powershell
     $installFolder = 'D:\Apps\Miktex'
-    
+
     $dataFolder = 'D:\ProgramData\Miktex'
-    
+
     . .\miktexsetup_standalone.exe --common-config=$dataFolder --common-data=$dataFolder --common-install=$installFolder --local-package-repository=D:\miktex-repository --modify-path --package-set=basic --shared=yes --user-config="$env:APPDATA\MiKTeX" --user-data="$env:LOCALAPPDATA\MiKTeX" --print-info-only  install
     ```
 
@@ -529,6 +529,28 @@ WinMerge is a diff/merge tool.
 - [Create an authentication token for github.com API requests](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 - Set `$GITHUB_TOKEN` to this value to avoid being prompted to authenticate by CLI.
 - Alternatively, use `gh auth login --secure-storage -h github.com` to store the access token in the system keyring.
+
+- Install extensions:
+
+    ```shell
+    gh extension install actions/gh-actions-cache
+    gh extension install securesauce/gh-alerts
+    gh extension install mislav/gh-branch
+    gh extension install chelnak/gh-changelog
+    gh extension install vilmibm/gh-contribute
+    gh extension install mislav/gh-cp
+    gh extension install dlvhdr/gh-dash
+    gh extension install yuler/gh-download
+    gh extension install owenvoke/gh-gpg-key
+    gh extension install k1LoW/gh-grep
+    gh extension install redraw/gh-install
+    gh extension install heaths/gh-label
+    gh extension install meiji163/gh-notify
+    gh extension install seachicken/gh-poi
+    gh extension install samcoe/gh-repo-explore
+    gh extension install samcoe/gh-triage
+    gh extension install vilmibm/gh-user-status
+    ```
 
 ### GitLab CLI
 
