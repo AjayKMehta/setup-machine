@@ -42,6 +42,7 @@ Install-WinGetApp -AppName VideoLAN.VLC
 Install-WinGetApp -AppName Mp3tag.Mp3tag
 
 # .NET
+Install-WinGetApp -AppName Microsoft.VisualStudio.2022.Community
 Install-WinGetApp -AppName icsharpcode.ILSpy $CustomLocation 'ILSpy'
 Install-WinGetApp -AppName 'LINQPad.LINQPad.7' $CustomLocation 'LINQPad7'
 Install-WinGetApp -Id '9WZDNCRDMDM3'

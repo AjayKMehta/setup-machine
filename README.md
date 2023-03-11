@@ -317,6 +317,14 @@ Install following extensions:
 
 ## .NET
 
+- Install Visual Studio Community 2022:
+
+    ```shell
+    winget install Microsoft.VisualStudio.2022.Community
+    ```
+
+    This will install .NET 7 SDK.
+
 - Install [templates for `dotnet new`](https://github.com/dotnet/templating/wiki/Available-templates-for-dotnet-new):
 
     ```shell
