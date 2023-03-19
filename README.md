@@ -8,6 +8,7 @@
 - [Fonts](#fonts)
 - [Notepad++](#notepad)
     - [Plugins](#plugins)
+- [OpenSSH](#openssh)
 - [KeePassXC](#keepassxc)
 - [PowerShell](#powershell)
     - [Modules](#modules)
@@ -86,6 +87,16 @@ Install **winget** from Microsoft Store if it is not already installed.
 - JSTool
 - Location Navigate
 - XML Tools
+
+## [OpenSSH](https://github.com/PowerShell/openssh-portable)
+
+- Install:
+
+    ```shell
+    winget install Microsoft.OpenSSH.Beta
+    ```
+
+- Add install folder (C:\Program Files\OpenSSH) to $Path.
 
 ## KeePassXC
 

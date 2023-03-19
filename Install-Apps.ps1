@@ -5,7 +5,7 @@ param (
     [string] $CustomLocation
 )
 
-if ($PSVersionTable.PSVersion -lt 7) {
+if (!(Get-Command 'pwsh' CommandType Application)) {
     Install-WinGetApp -AppName Microsoft.PowerShell
 }
 
@@ -27,6 +27,7 @@ Install-WinGetApp -AppName GnuPG.GnuPG $CustomLocation 'GnuPG'
 Install-WinGetApp -AppName GnuPG.Gpg4win $CustomLocation 'Gpg4win'
 
 # Dev
+Install-WinGetApp -AppName Microsoft.OpenSSH.Beta
 Install-WinGetApp -AppName WinMerge.WinMerge $CustomLocation 'WinMerge'
 Install-WinGetApp -AppName Git.Git
 Install-WinGetApp -AppName Glab.Glab
