@@ -23,6 +23,8 @@
     - [jq](#jq)
     - [bat](#bat)
 - [Dot files](#dot-files)
+- [Hugo](#hugo)
+- [WSL](#wsl)
 - [Python](#python)
     - [JupyterLab](#jupyterlab)
 - [NET](#net)
@@ -290,6 +292,40 @@ Install: `winget install stedolan.jq -l D:\Apps -r jq.exe`.
     ```shell
     chezmoi init --apply AjayKMehta
     ```
+
+## [Hugo](https://gohugo.io/)
+
+Hugo is an open-source static site generator.
+
+- Install:
+
+    ```shell
+    winget install Hugo.Hugo -l D:\apps\Hugo
+    ```
+
+- Add installation folder to `$Path`.
+
+## [WSL](https://learn.microsoft.com/en-us/windows/wsl/install)
+
+- For Windows 10 version 2004 and higher (Build 19041 and higher) or Windows 11, you can simply install via this command:
+
+    ```shell
+    wsl install
+    ```
+
+   It is better to specify a distribution (`wsl --list --online` to get list of available distributions):
+
+    ```shell
+    wsl --install -d Ubuntu-22.04
+    ```
+
+- Set default distribution:
+
+    ```shell
+    wsl --set-default Ubuntu-22.04
+    ```
+
+- See [here](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode) for steps to configure WSL for use wih VS Code.
 
 ## Python
 
