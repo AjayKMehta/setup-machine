@@ -28,6 +28,7 @@ Install-WinGetApp -AppName GnuPG.Gpg4win "$CustomLocation\Gpg4win"
 
 # Dev
 Install-WinGetApp -AppName Microsoft.OpenSSH.Beta
+Install-WinGetApp -AppName wez.wezterm "$CustomLocation\WezTerm"
 Install-WinGetApp -AppName WinMerge.WinMerge "$CustomLocation\WinMerge"
 Install-WinGetApp -AppName Git.Git
 Install-WinGetApp -AppName Glab.Glab

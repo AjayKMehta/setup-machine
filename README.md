@@ -25,6 +25,8 @@
 - [Dot files](#dot-files)
 - [Hugo](#hugo)
 - [WSL](#wsl)
+- [WezTerm](#wezterm)
+    - [Useful links](#useful-links)
 - [Python](#python)
     - [JupyterLab](#jupyterlab)
 - [NET](#net)
@@ -326,6 +328,26 @@ Hugo is an open-source static site generator.
     ```
 
 - See [here](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode) for steps to configure WSL for use wih VS Code.
+
+## [WezTerm](https://wezfurlong.org/wezterm/index.html)
+
+WezTerm is a powerful cross-platform terminal emulator and multiplexer.
+
+- Install:
+
+    ```shell
+    winget install wez.wezterm -l D:\Apps\WezTerm
+    ```
+
+- (Optional) Add installation folder to `$Path`.
+
+### Useful links
+
+- <https://wezfurlong.org/wezterm/quickselect.html>
+- <https://wezfurlong.org/wezterm/copymode.html>
+- <https://wezfurlong.org/wezterm/config/launch.html>
+- <https://wezfurlong.org/wezterm/config/default-keys.html>
+- <https://wezfurlong.org/wezterm/config/lua/general.html#making-your-own-lua-modules>
 
 ## Python
 
