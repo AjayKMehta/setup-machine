@@ -239,8 +239,8 @@ If you have already installed GitHub CLI and 7zip:
 $downloadFolder = (Resolve-Path ~\Downloads).Path
 $pattern = 'fzf*windows*amd64.zip'
 gh release download --repo junegunn/fzf --pattern $pattern -D $downloadPath
-$zipFile = Get-Item $downloadPath -Filter $pattern | Select-Item -First 1
-$destination = D:\Apps
+$zipFile = Get-Item $downloadPath -Filter $pattern | Select-Object -First 1
+$destination = 'D:\Apps'
 7z e -o"$destination" $zipFile 'fzf.exe'
 $zipFile | Delete-Item
 ```
