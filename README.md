@@ -25,6 +25,7 @@
 - [Dot files](#dot-files)
 - [Hugo](#hugo)
 - [WSL](#wsl)
+    - [Install apps](#install-apps)
 - [WezTerm](#wezterm)
     - [Useful links](#useful-links)
 - [Python](#python)
@@ -227,6 +228,8 @@ See [ModulesToInstall.txt](./ModulesToInstall.txt) for list of modules to instal
     [System.Environment]::SetEnvironmentVariable('LESSCHARSET', 'UTF8', 'Machine')
     ```
 
+- Install **maven** from <https://maven.apache.org/download.cgi> and add installation folder to $Path.
+
 ### fzf
 
 **fzf** is a command-line fuzzy finder.
@@ -328,6 +331,27 @@ Hugo is an open-source static site generator.
     ```
 
 - See [here](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode) for steps to configure WSL for use wih VS Code.
+
+### Install apps
+
+- [wslu](https://wslutiliti.es/wslu/) is a collection of utilities for WSL.
+
+    ```bash
+    sudo apt install ubuntu-wsl
+    ```
+
+- Check out this repo: [samuelramox/wsl-setup](
+<https://github.com/samuelramox/wsl-setup>) for scripts to install apps.
+
+    ```bash
+    sudo apt install -y apt-transport-https ca-certificates curl gawk ssh-askpass tree unzip wget zsh
+    ```
+
+- Install oh-my-posh:
+  
+  - <https://ohmyposh.dev/docs/installation/linux>
+  - <https://ohmyposh.dev/docs/installation/fonts>
+  - <https://ohmyposh.dev/docs/installation/prompt>
 
 ## [WezTerm](https://wezfurlong.org/wezterm/index.html)
 
