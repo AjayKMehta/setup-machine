@@ -73,6 +73,8 @@ Install **winget** from Microsoft Store if it is not already installed.
 - [FiraCode](https://github.com/tonsky/FiraCode): Monospaced font with programming ligatures.
 - [Hasklig](https://github.com/i-tu/Hasklig): a code font with monospaced ligatures.
 - [Cascadia Code](https://github.com/microsoft/cascadia-code)
+- [Julia Mono](https://github.com/cormullion/juliamono)
+- [Intel One Mono](https://github.com/intel/intel-one-mono)
 
 ## Notepad++
 
@@ -484,6 +486,12 @@ Install following extensions:
     ```
 
 - Install NUnit Console from [here](https://github.com/nunit/nunit-console/releases).
+
+- Install PerView:
+
+```shell
+winget install Microsoft.PerfView -l D:\Apps\PerfView
+```
 
 ### .NET Tools
 

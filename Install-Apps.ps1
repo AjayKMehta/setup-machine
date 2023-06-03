@@ -29,6 +29,7 @@ Install-WinGetApp -AppName GnuPG.Gpg4win "$CustomLocation\Gpg4win"
 # Dev
 Install-WinGetApp -AppName Microsoft.OpenSSH.Beta
 Install-WinGetApp -AppName wez.wezterm "$CustomLocation\WezTerm"
+Install-WinGetApp -AppName Docker.DockerDesktop
 Install-WinGetApp -AppName WinMerge.WinMerge "$CustomLocation\WinMerge"
 Install-WinGetApp -AppName Git.Git
 Install-WinGetApp -AppName Glab.Glab
@@ -51,6 +52,8 @@ Install-WinGetApp -Id '9WZDNCRDMDM3'
 Install-WinGetApp -Id KirillOsenkov.MSBuildStructuredLogViewer
 Install-WinGetApp -Id RicoSuter.NSwagStudio
 Install-WinGetApp -AppName Microsoft.NuGet
+Install-WinGetApp -AppName Microsoft.PerfView "$CustomLocation\PerfView"
+
 
 # Misc
 Install-WinGetApp -AppName Hugo.Hugo "$CustomLocation\Hugo"
