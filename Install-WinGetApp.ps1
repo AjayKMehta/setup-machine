@@ -15,7 +15,7 @@ function Install-WinGetApp {
 
     $exeArgs = [List[string]]::new()
     $exeArgs.AddRange([string[]]('install', '--id', $AppName))
-    if ($ParentFolder) {
+    if ($InstallFolder) {
         $exeArgs.Add('-l')
         $exeArgs.Add($InstallFolder)
     }
