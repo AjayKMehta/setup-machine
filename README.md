@@ -26,6 +26,11 @@
 - [Hugo](#hugo)
 - [WSL](#wsl)
     - [Install apps](#install-apps)
+- [Docker](#docker)
+    - [Change images and containers directory](#change-images-and-containers-directory)
+    - [Getting a Shell in Docker for Windows Moby VM](#getting-a-shell-in-docker-for-windows-moby-vm)
+    - [Shrink your WSL2 Virtual Disks and Docker Images and Reclaim Disk Space](#shrink-your-wsl2-virtual-disks-and-docker-images-and-reclaim-disk-space)
+    - [Utilities](#utilities)
 - [WezTerm](#wezterm)
     - [Useful links](#useful-links)
 - [Python](#python)
@@ -56,6 +61,8 @@ Setting up a new Windows machine is painful.
 This document hopefully alleviates the pain.
 
 > 👉This document assumes that your C: drive has **limited space** (e.g. SSD) and you have another hard drive (D:) which you can use to install apps on instead. If that is not the case, you can omit custom location (`-l`) in `winget install` invocation or specify a directory on your C drive instead.
+
+> 🚧 When [winget configure](<https://learn.microsoft.com/en-us/windows/package-manager/winget/configure>) exits preview, replace script to install apps with a config file.
 
 ## winget
 
@@ -354,6 +361,47 @@ Hugo is an open-source static site generator.
   - <https://ohmyposh.dev/docs/installation/linux>
   - <https://ohmyposh.dev/docs/installation/fonts>
   - <https://ohmyposh.dev/docs/installation/prompt>
+
+## [Docker](https://www.docker.com/)
+
+- Install:
+
+    ```shell
+    winget install Docker.DockerDesktop
+    ```
+
+### Change images and containers directory
+
+Follow the instructions [here for WSL 2 backend](https://www.kindacode.com/article/docker-desktop-change-images-containers-directory/):
+
+```shell
+wsl --shutdown
+wsl --export docker-desktop-data docker-desktop-data.tar
+wsl --unregister docker-desktop-data
+# Import the exported data to D:\Docker\wsl\data
+wsl --import docker-desktop-data D:/Docker/wsl/data docker-desktop-data.tar --version 2
+```
+
+### Getting a Shell in Docker for Windows Moby VM
+
+```shell
+docker run -it --rm --privileged --pid=host justincormack/nsenter1
+```
+
+[Source](https://www.bretfisher.com/getting-a-shell-in-the-docker-for-windows-vm/)
+
+### [Shrink your WSL2 Virtual Disks and Docker Images and Reclaim Disk Space](https://www.hanselman.com/blog/shrink-your-wsl2-virtual-disks-and-docker-images-and-reclaim-disk-space)
+
+```powershell
+Optimize-VHD -Path D:\Docker\wsl\data\ext4.vhdx -Mode Full
+```
+
+### Utilities
+
+```shell
+winget install wagoodman.dive -l D:\Apps
+winget install JesseDuffield.Lazydocker -l D:\Apps
+```
 
 ## [WezTerm](https://wezfurlong.org/wezterm/index.html)
 

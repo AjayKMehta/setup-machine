@@ -30,6 +30,8 @@ Install-WinGetApp -AppName GnuPG.Gpg4win "$CustomLocation\Gpg4win"
 Install-WinGetApp -AppName Microsoft.OpenSSH.Beta
 Install-WinGetApp -AppName wez.wezterm "$CustomLocation\WezTerm"
 Install-WinGetApp -AppName Docker.DockerDesktop
+Install-WinGetApp -AppName wagoodman.dive $CustomLocation
+Install-WinGetApp -AppName JesseDuffield.Lazydocker $CustomLocation
 Install-WinGetApp -AppName WinMerge.WinMerge "$CustomLocation\WinMerge"
 Install-WinGetApp -AppName Git.Git
 Install-WinGetApp -AppName Glab.Glab
