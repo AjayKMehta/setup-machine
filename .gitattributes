@@ -74,10 +74,15 @@
 # Text files where line endings should be preserved
 *.patch    -text
 
-#
 # Exclude files from exporting
-#
 
 .gitattributes export-ignore
 .gitignore export-ignore
 .gitkeep   export-ignore
+
+# VS Code
+.vscode/*.json linguist-language=JSON-with-Comments
+
+# Fixes syntax highlighting on GitHub to allow comments
+.devcontainer.json linguist-language=JSON-with-Comments
+devcontainer.json linguist-language=JSON-with-Comments
