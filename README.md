@@ -298,8 +298,12 @@ Install: `winget install stedolan.jq -l D:\Apps -r jq.exe`.
 
 ## Dot files
 
-- Install [chezmoi](https://github.com/twpayne/chezmoi).
-- Add installation path to `$Path`.
+- Install [chezmoi](https://github.com/twpayne/chezmoi):
+
+    ```shell
+    winget install twpayne.chezmoi -l D:\Apps\chezmoi
+    ```
+
 - Provide the path to your KeePassXC database in your configuration file if any. See [here](https://www.chezmoi.io/user-guide/password-managers/keepassxc/) for details.
 - Run the following command to get dot files:
 

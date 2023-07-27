@@ -20,6 +20,8 @@ Install-WinGetApp -AppName JohnTaylor.lesskey "$CustomLocation\CLI"
 exe
 Install-WinGetApp -AppName yq "$CustomLocation\CLI" '-r' yq.exe
 Install-WinGetApp -AppName stedolan.jq "$CustomLocation\CLI" '-r' jq.exe
+Install-WinGetApp -AppName DuckDB.cli "$CustomLocation\CLI"
+Install-WinGetApp twpayne.chezmoi "$CustomLocation\CLI"
 
 # Security
 Install-WinGetApp -AppName KeePassXCTeam.KeePassXC "$CustomLocation\KeePassXC"
