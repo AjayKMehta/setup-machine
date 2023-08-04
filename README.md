@@ -22,6 +22,8 @@
     - [yq](#yq)
     - [jq](#jq)
     - [bat](#bat)
+    - [gum](#gum)
+    - [duckdb](#duckdb)
 - [Dot files](#dot-files)
 - [Hugo](#hugo)
 - [WSL](#wsl)
@@ -295,6 +297,18 @@ Install: `winget install stedolan.jq -l D:\Apps -r jq.exe`.
     ```shell
     bat --generate-config-file
     ```
+
+### gum
+
+```shell
+winget install charmbracelet.gum -l D:\Apps
+```
+
+### duckdb
+
+```shell
+winget install DuckDB.cli -l D:\Apps
+```
 
 ## Dot files
 
