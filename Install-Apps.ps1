@@ -23,6 +23,7 @@ Install-WinGetApp -AppName stedolan.jq "$CustomLocation\CLI" '-r' jq.exe
 Install-WinGetApp -AppName DuckDB.cli "$CustomLocation\CLI"
 Install-WinGetApp twpayne.chezmoi "$CustomLocation\CLI"
 Install-WinGetApp -AppName charmbracelet.gum "$CustomLocation\CLI"
+Install-WinGetApp -AppName GNU.wget2
 
 # Security
 Install-WinGetApp -AppName KeePassXCTeam.KeePassXC "$CustomLocation\KeePassXC"

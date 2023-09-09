@@ -24,6 +24,7 @@
     - [bat](#bat)
     - [gum](#gum)
     - [duckdb](#duckdb)
+    - [wget2](#wget2)
 - [Dot files](#dot-files)
 - [Hugo](#hugo)
 - [WSL](#wsl)
@@ -37,6 +38,7 @@
     - [Useful links](#useful-links)
 - [Python](#python)
     - [JupyterLab](#jupyterlab)
+        - [Workaround for Quarto](#workaround-for-quarto)
 - [NET](#net)
     - [NuGet](#nuget)
     - [Useful apps](#useful-apps)
@@ -298,7 +300,9 @@ Install: `winget install stedolan.jq -l D:\Apps -r jq.exe`.
     bat --generate-config-file
     ```
 
-### gum
+### [gum](https://github.com/charmbracelet/gum)
+
+> Gum provides highly configurable, ready-to-use utilities to help you write useful shell scripts and dotfiles aliases with just a few lines of code.
 
 ```shell
 winget install charmbracelet.gum -l D:\Apps
@@ -308,6 +312,12 @@ winget install charmbracelet.gum -l D:\Apps
 
 ```shell
 winget install DuckDB.cli -l D:\Apps
+```
+
+### wget2
+
+```shell
+winget install GNU.wget2
 ```
 
 ## Dot files
@@ -475,6 +485,10 @@ Install following extensions:
 - jupyterlab-plotly
 - @jupyterlab/latex
 - @ryantam626/jupyterlab_code_formatter
+
+#### Workaround for Quarto
+
+See [Use with nbconvert, voila, papermill,...](https://github.com/Anaconda-Platform/nb_conda_kernels#use-with-nbconvert-voila-papermill).
 
 ## .NET
 
