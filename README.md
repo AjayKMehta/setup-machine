@@ -222,6 +222,8 @@ See [ModulesToInstall.txt](./ModulesToInstall.txt) for list of modules to instal
 
 - Add bin folder (C:\Program Files\Java\jdk-17.0.5\bin) to `$Path`.
 
+- Install **maven** from <https://maven.apache.org/download.cgi> and add installation folder to $Path.
+
 ## CLI Apps
 
 :bulb: Install CLI apps in a common directory and add common directory to `$Path`.
@@ -244,7 +246,6 @@ See [ModulesToInstall.txt](./ModulesToInstall.txt) for list of modules to instal
     [System.Environment]::SetEnvironmentVariable('LESSCHARSET', 'UTF8', 'Machine')
     ```
 
-- Install **maven** from <https://maven.apache.org/download.cgi> and add installation folder to $Path.
 
 ### fzf
 
