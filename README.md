@@ -113,13 +113,11 @@ The [Advanced System Font Changer](https://www.wintools.info/index.php/advanced-
 
 ## [OpenSSH](https://github.com/PowerShell/openssh-portable)
 
-- Install:
+See [here](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=powershell#install-openssh-for-windows).
 
-    ```shell
-    winget install Microsoft.OpenSSH.Beta
-    ```
+~~- Install: `winget install Microsoft.OpenSSH.Beta`~~
 
-- Add install folder (C:\Program Files\OpenSSH) to $Path.
+~~- Add install folder (C:\Program Files\OpenSSH) to $Path.~~
 
 ## KeePassXC
 
