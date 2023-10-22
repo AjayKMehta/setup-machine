@@ -246,7 +246,6 @@ See [ModulesToInstall.txt](./ModulesToInstall.txt) for list of modules to instal
     [System.Environment]::SetEnvironmentVariable('LESSCHARSET', 'UTF8', 'Machine')
     ```
 
-
 ### fzf
 
 **fzf** is a command-line fuzzy finder.
@@ -332,11 +331,26 @@ winget install GNU.wget2
     winget install twpayne.chezmoi -l D:\Apps\chezmoi
     ```
 
-- Provide the path to your KeePassXC database in your configuration file if any. See [here](https://www.chezmoi.io/user-guide/password-managers/keepassxc/) for details.
-- Run the following command to get dot files:
+- Run `chezmoi init` to create an initial `chezmoi.toml` using template in repo:
 
     ```shell
-    chezmoi init --apply AjayKMehta
+    chezmoi init AjayKMehta
+    ```
+
+    :point_right: You can supply `--apply` in above command to generate dot files at same time.
+
+- Provide the path to your KeePassXC database in your configuration file if any. See [here](https://www.chezmoi.io/user-guide/password-managers/keepassxc/) for details.
+
+- To test this template, [use `chezmoi execute-template` with the `--init` and `--promptString` flags](https://www.chezmoi.io/user-guide/setup/#create-a-config-file-on-a-new-machine-automatically):
+
+    ```shell
+    cat ~/.local/share/chezmoi/.chezmoi.toml.tmpl | chezmoi execute-template --init --promptString gpgrecipient='<RECIPIENT>'
+    ```
+
+- Generate dot files:
+
+    ```shell
+    chezmoi apply
     ```
 
 ## [Hugo](https://gohugo.io/)
