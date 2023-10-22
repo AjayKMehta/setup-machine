@@ -4,6 +4,7 @@
 
 - [Overview](#overview)
 - [winget](#winget)
+- [Advanced System Font Changer](#advanced-system-font-changer)
 - [Firefox](#firefox)
 - [Fonts](#fonts)
 - [Notepad++](#notepad)
@@ -66,11 +67,15 @@ This document hopefully alleviates the pain.
 
 > 👉This document assumes that your C: drive has **limited space** (e.g. SSD) and you have another hard drive (D:) which you can use to install apps on instead. If that is not the case, you can omit custom location (`-l`) in `winget install` invocation or specify a directory on your C drive instead.
 
-> 🚧 When [winget configure](<https://learn.microsoft.com/en-us/windows/package-manager/winget/configure>) exits preview, replace script to install apps with a config file.
+> 🚧 Look into using [winget configure](<https://learn.microsoft.com/en-us/windows/package-manager/winget/configure>) to replace script to install apps. 👉 Need to learn how to specify custom install path.
 
 ## winget
 
 Install **winget** from Microsoft Store if it is not already installed.
+
+## Advanced System Font Changer
+
+The [Advanced System Font Changer](https://www.wintools.info/index.php/advanced-system-font-changer) lets you change system font settings.
 
 ## Firefox
 
