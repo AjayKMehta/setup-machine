@@ -432,6 +432,8 @@ WezTerm is a powerful cross-platform terminal emulator and multiplexer.
 
 ## Python
 
+> :bulb: At some point, would like to switch to **poetry** due to challenges presented when using **conda** and **pip** together.
+
 - Download and install [Miniconda](https://docs.conda.io/en/latest/miniconda.html).
 - Add **bin** folder (**D:\Apps\Miniconda\condabin**) to `$Path`.
 - To use [UTF-8 mode on Windows](https://dev.to/methane/python-use-utf-8-mode-on-windows-212i), set environment variable `PYTHONUTF8=1`.
@@ -468,6 +470,24 @@ Install following extensions:
 #### Workaround for Quarto
 
 See [Use with nbconvert, voila, papermill,...](https://github.com/Anaconda-Platform/nb_conda_kernels#use-with-nbconvert-voila-papermill).
+
+#### Git-friendly hooks
+
+See [here](https://nbdev.fast.ai/tutorials/git_friendly_jupyter.html) for details.
+
+### GenAI + LLM
+
+Make sure that you configure environment variables for API keys.
+
+#### PaLM
+
+- Navigate to <https://makersuite.google.com/app/apikey> and create a key.
+- Create environment variable `GOOGLE_API_KEY` with this value.
+
+#### Cohere
+
+- Create API key at <https://dashboard.cohere.com/api-keys>.
+- Create environment variable `COHERE_API_KEY` with this value.
 
 ## .NET
 
