@@ -41,6 +41,34 @@ See this [link](https://stackoverflow.com/a/51767786/781045) for more details.
 
 - See [here](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode) for steps to configure WSL for use wih VS Code.
 
+### Install apps
+
+- [wslu](https://wslutiliti.es/wslu/) is a collection of utilities for WSL.
+
+    ```bash
+    sudo apt install ubuntu-wsl
+    ```
+
+- Check out this repo: [samuelramox/wsl-setup](
+<https://github.com/samuelramox/wsl-setup>) for scripts to install apps.
+
+    ```bash
+    sudo apt install -y apt-transport-https ca-certificates curl gawk ssh-askpass tree unzip wget zsh
+    ```
+
+## Python
+
+```shell
+sudo apt install systemd-coredump python3-pip python3.10-venv
+```
+
+## [Go](https://www.fosslinux.com/68795/install-go-on-ubuntu.htm)
+
+```shell
+sudo apt install aptitude
+sudo aptitude -y install golang-go
+```
+
 ## [asdf](https://asdf-vm.com/guide/getting-started.html)
 
 - Install
@@ -81,6 +109,12 @@ See this [link](https://stackoverflow.com/a/51767786/781045) for more details.
     asdf install snyk latest
     ```
 
+## oh-my-posh
+  
+  - <https://ohmyposh.dev/docs/installation/linux>
+  - <https://ohmyposh.dev/docs/installation/fonts>
+  - <https://ohmyposh.dev/docs/installation/prompt>
+
 ## Lua
 
 - Install language server:
@@ -91,6 +125,30 @@ See this [link](https://stackoverflow.com/a/51767786/781045) for more details.
     ```
 
 - Install `luarocks`: `sudo apt install luarocks`.
+
+## Misc
+
+```shell
+# Java
+sudo apt install openjdk-17-jre-headless
+
+# pkgx
+curl -fsS https://pkgx.sh | sh
+
+# xq: Not available in Package Manager for Ubuntu 22 😦
+# https://github.com/sibprogrammer/xq
+curl -sSL https://bit.ly/install-xq | sudo bash
+
+# Installs as fdfind
+sudo apt install fd-find
+
+sudo apt install shellcheck
+
+# D2
+curl -fsSL https://d2lang.com/install.sh | sh -s -- 
+
+sudo apt install cmake
+```
 
 ## Useful links
 

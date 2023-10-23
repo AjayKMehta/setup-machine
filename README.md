@@ -369,28 +369,6 @@ Hugo is an open-source static site generator.
 
 See [wsl.md](wsl.md).
 
-
-### Install apps
-
-- [wslu](https://wslutiliti.es/wslu/) is a collection of utilities for WSL.
-
-    ```bash
-    sudo apt install ubuntu-wsl
-    ```
-
-- Check out this repo: [samuelramox/wsl-setup](
-<https://github.com/samuelramox/wsl-setup>) for scripts to install apps.
-
-    ```bash
-    sudo apt install -y apt-transport-https ca-certificates curl gawk ssh-askpass tree unzip wget zsh
-    ```
-
-- Install oh-my-posh:
-  
-  - <https://ohmyposh.dev/docs/installation/linux>
-  - <https://ohmyposh.dev/docs/installation/fonts>
-  - <https://ohmyposh.dev/docs/installation/prompt>
-
 ## [Docker](https://www.docker.com/)
 
 - Install:
