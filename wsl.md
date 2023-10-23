@@ -1,5 +1,22 @@
 # WSL
 
+<!-- TOC -->
+
+- [Install](#install)
+    - [Move WSL root filesystem to different drive](#move-wsl-root-filesystem-to-different-drive)
+- [VS Code](#vs-code)
+    - [Install apps](#install-apps)
+- [Python](#python)
+- [Go](#go)
+- [asdf](#asdf)
+    - [Plugins](#plugins)
+- [oh-my-posh](#oh-my-posh)
+- [Lua](#lua)
+- [Misc](#misc)
+- [Useful links](#useful-links)
+
+<!-- /TOC -->
+
 ## [Install](https://learn.microsoft.com/en-us/windows/wsl/install)
 
 - For Windows 10 version 2004 and higher (Build 19041 and higher) or Windows 11, you can simply install via this command:
@@ -143,11 +160,11 @@ curl -sSL https://bit.ly/install-xq | sudo bash
 sudo apt install fd-find
 
 sudo apt install shellcheck
+sudo apt install cmake
+sudo apt install clang-format
 
 # D2
 curl -fsSL https://d2lang.com/install.sh | sh -s -- 
-
-sudo apt install cmake
 ```
 
 ## Useful links
