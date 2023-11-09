@@ -169,9 +169,36 @@ sudo aptitude -y install golang-go
 
 ## oh-my-posh
   
-  - <https://ohmyposh.dev/docs/installation/linux>
-  - <https://ohmyposh.dev/docs/installation/fonts>
-  - <https://ohmyposh.dev/docs/installation/prompt>
+1. [Install app](https://ohmyposh.dev/docs/installation/linux):
+
+    ```shell
+    curl -s https://ohmyposh.dev/install.sh | sudo bash -s
+    ```
+
+    By default the script will install to `/usr/local/bin` or the existing Oh My Posh executable's installation folder. If you want to install to a different location you can specify it using the `-d` flag:
+
+    ```shell
+    curl -s https://ohmyposh.dev/install.sh | sudo bash -s -- -d ~/bin
+    ```
+
+2. Download themes:
+
+    ```shell
+    ## Download the themes 
+    mkdir ~/.poshthemes
+    wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/themes.zip -O ~/.poshthemes/themes.zip
+    unzip ~/.poshthemes/themes.zip -d ~/.poshthemes
+    chmod u+rw ~/.poshthemes/*.json
+    rm ~/.poshthemes/themes.zip
+    ```
+
+3. [Fonts](https://ohmyposh.dev/docs/installation/fonts)
+
+4. [Set up prompt](https://ohmyposh.dev/docs/installation/prompt): Add the following to you `~/.bashrc` and then source it. Replace `{theme}` below with your preferred theme:
+
+```shell
+eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/{theme}.omp.json)"
+```
 
 ## Lua
 
