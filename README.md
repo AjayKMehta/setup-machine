@@ -1,64 +1,5 @@
 # Setup machine
 
-<!-- TOC -->
-
-- [Overview](#overview)
-- [winget](#winget)
-- [Advanced System Font Changer](#advanced-system-font-changer)
-- [Firefox](#firefox)
-- [Fonts](#fonts)
-- [Notepad++](#notepad)
-    - [Plugins](#plugins)
-- [OpenSSH](#openssh)
-- [KeePassXC](#keepassxc)
-- [PowerShell](#powershell)
-    - [Modules](#modules)
-    - [Secrets Management](#secrets-management)
-- [Java](#java)
-- [CLI Apps](#cli-apps)
-    - [less](#less)
-    - [fzf](#fzf)
-    - [ripgrep](#ripgrep)
-    - [delta](#delta)
-    - [yq](#yq)
-    - [jq](#jq)
-    - [bat](#bat)
-    - [gum](#gum)
-    - [duckdb](#duckdb)
-    - [wget2](#wget2)
-- [Dot files](#dot-files)
-- [Hugo](#hugo)
-- [WSL](#wsl)
-    - [Install apps](#install-apps)
-- [Docker](#docker)
-    - [Change images and containers directory](#change-images-and-containers-directory)
-    - [Getting a Shell in Docker for Windows Moby VM](#getting-a-shell-in-docker-for-windows-moby-vm)
-    - [Shrink your WSL2 Virtual Disks and Docker Images and Reclaim Disk Space](#shrink-your-wsl2-virtual-disks-and-docker-images-and-reclaim-disk-space)
-    - [Utilities](#utilities)
-- [WezTerm](#wezterm)
-    - [Useful links](#useful-links)
-- [Python](#python)
-    - [JupyterLab](#jupyterlab)
-        - [Workaround for Quarto](#workaround-for-quarto)
-- [NET](#net)
-    - [NuGet](#nuget)
-    - [Useful apps](#useful-apps)
-    - [NET Tools](#net-tools)
-- [LaTeX](#latex)
-    - [MikTeX](#miktex)
-    - [Packages](#packages)
-- [VS Code](#vs-code)
-- [WinMerge](#winmerge)
-- [git](#git)
-    - [GitHub CLI](#github-cli)
-    - [GitLab CLI](#gitlab-cli)
-    - [GitExtensions](#gitextensions)
-- [SlickRun](#slickrun)
-- [Node](#node)
-- [Miscellaneous](#miscellaneous)
-
-<!-- /TOC -->
-
 ## Overview
 
 Setting up a new Windows machine is painful.
@@ -66,7 +7,6 @@ Setting up a new Windows machine is painful.
 This document hopefully alleviates the pain.
 
 > 👉This document assumes that your C: drive has **limited space** (e.g. SSD) and you have another hard drive (D:) which you can use to install apps on instead. If that is not the case, you can omit custom location (`-l`) in `winget install` invocation or specify a directory on your C drive instead.
-
 > 🚧 Look into using [winget configure](<https://learn.microsoft.com/en-us/windows/package-manager/winget/configure>) to replace script to install apps. 👉 Need to learn how to specify custom install path.
 
 ## winget
@@ -377,6 +317,18 @@ See [wsl.md](wsl.md).
     winget install Docker.DockerDesktop
     ```
 
+### [Docker Credentials Helper](https://github.com/docker/docker-credential-helpers)
+
+1. Go to the [Releases](https://github.com/docker/docker-credential-helpers/releases) page and download the binary (`docker-credential-wincred`) that works for you. Put that binary in your `$PATH`, so Docker can find it.
+
+2. Set the `credsStore` option in your `~/.docker/config.json` file with the suffix of the program you want to use (`wincred`).
+
+    ```json
+    {
+        "credsStore": "wincred"
+    }
+    ```
+
 ### Change images and containers directory
 
 Follow the instructions [here for WSL 2 backend](https://www.kindacode.com/article/docker-desktop-change-images-containers-directory/):
@@ -475,7 +427,7 @@ See [Use with nbconvert, voila, papermill,...](https://github.com/Anaconda-Platf
 
 See [here](https://nbdev.fast.ai/tutorials/git_friendly_jupyter.html) for details.
 
-### GenAI + LLM
+### GenAI
 
 Make sure that you configure environment variables for API keys.
 
