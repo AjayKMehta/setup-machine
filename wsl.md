@@ -1,22 +1,5 @@
 # WSL
 
-<!-- TOC -->
-
-- [Install](#install)
-    - [Move WSL root filesystem to different drive](#move-wsl-root-filesystem-to-different-drive)
-- [VS Code](#vs-code)
-    - [Install apps](#install-apps)
-- [Python](#python)
-- [Go](#go)
-- [asdf](#asdf)
-    - [Plugins](#plugins)
-- [oh-my-posh](#oh-my-posh)
-- [Lua](#lua)
-- [Misc](#misc)
-- [Useful links](#useful-links)
-
-<!-- /TOC -->
-
 ## [Install](https://learn.microsoft.com/en-us/windows/wsl/install)
 
 - For Windows 10 version 2004 and higher (Build 19041 and higher) or Windows 11, you can simply install via this command:
@@ -99,7 +82,7 @@ See [Supported distributions](https://learn.microsoft.com/en-us/dotnet/core/inst
 
 - See [here](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode) for steps to configure WSL for use wih VS Code.
 
-### Install apps
+## Install apps
 
 - [wslu](https://wslutiliti.es/wslu/) is a collection of utilities for WSL.
 
