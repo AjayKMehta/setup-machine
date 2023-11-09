@@ -54,6 +54,47 @@ See this [link](https://stackoverflow.com/a/51767786/781045) for more details.
     default = <your username>
     ```
 
+## [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/install-ubuntu)
+
+Available from the Linux package repository for Microsoft products, <https://packages.microsoft.com>, also known as PMC.
+
+Installing PowerShell from PMC is the preferred method of installation.
+
+```shell
+sudo apt-get update
+
+# Install pre-requisite packages.
+sudo apt-get install -y wget apt-transport-https software-properties-common
+
+# Get the version of Ubuntu
+source /etc/os-release
+
+# Download the Microsoft repository keys
+wget -q https://packages.microsoft.com/config/ubuntu/$VERSION_ID/packages-microsoft-prod.deb
+
+# Register the Microsoft repository keys
+sudo dpkg -i packages-microsoft-prod.deb
+
+# Delete the the Microsoft repository keys file
+rm packages-microsoft-prod.deb
+
+# Update the list of packages after we added packages.microsoft.com
+sudo apt-get update
+
+###################################
+# Install PowerShell
+sudo apt-get install -y powershell
+
+# Start PowerShell
+pwsh
+```
+
+## [.NET](https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu)
+
+Starting with Ubuntu 22.04, some versions of .NET are available in the Ubuntu package feed.
+
+See [Supported distributions](https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#supported-distributions) for details on how to install .NET for specific Ubuntu versions.
+
 ## VS Code
 
 - See [here](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode) for steps to configure WSL for use wih VS Code.
