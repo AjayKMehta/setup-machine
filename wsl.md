@@ -206,6 +206,14 @@ sudo apt install clang-format
 
 # D2
 curl -fsSL https://d2lang.com/install.sh | sh -s -- 
+
+sudo apt install golang-docker-credential-helpers
+
+# https://github.com/charmbracelet/gum#installation
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://repo.charm.sh/apt/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/charm.gpg
+echo "deb [signed-by=/etc/apt/keyrings/charm.gpg] https://repo.charm.sh/apt/ * *" | sudo tee /etc/apt/sources.list.d/charm.list
+sudo apt update && sudo apt install gum
 ```
 
 ## Useful links
@@ -214,3 +222,4 @@ curl -fsSL https://d2lang.com/install.sh | sh -s --
 - <https://superuser.com/questions/1566022/how-to-set-default-user-for-manually-installed-wsl-distro>
 - <https://serverfault.com/questions/175504/how-do-i-get-the-history-of-apt-get-install-on-ubuntu>
 - <https://github.com/dotnet/docs/issues/27559>
+- <https://calebschoepp.com/blog/2021/how-to-setup-oh-my-posh-on-ubuntu>
