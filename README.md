@@ -1,5 +1,64 @@
 # Setup machine
 
+  - [Overview](#overview)
+  - [winget](#winget)
+  - [Advanced System Font Changer](#advanced-system-font-changer)
+  - [Firefox](#firefox)
+  - [Fonts](#fonts)
+  - [Notepad++](#notepad)
+    - [Plugins](#plugins)
+  - [OpenSSH](#openssh)
+  - [KeePassXC](#keepassxc)
+  - [PowerShell](#powershell)
+    - [Modules](#modules)
+    - [Secrets Management](#secrets-management)
+  - [Java](#java)
+  - [CLI Apps](#cli-apps)
+    - [less](#less)
+    - [fzf](#fzf)
+    - [ripgrep](#ripgrep)
+    - [delta](#delta)
+    - [yq](#yq)
+    - [jq](#jq)
+    - [bat](#bat)
+    - [gum](#gum)
+    - [duckdb](#duckdb)
+    - [wget2](#wget2)
+  - [Dot files](#dot-files)
+  - [Hugo](#hugo)
+  - [WSL](#wsl)
+  - [Docker](#docker)
+    - [Docker Credentials Helper](#docker-credentials-helper)
+    - [Change images and containers directory](#change-images-and-containers-directory)
+    - [Getting a Shell in Docker for Windows Moby VM](#getting-a-shell-in-docker-for-windows-moby-vm)
+    - [Shrink your WSL2 Virtual Disks and Docker Images and Reclaim Disk Space](#shrink-your-wsl2-virtual-disks-and-docker-images-and-reclaim-disk-space)
+    - [Utilities](#utilities)
+  - [WezTerm](#wezterm)
+    - [Useful links](#useful-links)
+  - [Python](#python)
+    - [JupyterLab](#jupyterlab)
+      - [Workaround for Quarto](#workaround-for-quarto)
+      - [Git-friendly hooks](#git-friendly-hooks)
+    - [GenAI](#genai)
+      - [PaLM](#palm)
+      - [Cohere](#cohere)
+  - [DotNet](#dotnet)
+    - [NuGet](#nuget)
+    - [Useful apps](#useful-apps)
+    - [Dotnet Tools](#dotnet-tools)
+  - [LaTeX](#latex)
+    - [MikTeX](#miktex)
+    - [Packages](#packages)
+  - [VS Code](#vs-code)
+  - [WinMerge](#winmerge)
+  - [git](#git)
+    - [GitHub CLI](#github-cli)
+    - [GitLab CLI](#gitlab-cli)
+    - [GitExtensions](#gitextensions)
+  - [SlickRun](#slickrun)
+  - [Node](#node)
+  - [Miscellaneous](#miscellaneous)
+
 ## Overview
 
 Setting up a new Windows machine is painful.
@@ -7,6 +66,8 @@ Setting up a new Windows machine is painful.
 This document hopefully alleviates the pain.
 
 > 👉This document assumes that your C: drive has **limited space** (e.g. SSD) and you have another hard drive (D:) which you can use to install apps on instead. If that is not the case, you can omit custom location (`-l`) in `winget install` invocation or specify a directory on your C drive instead.
+---
+
 > 🚧 Look into using [winget configure](<https://learn.microsoft.com/en-us/windows/package-manager/winget/configure>) to replace script to install apps. 👉 Need to learn how to specify custom install path.
 
 ## winget
@@ -441,7 +502,8 @@ Make sure that you configure environment variables for API keys.
 - Create API key at <https://dashboard.cohere.com/api-keys>.
 - Create environment variable `COHERE_API_KEY` with this value.
 
-## .NET
+<!-- Stupid Markdown TOC extension cant handle '.' in header 😠 -->
+## DotNet
 
 - Install Visual Studio Community 2022:
 
@@ -524,7 +586,7 @@ Make sure that you configure environment variables for API keys.
 winget install Microsoft.PerfView -l D:\Apps\PerfView
 ```
 
-### .NET Tools
+### Dotnet Tools
 
 Install following tools:
 
