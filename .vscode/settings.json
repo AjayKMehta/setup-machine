@@ -1,4 +1,33 @@
 {
     "markdown-toc.depthFrom": 2,
-    "sarif-viewer.connectToGithubCodeScanning": "off"
+    "sarif-viewer.connectToGithubCodeScanning": "off",
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#bfdde5",
+        "activityBar.background": "#bfdde5",
+        "activityBar.foreground": "#15202b",
+        "activityBar.inactiveForeground": "#15202b99",
+        "activityBarBadge.background": "#c877b7",
+        "activityBarBadge.foreground": "#15202b",
+        "commandCenter.border": "#15202b99",
+        "editorGroup.border": "#bfdde5",
+        "panel.border": "#bfdde5",
+        "sash.hoverBorder": "#bfdde5",
+        "sideBar.border": "#bfdde5",
+        "statusBar.background": "#9bc9d6",
+        "statusBar.border": "#9bc9d6",
+        "statusBar.debuggingBackground": "#d6a89b",
+        "statusBar.debuggingBorder": "#d6a89b",
+        "statusBar.debuggingForeground": "#15202b",
+        "statusBar.foreground": "#15202b",
+        "statusBarItem.hoverBackground": "#77b5c7",
+        "statusBarItem.remoteBackground": "#9bc9d6",
+        "statusBarItem.remoteForeground": "#15202b",
+        "tab.activeBorder": "#bfdde5",
+        "titleBar.activeBackground": "#9bc9d6",
+        "titleBar.activeForeground": "#15202b",
+        "titleBar.border": "#9bc9d6",
+        "titleBar.inactiveBackground": "#9bc9d699",
+        "titleBar.inactiveForeground": "#15202b99"
+    },
+    "peacock.color": "#9bc9d6"
 }
