@@ -130,7 +130,7 @@ See [here](https://learn.microsoft.com/en-us/windows-server/administration/opens
 
 - See [here](https://keepassxc.org/docs/KeePassXC_GettingStarted.html) for information on getting started.
 
-- Add installation folder to Path environment variable if needed:
+- Add installation folder to `$Path` if needed:
 
     ```powershell
     $path = [System.Environment]::GetEnvironmentVariable('Path', 'Machine')
@@ -215,7 +215,7 @@ See [ModulesToInstall.txt](./ModulesToInstall.txt) for list of modules to instal
     winget install Oracle.JDK.17
     ```
 
-- Set `JAVA_HOME`:
+- Set `$JAVA_HOME`:
 
     ```powershell
     [System.Environment]::SetEnvironmentVariable('JAVA_HOME', 'C:\Program Files\Java\jdk-17.0.5', 'Machine')
@@ -223,7 +223,7 @@ See [ModulesToInstall.txt](./ModulesToInstall.txt) for list of modules to instal
 
 - Add bin folder (C:\Program Files\Java\jdk-17.0.5\bin) to `$Path`.
 
-- Install **maven** from <https://maven.apache.org/download.cgi> and add installation folder to $Path.
+- Install **maven** from <https://maven.apache.org/download.cgi> and add installation folder to `$Path`.
 
 ## CLI Apps
 
@@ -296,7 +296,7 @@ Install: `winget install stedolan.jq -l D:\Apps -r jq.exe`.
 
 - Install [bat](https://github.com/sharkdp/bat) from [here](https://github.com/sharkdp/bat/releases).
 - Add installation path to `$Path`.
-- Create folder if it does not exist: **%AppData%\Local\bat\cache**
+- Create folder if it does not exist: `$env:AppData\Local\bat\cache`
 - Add following environment variables: `BAT_PAGER = less -RF`.
 - A default configuration file can be created with the `--generate-config-file` option.
 
@@ -449,7 +449,7 @@ WezTerm is a powerful cross-platform terminal emulator and multiplexer.
 
 - Download and install [Miniconda](https://docs.conda.io/en/latest/miniconda.html).
 - Add **bin** folder (**D:\Apps\Miniconda\condabin**) to `$Path`.
-- To use [UTF-8 mode on Windows](https://dev.to/methane/python-use-utf-8-mode-on-windows-212i), set environment variable `PYTHONUTF8=1`.
+- To use [UTF-8 mode on Windows](https://dev.to/methane/python-use-utf-8-mode-on-windows-212i), set environment variable `$PYTHONUTF8` to 1.
 - To enable conda in PowerShell, run the following in conda prompt:
 
     ```shell
@@ -495,12 +495,13 @@ Make sure that you configure environment variables for API keys.
 #### PaLM
 
 - Navigate to <https://makersuite.google.com/app/apikey> and create a key.
-- Create environment variable `GOOGLE_API_KEY` with this value.
+- Set `$GOOGLE_API_KEY` to this value.
 
 #### Cohere
 
 - Create API key at <https://dashboard.cohere.com/api-keys>.
-- Create environment variable `COHERE_API_KEY` with this value.
+- Set `$COHERE_API_KEY` to API key.
+
 
 <!-- Stupid Markdown TOC extension cant handle '.' in header 😠 -->
 ## DotNet
