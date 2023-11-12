@@ -49,6 +49,7 @@
       - [LLM](#llm)
       - [OpenAI](#openai)
       - [HuggingFace](#huggingface)
+  - [R](#r)
   - [DotNet](#dotnet)
     - [NuGet](#nuget)
     - [Useful apps](#useful-apps)
@@ -65,7 +66,6 @@
   - [SlickRun](#slickrun)
   - [Node](#node)
   - [Miscellaneous](#miscellaneous)
-
 
 ## Overview
 
@@ -560,6 +560,22 @@ To override the directory used to store prompt templates, etc., set `$LLM_USER_P
 #### HuggingFace
 
 🚧
+
+## R
+
+1. Download and install R from [CRAN website](https://cran.r-project.org/bin/windows/base/). Alternatively, `winget install  RProject.R`.
+2. Add **\<InstallPath\>\bin\x64** to `$PATH`. Also, set `$R_BINARY` to this value.
+3. Default folder of .RProfile and .REnviron is ~\Documents which leads to issues if OneDrive moves this folder to ~\OneDrive\Documents :frowning:. So , best to set environment variables:
+
+    ```powershell
+    [System.Environment]::SetEnvironmentVariable('R_ENVIRON_USER', '~\.Renviron', 'User')
+    [System.Environment]::SetEnvironmentVariable('R_PROFILE_USER', '~\.Rprofile', 'User')
+    ```
+
+4. To avoid the issue of C: running out of disk space, set `$R_LIBS` to different path, e.g.`D:\packages`.
+
+5. Set `$GITHUB_PAT` to GitHub PAT.
+
 
 <!-- Stupid Markdown TOC extension cant handle '.' in header 😠 -->
 ## DotNet
