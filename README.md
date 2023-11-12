@@ -251,19 +251,29 @@ See [ModulesToInstall.txt](./ModulesToInstall.txt) for list of modules to instal
 
 **fzf** is a command-line fuzzy finder.
 
-Get latest binaries from [here](https://github.com/junegunn/fzf/releases).
+1. Get latest binaries from [here](https://github.com/junegunn/fzf/releases). If you have already installed GitHub CLI and 7zip:
 
-If you have already installed GitHub CLI and 7zip:
+    ```powershell
+    $downloadFolder = (Resolve-Path ~\Downloads).Path
+    $pattern = 'fzf*windows*amd64.zip'
+    gh release download --repo junegunn/fzf --pattern $pattern -D $downloadPath
+    $zipFile = Get-Item $downloadPath -Filter $pattern | Select-Object -First 1
+    $destination = 'D:\Apps'
+    7z e -o"$destination" $zipFile 'fzf.exe'
+    $zipFile | Delete-Item
+    ```
 
-```powershell
-$downloadFolder = (Resolve-Path ~\Downloads).Path
-$pattern = 'fzf*windows*amd64.zip'
-gh release download --repo junegunn/fzf --pattern $pattern -D $downloadPath
-$zipFile = Get-Item $downloadPath -Filter $pattern | Select-Object -First 1
-$destination = 'D:\Apps'
-7z e -o"$destination" $zipFile 'fzf.exe'
-$zipFile | Delete-Item
-```
+2. Override default command: set `$FZF_DEFAULT_COMMAND` to `rg --files . 2> nul`.
+3. Override default options:
+
+    ```powershell
+    $opts = @'
+    --color=fg:-1,bg:-1,hl:#5fff87,fg+:-1,bg+:-1,hl+:#ffaf5f
+    --color=info:#af87ff,prompt:#5fff87,pointer:#ff87d7,marker:#ff87d7,spinner:#ff87d7
+    --bind alt-up:preview-page-up,alt-down:preview-page-down,alt-e:preview-top,alt-f:preview-bottom,ctrl-e:half-page-up,ctrl-f:half-page-down
+    '@
+    [System.Environment]::SetEnvironmentVariable('FZF_DEFAULT_OPTS', $opts, 'User')
+    ```
 
 ### ripgrep
 
