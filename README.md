@@ -728,6 +728,8 @@ WinMerge is a diff/merge tool.
         [System.Environment]::SetEnvironmentVariable('Path', $path, 'Machine')
         ```
 
+    <!-- TODO: Add blurb about exporting/importing/creating GPG keys -->
+
 ### GitHub CLI
 
 - Install [GitHub CLI](https://github.com/cli/cli):
@@ -789,7 +791,7 @@ Download it from [here](https://bayden.com/slickrun/).
 ## Node
 
 - Install from <https://nodejs.org/en/download/>.
-- Change installation path for modules by setting environment variable `NODE_PATH`
+- Change installation path for modules by setting `$NODE_PATH`
 .
 
 ## Miscellaneous
