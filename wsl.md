@@ -194,6 +194,22 @@ eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/{theme}.omp.json)"
 
 - Install `luarocks`: `sudo apt install luarocks`.
 
+## LaTeX
+
+1. Follow [these instructions](https://tug.org/texlive/quickinstall.html) but **make sure** to append `--paper=letter` to `perl ./install-tl --no-interaction`.
+2. Run this command to create a few folders inside your home directory: `tlmgr init-usertree`. ([source](https://tex.stackexchange.com/questions/137428/tlmgr-cannot-setup-tlpdb))
+3. Add `/usr/local/texlive/2023/texmf-dist/doc/man` to **MANPATH**.
+4. Add `/usr/local/texlive/2023/texmf-dist/doc/info` to **INFOPATH**.
+5. Add `/usr/local/texlive/2023/bin/x86_64-linux` to your **PATH** for current and future sessions.
+6. Install font using user-mode: `tlmgr --usermode install courier`
+7. Install `chtex`: `sudo apt install chktex`
+8. Run `sudo apt install latexmk` to install `latexmk`.
+9. For vimtex:
+     - `sudo apt install zathura zathura-ps`.
+     - `pip install neovim-remote`
+     - `sudo apt-get install xdotool`
+     - See [this](https://www.ejmastnak.com/tutorials/vim-latex/pdf-reader/#zathura) for more info.
+
 ## Misc
 
 ```shell
@@ -233,3 +249,5 @@ sudo apt update && sudo apt install gum
 - <https://serverfault.com/questions/175504/how-do-i-get-the-history-of-apt-get-install-on-ubuntu>
 - <https://github.com/dotnet/docs/issues/27559>
 - <https://calebschoepp.com/blog/2021/how-to-setup-oh-my-posh-on-ubuntu>
+- <https://tex.stackexchange.com/questions/137428/tlmgr-cannot-setup-tlpdb>
+- <https://www.reddit.com/r/bashonubuntuonwindows/comments/zu6wk1/comment/j1je4j3/?utm_source=share&utm_medium=web2x&context=3>
