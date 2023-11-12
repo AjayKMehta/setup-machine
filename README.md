@@ -13,6 +13,10 @@
   - [PowerShell](#powershell)
     - [Modules](#modules)
     - [Secrets Management](#secrets-management)
+  - [git](#git)
+    - [GitHub CLI](#github-cli)
+    - [GitLab CLI](#gitlab-cli)
+    - [GitExtensions](#gitextensions)
   - [Java](#java)
   - [CLI Apps](#cli-apps)
     - [less](#less)
@@ -59,10 +63,6 @@
     - [Packages](#packages)
   - [VS Code](#vs-code)
   - [WinMerge](#winmerge)
-  - [git](#git)
-    - [GitHub CLI](#github-cli)
-    - [GitLab CLI](#gitlab-cli)
-    - [GitExtensions](#gitextensions)
   - [SlickRun](#slickrun)
   - [Node](#node)
   - [Miscellaneous](#miscellaneous)
@@ -214,6 +214,82 @@ See [ModulesToInstall.txt](./ModulesToInstall.txt) for list of modules to instal
     Get-SecretInfo
     Test-SecretVault -Name 'Keepass'
     ```
+
+## git
+
+- Install: `winget install --id Git.Git -e --source winget`.
+
+- [Enable auto-signing Git commits with GnuPG](https://gist.github.com/BoGnY/f9b1be6393234537c3e247f33e74094a):
+
+    - Install required apps:
+
+        ```powershell
+        winget install --id GnuPG.GnuPG -l 'D:\Apps\GnuPG'
+        winget install --id GnuPG.Gpg4win -l 'D:\Apps\Gpg4win'
+        ```
+
+    - Add to `$Path` if needed:
+
+        ```powershell
+        $path = [System.Environment]::GetEnvironmentVariable('Path', 'Machine')
+        $path += ';D:\Apps\Gpg4win\bin;D:\Apps\GnuPG\bin'
+        [System.Environment]::SetEnvironmentVariable('Path', $path, 'Machine')
+        ```
+
+    <!-- TODO: Add blurb about exporting/importing/creating GPG keys -->
+
+### GitHub CLI
+
+- Install [GitHub CLI](https://github.com/cli/cli):
+
+    ```powershell
+    # This is not working!?
+    winget install GitHub.cli -l D:\Apps
+    ```
+
+- [Create an authentication token for github.com API requests](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+- Set `$GITHUB_TOKEN` to this value to avoid being prompted to authenticate by CLI.
+- Alternatively, use `gh auth login --secure-storage -h github.com` to store the access token in the system keyring.
+
+- Install extensions:
+
+    ```shell
+    gh extension install actions/gh-actions-cache
+    gh extension install securesauce/gh-alerts
+    gh extension install mislav/gh-branch
+    gh extension install chelnak/gh-changelog
+    gh extension install vilmibm/gh-contribute
+    gh extension install mislav/gh-cp
+    gh extension install dlvhdr/gh-dash
+    gh extension install yuler/gh-download
+    gh extension install owenvoke/gh-gpg-key
+    gh extension install k1LoW/gh-grep
+    gh extension install redraw/gh-install
+    gh extension install heaths/gh-label
+    gh extension install meiji163/gh-notify
+    gh extension install seachicken/gh-poi
+    gh extension install samcoe/gh-repo-explore
+    gh extension install samcoe/gh-triage
+    gh extension install vilmibm/gh-user-status
+    ```
+
+### GitLab CLI
+
+- Install:
+
+    ```powershell
+    winget install Glab.Glab
+    ```
+
+- Get a GitLab PAT with at least `api` and `write_repository` scopes.
+- Setup: `glab auth login`.
+- Shell completion: `glab completion -s powershell | Out-File ~\Documents\PowerShell\Scripts\ArgumentCompleters\glab.ps1 -Encoding utf8`
+
+### GitExtensions
+
+Install `
+winget install GitExtensionsTeam.GitExtensions
+`.
 
 ## Java
 
@@ -576,6 +652,7 @@ To override the directory used to store prompt templates, etc., set `$LLM_USER_P
 
 5. Set `$GITHUB_PAT` to GitHub PAT.
 
+### RTools
 
 <!-- Stupid Markdown TOC extension cant handle '.' in header 😠 -->
 ## DotNet
@@ -764,82 +841,6 @@ WinMerge is a diff/merge tool.
     $path += ';D:\Apps\WinMerge'
     [System.Environment]::SetEnvironmentVariable('Path', $path, 'Machine')
     ```
-
-## git
-
-- Install: `winget install --id Git.Git -e --source winget`.
-
-- [Enable auto-signing Git commits with GnuPG](https://gist.github.com/BoGnY/f9b1be6393234537c3e247f33e74094a):
-
-    - Install required apps:
-
-        ```powershell
-        winget install --id GnuPG.GnuPG -l 'D:\Apps\GnuPG'
-        winget install --id GnuPG.Gpg4win -l 'D:\Apps\Gpg4win'
-        ```
-
-    - Add to `$Path` if needed:
-
-        ```powershell
-        $path = [System.Environment]::GetEnvironmentVariable('Path', 'Machine')
-        $path += ';D:\Apps\Gpg4win\bin;D:\Apps\GnuPG\bin'
-        [System.Environment]::SetEnvironmentVariable('Path', $path, 'Machine')
-        ```
-
-    <!-- TODO: Add blurb about exporting/importing/creating GPG keys -->
-
-### GitHub CLI
-
-- Install [GitHub CLI](https://github.com/cli/cli):
-
-    ```powershell
-    # This is not working!?
-    winget install GitHub.cli -l D:\Apps
-    ```
-
-- [Create an authentication token for github.com API requests](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
-- Set `$GITHUB_TOKEN` to this value to avoid being prompted to authenticate by CLI.
-- Alternatively, use `gh auth login --secure-storage -h github.com` to store the access token in the system keyring.
-
-- Install extensions:
-
-    ```shell
-    gh extension install actions/gh-actions-cache
-    gh extension install securesauce/gh-alerts
-    gh extension install mislav/gh-branch
-    gh extension install chelnak/gh-changelog
-    gh extension install vilmibm/gh-contribute
-    gh extension install mislav/gh-cp
-    gh extension install dlvhdr/gh-dash
-    gh extension install yuler/gh-download
-    gh extension install owenvoke/gh-gpg-key
-    gh extension install k1LoW/gh-grep
-    gh extension install redraw/gh-install
-    gh extension install heaths/gh-label
-    gh extension install meiji163/gh-notify
-    gh extension install seachicken/gh-poi
-    gh extension install samcoe/gh-repo-explore
-    gh extension install samcoe/gh-triage
-    gh extension install vilmibm/gh-user-status
-    ```
-
-### GitLab CLI
-
-- Install:
-
-    ```powershell
-    winget install Glab.Glab
-    ```
-
-- Get a GitLab PAT with at least `api` and `write_repository` scopes.
-- Setup: `glab auth login`.
-- Shell completion: `glab completion -s powershell | Out-File ~\Documents\PowerShell\Scripts\ArgumentCompleters\glab.ps1 -Encoding utf8`
-
-### GitExtensions
-
-Install `
-winget install GitExtensionsTeam.GitExtensions
-`.
 
 ## SlickRun
 
