@@ -1,5 +1,6 @@
 # Setup machine
 
+- [Setup machine](#setup-machine)
   - [Overview](#overview)
   - [winget](#winget)
   - [Advanced System Font Changer](#advanced-system-font-changer)
@@ -23,6 +24,7 @@
     - [bat](#bat)
     - [gum](#gum)
     - [duckdb](#duckdb)
+      - [Upgrading](#upgrading)
     - [wget2](#wget2)
   - [Dot files](#dot-files)
   - [Hugo](#hugo)
@@ -42,6 +44,11 @@
     - [GenAI](#genai)
       - [PaLM](#palm)
       - [Cohere](#cohere)
+      - [Replicate](#replicate)
+      - [Weights & Biases](#weights--biases)
+      - [LLM](#llm)
+      - [OpenAI](#openai)
+      - [HuggingFace](#huggingface)
   - [DotNet](#dotnet)
     - [NuGet](#nuget)
     - [Useful apps](#useful-apps)
@@ -58,6 +65,7 @@
   - [SlickRun](#slickrun)
   - [Node](#node)
   - [Miscellaneous](#miscellaneous)
+
 
 ## Overview
 
@@ -380,9 +388,9 @@ winget install GNU.wget2
     chezmoi apply
     ```
 
-## [Hugo](https://gohugo.io/)
+## Hugo
 
-Hugo is an open-source static site generator.
+[Hugo](https://gohugo.io/) is an open-source static site generator.
 
 - Install:
 
@@ -528,6 +536,30 @@ Make sure that you configure environment variables for API keys.
 - Create API key at <https://dashboard.cohere.com/api-keys>.
 - Set `$COHERE_API_KEY` to API key.
 
+#### Replicate
+
+- Create token at <https://replicate.com/account/api-tokens>.
+- Set `$REPLICATE_API_TOKEN` to API token.
+
+#### Weights & Biases
+
+- Get API Key from <https://wandb.ai/settings> and set `$WANDB_API_KEY`.
+
+#### [LLM](https://llm.datasette.io/en/stable/index.html)
+
+To override the directory used to store prompt templates, etc., set `$LLM_USER_PATH` ([source](https://llm.datasette.io/en/stable/setup.html#setting-a-custom-directory-location)):
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('LLM_USER_PATH', 'D:\llm', 'User')
+```
+
+#### OpenAI
+
+- Get API Key from <https://platform.openai.com/api-keys> and set `$OPENAI_API_KEY`.
+
+#### HuggingFace
+
+🚧
 
 <!-- Stupid Markdown TOC extension cant handle '.' in header 😠 -->
 ## DotNet
