@@ -318,6 +318,22 @@ winget install charmbracelet.gum -l D:\Apps
 winget install DuckDB.cli -l D:\Apps
 ```
 
+#### Upgrading
+
+Before installing new version of CLI, you need to export any databases from old CLI and re-import in new CLI :frowning:
+
+For example, let's say you have a database `D:/duck_db/nyc-taxi.duckdb`.
+
+1. In CLI for old version, execute: `.open D:/duck_db/nyc-taxi.duckdb`
+2. In CLI for old version: `EXPORT DATABASE 'D:/duckdb_export/nyc-taxi';`
+3. Delete old file `D:/duck_db/nyc-taxi.duckdb`.
+4. In R using latest version of `duckdb` package:
+
+    ```r
+    con <- dbConnect(duckdb::duckdb(), dbdir = "D:/duckdb/nyc-taxi.duckdb", read_only = FALSE)
+    dbExecute(con, "IMPORT DATABASE 'D:/duckdb_export/nyc-taxi'")
+    ```
+
 ### wget2
 
 ```shell
