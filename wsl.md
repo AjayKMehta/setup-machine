@@ -115,7 +115,7 @@ sudo aptitude -y install golang-go
 - Install
 
     ```shell
-    git clone <https://github.com/asdf-vm/asdf.git> ~/.asdf --branch v0.13.1
+    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
     ```
 
 - Add the following lines to `.bashrc`:
@@ -136,6 +136,7 @@ sudo aptitude -y install golang-go
     asdf plugin add neovim
     asdf plugin add poetry
     asdf plugin add snyk
+    asdf plugin add fzf
     ```
 
 - Install latest version:
@@ -148,10 +149,11 @@ sudo aptitude -y install golang-go
     asdf install neovim latest
     asdf install poetry latest
     asdf install snyk latest
+    asdf install fzf latest 
     ```
 
 ## oh-my-posh
-  
+
 1. [Install app](https://ohmyposh.dev/docs/installation/linux):
 
     ```shell
