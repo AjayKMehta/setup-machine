@@ -15,6 +15,8 @@
     - [Secrets Management](#secrets-management)
   - [git](#git)
     - [GitHub CLI](#github-cli)
+      - [GitHub PAT](#github-pat)
+      - [Extensions](#extensions)
     - [GitLab CLI](#gitlab-cli)
     - [GitExtensions](#gitextensions)
   - [Java](#java)
@@ -247,11 +249,15 @@ See [ModulesToInstall.txt](./ModulesToInstall.txt) for list of modules to instal
     winget install GitHub.cli -l D:\Apps
     ```
 
+#### GitHub PAT
+
 - [Create an authentication token for github.com API requests](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 - Set `$GITHUB_TOKEN` to this value to avoid being prompted to authenticate by CLI.
 - Alternatively, use `gh auth login --secure-storage -h github.com` to store the access token in the system keyring.
 
-- Install extensions:
+#### Extensions
+
+Install extensions:
 
     ```shell
     gh extension install actions/gh-actions-cache
@@ -650,7 +656,7 @@ To override the directory used to store prompt templates, etc., set `$LLM_USER_P
 
 4. To avoid the issue of C: running out of disk space, set `$R_LIBS` to different path, e.g.`D:\packages`.
 
-5. Set `$GITHUB_PAT` to GitHub PAT.
+5. Set `$GITHUB_PAT` to [GitHub PAT obtained](#github-pat).
 
 ### RTools
 
