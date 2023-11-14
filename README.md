@@ -681,6 +681,20 @@ To override the directory used to store prompt templates, etc., set `$LLM_USER_P
 
 ### RTools
 
+- Install location is usually C:\RTools but if you have limited disk space, set `RTOOLS43_HOME`to a different path, e.g.`D:\rtools43` ***before* running the installer**.
+- Download and run [R Build tools](https://cran.r-project.org/bin/windows/Rtools/).
+- Add bin folder in install path to `$PATH` -- this can be done by editing .Renviron: `PATH="${RTOOLS40_HOME}\usr\bin;${PATH}"`.
+
+[Usage notes](https://github.com/r-windows/docs/blob/master/rtools40.md#readme)
+
+### radian
+
+1. Install `radian`: `conda install radian`.
+1. Set `$R_BINARY` to **\<InstallPath\>\bin\x64\R.exe**. This is needed for `radian` to work properly.
+
+For more info, see [README.md](https://github.com/randy3k/radian/blob/master/README.md).
+
+
 <!-- Stupid Markdown TOC extension cant handle '.' in header 😠 -->
 ## DotNet
 
