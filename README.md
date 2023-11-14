@@ -559,6 +559,28 @@ WezTerm is a powerful cross-platform terminal emulator and multiplexer.
 - <https://wezfurlong.org/wezterm/config/default-keys.html>
 - <https://wezfurlong.org/wezterm/config/lua/general.html#making-your-own-lua-modules>
 
+## Hadoop
+
+See [here](https://kontext.tech/article/447/install-hadoop-330-on-windows-10-step-by-step-guide) for more details. As of the time this was written, the version of interest for Hadoop was 3.3.1.
+
+```powershell
+pushd ~/Downloads
+Invoke-WebRequest https://dlcdn.apache.org/hadoop/common/hadoop-3.3.1/hadoop-3.3.1.tar.gz -OutFile hadoop-3.3.1.tar.gz -Verbose
+# https://stackoverflow.com/a/2903532
+7z e hadoop-3.3.1.tar.gz && 7z x hadoop-3.3.1.tar -o"D:/Apps"
+Remove-Item hadoop-3.3.1.tar*
+
+# Download Hadoop native IO binary
+gh download https://github.com/kontext-tech/winutils/tree/master/hadoop-3.3.1/bin
+
+# Copy files to bin folder. Add -L to do dry-run
+robocopy .\hadoop-3.3.1\bin D:\Apps\hadoop-3.3.1\bin
+Remove-Item .\hadoop-3.3.1\bin 
+popd
+
+[System.Environment]::SetEnvironmentVariable('HADOOP_HOME', 'D:\Apps\hadoop-3.3.1', 'User')
+```
+
 ## Python
 
 > :bulb: At some point, would like to switch to **poetry** due to challenges presented when using **conda** and **pip** together.
