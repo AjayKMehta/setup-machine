@@ -249,11 +249,24 @@ See [ModulesToInstall.txt](./ModulesToInstall.txt) for list of modules to instal
 
 ### GitHub CLI
 
-- Install [GitHub CLI](https://github.com/cli/cli):
+- Download [GitHub CLI](https://github.com/cli/cli). See [Releases](https://github.com/cli/cli/releases) for latest version.
 
     ```powershell
-    # This is not working!?
-    winget install GitHub.cli -l D:\Apps
+    $version = '2.39.0'
+    Invoke-RestMethod "https://github.com/cli/cli/releases/download/v${version}/gh_${version}_windows_amd64.zip" -OutFile ~/Downloads/gh_${version}_windows_amd64.zip
+    ```
+
+- Copy binary to desired location.
+
+    ```powershell
+    [string] $folder = 'D:\Apps'
+    7z e C:\Users\Ajay\Downloads\gh_2.39.0_windows_amd64.zip bin\gh.exe -o"$($folder)"
+    ```
+
+- Add shell completion script (that you can dot-source in PowerShell profile):
+
+    ```powershell
+    gh completion -s powershell | Out-File -Encoding utf8 ~\Documents\PowerShell\Scripts\ArgumentCompleters\gh.ps1
     ```
 
 #### GitHub PAT
