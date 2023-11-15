@@ -78,7 +78,7 @@
 
 ## Overview
 
-Setting up a new Windows machine is painful.
+Setting up a new Windows machine for development is painful.
 
 This document hopefully alleviates the pain.
 
@@ -245,6 +245,8 @@ See [ModulesToInstall.txt](./ModulesToInstall.txt) for list of modules to instal
         [System.Environment]::SetEnvironmentVariable('Path', $path, 'Machine')
         ```
 
+    - Managing GPG keys
+        🚧 **WIP**
     <!-- TODO: Add blurb about exporting/importing/creating GPG keys -->
 
 ### GitHub CLI
@@ -465,7 +467,7 @@ winget install GNU.wget2
 - Install [chezmoi](https://github.com/twpayne/chezmoi):
 
     ```shell
-    winget install twpayne.chezmoi -l D:\Apps\chezmoi
+    winget install twpayne.chezmoi
     ```
 
 - Run `chezmoi init` to create an initial `chezmoi.toml` using template in repo:
@@ -683,7 +685,7 @@ To override the directory used to store prompt templates, etc., set `$LLM_USER_P
 
 #### HuggingFace
 
-🚧
+🚧 **WIP**
 
 ## R
 
@@ -709,11 +711,39 @@ To override the directory used to store prompt templates, etc., set `$LLM_USER_P
 
 ### Spark
 
+1. In .RProfile, set `options(spark.install.dir = "D:/Apps/Spark")`
+1. Install `sparklyr`:
+
+    ```r
+    install.packages("sparklyr")
+    ```
+
+1. Check available versions:
+
+    ```r
+    library(sparklyr)
+    spark_versions()
+    ```
+
+1. Install required version:
+
+    ```r
+    spark_install("3.3.2", "3")
+    ```
+
+1. Set `$SPARK_HOME` to bin folder, i.e. D:\Apps\Spark\spark-3.3.2-bin-hadoop3\bin.
+
 ### Stan
 
 - See [RStan Getting Started](https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started#configuration-of-the-c-toolchai).
 
 ### cmdstanr
+
+```r
+install.packages("cmdstanr")
+cmdstanr::install_cmdstan(dir = "D:/Apps", overwrite = TRUE, cores = 6)
+cmdstanr::set_cmdstan_path() # D:/Apps/cmdstan-2.24.1
+```
 
 ### radian
 
