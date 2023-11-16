@@ -747,15 +747,26 @@ cmdstanr::set_cmdstan_path() # D:/Apps/cmdstan-2.24.1
 
 ### radian
 
+From the project's [README.md](https://github.com/randy3k/radian/blob/master/README.md):
+
+> radian is an alternative console for the R program with multiline editing and rich syntax highlight.
+
+Installation steps:
+
 1. Install `radian`: `conda install radian`.
 1. Set `$R_BINARY` to **\<InstallPath\>\bin\x64\R.exe**. This is needed for `radian` to work properly.
-
-For more info, see [README.md](https://github.com/randy3k/radian/blob/master/README.md).
 
 ### Setup for VS Code
 
 ### Setup for Jupyter
 
+1. Install R package `IRKernel`: `install.packages("IRKernel")`.
+1. Activate conda environment with Jupyter installed.
+1. Use `jupyter kernelspec list` to get location of existing kernels. If you see a path corresponding to `$Appdata\jupyter\kernels\ir`, then R kernel is already installed.
+1. Launch `radian` in conda environment's shell.
+1. In radian: `IRKernel::installspec()`.
+
+> Alternatively, you can copy files from `IRKernel` package installation directory's **kernelspec** subfolder to `$Appdata\jupyter\kernels\ir`.
 
 <!-- Stupid Markdown TOC extension cant handle '.' in header 😠 -->
 ## DotNet
