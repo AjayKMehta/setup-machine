@@ -45,6 +45,7 @@ Install-WinGetApp -AppName OpenJS.NodeJS "$CustomLocation\nodejs"
 Install-WinGetApp -AppName Kitware.CMake "$CustomLocation\CMake"
 Install-WinGetApp -AppName Notepad++.Notepad++
 Install-WinGetApp -AppName RProject.R
+Install-WinGetApp -AppName Posit.RStudio
 
 # Media
 Install-WinGetApp -AppName ImageMagick.ImageMagick

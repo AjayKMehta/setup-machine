@@ -56,6 +56,7 @@
       - [OpenAI](#openai)
       - [HuggingFace](#huggingface)
   - [R](#r)
+    - [RStudio](#rstudio)
     - [RTools](#rtools)
     - [Spark](#spark)
     - [Stan](#stan)
@@ -63,6 +64,7 @@
     - [radian](#radian)
     - [Setup for VS Code](#setup-for-vs-code)
     - [Setup for Jupyter](#setup-for-jupyter)
+    - [Quarto](#quarto)
   - [DotNet](#dotnet)
     - [NuGet](#nuget)
     - [Useful apps](#useful-apps)
@@ -701,6 +703,12 @@ To override the directory used to store prompt templates, etc., set `$LLM_USER_P
 1. To avoid the issue of C: running out of disk space, set `$R_LIBS` to a different path, e.g.`D:\packages`.
 1. Set `$GITHUB_PAT` to [GitHub PAT obtained](#github-pat). This is neccessary for avoiding rate-limit issues when installing packages from GitHub using the [`remotes`](https://github.com/r-lib/remotes#environment-variables) package.
 
+### RStudio
+
+```shell
+winget install Posit.RStudio
+```
+
 ### RTools
 
 - Install location is usually C:\RTools but if you have limited disk space, set `RTOOLS43_HOME`to a different path, e.g.`D:\rtools43` ***before* running the installer**.
@@ -758,6 +766,8 @@ Installation steps:
 
 ### Setup for VS Code
 
+See [here](https://code.visualstudio.com/docs/languages/r) for more details.
+
 ### Setup for Jupyter
 
 1. Install R package `IRKernel`: `install.packages("IRKernel")`.
@@ -767,6 +777,21 @@ Installation steps:
 1. In radian: `IRKernel::installspec()`.
 
 > Alternatively, you can copy files from `IRKernel` package installation directory's **kernelspec** subfolder to `$Appdata\jupyter\kernels\ir`.
+
+### Quarto
+
+[Quarto](https://quarto.org/) is a replacement for RMarkdown that also works with Python.
+
+To install:
+
+1. Download installer from <https://github.com/quarto-dev/quarto-cli/releases> and run.
+1. Add installation path (D:\Apps\Quarto\bin) to `$PATH` if not already available.
+1. RStudio ships with its owb version of Quarto + Pandoc. To use Quarto and its bundled version of Pandoc, add the following to your .Renviron file:
+
+    ```shell
+    QUARTO_PATH="D:/Apps/quarto/bin/quarto.cmd"
+    RSTUDIO_PANDOC="D:/Apps/quarto/bin/tools"
+    ```
 
 <!-- Stupid Markdown TOC extension cant handle '.' in header 😠 -->
 ## DotNet
