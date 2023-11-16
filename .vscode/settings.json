@@ -1,5 +1,19 @@
 {
+    "cSpell.words": [
+        "Cascadia",
+        "cmdstanr",
+        "Fira",
+        "Hasklig",
+        "jupyterlab",
+        "jupytext",
+        "Miniconda",
+        "nbconvert",
+        "plotly",
+        "remoting",
+        "Renviron"
+    ],
     "markdown-toc.depthFrom": 2,
+    "peacock.color": "#9bc9d6",
     "sarif-viewer.connectToGithubCodeScanning": "off",
     "workbench.colorCustomizations": {
         "activityBar.activeBackground": "#bfdde5",
@@ -28,6 +42,5 @@
         "titleBar.border": "#9bc9d6",
         "titleBar.inactiveBackground": "#9bc9d699",
         "titleBar.inactiveForeground": "#15202b99"
-    },
-    "peacock.color": "#9bc9d6"
+    }
 }
