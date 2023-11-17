@@ -64,7 +64,11 @@
     - [radian](#radian)
     - [Setup for VS Code](#setup-for-vs-code)
     - [Setup for Jupyter](#setup-for-jupyter)
+    - [catboost](#catboost)
+    - [INLA](#inla)
     - [Quarto](#quarto)
+      - [Extras](#extras)
+    - [Use OpenBLAS](#use-openblas)
   - [DotNet](#dotnet)
     - [NuGet](#nuget)
     - [Useful apps](#useful-apps)
@@ -766,6 +770,11 @@ Installation steps:
 
 ### Setup for VS Code
 
+1. Install `languageserver` and `httpgd` in R: `install.packages(c("languageserver", "httpgd"))`.
+1. Install the [R extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=REditorSupport.r).
+1. Set up `radian` as R console in VS Code.
+1. Install VSCode-R-Debugger package: `remotes::install_github(ref = "v0.5.2", "ManuelHentschel/vscDebugger")`.
+
 See [here](https://code.visualstudio.com/docs/languages/r) for more details.
 
 ### Setup for Jupyter
@@ -777,6 +786,17 @@ See [here](https://code.visualstudio.com/docs/languages/r) for more details.
 1. In radian: `IRKernel::installspec()`.
 
 > Alternatively, you can copy files from `IRKernel` package installation directory's **kernelspec** subfolder to `$Appdata\jupyter\kernels\ir`.
+
+### catboost
+
+This is available from [GitHub](https://github.com/catboost/catboost).
+
+1. Download latest release from <https://github.com/catboost/catboost/releases>.
+1. Install: `install.packages(repo = NULL, type = "source", r"{C:\Users\Ajay\Downloads\catboost-R-windows-x86_64-1.2.2.tgz}")`.
+
+### INLA
+
+See [here](https://www.r-inla.org/download-install).
 
 ### Quarto
 
@@ -792,6 +812,43 @@ To install:
     QUARTO_PATH="D:/Apps/quarto/bin/quarto.cmd"
     RSTUDIO_PANDOC="D:/Apps/quarto/bin/tools"
     ```
+
+#### Extras
+
+To support rendering of PDF documents that include SVG files, automatically converting them to PDF images in Quarto 1.3+, install `rsvg-convert`` from <https://github.com/miyako/console-rsvg-convert> and add to`$PATH`.
+
+tintext is a lightweight alternative to MikTeX:
+
+```shell
+quarto install tinytex
+```
+
+### Use OpenBLAS
+
+You can use Open BLAS to speed up linear algebra operations but use at your own risk! Instructions below are modified from this [SO post](https://stackoverflow.com/questions/38090206/linking-intels-math-kernel-library-mkl-to-r-on-windows) and <https://medium.com/@FredHo42/using-intel-mkl-library-on-r-4-0-641dc0c3c06b>.
+
+1. Download latest version of OpenBLAS from <https://github.com/OpenMathLib/OpenBLAS/releases>.
+1. Copy Rlapack.dll and Rblas.dll from `./bin/x64` in R installation folder to safe location.
+1. Now create 2 copies of libopenblas.dll named Rlapack.dll and Rblas.dll and copy them to folder from step 1.
+1. If you run into problems, you can revert back to the original DLLs.
+
+Check performance:
+
+Before
+
+```r
+> system.time(svd(matrix(runif(10000*2000), 10000, 2000), nu=0, nv=0))
+   user  system elapsed 
+  43.50    0.09   44.06 
+```
+
+After
+
+```r
+> system.time(svd(matrix(runif(10000*2000), 10000, 2000), nu=0, nv=0))
+   user  system elapsed
+  20.72    1.20    5.30
+```  
 
 <!-- Stupid Markdown TOC extension cant handle '.' in header 😠 -->
 ## DotNet
