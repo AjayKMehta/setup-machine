@@ -246,6 +246,7 @@ sudo apt update && sudo apt install gum
 
 ## Useful links
 
+- <https://learn.microsoft.com/en-us/windows/wsl/disk-space#how-to-locate-the-vhdx-file-and-disk-path-for-your-linux-distribution>
 - <https://askubuntu.com/questions/1429369/how-to-transfer-ubuntu-on-wsl-from-one-laptop-to-another>
 - <https://superuser.com/questions/1566022/how-to-set-default-user-for-manually-installed-wsl-distro>
 - <https://serverfault.com/questions/175504/how-do-i-get-the-history-of-apt-get-install-on-ubuntu>
