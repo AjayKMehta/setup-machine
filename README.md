@@ -80,6 +80,10 @@
   - [WinMerge](#winmerge)
   - [SlickRun](#slickrun)
   - [Node](#node)
+  - [Haskell](#haskell)
+    - [Regular installation steps](#regular-installation-steps)
+    - [Alternative installation steps](#alternative-installation-steps)
+      - [Environment variables](#environment-variables)
   - [Miscellaneous](#miscellaneous)
 
 ## Overview
@@ -1047,7 +1051,37 @@ Download it from [here](https://bayden.com/slickrun/).
 
 - Install from <https://nodejs.org/en/download/>.
 - Change installation path for modules by setting `$NODE_PATH`
-.
+
+## Haskell
+
+[GHCup](https://www.haskell.org/ghcup/) is the main installer for Haskell.
+
+### Regular installation steps
+
+1. If you wish to specify installation root directory for **ghcup**, you can set `$GHCUP_INSTALL_BASE_PREFIX` (user-level environment variable). If not set, you can pass install directory choice to the install script or the script will prompt you if it doesn't find a drive with > 5 GB free space to install on.
+    <br>
+   > :bulb: Whichever value you use will be set up by script as `$GHCUP_INSTALL_BASE_PREFIX`.
+1. Download install script:
+
+    ```powershell
+    cd ~\Downloads\ && Invoke-WebRequest https://www.haskell.org/ghcup/sh/bootstrap-haskell.ps1 -OutFile bootstrap-haskell.ps1
+    ```
+
+    <br>
+
+    > :bulb: Although the website says to run it directly, I think it's a good idea to review the script first and possibly customize invocation as the script has several parameters and the default values may not work for you.
+1. Run script in non-admin powershell:
+
+    ```powershell
+    # Hash from https://github.com/msys2/msys2-installer/releases/download/2023-07-18/msys2-base-x86_64-20230718.sfx.exe.sha256
+    . .\bootstrap-haskell.ps1 -InstallStack -InStallHLS -InstallDir D:\Apps -Msys2Version '20230718' -Msys2Hash 'ab9b9a25e92d0c71136c79eeac954f1ce023341224de8d81401439f38c8b9232'
+    ```
+
+    > **NOTE:** This did not work when specifying msys details 😦
+
+### Alternative installation steps
+
+This section is based on the instructions [here](https://www.haskell.org/ghcup/install/#windows_1).
 
 ## Miscellaneous
 
