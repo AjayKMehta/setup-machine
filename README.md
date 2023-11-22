@@ -1105,7 +1105,9 @@ This section is based on the following links:
 
 - Download **ghcup** binary from <https://github.com/haskell/ghcup-hs/releases>, e.g. latest version as of the time this was written is 1.2.0, so downlod <https://github.com/haskell/ghcup-hs/releases/download/v0.1.20.0/x86_64-mingw64-ghcup-0.1.20.0.exe>.
 - Rename binary to `gcup.exe` and copy to `D:\Apps\ghcup\bin`.
-- Create config file in `D:\Apps\ghcup\bin`^[The online documentation says location is `~/.ghcup/config.yaml` which is not the case.]: `ghcup config init`.
+- Create config file in `D:\Apps\ghcup\bin`[^1]: `ghcup config init`.
+
+[^1]: The online documentation says location is `~/.ghcup/config.yaml` which is not the case.
 
 #### cabal
 
