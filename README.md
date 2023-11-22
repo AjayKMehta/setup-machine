@@ -823,7 +823,7 @@ To install:
 
 To support rendering of PDF documents that include SVG files, automatically converting them to PDF images in Quarto 1.3+, install `rsvg-convert`` from <https://github.com/miyako/console-rsvg-convert> and add to`$PATH`.
 
-tintext is a lightweight alternative to MikTeX:
+tinytex is a lightweight alternative to MikTeX:
 
 ```shell
 quarto install tinytex
@@ -831,7 +831,7 @@ quarto install tinytex
 
 ### Use OpenBLAS
 
-You can use Open BLAS to speed up linear algebra operations but use at your own risk! Instructions below are modified from this [SO post](https://stackoverflow.com/questions/38090206/linking-intels-math-kernel-library-mkl-to-r-on-windows) and <https://medium.com/@FredHo42/using-intel-mkl-library-on-r-4-0-641dc0c3c06b>.
+You can use OpenBLAS to speed up linear algebra operations but use at your own risk! Instructions below are modified from this [SO post](https://stackoverflow.com/questions/38090206/linking-intels-math-kernel-library-mkl-to-r-on-windows) and <https://medium.com/@FredHo42/using-intel-mkl-library-on-r-4-0-641dc0c3c06b>.
 
 1. Download latest version of OpenBLAS from <https://github.com/OpenMathLib/OpenBLAS/releases>.
 1. Copy Rlapack.dll and Rblas.dll from `./bin/x64` in R installation folder to safe location.
@@ -865,7 +865,7 @@ After
     winget install Microsoft.VisualStudio.2022.Community
     ```
 
-    This will install .NET 7 SDK.
+    This will also install .NET 8 SDK.
 
 - Install [templates for `dotnet new`](https://github.com/dotnet/templating/wiki/Available-templates-for-dotnet-new):
 
@@ -889,13 +889,13 @@ After
     [System.Environment]::SetEnvironmentVariable('DOTNET_UPGRADEASSISTANT_TELEMTRY_OPTOUT', 1, 'User')
     ```
 
-- Change directory for NuGet packages:
+### NuGet
+
+- Change directory for NuGet packages
 
     ```powershell
     [System.Environment]::SetEnvironmentVariable('NUGET_PACKAGES', 'D:\NuGet\packages', 'Machine')
     ```
-
-### NuGet
 
 - Install NuGet: `winget install Microsoft.NuGet`.
 - Add installation path to `$Path`.
@@ -934,11 +934,11 @@ After
 
 - Install NUnit Console from [here](https://github.com/nunit/nunit-console/releases).
 
-- Install PerView:
+- Install PerfView:
 
-```shell
-winget install Microsoft.PerfView -l D:\Apps\PerfView
-```
+    ```shell
+    winget install Microsoft.PerfView -l D:\Apps\PerfView
+    ```
 
 ### Dotnet Tools
 
