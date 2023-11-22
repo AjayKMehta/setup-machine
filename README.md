@@ -1081,7 +1081,62 @@ Download it from [here](https://bayden.com/slickrun/).
 
 ### Alternative installation steps
 
-This section is based on the instructions [here](https://www.haskell.org/ghcup/install/#windows_1).
+This section is based on the following links:
+
+- <https://www.haskell.org/ghcup/install/#windows_1>
+- <https://github.com/keithfancher/haskell-notes/blob/master/haskell-notes.md#getting-started>
+- <https://gist.github.com/lsmor/bb632565cd96be9da589b6e91f80f9ba>
+
+#### Environment variables
+
+1. Assuming you plan to install msys to D:\msys64 and ghcup.exe to D:\Apps\ghcup\bin, set the following environment variables first:
+
+    | Env Variable                | Value                              | Notes                                                                                                                                                                                                                                              |
+    |-----------------------------|------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | `GHCUP_INSTALL_BASE_PREFIX` | D:\Apps                            | [Defaults to `$HOME`](https://www.haskell.org/ghcup/guide/#env-variables)                                                                                                                                                                          |
+    | `CABAL_DIR`                 | D:\Apps\cabal                      | If set, *all* `cabal-install` content files will be stored as subdirectories of this directory, including the configuration file if `CABAL_CONFIG` is unset. See [here](https://cabal.readthedocs.io/en/stable/config.html#environment-variables). |
+    | `CABAL_CONFIG`              | %USERPROFILE%\.config\cabal\config | Path for global configuration file.                                                                                                                                                                                                                |
+    | `GHCUP_MSYS2`                 | D:\msys64                          | [Has to point to the root of an existing MSYS2 installation](https://www.haskell.org/ghcup/guide/#env-variables)                                                                                                                                   |
+    | `STACK_ROOT`                  | D:\sr                              | This is where `stack` stores downloaded programs and snapshot packages. See [here](https://docs.haskellstack.org/en/stable/stack_root/).                                                                                                                           |
+
+:bulb: You also need to add `D:\Apps\ghcup\bin` to `$Path`.
+
+#### ghcup
+
+- Download **ghcup** binary from <https://github.com/haskell/ghcup-hs/releases>, e.g. latest version as of the time this was written is 1.2.0, so downlod <https://github.com/haskell/ghcup-hs/releases/download/v0.1.20.0/x86_64-mingw64-ghcup-0.1.20.0.exe>.
+- Rename binary to `gcup.exe` and copy to `D:\Apps\ghcup\bin`.
+- Create config file in `D:\Apps\ghcup\bin`^[The online documentation says location is `~/.ghcup/config.yaml` which is not the case.]: `ghcup config init`.
+
+#### cabal
+
+- Install: `gcup install cabal`
+- Edit config file:
+
+    ```text
+    extra-include-dirs: D:\msys64\mingw64\include
+    extra-lib-dirs: D:\msys64\mingw64\lib
+    -- Would also need install folder if cabal installed in stand-alone folder: D:\cabal\bin
+    extra-prog-path: D:\ghcup\bin, D:\msys64\mingw64\bin
+    ```
+
+#### msys2
+
+- Download latest version from <https://github.com/msys2/msys2-installer/releases/>.
+- Installing the self extracting archive to D:\msys64:
+
+    ```shell
+    .\msys2-base-x86_64-20230718.sfx.exe -y -oD:\
+    ```
+
+- Update msys2:
+
+    ```shell
+    ghcup run -m -- pacman --noconfirm -Syuu
+    ghcup run -m -- pacman --noconfirm -S --needed curl autoconf mingw-w64-x86_64-pkgconf
+    ghcup run -m -- pacman --noconfirm -S ca-certificates
+    ```
+
+    Also, refer to [this](https://www.msys2.org/docs/updating).
 
 ## Miscellaneous
 
