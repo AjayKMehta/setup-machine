@@ -95,7 +95,8 @@ This document hopefully alleviates the pain.
 > 👉This document assumes that your C: drive has **limited space** (e.g. SSD) and you have another hard drive (D:) which you can use to install apps on instead. If that is not the case, you can omit custom location (`-l`) in `winget install` invocation or specify a directory on your C drive instead.
 ---
 
-> 🚧 Look into using [winget configure](<https://learn.microsoft.com/en-us/windows/package-manager/winget/configure>) to replace script to install apps. 👉 Need to learn how to specify custom install path.
+> 🚧 Look into using [winget configure](<https://learn.microsoft.com/en-us/windows/package-manager/winget/configure>) to replace script to install apps.
+> 👉 Need to learn how to specify custom install path.
 
 ## winget
 
@@ -291,25 +292,25 @@ See [ModulesToInstall.txt](./ModulesToInstall.txt) for list of modules to instal
 
 Install extensions:
 
-    ```shell
-    gh extension install actions/gh-actions-cache
-    gh extension install securesauce/gh-alerts
-    gh extension install mislav/gh-branch
-    gh extension install chelnak/gh-changelog
-    gh extension install vilmibm/gh-contribute
-    gh extension install mislav/gh-cp
-    gh extension install dlvhdr/gh-dash
-    gh extension install yuler/gh-download
-    gh extension install owenvoke/gh-gpg-key
-    gh extension install k1LoW/gh-grep
-    gh extension install redraw/gh-install
-    gh extension install heaths/gh-label
-    gh extension install meiji163/gh-notify
-    gh extension install seachicken/gh-poi
-    gh extension install samcoe/gh-repo-explore
-    gh extension install samcoe/gh-triage
-    gh extension install vilmibm/gh-user-status
-    ```
+```shell
+gh extension install actions/gh-actions-cache
+gh extension install securesauce/gh-alerts
+gh extension install mislav/gh-branch
+gh extension install chelnak/gh-changelog
+gh extension install vilmibm/gh-contribute
+gh extension install mislav/gh-cp
+gh extension install dlvhdr/gh-dash
+gh extension install yuler/gh-download
+gh extension install owenvoke/gh-gpg-key
+gh extension install k1LoW/gh-grep
+gh extension install redraw/gh-install
+gh extension install heaths/gh-label
+gh extension install meiji163/gh-notify
+gh extension install seachicken/gh-poi
+gh extension install samcoe/gh-repo-explore
+gh extension install samcoe/gh-triage
+gh extension install vilmibm/gh-user-status
+```
 
 ### GitLab CLI
 
@@ -325,7 +326,7 @@ Install extensions:
 
 ### GitExtensions
 
-Install `
+Install: `
 winget install GitExtensionsTeam.GitExtensions
 `.
 
@@ -520,11 +521,9 @@ See [wsl.md](wsl.md).
 
 ## [Docker](https://www.docker.com/)
 
-- Install:
-
-    ```shell
-    winget install Docker.DockerDesktop
-    ```
+```shell
+winget install Docker.DockerDesktop
+```
 
 ### [Docker Credentials Helper](https://github.com/docker/docker-credential-helpers)
 
@@ -645,10 +644,13 @@ popd
 
 Install following extensions:
 
-- jupyterlab-jupytext
 - jupyterlab-plotly
 - @jupyterlab/latex
 - @ryantam626/jupyterlab_code_formatter
+
+```shell
+mamba install jupyterlab-latex jupyterlab-plotly-extension jupyterlab_code_formatter
+```
 
 #### Workaround for Quarto
 
@@ -701,7 +703,7 @@ To override the directory used to store prompt templates, etc., set `$LLM_USER_P
 
 1. Download and install R from [CRAN website](https://cran.r-project.org/bin/windows/base/). Alternatively, `winget install  RProject.R`.
 1. Add **\<InstallPath\>\bin\x64** to `$PATH`.
-1. Default folder of .RProfile and .REnviron is ~\Documents which leads to issues if OneDrive moves this folder to ~\OneDrive\Documents :frowning:. So , best to set environment variables:
+1. Default folder of .RProfile and .REnviron is ~\Documents which leads to issues if OneDrive moves this folder to ~\OneDrive\Documents :frowning:. So, best to set environment variables:
 
     ```powershell
     [System.Environment]::SetEnvironmentVariable('R_ENVIRON_USER', '~\.Renviron', 'User')
