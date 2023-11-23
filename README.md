@@ -886,7 +886,7 @@ After
 
     ```powershell
     [System.Environment]::SetEnvironmentVariable('DOTNET_CLI_TELEMETRY_OPTOUT', 1, 'User')
-    [System.Environment]::SetEnvironmentVariable('DOTNET_UPGRADEASSISTANT_TELEMTRY_OPTOUT', 1, 'User')
+    [System.Environment]::SetEnvironmentVariable('DOTNET_UPGRADEASSISTANT_TELEMETRY_OPTOUT', 1, 'User')
     ```
 
 ### NuGet
@@ -1079,7 +1079,7 @@ Download it from [here](https://bayden.com/slickrun/).
     . .\bootstrap-haskell.ps1 -InstallStack -InStallHLS -InstallDir D:\Apps -Msys2Version '20230718' -Msys2Hash 'ab9b9a25e92d0c71136c79eeac954f1ce023341224de8d81401439f38c8b9232'
     ```
 
-    > **NOTE:** This did not work when specifying msys details 😦
+    > **NOTE:** This did not work when specifying msys details. I got an error about file hash not mentioning though that was not the case 😦
 
 ### Alternative installation steps
 

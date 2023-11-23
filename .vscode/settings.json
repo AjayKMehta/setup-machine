@@ -1,12 +1,16 @@
 {
     "cSpell.words": [
+        "BLAS",
         "Cascadia",
         "cmdstanr",
         "Fira",
+        "ghcup",
         "Hasklig",
+        "INLA",
         "jupyterlab",
         "jupytext",
         "Miniconda",
+        "msys",
         "nbconvert",
         "plotly",
         "remoting",
