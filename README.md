@@ -1093,13 +1093,14 @@ This section is based on the following links:
 
 1. Assuming you plan to install msys to D:\msys64 and ghcup.exe to D:\Apps\ghcup\bin, set the following environment variables first:
 
-    | Env Variable                | Value                              | Notes                                                                                                                                                                                                                                              |
-    |-----------------------------|------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | `GHCUP_INSTALL_BASE_PREFIX` | D:\Apps                            | [Defaults to `$HOME`](https://www.haskell.org/ghcup/guide/#env-variables)                                                                                                                                                                          |
-    | `CABAL_DIR`                 | D:\Apps\cabal                      | If set, *all* `cabal-install` content files will be stored as subdirectories of this directory, including the configuration file if `CABAL_CONFIG` is unset. See [here](https://cabal.readthedocs.io/en/stable/config.html#environment-variables). |
-    | `CABAL_CONFIG`              | %USERPROFILE%\.config\cabal\config | Path for global configuration file.                                                                                                                                                                                                                |
-    | `GHCUP_MSYS2`                 | D:\msys64                          | [Has to point to the root of an existing MSYS2 installation](https://www.haskell.org/ghcup/guide/#env-variables)                                                                                                                                   |
-    | `STACK_ROOT`                  | D:\sr                              | This is where `stack` stores downloaded programs and snapshot packages. See [here](https://docs.haskellstack.org/en/stable/stack_root/).                                                                                                                           |
+    | Env Variable                | Value                                                    | Notes                                                                                                                                                                                                                                              |
+    |-----------------------------|----------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | `GHCUP_INSTALL_BASE_PREFIX` | D:\Apps                                                  | [Defaults to `$HOME`](https://www.haskell.org/ghcup/guide/#env-variables)                                                                                                                                                                          |
+    | `CABAL_DIR`                 | D:\Apps\cabal                                            | If set, *all* `cabal-install` content files will be stored as subdirectories of this directory, including the configuration file if `CABAL_CONFIG` is unset. See [here](https://cabal.readthedocs.io/en/stable/config.html#environment-variables). |
+    | `CABAL_CONFIG`              | %USERPROFILE%\.config\cabal\config                       | Path for global configuration file.                                                                                                                                                                                                                |
+    | `GHCUP_MSYS2`               | D:\msys64                                                | [Has to point to the root of an existing MSYS2 installation](https://www.haskell.org/ghcup/guide/#env-variables)                                                                                                                                   |
+    | `STACK_ROOT`                | D:\sr                                                    | This is where `stack` stores downloaded programs and snapshot packages. See [here](https://docs.haskellstack.org/en/stable/stack_root/).                                                                                                           |
+    | `GITHUB_TOKEN`              | GitHub PAT. See [GitHub Token](#github-pat) for details. | Used by `stack` to authenticate when using GitHub REST API. See [here](https://docs.haskellstack.org/en/stable/environment_variables/).                                                                                                            |
 
 :bulb: You also need to add `D:\Apps\ghcup\bin` to `$Path`.
 
@@ -1108,20 +1109,23 @@ This section is based on the following links:
 - Download **ghcup** binary from <https://github.com/haskell/ghcup-hs/releases>, e.g. latest version as of the time this was written is 1.2.0, so downlod <https://github.com/haskell/ghcup-hs/releases/download/v0.1.20.0/x86_64-mingw64-ghcup-0.1.20.0.exe>.
 - Rename binary to `gcup.exe` and copy to `D:\Apps\ghcup\bin`.
 - Create config file in `D:\Apps\ghcup\bin`[^1]: `ghcup config init`.
+- Edit `config.yaml` adding following section ([source](https://github.com/haskell/ghcup-hs/blob/master/data/config.yaml)):
+
+    ```yaml
+    mirrors:
+    "github.com":
+        authority:
+        host: "mirror.sjtu.edu.cn"
+    "raw.githubusercontent.com":
+        authority:
+        host: "mirror.sjtu.edu.cn"
+        pathPrefix: "ghcup/yaml"
+    "downloads.haskell.org":
+        authority:
+        host: "mirror.sjtu.edu.cn"
+    ```
 
 [^1]: The online documentation says location is `~/.ghcup/config.yaml` which is not the case.
-
-#### cabal
-
-- Install: `gcup install cabal`
-- Edit config file:
-
-    ```text
-    extra-include-dirs: D:\msys64\mingw64\include
-    extra-lib-dirs: D:\msys64\mingw64\lib
-    -- Would also need install folder if cabal installed in stand-alone folder: D:\cabal\bin
-    extra-prog-path: D:\ghcup\bin, D:\msys64\mingw64\bin
-    ```
 
 #### msys2
 
@@ -1141,6 +1145,46 @@ This section is based on the following links:
     ```
 
     Also, refer to [this](https://www.msys2.org/docs/updating).
+
+- Set up msys2 shell:
+
+    - Run `ghcup run -m -- sed -i -e 's/db_home:.*$/db_home: windows/' /etc/nsswitch.conf` to make the `$HOME`` in your msys2 shell match the one from windows.
+    - Make a desktop shortcut from `D:\msys64\msys2_shell.cmd`, which will allow you to start a proper msys2 shell: `New-Item -ItemType SymbolicLink -Path ~\Desktop\Msys2 -Value D:\msys64\msys2_shell.cmd`
+    - Run `ghcup run -m -- sed -i -e "s/#MSYS2_PATH_TYPE=.*/MSYS2_PATH_TYPE=inherit/" /d/msys64/msys2.ini`
+    - Run `ghcup run -m -- sed -i -e "s/rem set MSYS2_PATH_TYPE=inherit/set MSYS2_PATH_TYPE=inherit/" /d/msys64/msys2_shell.cmd`
+
+#### cabal
+
+- Install: `gcup install cabal`
+- Edit config file:
+
+    ```text
+    extra-include-dirs: D:\msys64\mingw64\include
+    extra-lib-dirs: D:\msys64\mingw64\lib
+    -- Would also need install folder if cabal installed in stand-alone folder: D:\cabal\bin
+    extra-prog-path: D:\ghcup\bin, D:\msys64\mingw64\bin
+    ```
+
+#### stack
+
+ - Run `ghcup install stack latest`.
+ - Edit `~/.stack/config.yaml`[^2]:
+
+    ```yaml
+    local-bin-path: d:/stack
+    skip-msys: true
+    ```
+
+    :bulb: Make sure that the value of `local-bin-path` (default if not set:`~\AppData\Roaming\local\bin`) is in `$PATH` as that is where `stack install` installs generated binaries ([source](https://docs.haskellstack.org/en/stable/GUIDE/#the-stack-install-command-and-copy-bins-option)).
+
+[^2]: According to [online docs](https://docs.haskellstack.org/en/stable/yaml_configuration/), if `$STACK_XDG` is set to any non-empty value, the location of `config.yaml` is `<XDG_CONFIG_HOME>/stack`. Else, the default is `%APPDIR%\stack` on Windows. This seems incorrect.
+
+ - In Windows, [GDB can be installed to debug an executable](https://docs.haskellstack.org/en/stable/debugging/#debugging-symbols) with `ghcup run -m -- pacman -S gdb`.
+
+Checks:
+
+1. Output of `stack path --stack-root` should match `$STACK_ROOT`.
+1. Output of `stack path --local-bin` should be in `$PATH`
 
 ## Miscellaneous
 
