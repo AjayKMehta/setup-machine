@@ -1060,9 +1060,9 @@ Download it from [here](https://bayden.com/slickrun/).
 
 ### Regular installation steps
 
-1. If you wish to specify installation root directory for **ghcup**, you can set `$GHCUP_INSTALL_BASE_PREFIX` (user-level environment variable). If not set, you can pass install directory choice to the install script or the script will prompt you if it doesn't find a drive with > 5 GB free space to install on.
+1. If you wish to specify the installation root directory for **ghcup**, you can set `$GHCUP_INSTALL_BASE_PREFIX` (user-level environment variable). If not set, you can pass install directory choice to the install script or the script will prompt you if it doesn't find a drive with > 5 GB free space to install on.
     <br>
-   > :bulb: Whichever value you use will be set up by script as `$GHCUP_INSTALL_BASE_PREFIX`.
+   > :bulb: Whichever value you use will be set by the script as `$GHCUP_INSTALL_BASE_PREFIX`.
 1. Download install script:
 
     ```powershell
@@ -1079,7 +1079,7 @@ Download it from [here](https://bayden.com/slickrun/).
     . .\bootstrap-haskell.ps1 -InstallStack -InStallHLS -InstallDir D:\Apps -Msys2Version '20230718' -Msys2Hash 'ab9b9a25e92d0c71136c79eeac954f1ce023341224de8d81401439f38c8b9232'
     ```
 
-    > **NOTE:** This did not work when specifying msys details. I got an error about file hash not mentioning though that was not the case 😦
+    > **NOTE:** This did not work when specifying msys details. I got an error about file hash not being equal though that was not the case 😦
 
 ### Alternative installation steps
 
@@ -1097,7 +1097,7 @@ This section is based on the following links:
     |-----------------------------|----------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | `GHCUP_INSTALL_BASE_PREFIX` | D:\Apps                                                  | [Defaults to `$HOME`](https://www.haskell.org/ghcup/guide/#env-variables)                                                                                                                                                                          |
     | `CABAL_DIR`                 | D:\Apps\cabal                                            | If set, *all* `cabal-install` content files will be stored as subdirectories of this directory, including the configuration file if `CABAL_CONFIG` is unset. See [here](https://cabal.readthedocs.io/en/stable/config.html#environment-variables). |
-    | `CABAL_CONFIG`              | %USERPROFILE%\.config\cabal\config                       | Path for global configuration file.                                                                                                                                                                                                                |
+    | `CABAL_CONFIG`              | %USERPROFILE%\\.config\cabal\config                       | Path for global configuration file.                                                                                                                                                                                                                |
     | `GHCUP_MSYS2`               | D:\msys64                                                | [Has to point to the root of an existing MSYS2 installation](https://www.haskell.org/ghcup/guide/#env-variables)                                                                                                                                   |
     | `STACK_ROOT`                | D:\sr                                                    | This is where `stack` stores downloaded programs and snapshot packages. See [here](https://docs.haskellstack.org/en/stable/stack_root/).                                                                                                           |
     | `GITHUB_TOKEN`              | GitHub PAT. See [GitHub Token](#github-pat) for details. | Used by `stack` to authenticate when using GitHub REST API. See [here](https://docs.haskellstack.org/en/stable/environment_variables/).                                                                                                            |
@@ -1106,7 +1106,7 @@ This section is based on the following links:
 
 #### ghcup
 
-- Download **ghcup** binary from <https://github.com/haskell/ghcup-hs/releases>, e.g. latest version as of the time this was written is 1.2.0, so downlod <https://github.com/haskell/ghcup-hs/releases/download/v0.1.20.0/x86_64-mingw64-ghcup-0.1.20.0.exe>.
+- Download **ghcup** binary from <https://github.com/haskell/ghcup-hs/releases>, e.g. latest version as of the time, this was written is 1.2.0, so download <https://github.com/haskell/ghcup-hs/releases/download/v0.1.20.0/x86_64-mingw64-ghcup-0.1.20.0.exe>.
 - Rename binary to `gcup.exe` and copy to `D:\Apps\ghcup\bin`.
 - Create config file in `D:\Apps\ghcup\bin`[^1]: `ghcup config init`.
 - Edit `config.yaml` adding following section ([source](https://github.com/haskell/ghcup-hs/blob/master/data/config.yaml)):
@@ -1130,7 +1130,7 @@ This section is based on the following links:
 #### msys2
 
 - Download latest version from <https://github.com/msys2/msys2-installer/releases/>.
-- Installing the self extracting archive to D:\msys64:
+- Install the self extracting archive to D:\msys64:
 
     ```shell
     .\msys2-base-x86_64-20230718.sfx.exe -y -oD:\
