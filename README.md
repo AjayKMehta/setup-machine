@@ -1167,17 +1167,23 @@ This section is based on the following links:
 
 #### stack
 
- - Run `ghcup install stack latest`.
- - Edit `~/.stack/config.yaml`[^2]:
+ - Edit `~/.stack/config.yaml`[^2][^3]:
 
     ```yaml
     local-bin-path: d:/stack
     skip-msys: true
+    # https://www.haskell.org/ghcup/install/#vscode-integration
+    system-ghc: true
+    install-ghc: false
+    skip-msys: true
     ```
 
-    :bulb: Make sure that the value of `local-bin-path` (default if not set:`~\AppData\Roaming\local\bin`) is in `$PATH` as that is where `stack install` installs generated binaries ([source](https://docs.haskellstack.org/en/stable/GUIDE/#the-stack-install-command-and-copy-bins-option)).
+ - Run `ghcup install stack latest`.
+ - Make sure that the value of `local-bin-path` (if not set, value is `~\AppData\Roaming\local\bin`) is in `$PATH` as that is where `stack install` installs generated binaries ([source](https://docs.haskellstack.org/en/stable/GUIDE/#the-stack-install-command-and-copy-bins-option)).
 
 [^2]: According to [online docs](https://docs.haskellstack.org/en/stable/yaml_configuration/), if `$STACK_XDG` is set to any non-empty value, the location of `config.yaml` is `<XDG_CONFIG_HOME>/stack`. Else, the default is `%APPDIR%\stack` on Windows. This seems incorrect.
+
+[^3]: If you execute a `stack` command before your config file is set up correctly, it will attempt to download GHC, msys2 which is not what we wan.
 
  - In Windows, [GDB can be installed to debug an executable](https://docs.haskellstack.org/en/stable/debugging/#debugging-symbols) with `ghcup run -m -- pacman -S gdb`.
 
