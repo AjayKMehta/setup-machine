@@ -1073,9 +1073,9 @@ Download it from [here](https://bayden.com/slickrun/).
     cd ~\Downloads\ && Invoke-WebRequest https://www.haskell.org/ghcup/sh/bootstrap-haskell.ps1 -OutFile bootstrap-haskell.ps1
     ```
 
-    <br>
+    > [!WARNING]
+    > Although the website says to run it directly, I think it's a good idea to review the script first and possibly customize invocation as the script has several parameters and the default values may not work for you.
 
-    > :bulb: Although the website says to run it directly, I think it's a good idea to review the script first and possibly customize invocation as the script has several parameters and the default values may not work for you.
 1. Run script in non-admin powershell:
 
     ```powershell
@@ -1184,7 +1184,12 @@ This section is based on the following links:
  - Run `ghcup install stack latest`.
  - Make sure that the value of `local-bin-path` (if not set, value is `~\AppData\Roaming\local\bin`) is in `$PATH` as that is where `stack install` installs generated binaries ([source](https://docs.haskellstack.org/en/stable/GUIDE/#the-stack-install-command-and-copy-bins-option)).
 
- - In `$STACK_ROOT`\global-project\stack.yaml, specify resolver corresponding to the version of GHC you installed.
+ - In `$STACK_ROOT\global-project\stack.yaml`, specify resolver corresponding to the version of GHC you installed. This info can be obtained from <https://www.stackage.org/> e.g. for GHC 9.4.8, this should be:
+
+    ```yaml
+    resolver: lts-21.22
+    ```
+
  - In Windows, [GDB can be installed to debug an executable](https://docs.haskellstack.org/en/stable/debugging/#debugging-symbols) with `ghcup run -m -- pacman -S gdb`.
 
 Checks:
@@ -1197,6 +1202,14 @@ Checks:
     where.exe stack
     stack path
     stack exec -- which ghc
+    ```
+
+### Haskell Language Server
+
+- Install:
+
+    ```shell
+    run ghcup install hls latest
     ```
 
 ## Miscellaneous
