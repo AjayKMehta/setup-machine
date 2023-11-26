@@ -1063,11 +1063,11 @@ Download it from [here](https://bayden.com/slickrun/).
 
 ### Regular installation steps
 
-1. If you wish to specify the installation root directory for **ghcup**, you can set `$GHCUP_INSTALL_BASE_PREFIX`[^1] (user-level environment variable). If not set, you can pass install directory choice to the install script or the script will prompt you if it doesn't find a drive with > 5 GB free space to install on.
+- If you wish to specify the installation root directory for **ghcup**, you can set `$GHCUP_INSTALL_BASE_PREFIX`[^1] (user-level environment variable). If not set, you can pass install directory choice to the install script or the script will prompt you if it doesn't find a drive with > 5 GB free space to install on.
 
 [^1]: Whichever value you use will be set by the script as `$GHCUP_INSTALL_BASE_PREFIX`.
 
-1. Download install script:
+- Download install script:
 
     ```powershell
     cd ~\Downloads\ && Invoke-WebRequest https://www.haskell.org/ghcup/sh/bootstrap-haskell.ps1 -OutFile bootstrap-haskell.ps1
@@ -1076,7 +1076,7 @@ Download it from [here](https://bayden.com/slickrun/).
     > [!WARNING]
     > Although the website says to run it directly, I think it's a good idea to review the script first and possibly customize invocation as the script has several parameters and the default values may not work for you.
 
-1. Run script in non-admin powershell:
+- Run script in non-admin powershell:
 
     ```powershell
     # Hash from https://github.com/msys2/msys2-installer/releases/download/2023-07-18/msys2-base-x86_64-20230718.sfx.exe.sha256
@@ -1184,7 +1184,7 @@ This section is based on the following links:
  - Run `ghcup install stack latest`.
  - Make sure that the value of `local-bin-path` (if not set, value is `~\AppData\Roaming\local\bin`) is in `$PATH` as that is where `stack install` installs generated binaries ([source](https://docs.haskellstack.org/en/stable/GUIDE/#the-stack-install-command-and-copy-bins-option)).
 
- - In `$STACK_ROOT\global-project\stack.yaml`, specify resolver corresponding to the version of GHC you installed. This info can be obtained from <https://www.stackage.org/> e.g. for GHC 9.4.8, this should be:
+ - In `$STACK_ROOT\global-project\stack.yaml`, specify resolver corresponding to the version of GHC you installed. This info can be obtained from <https://www.stackage.org> e.g. for GHC 9.4.8, this should be:
 
     ```yaml
     resolver: lts-21.22
