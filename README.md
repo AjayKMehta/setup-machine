@@ -1083,7 +1083,7 @@ Download it from [here](https://bayden.com/slickrun/).
     . .\bootstrap-haskell.ps1 -InstallStack -InStallHLS -InstallDir D:\Apps -Msys2Version '20230718' -Msys2Hash 'ab9b9a25e92d0c71136c79eeac954f1ce023341224de8d81401439f38c8b9232'
     ```
 
-> [!NOTE]
+> [!CAUTION]
 > This did not work when specifying msys details. I got an error about file hash not being equal though that was not the case 😦
 
 ### Alternative installation steps
@@ -1107,7 +1107,8 @@ This section is based on the following links:
     | `STACK_ROOT`                | D:\sr                                                    | This is where `stack` stores downloaded programs and snapshot packages. See [here](https://docs.haskellstack.org/en/stable/stack_root/).                                                                                                           |
     | `GITHUB_TOKEN`              | GitHub PAT. See [GitHub Token](#github-pat) for details. | Used by `stack` to authenticate when using GitHub REST API. See [here](https://docs.haskellstack.org/en/stable/environment_variables/).                                                                                                            |
 
-:bulb: You also need to add `D:\Apps\ghcup\bin` to `$Path`.
+> [!IMPORTANT]
+> You also need to add `D:\Apps\ghcup\bin` to `$Path`.
 
 #### ghcup
 
