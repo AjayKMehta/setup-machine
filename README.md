@@ -488,8 +488,8 @@ winget install GNU.wget2
     chezmoi init AjayKMehta
     ```
 
-    > [!TIP]
-    > :point_right: You can supply `--apply` in above command to generate dot files at same time.
+> [!TIP]
+> :point_right: You can supply `--apply` in above command to generate dot files at same time.
 
 - Provide the path to your KeePassXC database in your configuration file if any. See [here](https://www.chezmoi.io/user-guide/password-managers/keepassxc/) for details.
 
