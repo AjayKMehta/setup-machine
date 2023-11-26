@@ -489,7 +489,7 @@ winget install GNU.wget2
     ```
 
 > [!TIP]
-> You can supply `--apply` in above command to generate dot files at same time.
+> You can supply `--apply` in the above command to generate dot files at same time.
 
 - Provide the path to your KeePassXC database in your configuration file if any. See [here](https://www.chezmoi.io/user-guide/password-managers/keepassxc/) for details.
 
@@ -1083,8 +1083,8 @@ Download it from [here](https://bayden.com/slickrun/).
     . .\bootstrap-haskell.ps1 -InstallStack -InStallHLS -InstallDir D:\Apps -Msys2Version '20230718' -Msys2Hash 'ab9b9a25e92d0c71136c79eeac954f1ce023341224de8d81401439f38c8b9232'
     ```
 
-    > [!NOTE]
-    > This did not work when specifying msys details. I got an error about file hash not being equal though that was not the case 😦
+> [!NOTE]
+> This did not work when specifying msys details. I got an error about file hash not being equal though that was not the case 😦
 
 ### Alternative installation steps
 
