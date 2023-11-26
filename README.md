@@ -489,7 +489,7 @@ winget install GNU.wget2
     ```
 
 > [!TIP]
-> :point_right: You can supply `--apply` in above command to generate dot files at same time.
+> You can supply `--apply` in above command to generate dot files at same time.
 
 - Provide the path to your KeePassXC database in your configuration file if any. See [here](https://www.chezmoi.io/user-guide/password-managers/keepassxc/) for details.
 
@@ -616,7 +616,8 @@ popd
 
 ## Python
 
-> :bulb: At some point, would like to switch to **poetry** due to challenges presented when using **conda** and **pip** together.
+> [!NOTE]
+> At some point, I would like to switch to **poetry** due to the challenges presented when using **conda** and **pip** together.
 
 - Download and install [Miniconda](https://docs.conda.io/en/latest/miniconda.html).
 - Add **bin** folder (**D:\Apps\Miniconda\condabin**) to `$Path`.
@@ -1062,9 +1063,10 @@ Download it from [here](https://bayden.com/slickrun/).
 
 ### Regular installation steps
 
-1. If you wish to specify the installation root directory for **ghcup**, you can set `$GHCUP_INSTALL_BASE_PREFIX` (user-level environment variable). If not set, you can pass install directory choice to the install script or the script will prompt you if it doesn't find a drive with > 5 GB free space to install on.
-    <br>
-   > :bulb: Whichever value you use will be set by the script as `$GHCUP_INSTALL_BASE_PREFIX`.
+1. If you wish to specify the installation root directory for **ghcup**, you can set `$GHCUP_INSTALL_BASE_PREFIX`[^1] (user-level environment variable). If not set, you can pass install directory choice to the install script or the script will prompt you if it doesn't find a drive with > 5 GB free space to install on.
+
+   [^1]: Whichever value you use will be set by the script as `$GHCUP_INSTALL_BASE_PREFIX`.
+
 1. Download install script:
 
     ```powershell
@@ -1081,7 +1083,8 @@ Download it from [here](https://bayden.com/slickrun/).
     . .\bootstrap-haskell.ps1 -InstallStack -InStallHLS -InstallDir D:\Apps -Msys2Version '20230718' -Msys2Hash 'ab9b9a25e92d0c71136c79eeac954f1ce023341224de8d81401439f38c8b9232'
     ```
 
-    > **NOTE:** This did not work when specifying msys details. I got an error about file hash not being equal though that was not the case 😦
+    > [!NOTE]
+    > This did not work when specifying msys details. I got an error about file hash not being equal though that was not the case 😦
 
 ### Alternative installation steps
 
@@ -1110,9 +1113,9 @@ This section is based on the following links:
 
 - Download **ghcup** binary from <https://github.com/haskell/ghcup-hs/releases>, e.g. latest version as of the time, this was written is 1.2.0, so download <https://github.com/haskell/ghcup-hs/releases/download/v0.1.20.0/x86_64-mingw64-ghcup-0.1.20.0.exe>.
 - Rename binary to `gcup.exe` and copy to `D:\Apps\ghcup\bin`.
-- Create config file in `D:\Apps\ghcup\bin`[^1]: `ghcup config init`.
+- Create config file in `D:\Apps\ghcup\bin`[^2]: `ghcup config init`.
 
-[^1]: The online documentation says location is `~/.ghcup/config.yaml` which is not the case.
+[^2]: The online documentation says location is `~/.ghcup/config.yaml` which is not the case.
 
 #### msys2
 
@@ -1154,7 +1157,7 @@ This section is based on the following links:
 
 #### stack
 
- - Edit `D:/sr/config.yaml`[^2]:
+ - Edit `D:/sr/config.yaml`[^3]:
 
     ```yaml
     local-bin-path: d:/stack
@@ -1170,10 +1173,7 @@ This section is based on the following links:
  - Run `ghcup install stack latest`.
  - Make sure that the value of `local-bin-path` (if not set, value is `~\AppData\Roaming\local\bin`) is in `$PATH` as that is where `stack install` installs generated binaries ([source](https://docs.haskellstack.org/en/stable/GUIDE/#the-stack-install-command-and-copy-bins-option)).
 
-[^2]: If you execute a `stack` command before your config file is set up correctly, it will attempt to download GHC, msys2 which is not what we want.
-
-- In `$STACK_ROOT`\global-project\stack.yaml, specify resolver corresponding to the version of GHC you installed.
-
+ - In `$STACK_ROOT`\global-project\stack.yaml, specify resolver corresponding to the version of GHC you installed.
  - In Windows, [GDB can be installed to debug an executable](https://docs.haskellstack.org/en/stable/debugging/#debugging-symbols) with `ghcup run -m -- pacman -S gdb`.
 
 Checks:
@@ -1187,7 +1187,6 @@ Checks:
     stack path
     stack exec -- which ghc
     ```
-
 
 ## Miscellaneous
 
