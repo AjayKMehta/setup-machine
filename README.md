@@ -1073,8 +1073,8 @@ Download it from [here](https://bayden.com/slickrun/).
     cd ~\Downloads\ && Invoke-WebRequest https://www.haskell.org/ghcup/sh/bootstrap-haskell.ps1 -OutFile bootstrap-haskell.ps1
     ```
 
-    > [!WARNING]
-    > Although the website says to run it directly, I think it's a good idea to review the script first and possibly customize invocation as the script has several parameters and the default values may not work for you.
+> [!WARNING]
+> Although the website says to run it directly, I think it's a good idea to review the script first and possibly customize invocation as the script has several parameters and the default values may not work for you.
 
 - Run script in non-admin powershell:
 
