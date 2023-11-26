@@ -1065,7 +1065,7 @@ Download it from [here](https://bayden.com/slickrun/).
 
 1. If you wish to specify the installation root directory for **ghcup**, you can set `$GHCUP_INSTALL_BASE_PREFIX`[^1] (user-level environment variable). If not set, you can pass install directory choice to the install script or the script will prompt you if it doesn't find a drive with > 5 GB free space to install on.
 
-   [^1]: Whichever value you use will be set by the script as `$GHCUP_INSTALL_BASE_PREFIX`.
+[^1]: Whichever value you use will be set by the script as `$GHCUP_INSTALL_BASE_PREFIX`.
 
 1. Download install script:
 
@@ -1084,7 +1084,7 @@ Download it from [here](https://bayden.com/slickrun/).
     ```
 
 > [!CAUTION]
-> This did not work when specifying msys details. I got an error about file hash not being equal though that was not the case 😦
+> This did not work when specifying `msys` details. I got an error about file hash not being equal though that was not the case 😦
 
 ### Alternative installation steps
 
@@ -1152,7 +1152,7 @@ This section is based on the following links:
     run ghcup install ghc --set recommended
     ```
 
-- Edit [config files](https://downloads.haskell.org/ghc/latest/docs/users_guide/ghci.html?highlight=import#the-ghci-and-haskeline-files) as needed. The `ghci.conf` file in `$AppData\ghc` can be used for turning on favorite options (e.g. `:set +s`), and defining useful macros. `~/.ghci` can be used as a startup script. See [here](https://wiki.haskell.org/GHC/GHCi) for more ideas.
+- Edit [config files](https://downloads.haskell.org/ghc/latest/docs/users_guide/ghci.html?highlight=import#the-ghci-and-haskeline-files) as needed. The `ghci.conf` file in `$AppData\ghc` can be used for turning on favorite options (e.g. `:set +s`), and defining useful macros. `~/.ghci` can be used as a startup script. See [here](https://wiki.haskell.org/GHC/GHCi) for good ideas.
 
 #### cabal
 
@@ -1168,7 +1168,7 @@ This section is based on the following links:
 
 #### stack
 
- - Edit `D:/sr/config.yaml`[^3]:
+ - Edit `D:/sr/config.yaml`:
 
     ```yaml
     local-bin-path: d:/stack
