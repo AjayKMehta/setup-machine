@@ -92,11 +92,12 @@ Setting up a new Windows machine for development is painful.
 
 This document hopefully alleviates the pain.
 
-> [!NOTE]
+> [!IMPORTANT]
 > This document assumes that your C: drive has **limited space** (e.g. SSD) and you have another hard drive (D:) which you can use to install apps on instead. If that is not the case, you can omit custom location (`-l`) in `winget install` invocation or specify a directory on your C drive instead.
----
 
+> [!NOTE]
 > 🚧 Look into using [winget configure](<https://learn.microsoft.com/en-us/windows/package-manager/winget/configure>) to replace script to install apps.
+<br>
 > 👉 Need to learn how to specify custom install path.
 
 ## winget
@@ -822,9 +823,9 @@ To install:
 
 #### Extras
 
-To support rendering of PDF documents that include SVG files, automatically converting them to PDF images in Quarto 1.3+, install `rsvg-convert`` from <https://github.com/miyako/console-rsvg-convert> and add to`$PATH`.
+To support rendering of PDF documents that include SVG files, automatically converting them to PDF images in Quarto 1.3+, install `rsvg-convert` from <https://github.com/miyako/console-rsvg-convert> and add to`$PATH`.
 
-tinytex is a lightweight alternative to MikTeX:
+(**Optional**) tinytex is a lightweight alternative to MikTeX:
 
 ```shell
 quarto install tinytex
@@ -1057,7 +1058,7 @@ Download it from [here](https://bayden.com/slickrun/).
 
 ## Haskell
 
-[GHCup](https://www.haskell.org/ghcup/) is the main installer for Haskell.
+[GHCup](https://www.haskell.org/ghcup/) is the main installer for Haskell. Setting up Haskell on Windows is *still* painful but less so than before GHCup came around.
 
 ### Regular installation steps
 
@@ -1110,21 +1111,6 @@ This section is based on the following links:
 - Download **ghcup** binary from <https://github.com/haskell/ghcup-hs/releases>, e.g. latest version as of the time, this was written is 1.2.0, so download <https://github.com/haskell/ghcup-hs/releases/download/v0.1.20.0/x86_64-mingw64-ghcup-0.1.20.0.exe>.
 - Rename binary to `gcup.exe` and copy to `D:\Apps\ghcup\bin`.
 - Create config file in `D:\Apps\ghcup\bin`[^1]: `ghcup config init`.
-- Edit `config.yaml` adding following section ([source](https://github.com/haskell/ghcup-hs/blob/master/data/config.yaml)):
-
-    ```yaml
-    mirrors:
-    "github.com":
-        authority:
-        host: "mirror.sjtu.edu.cn"
-    "raw.githubusercontent.com":
-        authority:
-        host: "mirror.sjtu.edu.cn"
-        pathPrefix: "ghcup/yaml"
-    "downloads.haskell.org":
-        authority:
-        host: "mirror.sjtu.edu.cn"
-    ```
 
 [^1]: The online documentation says location is `~/.ghcup/config.yaml` which is not the case.
 
@@ -1168,23 +1154,25 @@ This section is based on the following links:
 
 #### stack
 
- - Edit `~/.stack/config.yaml`[^2][^3]:
+ - Edit `D:/sr/config.yaml`[^2]:
 
     ```yaml
     local-bin-path: d:/stack
+    local-programs-path: d:/stack
     skip-msys: true
     # https://www.haskell.org/ghcup/install/#vscode-integration
     system-ghc: true
     install-ghc: false
-    skip-msys: true
     ```
+
+    For more details, see [here](https://docs.haskellstack.org/en/stable/faq/#i-already-have-ghc-installed-can-i-still-use-stack) and [here](https://docs.haskellstack.org/en/stable/faq/#can-i-change-stacks-default-temporary-directory).
 
  - Run `ghcup install stack latest`.
  - Make sure that the value of `local-bin-path` (if not set, value is `~\AppData\Roaming\local\bin`) is in `$PATH` as that is where `stack install` installs generated binaries ([source](https://docs.haskellstack.org/en/stable/GUIDE/#the-stack-install-command-and-copy-bins-option)).
 
-[^2]: According to [online docs](https://docs.haskellstack.org/en/stable/yaml_configuration/), if `$STACK_XDG` is set to any non-empty value, the location of `config.yaml` is `<XDG_CONFIG_HOME>/stack`. Else, the default is `%APPDIR%\stack` on Windows. This seems incorrect.
+[^2]: If you execute a `stack` command before your config file is set up correctly, it will attempt to download GHC, msys2 which is not what we want.
 
-[^3]: If you execute a `stack` command before your config file is set up correctly, it will attempt to download GHC, msys2 which is not what we wan.
+- In `$STACK_ROOT`\global-project\stack.yaml, specify resolver corresponding to the version of GHC you installed.
 
  - In Windows, [GDB can be installed to debug an executable](https://docs.haskellstack.org/en/stable/debugging/#debugging-symbols) with `ghcup run -m -- pacman -S gdb`.
 
@@ -1192,6 +1180,14 @@ Checks:
 
 1. Output of `stack path --stack-root` should match `$STACK_ROOT`.
 1. Output of `stack path --local-bin` should be in `$PATH`
+1. Sanity checks:
+
+    ```shell
+    where.exe stack
+    stack path
+    stack exec -- which ghc
+    ```
+
 
 ## Miscellaneous
 
