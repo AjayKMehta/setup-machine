@@ -1143,6 +1143,16 @@ This section is based on the following links:
     - Run `ghcup run -m -- sed -i -e "s/#MSYS2_PATH_TYPE=.*/MSYS2_PATH_TYPE=inherit/" /d/msys64/msys2.ini`
     - Run `ghcup run -m -- sed -i -e "s/rem set MSYS2_PATH_TYPE=inherit/set MSYS2_PATH_TYPE=inherit/" /d/msys64/msys2_shell.cmd`
 
+#### ghc
+
+- Install ghc:
+
+    ```shell
+    run ghcup install ghc --set recommended
+    ```
+
+- Edit [config files](https://downloads.haskell.org/ghc/latest/docs/users_guide/ghci.html?highlight=import#the-ghci-and-haskeline-files) as needed. The `ghci.conf` file in `$AppData\ghc` can be used for turning on favorite options (e.g. `:set +s`), and defining useful macros. `~/.ghci` can be used as a startup script. See [here](https://wiki.haskell.org/GHC/GHCi) for more ideas.
+
 #### cabal
 
 - Install: `gcup install cabal`
