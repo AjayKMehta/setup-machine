@@ -1096,7 +1096,7 @@ This section is based on the following links:
 
 #### Environment variables
 
-1. Assuming you plan to install msys to D:\msys64 and ghcup.exe to D:\Apps\ghcup\bin, set the following environment variables first:
+1. Assuming you plan to install `msys` to `D:\msys64` and `ghcup.exe` to `D:\Apps\ghcup\bin`, set the following environment variables first:
 
     | Env Variable                | Value                                                    | Notes                                                                                                                                                                                                                                              |
     |-----------------------------|----------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1168,7 +1168,7 @@ This section is based on the following links:
 
 #### stack
 
- - Edit `D:/sr/config.yaml`:
+ - Edit `D:/sr/config.yaml`[^3]:
 
     ```yaml
     local-bin-path: d:/stack
@@ -1178,6 +1178,8 @@ This section is based on the following links:
     system-ghc: true
     install-ghc: false
     ```
+
+[^3]: If you execute a `stack` command before your config file is set up correctly, it will attempt to download GHC, msys2 which is not what we want :astonished:
 
     For more details, see [here](https://docs.haskellstack.org/en/stable/faq/#i-already-have-ghc-installed-can-i-still-use-stack) and [here](https://docs.haskellstack.org/en/stable/faq/#can-i-change-stacks-default-temporary-directory).
 
@@ -1201,7 +1203,7 @@ Checks:
     ```shell
     where.exe stack
     stack path
-    stack exec -- which ghc
+    stack exec -- where.exe ghc
     ```
 
 ### Haskell Language Server
