@@ -1206,7 +1206,9 @@ Checks:
     stack exec -- where.exe ghc
     ```
 
-### Haskell Language Server
+#### Haskell Language Server
+
+- [Choose the latest version of HLS that is compatible with the version of GHC installed](https://haskell-language-server.readthedocs.io/en/latest/support/ghc-version-support.html#ghc-version-support).
 
 - Install:
 
@@ -1214,6 +1216,8 @@ Checks:
     # ghcup install hls latest
     ghcup install hls 2.4.0.0
     ```
+
+- [Plugin support](https://haskell-language-server.readthedocs.io/en/latest/support/plugin-support.html)
 
 ## Miscellaneous
 
