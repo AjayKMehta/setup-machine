@@ -1149,7 +1149,7 @@ This section is based on the following links:
 - Install ghc:
 
     ```shell
-    run ghcup install ghc --set recommended
+    ghcup install ghc --set recommended
     ```
 
 - Edit [config files](https://downloads.haskell.org/ghc/latest/docs/users_guide/ghci.html?highlight=import#the-ghci-and-haskeline-files) as needed. The `ghci.conf` file in `$AppData\ghc` can be used for turning on favorite options (e.g. `:set +s`), and defining useful macros. `~/.ghci` can be used as a startup script. See [here](https://wiki.haskell.org/GHC/GHCi) for good ideas.
@@ -1211,7 +1211,8 @@ Checks:
 - Install:
 
     ```shell
-    run ghcup install hls latest
+    # ghcup install hls latest
+    ghcup install hls 2.4.0.0
     ```
 
 ## Miscellaneous
