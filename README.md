@@ -1219,6 +1219,22 @@ Checks:
 
 - [Plugin support](https://haskell-language-server.readthedocs.io/en/latest/support/plugin-support.html)
 
+- [If you want to explicitly configure your project build](https://haskell-language-server.readthedocs.io/en/latest/configuration.html#configuring-your-project-build), install `implicit-hie` to auto-generate a stack or cabal multi component hie.yaml file:
+
+    ```shell
+    # If $pwd is not a stack project, will install for global project!
+    stack install implicit-hie
+    ```
+
+    Usage: `gen-hie > hie.yaml`
+
+- [To enable local documentation on hover](https://haskell-language-server.readthedocs.io/en/latest/configuration.html#how-to-show-local-documentation-on-hover), add the following to global `$STACK_ROOT\config.yaml`, or project's `stack.yaml`:
+
+    ```yaml
+    ghc-options:
+    '$everything': -haddock
+    ```
+
 ## Miscellaneous
 
 - Install following apps:
