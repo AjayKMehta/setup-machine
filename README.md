@@ -1163,7 +1163,7 @@ This section is based on the following links:
     extra-include-dirs: D:\msys64\mingw64\include
     extra-lib-dirs: D:\msys64\mingw64\lib
     -- Would also need install folder if cabal installed in stand-alone folder: D:\cabal\bin
-    extra-prog-path: D:\ghcup\bin, D:\msys64\mingw64\bin
+    extra-prog-path: D:\ghcup\bin;D:\msys64\mingw64\bin;D:\msys64\usr\bin
     ```
 
 #### stack
