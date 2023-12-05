@@ -1168,7 +1168,7 @@ This section is based on the following links:
 
 #### stack
 
- - Edit `D:/sr/config.yaml`[^3]:
+- Edit `D:/sr/config.yaml`[^3]:
 
     ```yaml
     local-bin-path: d:/stack
@@ -1183,16 +1183,16 @@ This section is based on the following links:
 
     For more details, see [here](https://docs.haskellstack.org/en/stable/faq/#i-already-have-ghc-installed-can-i-still-use-stack) and [here](https://docs.haskellstack.org/en/stable/faq/#can-i-change-stacks-default-temporary-directory).
 
- - Run `ghcup install stack latest`.
- - Make sure that the value of `local-bin-path` (if not set, value is `~\AppData\Roaming\local\bin`) is in `$PATH` as that is where `stack install` installs generated binaries ([source](https://docs.haskellstack.org/en/stable/GUIDE/#the-stack-install-command-and-copy-bins-option)).
+- Run `ghcup install stack latest`.
+- Make sure that the value of `local-bin-path` (if not set, value is `~\AppData\Roaming\local\bin`) is in `$PATH` as that is where `stack install` installs generated binaries ([source](https://docs.haskellstack.org/en/stable/GUIDE/#the-stack-install-command-and-copy-bins-option)).
 
- - In `$STACK_ROOT\global-project\stack.yaml`, specify resolver corresponding to the version of GHC you installed. This info can be obtained from <https://www.stackage.org> e.g. for GHC 9.4.8, this should be:
+- In `$STACK_ROOT\global-project\stack.yaml`, specify resolver corresponding to the version of GHC you installed. This info can be obtained from <https://www.stackage.org> e.g. for GHC 9.4.8, this should be:
 
     ```yaml
     resolver: lts-21.22
     ```
 
- - In Windows, [GDB can be installed to debug an executable](https://docs.haskellstack.org/en/stable/debugging/#debugging-symbols) with `ghcup run -m -- pacman -S gdb`.
+- In Windows, [GDB can be installed to debug an executable](https://docs.haskellstack.org/en/stable/debugging/#debugging-symbols) with `ghcup run -m -- pacman -S gdb`.
 
 Checks:
 
