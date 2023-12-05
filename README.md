@@ -837,8 +837,8 @@ quarto install tinytex
 You can use OpenBLAS to speed up linear algebra operations but use at your own risk! Instructions below are modified from this [SO post](https://stackoverflow.com/questions/38090206/linking-intels-math-kernel-library-mkl-to-r-on-windows) and <https://medium.com/@FredHo42/using-intel-mkl-library-on-r-4-0-641dc0c3c06b>.
 
 1. Download latest version of OpenBLAS from <https://github.com/OpenMathLib/OpenBLAS/releases>.
-1. Copy Rlapack.dll and Rblas.dll from `./bin/x64` in R installation folder to safe location.
-1. Now create 2 copies of libopenblas.dll named Rlapack.dll and Rblas.dll and copy them to folder from step 1.
+1. Copy `Rlapack.dll` and `Rblas.dll` from `./bin/x64` in R installation folder to safe location.
+1. Now create 2 copies of `libopenblas.dll` named `Rlapack.dll` and `Rblas.dll` and copy them to folder from step 1.
 1. If you run into problems, you can revert back to the original DLLs.
 
 Check performance:
