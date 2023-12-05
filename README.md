@@ -1177,6 +1177,13 @@ This section is based on the following links:
     # https://www.haskell.org/ghcup/install/#vscode-integration
     system-ghc: true
     install-ghc: false
+    extra-path:
+      - 'D:\msys64\usr\bin'
+      - 'D:\msys64\mingw64\bin'
+    extra-include-dirs:
+      - 'D:\msys64\mingw64\include'
+    extra-lib-dirs:
+      - 'D:\msys64\mingw64\lib'
     ```
 
 [^3]: If you execute a `stack` command before your config file is set up correctly, it will attempt to download GHC, msys2 which is not what we want :astonished:
@@ -1203,7 +1210,8 @@ Checks:
     ```shell
     where.exe stack
     stack path
-    stack exec -- where.exe ghc
+    stack exec -- which ghc
+    stack exec sh
     ```
 
 #### Haskell Language Server
