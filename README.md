@@ -84,6 +84,13 @@
     - [Regular installation steps](#regular-installation-steps)
     - [Alternative installation steps](#alternative-installation-steps)
       - [Environment variables](#environment-variables)
+      - [ghcup](#ghcup)
+      - [msys2](#msys2)
+      - [ghc](#ghc)
+      - [cabal](#cabal)
+      - [stack](#stack)
+      - [Haskell Language Server](#haskell-language-server)
+    - [Configuring VS Code](#configuring-vs-code)
   - [Miscellaneous](#miscellaneous)
 
 ## Overview
@@ -1028,6 +1035,9 @@ See [miktex_packages.txt](./miktex_packages.txt) for list of packages to install
 - Add installation folder (e.g. **D:\Apps\VSCode\bin**) to `$Path`.
 
 - Use settings sync to get settings.
+
+> [!TIP]
+> If you run into the error **`Another instance of Code is running as administrator`**, [you can resolve this by setting VS Code to always run as admin](https://github.com/microsoft/vscode/issues/6560#issuecomment-1732330823).
 
 ## WinMerge
 
