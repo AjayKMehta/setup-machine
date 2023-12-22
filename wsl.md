@@ -82,7 +82,7 @@ See [Supported distributions](https://learn.microsoft.com/en-us/dotnet/core/inst
 
 - See [here](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode) for steps to configure WSL for use wih VS Code.
 
-## Install apps
+## wsl apps
 
 - [wslu](https://wslutiliti.es/wslu/) is a collection of utilities for WSL.
 
@@ -195,6 +195,23 @@ eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/{theme}.omp.json)"
     ```
 
 - Install `luarocks`: `sudo apt install luarocks`.
+
+## git
+
+```bash
+# For diffs
+sudo apt install meld
+sudo apt install git
+sudo apt install git-absorb
+# Github CLI
+sudo apt install gh
+```
+
+Add to `~/.bash_profile`:
+
+```bash
+eval "$(gh completion -s bash)"
+```
 
 ## LaTeX
 
