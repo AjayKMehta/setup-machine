@@ -206,11 +206,21 @@ eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/{theme}.omp.json)"
 6. Install font using user-mode: `tlmgr --usermode install courier`
 7. Install `chtex`: `sudo apt install chktex`
 8. Run `sudo apt install latexmk` to install `latexmk`.
-9. For vimtex:
-     - `sudo apt install zathura zathura-ps`.
+9. To edit LaTex files using `vimtex` plugin in neovim, the following is needed:     - `sudo apt install zathura zathura-ps`.
      - `pip install neovim-remote`
      - `sudo apt-get install xdotool`
-     - See [this](https://www.ejmastnak.com/tutorials/vim-latex/pdf-reader/#zathura) for more info.
+     - See [this](https://www.ejmastnak.com/tutorials/vim-latex/pdf-reader/#a-pdf-reader-on-linuxa) for more info.
+     - If you run into issues with viewing PDF, try this :sparkles:: run `sudo loginctl enable-linger <username>` or `sudo systemctl restart user@1000` ([source](https://github.com/microsoft/WSL/issues/8842)).
+     - If `xodotool` doesn't work, set this in config for `vimtex.nvim`:
+
+        ```lua
+        vim.g.vimtex_view_method = 'zathura_simple'
+        ``````
+
+10. Installing updates: see [here](https://tug.org/texlive/doc/tlmgr.html#EXAMPLES).[^1]
+
+[^1]: Still doesn't work due to conflict between system and local `tlmgr` :unamused:
+
 
 ## Misc
 
