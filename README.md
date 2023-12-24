@@ -1107,13 +1107,14 @@ This section is based on the following links:
     |-----------------------------|----------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | `GHCUP_INSTALL_BASE_PREFIX` | D:\Apps                                                  | [Defaults to `$HOME`](https://www.haskell.org/ghcup/guide/#env-variables)                                                                                                                                                                          |
     | `CABAL_DIR`                 | D:\Apps\cabal                                            | If set, *all* `cabal-install` content files will be stored as subdirectories of this directory, including the configuration file if `CABAL_CONFIG` is unset. See [here](https://cabal.readthedocs.io/en/stable/config.html#environment-variables). |
-    | `CABAL_CONFIG`              | %USERPROFILE%\\.config\cabal\config                       | Path for global configuration file.                                                                                                                                                                                                                |
+    | `CABAL_CONFIG`              | `%USERPROFILE%`\\.config\cabal\config                       | Path for global configuration file.                                                                                                                                                                                                                |
     | `GHCUP_MSYS2`               | D:\msys64                                                | [Has to point to the root of an existing MSYS2 installation](https://www.haskell.org/ghcup/guide/#env-variables)                                                                                                                                   |
     | `STACK_ROOT`                | D:\sr                                                    | This is where `stack` stores downloaded programs and snapshot packages. See [here](https://docs.haskellstack.org/en/stable/stack_root/).                                                                                                           |
     | `GITHUB_TOKEN`              | GitHub PAT. See [GitHub Token](#github-pat) for details. | Used by `stack` to authenticate when using GitHub REST API. See [here](https://docs.haskellstack.org/en/stable/environment_variables/).                                                                                                            |
 
 > [!IMPORTANT]
 > You also need to add `D:\Apps\ghcup\bin` to `$Path`.
+> You also need to make sure `$HOME` is set if you want to save `.ghci` there.
 
 #### ghcup
 
@@ -1157,7 +1158,7 @@ This section is based on the following links:
     ghcup install ghc --set recommended
     ```
 
-- Edit [config files](https://downloads.haskell.org/ghc/latest/docs/users_guide/ghci.html?highlight=import#the-ghci-and-haskeline-files) as needed. The `ghci.conf` file in `$AppData\ghc` can be used for turning on favorite options (e.g. `:set +s`), and defining useful macros. `~/.ghci` can be used as a startup script. See [here](https://wiki.haskell.org/GHC/GHCi) for good ideas.
+- Edit [config files](https://downloads.haskell.org/ghc/latest/docs/users_guide/ghci.html?highlight=import#the-ghci-and-haskeline-files) as needed. The `ghci.conf` file in `$AppData\ghc` can be used for turning on favorite options (e.g. `:set +s`), and defining useful macros. `$HOME/.ghci` can be used as a startup script. See [here](https://wiki.haskell.org/GHC/GHCi) for good ideas.
 
 #### cabal
 
@@ -1247,6 +1248,49 @@ Checks:
     ghc-options:
     '$everything': -haddock
     ```
+
+### Configuring VS Code
+
+#### Syntax highlighting
+
+**Haskell Syntax Highlighting** ([justusadam.language-haskell](https://github.com/JustusAdam/language-haskell) add syntax highlighting  for Haskell and Cabal files.
+
+#### Language Server
+
+**Haskell for VS Code** ([haskell.haskell](https://github.com/haskell/vscode-haskell)) is powered by the Haskell Language Server.
+
+**Setup:**
+
+1. Make sure your `setting.json` has this setting: `"haskell.manageHLS": "GHCup"`
+
+1. Install one of the formatters below:
+
+    ```shell
+    stack install ormolu
+    stack install brittany
+    ```
+
+#### Debugging
+
+**Haskell GHCi Debug Adapter Phoityne** ([phoityne.phoityne-vscode](https://github.com/phoityne/hdx4vsc)) provides debugging support. See website for how to configure `launch.json` to debug Haskell code.
+
+**Setup:**
+
+Install [haskell-dap](https://hackage.haskell.org/package/haskell-dap), [ghci-dap](https://hackage.haskell.org/package/ghci-dap), [haskell-debug-adapter](https://hackage.haskell.org/package/haskell-debug-adapter):
+
+```shell
+$ stack update
+$
+$ stack install haskell-dap ghci-dap haskell-debug-adapter
+```
+
+#### Linting
+
+**[VSCode HLint](https://github.com/swsnr/vscode-hlint)** requires hlint to be installed:
+
+```shell
+stack install hlint
+```
 
 ## Miscellaneous
 
