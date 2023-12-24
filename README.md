@@ -674,11 +674,6 @@ See [here](https://nbdev.fast.ai/tutorials/git_friendly_jupyter.html) for detail
 
 Make sure that you configure environment variables for API keys.
 
-#### PaLM
-
-- Navigate to <https://makersuite.google.com/app/apikey> and create a key.
-- Set `$GOOGLE_API_KEY` to this value.
-
 #### Cohere
 
 - Create API key at <https://dashboard.cohere.com/api-keys>.
