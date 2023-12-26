@@ -48,7 +48,6 @@
       - [Workaround for Quarto](#workaround-for-quarto)
       - [Git-friendly hooks](#git-friendly-hooks)
     - [GenAI](#genai)
-      - [PaLM](#palm)
       - [Cohere](#cohere)
       - [Replicate](#replicate)
       - [Weights & Biases](#weights--biases)
@@ -91,6 +90,11 @@
       - [stack](#stack)
       - [Haskell Language Server](#haskell-language-server)
     - [Configuring VS Code](#configuring-vs-code)
+      - [Syntax highlighting](#syntax-highlighting)
+      - [Language Server](#language-server)
+      - [Debugging](#debugging)
+      - [Linting](#linting)
+      - [Theme](#theme)
   - [Miscellaneous](#miscellaneous)
 
 ## Overview
@@ -1291,6 +1295,10 @@ $ stack install haskell-dap ghci-dap haskell-debug-adapter
 ```shell
 stack install hlint
 ```
+
+#### Theme
+
+[Lambda Black](https://github.com/janw4ld/lambda-black) is optimized for Haskell.
 
 ## Miscellaneous
 
