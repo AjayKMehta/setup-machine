@@ -247,30 +247,60 @@ See [ModulesToInstall.txt](./ModulesToInstall.txt) for list of modules to instal
     Test-SecretVault -Name 'Keepass'
     ```
 
+## GPG
+
+- Install required apps:
+
+    ```powershell
+    winget install --id GnuPG.GnuPG -l 'D:\Apps\GnuPG'
+    winget install --id GnuPG.Gpg4win -l 'D:\Apps\Gpg4win'
+    ```
+
+- Add to `$Path` if needed:
+
+    ```powershell
+    $path = [System.Environment]::GetEnvironmentVariable('Path', 'Machine')
+    $path += ';D:\Apps\Gpg4win\bin;D:\Apps\GnuPG\bin'
+    [System.Environment]::SetEnvironmentVariable('Path', $path, 'Machine')
+    ```
+
+### Managing keys
+
+List keys:
+
+```powershell
+$secretKeys = (gpg --list-secret-keys --with-colons | sls -Pattern '^sec:').Line | % { $parts = $_ -split ':'; $parts[4] }
+$secretKeys
+
+$keys = (gpg --list-keys --with-colons | sls -Pattern '^pub:').Line | % { $parts = $_ -split ':'; $parts[4] }
+$keys
+```
+
+Export keys:
+
+```powershell
+$keys | % { gpg --export -a $_ | Out-File ${_}_.asc }
+$secretKeys | % { gpg --export-secret-keys -a $_ | Out-File ${_}_sec.asc }
+```
+
+Import keys:
+
+```powershell
+ls *.asc -Name | % { gpg --import $_ }
+```
+
+### Useful Links
+
+- <https://superuser.com/questions/1150165/get-list-of-secret-key-ids>
+- <https://security.stackexchange.com/questions/43348/extracting-the-pgp-keyid-from-the-public-key-file>
+- <https://stackoverflow.com/questions/39596446/how-to-get-gpg-public-key-in-bash>
+- <https://www.phildev.net/pgp/gpg_moving_keys.html>
+
 ## git
 
 - Install: `winget install --id Git.Git -e --source winget`.
 
-- [Enable auto-signing Git commits with GnuPG](https://gist.github.com/BoGnY/f9b1be6393234537c3e247f33e74094a):
-
-    - Install required apps:
-
-        ```powershell
-        winget install --id GnuPG.GnuPG -l 'D:\Apps\GnuPG'
-        winget install --id GnuPG.Gpg4win -l 'D:\Apps\Gpg4win'
-        ```
-
-    - Add to `$Path` if needed:
-
-        ```powershell
-        $path = [System.Environment]::GetEnvironmentVariable('Path', 'Machine')
-        $path += ';D:\Apps\Gpg4win\bin;D:\Apps\GnuPG\bin'
-        [System.Environment]::SetEnvironmentVariable('Path', $path, 'Machine')
-        ```
-
-    - Managing GPG keys
-        🚧 **WIP**
-    <!-- TODO: Add blurb about exporting/importing/creating GPG keys -->
+- [Enable auto-signing Git commits with GnuPG](https://gist.github.com/BoGnY/f9b1be6393234537c3e247f33e74094a).
 
 ### GitHub CLI
 
