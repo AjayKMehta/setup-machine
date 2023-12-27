@@ -227,6 +227,42 @@ Add to `~/.bash_profile`:
 eval "$(gh completion -s bash)"
 ```
 
+## Haskell
+
+- Install [ghcup](https://www.haskell.org/ghcup/install/):
+
+    ```bash
+    curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+    ```
+
+- Install [prerequisite packages](https://haskell-language-server.readthedocs.io/en/latest/installation.html#linux-specific-pre-requirements):
+
+    ```bash
+    sudo apt install libicu-dev libncurses-dev libgmp-dev zlib1g-dev
+    ```
+
+- Install toolchain:
+
+    ```bash
+    ghcup install ghc --set recommended
+    ghcup install cabal latest
+    ghcup install stack latest
+    ghcup install hls latest
+    cabal update
+    ```
+
+- Add [shell completion for `stack`](https://docs.haskellstack.org/en/stable/shell_autocompletion/) by adding the following to completion script:
+
+    ```bash
+    eval "$(stack --bash-completion-script stack)"
+    ```
+
+- Install [haskell-debug-adapter](https://github.com/phoityne/haskell-debug-adapter)
+
+    ```bash
+    stack install haskell-dap ghci-dap haskell-debug-adapter
+    ```
+
 ## LaTeX
 
 1. Follow [these instructions](https://tug.org/texlive/quickinstall.html) but **make sure** to append `--paper=letter` to `perl ./install-tl --no-interaction`.
