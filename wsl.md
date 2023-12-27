@@ -37,6 +37,12 @@ See this [link](https://stackoverflow.com/a/51767786/781045) for more details.
     default = <your username>
     ```
 
+### [How can I transfer my WSL files from one machine to another?](https://learn.microsoft.com/en-us/windows/wsl/faq#how-can-i-transfer-my-wsl-files-from-one-machine-to-another-)
+
+1. On machine with WSL distribution, run `wsl --export --vhd <DistributionName> <FileName>`, e.g. `wsl --export --vhd Ubuntu Ubuntu.vhdx`.
+1. Copy `.vhdx` file to new machine.
+1. On new machine: `wsl --import <InstallLocation> <FileName>`.
+
 ## [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/install-ubuntu)
 
 Available from the Linux package repository for Microsoft products, <https://packages.microsoft.com>, also known as PMC.
@@ -101,6 +107,13 @@ See [Supported distributions](https://learn.microsoft.com/en-us/dotnet/core/inst
 
 ```shell
 sudo apt install systemd-coredump python3-pip python3.10-venv
+```
+
+[Install visidata](https://jsvine.github.io/intro-to-visidata/the-big-picture/installation/
+):
+
+```shell
+pip install visidata
 ```
 
 ## [Go](https://www.fosslinux.com/68795/install-go-on-ubuntu.htm)
