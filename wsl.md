@@ -199,9 +199,10 @@ eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/{theme}.omp.json)"
 ## git
 
 ```bash
+sudo apt install git
+
 # For diffs
 sudo apt install meld
-sudo apt install git
 sudo apt install git-absorb
 # Github CLI
 sudo apt install gh
@@ -254,7 +255,7 @@ curl -sSL https://bit.ly/install-xq | sudo bash
 
 # Installs as fdfind
 sudo apt install fd-find
-
+sudo apt install age
 sudo apt install shellcheck
 sudo apt install cmake
 sudo apt install clang-format
@@ -281,3 +282,4 @@ sudo apt update && sudo apt install gum
 - <https://calebschoepp.com/blog/2021/how-to-setup-oh-my-posh-on-ubuntu>
 - <https://tex.stackexchange.com/questions/137428/tlmgr-cannot-setup-tlpdb>
 - <https://www.reddit.com/r/bashonubuntuonwindows/comments/zu6wk1/comment/j1je4j3/?utm_source=share&utm_medium=web2x&context=3>
+- <https://www.freecodecamp.org/news/how-to-set-an-environment-variable-in-linux>
