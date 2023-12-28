@@ -752,6 +752,24 @@ To override the directory used to store prompt templates, etc., set `$LLM_USER_P
 1. To avoid the issue of C: running out of disk space, set `$R_LIBS` to a different path, e.g.`D:\packages`.
 1. Set `$GITHUB_PAT` to [GitHub PAT obtained](#github-pat). This is neccessary for avoiding rate-limit issues when installing packages from GitHub using the [`remotes`](https://github.com/r-lib/remotes#environment-variables) package.
 
+### Packages
+
+- To install packages from `r-universe`:
+
+    ```r
+    install.packages("universe")
+    # For dev version:
+    # install.packages("universe", repos = "https://ropensci.r-universe.dev")
+    ```
+
+- Use `universe::add()` to opt-in to a package repository (this will modify your `options('repos')` list).
+
+    ```r
+    universe::add("ropensci")
+    ```
+
+- Install packages in [Packages.csv](./Packages.csv).
+
 ### RStudio
 
 ```shell
