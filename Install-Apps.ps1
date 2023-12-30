@@ -17,8 +17,8 @@ Install-WinGetApp -AppName Oracle.JDK.17
 # CLI apps
 Install-WinGetApp -AppName jftuga.less "$CustomLocation\CLI"
 
-Install-WinGetApp -AppName yq "$CustomLocation\CLI" '-r' yq.exe
-Install-WinGetApp -AppName stedolan.jq "$CustomLocation\CLI" '-r' jq.exe
+Install-WinGetApp -AppName MikeFarah.yq "$CustomLocation\CLI"
+Install-WinGetApp -AppName jqlang.jq "$CustomLocation\CLI"
 Install-WinGetApp -AppName DuckDB.cli "$CustomLocation\CLI"
 Install-WinGetApp twpayne.chezmoi "$CustomLocation\CLI"
 Install-WinGetApp -AppName charmbracelet.gum "$CustomLocation\CLI"
