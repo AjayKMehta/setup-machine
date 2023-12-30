@@ -165,7 +165,7 @@ See [here](https://learn.microsoft.com/en-us/windows-server/administration/opens
 - Install KeePassXC:
 
     ```shell
-    winget install KeePassXCTeam.KeePassXC -l D:\Apps\KeePassXC
+    winget install KeePassXCTeam.KeePassXC
     ```
 
 - See [here](https://keepassxc.org/docs/KeePassXC_GettingStarted.html) for information on getting started.
@@ -174,7 +174,7 @@ See [here](https://learn.microsoft.com/en-us/windows-server/administration/opens
 
     ```powershell
     $path = [System.Environment]::GetEnvironmentVariable('Path', 'Machine')
-    $path += ';D:\Apps\KeePassXC'
+    $path += ';C:\Program Files\KeePassXC'
     [System.Environment]::SetEnvironmentVariable('Path', $path, 'Machine')
     ```
 
