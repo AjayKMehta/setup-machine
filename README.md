@@ -401,8 +401,7 @@ winget install GitExtensionsTeam.GitExtensions
 - Install:
 
     ```powershell
-    winget install JohnTaylor.less -l D:\Apps
-    winget install JohnTaylor.lesskey -l D:\Apps
+    winget install jftuga.less -l D:\Apps\CLI
     ```
 
 - Set environment variables:
