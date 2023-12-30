@@ -25,7 +25,7 @@ Install-WinGetApp -AppName charmbracelet.gum "$CustomLocation\CLI"
 Install-WinGetApp -AppName GNU.wget2
 
 # Security
-Install-WinGetApp -AppName KeePassXCTeam.KeePassXC "$CustomLocation\KeePassXC"
+Install-WinGetApp -AppName KeePassXCTeam.KeePassXC
 Install-WinGetApp -AppName GnuPG.GnuPG "$CustomLocation\GnuPG"
 Install-WinGetApp -AppName GnuPG.Gpg4win "$CustomLocation\Gpg4win"
 
