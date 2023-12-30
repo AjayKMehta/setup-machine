@@ -30,15 +30,15 @@ Install-WinGetApp -AppName GnuPG.GnuPG "$CustomLocation\GnuPG"
 Install-WinGetApp -AppName GnuPG.Gpg4win "$CustomLocation\Gpg4win"
 
 # Dev
-Install-WinGetApp -AppName Microsoft.OpenSSH.Beta
+Install-WinGetApp -AppName Git.Git
+Install-WinGetApp -AppName Glab.Glab
+Install-WinGetApp -AppName GitExtensionsTeam.GitExtensions
+
 Install-WinGetApp -AppName wez.wezterm "$CustomLocation\WezTerm"
 Install-WinGetApp -AppName Docker.DockerDesktop
 Install-WinGetApp -AppName wagoodman.dive $CustomLocation
 Install-WinGetApp -AppName JesseDuffield.Lazydocker $CustomLocation
 Install-WinGetApp -AppName WinMerge.WinMerge "$CustomLocation\WinMerge"
-Install-WinGetApp -AppName Git.Git
-Install-WinGetApp -AppName Glab.Glab
-Install-WinGetApp -AppName GitExtensionsTeam.GitExtensions
 Install-WinGetApp -AppName Microsoft.VisualStudioCode "$CustomLocation\VSCode"
 Install-WinGetApp -AppName OpenJS.NodeJS "$CustomLocation\nodejs"
 Install-WinGetApp -AppName Kitware.CMake "$CustomLocation\CMake"
