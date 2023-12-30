@@ -458,13 +458,13 @@ ripgrep is a powerful search tool.
 
 **[yq](https://github.com/mikefarah/yq)** is a portable command-line YAML, JSON, XML, CSV and properties processor.
 
-Install: `winget install yq -l D:\Apps -r yq.exe`.
+Install: `winget install MikeFarah.yq -l D:\Apps\CLI`.
 
 ### jq
 
 [jq](https://github.com/stedolan/jq) is a command-line JSON processor.
 
-Install: `winget install stedolan.jq -l D:\Apps -r jq.exe`.
+Install: `winget install jqlang.jq -l D:\Apps\CLI`.
 
 ### bat
 
