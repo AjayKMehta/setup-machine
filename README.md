@@ -421,10 +421,10 @@ winget install GitExtensionsTeam.GitExtensions
     $downloadFolder = (Resolve-Path ~\Downloads).Path
     $pattern = 'fzf*windows*amd64.zip'
     gh release download --repo junegunn/fzf --pattern $pattern -D $downloadFolder
-    $zipFile = Get-Item $downloadFolder -Filter $pattern | Select-Object -First 1
-    $destination = 'D:\Apps'
-    7z e -o"$destination" $zipFile 'fzf.exe'
-    $zipFile | Delete-Item
+    $zipFile = Get-ChildItem $downloadFolder -Filter $pattern | Select-Object -First 1
+    $destination = 'D:\Apps\CLI'
+    & 'C:\Program Files\7-Zip\7z.exe' e -o"$destination" $zipFile 'fzf.exe'
+    $zipFile | Remove-Item -Force
     ```
 
 2. Override default command: set `$FZF_DEFAULT_COMMAND` to `rg --files . 2> nul`.
