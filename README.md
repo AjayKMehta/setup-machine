@@ -420,8 +420,8 @@ winget install GitExtensionsTeam.GitExtensions
     ```powershell
     $downloadFolder = (Resolve-Path ~\Downloads).Path
     $pattern = 'fzf*windows*amd64.zip'
-    gh release download --repo junegunn/fzf --pattern $pattern -D $downloadPath
-    $zipFile = Get-Item $downloadPath -Filter $pattern | Select-Object -First 1
+    gh release download --repo junegunn/fzf --pattern $pattern -D $downloadFolder
+    $zipFile = Get-Item $downloadFolder -Filter $pattern | Select-Object -First 1
     $destination = 'D:\Apps'
     7z e -o"$destination" $zipFile 'fzf.exe'
     $zipFile | Delete-Item
