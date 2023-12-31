@@ -29,15 +29,18 @@ Install-WinGetApp -AppName KeePassXCTeam.KeePassXC
 Install-WinGetApp -AppName GnuPG.GnuPG "$CustomLocation\GnuPG"
 Install-WinGetApp -AppName GnuPG.Gpg4win "$CustomLocation\Gpg4win"
 
-# Dev
+# git
 Install-WinGetApp -AppName Git.Git
 Install-WinGetApp -AppName Glab.Glab
 Install-WinGetApp -AppName GitExtensionsTeam.GitExtensions
 
-Install-WinGetApp -AppName wez.wezterm "$CustomLocation\WezTerm"
+# Docker
 Install-WinGetApp -AppName Docker.DockerDesktop
-Install-WinGetApp -AppName wagoodman.dive $CustomLocation
-Install-WinGetApp -AppName JesseDuffield.Lazydocker $CustomLocation
+Install-WinGetApp -AppName wagoodman.dive "$CustomLocation\CLI"
+Install-WinGetApp -AppName JesseDuffield.Lazydocker "$CustomLocation\CLI"
+
+# Dev
+Install-WinGetApp -AppName wez.wezterm "$CustomLocation\WezTerm"
 Install-WinGetApp -AppName WinMerge.WinMerge "$CustomLocation\WinMerge"
 Install-WinGetApp -AppName Microsoft.VisualStudioCode "$CustomLocation\VSCode"
 Install-WinGetApp -AppName OpenJS.NodeJS "$CustomLocation\nodejs"
