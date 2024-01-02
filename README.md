@@ -448,7 +448,7 @@ ripgrep is a powerful search tool.
 
 ### delta
 
-**[delta](https://github.com/dandavison/delta)** is a syntax-highlighting pager for git, diff, and grep output. In order to use it with git, you need to modify .gitconfig or you can import dot files.
+**[delta](https://github.com/dandavison/delta)** is a syntax-highlighting pager for git, diff, and grep output. In order to use it with git, you need to modify `.gitconfig` or you can import dot files.
 
 - [Installation notes](https://dandavison.github.io/delta/installation.html)
 
@@ -483,13 +483,13 @@ Install: `winget install jqlang.jq -l D:\Apps\CLI`.
 > Gum provides highly configurable, ready-to-use utilities to help you write useful shell scripts and dotfiles aliases with just a few lines of code.
 
 ```shell
-winget install charmbracelet.gum -l D:\Apps
+winget install charmbracelet.gum -l D:\Apps\CLI
 ```
 
 ### duckdb
 
 ```shell
-winget install DuckDB.cli -l D:\Apps
+winget install DuckDB.cli -l D:\Apps\CLI
 ```
 
 #### Upgrading
@@ -519,7 +519,7 @@ winget install GNU.wget2
 - Install [chezmoi](https://github.com/twpayne/chezmoi):
 
     ```shell
-    winget install twpayne.chezmoi
+    winget install twpayne.chezmoi -l D:\Apps\CLI
     ```
 
 - Run `chezmoi init` to create an initial `chezmoi.toml` using template in repo:
