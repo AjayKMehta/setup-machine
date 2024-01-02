@@ -602,14 +602,14 @@ docker run -it --rm --privileged --pid=host justincormack/nsenter1
 ### [Shrink your WSL2 Virtual Disks and Docker Images and Reclaim Disk Space](https://www.hanselman.com/blog/shrink-your-wsl2-virtual-disks-and-docker-images-and-reclaim-disk-space)
 
 ```powershell
-Optimize-VHD -Path D:\Docker\wsl\data\ext4.vhdx -Mode Full
+Optimize-VHD -Path D:\wsl\Docker\data\ext4.vhdx -Mode Full
 ```
 
 ### Utilities
 
 ```shell
-winget install wagoodman.dive -l D:\Apps
-winget install JesseDuffield.Lazydocker -l D:\Apps
+winget install wagoodman.dive -l D:\Apps\CLI
+winget install JesseDuffield.Lazydocker -l D:\Apps\CLI
 ```
 
 ## [WezTerm](https://wezfurlong.org/wezterm/index.html)
