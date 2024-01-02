@@ -634,24 +634,25 @@ WezTerm is a powerful cross-platform terminal emulator and multiplexer.
 
 ## Hadoop
 
-See [here](https://kontext.tech/article/447/install-hadoop-330-on-windows-10-step-by-step-guide) for more details. As of the time this was written, the version of interest for Hadoop was 3.3.1.
+See [here](https://kontext.tech/article/447/install-hadoop-330-on-windows-10-step-by-step-guide) for more details. As of the time this was written, the version of interest for Hadoop was 3.3.5.
 
 ```powershell
 pushd ~/Downloads
-Invoke-WebRequest https://dlcdn.apache.org/hadoop/common/hadoop-3.3.1/hadoop-3.3.1.tar.gz -OutFile hadoop-3.3.1.tar.gz -Verbose
+$version = '3.35'
+Invoke-WebRequest "https://dlcdn.apache.org/hadoop/common/hadoop-$version/hadoop-$version.tar.gz" -OutFile "hadoop-$version.tar.gz" -Verbose
 # https://stackoverflow.com/a/2903532
-7z e hadoop-3.3.1.tar.gz && 7z x hadoop-3.3.1.tar -o"D:/Apps"
-Remove-Item hadoop-3.3.1.tar*
+7z e "hadoop-$version.tar.gz" && 7z x "hadoop-$version.tar" -o"D:/Apps"
+Remove-Item "hadoop-$version.tar*"
 
 # Download Hadoop native IO binary
-gh download https://github.com/kontext-tech/winutils/tree/master/hadoop-3.3.1/bin
+gh download "https://github.com/cdarlint/winutils/tree/master/hadoop-$version/bin" 
 
 # Copy files to bin folder. Add -L to do dry-run
-robocopy .\hadoop-3.3.1\bin D:\Apps\hadoop-3.3.1\bin
-Remove-Item .\hadoop-3.3.1\bin 
+robocopy ".\hadoop-$version\bin" "D:\Apps\hadoop-$version\bin"
+Remove-Item ".\hadoop-$version\bin" -Recurse 
 popd
 
-[System.Environment]::SetEnvironmentVariable('HADOOP_HOME', 'D:\Apps\hadoop-3.3.1', 'User')
+[System.Environment]::SetEnvironmentVariable('HADOOP_HOME', "D:\Apps\hadoop-$version", 'User')
 ```
 
 ## Python
