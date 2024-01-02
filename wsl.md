@@ -41,7 +41,7 @@ See this [link](https://stackoverflow.com/a/51767786/781045) for more details.
 
 1. On machine with WSL distribution, run `wsl --export --vhd <DistributionName> <FileName>`, e.g. `wsl --export --vhd Ubuntu Ubuntu.vhdx`.
 1. Copy `.vhdx` file to new machine.
-1. On new machine: `wsl --import <InstallLocation> <FileName>`.
+1. On new machine: `wsl --import <DistributionName> <InstallLocation> <FileName>`.
 
 ## [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/install-ubuntu)
 

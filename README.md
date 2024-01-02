@@ -587,8 +587,8 @@ Follow the instructions [here for WSL 2 backend](https://www.kindacode.com/artic
 wsl --shutdown
 wsl --export docker-desktop-data docker-desktop-data.tar
 wsl --unregister docker-desktop-data
-# Import the exported data to D:\Docker\wsl\data
-wsl --import docker-desktop-data D:/Docker/wsl/data docker-desktop-data.tar --version 2
+# Import the exported data to D:\wsl\Docker\data
+wsl --import docker-desktop-data D:/wsl/Docker/data docker-desktop-data.tar --version 2
 ```
 
 ### Getting a Shell in Docker for Windows Moby VM
