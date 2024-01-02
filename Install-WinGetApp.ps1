@@ -20,7 +20,7 @@ function Install-WinGetApp {
         $exeArgs.Add($InstallFolder)
     }
     if ($InstallerArgs.Count -gt 0) {
-        exeArgs.AddRange($InstallerArgs)
+        $exeArgs.AddRange($InstallerArgs)
     }
     winget.exe $exeArgs
 }
