@@ -1,7 +1,7 @@
 using namespace System.Collections.Generic
 
 function Install-WinGetApp {
-    [CmdletBinding()]
+    [CmdletBinding(PositionalBinding = $false)]
     param (
         [Parameter(Mandatory = $true)]
         [Alias('Id')]
@@ -9,7 +9,7 @@ function Install-WinGetApp {
         [string] $AppName,
         [ValidateNotNullOrEmpty()]
         [string] $InstallFolder,
-        [parameter(ValueFromRemainingArguments = $true)]
+        [Parameter()]
         [string[]]$InstallerArgs
     )
 
