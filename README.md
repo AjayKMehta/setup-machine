@@ -138,7 +138,7 @@ The [Advanced System Font Changer](https://www.wintools.info/index.php/advanced-
 
 - Download from [web](https://notepad-plus-plus.org/download/) and install or use **winget**:
 
-    ```shell
+    ```powershell
     winget install -e Notepad++.Notepad++
     ```
 
@@ -165,7 +165,7 @@ See [here](https://learn.microsoft.com/en-us/windows-server/administration/opens
 
 - Install KeePassXC:
 
-    ```shell
+    ```powershell
     winget install KeePassXCTeam.KeePassXC
     ```
 
@@ -183,7 +183,7 @@ See [here](https://learn.microsoft.com/en-us/windows-server/administration/opens
 
 - Install:
 
-    ```shell
+    ```powershell
     winget install -e --id Microsoft.PowerShell
     ```
 
@@ -335,7 +335,7 @@ ls *.asc -Name | % { gpg --import $_ }
 
 Install extensions:
 
-```shell
+```powershell
 gh extension install actions/gh-actions-cache
 gh extension install securesauce/gh-alerts
 gh extension install mislav/gh-branch
@@ -475,7 +475,7 @@ Install: `winget install jqlang.jq -l D:\Apps\CLI`.
 - Add following environment variables: `BAT_PAGER = less -RF`.
 - A default configuration file can be created with the `--generate-config-file` option.
 
-    ```shell
+    ```powershell
     bat --generate-config-file
     ```
 
@@ -483,7 +483,7 @@ Install: `winget install jqlang.jq -l D:\Apps\CLI`.
 
 > Gum provides highly configurable, ready-to-use utilities to help you write useful shell scripts and dotfiles aliases with just a few lines of code.
 
-```shell
+```powershell
 winget install charmbracelet.gum -l D:\Apps\CLI
 ```
 
@@ -497,7 +497,7 @@ winget install muesli.duf -l D:\Apps\CLI
 
 ### duckdb
 
-```shell
+```powershell
 winget install DuckDB.cli -l D:\Apps\CLI
 ```
 
@@ -519,7 +519,7 @@ For example, let's say you have a database `D:/duck_db/nyc-taxi.duckdb`.
 
 ### wget2
 
-```shell
+```powershell
 winget install GNU.wget2
 ```
 
@@ -527,13 +527,13 @@ winget install GNU.wget2
 
 - Install [chezmoi](https://github.com/twpayne/chezmoi):
 
-    ```shell
+    ```powershell
     winget install twpayne.chezmoi -l D:\Apps\CLI
     ```
 
 - Run `chezmoi init` to create an initial `chezmoi.toml` using template in repo:
 
-    ```shell
+    ```powershell
     chezmoi init AjayKMehta
     ```
 
@@ -544,13 +544,13 @@ winget install GNU.wget2
 
 - To test this template, [use `chezmoi execute-template` with the `--init` and `--promptString` flags](https://www.chezmoi.io/user-guide/setup/#create-a-config-file-on-a-new-machine-automatically):
 
-    ```shell
+    ```powershell
     cat ~/.local/share/chezmoi/.chezmoi.toml.tmpl | chezmoi execute-template --init --promptString gpgrecipient='<RECIPIENT>'
     ```
 
 - Generate dot files:
 
-    ```shell
+    ```powershell
     chezmoi apply
     ```
 
@@ -560,7 +560,7 @@ winget install GNU.wget2
 
 - Install:
 
-    ```shell
+    ```powershell
     winget install Hugo.Hugo -l D:\apps\Hugo
     ```
 
@@ -572,7 +572,7 @@ See [wsl.md](wsl.md).
 
 ## [Docker](https://www.docker.com/)
 
-```shell
+```powershell
 winget install Docker.DockerDesktop
 ```
 
@@ -592,7 +592,7 @@ winget install Docker.DockerDesktop
 
 Follow the instructions [here for WSL 2 backend](https://www.kindacode.com/article/docker-desktop-change-images-containers-directory/):
 
-```shell
+```powershell
 wsl --shutdown
 wsl --export docker-desktop-data docker-desktop-data.tar
 wsl --unregister docker-desktop-data
@@ -602,7 +602,7 @@ wsl --import docker-desktop-data D:/wsl/Docker/data docker-desktop-data.tar --ve
 
 ### Getting a Shell in Docker for Windows Moby VM
 
-```shell
+```powershell
 docker run -it --rm --privileged --pid=host justincormack/nsenter1
 ```
 
@@ -616,7 +616,7 @@ Optimize-VHD -Path D:\wsl\Docker\data\ext4.vhdx -Mode Full
 
 ### Utilities
 
-```shell
+```powershell
 winget install wagoodman.dive -l D:\Apps\CLI
 winget install JesseDuffield.Lazydocker -l D:\Apps\CLI
 ```
@@ -627,7 +627,7 @@ WezTerm is a powerful cross-platform terminal emulator and multiplexer.
 
 - Install:
 
-    ```shell
+    ```powershell
     winget install wez.wezterm -l D:\Apps\WezTerm
     ```
 
@@ -674,19 +674,19 @@ popd
 - To use [UTF-8 mode on Windows](https://dev.to/methane/python-use-utf-8-mode-on-windows-212i), set environment variable `$PYTHONUTF8` to 1.
 - To enable conda in PowerShell, run the following in conda prompt:
 
-    ```shell
+    ```powershell
     conda init powershell cmd.exe
     ```
 
 - Enable `pip` interoperability:
 
-    ```shell
+    ```powershell
     conda config --set pip_interop_enabled True
     ```
 
 - Add environment variables:
 
-    ```shell
+    ```powershell
     SET VS140COMNTOOLS = "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\"
     SET VS90COMNTOOLS = %VS140COMNTOOLS%
     ```
@@ -701,7 +701,7 @@ Install following extensions:
 - @jupyterlab/latex
 - @ryantam626/jupyterlab_code_formatter
 
-```shell
+```powershell
 mamba install jupyterlab-latex jupyterlab-plotly-extension jupyterlab_code_formatter
 ```
 
@@ -781,7 +781,7 @@ To override the directory used to store prompt templates, etc., set `$LLM_USER_P
 
 ### RStudio
 
-```shell
+```powershell
 winget install Posit.RStudio
 ```
 
@@ -891,7 +891,7 @@ To support rendering of PDF documents that include SVG files, automatically conv
 
 (**Optional**) tinytex is a lightweight alternative to MikTeX:
 
-```shell
+```powershell
 quarto install tinytex
 ```
 
@@ -927,7 +927,7 @@ After
 
 - Install Visual Studio Community 2022:
 
-    ```shell
+    ```powershell
     winget install Microsoft.VisualStudio.2022.Community
     ```
 
@@ -935,7 +935,7 @@ After
 
 - Install [templates for `dotnet new`](https://github.com/dotnet/templating/wiki/Available-templates-for-dotnet-new):
 
-    ```shell
+    ```powershell
     dotnet new install "Boxed.Templates"
     dotnet new install "Amazon.Lambda.Templates"
     dotnet new install "NUnit3.DotNetNew.Template"
@@ -970,31 +970,31 @@ After
 
 - Install LinqPad 7:
 
-    ```shell
+    ```powershell
     winget install --id LINQPad.LINQPad.7 -l 'D:\Apps\LINQPad7\'
     ```
 
 - Install ILSpy:
 
-    ```shell
+    ```powershell
     winget install --id icsharpcode.ILSpy -l 'D:\Apps\ILSpy'
     ```
 
 - Install Nuget Package Explorer:
 
-    ```shell
+    ```powershell
     winget install --id 9WZDNCRDMDM3
     ```
 
 - Install MSBuild Structured Log Viewer:
 
-    ```shell
+    ```powershell
     winget install --id KirillOsenkov.MSBuildStructuredLogViewer
     ```
 
 - Install NSwagStudio:
 
-    ```shell
+    ```powershell
     winget install --id RicoSuter.NSwagStudio
     ```
 
@@ -1002,7 +1002,7 @@ After
 
 - Install PerfView:
 
-    ```shell
+    ```powershell
     winget install Microsoft.PerfView -l D:\Apps\PerfView
     ```
 
@@ -1010,7 +1010,7 @@ After
 
 Install following tools:
 
-```shell
+```powershell
 dotnet tool install -g benchmarkdotnet.tool
 dotnet tool install -g coverlet.console
 dotnet tool install -g diffenginetray
@@ -1076,7 +1076,7 @@ dotnet tool install -g upgrade-assistant
 
 - Add `$installFolder\bin\x64\` to `$Path`.
 
-### Packages
+### Packages {#miktex-pkgs}
 
 See [miktex_packages.txt](./miktex_packages.txt) for list of packages to install.
 
@@ -1084,7 +1084,7 @@ See [miktex_packages.txt](./miktex_packages.txt) for list of packages to install
 
 - Install:
 
-    ```shell
+    ```powershell
     winget install --id Microsoft.VisualStudioCode -l 'D:\Apps\VSCode'
     ```
 
@@ -1101,7 +1101,7 @@ WinMerge is a diff/merge tool.
 
 - Install:
 
-    ```shell
+    ```powershell
     winget install --id WinMerge.WinMerge -l 'D:\Apps\WinMerge'
     ```
 
@@ -1190,13 +1190,13 @@ This section is based on the following links:
 - Download latest version from <https://github.com/msys2/msys2-installer/releases/>.
 - Install the self extracting archive to D:\msys64:
 
-    ```shell
+    ```powershell
     .\msys2-base-x86_64-20230718.sfx.exe -y -oD:\
     ```
 
 - Update msys2:
 
-    ```shell
+    ```powershell
     ghcup run -m -- pacman --noconfirm -Syuu
     ghcup run -m -- pacman --noconfirm -S --needed curl autoconf mingw-w64-x86_64-pkgconf
     ghcup run -m -- pacman --noconfirm -S ca-certificates
@@ -1215,7 +1215,7 @@ This section is based on the following links:
 
 - Install ghc:
 
-    ```shell
+    ```powershell
     ghcup install ghc --set recommended
     ```
 
@@ -1274,7 +1274,7 @@ Checks:
 1. Output of `stack path --local-bin` should be in `$PATH`
 1. Sanity checks:
 
-    ```shell
+    ```powershell
     where.exe stack
     stack path
     stack exec -- which ghc
@@ -1287,7 +1287,7 @@ Checks:
 
 - Install:
 
-    ```shell
+    ```powershell
     # ghcup install hls latest
     ghcup install hls 2.4.0.0
     ```
@@ -1296,7 +1296,7 @@ Checks:
 
 - [If you want to explicitly configure your project build](https://haskell-language-server.readthedocs.io/en/latest/configuration.html#configuring-your-project-build), install `implicit-hie` to auto-generate a stack or cabal multi component hie.yaml file:
 
-    ```shell
+    ```powershell
     # If $pwd is not a stack project, will install for global project!
     stack install implicit-hie
     ```
@@ -1326,7 +1326,7 @@ Checks:
 
 1. Install one of the formatters below:
 
-    ```shell
+    ```powershell
     stack install ormolu
     stack install brittany
     ```
@@ -1339,7 +1339,7 @@ Checks:
 
 Install [haskell-dap](https://hackage.haskell.org/package/haskell-dap), [ghci-dap](https://hackage.haskell.org/package/ghci-dap), [haskell-debug-adapter](https://hackage.haskell.org/package/haskell-debug-adapter):
 
-```shell
+```powershell
 $ stack update
 $
 $ stack install haskell-dap ghci-dap haskell-debug-adapter
@@ -1349,7 +1349,7 @@ $ stack install haskell-dap ghci-dap haskell-debug-adapter
 
 **[VSCode HLint](https://github.com/swsnr/vscode-hlint)** requires hlint to be installed:
 
-```shell
+```powershell
 stack install hlint
 ```
 
