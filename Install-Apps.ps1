@@ -16,12 +16,12 @@ Install-WinGetApp -AppName Oracle.JDK.17
 
 # CLI apps
 Install-WinGetApp -AppName jftuga.less -InstallFolder "$CustomLocation\CLI"
-
 Install-WinGetApp -AppName MikeFarah.yq -InstallFolder "$CustomLocation\CLI"
 Install-WinGetApp -AppName jqlang.jq -InstallFolder "$CustomLocation\CLI"
 Install-WinGetApp -AppName DuckDB.cli -InstallFolder "$CustomLocation\CLI"
 Install-WinGetApp twpayne.chezmoi -InstallFolder "$CustomLocation\CLI"
 Install-WinGetApp -AppName charmbracelet.gum -InstallFolder "$CustomLocation\CLI"
+Install-WinGetApp -AppName muesli.duf -InstallFolder "$CustomLocation\CLI"
 Install-WinGetApp -AppName GNU.wget2
 
 # Security

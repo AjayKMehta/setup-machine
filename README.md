@@ -28,6 +28,7 @@
     - [jq](#jq)
     - [bat](#bat)
     - [gum](#gum)
+    - [duf](#duf)
     - [duckdb](#duckdb)
       - [Upgrading](#upgrading)
     - [wget2](#wget2)
@@ -484,6 +485,14 @@ Install: `winget install jqlang.jq -l D:\Apps\CLI`.
 
 ```shell
 winget install charmbracelet.gum -l D:\Apps\CLI
+```
+
+### duf
+
+[duf](https://github.com/muesli/duf) is a Disk Usage/Free Utility.
+
+```powershell
+winget install muesli.duf -l D:\Apps\CLI
 ```
 
 ### duckdb
