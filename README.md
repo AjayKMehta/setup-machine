@@ -45,6 +45,7 @@
     - [Useful links](#useful-links)
   - [Hadoop](#hadoop)
   - [Python](#python)
+    - [conda](#conda)
     - [JupyterLab](#jupyterlab)
       - [Workaround for Quarto](#workaround-for-quarto)
       - [Git-friendly hooks](#git-friendly-hooks)
@@ -673,6 +674,21 @@ popd
 - Download and install [Miniconda](https://docs.conda.io/en/latest/miniconda.html).
 - Add **bin** folder (**D:\Apps\Miniconda\condabin**) to `$Path`.
 - To use [UTF-8 mode on Windows](https://dev.to/methane/python-use-utf-8-mode-on-windows-212i), set environment variable `$PYTHONUTF8` to 1.
+- Add environment variables:
+
+    ```powershell
+    SET VS140COMNTOOLS = "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\"
+    SET VS90COMNTOOLS = %VS140COMNTOOLS%
+    ```
+
+- To resolve error **`URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:997)>`**, install <https://letsencrypt.org/certs/lets-encrypt-r3.der> ([source](https://github.com/thonny/thonny/issues/1986#issuecomment-934771923)).
+
+- To prevent installing using base python, set `$PIP_REQUIRE_VIRTUALENV` to `true`[^1].
+
+[^1]: See <https://daniel.feldroy.com/posts/til-2023-12-forcing-pip-to-use-virtualenv> for details.
+
+### conda
+
 - To enable conda in PowerShell, run the following in conda prompt:
 
     ```powershell
@@ -685,14 +701,11 @@ popd
     conda config --set pip_interop_enabled True
     ```
 
-- Add environment variables:
+- conda will automatically prepend the prompt with the name of the environment you're in. To disable this, [do the following](https://ohmyposh.dev/docs/faq#conda-environment-name-displayed-in-front-of-the-prompt):
 
     ```powershell
-    SET VS140COMNTOOLS = "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\"
-    SET VS90COMNTOOLS = %VS140COMNTOOLS%
+    conda config --set changeps1 False
     ```
-
-- To resolve error **`URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:997)>`**, install <https://letsencrypt.org/certs/lets-encrypt-r3.der> ([source](https://github.com/thonny/thonny/issues/1986#issuecomment-934771923)).
 
 ### JupyterLab
 
@@ -1130,9 +1143,9 @@ Download it from [here](https://bayden.com/slickrun/).
 
 ### Regular installation steps
 
-- If you wish to specify the installation root directory for **ghcup**, you can set `$GHCUP_INSTALL_BASE_PREFIX`[^1] (user-level environment variable). If not set, you can pass install directory choice to the install script or the script will prompt you if it doesn't find a drive with > 5 GB free space to install on.
+- If you wish to specify the installation root directory for **ghcup**, you can set `$GHCUP_INSTALL_BASE_PREFIX`[^2] (user-level environment variable). If not set, you can pass install directory choice to the install script or the script will prompt you if it doesn't find a drive with > 5 GB free space to install on.
 
-[^1]: Whichever value you use will be set by the script as `$GHCUP_INSTALL_BASE_PREFIX`.
+[^2]: Whichever value you use will be set by the script as `$GHCUP_INSTALL_BASE_PREFIX`.
 
 - Download install script:
 
@@ -1182,9 +1195,9 @@ This section is based on the following links:
 
 - Download **ghcup** binary from <https://github.com/haskell/ghcup-hs/releases>, e.g. latest version as of the time, this was written is 1.2.0, so download <https://github.com/haskell/ghcup-hs/releases/download/v0.1.20.0/x86_64-mingw64-ghcup-0.1.20.0.exe>.
 - Rename binary to `gcup.exe` and copy to `D:\Apps\ghcup\bin`.
-- Create config file in `D:\Apps\ghcup\bin`[^2]: `ghcup config init`.
+- Create config file in `D:\Apps\ghcup\bin`[^3]: `ghcup config init`.
 
-[^2]: The online documentation says location is `~/.ghcup/config.yaml` which is not the case.
+[^3]: The online documentation says location is `~/.ghcup/config.yaml` which is not the case.
 
 #### msys2
 
@@ -1236,7 +1249,7 @@ This section is based on the following links:
 
 #### stack
 
-- Edit `D:/sr/config.yaml`[^3]:
+- Edit `D:/sr/config.yaml`[^4]:
 
     ```yaml
     local-bin-path: d:/stack
@@ -1254,7 +1267,7 @@ This section is based on the following links:
       - 'D:\msys64\mingw64\lib'
     ```
 
-[^3]: If you execute a `stack` command before your config file is set up correctly, it will attempt to download GHC, msys2 which is not what we want :astonished:
+[^4]: If you execute a `stack` command before your config file is set up correctly, it will attempt to download GHC, msys2 which is not what we want :astonished:
 
     For more details, see [here](https://docs.haskellstack.org/en/stable/faq/#i-already-have-ghc-installed-can-i-still-use-stack) and [here](https://docs.haskellstack.org/en/stable/faq/#can-i-change-stacks-default-temporary-directory).
 
