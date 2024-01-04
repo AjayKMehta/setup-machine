@@ -58,6 +58,7 @@
   - [R](#r)
     - [RStudio](#rstudio)
     - [RTools](#rtools)
+    - [Packages](#packages)
     - [Spark](#spark)
     - [Stan](#stan)
     - [cmdstanr](#cmdstanr)
@@ -75,7 +76,7 @@
     - [Dotnet Tools](#dotnet-tools)
   - [LaTeX](#latex)
     - [MikTeX](#miktex)
-    - [Packages](#packages)
+    - [Packages](#miktex-packages)
   - [VS Code](#vs-code)
   - [WinMerge](#winmerge)
   - [SlickRun](#slickrun)
@@ -761,6 +762,20 @@ To override the directory used to store prompt templates, etc., set `$LLM_USER_P
 1. To avoid the issue of C: running out of disk space, set `$R_LIBS` to a different path, e.g.`D:\packages`.
 1. Set `$GITHUB_PAT` to [GitHub PAT obtained](#github-pat). This is neccessary for avoiding rate-limit issues when installing packages from GitHub using the [`remotes`](https://github.com/r-lib/remotes#environment-variables) package.
 
+### RStudio
+
+```powershell
+winget install Posit.RStudio
+```
+
+### RTools
+
+- Install location is usually C:\RTools but if you have limited disk space, set `RTOOLS43_HOME`to a different path, e.g.`D:\rtools43` ***before* running the installer**.
+- Download and run [R Build tools](https://cran.r-project.org/bin/windows/Rtools/).
+- Add bin folder in install path to `$PATH` -- this can be done by editing .Renviron: `PATH="${RTOOLS40_HOME}\usr\bin;${PATH}"`.
+
+[Usage notes](https://github.com/r-windows/docs/blob/master/rtools40.md#readme)
+
 ### Packages
 
 - To install packages from `r-universe`:
@@ -778,20 +793,6 @@ To override the directory used to store prompt templates, etc., set `$LLM_USER_P
     ```
 
 - Install packages in [Packages.csv](./Packages.csv).
-
-### RStudio
-
-```powershell
-winget install Posit.RStudio
-```
-
-### RTools
-
-- Install location is usually C:\RTools but if you have limited disk space, set `RTOOLS43_HOME`to a different path, e.g.`D:\rtools43` ***before* running the installer**.
-- Download and run [R Build tools](https://cran.r-project.org/bin/windows/Rtools/).
-- Add bin folder in install path to `$PATH` -- this can be done by editing .Renviron: `PATH="${RTOOLS40_HOME}\usr\bin;${PATH}"`.
-
-[Usage notes](https://github.com/r-windows/docs/blob/master/rtools40.md#readme)
 
 ### Spark
 
@@ -1076,7 +1077,7 @@ dotnet tool install -g upgrade-assistant
 
 - Add `$installFolder\bin\x64\` to `$Path`.
 
-### Packages {#miktex-pkgs}
+### Miktex Packages
 
 See [miktex_packages.txt](./miktex_packages.txt) for list of packages to install.
 
