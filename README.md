@@ -781,7 +781,7 @@ To override the directory used to store prompt templates, etc., set `$LLM_USER_P
     ```
 
 1. To avoid the issue of C: running out of disk space, set `$R_LIBS` to a different path, e.g.`D:\packages`.
-1. Set `$GITHUB_PAT` to [GitHub PAT obtained](#github-pat). This is neccessary for avoiding rate-limit issues when installing packages from GitHub using the [`remotes`](https://github.com/r-lib/remotes#environment-variables) package.
+1. Set `$GITHUB_PAT` to [GitHub PAT obtained](#github-pat). This is necessary for avoiding rate-limit issues when installing packages from GitHub using the [`remotes`](https://github.com/r-lib/remotes#environment-variables) package.
 
 ### RStudio
 
@@ -1245,7 +1245,7 @@ This section is based on the following links:
 
 #### cabal
 
-- Install: `gcup install cabal`
+- Install: `ghcup install cabal`
 - Edit config file:
 
     ```text

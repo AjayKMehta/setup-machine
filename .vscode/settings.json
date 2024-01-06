@@ -15,7 +15,10 @@
         "nbconvert",
         "plotly",
         "remoting",
-        "Renviron"
+        "Renviron",
+        "difftastic",
+        "LINQ",
+        "Linq"
     ],
     "markdown-toc.depthFrom": 2,
     "peacock.color": "#9bc9d6",
