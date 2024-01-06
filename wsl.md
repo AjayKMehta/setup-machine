@@ -150,6 +150,7 @@ sudo aptitude -y install golang-go
     asdf plugin add poetry
     asdf plugin add snyk
     asdf plugin add fzf
+    asdf plugin add difftastic
     ```
 
 - Install latest version:
@@ -163,6 +164,7 @@ sudo aptitude -y install golang-go
     asdf install poetry latest
     asdf install snyk latest
     asdf install fzf latest 
+    asdf install difftastic latest
     ```
 
 ## oh-my-posh

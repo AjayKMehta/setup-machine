@@ -525,6 +525,14 @@ For example, let's say you have a database `D:/duck_db/nyc-taxi.duckdb`.
 winget install GNU.wget2
 ```
 
+### difftastic
+
+[Difftastic](https://github.com/Wilfred/difftastic) is a structural diff tool that compares files based on their syntax.
+
+```powershell
+winget install Wilfred.difftastic -l D:\Apps\CLI
+```
+
 ## Dot files
 
 - Install [chezmoi](https://github.com/twpayne/chezmoi):
