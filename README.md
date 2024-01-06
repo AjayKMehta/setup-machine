@@ -838,7 +838,7 @@ winget install Posit.RStudio
 1. Install required version:
 
     ```r
-    spark_install("3.3.2", "3")
+    spark_install("3.5.0", "3")
     ```
 
 1. Set `$SPARK_HOME` to bin folder, i.e. D:\Apps\Spark\spark-3.3.2-bin-hadoop3\bin.
