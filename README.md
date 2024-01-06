@@ -653,26 +653,30 @@ WezTerm is a powerful cross-platform terminal emulator and multiplexer.
 
 ## Hadoop
 
-See [here](https://kontext.tech/article/447/install-hadoop-330-on-windows-10-step-by-step-guide) for more details. As of the time this was written, the version of interest for Hadoop was 3.3.5.
+See [here](https://kontext.tech/article/447/install-hadoop-330-on-windows-10-step-by-step-guide) for more details. As of the time this was written, the version of interest for Hadoop was 3.3.6.
 
-```powershell
-pushd ~/Downloads
-$version = '3.35'
-Invoke-WebRequest "https://dlcdn.apache.org/hadoop/common/hadoop-$version/hadoop-$version.tar.gz" -OutFile "hadoop-$version.tar.gz" -Verbose
-# https://stackoverflow.com/a/2903532
-7z e "hadoop-$version.tar.gz" && 7z x "hadoop-$version.tar" -o"D:/Apps"
-Remove-Item "hadoop-$version.tar*"
+1. Install Hadoop and create `$HADOOP_HOME`:
 
-# Download Hadoop native IO binary
-gh download "https://github.com/cdarlint/winutils/tree/master/hadoop-$version/bin" 
+    ```powershell
+    pushd ~/Downloads
+    $version = '3.3.6'
+    Invoke-WebRequest "https://dlcdn.apache.org/hadoop/common/hadoop-$version/hadoop-$version.tar.gz" -OutFile "hadoop-$version.tar.gz" -Verbose
+    # https://stackoverflow.com/a/2903532
+    7z e "hadoop-$version.tar.gz" && 7z x "hadoop-$version.tar" -o"D:/Apps"
+    Remove-Item "hadoop-$version.tar*"
 
-# Copy files to bin folder. Add -L to do dry-run
-robocopy ".\hadoop-$version\bin" "D:\Apps\hadoop-$version\bin"
-Remove-Item ".\hadoop-$version\bin" -Recurse 
-popd
+    # Download Hadoop native IO binary
+    gh download "https://github.com/cdarlint/winutils/tree/master/hadoop-$version/bin" 
 
-[System.Environment]::SetEnvironmentVariable('HADOOP_HOME', "D:\Apps\hadoop-$version", 'User')
-```
+    # Copy files to bin folder. Add -L to do dry-run
+    robocopy ".\hadoop-$version\bin" "D:\Apps\hadoop-$version\bin"
+    Remove-Item ".\hadoop-$version\bin" -Recurse 
+    popd
+
+    [System.Environment]::SetEnvironmentVariable('HADOOP_HOME', "D:\Apps\hadoop-$version", 'User')
+    ```
+
+2. Add `%HADOOP_HOME%\bin` to `$Path`.
 
 ## Python
 
