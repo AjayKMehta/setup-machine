@@ -970,7 +970,6 @@ After
 - Set environment variables related to [runtime configuration for compilation](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/compilation):
 
     ```powershell
-    [System.Environment]::SetEnvironmentVariable('DOTNET_TC_QuickJitForLoops', 1, 'User')
     [System.Environment]::SetEnvironmentVariable('DOTNET_TieredPGO', 1, 'User')
     ```
 
@@ -994,16 +993,10 @@ After
 
 ### Useful apps
 
-- Install LinqPad 7:
+- Install LinqPad 8:
 
     ```powershell
-    winget install --id LINQPad.LINQPad.7 -l 'D:\Apps\LINQPad7\'
-    ```
-
-- Install ILSpy:
-
-    ```powershell
-    winget install --id icsharpcode.ILSpy -l 'D:\Apps\ILSpy'
+    winget install --id LINQPad.LINQPad.8 -l 'D:\Apps\LINQPad8\'
     ```
 
 - Install Nuget Package Explorer:

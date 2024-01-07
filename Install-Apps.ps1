@@ -57,7 +57,6 @@ Install-WinGetApp -AppName Mp3tag.Mp3tag
 
 # .NET
 Install-WinGetApp -AppName Microsoft.VisualStudio.2022.Community
-Install-WinGetApp -AppName icsharpcode.ILSpy -InstallerArgs '--interactive'
 Install-WinGetApp -AppName 'LINQPad.LINQPad.8' -InstallFolder "$CustomLocation\LINQPad8"
 Install-WinGetApp -Id '9WZDNCRDMDM3'
 Install-WinGetApp -Id KirillOsenkov.MSBuildStructuredLogViewer
