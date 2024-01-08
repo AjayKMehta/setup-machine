@@ -12,6 +12,8 @@
   - [PowerShell](#powershell)
     - [Modules](#modules)
     - [Secrets Management](#secrets-management)
+  - [WinMerge](#winmerge)
+  - [SlickRun](#slickrun)
   - [git](#git)
     - [GitHub CLI](#github-cli)
       - [GitHub PAT](#github-pat)
@@ -79,8 +81,6 @@
     - [MikTeX](#miktex)
     - [Packages](#miktex-packages)
   - [VS Code](#vs-code)
-  - [WinMerge](#winmerge)
-  - [SlickRun](#slickrun)
   - [Node](#node)
   - [Haskell](#haskell)
     - [Regular installation steps](#regular-installation-steps)
@@ -298,6 +298,29 @@ ls *.asc -Name | % { gpg --import $_ }
 - <https://security.stackexchange.com/questions/43348/extracting-the-pgp-keyid-from-the-public-key-file>
 - <https://stackoverflow.com/questions/39596446/how-to-get-gpg-public-key-in-bash>
 - <https://www.phildev.net/pgp/gpg_moving_keys.html>
+
+## WinMerge
+
+WinMerge is a diff/merge tool.
+
+- Install:
+
+    ```powershell
+    winget install --id WinMerge.WinMerge -l 'D:\Apps\WinMerge'
+    ```
+
+- Add to `$Path`:
+
+    ```powershell
+    $path = [System.Environment]::GetEnvironmentVariable('Path', 'Machine')
+    $path += ';D:\Apps\WinMerge'
+    [System.Environment]::SetEnvironmentVariable('Path', $path, 'Machine')
+    ```
+
+## SlickRun
+
+SlickRun is a free-floating utility for Windows that can launch programs.
+Download it from [here](https://bayden.com/slickrun/).
 
 ## git
 
@@ -851,6 +874,7 @@ winget install Posit.RStudio
 
 ```r
 install.packages("cmdstanr")
+cmdstanr::check_cmdstan_toolchain(fix = TRUE)
 cmdstanr::install_cmdstan(dir = "D:/Apps", overwrite = TRUE, cores = 6)
 cmdstanr::set_cmdstan_path() # D:/Apps/cmdstan-2.24.1
 ```
@@ -1113,29 +1137,6 @@ See [miktex_packages.txt](./miktex_packages.txt) for list of packages to install
 
 > [!TIP]
 > If you run into the error **`Another instance of Code is running as administrator`**, [you can resolve this by setting VS Code to always run as admin](https://github.com/microsoft/vscode/issues/6560#issuecomment-1732330823).
-
-## WinMerge
-
-WinMerge is a diff/merge tool.
-
-- Install:
-
-    ```powershell
-    winget install --id WinMerge.WinMerge -l 'D:\Apps\WinMerge'
-    ```
-
-- Add to `$Path`:
-
-    ```powershell
-    $path = [System.Environment]::GetEnvironmentVariable('Path', 'Machine')
-    $path += ';D:\Apps\WinMerge'
-    [System.Environment]::SetEnvironmentVariable('Path', $path, 'Machine')
-    ```
-
-## SlickRun
-
-SlickRun is a free-floating utility for Windows that can launch programs.
-Download it from [here](https://bayden.com/slickrun/).
 
 ## Node
 
