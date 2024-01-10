@@ -1204,7 +1204,7 @@ This section is based on the following links:
 #### ghcup
 
 - Download **ghcup** binary from <https://github.com/haskell/ghcup-hs/releases>, e.g. latest version as of the time, this was written is 1.2.0, so download <https://github.com/haskell/ghcup-hs/releases/download/v0.1.20.0/x86_64-mingw64-ghcup-0.1.20.0.exe>.
-- Rename binary to `gcup.exe` and copy to `D:\Apps\ghcup\bin`.
+- Rename binary to `ghcup.exe` and copy to `D:\Apps\ghcup\bin`.
 - Create config file in `D:\Apps\ghcup\bin`[^3]: `ghcup config init`.
 
 [^3]: The online documentation says location is `~/.ghcup/config.yaml` which is not the case.
@@ -1217,6 +1217,8 @@ This section is based on the following links:
     ```powershell
     .\msys2-base-x86_64-20230718.sfx.exe -y -oD:\
     ```
+
+- Launch `D:\Mmsyss64\msys2.exe` as this does some initialization steps. If you don't, you may get this error when you try to run the next step: `warning: Public keyring not found; have you run 'pacman-key --init'?`.
 
 - Update msys2:
 
@@ -1231,7 +1233,7 @@ This section is based on the following links:
 - Set up msys2 shell:
 
     - Run `ghcup run -m -- sed -i -e 's/db_home:.*$/db_home: windows/' /etc/nsswitch.conf` to make the `$HOME`` in your msys2 shell match the one from windows.
-    - Make a desktop shortcut from `D:\msys64\msys2_shell.cmd`, which will allow you to start a proper msys2 shell: `New-Item -ItemType SymbolicLink -Path ~\Desktop\Msys2 -Value D:\msys64\msys2_shell.cmd`
+    - Make a desktop shortcut from `D:\msys64\msys2_shell.cmd`, which will allow you to start a proper msys2 shell: `New-Item -ItemType SymbolicLink -Path ~\Desktop\Msys2 -Value D:\msys64\msys2_shell.cmd` (requires elevated shell).
     - Run `ghcup run -m -- sed -i -e "s/#MSYS2_PATH_TYPE=.*/MSYS2_PATH_TYPE=inherit/" /d/msys64/msys2.ini`
     - Run `ghcup run -m -- sed -i -e "s/rem set MSYS2_PATH_TYPE=inherit/set MSYS2_PATH_TYPE=inherit/" /d/msys64/msys2_shell.cmd`
 
