@@ -12,6 +12,9 @@
   - [PowerShell](#powershell)
     - [Modules](#modules)
     - [Secrets Management](#secrets-management)
+  - [GPG](#gpg)  
+    - [Managing keys](#managing-keys)
+    - [Useful Links](#useful-links)
   - [WinMerge](#winmerge)
   - [SlickRun](#slickrun)
   - [git](#git)
@@ -34,6 +37,7 @@
     - [duckdb](#duckdb)
       - [Upgrading](#upgrading)
     - [wget2](#wget2)
+    - [difftastic](#difftastic)
   - [Dot files](#dot-files)
   - [Hugo](#hugo)
   - [WSL](#wsl)
@@ -44,7 +48,7 @@
     - [Shrink your WSL2 Virtual Disks and Docker Images and Reclaim Disk Space](#shrink-your-wsl2-virtual-disks-and-docker-images-and-reclaim-disk-space)
     - [Utilities](#utilities)
   - [WezTerm](#wezterm)
-    - [Useful links](#useful-links)
+    - [Links](#links)
   - [Hadoop](#hadoop)
   - [Python](#python)
     - [conda](#conda)
@@ -666,7 +670,7 @@ WezTerm is a powerful cross-platform terminal emulator and multiplexer.
 
 - (Optional) Add installation folder to `$Path`.
 
-### Useful links
+### Links
 
 - <https://wezfurlong.org/wezterm/quickselect.html>
 - <https://wezfurlong.org/wezterm/copymode.html>
