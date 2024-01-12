@@ -84,6 +84,44 @@ Starting with Ubuntu 22.04, some versions of .NET are available in the Ubuntu pa
 
 See [Supported distributions](https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#supported-distributions) for details on how to install .NET for specific Ubuntu versions.
 
+## ble.sh
+
+[ble.sh](https://github.com/akinomyoga/ble.sh) is a command line editor written in pure Bash which replaces the default GNU Readline.
+
+Install nightly build:
+
+```shell
+curl -L https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly.tar.xz | tar xJf -
+mkdir -p ~/.local/share/blesh
+cp -Rf ble-nightly/* ~/.local/share/blesh/
+rm -rf ble-nightly
+echo 'source ~/.local/share/blesh/ble.sh' >> ~/.bashrc
+```
+
+Uupdate:
+
+```shell
+ble-update
+```
+
+Show key-bindings:
+
+```shell
+ble-bind -P
+```
+
+Show widgets:
+
+```shell
+ble-bind -L
+```
+
+List variables:
+
+```shell
+bleopt
+```
+
 ## VS Code
 
 - See [here](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode) for steps to configure WSL for use wih VS Code.
