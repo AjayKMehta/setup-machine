@@ -149,7 +149,6 @@ sudo aptitude -y install golang-go
     asdf plugin add neovim
     asdf plugin add poetry
     asdf plugin add snyk
-    asdf plugin add fzf
     asdf plugin add difftastic
     ```
 
@@ -163,9 +162,29 @@ sudo aptitude -y install golang-go
     asdf install neovim latest
     asdf install poetry latest
     asdf install snyk latest
-    asdf install fzf latest 
     asdf install difftastic latest
     ```
+
+## fzf
+
+Install:
+
+```shell
+asdf plugin add fzf
+asdf install fzf latest 
+```
+
+### Tips
+
+Open file in Neovim: `fzf --bind 'enter:become(nvim {})'`
+
+## Font Manager
+
+See [here](https://askubuntu.com/a/372964) for more details.
+
+```shell
+sudo apt-get install font-manager
+```
 
 ## oh-my-posh
 
@@ -290,7 +309,6 @@ eval "$(gh completion -s bash)"
 
 [^1]: Still doesn't work due to conflict between system and local `tlmgr` :unamused:
 
-
 ## Misc
 
 ```shell
@@ -310,6 +328,16 @@ sudo apt install age
 sudo apt install shellcheck
 sudo apt install cmake
 sudo apt install clang-format
+
+sudo apt install bat
+mkdir -p ~/.local/bin
+ln -s /usr/bin/batcat ~/.local/bin/bat
+
+sudo apt install kitty
+sudo apt install plocate
+
+# https://github.com/muesli/duf
+sudo apt install duf
 
 # D2
 curl -fsSL https://d2lang.com/install.sh | sh -s -- 
