@@ -34,6 +34,7 @@
     - [bat](#bat)
     - [gum](#gum)
     - [duf](#duf)
+    - [procs](#procs)
     - [duckdb](#duckdb)
       - [Upgrading](#upgrading)
     - [wget2](#wget2)
@@ -522,6 +523,14 @@ winget install charmbracelet.gum -l D:\Apps\CLI
 
 ```powershell
 winget install muesli.duf -l D:\Apps\CLI
+```
+
+### procs
+
+A modern replacement for `ps` written in Rust.
+
+```powershell
+winget install procs -l D:\Apps\CLI
 ```
 
 ### duckdb
