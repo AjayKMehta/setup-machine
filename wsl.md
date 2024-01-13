@@ -104,10 +104,13 @@ Uupdate:
 ble-update
 ```
 
-Show key-bindings:
+[Show key-bindings](https://github.com/akinomyoga/ble.sh/wiki/Manual-%C2%A73-Key-Binding#3410-show-current-bindings):
 
 ```shell
 ble-bind -P
+
+# Show for given keymap
+ble-bind -m nsearch -P
 ```
 
 Show widgets:
@@ -121,6 +124,30 @@ List variables:
 ```shell
 bleopt
 ```
+
+### [Manual editing](https://github.com/akinomyoga/ble.sh/wiki/Manual-%C2%A74-Editing)
+
+| Key combination    | Widget                                | Description                                                             |
+|--------------------|---------------------------------------|-------------------------------------------------------------------------|
+| C-a, home          | @nomarked beginning-of-line           | Go to the beginning of line                                             |
+| C-e, end           | @nomarked end-of-line                 | Go to the end of line                                                   |
+| S-C-a, S-home      | @marked beginning-of-line             | Go to the beginning of line with selection                              |
+| S-C-e, S-end       | @marked end-of-line                   | Go to the end of line with selection                                    |
+| M-m (Emacs)        | @nomarked non-space-beginning-of-line | Go to the non-space beginning of line                                   |
+| M-S-m, M-M (Emacs) | @marked non-space-beginning-of-line   | Go to the non-space beginning of line with selection                    |
+| C-k                | kill-forward-line                     | Delete the range between the current position and the end of line       |
+| C-u                | kill-backward-line                    | Delete the range between the current position and the beginning of line |
+| S-C-p, S-up        | @marked backward-line                 | Go to the previous line with selection                                  |
+| S-C-n, S-down      | @marked forward-line                  | Go to the next line with selection                                      |## VS Code
+| C-x C-p, C-x up   | history-search-backward           | Start non-incremental prefix-search in forward direction with the string before the current position              |
+| C-x C-n, C-x down | history-search-forward            | Start non-incremental prefix-search in backward direction backward with the string before the current position    |
+| C-x p             | history-substring-search-backward | Start non-incremental substring-search in forward direction with the string before the current position           |
+| C-x n             | history-substring-search-forward  | Start non-incremental substring-search in backward direction backward with the string before the current position |
+| C-x <             | history-nsearch-backward          | Start non-incremental prefix-search in forward direction with a user-provided string                              |
+| C-x >             | history-nsearch-forward           | Start non-incremental prefix-search in backward direction backward with a user-provided string                    |
+| M-$ (Emacs)  |  complete context=variable  |Start completing variables|
+
+In above table, `C` is <kbd>Ctrl</kbd> and `M` is <kbd>Alt</kbd>.
 
 ## VS Code
 
