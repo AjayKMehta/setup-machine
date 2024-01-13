@@ -147,7 +147,11 @@ bleopt
 | C-x >             | history-nsearch-forward           | Start non-incremental prefix-search in backward direction backward with a user-provided string                    |
 | M-$ (Emacs)  |  complete context=variable  |Start completing variables|
 
-In above table, `C` is <kbd>Ctrl</kbd> and `M` is <kbd>Alt</kbd>.
+In the above table:
+
+- `C` is <kbd>Ctrl</kbd>
+- `M` is <kbd>Alt</kbd>
+- `S` is <kbd>Shift</kbd>
 
 ## VS Code
 
