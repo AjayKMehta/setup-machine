@@ -1,8 +1,10 @@
 {
     "cSpell.words": [
+        "atuin",
         "BLAS",
         "Cascadia",
         "cmdstanr",
+        "difftastic",
         "Fira",
         "ghci",
         "ghcup",
@@ -10,15 +12,14 @@
         "INLA",
         "jupyterlab",
         "jupytext",
+        "Linq",
+        "LINQ",
         "Miniconda",
         "msys",
         "nbconvert",
         "plotly",
         "remoting",
-        "Renviron",
-        "difftastic",
-        "LINQ",
-        "Linq"
+        "Renviron"
     ],
     "markdown-toc.depthFrom": 2,
     "peacock.color": "#9bc9d6",

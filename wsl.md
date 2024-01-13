@@ -153,6 +153,31 @@ In the above table:
 - `M` is <kbd>Alt</kbd>
 - `S` is <kbd>Shift</kbd>
 
+## atuin
+
+[atuin](https://github.com/atuinsh) provides enhanced functionality for shell history. It uses a SQLite database to store history and you can even sync across machines.
+
+Install:
+
+```shell
+bash <(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)
+
+# Skip if don't want to sync
+# 1/13/2024: DOESN't WORK
+# atuin register -u <USERNAME> -e <EMAIL>
+# atuin register -u AjayMehta -e ...
+```
+
+Import history: `atuin import auto`.
+
+Shell completion: `atuin gen-completions --shell bash > ~/.config/bash_completions.d/atuin`.
+
+Add to `.bashrc` after sourcing `ble.sh`:
+
+```shell
+eval "$(atuin init bash)"
+```
+
 ## VS Code
 
 - See [here](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode) for steps to configure WSL for use wih VS Code.
