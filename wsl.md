@@ -43,6 +43,13 @@ See this [link](https://stackoverflow.com/a/51767786/781045) for more details.
 1. Copy `.vhdx` file to new machine.
 1. On new machine: `wsl --import <DistributionName> <InstallLocation> <FileName>`.
 
+### Get list of repositories
+
+```shell
+# https://askubuntu.com/questions/148932/how-can-i-get-a-list-of-all-repositories-and-ppas-from-the-command-line-into-an
+grep -r --include '*.list' '^deb ' /etc/apt/sources.list /etc/apt/sources.list.d/
+```
+
 ## [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/install-ubuntu)
 
 Available from the Linux package repository for Microsoft products, <https://packages.microsoft.com>, also known as PMC.
@@ -175,7 +182,7 @@ Shell completion: `atuin gen-completions --shell bash > ~/.config/bash_completio
 Add to `.bashrc` after sourcing `ble.sh`:
 
 ```shell
-eval "$(atuin init bash)"
+eval "$(atuin init bash --disable-up-arrow)"
 ```
 
 ## VS Code
