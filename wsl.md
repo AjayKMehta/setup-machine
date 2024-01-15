@@ -185,6 +185,10 @@ Add to `.bashrc` after sourcing `ble.sh`:
 eval "$(atuin init bash --disable-up-arrow)"
 ```
 
+[Config file](https://atuin.sh/docs/config) is located at `~/.config/atuin/config.toml`.
+
+Important settings are in `~/.local/share/atuin`.
+
 ## VS Code
 
 - See [here](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode) for steps to configure WSL for use wih VS Code.
