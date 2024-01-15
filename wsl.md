@@ -208,6 +208,28 @@ Important settings are in `~/.local/share/atuin`.
     sudo apt install -y apt-transport-https ca-certificates curl gawk ssh-askpass tree unzip wget zsh
     ```
 
+## R
+
+Instruction for installing are [here](https://cran.r-project.org/bin/linux/ubuntu).
+
+### neovim
+
+Install [Nvim-R](https://github.com/jalvesaq/Nvim-R).
+
+Select key bindings:
+
+Keys | Action |
+---------|----------|
+`<LocalLeader>rf` | Start R |
+`<LocalLeader>rd` | Set working directory |
+ `<LocalLeader>d` | Send line to R + move down |
+ `<LocalLeader>l` | Send line to R + stay |
+ `<LocalLeader>aa` | Send file |
+
+> For `<LocalLeader>`, press <kbd>Space</kbd> + <kbd>,</kbd>.
+
+For more bindings, see [this](https://github.com/jalvesaq/Nvim-R/blob/master/doc/Nvim-R.txt#L317).
+
 ## Python
 
 ```shell
