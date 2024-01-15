@@ -39,6 +39,7 @@
       - [Upgrading](#upgrading)
     - [wget2](#wget2)
     - [difftastic](#difftastic)
+    - [ast-grep](#ast-grep)
   - [Dot files](#dot-files)
   - [Hugo](#hugo)
   - [WSL](#wsl)
@@ -398,6 +399,11 @@ gh extension install vilmibm/gh-user-status
 - Setup: `glab auth login`.
 - Shell completion: `glab completion -s powershell | Out-File ~\Documents\PowerShell\Scripts\ArgumentCompleters\glab.ps1 -Encoding utf8`
 
+#### Authentication
+
+1. Create a PAT.
+2. Follow prompts for `glab auth login`. Or, create `$GITLAB_TOKEN` with value set to PAT.
+
 ### GitExtensions
 
 Install: `
@@ -569,6 +575,10 @@ winget install GNU.wget2
 ```powershell
 winget install Wilfred.difftastic -l D:\Apps\CLI
 ```
+
+### ast-grep
+
+[ast-grep](https://github.com/ast-grep/ast-grep) is a CLI tool for code structural search, lint, and rewriting.
 
 ## Dot files
 
