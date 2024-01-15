@@ -303,6 +303,7 @@ ls *.asc -Name | % { gpg --import $_ }
 - <https://security.stackexchange.com/questions/43348/extracting-the-pgp-keyid-from-the-public-key-file>
 - <https://stackoverflow.com/questions/39596446/how-to-get-gpg-public-key-in-bash>
 - <https://www.phildev.net/pgp/gpg_moving_keys.html>
+- <https://blog.jmorbegoso.com/post/export-and-import-gpg-keys-in-windows-and-wsl/>
 
 ## WinMerge
 

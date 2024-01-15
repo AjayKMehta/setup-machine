@@ -349,6 +349,10 @@ Add to `~/.bash_profile`:
 eval "$(gh completion -s bash)"
 ```
 
+### GPG
+
+See [here](https://blog.jmorbegoso.com/post/configure-github-gpg-key-in-windows-and-wsl/) on how to use GPG from Windows.
+
 ## Haskell
 
 - Install [ghcup](https://www.haskell.org/ghcup/install/):
