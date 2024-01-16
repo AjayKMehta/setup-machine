@@ -85,6 +85,28 @@ sudo apt-get install -y powershell
 pwsh
 ```
 
+## git
+
+```bash
+sudo apt install git
+
+# For diffs
+sudo apt install meld
+sudo apt install git-absorb
+# Github CLI
+sudo apt install gh
+```
+
+Add to `~/.bash_profile`:
+
+```bash
+eval "$(gh completion -s bash)"
+```
+
+### GPG
+
+See [here](https://blog.jmorbegoso.com/post/configure-github-gpg-key-in-windows-and-wsl/) on how to use GPG from Windows.
+
 ## [.NET](https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu)
 
 Starting with Ubuntu 22.04, some versions of .NET are available in the Ubuntu package feed.
@@ -356,28 +378,6 @@ eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/{theme}.omp.json)"
     ```
 
 - Install `luarocks`: `sudo apt install luarocks`.
-
-## git
-
-```bash
-sudo apt install git
-
-# For diffs
-sudo apt install meld
-sudo apt install git-absorb
-# Github CLI
-sudo apt install gh
-```
-
-Add to `~/.bash_profile`:
-
-```bash
-eval "$(gh completion -s bash)"
-```
-
-### GPG
-
-See [here](https://blog.jmorbegoso.com/post/configure-github-gpg-key-in-windows-and-wsl/) on how to use GPG from Windows.
 
 ## Haskell
 
