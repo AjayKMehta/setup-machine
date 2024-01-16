@@ -113,6 +113,23 @@ Starting with Ubuntu 22.04, some versions of .NET are available in the Ubuntu pa
 
 See [Supported distributions](https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#supported-distributions) for details on how to install .NET for specific Ubuntu versions.
 
+### nuget
+
+See [instructions here](https://learn.microsoft.com/en-us/nuget/install-nuget-client-tools?tabs=macos#cli-tools):
+
+1. Install [Mono version 4.4.2 or later](https://www.mono-project.com/download/stable/#download-lin).
+
+1. Execute the following command at a shell prompt:
+
+    ```bash
+    # Download the latest stable `nuget.exe` to `/usr/local/bin`
+    sudo curl -o /usr/local/bin/nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
+    ```
+
+1. Create an alias: `alias nuget="mono /usr/local/bin/nuget.exe"`.
+
+1. Reload the shell. Test the installation by running `nuget` and see if help is displayed.
+
 ## ble.sh
 
 [ble.sh](https://github.com/akinomyoga/ble.sh) is a command line editor written in pure Bash which replaces the default GNU Readline.
