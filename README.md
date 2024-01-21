@@ -1335,7 +1335,7 @@ Checks:
 
     ```powershell
     # ghcup install hls latest
-    ghcup install hls 2.4.0.0
+    ghcup install hls 2.6.0.0
     ```
 
 - [Plugin support](https://haskell-language-server.readthedocs.io/en/latest/support/plugin-support.html)
@@ -1360,7 +1360,7 @@ Checks:
 
 #### Syntax highlighting
 
-**Haskell Syntax Highlighting** ([justusadam.language-haskell](https://github.com/JustusAdam/language-haskell) add syntax highlighting  for Haskell and Cabal files.
+**Haskell Syntax Highlighting** ([justusadam.language-haskell](https://github.com/JustusAdam/language-haskell) adds syntax highlighting  for Haskell and Cabal files.
 
 #### Language Server
 
