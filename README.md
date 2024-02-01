@@ -633,6 +633,10 @@ See [wsl.md](wsl.md).
 winget install Docker.DockerDesktop
 ```
 
+### Where are Docker images located?
+
+When using WSL2 with Docker Desktop, a new distro called `docker-desktop-data` is created, which is also where all your image layers are stored.
+
 ### [Docker Credentials Helper](https://github.com/docker/docker-credential-helpers)
 
 1. Go to the [Releases](https://github.com/docker/docker-credential-helpers/releases) page and download the binary (`docker-credential-wincred`) that works for you. Put that binary in your `$PATH`, so Docker can find it.
