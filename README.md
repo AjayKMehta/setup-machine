@@ -822,7 +822,29 @@ To override the directory used to store prompt templates, etc., set `$LLM_USER_P
 
 #### HuggingFace
 
-🚧 **WIP**
+Set following [environment variables](https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables):
+
+1. Set `$HF_HOME` to configure where **huggingface_hub** will locally store data. In particular, your token and the cache will be stored in this folder.
+
+1. Set `$HF_TOKEN` to configure the User Access Token to authenticate. If set, this value will overwrite the token stored on the machine (in `$HF_HOME/token`).
+
+1. Set `$HF_HUB_DOWNLOAD_TIMEOUT` to define the number of seconds to wait for server response when downloading a file. If the request times out, a TimeoutError is raised.
+
+##### [Check installation](https://huggingface.co/docs/huggingface_hub/installation#check-installation)
+
+Once installed, check that **huggingface_hub** works properly by running the following command:
+
+```shell
+python -c "from huggingface_hub import model_info; print(model_info('gpt2'))"
+```
+
+This command will fetch information from the Hub about the `gpt2` model. Output should look like this:
+
+```text
+Model Name: gpt2
+Tags: ['pytorch', 'tf', 'jax', 'tflite', 'rust', 'safetensors', 'gpt2', 'text-generation', 'en', 'doi:10.57967/hf/0039', 'transformers', 'exbert', 'license:mit', 'has_space']
+Task: text-generation
+```
 
 ## R
 
