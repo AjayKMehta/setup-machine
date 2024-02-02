@@ -1353,6 +1353,10 @@ Checks:
     stack exec sh
     ```
 
+> :bulb: Do not use `stack runghc` with a local package. Use `stack exec` instead.[^5]
+
+[^5]: <https://www.reddit.com/r/haskell/comments/a6st8j/comment/ebyyb8n/>.
+
 #### Haskell Language Server
 
 - [Choose the latest version of HLS that is compatible with the version of GHC installed](https://haskell-language-server.readthedocs.io/en/latest/support/ghc-version-support.html#ghc-version-support).
