@@ -113,6 +113,28 @@ Starting with Ubuntu 22.04, some versions of .NET are available in the Ubuntu pa
 
 See [Supported distributions](https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#supported-distributions) for details on how to install .NET for specific Ubuntu versions.
 
+> :bulb: Manually installing .NET 8 doesn't work so will have to wait for package to be available.
+
+### Enable tab completion
+
+[Source](https://learn.microsoft.com/en-us/dotnet/core/tools/enable-tab-autocomplete#bash):
+
+```bash
+# bash parameter completion for the dotnet CLI
+
+function _dotnet_bash_complete()
+{
+  local cur="${COMP_WORDS[COMP_CWORD]}" IFS=$'\n' # On Windows you may need to use use IFS=$'\r\n'
+  local candidates
+
+  read -d '' -ra candidates < <(dotnet complete --position "${COMP_POINT}" "${COMP_LINE}" 2>/dev/null)
+
+  read -d '' -ra COMPREPLY < <(compgen -W "${candidates[*]:-}" -- "$cur")
+}
+
+complete -f -F _dotnet_bash_complete dotnet
+```
+
 ### nuget
 
 See [instructions here](https://learn.microsoft.com/en-us/nuget/install-nuget-client-tools?tabs=macos#cli-tools):
