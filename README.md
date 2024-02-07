@@ -48,6 +48,7 @@
     - [Change images and containers directory](#change-images-and-containers-directory)
     - [Getting a Shell in Docker for Windows Moby VM](#getting-a-shell-in-docker-for-windows-moby-vm)
     - [Shrink your WSL2 Virtual Disks and Docker Images and Reclaim Disk Space](#shrink-your-wsl2-virtual-disks-and-docker-images-and-reclaim-disk-space)
+    - [docker scout](#docker-scout)
     - [Utilities](#utilities)
   - [WezTerm](#wezterm)
     - [Links](#links)
@@ -675,6 +676,12 @@ docker run -it --rm --privileged --pid=host justincormack/nsenter1
 Optimize-VHD -Path D:\wsl\Docker\data\ext4.vhdx -Mode Full
 ```
 
+### docker scout
+
+[Docker Scout](https://www.docker.com/products/docker-scout/) is a set of software supply chain features integrated into Docker's user interfaces and command line interface (CLI).
+
+It comes bundled with Docker Desktop but if you wish to use a different version, please follow [these instructions](https://github.com/docker/scout-cli?tab=readme-ov-file#manual-installation).
+
 ### Utilities
 
 ```powershell
@@ -1046,6 +1053,8 @@ After
     ```powershell
     [System.Environment]::SetEnvironmentVariable('DOTNET_TieredPGO', 1, 'User')
     ```
+
+    > :bulb: [Enabled by default in .NET 8]([text](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8?WT.mc_id=DT-MVP-5003978#performance-improvements)) so no longer needed after upgrading to .NET 8.
 
 - Disable telemetry:
 
