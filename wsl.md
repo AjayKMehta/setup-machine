@@ -115,6 +115,12 @@ See [Supported distributions](https://learn.microsoft.com/en-us/dotnet/core/inst
 
 > :bulb: Manually installing .NET 8 doesn't work so will have to wait for package to be available.
 
+### Install .NET 8
+
+See [here](https://ubuntuhandbook.org/index.php/2023/11/install-dotnet-8-ubuntu-22-04/) for details.[^1]
+
+[^1]: I was not able to add the Microsoft repository to `/etc/apt/sources.list.d/` using the instructions provided.
+
 ### Enable tab completion
 
 [Source](https://learn.microsoft.com/en-us/dotnet/core/tools/enable-tab-autocomplete#bash):
@@ -475,9 +481,9 @@ eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/{theme}.omp.json)"
         vim.g.vimtex_view_method = 'zathura_simple'
         ``````
 
-10. Installing updates: see [here](https://tug.org/texlive/doc/tlmgr.html#EXAMPLES).[^1]
+10. Installing updates: see [here](https://tug.org/texlive/doc/tlmgr.html#EXAMPLES).[^2]
 
-[^1]: Still doesn't work due to conflict between system and local `tlmgr` :unamused:
+[^2]: Still doesn't work due to conflict between system and local `tlmgr` :unamused:
 
 ## Misc
 
