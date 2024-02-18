@@ -50,6 +50,83 @@ See this [link](https://stackoverflow.com/a/51767786/781045) for more details.
 grep -r --include '*.list' '^deb ' /etc/apt/sources.list /etc/apt/sources.list.d/
 ```
 
+## git
+
+```bash
+sudo apt install git
+
+# For diffs
+sudo apt install meld
+sudo apt install git-absorb
+# Github CLI
+sudo apt install gh
+```
+
+Add to `~/.bash_profile`:
+
+```bash
+eval "$(gh completion -s bash)"
+```
+
+### GPG
+
+See [here](https://blog.jmorbegoso.com/post/configure-github-gpg-key-in-windows-and-wsl/) on how to use GPG from Windows.
+
+## [asdf](https://asdf-vm.com/guide/getting-started.html)
+
+- Install
+
+    ```shell
+    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
+    ```
+
+- Add the following lines to `.bashrc`:
+
+    ```shell
+    . "$HOME/.asdf/asdf.sh"
+    . "$HOME/.asdf/completions/asdf.bash"
+    ```
+
+### Plugins
+
+- Add plugins:
+
+    ```shell
+    asdf plugin add chezmoi
+    asdf plugin add delta
+    asdf plugin add deno
+    asdf plugin add neovim
+    asdf plugin add poetry
+    asdf plugin add snyk
+    asdf plugin add difftastic
+    ```
+
+- Install latest version:
+
+    ```shell
+    asdf install chezmoi latest
+    asdf install delta latest
+    asdf install deno latest
+    asdf install lua-language-server latest
+    asdf install neovim latest
+    asdf install poetry latest
+    asdf install snyk latest
+    asdf install difftastic latest
+    ```
+
+## fzf
+
+Install:
+
+```shell
+asdf plugin add fzf
+asdf install fzf latest 
+```
+
+### Tips
+
+Open file in Neovim: `fzf --bind 'enter:become(nvim {})'`
+
 ## [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/install-ubuntu)
 
 Available from the Linux package repository for Microsoft products, <https://packages.microsoft.com>, also known as PMC.
@@ -84,28 +161,6 @@ sudo apt-get install -y powershell
 # Start PowerShell
 pwsh
 ```
-
-## git
-
-```bash
-sudo apt install git
-
-# For diffs
-sudo apt install meld
-sudo apt install git-absorb
-# Github CLI
-sudo apt install gh
-```
-
-Add to `~/.bash_profile`:
-
-```bash
-eval "$(gh completion -s bash)"
-```
-
-### GPG
-
-See [here](https://blog.jmorbegoso.com/post/configure-github-gpg-key-in-windows-and-wsl/) on how to use GPG from Windows.
 
 ## [.NET](https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu)
 
@@ -321,61 +376,6 @@ sudo apt install aptitude
 sudo aptitude -y install golang-go
 ```
 
-## [asdf](https://asdf-vm.com/guide/getting-started.html)
-
-- Install
-
-    ```shell
-    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
-    ```
-
-- Add the following lines to `.bashrc`:
-
-    ```shell
-    . "$HOME/.asdf/asdf.sh"
-    . "$HOME/.asdf/completions/asdf.bash"
-    ```
-
-### Plugins
-
-- Add plugins:
-
-    ```shell
-    asdf plugin add chezmoi
-    asdf plugin add delta
-    asdf plugin add deno
-    asdf plugin add neovim
-    asdf plugin add poetry
-    asdf plugin add snyk
-    asdf plugin add difftastic
-    ```
-
-- Install latest version:
-
-    ```shell
-    asdf install chezmoi latest
-    asdf install delta latest
-    asdf install deno latest
-    asdf install lua-language-server latest
-    asdf install neovim latest
-    asdf install poetry latest
-    asdf install snyk latest
-    asdf install difftastic latest
-    ```
-
-## fzf
-
-Install:
-
-```shell
-asdf plugin add fzf
-asdf install fzf latest 
-```
-
-### Tips
-
-Open file in Neovim: `fzf --bind 'enter:become(nvim {})'`
-
 ## Font Manager
 
 See [here](https://askubuntu.com/a/372964) for more details.
@@ -523,6 +523,8 @@ sudo apt install duf
 curl -fsSL https://d2lang.com/install.sh | sh -s -- 
 
 sudo apt install golang-docker-credential-helpers
+
+sudo apt install cloc
 
 # https://github.com/charmbracelet/gum#installation
 sudo mkdir -p /etc/apt/keyrings
