@@ -121,6 +121,10 @@ See [here](https://ubuntuhandbook.org/index.php/2023/11/install-dotnet-8-ubuntu-
 
 [^1]: I was not able to add the Microsoft repository to `/etc/apt/sources.list.d/` using the instructions provided.
 
+### Omnisharp
+
+Omnisharp if installed via `mason.nvim` is found in `"~/.local/share/nvim/mason/packages/omnisharp/`. Create a config file located at `~/.omnisharp/omnisharp.json`.
+
 ### Enable tab completion
 
 [Source](https://learn.microsoft.com/en-us/dotnet/core/tools/enable-tab-autocomplete#bash):
