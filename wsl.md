@@ -72,6 +72,23 @@ eval "$(gh completion -s bash)"
 
 See [here](https://blog.jmorbegoso.com/post/configure-github-gpg-key-in-windows-and-wsl/) on how to use GPG from Windows.
 
+## nvm
+
+[nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file) is a version manager for node.js.
+
+- Install
+
+    ```shell
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+    ```
+
+- Add to bash profile if not there:
+
+    ```shell
+    export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+    ```
+
 ## [asdf](https://asdf-vm.com/guide/getting-started.html)
 
 - Install
