@@ -509,6 +509,9 @@ eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/{theme}.omp.json)"
 ## Misc
 
 ```shell
+# Rust
+sudo apt install cargo
+
 # Java
 sudo apt install openjdk-17-jre-headless
 
