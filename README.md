@@ -1140,7 +1140,7 @@ dotnet tool install -g upgrade-assistant
 
 - Download MiKTeX command-line installer from <https://miktex.org/download>.
 - Extract **miktexsetup_standalone.exe** and *set current directory to its folder location*.
-- Run the following comand to download MiKTeX into a local package repository:
+- Run the following command to download MiKTeX into a local package repository:
 
     ```powershell
     . .\miktexsetup_standalone.exe --verbose --local-package-repository=D:\miktex-repository --package-set=basic download
@@ -1177,6 +1177,15 @@ dotnet tool install -g upgrade-assistant
 - If the output looks OK, remove `--print-info-only` from above CLI command and run to install MikTex.
 
 - Add `$installFolder\bin\x64\` to `$Path`.
+
+### latexindent
+
+**latexindent** is used to format LaTeX in the VS Code extension [LaTeX-Workshop](https://github.com/James-Yu/LaTeX-Workshop).
+
+> [!WARNING]
+> The script that ships with MikTex requires a Perl installation but even after trying to install Perl (in standard and custom location), it still did not work.
+
+Download latest version from [here](https://github.com/cmhughes/latexindent.pl/releases) and make sure install folder is in `$Path`.
 
 ### Miktex Packages
 
