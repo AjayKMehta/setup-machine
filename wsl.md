@@ -500,11 +500,21 @@ eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/{theme}.omp.json)"
 
         ```lua
         vim.g.vimtex_view_method = 'zathura_simple'
-        ``````
+        ```
 
 10. Installing updates: see [here](https://tug.org/texlive/doc/tlmgr.html#EXAMPLES).[^2]
 
 [^2]: Still doesn't work due to conflict between system and local `tlmgr` :unamused:
+
+### tectonic
+
+[Tectonic](https://github.com/tectonic-typesetting/tectonic) is a modern TeX/LaTeX engine written in Rust :crab:
+
+```shell
+sudo snap install tectonic
+```
+
+([Source](https://snapcraft.io/install/tectonic/ubuntu))
 
 ## Misc
 

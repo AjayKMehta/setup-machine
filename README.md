@@ -1187,6 +1187,12 @@ dotnet tool install -g upgrade-assistant
 
 Download latest version from [here](https://github.com/cmhughes/latexindent.pl/releases) and make sure install folder is in `$Path`.
 
+### tectonic
+
+[Tectonic](https://github.com/tectonic-typesetting/tectonic) is a modern TeX/LaTeX engine written in Rust :crab:
+
+Grab latest binary from GitHhub repo and make sure installation folder is in `$Path`.
+
 ### Miktex Packages
 
 See [miktex_packages.txt](./miktex_packages.txt) for list of packages to install.
