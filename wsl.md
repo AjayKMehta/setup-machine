@@ -199,8 +199,6 @@ Starting with Ubuntu 22.04, some versions of .NET are available in the Ubuntu pa
 
 See [Supported distributions](https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#supported-distributions) for details on how to install .NET for specific Ubuntu versions.
 
-> :bulb: Manually installing .NET 8 doesn't work so will have to wait for package to be available.
-
 ### Install .NET 8
 
 See [here](https://ubuntuhandbook.org/index.php/2023/11/install-dotnet-8-ubuntu-22-04/) for details.[^1]
@@ -262,7 +260,7 @@ rm -rf ble-nightly
 echo 'source ~/.local/share/blesh/ble.sh' >> ~/.bashrc
 ```
 
-Uupdate:
+Update:
 
 ```shell
 ble-update
@@ -302,7 +300,7 @@ bleopt
 | C-k                | kill-forward-line                     | Delete the range between the current position and the end of line       |
 | C-u                | kill-backward-line                    | Delete the range between the current position and the beginning of line |
 | S-C-p, S-up        | @marked backward-line                 | Go to the previous line with selection                                  |
-| S-C-n, S-down      | @marked forward-line                  | Go to the next line with selection                                      |## VS Code
+| S-C-n, S-down      | @marked forward-line                  | Go to the next line with selection                                      |
 | C-x C-p, C-x up   | history-search-backward           | Start non-incremental prefix-search in forward direction with the string before the current position              |
 | C-x C-n, C-x down | history-search-forward            | Start non-incremental prefix-search in backward direction backward with the string before the current position    |
 | C-x p             | history-substring-search-backward | Start non-incremental substring-search in forward direction with the string before the current position           |
@@ -348,7 +346,7 @@ Important settings are in `~/.local/share/atuin`.
 
 ## VS Code
 
-- See [here](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode) for steps to configure WSL for use wih VS Code.
+- See [here](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode) for steps to configure WSL for use with VS Code.
 
 ## wsl apps
 
@@ -375,14 +373,15 @@ Install [Nvim-R](https://github.com/jalvesaq/Nvim-R).
 
 Select key bindings:
 
-Keys | Action |
----------|----------|
-`<LocalLeader>rf` | Start R |
-`<LocalLeader>rd` | Set working directory |
- `<LocalLeader>d` | Send line to R + move down |
- `<LocalLeader>l` | Send line to R + stay |
- `<LocalLeader>aa` | Send file |
+| Keys              | Action                     |
+|-------------------|----------------------------|
+| `<LocalLeader>rf` | Start R                    |
+| `<LocalLeader>rd` | Set working directory      |
+| `<LocalLeader>d`  | Send line to R + move down |
+| `<LocalLeader>l`  | Send line to R + stay      |
+| `<LocalLeader>aa` | Send file                  |
 
+> [!TIP]
 > For `<LocalLeader>`, press <kbd>Space</kbd> + <kbd>,</kbd>.
 
 For more bindings, see [this](https://github.com/jalvesaq/Nvim-R/blob/master/doc/Nvim-R.txt#L317).
