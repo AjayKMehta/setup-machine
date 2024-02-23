@@ -433,6 +433,10 @@ winget install GitExtensionsTeam.GitExtensions
 
 :bulb: Install CLI apps in a common directory and add common directory to `$Path`.
 
+### typos
+
+**typos** is a CLI tool to check spelling. It has less false positives compared to the alternatives. Get the latest binaries from [here](https://github.com/crate-ci/typos/releases).
+
 ### less
 
 **[less](https://github.com/jftuga/less-Windows)** is a pager.
