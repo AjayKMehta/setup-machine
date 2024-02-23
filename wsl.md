@@ -50,6 +50,20 @@ See this [link](https://stackoverflow.com/a/51767786/781045) for more details.
 grep -r --include '*.list' '^deb ' /etc/apt/sources.list /etc/apt/sources.list.d/
 ```
 
+## snap
+
+Snap is pre-installed and ready to go on all recent releases of Ubuntu. Else, install: `sudo apt install snapd`.
+
+Install apps:
+
+```shell
+sudo snap install btop
+sudo snap install chromium
+sudo snap install cups
+sudo snap install tldr
+sudo snap install yq
+```
+
 ## git
 
 ```bash
