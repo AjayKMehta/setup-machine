@@ -1197,9 +1197,19 @@ Download latest version from [here](https://github.com/cmhughes/latexindent.pl/r
 
 Grab latest binary from GitHhub repo and make sure installation folder is in `$Path`.
 
+### chktex
+
+[chktex](https://www.nongnu.org/chktex/) can be installed from CTAN to lint LaTeX filles.
+
 ### Miktex Packages
 
 See [miktex_packages.txt](./miktex_packages.txt) for list of packages to install.
+
+### Use VS Code for LaTeX
+
+- [How to use LaTeX on VS Code?](https://tex.stackexchange.com/questions/462365/how-to-use-latex-on-vs-code)
+
+- [LaTeX Workshop](https://github.com/James-Yu/LaTeX-Workshop/wiki)
 
 ## VS Code
 
