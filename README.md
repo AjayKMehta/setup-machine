@@ -616,6 +616,28 @@ winget install Wilfred.difftastic -l D:\Apps\CLI
     chezmoi apply
     ```
 
+
+
+## VS Code
+
+- Install:
+
+    ```powershell
+    winget install --id Microsoft.VisualStudioCode -l 'D:\Apps\VSCode'
+    ```
+
+- Add installation folder (e.g. **D:\Apps\VSCode\bin**) to `$Path`.
+
+- Use settings sync to get settings.
+
+> [!TIP]
+> If you run into the error **`Another instance of Code is running as administrator`**, [you can resolve this by setting VS Code to always run as admin](https://github.com/microsoft/vscode/issues/6560#issuecomment-1732330823).
+
+## Node
+
+- Install from <https://nodejs.org/en/download/>.
+- Change installation path for modules by setting `$NODE_PATH`
+
 ## Hugo
 
 [Hugo](https://gohugo.io/) is an open-source static site generator.
@@ -1210,26 +1232,6 @@ See [miktex_packages.txt](./miktex_packages.txt) for list of packages to install
 - [How to use LaTeX on VS Code?](https://tex.stackexchange.com/questions/462365/how-to-use-latex-on-vs-code)
 
 - [LaTeX Workshop](https://github.com/James-Yu/LaTeX-Workshop/wiki)
-
-## VS Code
-
-- Install:
-
-    ```powershell
-    winget install --id Microsoft.VisualStudioCode -l 'D:\Apps\VSCode'
-    ```
-
-- Add installation folder (e.g. **D:\Apps\VSCode\bin**) to `$Path`.
-
-- Use settings sync to get settings.
-
-> [!TIP]
-> If you run into the error **`Another instance of Code is running as administrator`**, [you can resolve this by setting VS Code to always run as admin](https://github.com/microsoft/vscode/issues/6560#issuecomment-1732330823).
-
-## Node
-
-- Install from <https://nodejs.org/en/download/>.
-- Change installation path for modules by setting `$NODE_PATH`
 
 ## Haskell
 
