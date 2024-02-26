@@ -35,6 +35,7 @@ Install-WinGetApp -AppName GnuPG.Gpg4win -InstallFolder "$CustomLocation\Gpg4win
 Install-WinGetApp -AppName Git.Git
 Install-WinGetApp -AppName Glab.Glab
 Install-WinGetApp -AppName GitExtensionsTeam.GitExtensions
+Install-WinGetApp -AppName tummychow.git-absorb -InstallFolder "$CustomLocation\CLI"
 
 # Docker
 Install-WinGetApp -AppName Docker.DockerDesktop

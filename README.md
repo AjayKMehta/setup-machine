@@ -411,6 +411,17 @@ Install: `
 winget install GitExtensionsTeam.GitExtensions
 `.
 
+### git absorb
+
+[git absorb](https://github.com/tummychow/git-absorb) eliminates tedious manual work of creating fixup commits (and rebasing if you specify `--and-rebase`). It can automatically identify which commits are safe to modify, and which staged changes belong to each of those commits. It will then write `fixup!` commits for each of those changes.
+
+```shell
+git add . # fixed files
+git absorb --and-rebase
+```
+
+Install: `winget install tummychow.git-absorb -l D:\Apps\CLI`.
+
 ## Java
 
 - Install:
