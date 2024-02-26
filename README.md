@@ -1223,6 +1223,9 @@ Grab latest binary from GitHhub repo and make sure installation folder is in `$P
 
 [chktex](https://www.nongnu.org/chktex/) can be installed from CTAN to lint LaTeX filles.
 
+> [!NOTE]
+> It seems that the configuration file `chktexrc` is installed in `<MikTex Install Folder>/chktex`.
+
 ### Miktex Packages
 
 See [miktex_packages.txt](./miktex_packages.txt) for list of packages to install.
