@@ -627,8 +627,6 @@ winget install Wilfred.difftastic -l D:\Apps\CLI
     chezmoi apply
     ```
 
-
-
 ## VS Code
 
 - Install:
@@ -1232,7 +1230,7 @@ Grab latest binary from GitHhub repo and make sure installation folder is in `$P
 
 ### chktex
 
-[chktex](https://www.nongnu.org/chktex/) can be installed from CTAN to lint LaTeX filles.
+[chktex](https://www.nongnu.org/chktex/) can be installed from CTAN to lint LaTeX files.
 
 > [!NOTE]
 > It seems that the configuration file `chktexrc` is installed in `<MikTex Install Folder>/chktex`.

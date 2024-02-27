@@ -197,8 +197,7 @@ stackengine
 standalone
 stringenc
 svg
-symbo
-l
+symbol
 tableof
 tcolorbox
 tetex
