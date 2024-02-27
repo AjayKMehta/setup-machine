@@ -496,28 +496,43 @@ eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/{theme}.omp.json)"
 
 ## LaTeX
 
-1. Follow [these instructions](https://tug.org/texlive/quickinstall.html) but **make sure** to append `--paper=letter` to `perl ./install-tl --no-interaction`.
-2. Run this command to create a few folders inside your home directory: `tlmgr init-usertree`. ([source](https://tex.stackexchange.com/questions/137428/tlmgr-cannot-setup-tlpdb))
-3. Add `/usr/local/texlive/2023/texmf-dist/doc/man` to **MANPATH**.
-4. Add `/usr/local/texlive/2023/texmf-dist/doc/info` to **INFOPATH**.
-5. Add `/usr/local/texlive/2023/bin/x86_64-linux` to your **PATH** for current and future sessions.
-6. Install font using user-mode: `tlmgr --usermode install courier`
-7. Install `chtex`: `sudo apt install chktex`
-8. Run `sudo apt install latexmk` to install `latexmk`.
-9. To edit LaTex files using `vimtex` plugin in neovim, the following is needed:     - `sudo apt install zathura zathura-ps`.
-     - `pip install neovim-remote`
-     - `sudo apt-get install xdotool`
-     - See [this](https://www.ejmastnak.com/tutorials/vim-latex/pdf-reader/#a-pdf-reader-on-linuxa) for more info.
-     - If you run into issues with viewing PDF, try this :sparkles:: run `sudo loginctl enable-linger <username>` or `sudo systemctl restart user@1000` ([source](https://github.com/microsoft/WSL/issues/8842)).
-     - If `xodotool` doesn't work, set this in config for `vimtex.nvim`:
+The instructions below are based on the following links:
+
+- <https://tug.org/texlive/quickinstall.html>
+- <https://tex.stackexchange.com/questions/454191/installing-texlive-without-root-permissions-from-the-source-files>
+- <https://tex.stackexchange.com/questions/137428/tlmgr-cannot-setup-tlpdb>
+
+1. Run the following in shell:
+
+    ```bash
+    cd /tmp
+    wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+    zcat < install-tl-unx.tar.gz | tar xf -
+    cd install-tl-20240226/ # change to appropriate directory name
+    perl ./install-tl --paper=letter --scheme=small
+    ```
+
+2. This will bring up a menu in shell. Choose option **D** to specify your user directory. Then return to the main options with **R** and subsequently choose **I** to install.
+3. If you get an error `cannot setup TLPDB in /home/...`, execute `tlmgr init-usertree` to initialize user tree .
+4. Add `~/texlive/2023/texmf-dist/doc/man` to **MANPATH**.
+5. Add `~/texlive/2023/texmf-dist/doc/info` to **INFOPATH**.
+6. Add `~/texlive/2023/bin/x86_64-linux` to your **PATH** for current and future sessions.
+7. Install font using user-mode: `tlmgr --usermode install courier`
+8. Install `chtex`: `sudo apt install chktex`
+9. Run `sudo apt install latexmk` to install `latexmk`.
+10. To edit LaTex files using `vimtex` plugin in neovim, the following are needed:
+    - `sudo apt install zathura zathura-ps`.
+    - `pip install neovim-remote`
+    - `sudo apt-get install xdotool`
+    - See [this](https://www.ejmastnak.com/tutorials/vim-latex/pdf-reader/#a-pdf-reader-on-linuxa) for more info.
+    - If you run into issues with viewing PDF, try this :sparkles:: run `sudo loginctl enable-linger <username>` or `sudo systemctl restart user@1000` ([source](https://github.com/microsoft/WSL/issues/8842)).
+    - If `xodotool` doesn't work, set this in config for `vimtex.nvim`:
 
         ```lua
         vim.g.vimtex_view_method = 'zathura_simple'
         ```
 
-10. Installing updates: see [here](https://tug.org/texlive/doc/tlmgr.html#EXAMPLES).[^2]
-
-[^2]: Still doesn't work due to conflict between system and local `tlmgr` :unamused:
+11. Installing updates: see [here](https://tug.org/texlive/doc/tlmgr.html#EXAMPLES).
 
 ### tectonic
 
