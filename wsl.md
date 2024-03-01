@@ -130,6 +130,7 @@ See [here](https://blog.jmorbegoso.com/post/configure-github-gpg-key-in-windows-
     asdf plugin add poetry
     asdf plugin add snyk
     asdf plugin add difftastic
+    asdf plugin add golang https://github.com/asdf-community/asdf-golang.git
     ```
 
 - Install latest version:
@@ -143,7 +144,47 @@ See [here](https://blog.jmorbegoso.com/post/configure-github-gpg-key-in-windows-
     asdf install poetry latest
     asdf install snyk latest
     asdf install difftastic latest
+    asdf install golang latest
     ```
+
+- To specify versions to use, edit `~/.tool-versions`:
+
+    ```text
+    deno 1.41.0
+    golang 1.22.0    
+    ```
+
+### Commands
+
+To see list of all available plugins:
+
+```shell
+asdf plugin list all
+```
+
+To update all installed plugins to latest version:
+
+```shell
+asdf plugin update --all                
+```
+
+To list installed plugins:
+
+```shell
+asdf list
+```
+
+To list all versions of a plugin `<pkg>`:
+
+```shell
+asdf list all <pkg>
+```
+
+To uninstall specific plugin version:
+
+```shell
+asdf uninstall <plugin> <version>
+```
 
 ## fzf
 
@@ -397,13 +438,6 @@ sudo apt install systemd-coredump python3-pip python3.10-venv
 
 ```shell
 pip install visidata
-```
-
-## [Go](https://www.fosslinux.com/68795/install-go-on-ubuntu.htm)
-
-```shell
-sudo apt install aptitude
-sudo aptitude -y install golang-go
 ```
 
 ## Font Manager
