@@ -528,6 +528,11 @@ eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/{theme}.omp.json)"
     stack install haskell-dap ghci-dap haskell-debug-adapter
     ```
 
+## Rust
+
+- Install cargo: `sudo apt install cargo`
+- Add `~/.cargo/bin` to `$PATH`.
+
 ## LaTeX
 
 The instructions below are based on the following links:
@@ -581,8 +586,7 @@ sudo snap install tectonic
 ## Misc
 
 ```shell
-# Rust
-sudo apt install cargo
+cargo install typos-cli
 
 # Java
 sudo apt install openjdk-17-jre-headless
