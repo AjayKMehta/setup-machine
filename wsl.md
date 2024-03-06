@@ -440,6 +440,12 @@ sudo apt install systemd-coredump python3-pip python3.10-venv
 pip install visidata
 ```
 
+[Add completion for bash](https://pip.pypa.io/en/stable/user_guide/#command-completion):
+
+```shell
+python3 -m pip completion --bash >> ~/.config/bash_completions.d/pip
+```
+
 ## Font Manager
 
 See [here](https://askubuntu.com/a/372964) for more details.
