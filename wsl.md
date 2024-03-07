@@ -131,6 +131,8 @@ See [here](https://blog.jmorbegoso.com/post/configure-github-gpg-key-in-windows-
     asdf plugin add snyk
     asdf plugin add difftastic
     asdf plugin add golang https://github.com/asdf-community/asdf-golang.git
+    # https://github.com/slimtoolkit/slim?tab=readme-ov-file
+    asdf plugin add docker-slim
     ```
 
 - Install latest version:
@@ -145,13 +147,14 @@ See [here](https://blog.jmorbegoso.com/post/configure-github-gpg-key-in-windows-
     asdf install snyk latest
     asdf install difftastic latest
     asdf install golang latest
+    asdf install docker-slim
     ```
 
 - To specify versions to use, edit `~/.tool-versions`:
 
     ```text
     deno 1.41.0
-    golang 1.22.0    
+    golang 1.22.0
     ```
 
 ### Commands
