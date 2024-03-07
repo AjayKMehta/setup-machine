@@ -237,6 +237,19 @@ sudo apt-get install -y powershell
 pwsh
 ```
 
+### PowerShellEditorServices
+
+[PowerShellEditorServices](https://github.com/PowerShell/PowerShellEditorServices/tree/main) is a platform for PowerShell development support in any editor.
+
+To install, see [instructions here](https://github.com/PowerShell/PowerShellEditorServices/blob/main/docs/guide/getting_started.md#install-the-server).
+
+### Treesitter support (Neovim)
+
+See [here](https://www.reddit.com/r/neovim/comments/17qkjtt/powershell_in_neovim/).
+
+> [!NOTE]
+> This doesn't work. Will revisit at a future date.
+
 ## [.NET](https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu)
 
 Starting with Ubuntu 22.04, some versions of .NET are available in the Ubuntu package feed.
