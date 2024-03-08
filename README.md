@@ -1296,10 +1296,8 @@ This section is based on the following links:
     | `GITHUB_TOKEN`              | GitHub PAT. See [GitHub Token](#github-pat) for details. | Used by `stack` to authenticate when using GitHub REST API. See [here](https://docs.haskellstack.org/en/stable/environment_variables/).                                                                                                            |
 
 > [!IMPORTANT]
-<!-- markdownlint-disable MD032 -->
->  1. You also need to add `D:\Apps\ghcup\bin` to `$Path`.
->  1. You also need to make sure `$HOME` is set if you want to save `.ghci` there.
-<!-- markdownlint-enable MD032 -->
+> You also need to add `D:\Apps\ghcup\bin` to `$Path`. <br>
+> You also need to make sure `$HOME` is set if you want to save `.ghci` there.
 
 #### ghcup
 
