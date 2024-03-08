@@ -1394,8 +1394,8 @@ This section is based on the following links:
     chezmoi add --follow --template ~/.stack/config.yaml
     ```
 
-    > [!WARNING]
-    > `chezmoi re-add` will not pick up updates to the original `config.yaml`. You will need to add it again via `chezmoi add ...` if there are any updates :frowning:
+> [!WARNING]
+> `chezmoi re-add` will not pick up updates to the original `config.yaml`. You will need to add it again via `chezmoi add ...` if there are any updates :frowning:
 
 - Run `ghcup install stack latest`.
 - Make sure that the value of `local-bin-path` (if not set, value is `~\AppData\Roaming\local\bin`) is in `$PATH` as that is where `stack install` installs generated binaries ([source](https://docs.haskellstack.org/en/stable/GUIDE/#the-stack-install-command-and-copy-bins-option)).
