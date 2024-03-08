@@ -1486,9 +1486,13 @@ stack install hlint
 
 **Haskell GHCi Debug Adapter Phoityne** ([phoityne.phoityne-vscode](https://github.com/phoityne/hdx4vsc)) provides debugging support. See website for how to configure `launch.json` to debug Haskell code.
 
-**Setup:**
+**Prerequisites:**
 
 Install [haskell-dap](https://hackage.haskell.org/package/haskell-dap), [ghci-dap](https://hackage.haskell.org/package/ghci-dap), [haskell-debug-adapter](https://hackage.haskell.org/package/haskell-debug-adapter):
+
+**Usage:**
+
+:bulb: If you use `Debug: Add Configuration...` command in VS Code and select `haskell-debug-adapter`, it will create a `launch.json` for you with 2 configurations - one using `stack` and the other using `cabal`. The former can be changed to run `app/Main.hs` instead of `test/Spec.hs` (also, need to remove `--test` from `ghciCmd`). The latter does not work.
 
 ```powershell
 stack update
