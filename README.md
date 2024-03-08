@@ -1292,12 +1292,14 @@ This section is based on the following links:
     | `CABAL_DIR`                 | D:\Apps\cabal                                            | If set, *all* `cabal-install` content files will be stored as subdirectories of this directory, including the configuration file if `CABAL_CONFIG` is unset. See [here](https://cabal.readthedocs.io/en/stable/config.html#environment-variables). |
     | `CABAL_CONFIG`              | `$USERPROFILE`\\.config\cabal\config                       | Path for global configuration file.                                                                                                                                                                                                                |
     | `GHCUP_MSYS2`               | D:\msys64                                                | [Has to point to the root of an existing MSYS2 installation](https://www.haskell.org/ghcup/guide/#env-variables)                                                                                                                                   |
-    | `STACK_ROOT`                | D:\sr                                                    | This is where `stack` stores downloaded programs and snapshot packages. See [here](https://docs.haskellstack.org/en/stable/stack_root/).                                                                                                           |
+    | `STACK_ROOT`                | D:\sr                                                    | This is where `stack` stores important files. See [here](https://docs.haskellstack.org/en/stable/stack_root/).                                                                                                           |
     | `GITHUB_TOKEN`              | GitHub PAT. See [GitHub Token](#github-pat) for details. | Used by `stack` to authenticate when using GitHub REST API. See [here](https://docs.haskellstack.org/en/stable/environment_variables/).                                                                                                            |
 
 > [!IMPORTANT]
-> You also need to add `D:\Apps\ghcup\bin` to `$Path`.
-> You also need to make sure `$HOME` is set if you want to save `.ghci` there.
+<!-- markdownlint-disable MD032 -->
+>  1. You also need to add `D:\Apps\ghcup\bin` to `$Path`.
+>  1. You also need to make sure `$HOME` is set if you want to save `.ghci` there.
+<!-- markdownlint-enable MD032 -->
 
 #### ghcup
 
@@ -1362,8 +1364,10 @@ This section is based on the following links:
 - Edit [Stack's global configuration file](https://docs.haskellstack.org/en/stable/stack_root/#configyaml) which should be located at `${STACK_ROOT}\config.yaml`, e.g. `D:/sr/config.yaml`[^4]:
 
     ```yaml
-    local-bin-path: d:/stack
-    local-programs-path: d:/stack
+    # The target directory for stack build --copy-bins and stack install.
+    local-bin-path: D:/stack
+    # Stack 'programs' directory, where tools like GHC get installed.
+    local-programs-path: D:/stack
     skip-msys: true
     # https://www.haskell.org/ghcup/install/#vscode-integration
     system-ghc: true
