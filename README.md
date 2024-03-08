@@ -1293,7 +1293,7 @@ This section is based on the following links:
     | `CABAL_CONFIG`              | `$USERPROFILE`\\.config\cabal\config                       | Path for global configuration file.                                                                                                                                                                                                                |
     | `GHCUP_MSYS2`               | D:\msys64                                                | [Has to point to the root of an existing MSYS2 installation](https://www.haskell.org/ghcup/guide/#env-variables)                                                                                                                                   |
     | `STACK_ROOT`                | D:\sr                                                    | This is where `stack` stores important files. See [here](https://docs.haskellstack.org/en/stable/stack_root/).                                                                                                           |
-    | `GITHUB_TOKEN`              | GitHub PAT. See [GitHub Token](#github-pat) for details. | Used by `stack` to authenticate when using GitHub REST API. See [here](https://docs.haskellstack.org/en/stable/environment_variables/).                                                                                                            |
+    | `GITHUB_TOKEN`              | GitHub PAT. See [GitHub Token](#github-pat) for details. | Used by `stack` to authenticate when using GitHub REST API. See [here](https://docs.haskellstack.org/en/stable/environment_variables/).|
 
 > [!IMPORTANT]
 > You also need to add `D:\Apps\ghcup\bin` to `$Path`. <br>
@@ -1404,7 +1404,7 @@ This section is based on the following links:
     resolver: lts-21.22
     ```
 
-- In Windows, [GDB can be installed to debug an executable](https://docs.haskellstack.org/en/stable/debugging/#debugging-symbols) with `ghcup run -m -- pacman -S gdb`.
+- On Windows, [GDB can be installed to debug an executable](https://docs.haskellstack.org/en/stable/debugging/#debugging-symbols) with `ghcup run -m -- pacman -S gdb`.
 
 Checks:
 
@@ -1452,6 +1452,14 @@ Checks:
     '$everything': -haddock
     ```
 
+### Linting
+
+Install `hlint` or grab binary from [repo](https://github.com/ndmitchell/hlint/releases):
+
+```powershell
+stack install hlint
+```
+
 ### Configuring VS Code
 
 #### Syntax highlighting
@@ -1469,6 +1477,7 @@ Checks:
 1. Install one of the formatters below:
 
     ```powershell
+    # Rerun if GHC version changes!
     stack install ormolu
     stack install brittany
     ```
@@ -1482,17 +1491,9 @@ Checks:
 Install [haskell-dap](https://hackage.haskell.org/package/haskell-dap), [ghci-dap](https://hackage.haskell.org/package/ghci-dap), [haskell-debug-adapter](https://hackage.haskell.org/package/haskell-debug-adapter):
 
 ```powershell
-$ stack update
-$
-$ stack install haskell-dap ghci-dap haskell-debug-adapter
-```
-
-#### Linting
-
-**[VSCode HLint](https://github.com/swsnr/vscode-hlint)** requires hlint to be installed:
-
-```powershell
-stack install hlint
+stack update
+# Rerun if GHC version changes!
+stack install haskell-dap ghci-dap haskell-debug-adapter 
 ```
 
 #### Theme
