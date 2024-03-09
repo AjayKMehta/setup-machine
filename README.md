@@ -105,6 +105,7 @@
       - [Debugging](#debugging)
       - [Linting](#linting)
       - [Theme](#theme)
+      - [Troubleshooting](#troubleshooting)
   - [Miscellaneous](#miscellaneous)
 
 ## Overview
@@ -1503,6 +1504,39 @@ stack install haskell-dap ghci-dap haskell-debug-adapter
 #### Theme
 
 [Lambda Black](https://github.com/janw4ld/lambda-black) is optimized for Haskell.
+
+#### Troubleshooting
+
+If you encounter an error like "cannot satisfy -package-id...", you need to clean, build and restart LSP. You can add this to `.vscode/task.json`:
+
+```json
+{
+    "group": "build",
+    "type": "shell",
+    "label": "haskell clean & build",
+    "command": "stack clean && stack build"
+},
+{
+    "label": "rebuild and reload LSP",
+    "command": "${command:haskell.commands.restartServer}",
+    "dependsOn": [
+        "haskell clean & build"
+    ]
+}
+```
+
+Additionally, you may need to create a `hie.yaml` file in the project's root directory looking like this:
+
+```yaml
+cradle:
+  stack:
+```
+
+**Links:**
+
+- <https://github.com/haskell/haskell-language-server/issues/735>
+- <https://github.com/haskell/haskell-ide-engine/issues/1616#>
+- <https://github.com/haskell/haskell-language-server/issues/1822>
 
 ## Miscellaneous
 
