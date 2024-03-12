@@ -82,6 +82,10 @@ Add to `~/.bash_profile`:
 eval "$(gh completion -s bash)"
 ```
 
+### git lfs
+
+[Instructions](https://github.com/git-lfs/git-lfs/blob/main/INSTALLING.md)
+
 ### GPG
 
 See [here](https://blog.jmorbegoso.com/post/configure-github-gpg-key-in-windows-and-wsl/) on how to use GPG from Windows.
