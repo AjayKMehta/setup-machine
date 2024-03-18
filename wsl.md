@@ -597,7 +597,9 @@ The instructions below are based on the following links:
         vim.g.vimtex_view_method = 'zathura_simple'
         ```
 
-11. Installing updates: see [here](https://tug.org/texlive/doc/tlmgr.html#EXAMPLES).
+11. Installing and updating packages: see [here](https://tug.org/texlive/doc/tlmgr.html#EXAMPLES).
+
+12. To upgrade from TeX Live 2023 to 2024, [follow these instructions](https://tug.org/texlive/upgrade.html).
 
 ### tectonic
 
