@@ -50,6 +50,23 @@ See this [link](https://stackoverflow.com/a/51767786/781045) for more details.
 grep -r --include '*.list' '^deb ' /etc/apt/sources.list /etc/apt/sources.list.d/
 ```
 
+Alternatives:
+
+```bash
+sudo add-apt-repository --list
+# More detailed view
+sudo apt-cache policy
+```
+
+## Troubleshooting
+
+If you get an error when running `sudo apt update`  along the lines of "Release file is not yet valid", you need to install `ntp` ([source](https://askubuntu.com/a/1300062)):
+
+```bash
+sudo apt install ntp
+sudo service ntp restart
+```
+
 ## snap
 
 Snap is pre-installed and ready to go on all recent releases of Ubuntu. Else, install: `sudo apt install snapd`.
