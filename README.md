@@ -55,6 +55,7 @@
   - [Hadoop](#hadoop)
   - [Python](#python)
     - [conda](#conda)
+    - [PyTorch](#pytorch)
     - [JupyterLab](#jupyterlab)
       - [Workaround for Quarto](#workaround-for-quarto)
       - [Git-friendly hooks](#git-friendly-hooks)
@@ -775,7 +776,7 @@ See [here](https://kontext.tech/article/447/install-hadoop-330-on-windows-10-ste
 ## Python
 
 > [!NOTE]
-> At some point, I would like to switch to **poetry** due to the challenges presented when using **conda** and **pip** together.
+> At some point, I would like to switch to **~~poetry~~** **uv** due to the challenges presented when using **conda** and **pip** together.
 
 - Download and install [Miniconda](https://docs.conda.io/en/latest/miniconda.html).
 - Add **bin** folder (**D:\Apps\Miniconda\condabin**) to `$Path`.
@@ -812,6 +813,16 @@ See [here](https://kontext.tech/article/447/install-hadoop-330-on-windows-10-ste
     ```powershell
     conda config --set changeps1 False
     ```
+
+### PyTorch
+
+See [here](https://pytorch.org/get-started/locally/) for instructions on installing PyTorch.
+
+To get CUDA version installed on your machine, inspect the output of the following command:
+
+```shell
+nvidia-smi
+```
 
 ### JupyterLab
 
