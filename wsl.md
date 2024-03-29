@@ -62,6 +62,7 @@ sudo snap install chromium
 sudo snap install cups
 sudo snap install tldr
 sudo snap install yq
+sudo snap install fx
 ```
 
 ## git
