@@ -446,7 +446,68 @@ Important settings are in `~/.local/share/atuin`.
 
 ## R
 
-Instruction for installing are [here](https://cran.r-project.org/bin/linux/ubuntu).
+Instructions for installing are based on [here](https://cran.r-project.org/bin/linux/ubuntu).
+
+```bash
+sudo apt update -qq
+# install two helper packages we need
+sudo apt install --no-install-recommends software-properties-common dirmngr
+# add the signing key (by Michael Rutter) for these repos
+# To verify key, run gpg --show-keys /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc 
+# Fingerprint: E298A3A825C0D65DFD57CBB651716619E084DAB9
+wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
+sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
+sudo apt install r-base r-base-dev -y
+```
+
+### Package prerequisites
+
+1. [Install Fortran](https://fortran-lang.org/learn/os_setup/install_gfortran/#debian-based-debian-ubuntu-mint-etc)
+
+    ```bash
+    sudo apt install gfortran
+    ```
+
+1. You will need to install these Ubuntu packages to avoid installation errors for certain packages ([source](https://stackoverflow.com/questions/49657406/install-packages-cant-find-shared-so-object-file)):
+
+    ```bash
+    sudo apt install libproj-dev
+    sudo apt install libgdal-dev
+    ```
+
+1. To support rendering of PDF documents that include SVG files, automatically converting them to PDF images in Quarto 1.3+:
+
+    ```bash
+    sudo apt install librsvg2-bin
+    ```
+
+### [Posit Package Manager for Linux R Binaries](https://tshafer.com/blog/2023/07/posit-package-manager-linux)
+
+You can use the Posit Package Manager (PPM) to install binary packages and avoid having to compile from source.
+
+1. Determine your repo URL from [the PPM setup page](https://packagemanager.posit.co/client/#/repos/2/overview/)<https://packagemanager.posit.co/client/#/repos/2/overview/>
+
+1. Add this to your `.Rprofile`:
+
+    ```r
+    options(HTTPUserAgent = sprintf(
+    "R/%s R (%s)", 
+    getRversion(), 
+    paste(
+        getRversion(), 
+        R.version["platform"], 
+        R.version["arch"], 
+        R.version["os"]
+    )
+    ))
+
+    local({
+    r <- getOption("repos")
+    r["ropensci"] <- "https://ropensci.r-universe.dev"
+    r["CRAN"] <- "https://packagemanager.posit.co/cran/__linux__/jammy/latest"
+    r["INLA"] <- "https://inla.r-inla-download.org/R/stable"
+    options(repos = r)
+    ```
 
 ### neovim
 
