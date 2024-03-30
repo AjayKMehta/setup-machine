@@ -876,6 +876,8 @@ To override the directory used to store prompt templates, etc., set `$LLM_USER_P
 
 #### HuggingFace
 
+Get access token from <https://huggingface.co/settings/tokens>.
+
 Set following [environment variables](https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables):
 
 1. Set `$HF_HOME` to configure where **huggingface_hub** will locally store data. In particular, your token and the cache will be stored in this folder.
