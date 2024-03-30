@@ -58,13 +58,26 @@ sudo add-apt-repository --list
 sudo apt-cache policy
 ```
 
-## Troubleshooting
+## Troubleshooting Tips
+
+### apt update error
 
 If you get an error when running `sudo apt update`  along the lines of "Release file is not yet valid", you need to install `ntp` ([source](https://askubuntu.com/a/1300062)):
 
 ```bash
 sudo apt install ntp
 sudo service ntp restart
+```
+
+### ldd
+
+`ldd` lists all the libraries needed by a binary to execute. For example, if we run `ldd /bin/bash`:
+
+```text
+linux-vdso.so.1 (0x00007ffc059fd000)
+libtinfo.so.6 => /lib/x86_64-linux-gnu/libtinfo.so.6 (0x00007fc0aa62a000)
+libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007fc0aa401000)
+/lib64/ld-linux-x86-64.so.2 (0x00007fc0aa7cf000)
 ```
 
 ## snap
