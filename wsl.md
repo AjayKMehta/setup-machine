@@ -494,6 +494,12 @@ sudo apt install r-base r-base-dev -y
     sudo apt install librsvg2-bin
     ```
 
+1. [To avoid issues with `igraph`](https://stackoverflow.com/questions/71609407/unable-to-attach-igraph-or-highcharter-in-rstudio-libglpk-so-40-cannot-open-sh/71610023#71610023):
+
+    ```bash
+    sudo apt install libglpk-dev
+    ```
+
 ### [Posit Package Manager for Linux R Binaries](https://tshafer.com/blog/2023/07/posit-package-manager-linux)
 
 You can use the Posit Package Manager (PPM) to install binary packages and avoid having to compile from source.
@@ -521,6 +527,12 @@ You can use the Posit Package Manager (PPM) to install binary packages and avoid
     r["INLA"] <- "https://inla.r-inla-download.org/R/stable"
     options(repos = r)
     ```
+
+### colorout
+
+**[colorout](https://github.com/jalvesaq/colorout)** is an R package that colorizes R output when running in a Unix terminal emulator
+
+Install with `devtools`.
 
 ### neovim
 
