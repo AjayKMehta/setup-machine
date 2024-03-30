@@ -82,6 +82,8 @@ sudo snap install yq
 sudo snap install fx
 ```
 
+Refresh: `sudo snap refresh`.
+
 ## git
 
 ```bash
@@ -486,8 +488,8 @@ python3 -m pip completion --bash >> ~/.config/bash_completions.d/pip
 
 ### Troubleshooting
 
-- https://stackoverflow.com/questions/56123942/pip-failed-to-install-dbus-python
-- https://stackoverflow.com/questions/18025730/pygobject-2-28-6-wont-configure-no-package-gobject-introspection-1-0-found
+- <https://stackoverflow.com/questions/56123942/pip-failed-to-install-dbus-python>
+- <https://stackoverflow.com/questions/18025730/pygobject-2-28-6-wont-configure-no-package-gobject-introspection-1-0-found>
 
 ## Font Manager
 
