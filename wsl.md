@@ -565,12 +565,24 @@ python3 -m pip completion --bash >> ~/.config/bash_completions.d/pip
 - <https://stackoverflow.com/questions/56123942/pip-failed-to-install-dbus-python>
 - <https://stackoverflow.com/questions/18025730/pygobject-2-28-6-wont-configure-no-package-gobject-introspection-1-0-found>
 
-## Font Manager
+## Fonts
 
 See [here](https://askubuntu.com/a/372964) for more details.
 
 ```shell
 sudo apt-get install font-manager
+```
+
+To build font information cache files:
+
+```bash
+fc-cache -f -v
+```
+
+To check all available fonts:
+
+```bash
+fc-list
 ```
 
 ## oh-my-posh
