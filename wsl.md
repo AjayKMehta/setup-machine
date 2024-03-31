@@ -80,6 +80,52 @@ libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007fc0aa401000)
 /lib64/ld-linux-x86-64.so.2 (0x00007fc0aa7cf000)
 ```
 
+### How to get package dependencies
+
+### Dependencies
+
+To list the dependencies of a package (*even works for packages that are not installed*), use `sudo apt-show <pkg>`.
+
+Example:
+
+```shell
+$ sudo apt show exa
+Package: exa
+Version: 0.10.1-2
+Built-Using: rustc (= 1.51.0+dfsg1+llvm-1~exp3ubuntu1)
+
+(output omitted)
+
+Depends: libc6 (>= 2.34), libgcc-s1 (>= 4.2)
+
+(output omitted)
+
+Description: Modern replacement for ls
+ exa is an improved file lister with more features and better defaults...
+```
+
+For installed packages, you can use `sudo apt-cache depends`.
+
+```bash
+$ sudo apt-cache depends rustc
+rustc
+  Depends: libc6
+  Depends: libgcc-s1
+  Depends: libstd-rust-dev
+  Depends: gcc
+  Depends: <libc-dev>
+    libc6-dev
+  Depends: binutils
+  Breaks: libstd-rust-dev
+  Suggests: cargo
+  Suggests: <llvm-17>
+  Suggests: <lld-17>
+  Suggests: <clang-17>
+  Replaces: libstd-rust-dev
+```
+
+Lastly, you can also use `dpkg -s <pkg> for installed packages.
+
 ## snap
 
 Snap is pre-installed and ready to go on all recent releases of Ubuntu. Else, install: `sudo apt install snapd`.
