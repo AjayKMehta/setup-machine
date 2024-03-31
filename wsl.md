@@ -126,6 +126,27 @@ rustc
 
 Lastly, you can also use `dpkg -s <pkg> for installed packages.
 
+### Reverse-dependencies
+
+First, install `apt-rdepends`: `sudo apt install apt-rdepends`.
+
+```shell
+$ sudo apt-rdepends -r rustc
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+rustc
+  Reverse Depends: cargo (>= 0.58.0-0ubuntu1)
+  Reverse Depends: rust-all (>= 1.58.1+dfsg1~ubuntu1-0ubuntu2)
+cargo
+  Reverse Depends: dh-cargo (>= 28)
+  Reverse Depends: rust-1.62-all (1.62.1+dfsg1-1ubuntu0.22.04.1)
+  Reverse Depends: rust-all (1.58.1+dfsg1~ubuntu1-0ubuntu2)
+dh-cargo
+rust-1.62-all
+rust-all
+```
+
 ## snap
 
 Snap is pre-installed and ready to go on all recent releases of Ubuntu. Else, install: `sudo apt install snapd`.
