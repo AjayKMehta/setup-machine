@@ -126,10 +126,6 @@ This document hopefully alleviates the pain.
 
 Install **winget** from Microsoft Store if it is not already installed.
 
-## Advanced System Font Changer
-
-The [Advanced System Font Changer](https://www.wintools.info/index.php/advanced-system-font-changer) lets you change system font settings.
-
 ## Firefox
 
 - Install: `winget install Mozilla.Firefox`.
