@@ -55,6 +55,7 @@
   - [Python](#python)
     - [conda](#conda)
     - [spacy](#spacy)
+    - [faiss](#faiss)
     - [PyTorch](#pytorch)
     - [JupyterLab](#jupyterlab)
       - [Workaround for Quarto](#workaround-for-quarto)
@@ -822,6 +823,12 @@ pip install $(spacy info en_core_web_md --url)
 ```
 
 > :bulb: Package names are different on PyPi.org compared to conda-forge: *en\_core\_web\_md* vs **spacy-model-**_en\_core\_web\_md_. <!-- markdownlint-disable-line MD049 -->
+
+For more information, see [here](https://spacy.io/usage/models#download).
+
+### faiss
+
+No GPU version on Windows. See [instructions](https://github.com/facebookresearch/faiss/blob/main/INSTALL.md).
 
 ### PyTorch
 
