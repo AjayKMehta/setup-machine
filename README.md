@@ -2,7 +2,6 @@
 
   - [Overview](#overview)
   - [winget](#winget)
-  - [Advanced System Font Changer](#advanced-system-font-changer)
   - [Firefox](#firefox)
   - [Fonts](#fonts)
   - [Notepad++](#notepad)
@@ -55,6 +54,7 @@
   - [Hadoop](#hadoop)
   - [Python](#python)
     - [conda](#conda)
+    - [spacy](#spacy)
     - [PyTorch](#pytorch)
     - [JupyterLab](#jupyterlab)
       - [Workaround for Quarto](#workaround-for-quarto)
@@ -809,6 +809,19 @@ See [here](https://kontext.tech/article/447/install-hadoop-330-on-windows-10-ste
     ```powershell
     conda config --set changeps1 False
     ```
+
+### spacy
+
+Spacy models are not available on conda-forge for spacy 3.5+ as of the time this was written.
+
+Please do the following to install:
+
+```powershell
+# Best to run with --dry-run first to make sure no dependencies get clobbered.
+pip install $(spacy info en_core_web_md --url)
+```
+
+> :bulb: Package names are different on PyPi.org compared to conda-forge: *en\_core\_web\_md* vs **spacy-model-**_en\_core\_web\_md_. <!-- markdownlint-disable-line MD049 -->
 
 ### PyTorch
 
