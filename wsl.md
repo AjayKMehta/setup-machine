@@ -306,6 +306,16 @@ asdf install fzf latest
 
 Open file in Neovim: `fzf --bind 'enter:become(nvim {})'`
 
+## Rust
+
+- Install cargo: `sudo apt install cargo`
+
+    > :bulb: If you want to install entire Rust toolchain, do this instead: `sudo apt install rust-all`.
+
+- Add `~/.cargo/bin` to `$PATH`.
+- List installed crates: `cargo install --list`.
+
+
 ## [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/install-ubuntu)
 
 Available from the Linux package repository for Microsoft products, <https://packages.microsoft.com>, also known as PMC.
@@ -743,11 +753,6 @@ eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/{theme}.omp.json)"
     ```bash
     stack install haskell-dap ghci-dap haskell-debug-adapter
     ```
-
-## Rust
-
-- Install cargo: `sudo apt install cargo`
-- Add `~/.cargo/bin` to `$PATH`.
 
 ## LaTeX
 
