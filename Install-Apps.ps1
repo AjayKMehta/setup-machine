@@ -5,75 +5,79 @@ param (
     [string] $CustomLocation
 )
 
-if (!(Get-Command 'pwsh' CommandType Application)) {
-    Install-WinGetApp -AppName Microsoft.PowerShell
+if (!(Get-Module Microsoft.WinGet.Client -ListAvailable -ErrorAction Ignore)) {
+    Install-Module Microsoft.WinGet.Client -Scope CurrentUser
 }
 
-Install-WinGetApp -AppName Mozilla.Firefox
+if (!(Get-Command 'pwsh' CommandType Application -ErrorAction Ignore)) {
+    Install-WinGetPackage -Id Microsoft.PowerShell
+}
+
+Install-WinGetPackage -Id Mozilla.Firefox
 
 # Java
-Install-WinGetApp -AppName Oracle.JDK.17
+Install-WinGetPackage -Id Oracle.JDK.17
 
 # CLI apps
-Install-WinGetApp -AppName jftuga.less -InstallFolder "$CustomLocation\CLI"
-Install-WinGetApp -AppName MikeFarah.yq -InstallFolder "$CustomLocation\CLI"
-Install-WinGetApp -AppName jqlang.jq -InstallFolder "$CustomLocation\CLI"
-Install-WinGetApp -AppName DuckDB.cli -InstallFolder "$CustomLocation\CLI"
-Install-WinGetApp twpayne.chezmoi -InstallFolder "$CustomLocation\CLI"
-Install-WinGetApp -AppName charmbracelet.gum -InstallFolder "$CustomLocation\CLI"
-Install-WinGetApp -AppName muesli.duf -InstallFolder "$CustomLocation\CLI"
-Install-WinGetApp -AppName GNU.wget2
-Install-WinGetApp -AppName Wilfred.difftastic -InstallFolder "$CustomLocation\CLI"
-Install-WinGetApp -AppName procs -InstallFolder "$CustomLocation\CLI"
+Install-WinGetPackage -Id jftuga.less -Location "$CustomLocation\CLI"
+Install-WinGetPackage -Id MikeFarah.yq -Location "$CustomLocation\CLI"
+Install-WinGetPackage -Id jqlang.jq -Location "$CustomLocation\CLI"
+Install-WinGetPackage -Id DuckDB.cli -Location "$CustomLocation\CLI"
+Install-WinGetApp twpayne.chezmoi -Location "$CustomLocation\CLI"
+Install-WinGetPackage -Id charmbracelet.gum -Location "$CustomLocation\CLI"
+Install-WinGetPackage -Id muesli.duf -Location "$CustomLocation\CLI"
+Install-WinGetPackage -Id GNU.wget2
+Install-WinGetPackage -Id Wilfred.difftastic -Location "$CustomLocation\CLI"
+Install-WinGetPackage -Id procs -Location "$CustomLocation\CLI"
 
 # Security
-Install-WinGetApp -AppName KeePassXCTeam.KeePassXC
-Install-WinGetApp -AppName GnuPG.GnuPG -InstallFolder "$CustomLocation\GnuPG"
-Install-WinGetApp -AppName GnuPG.Gpg4win -InstallFolder "$CustomLocation\Gpg4win"
+Install-WinGetPackage -Id KeePassXCTeam.KeePassXC
+Install-WinGetPackage -Id GnuPG.GnuPG -Location "$CustomLocation\GnuPG"
+Install-WinGetPackage -Id GnuPG.Gpg4win -Location "$CustomLocation\Gpg4win"
 
 # git
-Install-WinGetApp -AppName Git.Git
-Install-WinGetApp -AppName Glab.Glab
-Install-WinGetApp -AppName GitExtensionsTeam.GitExtensions
-Install-WinGetApp -AppName tummychow.git-absorb -InstallFolder "$CustomLocation\CLI"
+Install-WinGetPackage -Id Git.Git
+Install-WinGetPackage -Id Glab.Glab
+Install-WinGetPackage -Id GitExtensionsTeam.GitExtensions
+Install-WinGetPackage -Id tummychow.git-absorb -Location "$CustomLocation\CLI"
 
 # Docker
-Install-WinGetApp -AppName Docker.DockerDesktop
-Install-WinGetApp -AppName wagoodman.dive -InstallFolder "$CustomLocation\CLI"
-Install-WinGetApp -AppName JesseDuffield.Lazydocker -InstallFolder "$CustomLocation\CLI"
+Install-WinGetPackage -Id Docker.DockerDesktop
+Install-WinGetPackage -Id wagoodman.dive -Location "$CustomLocation\CLI"
+Install-WinGetPackage -Id JesseDuffield.Lazydocker -Location "$CustomLocation\CLI"
 
 # Dev
-Install-WinGetApp -AppName wez.wezterm -InstallFolder "$CustomLocation\WezTerm"
-Install-WinGetApp -AppName WinMerge.WinMerge -InstallFolder "$CustomLocation\WinMerge"
-Install-WinGetApp -AppName Microsoft.VisualStudioCode -InstallFolder "$CustomLocation\VSCode"
-Install-WinGetApp -AppName OpenJS.NodeJS -InstallFolder "$CustomLocation\nodejs"
-Install-WinGetApp -AppName Kitware.CMake -InstallerArgs '--interactive'
-Install-WinGetApp -AppName Notepad++.Notepad++
-Install-WinGetApp -AppName RProject.R
-Install-WinGetApp -AppName Posit.RStudio
+Install-WinGetPackage -Id wez.wezterm -Location "$CustomLocation\WezTerm"
+Install-WinGetPackage -Id WinMerge.WinMerge -Location "$CustomLocation\WinMerge"
+Install-WinGetPackage -Id Microsoft.VisualStudioCode -Location "$CustomLocation\VSCode"
+Install-WinGetPackage -Id OpenJS.NodeJS -Location "$CustomLocation\nodejs"
+Install-WinGetPackage -Id Kitware.CMake -Mode Interactive
+Install-WinGetPackage -Id Notepad++.Notepad++
+Install-WinGetPackage -Id RProject.R
+Install-WinGetPackage -Id Posit.RStudio
 
 # Media
-Install-WinGetApp -AppName ImageMagick.ImageMagick -InstallerArgs '--interactive'
-Install-WinGetApp -AppName VideoLAN.VLC
-Install-WinGetApp -AppName Mp3tag.Mp3tag
+Install-WinGetPackage -Id ImageMagick.ImageMagick -Mode Interactive
+Install-WinGetPackage -Id VideoLAN.VLC
+Install-WinGetPackage -Id Mp3tag.Mp3tag
 
 # .NET
-Install-WinGetApp -AppName Microsoft.VisualStudio.2022.Community
-Install-WinGetApp -AppName 'LINQPad.LINQPad.8' -InstallFolder "$CustomLocation\LINQPad8"
+Install-WinGetPackage -Id Microsoft.VisualStudio.2022.Community
+Install-WinGetPackage -Id 'LINQPad.LINQPad.8' -Location "$CustomLocation\LINQPad8"
 Install-WinGetApp -Id '9WZDNCRDMDM3'
 Install-WinGetApp -Id KirillOsenkov.MSBuildStructuredLogViewer
 Install-WinGetApp -Id RicoSuter.NSwagStudio
-Install-WinGetApp -AppName Microsoft.NuGet
-Install-WinGetApp -AppName Microsoft.PerfView -InstallFolder "$CustomLocation\PerfView"
+Install-WinGetPackage -Id Microsoft.NuGet
+Install-WinGetPackage -Id Microsoft.PerfView -Location "$CustomLocation\PerfView"
 
 
 # Misc
-Install-WinGetApp -AppName Hugo.Hugo -InstallFolder "$CustomLocation\Hugo"
-Install-WinGetApp -AppName Graphviz.Graphviz -InstallFolder "$CustomLocation\Graphviz"
-Install-WinGetApp -AppName WinSCP.WinSCP -InstallFolder "$CustomLocation\WinSCP"
-Install-WinGetApp -AppName Citrix.Workspace
-Install-WinGetApp -AppName Postman.Postman
-Install-WinGetApp -AppName chrisant996.Clink
-Install-WinGetApp -AppName 7zip.7zip
-Install-WinGetApp -AppName Microsoft.Sysinternals.ProcessExplorer
-Install-WinGetApp -AppName eza-community.eza -InstallFolder "$CustomLocation\CLI"
+Install-WinGetPackage -Id Hugo.Hugo -Location "$CustomLocation\Hugo"
+Install-WinGetPackage -Id Graphviz.Graphviz -Location "$CustomLocation\Graphviz"
+Install-WinGetPackage -Id WinSCP.WinSCP -Location "$CustomLocation\WinSCP"
+Install-WinGetPackage -Id Citrix.Workspace
+Install-WinGetPackage -Id Postman.Postman
+Install-WinGetPackage -Id chrisant996.Clink
+Install-WinGetPackage -Id 7zip.7zip
+Install-WinGetPackage -Id Microsoft.Sysinternals.ProcessExplorer
+Install-WinGetPackage -Id eza-community.eza -Location "$CustomLocation\CLI"
