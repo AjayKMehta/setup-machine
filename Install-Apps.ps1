@@ -76,3 +76,4 @@ Install-WinGetApp -AppName Postman.Postman
 Install-WinGetApp -AppName chrisant996.Clink
 Install-WinGetApp -AppName 7zip.7zip
 Install-WinGetApp -AppName Microsoft.Sysinternals.ProcessExplorer
+Install-WinGetApp -AppName eza-community.eza -InstallFolder "$CustomLocation\CLI"

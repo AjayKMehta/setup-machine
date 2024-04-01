@@ -1585,6 +1585,8 @@ cradle:
 
     winget install --id WinSCP.WinSCP -l 'D:\Apps\WinSCP\'
     winget install Microsoft.Sysinternals.ProcessExplorer
+
+    winget install eza-community.eza - l D:\Apps\CLI
     ```
 
 - Add installation folders to `$Path`:

@@ -315,6 +315,9 @@ Open file in Neovim: `fzf --bind 'enter:become(nvim {})'`
 - Add `~/.cargo/bin` to `$PATH`.
 - List installed crates: `cargo install --list`.
 
+## eza
+
+Modern replacement for `ls`. Install via `cargo install eza` or [follow these instructions](https://github.com/eza-community/eza/blob/main/INSTALL.md#debian-and-ubuntu).
 
 ## [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/install-ubuntu)
 
