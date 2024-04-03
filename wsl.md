@@ -624,6 +624,49 @@ You can use the Posit Package Manager (PPM) to install binary packages and avoid
 
 Install with `devtools`.
 
+### RStan
+
+Instructions are from [here](https://github.com/stan-dev/rstan/wiki/Configuring-C-Toolchain-for-Linux):
+
+#### Ubuntu LTS
+
+```shell
+# Add Michael Rutter's c2d4u4.0 PPA (and rrutter4.0 for CRAN builds too)
+sudo add-apt-repository ppa:marutter/rrutter4.0
+sudo add-apt-repository ppa:c2d4u.team/c2d4u4.0+
+sudo apt update
+sudo apt install r-cran-rstan
+```
+
+#### C++ toolchain configuration
+
+Create `~/.R/Makevars`:
+
+```r
+dotR <- file.path(Sys.getenv("HOME"), ".R")
+if (!file.exists(dotR)) dir.create(dotR)
+M <- file.path(dotR, "Makevars")
+if (!file.exists(M)) file.create(M)
+cat("\nCXX14FLAGS=-O3 -march=native -mtune=native -fPIC",
+    "CXX14=g++", # or clang++ but you may need a version postfix
+    file = M, sep = "\n", append = TRUE)
+```
+
+Install `V8`:
+
+```r
+Sys.setenv(DOWNLOAD_STATIC_LIBV8 = 1)
+install.packages("V8")
+```
+
+### [cairo](https://www.cairographics.org/download)
+
+Install cairo graphics:
+
+```shell
+sudo apt-get install libcairo2-dev
+```
+
 ### neovim
 
 Install [Nvim-R](https://github.com/jalvesaq/Nvim-R).
