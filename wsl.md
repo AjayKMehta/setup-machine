@@ -682,7 +682,7 @@ Select key bindings:
 | `<LocalLeader>aa` | Send file                  |
 
 > [!TIP]
-> For `<LocalLeader>`, press <kbd>Space</kbd> + <kbd>,</kbd>.
+> For `<LocalLeader>`, press <kbd>\</kbd>.
 
 For more bindings, see [this](https://github.com/jalvesaq/Nvim-R/blob/master/doc/Nvim-R.txt#L317).
 
