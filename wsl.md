@@ -430,6 +430,31 @@ See [instructions here](https://learn.microsoft.com/en-us/nuget/install-nuget-cl
 
 1. Reload the shell. Test the installation by running `nuget` and see if help is displayed.
 
+## tmux
+
+```shell
+sudo apt install tmux
+# TMUX plugin manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+Add this to end of `~/.tmux.conf`:
+
+```bash
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+# Other examples:
+# set -g @plugin 'github_username/plugin_name'
+# set -g @plugin 'github_username/plugin_name#branch'
+# set -g @plugin 'git@github.com:user/plugin'
+# set -g @plugin 'git@bitbucket.com:user/plugin'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
+```
+
 ## ble.sh
 
 [ble.sh](https://github.com/akinomyoga/ble.sh) is a command line editor written in pure Bash which replaces the default GNU Readline.
