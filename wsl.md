@@ -358,7 +358,17 @@ pwsh
 
 [PowerShellEditorServices](https://github.com/PowerShell/PowerShellEditorServices/tree/main) is a platform for PowerShell development support in any editor.
 
-To install, see [instructions here](https://github.com/PowerShell/PowerShellEditorServices/blob/main/docs/guide/getting_started.md#install-the-server).
+To install, execute this script (modified from [here](https://github.com/PowerShell/PowerShellEditorServices/blob/main/docs/guide/getting_started.md#install-the-server)):
+
+```powershell
+$DownloadUrl = 'https://github.com/PowerShell/PowerShellEditorServices/releases/latest/download/PowerShellEditorServices.zip'
+$ZipPath = "/tmp/PowerShellEditorServices.zip"
+$InstallPath = "$HOME/PowerShellEditorServices"
+Invoke-WebRequest -Method 'GET' -Uri $DownloadUrl -OutFile $ZipPath
+Remove-Item $InstallPath -Recurse -Force -ErrorAction Ignore
+Expand-Archive -Path $ZipPath -DestinationPath $InstallPath
+Remove-Item $ZipPath
+```
 
 ### Treesitter support (Neovim)
 
