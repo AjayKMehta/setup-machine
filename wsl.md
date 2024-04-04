@@ -370,6 +370,16 @@ Expand-Archive -Path $ZipPath -DestinationPath $InstallPath
 Remove-Item $ZipPath
 ```
 
+### Microsoft.PowerShell.GraphicalTools
+
+In order to get `Out-GridView` and other cmdlets that ship with PowerShell on Windows:
+
+```powershell
+Install-Module Microsoft.PowerShell.GraphicalTools
+```
+
+([Source](https://stackoverflow.com/a/58288650/781045))
+
 ### Treesitter support (Neovim)
 
 See [here](https://www.reddit.com/r/neovim/comments/17qkjtt/powershell_in_neovim/).
