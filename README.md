@@ -1567,6 +1567,12 @@ cradle:
 - <https://github.com/haskell/haskell-ide-engine/issues/1616#>
 - <https://github.com/haskell/haskell-language-server/issues/1822>
 
+## pngquant
+
+[pngquant](https://pngquant.org/) is a command-line utility and a library for lossy compression of PNG images.
+
+Download [latest version](https://pngquant.org/pngquant-windows.zip).
+
 ## Miscellaneous
 
 - Install following apps:

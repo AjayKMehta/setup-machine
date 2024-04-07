@@ -160,6 +160,7 @@ sudo snap install cups
 sudo snap install tldr
 sudo snap install yq
 sudo snap install fx
+sudo snap install firefox
 ```
 
 Refresh: `sudo snap refresh`.
@@ -320,6 +321,12 @@ Open file in Neovim: `fzf --bind 'enter:become(nvim {})'`
 Modern replacement for `ls`. Install via `cargo install eza` or [follow these instructions](https://github.com/eza-community/eza/blob/main/INSTALL.md#debian-and-ubuntu).
 
 ## [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/install-ubuntu)
+
+## pngquant
+
+[pngquant](https://pngquant.org/) is a command-line utility and a library for lossy compression of PNG images.
+
+Install: `cargo install pngquant`.
 
 Available from the Linux package repository for Microsoft products, <https://packages.microsoft.com>, also known as PMC.
 
@@ -935,6 +942,12 @@ curl -fsSL https://d2lang.com/install.sh | sh -s --
 sudo apt install golang-docker-credential-helpers
 
 sudo apt install cloc
+
+# https://github.com/posva/catimg
+sudo apt install catimg
+
+# Need for sqlite.luas
+sudo apt-get install sqlite3 libsqlite3-dev 
 
 # https://github.com/charmbracelet/gum#installation
 sudo mkdir -p /etc/apt/keyrings
