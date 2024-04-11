@@ -249,6 +249,19 @@ Move to middle of line |  <kbd>g</kbd> + <kbd>M</kbd>
 
 `|` is same as <kbd>0</kbd> or `1|`
 
+### Moving within screen lines
+
+A line that is wrapped will have 2 or more screen lines.
+
+Action | Keymap/command
+---------|----------
+Move to the first character | <kbd>g</kbd> + <kbd>0</kbd>
+Move to the first NBC | <kbd>g</kbd> + <kbd>^</kbd>
+Move up screen line | <kbd>g</kbd> + <kbd>k</kbd>
+Move down screen line | <kbd>g</kbd> + <kbd>j</kbd>
+
+`g2j` move down 2 screen lines.
+
 ### Reposition current line
 
 Source: <https://learnbyexample.github.io/tips/vim-tip-4/>
@@ -258,6 +271,13 @@ Action | Keymap/command
 Reposition the current line to the middle of the visible window | <kbd>z</kbd> + <kbd>z</kbd>
 Reposition the current line to the top of the visible window | <kbd>z</kbd> + <kbd>t</kbd>
 Reposition the current line to the bottom of the visible window | <kbd>z</kbd> + <kbd>b</kbd>
+
+### Find characters
+
+Use `f{character}` to move to the next occurrence of a character in a line. For instance, `f"` sends you to the next occurrence of a double quote.
+If your target is behind the cursor you can use `F{character}` to find the previous occurrence of a character.
+
+Use `t{character}` to move the cursor just before the next occurrence of a character. Again, you can use `T{character}` to do the same as `t{character}` but backwards.
 
 ### Misc
 
