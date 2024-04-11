@@ -394,3 +394,53 @@ Search keymaps | `:Legendary keymaps`
 Search commands | `:Legendary commands`
 Search functions | `:Legendary functions`
 Repeat the last item executed via legendary.nvim's finder | `:LegendaryRepeat`
+
+### Diffview
+
+[Diffview](https://github.com/sindrets/diffview.nvim) helps you view diffs for any git revision.
+
+Diff working directory with commit: `:DiffviewOpen HEAD~2`
+
+Diff working directory with commit for file: `:DiffviewOpen HEAD~2 -- .gitignore`
+
+Toggle the file pane: `:DiffviewToggleFiles`
+
+Hide untracked files: `:DiffviewOpen -uno`
+
+Exclude certain paths: `:DiffviewOpen -- :!exclude/this :!and/this`
+
+Run as if git was started in a specific directory: `:DiffviewOpen -C/foo/bar/baz`
+
+Use `[c` and `]c` to jump btw hunks.
+
+### nvim-dap
+
+DAP stands for Debug Adapter Protocol.
+
+Kept same shortcuts as Visual Studio:
+
+Action | Keymap/command
+---------|----------
+Toggle breakpoint | <kbd>F9</kbd>
+Launch debugger | <kbd>F5</kbd>
+Step over | <kbd>F10</kbd>
+Step into | <kbd>F11</kbd>
+Step out | <kbd>Shift</kbd> + <kbd>F11</kbd>
+
+### vim-tmux-navigator
+
+[This plugin](https://github.com/christoomey/vim-tmux-navigator) provides seamless navigation between tmux panes and vim splits.
+
+Action | Keymap/command
+---------|----------
+Left | <kbd>Ctrl</kbd> + <kbd>h</kbd>
+Right | <kbd>Ctrl</kbd> + <kbd>l</kbd>
+Up | <kbd>Ctrl</kbd> + <kbd>k</kbd>
+Down | <kbd>Ctrl</kbd> + <kbd>j</kbd>
+Go to previous | <kbd>Ctrl</kbd> + <kbd>\\</kbd>
+
+You also need to setup the same mappings in your `.tmux.conf`. The easiest way to do is add this to the file:
+
+```bash
+set -g @plugin 'christoomey/vim-tmux-navigator'
+```
