@@ -105,9 +105,13 @@ Action | Keymap/command
 ---------|----------
 Search down | <kbd>/</kbd>
 Search up | <kbd>Shift</kbd> + <kbd>/</kbd>
-Undo latest changes on last edited line  | <kbd>Shift</kbd> + <kbd>u</kbd>
+Find word under cursor | <kbd>Shift</kbd> + <kbd>8</kbd>
 
-After typing text, press <kbd>Enter</kbd>. All matches will be highlighted. Type <kbd>N</kbd> to go to the next match or <kbd>n</kbd> to go to the previous match.
+After entering text for search, press <kbd>Enter</kbd>. All matches will be highlighted.
+
+Type <kbd>N</kbd> to go to the next match or <kbd>n</kbd> to go to the previous match.
+
+Press <kbd>Shift</kbd> + <kbd>q</kbd> to skip next match.
 
 Press <kbd>Esc</kbd> to clear search highlights.
 
@@ -151,6 +155,10 @@ You can use the Vim command `:help {key}<C-D>` to see if `{key}` is used for som
 `:nmap` will list all mappings defined in normal mode, `:imap` all mappings defined in insert mode, etc.
 
 To filter the search down, you can use `:map <text>` to show a list of all mappings with a `{lhs}` starting with `<text>`, e.g. `:nmap \` will show all normal mode mappings beginning with `\`.
+
+## Visual Block Mode
+
+Press <kbd>Ctrl</kbd> + <kbd>q</kbd> to enter. Select text, e.g. `6j`. Press <kbd>Shift</kbd> + <kbd>i</kbd> to prepend or <kbd>Shift</kbd> + <kbd>a</kbd> to append. When you are done with your changes, press <kbd>Esc</kbd> and changes will be appliied to all lines!
 
 ## Editing
 
@@ -217,6 +225,12 @@ You can also provide a count prefix!
 
 In this section, **NBC** = **n**on-**b**lank **c**haracter.
 
+### Line-based
+
+Action | Keymap/command
+---------|----------
+Go to 3rd line | `:3` / `3gg`
+
 ### Word-based
 
 First, [need to know the difference between word and WORD](https://stackoverflow.com/questions/22931032/vim-word-vs-word):
@@ -239,8 +253,8 @@ Move to end of previous WORD | <kbd>g</kbd> + <kbd>E</kbd>
 Action | Keymap/command
 ---------|----------
 Move to first character | <kbd>0</kbd>
-Move to first NBC | <kbd>^</kbd>
-Move to end of line | <kbd>$</kbd>
+Move to first NBC | <kbd>\^</kbd>
+Move to end of line | <kbd>\$</kbd>
 Move to last NBC | <kbd>g</kbd> + <kbd>_</kbd>
 Move to 3rd character | `3\|`
 Move to middle of line |  <kbd>g</kbd> + <kbd>M</kbd>
@@ -248,6 +262,8 @@ Move to middle of line |  <kbd>g</kbd> + <kbd>M</kbd>
 `80gM` to go to position at 80% of current line.
 
 `|` is same as <kbd>0</kbd> or `1|`
+
+See `:h left-right-motions`.
 
 ### Moving within screen lines
 
@@ -272,12 +288,27 @@ Reposition the current line to the middle of the visible window | <kbd>z</kbd> +
 Reposition the current line to the top of the visible window | <kbd>z</kbd> + <kbd>t</kbd>
 Reposition the current line to the bottom of the visible window | <kbd>z</kbd> + <kbd>b</kbd>
 
+### Moving Vertically
+
+Action | Keymap/command
+---------|----------
+Move up 1 line | <kbd>k</kbd>
+Move down 1 line | <kbd>j</kbd>
+Move up 1 paragraph | <kbd>Shift</kbd> + <kbd>[</kbd>
+Move down 1 paragraph | <kbd>Shift</kbd> + <kbd>]</kbd>
+Move down half a page by scrolling | <kbd>Ctrl</kbd> + <kbd>d</kbd>
+Move up half a page by scrolling | <kbd>Ctrl</kbd> + <kbd>u</kbd>
+
 ### Find characters
 
-Use `f{character}` to move to the next occurrence of a character in a line. For instance, `f"` sends you to the next occurrence of a double quote.
+- Use `f{character}` to move to the next occurrence of a character in a line. For instance, `2f"` sends you to the second next occurrence of a double quote.
 If your target is behind the cursor you can use `F{character}` to find the previous occurrence of a character.
 
 Use `t{character}` to move the cursor just before the next occurrence of a character. Again, you can use `T{character}` to do the same as `t{character}` but backwards.
+
+<kbd>;</kbd> repeats the last find (`f`/`F`/`t`/T`) motion in the same direction.
+
+<kbd>,</kbd> repeats the last find motion in the opposite direction.
 
 ### Misc
 
