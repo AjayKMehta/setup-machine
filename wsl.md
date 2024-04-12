@@ -472,6 +472,25 @@ set -g @plugin 'tmux-plugins/tmux-sensible'
 run '~/.tmux/plugins/tpm/tpm'
 ```
 
+### tmuxp
+
+tmuxp is a session manager for tmux.
+
+Install: `sudo apt install tmuxp`.
+
+This version is quite old so you can alternatively do:
+
+```shell
+pip install tmuxp --user
+```
+
+Completions:
+
+```shell
+pip install shtab --user
+shtab --shell=bash -u tmuxp.cli.create_parser | sudo tee ~/.config/bash_completions.d/TMUXP
+```
+
 ## ble.sh
 
 [ble.sh](https://github.com/akinomyoga/ble.sh) is a command line editor written in pure Bash which replaces the default GNU Readline.
