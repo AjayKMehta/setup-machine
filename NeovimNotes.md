@@ -91,6 +91,9 @@ Read file: `:read <file>`
 
 Run health checks: `:checkhealth`.
 
+[Close `nvterm`](https://github.com/NvChad/NvChad/issues/2704#issuecomment-1975743935
+): <kbd>Ctrl</kbd> + <kbd>x</kbd>,`leader` + <kbd>x</kbd>
+
 ### Autocommands
 
 Action | Keymap/command
@@ -98,6 +101,12 @@ Action | Keymap/command
 List autocommands | `:autocmd`
 List autocommands for group `<augroup>` | `:autocmd augroup`
 Remove autocommands for group `<augroup>` | `:autocmd! <augroup>`
+
+Ignore events: `:set ei=all`.
+
+Don't forget to reset: `:set ei=""`.
+
+Can also ignore for certain events: `:set ei=CursorHold`
 
 ### Search
 
