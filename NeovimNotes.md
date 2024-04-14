@@ -220,6 +220,26 @@ Copy from current character to end of line | <kbd>y</kbd> + <kbd>$</kbd>
 
 yk copies current line and above it.
 
+### Comment
+
+Commenting out code relies on [comment.nvim](https://github.com/numToStr/Comment.nvim) for now. This functionality will be added to neovim 0.10 according to this [PR](https://github.com/neovim/neovim/pull/28176).
+
+Action | Keymap/command
+---------|----------
+Toggle comment current line | `gcc`
+Toggle block comment | `gbc`
+Add comment on the line above | `gcO`
+Add comment on the line below | `gco`
+Add comment at the end of line | `gcA`
+(Op-pending) Toggles the region using linewise comment | `gc[count]{motion}`
+(Op-pending) Toggles the region using blockwise comment | `gb[count]{motion}`
+
+Both `gc` and `gb` act as leaders, e.g. comment to end of line: `gc$` or comment out entire paragraph: `gcip`.
+
+This even has Treesitter integration, e.g. `gcam` to comment out method!
+
+`<leader>cc` will comment out text smartly, i.e.use block comment style only if more than one line selected.
+
 ### Increment
 
 Source: <https://learnbyexample.github.io/tips/vim-tip-1/>
