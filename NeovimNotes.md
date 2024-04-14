@@ -240,6 +240,19 @@ This even has Treesitter integration, e.g. `gcam` to comment out method!
 
 `<leader>cc` will comment out text smartly, i.e.use block comment style only if more than one line selected.
 
+### Indent
+
+Source: <https://learnbyexample.github.io/tips/vim-tip-2/>
+
+Action | Keymap/command
+---------|----------
+Indent the current line | `>>`
+Indent the current line and two lines below (same as `2>j`) | `3>>`
+Dedent the current line | `<<`
+Auto-indent code, use motion commands to indicate the portion to be indented | `=`
+Auto-indent current line and 4 lines below | `=4j`
+Auto-indent the current paragraph | `=ip`
+
 ### Increment
 
 Source: <https://learnbyexample.github.io/tips/vim-tip-1/>
