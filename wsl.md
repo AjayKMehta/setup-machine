@@ -208,92 +208,6 @@ See [here](https://blog.jmorbegoso.com/post/configure-github-gpg-key-in-windows-
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
     ```
 
-## [asdf](https://asdf-vm.com/guide/getting-started.html)
-
-- Install
-
-    ```shell
-    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
-    ```
-
-- Add the following lines to `.bashrc`:
-
-    ```shell
-    . "$HOME/.asdf/asdf.sh"
-    . "$HOME/.asdf/completions/asdf.bash"
-    ```
-
-### Plugins
-
-- Add plugins:
-
-    ```shell
-    asdf plugin add chezmoi
-    asdf plugin add delta
-    asdf plugin add deno
-    asdf plugin add neovim
-    asdf plugin add poetry
-    asdf plugin add snyk
-    asdf plugin add difftastic
-    asdf plugin add golang https://github.com/asdf-community/asdf-golang.git
-    # https://github.com/slimtoolkit/slim?tab=readme-ov-file
-    asdf plugin add docker-slim
-    ```
-
-- Install latest version:
-
-    ```shell
-    asdf install chezmoi latest
-    asdf install delta latest
-    asdf install deno latest
-    asdf install lua-language-server latest
-    asdf install neovim latest
-    asdf install poetry latest
-    asdf install snyk latest
-    asdf install difftastic latest
-    asdf install golang latest
-    asdf install docker-slim
-    ```
-
-- To specify versions to use, edit `~/.tool-versions`:
-
-    ```text
-    deno 1.41.0
-    golang 1.22.0
-    ```
-
-### Commands
-
-To see list of all available plugins:
-
-```shell
-asdf plugin list all
-```
-
-To update all installed plugins to latest version:
-
-```shell
-asdf plugin update --all                
-```
-
-To list installed plugins:
-
-```shell
-asdf list
-```
-
-To list all versions of a plugin `<pkg>`:
-
-```shell
-asdf list all <pkg>
-```
-
-To uninstall specific plugin version:
-
-```shell
-asdf uninstall <plugin> <version>
-```
-
 ## mise
 
 [mise](https://mise.jdx.dev/) is a development environment setup tool. It has several advantages over asdf IMHO: better CLI, no shims.
@@ -320,8 +234,7 @@ mise completion bash > ~/.config/bash_completions.d/mise
 Install:
 
 ```shell
-asdf plugin add fzf
-asdf install fzf latest 
+mise install fzf latest 
 ```
 
 ### Tips
@@ -850,8 +763,7 @@ eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/{theme}.omp.json)"
 - Install language server:
 
     ```shell
-    asdf plugin add lua-language-server
-    asdf install lua-language-server latest    
+    mise install lua-language-server latest    
     ```
 
 - Install `luarocks`: `sudo apt install luarocks`.
