@@ -139,7 +139,13 @@ Use <kbd>m</kbd> + ***capital letter*** to create a mark you can access from a d
 
 :bulb: Lower case letters only work within same buffer.
 
-To go back to mark: <kbd>'</kbd> + <kbd>A</kbd>.
+To go back to mark: <kbd>`</kbd> + <kbd>A</kbd>.
+
+To go go to first non-blank character of line containing mark:  <kbd>'</kbd> + <kbd>A</kbd>.
+
+To delete from current character to mark `a` position: ``d`a``.
+
+:bulb: Whenever you jump across lines using motion, position gets saved in `` ` `` mark so you can jump to it using ``` `` ```!
 
 ### Macros
 
