@@ -294,6 +294,27 @@ To uninstall specific plugin version:
 asdf uninstall <plugin> <version>
 ```
 
+## mise
+
+[mise](https://mise.jdx.dev/) is a development environment setup tool. It has several advantages over asdf IMHO: better CLI, no shims.
+
+Install: `curl <https://mise.run> | sh`.
+
+This will download to `~/.local/bin`.
+
+Add this to `~/.bashrc`:
+
+```bash
+echo 'eval "$(mise activate bash)"' >> ~/.bashrc
+```
+
+For shell completion:
+
+```bash
+mise use -g usage
+mise completion bash > ~/.config/bash_completions.d/mise
+```
+
 ## fzf
 
 Install:
