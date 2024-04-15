@@ -902,6 +902,15 @@ Set following [environment variables](https://huggingface.co/docs/huggingface_hu
 
 1. Set `$HF_HUB_DOWNLOAD_TIMEOUT` to define the number of seconds to wait for server response when downloading a file. If the request times out, a TimeoutError is raised.
 
+##### Faster downloads
+
+To enable faster downloads:
+
+```powershell
+pip install hf_transfer
+$env:HF_HUB_ENABLE_HF_TRANSFER = 1
+```
+
 ##### [Check installation](https://huggingface.co/docs/huggingface_hub/installation#check-installation)
 
 Once installed, check that **huggingface_hub** works properly by running the following command:
