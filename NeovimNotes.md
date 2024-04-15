@@ -259,6 +259,19 @@ Auto-indent code, use motion commands to indicate the portion to be indented | `
 Auto-indent current line and 4 lines below | `=4j`
 Auto-indent the current paragraph | `=ip`
 
+### Digraphs
+
+To input a digraph, in insert mode, press <kbd>Ctrl</kbd>+<kbd>q</kbd> followed by the two letters which define the digraph. Here are a few useful, built-in, combinations:
+
+<kbd>Ctrl</kbd>+<kbd>q</kbd> + <kbd>a</kbd>+<kbd>:</kbd> = ä
+<kbd>Ctrl</kbd>+<kbd>q</kbd> + <kbd>a</kbd>+<kbd>*</kbd> = α
+<kbd>Ctrl</kbd>+<kbd>q</kbd> + <kbd>T</kbd>+<kbd>E</kbd> = ∃
+
+Useful links:
+
+- <https://stackoverflow.com/questions/19183272/vim-digraph-not-working>
+- <https://alt-romes.github.io/posts/2023-06-21-haskell-unicode-syntax-vim.html>
+
 ### Increment
 
 Source: <https://learnbyexample.github.io/tips/vim-tip-1/>
@@ -272,6 +285,12 @@ You can also provide a count prefix!
 ## Motions
 
 In this section, **NBC** = **n**on-**b**lank **c**haracter.
+
+### Jumplist
+
+<kbd>Ctrl</kbd> + <kbd>o</kbd> to go to previous jump position.
+
+<kbd>Ctrl</kbd> + <kbd>i</kbd> to go to next jump position.
 
 ### Line-based
 
@@ -344,8 +363,12 @@ Move up 1 line | <kbd>k</kbd>
 Move down 1 line | <kbd>j</kbd>
 Move up 1 paragraph | <kbd>Shift</kbd> + <kbd>[</kbd>
 Move down 1 paragraph | <kbd>Shift</kbd> + <kbd>]</kbd>
-Move down half a page by scrolling | <kbd>Ctrl</kbd> + <kbd>d</kbd>
-Move up half a page by scrolling | <kbd>Ctrl</kbd> + <kbd>u</kbd>
+Scroll half a page down | <kbd>Ctrl</kbd> + <kbd>d</kbd>
+Scroll half a page up | <kbd>Ctrl</kbd> + <kbd>u</kbd>
+Scroll page forward | <kbd>Ctrl</kbd> + <kbd>f</kbd>
+Scroll page backward | <kbd>Ctrl</kbd> + <kbd>b</kbd>
+Scroll up 1 line | <kbd>Ctrl</kbd> + <kbd>e</kbd>
+Scroll down 1 line | <kbd>Ctrl</kbd> + <kbd>y</kbd>
 
 ### Find characters
 
@@ -523,3 +546,14 @@ You also need to setup the same mappings in your `.tmux.conf`. The easiest way t
 ```bash
 set -g @plugin 'christoomey/vim-tmux-navigator'
 ```
+
+### mini.move
+
+[mini.move](https://github.com/echasnovski/mini.move) lets you move lines in Normal/Visual mode.
+
+Action | Keymap/command
+---------|----------
+Left | <kbd>Alt</kbd> + <kbd>h</kbd>
+Right | <kbd>Alt</kbd> + <kbd>l</kbd>
+Up | <kbd>Alt</kbd> + <kbd>k</kbd>
+Down | <kbd>Alt</kbd> + <kbd>j</kbd>
