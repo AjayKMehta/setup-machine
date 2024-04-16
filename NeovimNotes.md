@@ -557,3 +557,29 @@ Left | <kbd>Alt</kbd> + <kbd>h</kbd>
 Right | <kbd>Alt</kbd> + <kbd>l</kbd>
 Up | <kbd>Alt</kbd> + <kbd>k</kbd>
 Down | <kbd>Alt</kbd> + <kbd>j</kbd>
+
+### nvim-tree
+
+[nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) is a file explorer for Neovim.
+
+To launch, press <kbd>Ctrl</kbd> + <kbd>n</kbd>. To close, press <kbd>q</kbd>.
+
+Here are some useful key maps for when window is displayed:
+
+Action | Keymap
+---------|----------
+Change root to node | <kbd>Ctrl</kbd> + <kbd>\]</kbd>
+Open: Vertical split | <kbd>Shift</kbd> + <kbd>l</kbd>
+Open: Horizontal split | <kbd>Ctrl</kbd> + <kbd>x</kbd>
+Open | <kbd>Enter</kbd>
+Next sibling | <kbd>></kbd>
+Previous sibling | <kbd><</kbd>
+Move up | <kbd>k</kbd>
+Move down | <kbd>j</kbd>
+Change root to parent | <kbd>-</kbd>
+Prev git | <kbd>\[</kbd> + <kbd>c</kbd>
+Next git | <kbd>\]</kbd> + <kbd>c</kbd>
+Delete | <kbd>d</kbd>
+Expand All | <kbd>Shift</kbd> + <kbd>e</kbd>
+Rename: Basename | <kbd>e</kbd>
+Help | <kbd>g</kbd> + <kbd>?</kbd>
