@@ -115,6 +115,7 @@ Action | Keymap/command
 Search down | <kbd>/</kbd>
 Search up | <kbd>Shift</kbd> + <kbd>/</kbd>
 Find word under cursor | <kbd>Shift</kbd> + <kbd>8</kbd>
+Find word under cursor (backwards) | <kbd>Shift</kbd> + <kbd>3</kbd>
 
 After entering text for search, press <kbd>Enter</kbd>. All matches will be highlighted.
 
@@ -123,6 +124,8 @@ Type <kbd>N</kbd> to go to the next match or <kbd>n</kbd> to go to the previous 
 Press <kbd>Shift</kbd> + <kbd>q</kbd> to skip next match.
 
 Press <kbd>Esc</kbd> to clear search highlights.
+
+You can use these operators in combination with `d` to delete text, e.g. `d/hello` to delete everything until the first occurrence of `hello`.
 
 ### Find
 
@@ -178,6 +181,8 @@ Press <kbd>Ctrl</kbd> + <kbd>q</kbd> to enter. Select text, e.g. `6j`. Press <kb
 ## Editing
 
 To execute a normal mode command from insert mode in Neovim, you can use the `<C-o>` (<kbd>Ctrl</kbd> + <kbd>o</kbd>) shortcut. This allows you to execute a single normal mode command without leaving insert mode. After executing the command, you will return to insert mode.
+
+For good overview of different operators: <https://www.barbarianmeetscoding.com/boost-your-coding-fu-with-vscode-and-vim/editing-like-magic-with-vim-operators/>
 
 ### Undo/redo
 
@@ -282,6 +287,10 @@ Ctrl<kbd>Ctrl</kbd> + <kbd>x</kbd>  will decrement the number under the cursor o
 
 You can also provide a count prefix!
 
+### Misc
+
+Toggle case: `g~`
+
 ## Motions
 
 In this section, **NBC** = **n**on-**b**lank **c**haracter.
@@ -369,6 +378,10 @@ Scroll page forward | <kbd>Ctrl</kbd> + <kbd>f</kbd>
 Scroll page backward | <kbd>Ctrl</kbd> + <kbd>b</kbd>
 Scroll up 1 line | <kbd>Ctrl</kbd> + <kbd>e</kbd>
 Scroll down 1 line | <kbd>Ctrl</kbd> + <kbd>y</kbd>
+Move up 1 paragraph | <kbd>{</kbd>
+Move down 1 paragraph | <kbd>}</kbd>
+Move up 1 sentence | <kbd>(</kbd>
+Move down 1 sentence | <kbd>)</kbd>
 
 ### Find characters
 
