@@ -631,3 +631,7 @@ Move down | <kbd>j</kbd>
 Move up | <kbd>k</kbd>
 **Expand folder or go to file** | <kbd>l</kbd>
 **Vsplit Preview** | <kbd>Shift</kbd> + <kbd>l</kbd>
+Toggle bookmark | <kbd>m</kbd>
+Collapse all | <kbd>Shift</kbd> + <kbd>w</kbd>
+Copy name | <kbd>y</kbd>
+Copy relative path | <kbd>Shift</kbd> +  <kbd>y</kbd>
