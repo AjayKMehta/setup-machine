@@ -568,18 +568,33 @@ Here are some useful key maps for when window is displayed:
 
 Action | Keymap
 ---------|----------
+**Change root to input path** | <kbd>Alt</kbd> + <kbd>r</kbd>
 Change root to node | <kbd>Ctrl</kbd> + <kbd>\]</kbd>
-Open: Vertical split | <kbd>Shift</kbd> + <kbd>l</kbd>
+**Change root to global cwd** | <kbd>Ctl</kbd> + <kbd>c</kbd>
+**Launch Find Files** | <kbd>Ctrl</kbd> + <kbd>f</kbd>
+**Launch Live Grep** | <kbd>Ctrl</kbd> + <kbd>g</kbd>
+**Print path** | <kbd>Ctrl</kbd> + <kbd>p</kbd>
 Open: Horizontal split | <kbd>Ctrl</kbd> + <kbd>x</kbd>
 Open | <kbd>Enter</kbd>
+Open: Vertical split | <kbd>Shift</kbd> + <kbd>l</kbd>
 Next sibling | <kbd>></kbd>
 Previous sibling | <kbd><</kbd>
-Move up | <kbd>k</kbd>
-Move down | <kbd>j</kbd>
 Change root to parent | <kbd>-</kbd>
 Prev git | <kbd>\[</kbd> + <kbd>c</kbd>
 Next git | <kbd>\]</kbd> + <kbd>c</kbd>
 Delete | <kbd>d</kbd>
 Expand All | <kbd>Shift</kbd> + <kbd>e</kbd>
 Rename: Basename | <kbd>e</kbd>
+Live Filter: Clear | <kbd>Shift</kbd> + <kbd>f</kbd>
+Live Filter: Search | <kbd>f</kbd>
 Help | <kbd>g</kbd> + <kbd>?</kbd>
+Copy Basename | <kbd>g</kbd> +  <kbd>e</kbd>
+**Toggle hidden files** | <kbd>g</kbd> +  <kbd>h</kbd>
+**Toggle group empty** | <kbd>g</kbd> +  <kbd>l</kbd>
+Copy absolute path | <kbd>g</kbd> +  <kbd>y</kbd>
+**Close parent folder** | <kbd>h</kbd>
+**Collapse all** | <kbd>Shift</kbd> + <kbd>h</kbd>
+Move down | <kbd>j</kbd>
+Move up | <kbd>k</kbd>
+**Expand folder or go to file** | <kbd>l</kbd>
+**Vsplit Preview** | <kbd>Shift</kbd> + <kbd>l</kbd>
