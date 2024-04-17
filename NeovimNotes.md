@@ -193,6 +193,21 @@ Redo |<kbd>Ctrl</kbd> + <kbd>r</kbd>
 Undo latest changes on last edited line  | <kbd>Shift</kbd> + <kbd>u</kbd>
 Redo latest changes on last edited line |<kbd>Shift</kbd> + <kbd>u</kbd>
 
+### Insert
+
+All these commands put you in insert mode.
+
+Action | Keymap/command
+---------|----------
+Insert | <kbd>i</kbd>
+Append |<kbd>a</kbd>
+Insert at beginning of line | <kbd>Shift</kbd> + <kbd>i</kbd>
+Append at end of line | <kbd>Shift</kbd> + <kbd>a</kbd>
+Insert new line after line | <kbd>o</kbd>
+Insert new line before current line | <kbd>Shift</kbd> + <kbd>o</kbd>
+
+`gi` puts you into Insert mode at the last place you made a change.
+
 ### Delete/replace character
 
 Action | Keymap/command
