@@ -174,9 +174,14 @@ You can use the Vim command `:help {key}<C-D>` to see if `{key}` is used for som
 
 To filter the search down, you can use `:map <text>` to show a list of all mappings with a `{lhs}` starting with `<text>`, e.g. `:nmap \` will show all normal mode mappings beginning with `\`.
 
-## Visual Block Mode
+## Visual Mode
 
-Press <kbd>Ctrl</kbd> + <kbd>q</kbd> to enter. Select text, e.g. `6j`. Press <kbd>Shift</kbd> + <kbd>i</kbd> to prepend or <kbd>Shift</kbd> + <kbd>a</kbd> to append. When you are done with your changes, press <kbd>Esc</kbd> and changes will be appliied to all lines!
+`v` - character
+`V` - line
+
+### Visual Block Mode
+
+Press <kbd>Ctrl</kbd> + <kbd>q</kbd> to enter. Select text, e.g. `6j`. Press <kbd>Shift</kbd> + <kbd>i</kbd> to prepend or <kbd>Shift</kbd> + <kbd>a</kbd> to append. When you are done with your changes, press <kbd>Esc</kbd> and changes will be applied to all lines!
 
 ## Editing
 
