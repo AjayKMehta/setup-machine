@@ -174,6 +174,30 @@ You can use the Vim command `:help {key}<C-D>` to see if `{key}` is used for som
 
 To filter the search down, you can use `:map <text>` to show a list of all mappings with a `{lhs}` starting with `<text>`, e.g. `:nmap \` will show all normal mode mappings beginning with `\`.
 
+### Folds
+
+Set method: `:set foldmethod=<method>`. `<method>` can be `manual`, `indent`, `marker`.
+
+Get method: `:set foldmethod`.
+
+Get fold markers: `:set foldmarker`.
+
+Action | Keymap/command
+---------|----------
+Toggle fold under cursor | <kbd>z</kbd> + <kbd>a</kbd>
+Toggle all folds under cursor | <kbd>z</kbd> + <kbd>A</kbd>
+Close fold under cursor | <kbd>z</kbd> + <kbd>c</kbd>
+Close all folds under cursor | <kbd>z</kbd> + <kbd>C</kbd>
+Fold more | <kbd>z</kbd> + <kbd>m</kbd>
+Close all folds | <kbd>z</kbd> + <kbd>M</kbd>
+Open fold under cursor | <kbd>z</kbd> + <kbd>o</kbd>
+Open all folds under cursor | <kbd>z</kbd> + <kbd>O</kbd>
+Fold less | <kbd>z</kbd> + <kbd>r</kbd>
+Open all folds | <kbd>z</kbd> + <kbd>R</kbd>
+Create fold | <kbd>z</kbd> + <kbd>f</kbd>
+Delete fold | <kbd>z</kbd> + <kbd>d</kbd>
+Delete all folds under cursor | <kbd>z</kbd> + <kbd>D</kbd>
+
 ## Visual Mode
 
 `v` - character
