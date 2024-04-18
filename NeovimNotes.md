@@ -302,8 +302,10 @@ Source: <https://learnbyexample.github.io/tips/vim-tip-2/>
 Action | Keymap/command
 ---------|----------
 Indent the current line | `>>`
+Indent the current line (insert mode) | <kbd>Ctrl</kbd>+<kbd>t</kbd>
 Indent the current line and two lines below (same as `2>j`) | `3>>`
 Dedent the current line | `<<`
+Dedent the current line (insert mode) | <kbd>Ctrl</kbd>+<kbd>d</kbd>
 Auto-indent code, use motion commands to indicate the portion to be indented | `=`
 Auto-indent current line and 4 lines below | `=4j`
 Auto-indent the current paragraph | `=ip`
