@@ -350,6 +350,18 @@ Ctrl<kbd>Ctrl</kbd> + <kbd>x</kbd>  will decrement the number under the cursor o
 
 You can also provide a count prefix!
 
+### Editing with motion
+
+Some examples of using motions for editing:
+
+Action | Keymap/command
+---------|----------
+Delete from current line to the end of the file | `dG`
+Delete from current line to the beginning of the file | `dgg`
+Copy until next `c` in current line | `yfc`
+Copy until end of sentence | `y)`
+Indent until end of paragraph | `>}`
+
 ### Text object selection
 
 `a` is for around and `i` is for inner.
