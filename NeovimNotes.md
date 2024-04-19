@@ -350,6 +350,21 @@ Ctrl<kbd>Ctrl</kbd> + <kbd>x</kbd>  will decrement the number under the cursor o
 
 You can also provide a count prefix!
 
+### Text object selection
+
+`a` is for around and `i` is for inner.
+
+`dip` deletes paragraph.
+`ciw` deletes current word and enters INSERT.
+`dit`deletes all characters within HTML/XML tags. Nesting is taken care of.
+`ci"` deletes all text within double quotes and enters INSERT.
+`di'` deletes all text within single quotes.
+`yis` yanks a sentence.
+
+These work even with `{count}`, e.g. `d2i{` will delete inner braces and text between braces one level above.
+
+Refer to `:h text-objects` for more details.
+
 ### Misc
 
 Toggle case: `g~`
