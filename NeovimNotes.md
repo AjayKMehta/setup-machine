@@ -359,11 +359,21 @@ Toggle case: `g~`
 
 In this section, **NBC** = **n**on-**b**lank **c**haracter.
 
-### Jumplist
+### Jumps and changes
 
-<kbd>Ctrl</kbd> + <kbd>o</kbd> to go to previous jump position.
+See `:h jump-motions`.
 
-<kbd>Ctrl</kbd> + <kbd>i</kbd> to go to next jump position.
+When making changes, the cursor position is saved.
+
+Action | Keymap/command
+---------|----------
+View jumps | `:jumps`
+Go to previous jump position |<kbd>Ctrl</kbd> + <kbd>o</kbd>
+Go to next jump position | <kbd>Ctrl</kbd> + <kbd>i</kbd>
+View changes | `:changes`
+Go to previous change position | <kbd>g</kbd> + <kbd>;</kbd>
+Go to next change position | <kbd>g</kbd> + <kbd>,</kbd>
+Go to last insert position and INSERT | <kbd>g</kbd> + <kbd>i</kbd>
 
 ### Line-based
 
