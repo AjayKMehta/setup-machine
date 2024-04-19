@@ -471,6 +471,18 @@ Moves to line at 40% of total lines | `40%`
 Move to middle of window | <kbd>M</kbd>
 Move to bottom of window | <kbd>L</kbd>
 
+## Recipes + FAQ
+
+### Swap lines
+
+Do this: `ddp`
+
+### Multi-file find and replace
+
+1. Search for files with text using Telescope live grep.
+2. Add results to QuickFix list via <kbd>Ctrl</kbd> + <kbd>q</kbd>.
+3. Now do `:cdo %s/{findWhat}/{replaceWith}/g` to replace all QuickFix results.
+
 ## Plugins
 
 ### Telescope
@@ -641,7 +653,7 @@ Down | <kbd>Alt</kbd> + <kbd>j</kbd>
 
 To launch, press <kbd>Ctrl</kbd> + <kbd>n</kbd>. To close, press <kbd>q</kbd>.
 
-Here are some useful key maps for when window is displayed:
+Here are some useful key maps for when the window is displayed:
 
 Action | Keymap
 ---------|----------
@@ -679,3 +691,5 @@ Toggle bookmark | <kbd>m</kbd>
 Collapse all | <kbd>Shift</kbd> + <kbd>w</kbd>
 Copy name | <kbd>y</kbd>
 Copy relative path | <kbd>Shift</kbd> +  <kbd>y</kbd>
+
+All actions in **bold** in the table above have custom keymaps. The other commands use plugin defaults.
