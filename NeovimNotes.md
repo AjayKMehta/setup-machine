@@ -280,6 +280,19 @@ Copy from current character to end of line | <kbd>y</kbd> + <kbd>$</kbd>
 
 yk copies current line and above it.
 
+### Paste
+
+Action | Keymap/command
+---------|----------
+Paste below current line or to right of cursor | `p`
+Paste above current line or to left of cursor | <kbd>Shift</kbd> + <kbd>p</kbd>
+Paste below current line or right of cursor (matching indent) | `]p`
+Paste above current line or to left of cursor (matching indent) | `]P`
+Same as `p` but puts the cursor after the pasted selection | `gp`
+Same as `P` but puts the cursor after the pasted selection | `gP`
+
+Duplicate a line: `yyp`
+
 ### Comment
 
 Commenting out code relies on [comment.nvim](https://github.com/numToStr/Comment.nvim) for now. This functionality will be added to neovim 0.10 according to this [PR](https://github.com/neovim/neovim/pull/28176).
