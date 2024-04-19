@@ -1,56 +1,12 @@
 
 # Neovim
 
-<!--toc:start-->
-- [Neovim](#neovim)
-  - [NvChad](#nvchad)
-  - [nvim-tree](#nvim-tree)
-  - [Buffers](#buffers)
-  - [Windows](#windows)
-  - [Tabs](#tabs)
-  - [General Neovim info](#general-neovim-info)
-    - [Autocommands](#autocommands)
-    - [Search](#search)
-    - [Find](#find)
-    - [Marks](#marks)
-  - [Editing](#editing)
-    - [Undo/redo](#undoredo)
-    - [Delete/replace character](#deletereplace-character)
-    - [Delete line](#delete-line)
-    - [Yank](#yank)
-  - [Motions](#motions)
-    - [Word-based](#word-based)
-    - [Moving within same line](#moving-within-same-line)
-    - [Misc](#misc)
-  - [Plugins](#plugins)
-    - [Telescope](#telescope)
-    - [Outline](#outline)
-<!--toc:end-->
-
 ## NvChad
 
 Action | Keymap
 ---------|----------
 Change theme | <kbd>Space</kbd> + <kbd>t</kbd> + <kbd>h</kbd>
 Cheatsheet | <kbd>Space</kbd> + <kbd>c</kbd> + <kbd>h</kbd>
-
-## nvim-tree
-
-Action | Keymap
----------|----------
-Toggle visibility | <kbd>Ctrl</kbd> + <kbd>n</kbd>
-Mark file | <kbd>Ctrl</kbd> + <kbd>m</kbd>
-Add file | <kbd>Ctrl</kbd> + <kbd>a</kbd>
-Close folder | <kbd>h</kbd>
-Move down | <kbd>j</kbd>
-Move up | <kbd>k</kbd>
-Edit or open | <kbd>l</kbd>
-VSplit Preview | <kbd>L</kbd>
-Collapse all | <kbd>H</kbd>
-Toggle hidden files | <kbd>g</kbd> + <kbd>h</kbd>
-Copy relative path | <kbd>Y</kbd>
-Change root to current working directory | <kbd>Ctrl</kbd> + <kbd>c</kbd>
-Change root to node | <kbd>c</kbd> + <kbd>d</kbd>
 
 ## Buffers
 
@@ -78,8 +34,6 @@ List tabs | `:tabs`
 Go to previous tab  | <kbd>g</kbd> + <kbd>t</kbd>
 
 ## General Neovim info
-
-[Peekaboo](https://github.com/junegunn/vim-peekaboo) extends `"` and @`` in normal mode and <CTRL-R> in insert mode so you can see the contents of the registers.
 
 Open terminal: `:terminal` OR `<leader>` + <kbd>H</kbd> / <kbd>V</kbd> (horizontal / vertical)
 
@@ -116,6 +70,8 @@ Search down | <kbd>/</kbd>
 Search up | <kbd>Shift</kbd> + <kbd>/</kbd>
 Find word under cursor | <kbd>Shift</kbd> + <kbd>8</kbd>
 Find word under cursor (backwards) | <kbd>Shift</kbd> + <kbd>3</kbd>
+Find word under cursor (partial match) | `g*`
+Find word under cursor (backwards partial match) | `g#`
 
 After entering text for search, press <kbd>Enter</kbd>. All matches will be highlighted.
 
@@ -368,7 +324,7 @@ When making changes, the cursor position is saved.
 Action | Keymap/command
 ---------|----------
 View jumps | `:jumps`
-Go to previous jump position |<kbd>Ctrl</kbd> + <kbd>o</kbd>
+Go to previous jump position | <kbd>Ctrl</kbd> + <kbd>o</kbd>
 Go to next jump position | <kbd>Ctrl</kbd> + <kbd>i</kbd>
 View changes | `:changes`
 Go to previous change position | <kbd>g</kbd> + <kbd>;</kbd>
