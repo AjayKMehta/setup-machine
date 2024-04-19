@@ -127,6 +127,11 @@ Press <kbd>Esc</kbd> to clear search highlights.
 
 You can use these operators in combination with `d` to delete text, e.g. `d/hello` to delete everything until the first occurrence of `hello`.
 
+To delete search results:
+
+1. Press `gn` if your cursor is on match to select it in visual mode. Then press `dgn`.
+2. Else, press `dgn` to delete matches!
+
 ### Find
 
 Action | Keymap/command
