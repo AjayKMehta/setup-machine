@@ -381,6 +381,23 @@ These work even with `{count}`, e.g. `d2i{` will delete inner braces and text be
 
 Refer to `:h text-objects` for more details.
 
+### Editing with Ex commands
+
+> See [Deleting Multiple Lines At Once](https://www.barbarianmeetscoding.com/boost-your-coding-fu-with-vscode-and-vim/command-line-mode/#deleting-multiple-lines-at-once).
+
+`:[range]command[options]`
+
+Delete the lines 10, 11 and 12 and puts them inside the `a` register: `:10,12d a` or `:10,+2d a`.
+Copy current line: `:.y`
+Delete whole file: `:%d`
+
+`0` refers to beginning of the file and `$` to end.
+So, `:.,$y` copies text from current line to end of file.
+
+`:'<,'>` shows up if you type `:` and you're in **VISUAL** mode. It refers to current selection so to delete it: `:'<,'>d`.
+
+Repeat last ex-command: `@:`. After that, type `@@` to repeat it again.
+
 ### Misc
 
 Toggle case: `g~`
