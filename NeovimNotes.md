@@ -158,6 +158,8 @@ Open all folds | <kbd>z</kbd> + <kbd>R</kbd>
 Create fold | <kbd>z</kbd> + <kbd>f</kbd>
 Delete fold | <kbd>z</kbd> + <kbd>d</kbd>
 Delete all folds under cursor | <kbd>z</kbd> + <kbd>D</kbd>
+**Go to next closed fold** | <kbd>]</kbd> + <kbd>z</kbd>
+**Go to previous closed fold** | <kbd>[</kbd> + <kbd>z</kbd>
 
 ### Registers
 
@@ -291,6 +293,8 @@ Same as `p` but puts the cursor after the pasted selection | `gp`
 Same as `P` but puts the cursor after the pasted selection | `gP`
 
 Duplicate a line: `yyp`
+
+Using `CTRL-R {register}` you can paste the contents of a register after the cursor in **INSERT** mode.
 
 ### Comment
 
