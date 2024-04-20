@@ -67,6 +67,7 @@
       - [LLM](#llm)
       - [OpenAI](#openai)
       - [HuggingFace](#huggingface)
+      - [Langsmith](#langsmith)
   - [R](#r)
     - [RStudio](#rstudio)
     - [RTools](#rtools)
@@ -926,6 +927,10 @@ Model Name: gpt2
 Tags: ['pytorch', 'tf', 'jax', 'tflite', 'rust', 'safetensors', 'gpt2', 'text-generation', 'en', 'doi:10.57967/hf/0039', 'transformers', 'exbert', 'license:mit', 'has_space']
 Task: text-generation
 ```
+
+#### LangSmith
+
+To create an API key head to the [setting pages](https://smith.langchain.com/settings). Then click **Create API Key.**
 
 ## R
 
