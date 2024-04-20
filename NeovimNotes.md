@@ -767,3 +767,13 @@ Copy name | <kbd>y</kbd>
 Copy relative path | <kbd>Shift</kbd> +  <kbd>y</kbd>
 
 All actions in **bold** in the table above have custom keymaps. The other commands use plugin defaults.
+
+### nvim-surround
+
+This provides three separate operators:
+
+- `ds` to delete the surroundings, e.g. `ds'` deletes surrounding `'`.
+- `cs` to change the surroundings, e.g. `cs"'` changes surrounding `"` to `'`.
+- `ys` to add surroundings, e.g. `ysap"` adds quotes around paragraph.
+
+Repeatable via `.`
