@@ -173,14 +173,6 @@ sudo apt install git
 # For diffs
 sudo apt install meld
 sudo apt install git-absorb
-# Github CLI
-sudo apt install gh
-```
-
-Add to `~/.bash_profile`:
-
-```bash
-eval "$(gh completion -s bash)"
 ```
 
 ### git lfs
@@ -227,6 +219,33 @@ For shell completion:
 ```bash
 mise use -g usage
 mise completion bash > ~/.config/bash_completions.d/mise
+```
+
+Install plugins:
+
+```shell
+mise use chezmoi@latest
+mise use delta@latest
+mise use deno@latest
+mise use difftastic@latest
+mise use docker-slim@latest
+mise use fzf@latest
+
+mise plugin add github-cli https://github.com/bartlomiejdanek/asdf-github-cli.git   
+mise use github-cli@latest
+
+mise use go@latest
+mise use lua-language-server@latest
+mise use neovim@latest
+mise use stylua@latest
+mise use usage@latest
+mise use zoxide@latest
+```
+
+Add to `~/.bash_profile`:
+
+```bash
+eval "$(gh completion -s bash)"
 ```
 
 ## fzf
