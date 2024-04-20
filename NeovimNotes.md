@@ -62,32 +62,6 @@ Don't forget to reset: `:set ei=""`.
 
 Can also ignore for certain events: `:set ei=CursorHold`
 
-### Search
-
-Action | Keymap/command
----------|----------
-Search down | <kbd>/</kbd>
-Search up | <kbd>Shift</kbd> + <kbd>/</kbd>
-Find word under cursor | <kbd>Shift</kbd> + <kbd>8</kbd>
-Find word under cursor (backwards) | <kbd>Shift</kbd> + <kbd>3</kbd>
-Find word under cursor (partial match) | `g*`
-Find word under cursor (backwards partial match) | `g#`
-
-After entering text for search, press <kbd>Enter</kbd>. All matches will be highlighted.
-
-Type <kbd>N</kbd> to go to the next match or <kbd>n</kbd> to go to the previous match.
-
-Press <kbd>Shift</kbd> + <kbd>q</kbd> to skip next match.
-
-Press <kbd>Esc</kbd> to clear search highlights.
-
-You can use these operators in combination with `d` to delete text, e.g. `d/hello` to delete everything until the first occurrence of `hello`.
-
-To delete search results:
-
-1. Press `gn` if your cursor is on match to select it in visual mode. Then press `dgn`.
-2. Else, press `dgn` to delete matches!
-
 ### Find
 
 Action | Keymap/command
@@ -212,6 +186,49 @@ Some examples:
 ### Visual Block Mode
 
 Press <kbd>Ctrl</kbd> + <kbd>q</kbd> to enter. Select text, e.g. `6j`. Press <kbd>Shift</kbd> + <kbd>i</kbd> to prepend or <kbd>Shift</kbd> + <kbd>a</kbd> to append. When you are done with your changes, press <kbd>Esc</kbd> and changes will be applied to all lines!
+
+## Search
+
+Action | Keymap/command
+---------|----------
+Search down | <kbd>/</kbd>
+Search up | <kbd>Shift</kbd> + <kbd>/</kbd>
+Find word under cursor | <kbd>Shift</kbd> + <kbd>8</kbd>
+Find word under cursor (backwards) | <kbd>Shift</kbd> + <kbd>3</kbd>
+Find word under cursor (partial match) | `g*`
+Find word under cursor (backwards partial match) | `g#`
+
+After entering text for search, press <kbd>Enter</kbd>. All matches will be highlighted.
+
+Type <kbd>N</kbd> to go to the next match or <kbd>n</kbd> to go to the previous match.
+
+Press <kbd>Shift</kbd> + <kbd>q</kbd> to skip next match.
+
+Press <kbd>Esc</kbd> to clear search highlights.
+
+You can use these operators in combination with `d` to delete text, e.g. `d/hello` to delete everything until the first occurrence of `hello`.
+
+To delete search results:
+
+1. Press `gn` if your cursor is on match to select it in visual mode. Then press `dgn`.
+2. Else, press `dgn` to delete matches!
+
+### Using Ex-Commands
+
+`:[range]s/{pattern}/{substitute}/{flags}`
+
+Examples:
+
+`10,12:s/test/ok` replaces first occurrences of `test` in lines 10-12 with `ok`.
+
+`:s/test/ok/g` replaces all occurrences of `test` in current line with `ok`.
+
+Replace in whole file: `:%/s/test/ok/g`.
+
+Other flags besides `g`:
+
+- `c` to confirm each submission
+- `i` for case-insensitive search
 
 ## Editing
 
