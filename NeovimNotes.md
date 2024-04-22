@@ -795,4 +795,4 @@ Invoke completion | <kbd>Ctrl</kbd> + <kbd>Space</kbd>
 **Toggle autocompletion** | `<Leader>tc`
 Complete common string (Insert, Commandline mode) | <kbd>Ctrl</kbd> + <kbd>l</kbd>
 
-[^2]:; Currently not working.
+[^2]: Currently not working.
