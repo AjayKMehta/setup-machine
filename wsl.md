@@ -273,6 +273,12 @@ Open file in Neovim: `fzf --bind 'enter:become(nvim {})'`
 
 Modern replacement for `ls`. Install via `cargo install eza` or [follow these instructions](https://github.com/eza-community/eza/blob/main/INSTALL.md#debian-and-ubuntu).
 
+## jnv
+
+[jnv](https://github.com/ynqa/jnv) is an interactive JSON filter using jq. Install via `cargo install jnv` or [download latest release from here](https://github.com/ynqa/jnv/releases/).
+
+For key bindings, see [here](https://github.com/ynqa/jnv#keymap).
+
 ## [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/install-ubuntu)
 
 ## pngquant
