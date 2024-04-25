@@ -328,6 +328,23 @@ Delete from current character to end of line | <kbd>Shift</kbd> + <kbd>d</kbd> /
 
 `10dd` = delete current line and 9 lines below. Same as `d9j`.
 
+#### Command-line mode
+
+You can also delete in command mode:
+
+`:$d` deletes last line
+`:5d` deletes 5th line
+
+You can even delete lines based on matches 🤯
+
+`:/b/,/func/d` deletes from (first) line containing `b` to line containing `func`!
+
+Delete line containing `g` and line below it: `:/g/;+1d`
+
+Delete from line 5 and line after that containing `for`: `:5;/for/d`
+
+This even works with marks: `:'a,'bd` deletes from line with mark `a` to line with mark `b`!
+
 ### Yank
 
 <kbd>y</kbd> is yank operator.
