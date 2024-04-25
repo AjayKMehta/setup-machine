@@ -419,6 +419,9 @@ These also work in VISUAL or COMMAND mode.
 
 [^2]: When there is a trailing space at end of line or next line begins with `)`, then no space is added.
 
+### Moving lines
+
+In command-line mode: `<orig>m<new>`, e.g. `3m0` moves 3rd line to top of file or `2m$` moves 2nd line to bottom.
 
 ### Digraphs
 
@@ -487,9 +490,14 @@ So, `:.,$y` copies text from current line to end of file.
 
 Repeat last ex-command: `@:`. After that, type `@@` to repeat it again.
 
-### Misc
+### Change case
 
-Toggle case: `g~`
+Toggle case of character (works in VISUAL mode too): `~`
+Toggle case with motion: `g~<motion>`, e.g. `g~iw`.
+Lower case with motion: `gu<motion>`, e.g. `gue`.
+Upper case with motion: `gU<motion>`, e.g. `gUiw`.
+
+These work with `{count}` prefix, e.g. `2~`.
 
 ## Motions
 
