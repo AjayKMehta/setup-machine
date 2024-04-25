@@ -870,9 +870,9 @@ Escape | <kbd>Ctrl</kbd> + <kbd>e</kbd>
 Next entry | <kbd>Ctrl</kbd> + <kbd>n</kbd> / `<Down>`
 Previous entry | <kbd>Ctrl</kbd> + <kbd>p</kbd> / `<Up>`
 Accept suggestion | <kbd>Enter</kbd>
-**Toggle documentation window[^2]** | <kbd>Alt</kbd> + <kbd>d</kbd>
+**Toggle documentation window[^3]** | <kbd>Alt</kbd> + <kbd>d</kbd>
 Invoke completion | <kbd>Ctrl</kbd> + <kbd>Space</kbd>
 **Toggle autocompletion** | `<Leader>tc`
 Complete common string (Insert, Commandline mode) | <kbd>Ctrl</kbd> + <kbd>l</kbd>
 
-[^2]: Currently not working.
+[^3]: Currently not working.
