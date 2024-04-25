@@ -279,13 +279,13 @@ Modern replacement for `ls`. Install via `cargo install eza` or [follow these in
 
 For key bindings, see [here](https://github.com/ynqa/jnv#keymap).
 
-## [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/install-ubuntu)
-
 ## pngquant
 
 [pngquant](https://pngquant.org/) is a command-line utility and a library for lossy compression of PNG images.
 
 Install: `cargo install pngquant`.
+
+## [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/install-ubuntu)
 
 Available from the Linux package repository for Microsoft products, <https://packages.microsoft.com>, also known as PMC.
 
