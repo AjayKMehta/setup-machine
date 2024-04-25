@@ -405,6 +405,21 @@ Auto-indent code, use motion commands to indicate the portion to be indented | `
 Auto-indent current line and 4 lines below | `=4j`
 Auto-indent the current paragraph | `=ip`
 
+### Join Lines
+
+Source: <https://youtu.be/rubhH6v4lN0?feature=shared>
+
+Action | Keymap/command
+---------|----------
+Join current and next line (replace EOL with space[^2] and remove indentation except for current) | <kbd>J</kbd>
+Join current and next 2 lines (replace EOL with space) | `3J`
+Join current and next line (remove EOL and preserve indentation) | `gJ`
+
+These also work in VISUAL or COMMAND mode.
+
+[^2]: When there is a trailing space at end of line or next line begins with `)`, then no space is added.
+
+
 ### Digraphs
 
 To input a digraph, in insert mode, press <kbd>Ctrl</kbd>+<kbd>q</kbd> followed by the two letters which define the digraph. Here are a few useful, built-in, combinations:
