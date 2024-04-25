@@ -15,14 +15,13 @@ Action | Keymap/command
 Close buffer | <kbd>Space</kbd> + <kbd>x</kbd>
 List buffers | `:buffers` / `:ls` / `:Telescope buffers`
 Vertical split[^1] | `:vsp` / `:sp`
-Next/prev buffer | `:bnext` / `:bprevious`
+Next buffer | `:bnext` / `:bn`
+Previous buffer | `:bprevious` / `:bp`
 Get filetype | `:echo &filetype`
 Go to next buffer | <kbd>Tab</kbd>
-Go to prev. buffer | <kbd>Shift</kbd> + <kbd>Tab</kbd>
+Go to prev. buffer | <kbd>Shift</kbd> + <kbd>Tab</kbd> / <kbd>Ctrl</kbd> + <kbd>6</kbd>
 
 [^1]: Opens same buffer in new window.
-
-## Windows
 
 Navigate left/down/up/right: <kbd>Ctrl</kbd> + <kbd>H</kbd>/<kbd>J</kbd>/<kbd>K</kbd>/<kbd>L</kbd>
 
@@ -330,7 +329,7 @@ Delete from current character to end of line | <kbd>Shift</kbd> + <kbd>d</kbd> /
 
 #### Command-line mode
 
-You can also delete in command mode:
+You can also delete in command-line mode:
 
 `:$d` deletes last line
 `:5d` deletes 5th line
@@ -415,7 +414,7 @@ Join current and next line (replace EOL with space[^2] and remove indentation ex
 Join current and next 2 lines (replace EOL with space) | `3J`
 Join current and next line (remove EOL and preserve indentation) | `gJ`
 
-These also work in VISUAL or COMMAND mode.
+These also work in VISUAL or COMMAND-LINE mode.
 
 [^2]: When there is a trailing space at end of line or next line begins with `)`, then no space is added.
 
