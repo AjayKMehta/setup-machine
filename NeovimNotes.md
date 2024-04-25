@@ -222,13 +222,29 @@ Find word under cursor (backwards) | <kbd>Shift</kbd> + <kbd>3</kbd>
 Find word under cursor (partial match) | `g*`
 Find word under cursor (backwards partial match) | `g#`
 
+### Advanced usage
+
+`/searchpattern/s` places cursor at the start of the match.
+`/searchpattern/s+2` places cursor 2 characters after the start of the match.
+`/searchpattern/s-3` places cursor 3 characters before the start of the match.
+`/searchpattern/e` places cursor at the end of the match.
+`/searchpattern/e+2` and `/searchpattern/e-4` behave analogously to commands for start of match.
+
+`/searchpattern/+2` and `/searchpattern/-4` places cursor 2 lines below and 4 lines above match respectively.
+
+### Navigation
+
 After entering text for search, press <kbd>Enter</kbd>. All matches will be highlighted.
 
 Type <kbd>N</kbd> to go to the next match or <kbd>n</kbd> to go to the previous match.
 
 Press <kbd>Shift</kbd> + <kbd>q</kbd> to skip next match.
 
+### Clear results
+
 Press <kbd>Esc</kbd> to clear search highlights.
+
+### Delete search results
 
 You can use these operators in combination with `d` to delete text, e.g. `d/hello` to delete everything until the first occurrence of `hello`.
 
@@ -245,7 +261,7 @@ Examples:
 
 `10,12:s/test/ok` replaces first occurrences of `test` in lines 10-12 with `ok`.
 
-`:s/test/ok/g` replaces all occurrences of `test` in current line with `ok`.
+`:s/test/ok/g` (or `:.s/test/ok/g`) replaces all occurrences of `test` in current line with `ok`.
 
 Replace in whole file: `:%/s/test/ok/g`.
 
