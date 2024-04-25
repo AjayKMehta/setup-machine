@@ -31,7 +31,18 @@ Navigate left/down/up/right: <kbd>Ctrl</kbd> + <kbd>H</kbd>/<kbd>J</kbd>/<kbd>K<
 Action | Keymap/command
 ---------|----------
 List tabs | `:tabs`
-Go to previous tab  | <kbd>g</kbd> + <kbd>t</kbd>
+Toggle tab | <kbd>g</kbd> + <kbd>t</kbd>
+Go to previous tab | `:tabprevious` / `:tabp`
+Go to next tab  | `:tabnext` / `:tabn`
+Go to first tab | `:tabfirst` / `:tabrewind` / `:tabr`
+Go to last tab  | `:tablast` / `:tabl`
+Edit file in new tab | `:tabe <file>`
+
+## Splitting windows
+
+`:vsplit`
+`split`
+<kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>w</kbd> is for switching windows.
 
 ## General Neovim info
 
@@ -42,6 +53,19 @@ Install LSP: `:MasonInstall bash-language-server`
 Edit file: `:e <file>`
 
 Read file: `:read <file>`
+
+Write file: `:write` or `:w`. Can specify fillename if new or saving as new file.
+
+Write read-only file: `:w!`
+
+Quit all and confirm for unsaved changes: `:confirm qa`.
+
+Quit and don't save changes: `:q!`.
+Quit and save all: `:wqa`.
+
+Append to file: `:w >> <file>`.
+
+Save all buffers: `:wall` or `wa`
 
 Run health checks: `:checkhealth`.
 
