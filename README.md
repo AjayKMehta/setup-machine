@@ -956,9 +956,10 @@ winget install Posit.RStudio
 
 ### RTools
 
-- Install location is usually C:\RTools but if you have limited disk space, set `RTOOLS43_HOME`to a different path, e.g.`D:\rtools43` ***before* running the installer**.
+:bulb: Install location is usually C:\RTools but if you have limited disk space, change folder during installation. Installer will set `$RTOOLS<VER>_HOME` automatically, e.g. if you set install path for RTools 4.4 to `D:\rtools44`, then this path will be value for `$RTOOLS44_HOME`.
+
 - Download and run [R Build tools](https://cran.r-project.org/bin/windows/Rtools/).
-- Add bin folder in install path to `$PATH` -- this can be done by editing .Renviron: `PATH="${RTOOLS40_HOME}\usr\bin;${PATH}"`.
+- Add bin folder in install path to `$PATH` -- this can be done by editing .Renviron: `PATH="${RTOOLS44_HOME}\usr\bin;${PATH}"`.
 
 [Usage notes](https://github.com/r-windows/docs/blob/master/rtools40.md#readme)
 
