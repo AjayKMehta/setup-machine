@@ -219,6 +219,16 @@ Some examples:
 
 Press <kbd>Ctrl</kbd> + <kbd>q</kbd> to enter. Select text, e.g. `6j`. Press <kbd>Shift</kbd> + <kbd>i</kbd> to prepend or <kbd>Shift</kbd> + <kbd>a</kbd> to append. When you are done with your changes, press <kbd>Esc</kbd> and changes will be applied to all lines!
 
+## Command-line mode
+
+Action | Keymap/command
+---------|----------
+Go to start |<kbd>Ctrl</kbd> + <kbd>b</kbd>
+Go to end |<kbd>Ctrl</kbd> + <kbd>e</kbd>
+Go left one word |<kbd>Ctrl</kbd> + <kbd>←</kbd>
+Go right one word |<kbd>Ctrl</kbd> + <kbd>→</kbd>
+Erase line before cursor |<kbd>Ctrl</kbd> + <kbd>u</kbd>
+
 ## Search
 
 Action | Keymap/command
@@ -507,6 +517,25 @@ Upper case with motion: `gU<motion>`, e.g. `gUiw`.
 
 These work with `{count}` prefix, e.g. `2~`.
 
+### [Editing line filtered by pattern](https://youtu.be/uQKaAOKgr2o?feature=shared)
+
+`:[range]g[lobal]/{pattern}/[cmd]` - edit lines that are first filtered by a pattern
+
+`:g/call/d a` - deletee all lines containing `call` and store in `a` register
+
+`:1,5 g/call/m0` - move all lines from 1 to 5 containing `call` to top of file.
+`:g /cat/ s/rat/bat/g` : replace `rat` with `bat` in all lines containing `cat`.
+
+`:.,+2 g/\wa/ normal gU$` - for current line and 2 lines below it, convert to upper case all lines containing `\wa`.
+
+Use `g!` or `v` to negate pattern.
+
+`:v/test/d` deletes all lines not containing `test`.
+
+Can use `|`, `\`, `"` or any single byte character that is not alphanumeric as delimiter too:
+
+`:.g%call%d`
+
 ## Motions
 
 In this section, **NBC** = **n**on-**b**lank **c**haracter.
@@ -634,6 +663,13 @@ Move to middle of window | <kbd>M</kbd>
 Move to bottom of window | <kbd>L</kbd>
 
 ## Recipes + FAQ
+
+### Toggle line numbers
+
+`:set relativenumber`: show relative numbers
+`:set number`: show numbers
+
+Prefix with `no` to negate above or add `!` suffix to toggle instead.
 
 ### Swap lines
 
