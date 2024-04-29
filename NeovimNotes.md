@@ -201,6 +201,15 @@ Some examples:
 
 - [Clear number registers](https://www.reddit.com/r/vim/comments/ugocqa/comment/i70w02c/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button): `call range(1,9)->map('setreg(v:val,"")')`
 
+### [Executing external commands](https://youtu.be/STSZt2c1rSA?feature=shared)
+
+`:!ls` displays results of `ls` in separate window.
+`:.!date` replaces current line with output of `date` command.
+`:%! sort` sort all lines.
+`:3,5! sort` sort lines 3-5.
+`:r !date` insert output of command below the current line.
+`:r ! <file>` insert contents of <file> below the current line.
+
 ## Visual Mode
 
 `v` - character
