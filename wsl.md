@@ -638,6 +638,20 @@ You can use the Posit Package Manager (PPM) to install binary packages and avoid
     options(repos = r)
     ```
 
+### Updating packages for version upgrade
+
+1. Check output of `.libPaths()` and if there is a folder with old R version number, copy its contents to new folder with correct R version number.
+
+2. Update packages for new R version:
+
+    ```r
+    update.packages(ask=FALSE, checkBuilt=TRUE)
+    ```
+
+3. Delete package install location with old R version number if any.
+
+([Source](https://stackoverflow.com/questions/66450454/how-to-update-all-packages-for-a-new-r-version-quickly-and-easily))
+
 ### colorout
 
 **[colorout](https://github.com/jalvesaq/colorout)** is an R package that colorizes R output when running in a Unix terminal emulator

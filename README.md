@@ -948,6 +948,20 @@ To create an API key head to the [setting pages](https://smith.langchain.com/set
 1. To avoid the issue of C: running out of disk space, set `$R_LIBS` to a different path, e.g.`D:\packages`.
 1. Set `$GITHUB_PAT` to [GitHub PAT obtained](#github-pat). This is necessary for avoiding rate-limit issues when installing packages from GitHub using the [`remotes`](https://github.com/r-lib/remotes#environment-variables) package.
 
+### Updating packages for version upgrade
+
+1. Check output of `.libPaths()` and if there is a folder with old R version number, copy its contents to new folder with correct R version number.
+
+2. Update packages for new R version:
+
+    ```r
+    update.packages(ask=FALSE, checkBuilt=TRUE)
+    ```
+
+3. Delete package install location with old R version number if any.
+
+([Source](https://stackoverflow.com/questions/66450454/how-to-update-all-packages-for-a-new-r-version-quickly-and-easily))
+
 ### RStudio
 
 ```powershell
