@@ -115,7 +115,11 @@ To delete from current character to mark `a` position: ``d`a``.
 3. Make edits, etc.
 4. To stop recording, press <kbd>q</kbd> again.
 
-To invoke macro: <kbd>@</kbd> + <kbd>x</kbd>. Also, supports repeat, e.g. `3@x` to execute 3 times.
+To invoke macro: <kbd>@</kbd> + <kbd>x</kbd>.
+Also, supports repeat, e.g. `3@x` to execute 3 times.
+To invoke previously-played macro: <kbd>@</kbd> + <kbd>@</kbd>.
+
+To run macro on visual selection:  `:'<,'> norm @x`.
 
 ### Keymaps
 
