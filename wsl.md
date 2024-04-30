@@ -365,6 +365,24 @@ See [here](https://ubuntuhandbook.org/index.php/2023/11/install-dotnet-8-ubuntu-
 
 [^1]: I was not able to add the Microsoft repository to `/etc/apt/sources.list.d/` using the instructions provided.
 
+#### Configure environment variables
+
+> [!NOTE]
+> For more info, refer to this [link](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-environment-variables).
+
+Disable telemetry:
+
+```bash
+export DOTNET_CLI_TELEMETRY_OPTOUT=1 
+export DOTNET_UPGRADEASSISTANT_TELEMETRY_OPTOUT=1
+```
+
+Set `DOTNET_ROOT` if install path is `/usr/share/dotnet`:
+
+```bash
+export DONET_ROOT=/usr/share/dotnet
+```
+
 ### Omnisharp
 
 Omnisharp if installed via `mason.nvim` is found in `"~/.local/share/nvim/mason/packages/omnisharp/`. Create a config file located at `~/.omnisharp/omnisharp.json`.
