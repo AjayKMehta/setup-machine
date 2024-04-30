@@ -924,3 +924,98 @@ Invoke completion | <kbd>Ctrl</kbd> + <kbd>Space</kbd>
 Complete common string (Insert, Commandline mode) | <kbd>Ctrl</kbd> + <kbd>l</kbd>
 
 [^3]: Currently not working.
+
+### Treesitter-textobjects
+
+Syntax aware text-objects, select, move, swap, and peek support.
+
+#### Select
+
+Action | Keymap
+---------|----------
+Select outer part of an assignment | `v=a`
+Select inner part of an assignment | `v=i`
+Select left hand side of an assignment | `v=l`
+Select right hand side of an assignment | `v=r`
+Select outer part of a parameter/argument | `vaa`
+Select inner part of a parameter/argument | `via`
+Select outer part of a conditional | `vai`
+Select inner part of a conditional | `vii`
+Select outer part of a loop | `val`
+Select inner part of a loop | `vil`
+Select outer part of a function call | `vaf`
+Select inner part of a function call | `vif`
+Select outer part of a method/function definition | `vam`
+Select inner part of a method/function definition | `vim`
+Select outer part of a class | `vac`
+Select inner part of a class | `vic`
+~~Select language scope~~ | ~~`vaS`~~
+
+:bulb: Pattern is `v<selection_style><node>` except when node = LHS/RHS (`v<node><selection_style>`) as `vl` and `vr` are already mapped.
+
+#### Navigate
+
+Pattern is `<D><L>`.
+`<D>` (direction) = `[` for previous and `]` for next.
+`<L>`(location) is lower case for start and upper case for end.
+
+An example: `]f` will navigate to **start** (`f` is lower case) of **next** (`]`) **function call** (`f`).
+
+##### Goto next start
+
+Action | Keymap
+---------|----------
+Next function call start | `]f`
+Next method/function def start | `]m`
+Next class start | `]c`
+Next conditional start | `]i`
+Next loop start | `]l`
+Next fold | `]Z`
+
+##### Goto next end
+
+Action | Keymap
+---------|----------
+Next function call end | `]F`
+Next method/function def end | `]M`
+Next class end | `]C`
+Next conditional end | `]I`
+Next loop end | `]L`
+
+##### Goto previous start
+
+Action | Keymap
+---------|----------
+Previous function call start | `[f`
+Previous method/function def start | `[m`
+Previous class start | `[c`
+Previous conditional start | `[i`
+Previous loop start | `[l`
+
+##### Goto previous end
+
+Action | Keymap
+---------|----------
+Previous function call end | `[F`
+Previous method/function def end | `[M`
+Previous class end | `[C`
+Previous conditional end | `[I`
+Previous loop end | `[L`
+
+#### Swap
+
+Action | Keymap
+---------|----------
+Swap with previous function | `<leader>pm`
+Swap with previous property | `<leader>p:`
+Swap with previous parameter/argument | `<leader>pa`
+Swap with next function | `<leader>nm`
+Swap with next property | `<leader>n:`
+Swap with next parameter/argument | `<leader>na`
+
+#### LSP interop
+
+Action | Keymap
+---------|----------
+Peek definition of outer class | `<leader>pc`
+Peek definition of outer function | `<leader>pf`
