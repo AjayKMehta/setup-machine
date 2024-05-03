@@ -216,12 +216,32 @@ Some examples:
 
 ## Visual Mode
 
-`v` - character
-`V` - line
+`v` - select current character. Use any motion to extend selection, e.g. `ve` or `v$`.
+
+`V` - select current line. Can also extend with motion, e.g.`Vgg` selects from current line to start of file.
+
+`gv` selects previously highlighted visual area.
+
+Use `o` to move cursor to diagonally opposite corner of the visual selection.
 
 ### Visual Block Mode
 
-Press <kbd>Ctrl</kbd> + <kbd>q</kbd> to enter. Select text, e.g. `6j`. Press <kbd>Shift</kbd> + <kbd>i</kbd> to prepend or <kbd>Shift</kbd> + <kbd>a</kbd> to append. When you are done with your changes, press <kbd>Esc</kbd> and changes will be applied to all lines!
+Press <kbd>Ctrl</kbd> + <kbd>q</kbd> or <kbd>Ctrl</kbd> + <kbd>v</kbd>[^2] to enter. Select a region of text, e.g. `2lj` selects a region with 3 columns and 2 rows. Press <kbd>Shift</kbd> + <kbd>i</kbd> to prepend or <kbd>Shift</kbd> + <kbd>a</kbd> to append. When you are done with your changes, press <kbd>Esc</kbd> and changes will be applied to all lines!
+
+[^2]: If using Windows Terminal, make sure to disable default binding for <kbd>Ctrl</kbd> + <kbd>v</kbd>.
+
+Press `$` to select to end of each line.
+
+Use `O` to move cursor to other corner of current line in visual block mode.
+
+### Editing
+
+`d` deletes selection.
+`p` replaces selection with contents from `"` register.
+`"ap` replaces selection with contents from `a` register.
+`c` clears text and enters insert mode. Whatever you type will be applied to all lines in visual block after you press <kbd>Esc</kbd>.
+`C` clears text *till end of the line* and enters insert mode.
+`ra` replaces every character in selection with `a`.
 
 ## Command-line mode
 
