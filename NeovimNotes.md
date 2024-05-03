@@ -933,10 +933,10 @@ Syntax aware text-objects, select, move, swap, and peek support.
 
 Action | Keymap
 ---------|----------
-Select outer part of an assignment | `v=a`
-Select inner part of an assignment | `v=i`
-Select left hand side of an assignment | `v=l`
-Select right hand side of an assignment | `v=r`
+Select outer part of an assignment | `va=`
+Select inner part of an assignment | `vi=`
+Select left hand side of an assignment | `vL=`
+Select right hand side of an assignment | `vR=`
 Select outer part of a parameter/argument | `vaa`
 Select inner part of a parameter/argument | `via`
 Select outer part of a conditional | `vai`
@@ -951,7 +951,7 @@ Select outer part of a class | `vac`
 Select inner part of a class | `vic`
 ~~Select language scope~~ | ~~`vaS`~~
 
-:bulb: Pattern is `v<selection_style><node>` except when node = LHS/RHS (`v<node><selection_style>`) as `vl` and `vr` are already mapped.
+:bulb: Pattern is `v<selection_style><node>`.
 
 #### Navigate
 
