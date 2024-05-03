@@ -225,6 +225,8 @@ Press <kbd>Ctrl</kbd> + <kbd>q</kbd> to enter. Select text, e.g. `6j`. Press <kb
 
 ## Command-line mode
 
+### Motion, editing
+
 Action | Keymap/command
 ---------|----------
 Go to start |<kbd>Ctrl</kbd> + <kbd>b</kbd>
@@ -232,6 +234,18 @@ Go to end |<kbd>Ctrl</kbd> + <kbd>e</kbd>
 Go left one word |<kbd>Ctrl</kbd> + <kbd>←</kbd>
 Go right one word |<kbd>Ctrl</kbd> + <kbd>→</kbd>
 Erase line before cursor |<kbd>Ctrl</kbd> + <kbd>u</kbd>
+Paste register `a` contents | <kbd>Ctrl</kbd> + <kbd>r</kbd> followed by `a`
+Show completions based on typed characters | <kbd>Ctrl</kbd> + <kbd>d</kbd>
+
+### History
+
+Use `↑` and `↓` to navigate history.
+
+`q:` opens window for `:` commands.
+`q/` and `q?` open window for search patterns.
+<kbd>Ctrl</kbd> + <kbd>f</kbd> opens appropriate history window.
+
+Press <kbd>Enter</kbd> to select entry from history window.
 
 ## Search
 
