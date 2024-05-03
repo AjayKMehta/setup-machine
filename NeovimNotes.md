@@ -1056,3 +1056,17 @@ Action | Keymap
 ---------|----------
 Peek definition of outer class | `<leader>pc`
 Peek definition of outer function | `<leader>pf`
+
+### nvim-spider
+
+This plugin extends regular `web` motions to handle snake and camel case!
+
+I have mapped the actions separately to avoid clobbering default behavior.
+
+Action | Keymap
+---------|----------
+Move to next word | <kbd>Alt</kbd> + <kbd>w</kbd>
+Move to end of word | <kbd>Alt</kbd> + <kbd>e</kbd>
+Move to beginning of word | <kbd>Alt</kbd> + <kbd>b</kbd>
+Move to end of previous word | <kbd>g</kbd> + <kbd>E</kbd>
+Move to number | <kbd>n</kbd>
