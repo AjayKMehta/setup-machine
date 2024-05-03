@@ -275,6 +275,8 @@ To delete search results:
 1. Press `gn` if your cursor is on match to select it in visual mode. Then press `dgn`.
 2. Else, press `dgn` to delete matches!
 
+Similarly, you can use `cgn` to change search result text.
+
 ### Using Ex-Commands
 
 `:[range]s/{pattern}/{substitute}/{flags}`
@@ -418,10 +420,10 @@ Source: <https://learnbyexample.github.io/tips/vim-tip-2/>
 
 Action | Keymap/command
 ---------|----------
-Indent the current line | `>>`
+Indent the current line (normal, visual mode) | `>>`
 Indent the current line (insert mode) | <kbd>Ctrl</kbd>+<kbd>t</kbd>
 Indent the current line and two lines below (same as `2>j`) | `3>>`
-Dedent the current line | `<<`
+Dedent the current line (normal, visual mode) | `<<`
 Dedent the current line (insert mode) | <kbd>Ctrl</kbd>+<kbd>d</kbd>
 Auto-indent code, use motion commands to indicate the portion to be indented | `=`
 Auto-indent current line and 4 lines below | `=4j`
@@ -433,13 +435,13 @@ Source: <https://youtu.be/rubhH6v4lN0?feature=shared>
 
 Action | Keymap/command
 ---------|----------
-Join current and next line (replace EOL with space[^2] and remove indentation except for current) | <kbd>J</kbd>
+Join current and next line (replace EOL with space[^3] and remove indentation except for current) | <kbd>J</kbd>
 Join current and next 2 lines (replace EOL with space) | `3J`
 Join current and next line (remove EOL and preserve indentation) | `gJ`
 
 These also work in VISUAL or COMMAND-LINE mode.
 
-[^2]: When there is a trailing space at end of line or next line begins with `)`, then no space is added.
+[^3]: When there is a trailing space at end of line or next line begins with `)`, then no space is added.
 
 ### Moving lines
 
@@ -661,7 +663,7 @@ Action | Keymap/command
 ---------|----------
 Move to first NBC of first line | <kbd>g</kbd> + <kbd>g</kbd>
 Move to first NBC of last line | <kbd>G</kbd>
-Moves to matching bracket | <kbd>%</kbd>
+Moves to matching bracket (or end of current Treesitter node courtesy of `nvim-tree-pairs`s) | <kbd>%</kbd>
 Moves to line at 40% of total lines | `40%`
 Move to middle of window | <kbd>M</kbd>
 Move to bottom of window | <kbd>L</kbd>
@@ -901,7 +903,7 @@ All actions in **bold** in the table above have custom keymaps. The other comman
 This provides three separate operators:
 
 - `ds` to delete the surroundings, e.g. `ds'` deletes surrounding `'`.
-- `cs` to change the surroundings, e.g. `cs"'` changes surrounding `"` to `'`.
+- `cs` to change the surroundings, e.g. `cs"'` changes surrounding `"` to `'`, `css]` changes brackets to `]`.
 - `ys` to add surroundings, e.g. `ysap"` adds quotes around paragraph.
 
 Repeatable via `.`
@@ -918,12 +920,12 @@ Escape | <kbd>Ctrl</kbd> + <kbd>e</kbd>
 Next entry | <kbd>Ctrl</kbd> + <kbd>n</kbd> / `<Down>`
 Previous entry | <kbd>Ctrl</kbd> + <kbd>p</kbd> / `<Up>`
 Accept suggestion | <kbd>Enter</kbd>
-**Toggle documentation window[^3]** | <kbd>Alt</kbd> + <kbd>d</kbd>
+**Toggle documentation window[^4]** | <kbd>Alt</kbd> + <kbd>d</kbd>
 Invoke completion | <kbd>Ctrl</kbd> + <kbd>Space</kbd>
 **Toggle autocompletion** | `<Leader>tc`
 Complete common string (Insert, Commandline mode) | <kbd>Ctrl</kbd> + <kbd>l</kbd>
 
-[^3]: Currently not working.
+[^4]: Currently not working.
 
 ### Treesitter-textobjects
 
