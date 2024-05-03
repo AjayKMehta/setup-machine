@@ -242,6 +242,7 @@ Use `O` to move cursor to other corner of current line in visual block mode.
 `c` clears text and enters insert mode. Whatever you type will be applied to all lines in visual block after you press <kbd>Esc</kbd>.
 `C` clears text *till end of the line* and enters insert mode.
 `ra` replaces every character in selection with `a`.
+`=` auto-indents code.
 
 ## Command-line mode
 
