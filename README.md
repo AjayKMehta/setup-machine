@@ -1274,6 +1274,15 @@ dotnet tool install -g upgrade-assistant
 
 - Add `$installFolder\bin\x64\` to `$Path`.
 
+#### Troubleshooting
+
+If you encounter an error about a missingg Qt plugin, uninstall and reinstall `miktex-qt6-bin-x64`:
+
+```shell
+miktex --admin packages remove miktex-qt6-bin-x64
+miktex --admin packages install miktex-qt6-bin-x64
+```
+
 ### latexindent
 
 **latexindent** is used to format LaTeX in the VS Code extension [LaTeX-Workshop](https://github.com/James-Yu/LaTeX-Workshop).
