@@ -1070,3 +1070,56 @@ Move to end of word | <kbd>Alt</kbd> + <kbd>e</kbd>
 Move to beginning of word | <kbd>Alt</kbd> + <kbd>b</kbd>
 Move to end of previous word | <kbd>g</kbd> + <kbd>E</kbd>
 Move to number | <kbd>n</kbd>
+
+### nvim-treesitter-refactor
+
+Action | Keymap
+---------|----------
+Smart rename | `grr`
+Go to definition | `gd`
+List definitions | `gld`
+List definitions TOC | `glt`
+Go to next usage | <kbd>Shift</kbd> + <kbd>*</kbd>
+Go to previous usage | <kbd>Shift</kbd> + <kbd>#</kbd>
+
+### syntax-tree-surfer
+
+[Syntax Tree Surfer](https://github.com/ziontee113/syntax-tree-surfer) is a plugin for Neovim that helps you surf through your document and move elements around using the Treesitter API.
+
+#### Normal mode
+
+Action | Keymap
+---------|----------
+Swap node with sibling above | `vu`
+Swap node with sibling below | `vd`
+Swap master node with above | `vU`
+Swap master node with below | `vD`
+
+The actions above are dot-repeatable.
+
+Action | Keymap
+---------|----------
+Select master node | `vx`
+Select current node | `vn`
+Hold or swap node | `gnh`
+
+Jumps:
+
+Action | Keymap
+---------|----------
+Jump to any statement | `gja`
+Jump to function definition | `gjf`
+Jump to variable declaration | `gjv`
+Jump to if statement | `gji`
+Jump to loop statement | `gjl`
+
+#### Visual mode
+
+Action | Keymap
+---------|----------
+Select next sibling | `J`
+Select previous sibling | `K`
+Select parent node | `H`
+Select child node | `L`
+Swap with next sibling | <kbd>Shift</kbd> + <kbd>j</kbd>
+Swap with previous sibling | <kbd>Shift</kbd> + <kbd>k</kbd>
