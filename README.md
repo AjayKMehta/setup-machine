@@ -90,7 +90,6 @@
     - [Dotnet Tools](#dotnet-tools)
   - [LaTeX](#latex)
     - [MikTeX](#miktex)
-      - [Troubleshooting](#troubleshooting-ts-miktex)
     - [Packages](#miktex-packages)
   - [VS Code](#vs-code)
   - [Node](#node)
@@ -1282,7 +1281,7 @@ dotnet tool install -g upgrade-assistant
 
 - Add `$installFolder\bin\x64\` to `$Path`.
 
-#### Troubleshooting {ts-miktex}
+#### Troubleshooting
 
 If you encounter an error about a missingg Qt plugin, uninstall and reinstall `miktex-qt6-bin-x64`:
 
