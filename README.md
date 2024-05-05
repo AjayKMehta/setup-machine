@@ -39,6 +39,7 @@
     - [wget2](#wget2)
     - [difftastic](#difftastic)
     - [ast-grep](#ast-grep)
+    - [ATAC](#atac)
   - [Dot files](#dot-files)
   - [Hugo](#hugo)
   - [WSL](#wsl)
@@ -597,6 +598,12 @@ winget install Wilfred.difftastic -l D:\Apps\CLI
 ### ast-grep
 
 [ast-grep](https://github.com/ast-grep/ast-grep) is a CLI tool for code structural search, lint, and rewriting.
+
+### ATAC
+
+ATAC is a CLI app like Postman. Download latest release from <https://github.com/Julien-cpsn/ATAC/releases>.
+
+Set `$ATAC_MAIN_DIR` to `%HOME%/.atac`.
 
 ## Dot files
 
