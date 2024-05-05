@@ -109,7 +109,6 @@
       - [Debugging](#debugging)
       - [Linting](#linting)
       - [Theme](#theme)
-      - [Troubleshooting](#troubleshooting)
   - [Miscellaneous](#miscellaneous)
 
 ## Overview
@@ -1283,7 +1282,7 @@ dotnet tool install -g upgrade-assistant
 
 #### Troubleshooting
 
-If you encounter an error about a missingg Qt plugin, uninstall and reinstall `miktex-qt6-bin-x64`:
+If you encounter an error about a missing Qt plugin, uninstall and reinstall `miktex-qt6-bin-x64`:
 
 ```shell
 miktex --admin packages remove miktex-qt6-bin-x64
