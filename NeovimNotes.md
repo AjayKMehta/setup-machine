@@ -328,6 +328,57 @@ Other flags besides `g`:
 
 - `c` to confirm each submission
 - `i` for case-insensitive search
+- `I` for case-sensitive search
+
+#### Quantifiers
+
+Quantifiers are same as you would expect except they are prefixed by `\`: `\+` instead of `+`, `\?` for `?`, `\{m, n}` instead of `{m, n}`.
+
+`:%s/^\s\+` will match all lines beginning with whitespace.
+
+Non-greedy quantifiers match as minimally as possible:
+
+`\{-}` matches zero or more time, e.g. `/t.{-}a`
+`\{-m, n}` matches `m` to `n` times as minimally as possible.
+
+#### Character classes
+
+Special character classes:
+
+1. `\a` is `[a-zA-Z]`
+1. `\A` is non-alphabet, `[^a-zA-Z]`.
+1. `\l` is lowercase, `[a-z]`
+1. `\L` is non-lowercase, `[^a-z]`.
+1. `\u` is uppercase, `[A-Z]`
+1. `\U` is non-uppercase, `[^A-Z]`.
+1. `\o` is octal, `[0-7]`.
+1. `\x` is hexadecimal, `[0-9a-fA-F]`
+
+To include EOL character, use `\_` instead of `\` for any of the escape sequences, e.g. `\_s` will match space between lines.
+
+There are also named sets like `[:digit:]`. For more info, see `:h :alnum:`.
+
+#### Alternation and grouping
+
+Instead of `\d|\s`, need to use `\|` instead of `|`.
+For grouping, use `\(` and `\)`, e.g. `\(bar\|cat\)`
+For non-capturing group: `\%(pattern\)`
+
+#### Backreferences
+
+In `:s/\(\d\w\)\1`, `\1` refers to the first capture group.
+
+`&` and `\0` refer to the entire match.
+
+#### Lookarounds
+
+Syntax is different: `\d\@!` vs `(?!\d)` and `\(pat.*\)\@<=` vs `(?<=pat.*)`.
+:point_right: Notice that `\@` always follows the pattern atom.
+
+Negative lookahead: `ice\d\@!` matches `ice` or `iced` but not `ice1`.
+Negative lookbehind: `s\@<!c` matches `cool` but not `school`.
+Positive lookahead: `ice\d\@=` matches `ice1` but not `ice`.
+Positive lookbehind: `s\@<=c` matches `school` but not `cool`.
 
 ## Editing
 
@@ -562,7 +613,7 @@ These work with `{count}` prefix, e.g. `2~`.
 
 `:[range]g[lobal]/{pattern}/[cmd]` - edit lines that are first filtered by a pattern
 
-`:g/call/d a` - deletee all lines containing `call` and store in `a` register
+`:g/call/d a` - delete all lines containing `call` and store in `a` register
 
 `:1,5 g/call/m0` - move all lines from 1 to 5 containing `call` to top of file.
 `:g /cat/ s/rat/bat/g` : replace `rat` with `bat` in all lines containing `cat`.
@@ -1123,3 +1174,15 @@ Select parent node | `H`
 Select child node | `L`
 Swap with next sibling | <kbd>Shift</kbd> + <kbd>j</kbd>
 Swap with previous sibling | <kbd>Shift</kbd> + <kbd>k</kbd>
+
+### nvim-treesitter-textsubjects
+
+Location and syntax aware text objects which *do what you mean*.
+
+Motion | Keymap
+---------|----------
+Smart select | `.`
+Select outer container | `;`
+Select inner container | `i;`
+
+These work with `d`, `v`, etc.
