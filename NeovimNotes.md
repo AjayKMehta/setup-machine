@@ -380,6 +380,30 @@ Negative lookbehind: `s\@<!c` matches `cool` but not `school`.
 Positive lookahead: `ice\d\@=` matches `ice1` but not `ice`.
 Positive lookbehind: `s\@<=c` matches `school` but not `cool`.
 
+##### Atomic grouping
+
+This differs from a regular group in that, once the pattern is matched, no backtracking is allowed.
+
+Syntax: `\(\w+\)\@>\d` vs `(?>\w+)\d`
+
+Example: `:s/\(0*\)\@>\d{3,}/(&)/g` will surround numbers >= 100 with brackets ignoring any leading zeros.
+
+##### Case sensitivity
+
+`\C` to make case-sensitive.
+`\c` to make case-insensitive.
+
+`/\cdog` matches `dog` and `Dog`.
+
+##### Change case for replacement
+
+`\U` makes the following characters upper-case.
+`\u` makes the next character upper-case.
+`\L` makes the following characters lower-case.
+`\l` makes the next character lower-case.
+
+Use `:s/\<\l/\u&/g` to capitalize every word.
+
 ## Editing
 
 To execute a normal mode command from insert mode in Neovim, you can use the `<C-o>` (<kbd>Ctrl</kbd> + <kbd>o</kbd>) shortcut. This allows you to execute a single normal mode command without leaving insert mode. After executing the command, you will return to insert mode.
@@ -627,6 +651,8 @@ Use `g!` or `v` to negate pattern.
 Can use `|`, `\`, `"` or any single byte character that is not alphanumeric as delimiter too:
 
 `:.g%call%d`
+
+See `:h substitute`.
 
 ## Motions
 
