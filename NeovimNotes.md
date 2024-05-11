@@ -1012,15 +1012,29 @@ Copy relative path | <kbd>Shift</kbd> +  <kbd>y</kbd>
 
 All actions in **bold** in the table above have custom keymaps. The other commands use plugin defaults.
 
-### nvim-surround
+### [nvim-surround](https://github.com/kylechui/nvim-surround)
 
 This provides three separate operators:
 
-- `ds` to delete the surroundings, e.g. `ds'` deletes surrounding `'`.
-- `cs` to change the surroundings, e.g. `cs"'` changes surrounding `"` to `'`, `css]` changes brackets to `]`.
-- `ys` to add surroundings, e.g. `ysap"` adds quotes around paragraph.
+- `ds` to delete the surroundings: `ds{char}`.
+- `cs` to change the surroundings: `cs{target}{replacement}`.
+- `ys` to add surroundings: `ys{motion}{char}`.
 
 Repeatable via `.`
+
+For the following examples, `*` will denote the cursor position:
+
+Old text                 | Command   | New text
+--------------------------|----------|----------------------
+`surr*ound_words`          | ysiw)     | `(surround_words)`
+`*make strings`            | ys$"      | `"make strings"`
+`[delete ar*ound me!]`     | ds]       | `delete around me!`
+`remove <b>HTML t*ags</b>` | dst       | `remove HTML tags`
+`'change quot*es'`         | cs'"      | `"change quotes"`
+`<b>or tag* types</b>`     | csth1<CR> | `<h1>or tag types</h1>`
+`delete(functi*on calls)`  | dsf       | `function calls`
+
+Detailed information on how to use this plugin can be found in [`:h nvim-surround.usage`](https://github.com/kylechui/nvim-surround/blob/main/doc/nvim-surround.txt).
 
 ### nvim-cmp
 
