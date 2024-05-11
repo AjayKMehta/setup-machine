@@ -805,10 +805,12 @@ Do this: `ddp`
 
 [Telescope](https://github.com/nvim-telescope/telescope.nvim) is a very powerful plugin to search for items.
 
-- `actions.which_key` (<kbd>Ctrl</kbd> + <kbd>/</kbd> in **insert** or <kbd>?</kbd> in **normal** mode)  shows the mappings for your picker.
+- `actions.which_key` (<kbd>Ctrl</kbd> + <kbd>/</kbd> in **insert** or <kbd>?</kbd> in **normal** mode)  shows the mappings for your picker. Press again to close.
 
 - `builtin.grep_string` searches for the string under your cursor or selection in your current working directory.
-`builtin.live_grep` search for a string in your current working directory and get results live as you type, respects `.gitignore`. (Requires **ripgrep**)
+`builtin.live_grep` searches for a string in your current working directory and gets results live as you type, respects `.gitignore`. (Requires **ripgrep**)
+
+- <kbd>Alt</kbd> + <kbd>p</kbd> toggles preview.
 
 <details>
   <summary>General</summary>
