@@ -870,6 +870,12 @@ eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/{theme}.omp.json)"
     cabal update
     ```
 
+- Set source for GHCup metadata:
+
+    ```bash
+    ghcup config set url-source https://raw.githubusercontent.com/haskell/ghcup-metadata/master/ghcup-vanilla-0.0.8.yaml
+    ```
+
 - Add [shell completion for `stack`](https://docs.haskellstack.org/en/stable/shell_autocompletion/) by adding the following to completion script:
 
     ```bash

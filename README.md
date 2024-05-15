@@ -1380,6 +1380,11 @@ This section is based on the following links:
 - Download **ghcup** binary from <https://github.com/haskell/ghcup-hs/releases>, e.g. latest version as of the time, this was written is 1.2.0, so download <https://github.com/haskell/ghcup-hs/releases/download/v0.1.20.0/x86_64-mingw64-ghcup-0.1.20.0.exe>.
 - Rename binary to `ghcup.exe` and copy to `D:\Apps\ghcup\bin`.
 - Create config file in `D:\Apps\ghcup\bin`[^3]: `ghcup config init`.
+- If your metadata is stale, then you can update your config to point to a recent metadata yaml:
+
+    ```powershell
+    ghcup config set url-source https://raw.githubusercontent.com/haskell/ghcup-metadata/master/ghcup-vanilla-0.0.8.yaml
+    ```
 
 [^3]: The online documentation says location is `~/.ghcup/config.yaml` which is not the case.
 
