@@ -944,6 +944,7 @@ sudo snap install tectonic
 
 ```shell
 cargo install typos-cli
+cargo install ast-grep
 
 # Java
 sudo apt install openjdk-17-jre-headless
@@ -961,6 +962,8 @@ sudo apt install age
 sudo apt install shellcheck
 sudo apt install cmake
 sudo apt install clang-format
+
+sudo apt install command-not-found
 
 sudo apt install bat
 mkdir -p ~/.local/bin
