@@ -483,6 +483,12 @@ pip install shtab --user
 shtab --shell=bash -u tmuxp.cli.create_parser | sudo tee ~/.config/bash_completions.d/TMUXP
 ```
 
+## HTTPie
+
+[HTTPie](https://httpie.io/) is a CLI app for working with APIs.
+
+[Installation instructions](https://httpie.io/docs/cli/debian-and-ubuntu)
+
 ## ble.sh
 
 [ble.sh](https://github.com/akinomyoga/ble.sh) is a command line editor written in pure Bash which replaces the default GNU Readline.
