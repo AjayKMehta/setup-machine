@@ -782,6 +782,29 @@ Moves to line at 40% of total lines | `40%`
 Move to middle of window | <kbd>M</kbd>
 Move to bottom of window | <kbd>L</kbd>
 
+## Completion and snippets
+
+`nvim-cmp.nvim` provides completion support.
+`luasnip.nvim` provides extensive snippet functionality.
+
+Action | Keymap
+---------|----------
+Scroll documentation window back | <kbd>Ctrl</kbd> + <kbd>d</kbd>
+Scroll documentation window forward | <kbd>Ctrl</kbd> + <kbd>f</kbd>
+Close | <kbd>Ctrl</kbd> + <kbd>e</kbd>
+Next entry | <kbd>Ctrl</kbd> + <kbd>n</kbd> / `<Down>` / <kbd>Tab</kbd>
+Previous entry | <kbd>Ctrl</kbd> + <kbd>p</kbd> / `<Up>` / <kbd>Shift</kbd> + <kbd>Tab</kbd>
+Accept suggestion | <kbd>Enter</kbd>
+**Toggle documentation window** | <kbd>Alt</kbd> + <kbd>d</kbd>
+Invoke completion | <kbd>Ctrl</kbd> + <kbd>Space</kbd>
+**Toggle autocompletion** | `<Leader>tc`
+**Select current entry (Insert, Commandline mode)** | <kbd>Ctrl</kbd> + <kbd>y</kbd>
+**Complete common string (Insert, Commandline mode)** | <kbd>Ctrl</kbd> + <kbd>l</kbd>
+**Select choice (shows dropdown for choice node)** | <kbd>Ctrl</kbd> + <kbd>u</kbd>
+**List snippets** | `<leader>sl`
+
+Actions in **bold** above are custom actions I added in addition to those to provided by NvChad.
+
 ## Recipes + FAQ
 
 ### Toggle line numbers
@@ -1048,27 +1071,6 @@ Old text                 | Command   | New text
 `delete(functi*on calls)`  | dsf       | `function calls`
 
 Detailed information on how to use this plugin can be found in [`:h nvim-surround.usage`](https://github.com/kylechui/nvim-surround/blob/main/doc/nvim-surround.txt).
-
-### nvim-cmp
-
-This plugin provides completion support.
-
-Action | Keymap
----------|----------
-Scroll documentation window back | <kbd>Ctrl</kbd> + <kbd>d</kbd>
-Scroll documentation window forward | <kbd>Ctrl</kbd> + <kbd>f</kbd>
-Close | <kbd>Ctrl</kbd> + <kbd>e</kbd>
-Next entry | <kbd>Ctrl</kbd> + <kbd>n</kbd> / `<Down>` / <kbd>Tab</kbd>
-Previous entry | <kbd>Ctrl</kbd> + <kbd>p</kbd> / `<Up>` / <kbd>Shift</kbd> + <kbd>Tab</kbd>
-Accept suggestion | <kbd>Enter</kbd>
-**Toggle documentation window** | <kbd>Alt</kbd> + <kbd>d</kbd>
-Invoke completion | <kbd>Ctrl</kbd> + <kbd>Space</kbd>
-**Toggle autocompletion** | `<Leader>tc`
-**Select current entry (Insert, Commandline mode)** | <kbd>Ctrl</kbd> + <kbd>y</kbd>
-**Complete common string (Insert, Commandline mode)** | <kbd>Ctrl</kbd> + <kbd>l</kbd>
-**Select choice (shows dropdown for choice node)** | <kbd>Ctrl</kbd> + <kbd>u</kbd>
-**List snippets** | `<leader>sl`
-
 
 ### Treesitter-textobjects
 
