@@ -218,7 +218,7 @@ Some examples:
 
 `v` - select current character. Use any motion to extend selection, e.g. `ve` or `v$`.
 
-`V` - select current line. Can also extend with motion, e.g.`Vgg` selects from current line to start of file.
+`V` - select current line. Can also extend with motion or count, e.g.`Vgg` selects from current line to start of file and `5V` selects 5 lines starting from current line.
 
 `gv` selects previously highlighted visual area.
 
@@ -798,6 +798,10 @@ Do this: `ddp`
 1. Search for files with text using Telescope live grep.
 2. Add results to QuickFix list via <kbd>Ctrl</kbd> + <kbd>q</kbd>.
 3. Now do `:cdo %s/{findWhat}/{replaceWith}/g` to replace all QuickFix results.
+
+### Where are Treesitter parsers located?
+
+They are located inside `parser` sub-folder of `nvim-treesitter` plugin install path, i.e. `~/.local/share/nvim/lazy/nvim-treesitter/parser` ([source](https://www.reddit.com/r/neovim/comments/13sz7kc/comment/jlskhod/?utm_source=share&utm_medium=web2x&context=3)).
 
 ## Plugins
 
