@@ -798,6 +798,8 @@ Accept suggestion | <kbd>Enter</kbd>
 **Toggle documentation window** | <kbd>Alt</kbd> + <kbd>d</kbd>
 Invoke completion | <kbd>Ctrl</kbd> + <kbd>Space</kbd>
 **Toggle autocompletion** | `<Leader>tc`
+**Go to next snippet node** | <kbd>Ctrl</kbd> + <kbd>k</kbd>
+**Go to previous snippet node** | <kbd>Ctrl</kbd> + <kbd>j</kbd>
 **Select current entry (Insert, Commandline mode)** | <kbd>Ctrl</kbd> + <kbd>y</kbd>
 **Complete common string (Insert, Commandline mode)** | <kbd>Ctrl</kbd> + <kbd>l</kbd>
 **Select choice (shows dropdown for choice node)** | <kbd>Ctrl</kbd> + <kbd>u</kbd>
