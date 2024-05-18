@@ -803,6 +803,13 @@ Do this: `ddp`
 
 They are located inside `parser` sub-folder of `nvim-treesitter` plugin install path, i.e. `~/.local/share/nvim/lazy/nvim-treesitter/parser` ([source](https://www.reddit.com/r/neovim/comments/13sz7kc/comment/jlskhod/?utm_source=share&utm_medium=web2x&context=3)).
 
+### Open/View URLs
+
+`gx` in Normal mode calls `vim.ui.open()` on whatever is under the cursor, which shells out to your operating system's "open" capability. For instance, pressing `gx` on a URL will open that URL in your browser.
+
+Courtesy of `urlview.nvim` plugin, you can view a list of URLs: `:UrlView`.
+Use `]u` and `[u` to naviggate to previous and next URL in buffer.
+
 ## Plugins
 
 ### Telescope
