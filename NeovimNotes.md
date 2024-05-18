@@ -1057,16 +1057,18 @@ Action | Keymap
 ---------|----------
 Scroll documentation window back | <kbd>Ctrl</kbd> + <kbd>d</kbd>
 Scroll documentation window forward | <kbd>Ctrl</kbd> + <kbd>f</kbd>
-Escape | <kbd>Ctrl</kbd> + <kbd>e</kbd>
-Next entry | <kbd>Ctrl</kbd> + <kbd>n</kbd> / `<Down>`
-Previous entry | <kbd>Ctrl</kbd> + <kbd>p</kbd> / `<Up>`
+Close | <kbd>Ctrl</kbd> + <kbd>e</kbd>
+Next entry | <kbd>Ctrl</kbd> + <kbd>n</kbd> / `<Down>` / <kbd>Tab</kbd>
+Previous entry | <kbd>Ctrl</kbd> + <kbd>p</kbd> / `<Up>` / <kbd>Shift</kbd> + <kbd>Tab</kbd>
 Accept suggestion | <kbd>Enter</kbd>
-**Toggle documentation window[^4]** | <kbd>Alt</kbd> + <kbd>d</kbd>
+**Toggle documentation window** | <kbd>Alt</kbd> + <kbd>d</kbd>
 Invoke completion | <kbd>Ctrl</kbd> + <kbd>Space</kbd>
 **Toggle autocompletion** | `<Leader>tc`
-Complete common string (Insert, Commandline mode) | <kbd>Ctrl</kbd> + <kbd>l</kbd>
+**Select current entry (Insert, Commandline mode)** | <kbd>Ctrl</kbd> + <kbd>y</kbd>
+**Complete common string (Insert, Commandline mode)** | <kbd>Ctrl</kbd> + <kbd>l</kbd>
+**Select choice (shows dropdown for choice node)** | <kbd>Ctrl</kbd> + <kbd>u</kbd>
+**List snippets** | `<leader>sl`
 
-[^4]: Currently not working.
 
 ### Treesitter-textobjects
 
