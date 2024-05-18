@@ -224,6 +224,8 @@ Some examples:
 
 Use `o` to move cursor to diagonally opposite corner of the visual selection.
 
+`Q` and `@` in Visual mode will execute the last recorded/executed macro for all visually selected lines.
+
 ### Visual Block Mode
 
 Press <kbd>Ctrl</kbd> + <kbd>q</kbd> or <kbd>Ctrl</kbd> + <kbd>v</kbd>[^2] to enter. Select a region of text, e.g. `2lj` selects a region with 3 columns and 2 rows. Press <kbd>Shift</kbd> + <kbd>i</kbd> to prepend or <kbd>Shift</kbd> + <kbd>a</kbd> to append. When you are done with your changes, press <kbd>Esc</kbd> and changes will be applied to all lines!
