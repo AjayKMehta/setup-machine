@@ -841,6 +841,37 @@ Use `]u` and `[u` to naviggate to previous and next URL in buffer.
 
 ### Utility
 
+#### Toggleterm
+
+This plugin helps manage multiple terminal windows.
+
+To launch or toggle visibility for a terminal window:
+
+```shell
+:ToggleTerm size=40 dir=~/Desktop direction=horizontal name=desktop
+```
+
+You can prefix it with a count to target a specific terminal.
+Direction is one of: `horizontal`, `vvertical`, `float`, `tab`.
+
+`ToggleTermToggleAll` will toggle all terminal windows.
+
+`TermSelect` will let user select terminal window to open or to focus if already open.
+
+`<C-\>` will toggle last opened terminal in normal mode. You can prefix by count to specify a certain window.
+
+`TermExec` allows you to execute a command in a terminal, e.g. `2TermExec cmd="git status" dir=~/<my-repo-path>` will run git status in terminal 2. :point_right: `cmd` argument **must** be quoted.
+
+##### Sending lines to the terminal
+
+Action | Keymap
+---------|----------
+Send current line to terminal 1 | `:ToggleTermSendCurrentLine 1`
+Send all the (whole) lines in your visual selection | `:ToggleTermSendVisualLines`
+Sends only the visually selected text | `:ToggleTermSendVisualSelection`
+
+Specifying terminal in above commandss is optional. If missing, it defaults to the first terminal.
+
 #### nvim-tree
 
 [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) is a file explorer for Neovim.
