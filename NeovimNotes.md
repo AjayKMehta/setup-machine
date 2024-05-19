@@ -839,7 +839,56 @@ Use `]u` and `[u` to naviggate to previous and next URL in buffer.
 
 ## Plugins
 
-### Telescope
+### Utility
+
+#### nvim-tree
+
+[nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) is a file explorer for Neovim.
+
+To launch, press <kbd>Ctrl</kbd> + <kbd>n</kbd>. To close, press <kbd>q</kbd>.
+
+Here are some useful key maps for when the window is displayed:
+
+Action | Keymap
+---------|----------
+**Change root to input path** | <kbd>Alt</kbd> + <kbd>r</kbd>
+Change root to node | <kbd>Ctrl</kbd> + <kbd>\]</kbd>
+**Change root to global cwd** | <kbd>Ctl</kbd> + <kbd>c</kbd>
+**Launch Find Files** | <kbd>Ctrl</kbd> + <kbd>f</kbd>
+**Launch Live Grep** | <kbd>Ctrl</kbd> + <kbd>g</kbd>
+**Print path** | <kbd>Ctrl</kbd> + <kbd>p</kbd>
+Open: Horizontal split | <kbd>Ctrl</kbd> + <kbd>x</kbd>
+Open | <kbd>Enter</kbd>
+Open: Vertical split | <kbd>Shift</kbd> + <kbd>l</kbd>
+Next sibling | <kbd>></kbd>
+Previous sibling | <kbd><</kbd>
+Change root to parent | <kbd>-</kbd>
+Prev git | <kbd>\[</kbd> + <kbd>c</kbd>
+Next git | <kbd>\]</kbd> + <kbd>c</kbd>
+Delete | <kbd>d</kbd>
+Expand All | <kbd>Shift</kbd> + <kbd>e</kbd>
+Rename: Basename | <kbd>e</kbd>
+Live Filter: Clear | <kbd>Shift</kbd> + <kbd>f</kbd>
+Live Filter: Search | <kbd>f</kbd>
+Help | <kbd>g</kbd> + <kbd>?</kbd>
+Copy Basename | <kbd>g</kbd> +  <kbd>e</kbd>
+**Toggle hidden files** | <kbd>g</kbd> +  <kbd>h</kbd>
+**Toggle group empty** | <kbd>g</kbd> +  <kbd>l</kbd>
+Copy absolute path | <kbd>g</kbd> +  <kbd>y</kbd>
+**Close parent folder** | <kbd>h</kbd>
+**Collapse all** | <kbd>Shift</kbd> + <kbd>h</kbd>
+Move down | <kbd>j</kbd>
+Move up | <kbd>k</kbd>
+**Expand folder or go to file** | <kbd>l</kbd>
+**Vsplit Preview** | <kbd>Shift</kbd> + <kbd>l</kbd>
+Toggle bookmark | <kbd>m</kbd>
+Collapse all | <kbd>Shift</kbd> + <kbd>w</kbd>
+Copy name | <kbd>y</kbd>
+Copy relative path | <kbd>Shift</kbd> +  <kbd>y</kbd>
+
+All actions in **bold** in the table above have custom keymaps. The other commands use plugin defaults.
+
+#### Telescope
 
 [Telescope](https://github.com/nvim-telescope/telescope.nvim) is a very powerful plugin to search for items.
 
@@ -922,15 +971,7 @@ git status (from  NvChad) | `<leader>` + <kbd>g</kbd> + <kbd>t</kbd>
 
 </details>
 
-### Outline
-
-[Outline.nvim](https://github.com/hedyhli/outline.nvim) produces a code outline sidebar powered by LSP.
-
-See [here](https://github.com/hedyhli/outline.nvim#default-keymaps) for default keymaps.
-
-Activate via `<leader>` + <kbd>g</kbd> + <kbd>o</kbd>.
-
-### Legendary
+#### Legendary
 
 [Legendary](https://github.com/mrjones2014/legendary.nvim) provides a legend for your keymaps, commands, and autocmds.
 
@@ -942,39 +983,7 @@ Search commands | `:Legendary commands`
 Search functions | `:Legendary functions`
 Repeat the last item executed via legendary.nvim's finder | `:LegendaryRepeat`
 
-### Diffview
-
-[Diffview](https://github.com/sindrets/diffview.nvim) helps you view diffs for any git revision.
-
-Diff working directory with commit: `:DiffviewOpen HEAD~2`
-
-Diff working directory with commit for file: `:DiffviewOpen HEAD~2 -- .gitignore`
-
-Toggle the file pane: `:DiffviewToggleFiles`
-
-Hide untracked files: `:DiffviewOpen -uno`
-
-Exclude certain paths: `:DiffviewOpen -- :!exclude/this :!and/this`
-
-Run as if git was started in a specific directory: `:DiffviewOpen -C/foo/bar/baz`
-
-Use `[c` and `]c` to jump btw hunks.
-
-### nvim-dap
-
-DAP stands for Debug Adapter Protocol.
-
-Kept same shortcuts as Visual Studio:
-
-Action | Keymap/command
----------|----------
-Toggle breakpoint | <kbd>F9</kbd>
-Launch debugger | <kbd>F5</kbd>
-Step over | <kbd>F10</kbd>
-Step into | <kbd>F11</kbd>
-Step out | <kbd>Shift</kbd> + <kbd>F11</kbd>
-
-### vim-tmux-navigator
+#### vim-tmux-navigator
 
 [This plugin](https://github.com/christoomey/vim-tmux-navigator) provides seamless navigation between tmux panes and vim splits.
 
@@ -992,7 +1001,51 @@ You also need to setup the same mappings in your `.tmux.conf`. The easiest way t
 set -g @plugin 'christoomey/vim-tmux-navigator'
 ```
 
-### mini.move
+### Coding
+
+#### Outline
+
+[Outline.nvim](https://github.com/hedyhli/outline.nvim) produces a code outline sidebar powered by LSP.
+
+See [here](https://github.com/hedyhli/outline.nvim#default-keymaps) for default keymaps.
+
+Activate via `<leader>` + <kbd>g</kbd> + <kbd>o</kbd>.
+
+#### Diffview
+
+[Diffview](https://github.com/sindrets/diffview.nvim) helps you view diffs for any git revision.
+
+Diff working directory with commit: `:DiffviewOpen HEAD~2`
+
+Diff working directory with commit for file: `:DiffviewOpen HEAD~2 -- .gitignore`
+
+Toggle the file pane: `:DiffviewToggleFiles`
+
+Hide untracked files: `:DiffviewOpen -uno`
+
+Exclude certain paths: `:DiffviewOpen -- :!exclude/this :!and/this`
+
+Run as if git was started in a specific directory: `:DiffviewOpen -C/foo/bar/baz`
+
+Use `[c` and `]c` to jump btw hunks.
+
+#### nvim-dap
+
+DAP stands for Debug Adapter Protocol.
+
+Kept same shortcuts as Visual Studio:
+
+Action | Keymap/command
+---------|----------
+Toggle breakpoint | <kbd>F9</kbd>
+Launch debugger | <kbd>F5</kbd>
+Step over | <kbd>F10</kbd>
+Step into | <kbd>F11</kbd>
+Step out | <kbd>Shift</kbd> + <kbd>F11</kbd>
+
+### Editing
+
+#### mini.move
 
 [mini.move](https://github.com/echasnovski/mini.move) lets you move lines in Normal/Visual mode.
 
@@ -1003,54 +1056,21 @@ Right | <kbd>Alt</kbd> + <kbd>l</kbd>
 Up | <kbd>Alt</kbd> + <kbd>k</kbd>
 Down | <kbd>Alt</kbd> + <kbd>j</kbd>
 
-### nvim-tree
+#### nvim-spider
 
-[nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) is a file explorer for Neovim.
+This plugin extends regular `web` motions to handle snake and camel case!
 
-To launch, press <kbd>Ctrl</kbd> + <kbd>n</kbd>. To close, press <kbd>q</kbd>.
-
-Here are some useful key maps for when the window is displayed:
+I have mapped the actions separately to avoid clobbering default behavior.
 
 Action | Keymap
 ---------|----------
-**Change root to input path** | <kbd>Alt</kbd> + <kbd>r</kbd>
-Change root to node | <kbd>Ctrl</kbd> + <kbd>\]</kbd>
-**Change root to global cwd** | <kbd>Ctl</kbd> + <kbd>c</kbd>
-**Launch Find Files** | <kbd>Ctrl</kbd> + <kbd>f</kbd>
-**Launch Live Grep** | <kbd>Ctrl</kbd> + <kbd>g</kbd>
-**Print path** | <kbd>Ctrl</kbd> + <kbd>p</kbd>
-Open: Horizontal split | <kbd>Ctrl</kbd> + <kbd>x</kbd>
-Open | <kbd>Enter</kbd>
-Open: Vertical split | <kbd>Shift</kbd> + <kbd>l</kbd>
-Next sibling | <kbd>></kbd>
-Previous sibling | <kbd><</kbd>
-Change root to parent | <kbd>-</kbd>
-Prev git | <kbd>\[</kbd> + <kbd>c</kbd>
-Next git | <kbd>\]</kbd> + <kbd>c</kbd>
-Delete | <kbd>d</kbd>
-Expand All | <kbd>Shift</kbd> + <kbd>e</kbd>
-Rename: Basename | <kbd>e</kbd>
-Live Filter: Clear | <kbd>Shift</kbd> + <kbd>f</kbd>
-Live Filter: Search | <kbd>f</kbd>
-Help | <kbd>g</kbd> + <kbd>?</kbd>
-Copy Basename | <kbd>g</kbd> +  <kbd>e</kbd>
-**Toggle hidden files** | <kbd>g</kbd> +  <kbd>h</kbd>
-**Toggle group empty** | <kbd>g</kbd> +  <kbd>l</kbd>
-Copy absolute path | <kbd>g</kbd> +  <kbd>y</kbd>
-**Close parent folder** | <kbd>h</kbd>
-**Collapse all** | <kbd>Shift</kbd> + <kbd>h</kbd>
-Move down | <kbd>j</kbd>
-Move up | <kbd>k</kbd>
-**Expand folder or go to file** | <kbd>l</kbd>
-**Vsplit Preview** | <kbd>Shift</kbd> + <kbd>l</kbd>
-Toggle bookmark | <kbd>m</kbd>
-Collapse all | <kbd>Shift</kbd> + <kbd>w</kbd>
-Copy name | <kbd>y</kbd>
-Copy relative path | <kbd>Shift</kbd> +  <kbd>y</kbd>
+Move to next word | <kbd>Alt</kbd> + <kbd>w</kbd>
+Move to end of word | <kbd>Alt</kbd> + <kbd>e</kbd>
+Move to beginning of word | <kbd>Alt</kbd> + <kbd>b</kbd>
+Move to end of previous word | <kbd>g</kbd> + <kbd>E</kbd>
+Move to number | <kbd>n</kbd>
 
-All actions in **bold** in the table above have custom keymaps. The other commands use plugin defaults.
-
-### [nvim-surround](https://github.com/kylechui/nvim-surround)
+#### [nvim-surround](https://github.com/kylechui/nvim-surround)
 
 This provides three separate operators:
 
@@ -1074,11 +1094,13 @@ Old text                 | Command   | New text
 
 Detailed information on how to use this plugin can be found in [`:h nvim-surround.usage`](https://github.com/kylechui/nvim-surround/blob/main/doc/nvim-surround.txt).
 
-### Treesitter-textobjects
+### Treesitter-related
+
+#### Treesitter-textobjects
 
 Syntax aware text-objects, select, move, swap, and peek support.
 
-#### Select
+##### Select
 
 Action | Keymap
 ---------|----------
@@ -1102,7 +1124,7 @@ Select inner part of a class | `vic`
 
 :bulb: Pattern is `v<selection_style><node>`.
 
-#### Navigate
+##### Navigate
 
 Pattern is `<D><L>`.
 `<D>` (direction) = `[` for previous and `]` for next.
@@ -1110,7 +1132,7 @@ Pattern is `<D><L>`.
 
 An example: `]f` will navigate to **start** (`f` is lower case) of **next** (`]`) **function call** (`f`).
 
-##### Goto next start
+###### Goto next start
 
 Action | Keymap
 ---------|----------
@@ -1121,7 +1143,7 @@ Next conditional start | `]i`
 Next loop start | `]l`
 Next fold | `]Z`
 
-##### Goto next end
+###### Goto next end
 
 Action | Keymap
 ---------|----------
@@ -1131,7 +1153,7 @@ Next class end | `]C`
 Next conditional end | `]I`
 Next loop end | `]L`
 
-##### Goto previous start
+###### Goto previous start
 
 Action | Keymap
 ---------|----------
@@ -1141,7 +1163,7 @@ Previous class start | `[c`
 Previous conditional start | `[i`
 Previous loop start | `[l`
 
-##### Goto previous end
+###### Goto previous end
 
 Action | Keymap
 ---------|----------
@@ -1151,7 +1173,7 @@ Previous class end | `[C`
 Previous conditional end | `[I`
 Previous loop end | `[L`
 
-#### Swap
+##### Swap
 
 Action | Keymap
 ---------|----------
@@ -1162,28 +1184,14 @@ Swap with next function | `<leader>nm`
 Swap with next property | `<leader>n:`
 Swap with next parameter/argument | `<leader>na`
 
-#### LSP interop
+##### LSP interop
 
 Action | Keymap
 ---------|----------
 Peek definition of outer class | `<leader>pc`
 Peek definition of outer function | `<leader>pf`
 
-### nvim-spider
-
-This plugin extends regular `web` motions to handle snake and camel case!
-
-I have mapped the actions separately to avoid clobbering default behavior.
-
-Action | Keymap
----------|----------
-Move to next word | <kbd>Alt</kbd> + <kbd>w</kbd>
-Move to end of word | <kbd>Alt</kbd> + <kbd>e</kbd>
-Move to beginning of word | <kbd>Alt</kbd> + <kbd>b</kbd>
-Move to end of previous word | <kbd>g</kbd> + <kbd>E</kbd>
-Move to number | <kbd>n</kbd>
-
-### nvim-treesitter-refactor
+#### nvim-treesitter-refactor
 
 Action | Keymap
 ---------|----------
@@ -1194,11 +1202,11 @@ List definitions TOC | `glt`
 Go to next usage | <kbd>Shift</kbd> + <kbd>*</kbd>
 Go to previous usage | <kbd>Shift</kbd> + <kbd>#</kbd>
 
-### syntax-tree-surfer
+#### syntax-tree-surfer
 
 [Syntax Tree Surfer](https://github.com/ziontee113/syntax-tree-surfer) is a plugin for Neovim that helps you surf through your document and move elements around using the Treesitter API.
 
-#### Normal mode
+##### Normal mode
 
 Action | Keymap
 ---------|----------
@@ -1225,7 +1233,7 @@ Jump to variable declaration | `gjv`
 Jump to if statement | `gji`
 Jump to loop statement | `gjl`
 
-#### Visual mode
+##### Visual mode
 
 Action | Keymap
 ---------|----------
@@ -1236,7 +1244,7 @@ Select child node | `L`
 Swap with next sibling | <kbd>Shift</kbd> + <kbd>j</kbd>
 Swap with previous sibling | <kbd>Shift</kbd> + <kbd>k</kbd>
 
-### nvim-treesitter-textsubjects
+#### nvim-treesitter-textsubjects
 
 Location and syntax aware text objects which *do what you mean*.
 
