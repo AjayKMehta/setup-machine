@@ -1221,7 +1221,7 @@ Action | Keymap
 ---------|----------
 Select master node | `vx`
 Select current node | `vn`
-Hold or swap node | `gnh`
+Hold or swap node | `gh`
 
 Jumps:
 
