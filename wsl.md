@@ -591,6 +591,16 @@ Important settings are in `~/.local/share/atuin`.
 
 - See [here](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode) for steps to configure WSL for use with VS Code.
 
+### Resolve auth issue
+
+If `gh` is specified in `.gitconfig` for authenticating to GitHub and VS Code can't find `gh`, you will get a bunch of errors when pushing from VS Code.
+
+To resolve this, I drew inspiration from [here](https://askubuntu.com/questions/1304249/why-does-my-symlink-to-usr-local-bin-not-work):
+
+```shell
+sudo ln -s $(which gh) /usr/local/bin/gh
+```
+
 ## wsl apps
 
 - [wslu](https://wslutiliti.es/wslu/) is a collection of utilities for WSL.
