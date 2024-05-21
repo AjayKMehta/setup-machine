@@ -44,7 +44,7 @@ Edit file in new tab | `:tabe <file>`
 
 ## General Neovim info
 
-Open terminal: `:terminal` OR `<leader>` + <kbd>H</kbd> / <kbd>V</kbd> (horizontal / vertical)
+Open terminal: `:terminal` OR `<leader>` + <kbd>h</kbd> / <kbd>v</kbd> (horizontal / vertical)
 
 Install LSP (requires `mason.nvim`): `:MasonInstall bash-language-server`
 
@@ -684,7 +684,7 @@ Go to last insert position and INSERT | <kbd>g</kbd> + <kbd>i</kbd>
 
 Action | Keymap/command
 ---------|----------
-Go to 3rd line | `:3` / `3gg`
+Go to 3rd line | `:3` OR `3gg`
 
 ### Word-based
 
@@ -706,8 +706,8 @@ Move to end of previous WORD | <kbd>g</kbd> + <kbd>E</kbd>
 ### Moving within same line
 
 Action | Keymap/command
----------|----------
-Move to first character | <kbd>0</kbd>
+---------|------------
+Move to first character | `0`
 Move to first NBC | <kbd>\^</kbd>
 Move to end of line | <kbd>\$</kbd>
 Move to last NBC | <kbd>g</kbd> + <kbd>_</kbd>
@@ -796,8 +796,8 @@ Action | Keymap
 Scroll documentation window back | <kbd>Ctrl</kbd> + <kbd>d</kbd>
 Scroll documentation window forward | <kbd>Ctrl</kbd> + <kbd>f</kbd>
 Close | <kbd>Ctrl</kbd> + <kbd>e</kbd>
-Next entry | <kbd>Ctrl</kbd> + <kbd>n</kbd> / `<Down>` / <kbd>Tab</kbd>
-Previous entry | <kbd>Ctrl</kbd> + <kbd>p</kbd> / `<Up>` / <kbd>Shift</kbd> + <kbd>Tab</kbd>
+Next entry | <kbd>Ctrl</kbd> + <kbd>n</kbd> OR `<Down>` OR <kbd>Tab</kbd>
+Previous entry | <kbd>Ctrl</kbd> + <kbd>p</kbd> OR `<Up>` OR <kbd>Shift</kbd> + <kbd>Tab</kbd>
 Accept suggestion | <kbd>Enter</kbd>
 **Toggle documentation window** | <kbd>Alt</kbd> + <kbd>d</kbd>
 Invoke completion | <kbd>Ctrl</kbd> + <kbd>Space</kbd>
@@ -839,7 +839,7 @@ They are located inside `parser` sub-folder of `nvim-treesitter` plugin install 
 `gx` in Normal mode calls `vim.ui.open()` on whatever is under the cursor, which shells out to your operating system's "open" capability. For instance, pressing `gx` on a URL will open that URL in your browser.
 
 Courtesy of `urlview.nvim` plugin, you can view a list of URLs: `:UrlView`.
-Use `]u` and `[u` to naviggate to previous and next URL in buffer.
+Use `]u` and `[u` to navigate to previous and next URL in buffer.
 
 ## Plugins
 
@@ -966,8 +966,8 @@ Action | Keymap/command
 File browser | `<leader>` + <kbd>f</kbd> + <kbd>b</kbd>
 Search home | `<leader>` + <kbd>f</kbd> + <kbd>h</kbd>
 Search config | `<leader>` + <kbd>f</kbd> + <kbd>c</kbd> + <kbd>c</kbd>
-frecency | `<leader>` + <kbd>f</kbd> + <kbd>F</kbd><leader>
-frecency (CWD) | `<leader>` + <kbd>f</kbd> + <kbd>F</kbd> + <kbd>c</kbd>
+frecency | `<leader>` + <kbd>f</kbd> + <kbd>F</kbd><leader> + `<Space>`
+frecency (CWD)s | `<leader>` + <kbd>f</kbd> + <kbd>F</kbd> + <kbd>c</kbd>
 Old files | `<leader>` + <kbd>f</kbd> + <kbd>o</kbd>>
 
 </details>
