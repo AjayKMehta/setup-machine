@@ -13,13 +13,13 @@ Cheatsheet | <kbd>Space</kbd> + <kbd>c</kbd> + <kbd>h</kbd>
 Action | Keymap/command
 ---------|----------
 Close buffer | <kbd>Space</kbd> + <kbd>x</kbd>
-List buffers | `:buffers` / `:ls` / `:Telescope buffers`
-Vertical split[^1] | `:vsp` / `:sp`
-Next buffer | `:bnext` / `:bn`
-Previous buffer | `:bprevious` / `:bp`
+List buffers | `:buffers` OR `:ls` OR `:Telescope buffers`
+Vertical split[^1] | `:vsp` OR `:sp`
+Next buffer | `:bnext` OR `:bn`
+Previous buffer | `:bprevious` OR `:bp`
 Get filetype | `:echo &filetype`
 Go to next buffer | <kbd>Tab</kbd>
-Go to prev. buffer | <kbd>Shift</kbd> + <kbd>Tab</kbd> / <kbd>Ctrl</kbd> + <kbd>6</kbd>
+Go to prev. buffer | <kbd>Shift</kbd> + <kbd>Tab</kbd> OR <kbd>Ctrl</kbd> + <kbd>6</kbd>
 
 [^1]: Opens same buffer in new window.
 
@@ -30,11 +30,10 @@ Navigate left/down/up/right: <kbd>Ctrl</kbd> + <kbd>H</kbd>/<kbd>J</kbd>/<kbd>K<
 Action | Keymap/command
 ---------|----------
 List tabs | `:tabs`
-Toggle tab | <kbd>g</kbd> + <kbd>t</kbd>
-Go to previous tab | `:tabprevious` / `:tabp`
-Go to next tab  | `:tabnext` / `:tabn`
-Go to first tab | `:tabfirst` / `:tabrewind` / `:tabr`
-Go to last tab  | `:tablast` / `:tabl`
+Go to previous tab | `:tabprevious` OR `:tabp` OR `gT`
+Go to next tab  | `:tabnext` OR `:tabn` OR `gt`
+Go to first tab | `:tabfirst` OR `:tabrewind` OR `:tabr`
+Go to last tab  | `:tablast` OR `:tabl`
 Edit file in new tab | `:tabe <file>`
 
 ## Splitting windows
@@ -47,7 +46,7 @@ Edit file in new tab | `:tabe <file>`
 
 Open terminal: `:terminal` OR `<leader>` + <kbd>H</kbd> / <kbd>V</kbd> (horizontal / vertical)
 
-Install LSP: `:MasonInstall bash-language-server`
+Install LSP (requires `mason.nvim`): `:MasonInstall bash-language-server`
 
 Edit file: `:e <file>`
 
@@ -123,7 +122,7 @@ To run macro on visual selection:  `:'<,'> norm @x`.
 
 ### Keymaps
 
-<https://www.ejmastnak.com/tutorials/vim-latex/vimscript/>
+See <https://www.ejmastnak.com/tutorials/vim-latex/vimscript/>.
 
 Vim offers two types of mapping commands:
 
@@ -161,6 +160,9 @@ Delete fold | <kbd>z</kbd> + <kbd>d</kbd>
 Delete all folds under cursor | <kbd>z</kbd> + <kbd>D</kbd>
 **Go to next closed fold** | <kbd>]</kbd> + <kbd>z</kbd>
 **Go to previous closed fold** | <kbd>[</kbd> + <kbd>z</kbd>
+**Peek fold** | <kbd>z</kbd> + <kbd>k</kbd>
+
+Actions in bold are courtesy of `ufo.nvim` plugin.
 
 ### Registers
 
@@ -274,10 +276,10 @@ Press <kbd>Enter</kbd> to select entry from history window.
 
 Action | Keymap/command
 ---------|----------
-Search down | <kbd>/</kbd>
-Search up | <kbd>Shift</kbd> + <kbd>/</kbd>
-Find word under cursor | <kbd>Shift</kbd> + <kbd>8</kbd>
-Find word under cursor (backwards) | <kbd>Shift</kbd> + <kbd>3</kbd>
+Search down | `/`
+Search up | `?`
+Find word under cursor | `*`
+Find word under cursor (backwards) | `#`
 Find word under cursor (partial match) | `g*`
 Find word under cursor (backwards partial match) | `g#`
 
@@ -362,7 +364,7 @@ There are also named sets like `[:digit:]`. For more info, see `:h :alnum:`.
 
 #### Alternation and grouping
 
-Instead of `\d|\s`, need to use `\|` instead of `|`.
+Need to use `\|` instead of `|`. So, instead of `\d|\s`, write `\d\|\s`.
 For grouping, use `\(` and `\)`, e.g. `\(bar\|cat\)`
 For non-capturing group: `\%(pattern\)`
 
@@ -440,11 +442,11 @@ Insert new line before current line | <kbd>Shift</kbd> + <kbd>o</kbd>
 
 Action | Keymap/command
 ---------|----------
-Delete current character | <kbd>x</kbd> / <kbd>d</kbd> + <kbd>l</kbd>
-Delete current character and enter insert mode | <kbd>s</kbd> / <kbd>c</kbd> + <kbd>l</kbd>
+Delete current character | <kbd>x</kbd> OR <kbd>d</kbd> + <kbd>l</kbd>
+Delete current character and enter insert mode | <kbd>s</kbd> OR <kbd>c</kbd> + <kbd>l</kbd>
 Replace current character with `a`| <kbd>R</kbd> + <kbd>a</kbd>
 Replace current character with `a`, return to Normal mode | <kbd>r</kbd> + <kbd>a</kbd>
-Delete previous character | <kbd>X</kbd> / <kbd>d</kbd> + <kbd>h</kbd>
+Delete previous character | <kbd>X</kbd> OR <kbd>d</kbd> + <kbd>h</kbd>
 
 <kbd>r</kbd> accepts motion, e.g. `cde` becomes `aae` if you type `2ra` with cursor on `c`
 
@@ -455,12 +457,12 @@ Delete previous character | <kbd>X</kbd> / <kbd>d</kbd> + <kbd>h</kbd>
 Action | Keymap/command
 ---------|----------
 Delete current line | <kbd>d</kbd> + <kbd>d</kbd>
-Delete current line and enter insert mode | <kbd>Shift</kbd> + <kbd>s</kbd> / <kbd>c</kbd> + <kbd>c</kbd>
+Delete current line and enter insert mode | <kbd>Shift</kbd> + <kbd>s</kbd> OR <kbd>c</kbd> + <kbd>c</kbd>
 Delete line and line above | <kbd>d</kbd> + <kbd>k</kbd>
 Delete line below | `:+d`
 Delete line above | `:-d`
 Delete current line to bottom | <kbd>d</kbd> + <kbd>G</kbd>
-Delete from current character to end of line | <kbd>Shift</kbd> + <kbd>d</kbd> / <kbd>d</kbd> + <kbd>$</kbd>
+Delete from current character to end of line | <kbd>Shift</kbd> + <kbd>d</kbd> OR <kbd>d</kbd> + <kbd>$</kbd>
 
 `10dd` = delete current line and 9 lines below. Same as `d9j`.
 
@@ -485,11 +487,13 @@ This even works with marks: `:'a,'bd` deletes from line with mark `a` to line wi
 
 <kbd>y</kbd> is yank operator.
 
+Action | Keymap/command
+---------|----------
 Copy line and line above | <kbd>y</kbd> + <kbd>k</kbd>
 Copy current line | <kbd>y</kbd> + <kbd>y</kbd>
 Copy from current character to end of line | <kbd>y</kbd> + <kbd>$</kbd>
 
-yk copies current line and above it.
+`yk` copies current line and above it.
 
 ### Paste
 
@@ -508,7 +512,7 @@ Using `CTRL-R {register}` you can paste the contents of a register after the cur
 
 ### Comment
 
-Commenting out code relies on [comment.nvim](https://github.com/numToStr/Comment.nvim) for now. This functionality will be added to neovim 0.10 according to this [PR](https://github.com/neovim/neovim/pull/28176).
+This functionality was added to neovim 0.10 in this [PR](https://github.com/neovim/neovim/pull/28176).
 
 Action | Keymap/command
 ---------|----------
@@ -524,7 +528,7 @@ Both `gc` and `gb` act as leaders, e.g. comment to end of line: `gc$` or comment
 
 This even has Treesitter integration, e.g. `gcam` to comment out method!
 
-`<leader>cc` will comment out text smartly, i.e.use block comment style only if more than one line selected.
+~~`<leader>cc` will comment out text smartly, i.e.use block comment style only if more than one line selected.~~
 
 ### Indent
 
