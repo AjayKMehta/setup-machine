@@ -408,6 +408,132 @@ Example: `:s/\(0*\)\@>\d{3,}/(&)/g` will surround numbers >= 100 with brackets i
 
 Use `:s/\<\l/\u&/g` to capitalize every word.
 
+## Motions
+
+In this section, **NBC** = **n**on-**b**lank **c**haracter.
+
+### Jumps and changes
+
+See `:h jump-motions`.
+
+When making changes, the cursor position is saved.
+
+Action | Keymap/command
+---------|----------
+View jumps | `:jumps`
+Go to previous jump position | <kbd>Ctrl</kbd> + <kbd>o</kbd>
+Go to next jump position | <kbd>Ctrl</kbd> + <kbd>i</kbd>
+View changes | `:changes`
+Go to previous change position | <kbd>g</kbd> + <kbd>;</kbd>
+Go to next change position | <kbd>g</kbd> + <kbd>,</kbd>
+Go to last insert position and INSERT | <kbd>g</kbd> + <kbd>i</kbd>
+
+### Line-based
+
+Action | Keymap/command
+---------|----------
+Go to 3rd line | `:3` OR `3gg`
+
+### Word-based
+
+First, [need to know the difference between word and WORD](https://stackoverflow.com/questions/22931032/vim-word-vs-word):
+
+A WORD is a sequence of NBCs separated by whitespace. A word is delimited by non-keyword characters. It consists only of numbers, letters or underscores.
+
+Action | Keymap/command
+---------|----------
+Move to next word | <kbd>w</kbd>
+Move to beginning of word | <kbd>b</kbd>
+Move to end of word | <kbd>e</kbd>
+Move to end of previous word | <kbd>g</kbd> + <kbd>e</kbd>
+Move to next WORD | <kbd>W</kbd>
+Move to beginning of WORD | <kbd>B</kbd>
+Move to end of WORD | <kbd>E</kbd>
+Move to end of previous WORD | <kbd>g</kbd> + <kbd>E</kbd>
+
+### Moving within same line
+
+Action | Keymap/command
+---------|------------
+Move to first character | `0`
+Move to first NBC | <kbd>\^</kbd>
+Move to end of line | <kbd>\$</kbd>
+Move to last NBC | <kbd>g</kbd> + <kbd>_</kbd>
+Move to 3rd character | `3\|`
+Move to middle of line |  <kbd>g</kbd> + <kbd>M</kbd>
+
+`80gM` to go to position at 80% of current line.
+
+`|` is same as <kbd>0</kbd> or `1|`
+
+See `:h left-right-motions`.
+
+### Moving within screen lines
+
+A line that is wrapped will have 2 or more screen lines.
+
+Action | Keymap/command
+---------|----------
+Move to the first character | <kbd>g</kbd> + <kbd>0</kbd>
+Move to the first NBC | <kbd>g</kbd> + <kbd>^</kbd>
+Move up screen line | <kbd>g</kbd> + <kbd>k</kbd>
+Move down screen line | <kbd>g</kbd> + <kbd>j</kbd>
+
+`g2j` move down 2 screen lines.
+
+### Reposition current line
+
+Source: <https://learnbyexample.github.io/tips/vim-tip-4/>
+
+Action | Keymap/command
+---------|----------
+Reposition the current line to the middle of the visible window | <kbd>z</kbd> + <kbd>z</kbd>
+Reposition the current line to the top of the visible window | <kbd>z</kbd> + <kbd>t</kbd>
+Reposition the current line to the bottom of the visible window | <kbd>z</kbd> + <kbd>b</kbd>
+
+### Moving Vertically
+
+Action | Keymap/command
+---------|----------
+Move up 1 line | <kbd>k</kbd>
+Move down 1 line | <kbd>j</kbd>
+Move up 1 paragraph | <kbd>Shift</kbd> + <kbd>[</kbd>
+Move down 1 paragraph | <kbd>Shift</kbd> + <kbd>]</kbd>
+Scroll half a page down | <kbd>Ctrl</kbd> + <kbd>d</kbd>
+Scroll half a page up | <kbd>Ctrl</kbd> + <kbd>u</kbd>
+Scroll page forward | <kbd>Ctrl</kbd> + <kbd>f</kbd>
+Scroll page backward | <kbd>Ctrl</kbd> + <kbd>b</kbd>
+Scroll up 1 line | <kbd>Ctrl</kbd> + <kbd>e</kbd>
+Scroll down 1 line | <kbd>Ctrl</kbd> + <kbd>y</kbd>
+Move up 1 paragraph | <kbd>{</kbd>
+Move down 1 paragraph | <kbd>}</kbd>
+Move up 1 sentence | <kbd>(</kbd>
+Move down 1 sentence | <kbd>)</kbd>
+
+### Find characters
+
+- Use `f{character}` to move to the next occurrence of a character in a line. For instance, `2f"` sends you to the second next occurrence of a double quote.
+If your target is behind the cursor you can use `F{character}` to find the previous occurrence of a character.
+
+Use `t{character}` to move the cursor just before the next occurrence of a character. Again, you can use `T{character}` to do the same as `t{character}` but backwards.
+
+<kbd>;</kbd> repeats the last find (`f`/`F`/`t`/T`) motion in the same direction.
+
+<kbd>,</kbd> repeats the last find motion in the opposite direction.
+
+### Misc
+
+<kbd>h</kbd>, <kbd>l</kbd> are used for navigating left and right.
+
+Action | Keymap/command
+---------|----------
+Move to first NBC of first line | <kbd>g</kbd> + <kbd>g</kbd>
+Move to first NBC of last line | <kbd>G</kbd>
+Moves to matching bracket (or end of current Treesitter node courtesy of `nvim-tree-pairs`s) | <kbd>%</kbd>
+Moves to line at 40% of total lines | `40%`
+Move to middle of window | <kbd>M</kbd>
+Move to bottom of window | <kbd>L</kbd>
+
 ## Editing
 
 To execute a normal mode command from insert mode in Neovim, you can use the `<C-o>` (<kbd>Ctrl</kbd> + <kbd>o</kbd>) shortcut. This allows you to execute a single normal mode command without leaving insert mode. After executing the command, you will return to insert mode.
@@ -659,132 +785,6 @@ Can use `|`, `\`, `"` or any single byte character that is not alphanumeric as d
 `:.g%call%d`
 
 See `:h substitute`.
-
-## Motions
-
-In this section, **NBC** = **n**on-**b**lank **c**haracter.
-
-### Jumps and changes
-
-See `:h jump-motions`.
-
-When making changes, the cursor position is saved.
-
-Action | Keymap/command
----------|----------
-View jumps | `:jumps`
-Go to previous jump position | <kbd>Ctrl</kbd> + <kbd>o</kbd>
-Go to next jump position | <kbd>Ctrl</kbd> + <kbd>i</kbd>
-View changes | `:changes`
-Go to previous change position | <kbd>g</kbd> + <kbd>;</kbd>
-Go to next change position | <kbd>g</kbd> + <kbd>,</kbd>
-Go to last insert position and INSERT | <kbd>g</kbd> + <kbd>i</kbd>
-
-### Line-based
-
-Action | Keymap/command
----------|----------
-Go to 3rd line | `:3` OR `3gg`
-
-### Word-based
-
-First, [need to know the difference between word and WORD](https://stackoverflow.com/questions/22931032/vim-word-vs-word):
-
-A WORD is a sequence of NBCs separated by whitespace. A word is delimited by non-keyword characters. It consists only of numbers, letters or underscores.
-
-Action | Keymap/command
----------|----------
-Move to next word | <kbd>w</kbd>
-Move to beginning of word | <kbd>b</kbd>
-Move to end of word | <kbd>e</kbd>
-Move to end of previous word | <kbd>g</kbd> + <kbd>e</kbd>
-Move to next WORD | <kbd>W</kbd>
-Move to beginning of WORD | <kbd>B</kbd>
-Move to end of WORD | <kbd>E</kbd>
-Move to end of previous WORD | <kbd>g</kbd> + <kbd>E</kbd>
-
-### Moving within same line
-
-Action | Keymap/command
----------|------------
-Move to first character | `0`
-Move to first NBC | <kbd>\^</kbd>
-Move to end of line | <kbd>\$</kbd>
-Move to last NBC | <kbd>g</kbd> + <kbd>_</kbd>
-Move to 3rd character | `3\|`
-Move to middle of line |  <kbd>g</kbd> + <kbd>M</kbd>
-
-`80gM` to go to position at 80% of current line.
-
-`|` is same as <kbd>0</kbd> or `1|`
-
-See `:h left-right-motions`.
-
-### Moving within screen lines
-
-A line that is wrapped will have 2 or more screen lines.
-
-Action | Keymap/command
----------|----------
-Move to the first character | <kbd>g</kbd> + <kbd>0</kbd>
-Move to the first NBC | <kbd>g</kbd> + <kbd>^</kbd>
-Move up screen line | <kbd>g</kbd> + <kbd>k</kbd>
-Move down screen line | <kbd>g</kbd> + <kbd>j</kbd>
-
-`g2j` move down 2 screen lines.
-
-### Reposition current line
-
-Source: <https://learnbyexample.github.io/tips/vim-tip-4/>
-
-Action | Keymap/command
----------|----------
-Reposition the current line to the middle of the visible window | <kbd>z</kbd> + <kbd>z</kbd>
-Reposition the current line to the top of the visible window | <kbd>z</kbd> + <kbd>t</kbd>
-Reposition the current line to the bottom of the visible window | <kbd>z</kbd> + <kbd>b</kbd>
-
-### Moving Vertically
-
-Action | Keymap/command
----------|----------
-Move up 1 line | <kbd>k</kbd>
-Move down 1 line | <kbd>j</kbd>
-Move up 1 paragraph | <kbd>Shift</kbd> + <kbd>[</kbd>
-Move down 1 paragraph | <kbd>Shift</kbd> + <kbd>]</kbd>
-Scroll half a page down | <kbd>Ctrl</kbd> + <kbd>d</kbd>
-Scroll half a page up | <kbd>Ctrl</kbd> + <kbd>u</kbd>
-Scroll page forward | <kbd>Ctrl</kbd> + <kbd>f</kbd>
-Scroll page backward | <kbd>Ctrl</kbd> + <kbd>b</kbd>
-Scroll up 1 line | <kbd>Ctrl</kbd> + <kbd>e</kbd>
-Scroll down 1 line | <kbd>Ctrl</kbd> + <kbd>y</kbd>
-Move up 1 paragraph | <kbd>{</kbd>
-Move down 1 paragraph | <kbd>}</kbd>
-Move up 1 sentence | <kbd>(</kbd>
-Move down 1 sentence | <kbd>)</kbd>
-
-### Find characters
-
-- Use `f{character}` to move to the next occurrence of a character in a line. For instance, `2f"` sends you to the second next occurrence of a double quote.
-If your target is behind the cursor you can use `F{character}` to find the previous occurrence of a character.
-
-Use `t{character}` to move the cursor just before the next occurrence of a character. Again, you can use `T{character}` to do the same as `t{character}` but backwards.
-
-<kbd>;</kbd> repeats the last find (`f`/`F`/`t`/T`) motion in the same direction.
-
-<kbd>,</kbd> repeats the last find motion in the opposite direction.
-
-### Misc
-
-<kbd>h</kbd>, <kbd>l</kbd> are used for navigating left and right.
-
-Action | Keymap/command
----------|----------
-Move to first NBC of first line | <kbd>g</kbd> + <kbd>g</kbd>
-Move to first NBC of last line | <kbd>G</kbd>
-Moves to matching bracket (or end of current Treesitter node courtesy of `nvim-tree-pairs`s) | <kbd>%</kbd>
-Moves to line at 40% of total lines | `40%`
-Move to middle of window | <kbd>M</kbd>
-Move to bottom of window | <kbd>L</kbd>
 
 ## Completion and snippets
 
