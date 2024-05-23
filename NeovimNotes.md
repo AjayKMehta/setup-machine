@@ -408,6 +408,20 @@ Example: `:s/\(0*\)\@>\d{3,}/(&)/g` will surround numbers >= 100 with brackets i
 
 Use `:s/\<\l/\u&/g` to capitalize every word.
 
+#### Replacement expressions
+
+Use `\={expression}` as replacement, e.g. `:s/te\(\w\+\)/\=strftime("%Y-%m-%d")/g` will replace `test` with `2024-05-22`.
+
+Can use `submatch()` for backreference, e.g.``:s/\d\+/\=sumatch(0)*2/g` will doublle every number found.  
+
+#### Misc
+
+Use `\%V` to only search in visual area!
+
+`:'<,'>s/\%Vds/x/g` to replace all occurrences of `ds` with `x`. Without `/g` flag, only replaces first occurrence for each line.
+
+Use `\%[set]` to match as many characters as possible in `set`, e.g. `sta\%[red]` matches longesst match from `sta`, `star`, `stare`, `stared`.
+
 ## Motions
 
 In this section, **NBC** = **n**on-**b**lank **c**haracter.
