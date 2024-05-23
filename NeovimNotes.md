@@ -107,6 +107,49 @@ To delete from current character to mark `a` position: ``d`a``.
 
 :bulb: Whenever you jump across lines using motion, position gets saved in `` ` `` mark so you can jump to it using ``` `` ```!
 
+### Registers
+
+There are ten types of registers:
+
+1. `"` is the default register. If no register is specified, this register is used. It is **always populated** unless you specify `_` register, e.g. `_dd`.
+1. `*` and `+`: selection registers. system clipboards (only one of these works on Windows, but there are two of these registers because Linux uses two clipboards).
+1. `0-9`:
+    - `0` contains the last yank unless you specify another register, e.g. `"xyy`.
+    - `1-9` contain the last 9 things you deleted/changed. When you delete a new thing, Vim will insert that into the `1` register and shift everything along.
+1. `-`: "small deletion" register (stores the last deletion less than a line)
+1. Named registers `a` to `z` or `A` to `Z`: Vim fills these registers only when you say so.  Specify them as lowercase letters to replace their previous contents or as uppercase letters to append to their previous contents.
+1. Read-only registers:  You can use them only with the `p`, `P`, and `:put` commands and with <kbd>Ctrl</kbd> + <kbd>R</kbd>.
+    - `.` contains the last inserted text  
+    - `%`: current file name
+    - `:`: last command-line command  
+1. `#`: the "alternate" file name (basically, the most recent file other than the current one). This register is writable, mainly to allow for restoring it after a plugin has changed it.
+1. `=`: the "expression" register. You will be prompted to enter an expression. The expression must evaluate to a string (numbers are auto-cast). If you do not enter an expression, it uses the previous value.
+1. `_`: "black hole" register. This is useful if you want to delete things without overwriting the default register's contents.
+1. `/`: last search command
+
+For more information: `:help registers`.
+
+#### Usage
+
+Prefix register name with `"` to use in commands.
+
+Some examples:
+
+`"ayy` copies current line to `a` register.
+`"bp"` pastes content from `b` register.
+
+#### Tips
+
+- You can write to a register with a `:let` command, e.g.`:let @/ = "the"`
+
+- Use `:reg(isters)` to display register contents. `:reg ab` will display contents of registers `a` and `b`.
+
+- [Peekaboo](https://github.com/junegunn/vim-peekaboo) extends `"` and `@` in normal mode and <kbd>Ctrl</kbd> + <kbd>R</kbd> in insert mode so you can see the contents of the registers.
+
+- Clear named register: Write an empty macro, e.g. `qaq` to clear `a` register.
+
+- [Clear number registers](https://www.reddit.com/r/vim/comments/ugocqa/comment/i70w02c/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button): `call range(1,9)->map('setreg(v:val,"")')`
+
 ### Macros
 
 1. Press <kbd>q</kbd>.
@@ -163,49 +206,6 @@ Delete all folds under cursor | <kbd>z</kbd> + <kbd>D</kbd>
 **Peek fold** | <kbd>z</kbd> + <kbd>k</kbd>
 
 Actions in bold are courtesy of `ufo.nvim` plugin.
-
-### Registers
-
-There are ten types of registers:
-
-1. `"` is the default register. If no register is specified, this register is used. It is **always populated** unless you specify `_` register, e.g. `_dd`.
-1. `*` and `+`: selection registers. system clipboards (only one of these works on Windows, but there are two of these registers because Linux uses two clipboards).
-1. `0-9`:
-    - `0` contains the last yank unless you specify another register, e.g. `"xyy`.
-    - `1-9` contain the last 9 things you deleted/changed. When you delete a new thing, Vim will insert that into the `1` register and shift everything along.
-1. `-`: "small deletion" register (stores the last deletion less than a line)
-1. Named registers `a` to `z` or `A` to `Z`: Vim fills these registers only when you say so.  Specify them as lowercase letters to replace their previous contents or as uppercase letters to append to their previous contents.
-1. Read-only registers:  You can use them only with the `p`, `P`, and `:put` commands and with <kbd>Ctrl</kbd> + <kbd>R</kbd>.
-    - `.` contains the last inserted text  
-    - `%`: current file name
-    - `:`: last command-line command  
-1. `#`: the "alternate" file name (basically, the most recent file other than the current one). This register is writable, mainly to allow for restoring it after a plugin has changed it.
-1. `=`: the "expression" register. You will be prompted to enter an expression. The expression must evaluate to a string (numbers are auto-cast). If you do not enter an expression, it uses the previous value.
-1. `_`: "black hole" register. This is useful if you want to delete things without overwriting the default register's contents.
-1. `/`: last search command
-
-For more information: `:help registers`.
-
-#### Usage
-
-Prefix register name with `"` to use in commands.
-
-Some examples:
-
-`"ayy` copies current line to `a` register.
-`"bp"` pastes content from `b` register.
-
-#### Tips
-
-- You can write to a register with a `:let` command, e.g.`:let @/ = "the"`
-
-- Use `:reg(isters)` to display register contents. `:reg ab` will display contents of registers `a` and `b`.
-
-- [Peekaboo](https://github.com/junegunn/vim-peekaboo) extends `"` and `@` in normal mode and <kbd>Ctrl</kbd> + <kbd>R</kbd> in insert mode so you can see the contents of the registers.
-
-- Clear named register: Write an empty macro, e.g. `qaq` to clear `a` register.
-
-- [Clear number registers](https://www.reddit.com/r/vim/comments/ugocqa/comment/i70w02c/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button): `call range(1,9)->map('setreg(v:val,"")')`
 
 ### [Executing external commands](https://youtu.be/STSZt2c1rSA?feature=shared)
 
