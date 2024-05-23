@@ -384,7 +384,7 @@ Negative lookbehind: `s\@<!c` matches `cool` but not `school`.
 Positive lookahead: `ice\d\@=` matches `ice1` but not `ice`.
 Positive lookbehind: `s\@<=c` matches `school` but not `cool`.
 
-##### Atomic grouping
+#### Atomic grouping
 
 This differs from a regular group in that, once the pattern is matched, no backtracking is allowed.
 
@@ -392,14 +392,14 @@ Syntax: `\(\w+\)\@>\d` vs `(?>\w+)\d`
 
 Example: `:s/\(0*\)\@>\d{3,}/(&)/g` will surround numbers >= 100 with brackets ignoring any leading zeros.
 
-##### Case sensitivity
+#### Case sensitivity
 
 `\C` to make case-sensitive.
 `\c` to make case-insensitive.
 
 `/\cdog` matches `dog` and `Dog`.
 
-##### Change case for replacement
+#### Change case for replacement
 
 `\U` makes the following characters upper-case.
 `\u` makes the next character upper-case.
@@ -450,7 +450,7 @@ Delete previous character | <kbd>X</kbd> OR <kbd>d</kbd> + <kbd>h</kbd>
 
 <kbd>r</kbd> accepts motion, e.g. `cde` becomes `aae` if you type `2ra` with cursor on `c`
 
-<kbd>R</kbd> + multiple characters: `cde` becomes `abe` if you type `Rab` with cursor on `c`. Line will get extended as needed . Press <kb>Esc</kbd> when done replacing.
+<kbd>R</kbd> + multiple characters: `cde` becomes `abe` if you type `Rab` with cursor on `c`. Line will get extended as needed. Press <kb>Esc</kbd> when done replacing.
 
 ### Delete line
 
