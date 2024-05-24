@@ -163,6 +163,8 @@ To invoke previously-played macro: <kbd>@</kbd> + <kbd>@</kbd>.
 
 To run macro on visual selection:  `:'<,'> norm @x`.
 
+To modify macro, edit register's contents.
+
 ### Keymaps
 
 See <https://www.ejmastnak.com/tutorials/vim-latex/vimscript/>.
