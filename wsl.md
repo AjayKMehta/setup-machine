@@ -346,6 +346,10 @@ Install-Module Microsoft.PowerShell.GraphicalTools
 
 ([Source](https://stackoverflow.com/a/58288650/781045))
 
+### Logging
+
+See [here](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_logging_non-windows?view=powershell-7.4) for details on how to set up.
+
 ### Treesitter support (Neovim)
 
 See [here](https://www.reddit.com/r/neovim/comments/17qkjtt/powershell_in_neovim/).
