@@ -229,6 +229,7 @@ mise use delta@latest
 mise use deno@latest
 mise use difftastic@latest
 mise use docker-slim@latest
+mise use eza@latest
 mise use fzf@latest
 
 mise plugin add github-cli https://github.com/bartlomiejdanek/asdf-github-cli.git   
@@ -268,10 +269,6 @@ Open file in Neovim: `fzf --bind 'enter:become(nvim {})'`
 
 - Add `~/.cargo/bin` to `$PATH`.
 - List installed crates: `cargo install --list`.
-
-## eza
-
-Modern replacement for `ls`. Install via `cargo install eza` or [follow these instructions](https://github.com/eza-community/eza/blob/main/INSTALL.md#debian-and-ubuntu).
 
 ## jnv
 
@@ -954,6 +951,13 @@ sudo snap install tectonic
 
 ([Source](https://snapcraft.io/install/tectonic/ubuntu))
 
+## Kitty
+
+Follow instructions below:
+
+1. [How to Install kitty in Ubuntu in WSL2](https://gist.github.com/VPraharsha03/dce1692afccdb2d220fffff3ad8448f0)
+2. [Using kitty on windows 11 with WSL2}(<https://github.com/danielbisar/settings/blob/main/guides/kitty-on-windows-with-wsl2.md>): not sure about this as over 2 years old.
+
 ## Misc
 
 ```shell
@@ -983,7 +987,6 @@ sudo apt install bat
 mkdir -p ~/.local/bin
 ln -s /usr/bin/batcat ~/.local/bin/bat
 
-sudo apt install kitty
 sudo apt install plocate
 
 # https://github.com/muesli/duf
