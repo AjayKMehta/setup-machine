@@ -565,6 +565,12 @@ Redo |<kbd>Ctrl</kbd> + <kbd>r</kbd>
 Undo latest changes on last edited line  | <kbd>Shift</kbd> + <kbd>u</kbd>
 Redo latest changes on last edited line |<kbd>Shift</kbd> + <kbd>u</kbd>
 
+Install [telescope-undo.nvim](https://github.com/debugloop/telescope-undo.nvim) to view undo tree and search changes.
+
+Launch via `<leader>fu`. This will open a window in which you can browse undo tree.
+
+If you have found the undo state you were looking for, you can use `<C-S-r>` ~~or `<C-cr>`~~ to revert to that state. If you'd rather not change your whole buffer, you can use `<cr>` to yank the additions of this undo state into your default register (use `<S-cr>` or `<C-y>` to yank the deletions).
+
 ### Insert
 
 All these commands put you in insert mode.
