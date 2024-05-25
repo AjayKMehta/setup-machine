@@ -991,6 +991,10 @@ Search config | `<leader>` + <kbd>f</kbd> + <kbd>c</kbd> + <kbd>c</kbd>
 frecency | `<leader>` + <kbd>f</kbd> + <kbd>F</kbd><leader> + `<Space>`
 frecency (CWD)s | `<leader>` + <kbd>f</kbd> + <kbd>F</kbd> + <kbd>c</kbd>
 Old files | `<leader>` + <kbd>f</kbd> + <kbd>o</kbd>>
+Find files | `<leader>` + <kbd>f</kbd> + <kbd>f</kbd>>
+Live grep | `<leader>` + <kbd>f</kbd> + <kbd>w</kbd>>
+
+Courtesy of [togglescope](https://github.com/Theo-Steiner/togglescope), `C-\>` toggles between excluding (default) and including hidden and ignored files for **Find files** and **Live grep**.
 
 </details>
 
