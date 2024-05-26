@@ -225,6 +225,7 @@ Actions in bold are courtesy of `ufo.nvim` plugin.
 `V` - select current line. Can also extend with motion or count, e.g.`Vgg` selects from current line to start of file and `5V` selects 5 lines starting from current line.
 
 `gv` selects previously highlighted visual area.
+:point_right: This works in normal mode too.
 
 Use `o` to move cursor to diagonally opposite corner of the visual selection.
 
@@ -263,6 +264,7 @@ Go right one word |<kbd>Ctrl</kbd> + <kbd>→</kbd>
 Erase line before cursor |<kbd>Ctrl</kbd> + <kbd>u</kbd>
 Paste register `a` contents | <kbd>Ctrl</kbd> + <kbd>r</kbd> followed by `a`
 Show completions based on typed characters | <kbd>Ctrl</kbd> + <kbd>d</kbd>
+Edit commands in normal mode | <kbd>Ctrl</kbd> + <kbd>f</kbd>
 
 ### History
 
@@ -555,6 +557,10 @@ Move to bottom of window | <kbd>L</kbd>
 To execute a normal mode command from insert mode in Neovim, you can use the `<C-o>` (<kbd>Ctrl</kbd> + <kbd>o</kbd>) shortcut. This allows you to execute a single normal mode command without leaving insert mode. After executing the command, you will return to insert mode.
 
 For good overview of different operators: <https://www.barbarianmeetscoding.com/boost-your-coding-fu-with-vscode-and-vim/editing-like-magic-with-vim-operators/>
+
+In Vim, editing commands have the following structure: `<number><command><text object or motion>`.
+
+This is a good read on text objects: <https://blog.carbonfive.com/vim-text-objects-the-definitive-guide/>.
 
 ### Undo/redo
 
@@ -1156,6 +1162,27 @@ Old text                 | Command   | New text
 Detailed information on how to use this plugin can be found in [`:h nvim-surround.usage`](https://github.com/kylechui/nvim-surround/blob/main/doc/nvim-surround.txt).
 
 ### Treesitter-related
+
+`:Inspect` shows the highlight groups under the cursor.
+`:InspectTree` shows the parsed syntax tree.
+`:EditQuery` opens the Live Query Editor.
+
+#### nvim-treesitter
+
+Action | Keymap
+---------|----------
+Initialize selection | `<leader>ti`
+Increment selection to named node | `<leader>tk`
+Shrink selection to previous named node | `<leader>tj`
+Increment selection to surrounding scope | `<leader>ts`
+
+See `:h nvim-treesitter-commands`.
+
+#### ts-node-action
+
+Lets you run functions on Tree-sitter nodes, and update the buffer with the result.
+
+`gA` is used to trigger action (default is change case).
 
 #### Treesitter-textobjects
 
