@@ -1005,6 +1005,8 @@ sudo apt install catimg
 # Need for sqlite.luas
 sudo apt-get install sqlite3 libsqlite3-dev 
 
+sudo apt install libmagickwand-dev
+
 # https://github.com/charmbracelet/gum#installation
 sudo mkdir -p /etc/apt/keyrings
 curl -fsSL https://repo.charm.sh/apt/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/charm.gpg
