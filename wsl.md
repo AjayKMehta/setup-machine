@@ -951,13 +951,6 @@ sudo snap install tectonic
 
 ([Source](https://snapcraft.io/install/tectonic/ubuntu))
 
-## Kitty
-
-Follow instructions below:
-
-1. [How to Install kitty in Ubuntu in WSL2](https://gist.github.com/VPraharsha03/dce1692afccdb2d220fffff3ad8448f0)
-2. [Using kitty on windows 11 with WSL2}(<https://github.com/danielbisar/settings/blob/main/guides/kitty-on-windows-with-wsl2.md>): not sure about this as over 2 years old.
-
 ## Misc
 
 ```shell
