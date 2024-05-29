@@ -282,6 +282,14 @@ For key bindings, see [here](https://github.com/ynqa/jnv#keymap).
 
 Install: `cargo install pngquant`.
 
+## cntr
+
+From [GitHub repo](https://github.com/Mic92/cntr?tab=readme-ov-file):
+
+> `cntr` is a replacement for `docker exec` that brings all your developers tools with you. This is done by mounting the file system from one container or the host into the target container by creating a nested container with the help of a FUSE filesystem.
+
+Install: `cargo install cntr`.
+
 ## [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/install-ubuntu)
 
 Available from the Linux package repository for Microsoft products, <https://packages.microsoft.com>, also known as PMC.
