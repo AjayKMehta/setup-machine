@@ -967,22 +967,23 @@ All actions in **bold** in the table above have custom keymaps. The other comman
 
 Action | Keymap/command
 ---------|----------
-Bookmarks | `<leader>` + <kbd>f</kbd> + <kbd>M</kbd>
-Find buffers | `<leader>` + <kbd>f</kbd> + <kbd>B</kbd>
-Commands | `<leader>` + <kbd>f</kbd> + <kbd>c</kbd> + <kbd>C</kbd>
-Command History | `<leader>` + <kbd>f</kbd> + <kbd>c</kbd> + <kbd>h</kbd>
-Colorschemes | `<leader>` + <kbd>f</kbd> + <kbd>c</kbd> + <kbd>s</kbd>
-Keymap | `<leader>` + <kbd>f</kbd> + <kbd>k</kbd>
-Search History | `<leader>` + <kbd>f</kbd> + <kbd>S</kbd>
-Undo tree | `<leader>` + <kbd>f</kbd> + <kbd>u</kbd>
-Search buffers | `<leader>` + <kbd>f</kbd> + <kbd>y</kbd>
-Search emojis | `<leader>` + <kbd>f</kbd> + <kbd>e</kbd>
-Notifications | `<leader>` + <kbd>f</kbd> + <kbd>n</kbd>
-Jumplist | `<leader>` + <kbd>f</kbd> + <kbd>j</kbd>
-Registers | `<leader>` + <kbd>f</kbd> + <kbd>R</kbd>
-LuaSnip | `<leader>` + <kbd>f</kbd> + <kbd>s</kbd>
-Tags | `<leader>` + <kbd>f</kbd> + <kbd>t</kbd>
-Treesitter | `<leader>` + <kbd>f</kbd> + <kbd>T</kbd>
+Bookmarks | `<leader>fM`
+Find buffers | `<leaderfB`
+Commands | `<leader>fcC`
+Command History | `<leader>fch`
+Colorschemes | `<leader>fcs`
+Keymap | `<leader>fk`
+Search History | `<leader>fS`
+Undo tree | `<leader>fu`
+Search buffers | `<leader>fy`
+Search emojis | `<leader>fe`
+Notifications | `<leader>fn`
+Jumplist | `<leader>fj`
+Registers | `<leader>fR`
+LuaSnip | `<leader>fs`
+Tags | `<leader>ftt`
+Tabs | `<leader>ftT`
+Treesitter | `<leader>fts`
 
 </details>
 
@@ -991,14 +992,14 @@ Treesitter | `<leader>` + <kbd>f</kbd> + <kbd>T</kbd>
 
 Action | Keymap/command
 ---------|----------
-File browser | `<leader>` + <kbd>f</kbd> + <kbd>b</kbd>
-Search home | `<leader>` + <kbd>f</kbd> + <kbd>h</kbd>
-Search config | `<leader>` + <kbd>f</kbd> + <kbd>c</kbd> + <kbd>c</kbd>
-frecency | `<leader>` + <kbd>f</kbd> + <kbd>F</kbd><leader> + `<Space>`
-frecency (CWD)s | `<leader>` + <kbd>f</kbd> + <kbd>F</kbd> + <kbd>c</kbd>
-Old files | `<leader>` + <kbd>f</kbd> + <kbd>o</kbd>>
-Find files | `<leader>` + <kbd>f</kbd> + <kbd>f</kbd>>
-Live grep | `<leader>` + <kbd>f</kbd> + <kbd>w</kbd>>
+File browser | `<leader>fb`
+Search home | `<leader>fh`
+Search config | `<leader>fcc`
+frecency | `<leader>fF<Space>`
+frecency (CWD)s | `<leader>fFc`
+Old files | `<leader>fo`
+Find files | `<leader>ff`
+Live grep | `<leader>fw`
 
 Courtesy of [togglescope](https://github.com/Theo-Steiner/togglescope), `C-\>` toggles between excluding (default) and including hidden and ignored files for **Find files** and **Live grep**.
 
@@ -1009,10 +1010,10 @@ Courtesy of [togglescope](https://github.com/Theo-Steiner/togglescope), `C-\>` t
 
 Action | Keymap/command
 ---------|----------
-Help page | `<leader>` + <kbd>f</kbd> + <kbd>?</kbd>
-Man Pages | `<leader>` + <kbd>f</kbd> + <kbd>m</kbd>
-Grep help (live grep) | `<leader>` + <kbd>f</kbd> + <kbd>H</kbd> + <kbd>l</kbd>
-Grep help (grep string) | `<leader>` + <kbd>f</kbd> + <kbd>H</kbd> + <kbd>g</kbd>
+Help page | `<leader>f?`
+Man Pages | `<leader>fm`
+Grep help (live grep) | `<leader>fHl`
+Grep help (grep string) | `<leader>fHg`
 
 </details>
 
@@ -1021,8 +1022,8 @@ Grep help (grep string) | `<leader>` + <kbd>f</kbd> + <kbd>H</kbd> + <kbd>g</kbd
 
 Action | Keymap/command
 ---------|----------
-Search Document Symbols | `<leader>` + <kbd>f</kbd> + <kbd>l</kbd> + <kbd>s</kbd>
-Search Workspace Symbols | `<leader>` + <kbd>f</kbd> + <kbd>l</kbd> + <kbd>w</kbd>
+Search Document Symbols | `<leader>fls`
+Search Workspace Symbols | `<leader>flw`
 
 </details>
 
@@ -1031,10 +1032,10 @@ Search Workspace Symbols | `<leader>` + <kbd>f</kbd> + <kbd>l</kbd> + <kbd>w</kb
 
 Action | Keymap/command
 ---------|----------
-Checkout branch | `<leader>` + <kbd>g</kbd> + <kbd>a</kbd>
-Checkout commit | `<leader>` + <kbd>g</kbd> + <kbd>c</kbd>
-git stash | `<leader>` + <kbd>g</kbd> + <kbd>s</kbd>
-git status (from  NvChad) | `<leader>` + <kbd>g</kbd> + <kbd>t</kbd>
+Checkout branch | `<leader>ga`
+Checkout commit | `<leader>gc`
+git stash | `<leader>gs`
+git status (from  NvChad) | `<leader>gt`
 
 </details>
 
