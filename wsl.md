@@ -782,6 +782,8 @@ For more bindings, see [this](https://github.com/jalvesaq/Nvim-R/blob/master/doc
 
 ```shell
 sudo apt install systemd-coredump python3-pip python3.10-venv
+
+sudo apt install pipx
 ```
 
 [Install visidata](https://jsvine.github.io/intro-to-visidata/the-big-picture/installation/
