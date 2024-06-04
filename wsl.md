@@ -172,7 +172,8 @@ sudo apt install git
 
 # For diffs
 sudo apt install meld
-sudo apt install git-absorb
+# Ubuntu package is ancient.
+cargo install git-absorb
 ```
 
 ### git lfs

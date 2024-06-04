@@ -422,7 +422,9 @@ git add . # fixed files
 git absorb --and-rebase
 ```
 
-Install: `winget install tummychow.git-absorb -l D:\Apps\CLI`.
+~~Install: `winget install tummychow.git-absorb -l D:\Apps\CLI`.~~
+
+Grab latest release from repo and add install folder to `$Path`.
 
 ## Java
 
