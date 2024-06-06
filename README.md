@@ -40,6 +40,7 @@
     - [difftastic](#difftastic)
     - [ast-grep](#ast-grep)
     - [ATAC](#atac)
+    - [Hurl](#hurl)
   - [Dot files](#dot-files)
   - [Hugo](#hugo)
   - [WSL](#wsl)
@@ -605,6 +606,12 @@ winget install Wilfred.difftastic -l D:\Apps\CLI
 ATAC is a CLI app like Postman. Download latest release from <https://github.com/Julien-cpsn/ATAC/releases>.
 
 Set `$ATAC_MAIN_DIR` to `%HOME%/.atac`.
+
+### Hurl
+
+[Hurl](https://hurl.dev/) is a command line tool that runs **HTTP requests** defined in a simple **plain text format**.
+
+Grab latest binary from [GitHub](https://github.com/Orange-OpenSource/hurl) and copy to install folder.
 
 ## Dot files
 
