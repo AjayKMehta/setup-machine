@@ -965,6 +965,9 @@ sudo snap install tectonic
 ## Misc
 
 ```shell
+# Wordlist in /usr/share/dict/words
+sudo apt install wamerican-large
+
 cargo install typos-cli
 cargo install ast-grep
 
