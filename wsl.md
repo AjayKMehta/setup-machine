@@ -974,9 +974,6 @@ cargo install ast-grep
 # Java
 sudo apt install openjdk-17-jre-headless
 
-# pkgx
-curl -fsS https://pkgx.sh | sh
-
 # xq: Not available in Package Manager for Ubuntu 22 😦
 # https://github.com/sibprogrammer/xq
 curl -sSL https://bit.ly/install-xq | sudo bash
