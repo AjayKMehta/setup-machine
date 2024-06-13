@@ -910,6 +910,13 @@ eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/{theme}.omp.json)"
     stack install haskell-dap ghci-dap haskell-debug-adapter
     ```
 
+- Install hoogle locally (optional):
+
+    ```bash
+    stack install hoogle
+    hoogle generate # generate index for current version of Stackage LTS
+    ```
+
 ## LaTeX
 
 The instructions below are based on the following links:
