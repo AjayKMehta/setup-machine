@@ -969,6 +969,18 @@ sudo snap install tectonic
 
 ([Source](https://snapcraft.io/install/tectonic/ubuntu))
 
+## yazi
+
+[yazi](https://yazi-rs.github.io) is a fast terminal file manager written in Rust.
+
+Install:
+
+```bash
+cargo install --locked yazi-fm yazi-cli
+```
+
+See [here](https://yazi-rs.github.io/docs/quick-start) for help on keyboard shortcuts (very similar to ones in Neovim). Press `~` to display help.
+
 ## Misc
 
 ```shell
