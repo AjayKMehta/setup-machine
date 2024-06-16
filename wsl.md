@@ -981,6 +981,13 @@ cargo install --locked yazi-fm yazi-cli
 
 See [here](https://yazi-rs.github.io/docs/quick-start) for help on keyboard shortcuts (very similar to ones in Neovim). Press `~` to display help.
 
+Install flavors (themes):
+
+```bash
+gh download https://github.com/yazi-rs/flavors/tree/main/catppuccin-macchiato.yazi --outdir ~/.config/yazi/flavors/catppuccin-macchiato.yazi
+gh download https://github.com/yazi-rs/flavors/tree/main/catppuccin-mocha.yazi --outdir ~/.config/yazi/flavors/catppuccin-mocha.yazi
+```
+
 ## Misc
 
 ```shell
