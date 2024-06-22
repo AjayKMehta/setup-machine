@@ -1,5 +1,6 @@
-
 # Neovim
+
+These notes are based on my setup using NvChad. My Neovim config files can be found [here](https://github.com/AjayKMehta/WSL/tree/main/home/dot_config/nvim).
 
 ## NvChad
 
@@ -8,39 +9,74 @@ Action | Keymap
 Change theme | <kbd>Space</kbd> + <kbd>t</kbd> + <kbd>h</kbd>
 Cheatsheet | <kbd>Space</kbd> + <kbd>c</kbd> + <kbd>h</kbd>
 
-## Buffers
+## Layout
+
+To seamlessly navigate left/down/up/right whether Tmux or Nvim buffer/window: <kbd>Ctrl</kbd> + <kbd>h</kbd>/<kbd>j</kbd>/<kbd>k</kbd>/<kbd>l</kbd>.
+
+### Buffers
+
+A buffer is essentially the in-memory representation of a file.
 
 Action | Keymap/command
 ---------|----------
 Close buffer | <kbd>Space</kbd> + <kbd>x</kbd>
 List buffers | `:buffers` OR `:ls` OR `:Telescope buffers`
-Vertical split[^1] | `:vsp` OR `:sp`
 Next buffer | `:bnext` OR `:bn`
 Previous buffer | `:bprevious` OR `:bp`
 Get filetype | `:echo &filetype`
 Go to next buffer | <kbd>Tab</kbd>
 Go to prev. buffer | <kbd>Shift</kbd> + <kbd>Tab</kbd> OR <kbd>Ctrl</kbd> + <kbd>6</kbd>
 
-[^1]: Opens same buffer in new window.
+### Windows
 
-Navigate left/down/up/right: <kbd>Ctrl</kbd> + <kbd>H</kbd>/<kbd>J</kbd>/<kbd>K</kbd>/<kbd>L</kbd>
+A window is a viewport onto a buffer. Different windows correspond to one or more buffers.
 
-## Tabs
+:bulb: Multiple windows displaying different parts of the same buffer is useful for comparing two sections of a file side by side.
+
+Action | Keymap/command
+---------|----------
+Split[^1] | `:sp` OR <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>s</kbd>
+Vertical split[^2] | `:vsp` OR <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>v</kbd>
+Switch window | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>w</kbd>
+Close window | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>q</kbd>
+Swap window with next | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>x</kbd>
+
+Navigate to left/below/above/right window: <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>h</kbd>/<kbd>j</kbd>/<kbd>k</kbd>/<kbd>l</kbd>.
+
+[^1]: Opens same buffer in new window below current window.
+
+[^2]: Opens same buffer in new window to the right of current window.
+
+### Tabs
+
+Tab pages are a collection of windows.
 
 Action | Keymap/command
 ---------|----------
 List tabs | `:tabs`
+Open a new tab page and edit `{file}`, like with `:find` | `:tabfind {file}`
 Go to previous tab | `:tabprevious` OR `:tabp` OR `gT`
 Go to next tab  | `:tabnext` OR `:tabn` OR `gt`
 Go to first tab | `:tabfirst` OR `:tabrewind` OR `:tabr`
 Go to last tab  | `:tablast` OR `:tabl`
-Edit file in new tab | `:tabe <file>`
+Edit file in new tab | `:[count]tabe[dit] <file>`
+Close current tab page | `:tabclose` OR `:tabc`
 
-## Splitting windows
+#### Create new tab(s)
 
-`:vsplit`
-`split`
-<kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>w</kbd> is for switching windows.
+Action | Keymap/command
+---------|----------
+Create tabpage after the current one |      `:tabnew` OR  `:.tabnew`
+Create tabpage after the next one | `:+tabnew`
+Create tabpage before the current | `:-tabnew`
+Create tabpage before the first | `:0tabnew`
+Create tabpage after the last | `:$tabnew`
+
+### Executing command in tab
+
+`:[count]tab {cmd}` executes `{cmd}` and when it opens a new window, opens a new tab page instead.
+
+Examples: `:tab vsplit`, `:tab help`.
 
 ## General Neovim info
 
@@ -233,9 +269,9 @@ Use `o` to move cursor to diagonally opposite corner of the visual selection.
 
 ### Visual Block Mode
 
-Press <kbd>Ctrl</kbd> + <kbd>q</kbd> or <kbd>Ctrl</kbd> + <kbd>v</kbd>[^2] to enter. Select a region of text, e.g. `2lj` selects a region with 3 columns and 2 rows. Press <kbd>Shift</kbd> + <kbd>i</kbd> to prepend or <kbd>Shift</kbd> + <kbd>a</kbd> to append. When you are done with your changes, press <kbd>Esc</kbd> and changes will be applied to all lines!
+Press <kbd>Ctrl</kbd> + <kbd>q</kbd> or <kbd>Ctrl</kbd> + <kbd>v</kbd>[^3] to enter. Select a region of text, e.g. `2lj` selects a region with 3 columns and 2 rows. Press <kbd>Shift</kbd> + <kbd>i</kbd> to prepend or <kbd>Shift</kbd> + <kbd>a</kbd> to append. When you are done with your changes, press <kbd>Esc</kbd> and changes will be applied to all lines!
 
-[^2]: If using Windows Terminal, make sure to disable default binding for <kbd>Ctrl</kbd> + <kbd>v</kbd>.
+[^3]: If using Windows Terminal, make sure to disable default binding for <kbd>Ctrl</kbd> + <kbd>v</kbd>.
 
 Press `$` to select to end of each line.
 
@@ -705,13 +741,13 @@ Source: <https://youtu.be/rubhH6v4lN0?feature=shared>
 
 Action | Keymap/command
 ---------|----------
-Join current and next line (replace EOL with space[^3] and remove indentation except for current) | <kbd>J</kbd>
+Join current and next line (replace EOL with space[^4] and remove indentation except for current) | <kbd>J</kbd>
 Join current and next 2 lines (replace EOL with space) | `3J`
 Join current and next line (remove EOL and preserve indentation) | `gJ`
 
 These also work in VISUAL or COMMAND-LINE mode.
 
-[^3]: When there is a trailing space at end of line or next line begins with `)`, then no space is added.
+[^4]: When there is a trailing space at end of line or next line begins with `)`, then no space is added.
 
 ### Moving lines
 
