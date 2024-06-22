@@ -262,6 +262,15 @@ mise install fzf latest
 
 Open file in Neovim: `fzf --bind 'enter:become(nvim {})'`
 
+## duckdb
+
+```bash
+gh release download -R duckdb/duckdb --pattern *cli-linux-amd64.zip -D ~/tmp
+ls ~/tmp/*.zip | xargs unzip -d ~/.local/bin
+chmod u+rwx ~/.local/bin/duckdb
+ls ~/tmp/*.zip | xargs rm
+```
+
 ## Rust
 
 - Install cargo: `sudo apt install cargo`
