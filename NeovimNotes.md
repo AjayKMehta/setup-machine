@@ -155,9 +155,9 @@ There are ten types of registers:
 1. `-`: "small deletion" register (stores the last deletion less than a line)
 1. Named registers `a` to `z` or `A` to `Z`: Vim fills these registers only when you say so.  Specify them as lowercase letters to replace their previous contents or as uppercase letters to append to their previous contents.
 1. Read-only registers:  You can use them only with the `p`, `P`, and `:put` commands and with <kbd>Ctrl</kbd> + <kbd>R</kbd>.
-    - `.` contains the last inserted text  
+    - `.` contains the last inserted text
     - `%`: current file name
-    - `:`: last command-line command  
+    - `:`: last command-line command
 1. `#`: the "alternate" file name (basically, the most recent file other than the current one). This register is writable, mainly to allow for restoring it after a plugin has changed it.
 1. `=`: the "expression" register. You will be prompted to enter an expression. The expression must evaluate to a string (numbers are auto-cast). If you do not enter an expression, it uses the previous value.
 1. `_`: "black hole" register. This is useful if you want to delete things without overwriting the default register's contents.
@@ -452,7 +452,7 @@ Use `:s/\<\l/\u&/g` to capitalize every word.
 
 Use `\={expression}` as replacement, e.g. `:s/te\(\w\+\)/\=strftime("%Y-%m-%d")/g` will replace `test` with `2024-05-22`.
 
-Can use `submatch()` for backreference, e.g.``:s/\d\+/\=sumatch(0)*2/g` will doublle every number found.  
+Can use `submatch()` for backreference, e.g.``:s/\d\+/\=sumatch(0)*2/g` will doublle every number found.
 
 #### Misc
 
