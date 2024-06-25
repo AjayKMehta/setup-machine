@@ -1172,7 +1172,7 @@ Move to next word | <kbd>Alt</kbd> + <kbd>w</kbd>
 Move to end of word | <kbd>Alt</kbd> + <kbd>e</kbd>
 Move to beginning of word | <kbd>Alt</kbd> + <kbd>b</kbd>
 Move to end of previous word | <kbd>g</kbd> + <kbd>E</kbd>
-Move to number | <kbd>n</kbd>
+Move to number | <kbd>1</kbd>
 
 #### [nvim-surround](https://github.com/kylechui/nvim-surround)
 
