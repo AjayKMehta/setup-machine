@@ -137,7 +137,7 @@ Use <kbd>m</kbd> + ***capital letter*** to create a mark you can access from a d
 
 To go back to mark: <kbd>`</kbd> + <kbd>A</kbd>.
 
-To go go to first non-blank character of line containing mark:  <kbd>'</kbd> + <kbd>A</kbd>.
+To go to first non-blank character of line containing mark:  <kbd>'</kbd> + <kbd>A</kbd>.
 
 To delete from current character to mark `a` position: ``d`a``.
 
