@@ -337,7 +337,7 @@ Find word under cursor (backwards partial match) | `g#`
 
 After entering text for search, press <kbd>Enter</kbd>. All matches will be highlighted.
 
-Type <kbd>N</kbd> to go to the next match or <kbd>n</kbd> to go to the previous match.
+Type <kbd>n</kbd> to go to the next match or <kbd>N</kbd> to go to the previous match.
 
 Press <kbd>Shift</kbd> + <kbd>q</kbd> to skip next match.
 
