@@ -1184,10 +1184,13 @@ This provides three separate operators:
 
 Repeatable via `.`
 
-For the following examples, `*` will denote the cursor position:
+There are also insert-mode *<C-g>s* and visual-mode *S* mappings, that
+add the delimiter pair around the cursor and visual selection, respectively.
 
-Old text                 | Command   | New text
---------------------------|----------|----------------------
+For the following examples, `*` denotes the cursor position and `|` demarcates the start and end of a visual selection:
+
+Old text                   | Command   | New text
+---------------------------|-----------|------------------------
 `surr*ound_words`          | ysiw)     | `(surround_words)`
 `*make strings`            | ys$"      | `"make strings"`
 `[delete ar*ound me!]`     | ds]       | `delete around me!`
@@ -1195,8 +1198,21 @@ Old text                 | Command   | New text
 `'change quot*es'`         | cs'"      | `"change quotes"`
 `<b>or tag* types</b>`     | csth1<CR> | `<h1>or tag types</h1>`
 `delete(functi*on calls)`  | dsf       | `function calls`
+`local str = *` (insert mode) | `<C-g>s"`  | `local str = "*"`
+'local str = \|some text\|' (visual mode)  | `S'` | `local str = 'some text'`
 
 Detailed information on how to use this plugin can be found in [`:h nvim-surround.usage`](https://github.com/kylechui/nvim-surround/blob/main/doc/nvim-surround.txt).
+
+##### More Mappings
+
+The `yss` operator is a special case for `ys`, and operates on the **current line** via `yss{char}`, ignoring leading and trailing whitespace. The `yS` and `ySS` operators are analogous to `ys` and `yss`, but add the delimiter pair on new lines.
+
+Old text                   | Command   | New text
+---------------------------|-----------|------------------------
+`hel*lo world`  | yss'  | `'hello world'`
+`This is cool` | ySStp | <code>\<p><br>This is cool<br>\<p></code>
+
+The `<C-g>S` insert-mode operator is analogous to `C-g>s`|`, but adds the delimiter pair on new lines.
 
 ### Treesitter-related
 
