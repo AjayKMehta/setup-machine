@@ -1191,13 +1191,13 @@ For the following examples, `*` denotes the cursor position and `|` demarcates t
 
 Old text                   | Command   | New text
 ---------------------------|-----------|------------------------
-`surr*ound_words`          | ysiw)     | `(surround_words)`
-`*make strings`            | ys$"      | `"make strings"`
-`[delete ar*ound me!]`     | ds]       | `delete around me!`
-`remove <b>HTML t*ags</b>` | dst       | `remove HTML tags`
-`'change quot*es'`         | cs'"      | `"change quotes"`
-`<b>or tag* types</b>`     | csth1<CR> | `<h1>or tag types</h1>`
-`delete(functi*on calls)`  | dsf       | `function calls`
+`surr*ound_words`          | `ysiw)`     | `(surround_words)`
+`*make strings`            | `ys$"`      | `"make strings"`
+`[delete ar*ound me!]`     | `ds]`       | `delete around me!`
+`remove <b>HTML t*ags</b>` | `dst`       | `remove HTML tags`
+`'change quot*es'`         | `cs'"`      | `"change quotes"`
+`<b>or tag* types</b>`     | `csth1<CR>` | `<h1>or tag types</h1>`
+`delete(functi*on calls)`  | `dsf`       | `function calls`
 `local str = *` (insert mode) | `<C-g>s"`  | `local str = "*"`
 'local str = \|some text\|' (visual mode)  | `S'` | `local str = 'some text'`
 
@@ -1209,10 +1209,74 @@ The `yss` operator is a special case for `ys`, and operates on the **current lin
 
 Old text                   | Command   | New text
 ---------------------------|-----------|------------------------
-`hel*lo world`  | yss'  | `'hello world'`
-`This is cool` | ySStp | <code>\<p><br>This is cool<br>\<p></code>
+`hel*lo world`  | `yss'`  | `'hello world'`
+`This is cool` | `ySStp` | <code>\<p><br>This is cool<br>\<p></code>
 
 The `<C-g>S` insert-mode operator is analogous to `C-g>s`|`, but adds the delimiter pair on new lines.
+
+Old text                   | Command   | New text
+---------------------------|-----------|------------------------
+`func_name*`  (insert mode) |  `<C-g>S` | <code>func\_name(<br>*<br>)</code>
+
+The `cS` normal-mode operator is analogous to `cs`, but adds the replacement delimiter pair on new lines.
+
+Old text                   | Command   | New text
+---------------------------|-----------|------------------------
+`func(a*rgs)`  |  `cS))` | <code>func(<br>args<br>)</code>
+
+##### Default pairs
+
+When using open-close pairs like `()`, adding a surround with opening character adds a space between character and text but using closing character does not.
+
+Old text                   | Command   | New text
+---------------------------|-----------|------------------------
+`hel*lo`          | `ysiw)`     | `(hello)`
+`hel*lo`          | `ysiw(`     | `( hello )`
+
+This applies for `()`, `{}`, `[]`, and `<>` pairs.
+
+When deleting or changing open/close pairs, **the closing character always leaves whitespace intact**, while the opening character will try to remove a whitespace character (if it exists).
+
+Old text             | Command | New text
+----------------------|---------|-------------------
+`{( sa*mple_text )}` | `ds(`   | `{sample_text}`
+`{( sa*mple_text )}` | `ds)`   | `{ sample_text }`
+`(sa*mple_text)` | `cs({`   | `{ sample_text }`
+`( sa*mple_text )` | `cs)}`   | `{ sample_text }`
+`( sa*mple_text )` | `cs){`   | `{ sample_text }`
+
+There is an "insert" key, denoted by `i`. It queries the user for what should go on the left and right hand sides of a selection, and adds the delimiter pair to the buffer.
+
+For example, typing `yssi` for `Neo*vim` will bring up 2 prompts for left and right delimiter respectively. If we enter, `Hi,` and `is great.`, then text becomes: `Hi, Neovim is great.`
+
+##### Aliases
+
+`b` is an alias for `)` and r for `]`.
+
+The other type of alias is a "tabular alias" e.g. `q` is for quotes (`'`, `"`, `` ` ``). It will always work on nearest match.
+
+Old text             | Command | New text
+----------------------|---------|-------------------
+`"Nested '*quotes'"`| `dsq` | `"Nested quotes"`
+`"Nes*ted 'quotes'"` | `dsq` | `Nested 'quotes'`
+`"Nes*ted 'quotes'"` | `csqb` | `(Nested 'quotes')`
+
+Here are the aliases based on default configuration:
+
+```lua
+aliases = {
+    ["a"] = ">",
+    ["b"] = ")",
+    ["B"] = "}",
+    ["r"] = "]",
+    ["q"] = { '"', "'", "`" },
+    ["s"] = { "}", "]", ")", ">", '"', "'", "`" },
+}
+```
+
+##### Cursor
+
+By default (`move_cursor = "begin"`), the cursor will move to the beginning of the action but you can change this so that the absolute position remains the same (`move_cursor = false`) or position relative to current character remains same (`move_cursor = "sticky"`).
 
 ### Treesitter-related
 
