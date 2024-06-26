@@ -242,12 +242,19 @@ mise use neovim@latest
 mise use stylua@latest
 mise use usage@latest
 mise use zoxide@latest
+mise use lazygit@latest
 ```
 
 Add to `~/.bash_profile`:
 
 ```bash
 eval "$(gh completion -s bash)"
+```
+
+To list available versions of an *installed* plugin (here **lazygit**):
+
+```bash
+mise ls-remote lazygit
 ```
 
 ## fzf
