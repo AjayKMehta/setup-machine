@@ -172,7 +172,7 @@ Prefix register name with `"` to use in commands.
 Some examples:
 
 `"ayy` copies current line to `a` register.
-`"bp"` pastes content from `b` register.
+`"bp` pastes content from `b` register.
 
 #### Tips
 
@@ -252,7 +252,7 @@ Actions in bold are courtesy of `ufo.nvim` plugin.
 `:%! sort` sort all lines.
 `:3,5! sort` sort lines 3-5.
 `:r !date` insert output of command below the current line.
-`:r ! <file>` insert contents of <file> below the current line.
+`:r ! <file>` insert contents of `<file>` below the current line.
 
 ## Visual Mode
 

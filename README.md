@@ -1236,13 +1236,15 @@ dotnet tool install -g dotnet-sos
 dotnet tool install -g dotnet-stack
 dotnet tool install -g dotnet-stryker
 dotnet tool install -g dotnet-trace
-dotnet tool install -g microsoft.coyote.cli
 dotnet tool install -g microsoft.dotnet-httprepl
 dotnet tool install -g microsoft.dotnet-interactive
 dotnet tool install -g minver-cli
 dotnet tool install -g roslynator.dotnet.cli
 dotnet tool install -g snitch
 dotnet tool install -g upgrade-assistant
+
+# https://learn.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-telemetry?tabs=powershell#how-to-opt-out
+[System.Environment]::SetEnvironmentVariable('DOTNET_UPGRADEASSISTANT_TELEMETRY_OPTOUT', '1', 'User')
 ```
 
 ## LaTeX
