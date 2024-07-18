@@ -1211,8 +1211,6 @@ After
     winget install --id RicoSuter.NSwagStudio
     ```
 
-- Install NUnit Console from [here](https://github.com/nunit/nunit-console/releases).
-
 - Install PerfView:
 
     ```powershell
