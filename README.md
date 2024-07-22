@@ -138,7 +138,7 @@ This document hopefully alleviates the pain.
 
 > [!NOTE]
 > 🚧 Look into using [winget configure](<https://learn.microsoft.com/en-us/windows/package-manager/winget/configure>) to replace script to install apps.
-> 👉 Need to learn how to specify custom install path.
+> <br>👉 Need to learn how to specify custom install path.
 
 ## winget
 
