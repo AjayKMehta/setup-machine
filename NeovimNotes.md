@@ -37,6 +37,7 @@
       - [Atomic grouping](#atomic-grouping)
       - [Case sensitivity](#case-sensitivity)
       - [Change case for replacement](#change-case-for-replacement)
+      - [Alternate delimiters](#alternate-delimiters)
       - [Replacement expressions](#replacement-expressions)
       - [Misc](#misc)
   - [Motions](#motions)
@@ -163,6 +164,8 @@ Navigate to left/below/above/right window: <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>
 [^2]: Opens same buffer in new window to the right of current window.
 
 ### Tabs
+
+For more info, see `:help tab-page`.
 
 Tab pages are a collection of windows.
 
@@ -481,6 +484,8 @@ Examples:
 
 `:s/test/ok/g` (or `:.s/test/ok/g`) replaces all occurrences of `test` in current line with `ok`.
 
+Just like regex, `\t` matches tab, `\r` matches carriage return and `\n` matches EOL.
+
 Replace in whole file: `:%/s/test/ok/g`.
 
 Other flags besides `g`:
@@ -562,6 +567,13 @@ Example: `:s/\(0*\)\@>\d{3,}/(&)/g` will surround numbers >= 100 with brackets i
 `\l` makes the next character lower-case.
 
 Use `:s/\<\l/\u&/g` to capitalize every word.
+
+#### Alternate delimiters
+
+If you wish to search for text containing `/`, you can use any other single-byte character except for alphanumeric, `\`, `"`, or `|` as delimiter.
+
+To search for `/usr/bin/` and replace with `~/bin`: `:s,/usr/bin,\~/bin`.
+Compare this with: `:s/\/usr\/bin/\~\/bin`.
 
 #### Replacement expressions
 
