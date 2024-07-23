@@ -4,10 +4,10 @@ These notes are based on my setup using NvChad. My Neovim config files can be fo
 
 ## NvChad
 
-Action | Keymap
----------|----------
-Change theme | <kbd>Space</kbd> + <kbd>t</kbd> + <kbd>h</kbd>
-Cheatsheet | <kbd>Space</kbd> + <kbd>c</kbd> + <kbd>h</kbd>
+  Action       | Keymap
+ --------------|------------------------------------------------
+  Change theme | <kbd>Space</kbd> + <kbd>t</kbd> + <kbd>h</kbd>
+  Cheatsheet   | <kbd>Space</kbd> + <kbd>c</kbd> + <kbd>h</kbd>
 
 ## Layout
 
@@ -17,15 +17,15 @@ To seamlessly navigate left/down/up/right whether Tmux or Nvim buffer/window: <k
 
 A buffer is essentially the in-memory representation of a file.
 
-Action | Keymap/command
----------|----------
-Close buffer | <kbd>Space</kbd> + <kbd>x</kbd>
-List buffers | `:buffers` OR `:ls` OR `:Telescope buffers`
-Next buffer | `:bnext` OR `:bn`
-Previous buffer | `:bprevious` OR `:bp`
-Get filetype | `:echo &filetype`
-Go to next buffer | <kbd>Tab</kbd>
-Go to prev. buffer | <kbd>Shift</kbd> + <kbd>Tab</kbd> OR <kbd>Ctrl</kbd> + <kbd>6</kbd>
+ Action             | Keymap/command
+--------------------|---------------------------------------------------------------------
+ Close buffer       | <kbd>Space</kbd> + <kbd>x</kbd>
+ List buffers       | `:buffers` OR `:ls` OR `:Telescope buffers`
+ Next buffer        | `:bnext` OR `:bn`
+ Previous buffer    | `:bprevious` OR `:bp`
+ Get filetype       | `:echo &filetype`
+ Go to next buffer  | <kbd>Tab</kbd>
+ Go to prev. buffer | <kbd>Shift</kbd> + <kbd>Tab</kbd> OR <kbd>Ctrl</kbd> + <kbd>6</kbd>
 
 ### Windows
 
@@ -51,16 +51,16 @@ Navigate to left/below/above/right window: <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>
 
 Tab pages are a collection of windows.
 
-Action | Keymap/command
----------|----------
-List tabs | `:tabs`
-Open a new tab page and edit `{file}`, like with `:find` | `:tabfind {file}`
-Go to previous tab | `:tabprevious` OR `:tabp` OR `gT`
-Go to next tab  | `:tabnext` OR `:tabn` OR `gt`
-Go to first tab | `:tabfirst` OR `:tabrewind` OR `:tabr`
-Go to last tab  | `:tablast` OR `:tabl`
-Edit file in new tab | `:[count]tabe[dit] <file>`
-Close current tab page | `:tabclose` OR `:tabc`
+ Action                                                   | Keymap/command
+----------------------------------------------------------|----------------------------------------
+ List tabs                                                | `:tabs`
+ Open a new tab page and edit `{file}`, like with `:find` | `:tabfind {file}`
+ Go to previous tab                                       | `:tabprevious` OR `:tabp` OR `gT`
+ Go to next tab                                           | `:tabnext` OR `:tabn` OR `gt`
+ Go to first tab                                          | `:tabfirst` OR `:tabrewind` OR `:tabr`
+ Go to last tab                                           | `:tablast` OR `:tabl`
+ Edit file in new tab                                     | `:[count]tabe[dit] <file>`
+ Close current tab page                                   | `:tabclose` OR `:tabc`
 
 #### Create new tab(s)
 
@@ -291,16 +291,16 @@ Use `O` to move cursor to other corner of current line in visual block mode.
 
 ### Motion, editing
 
-Action | Keymap/command
----------|----------
-Go to start |<kbd>Ctrl</kbd> + <kbd>b</kbd>
-Go to end |<kbd>Ctrl</kbd> + <kbd>e</kbd>
-Go left one word |<kbd>Ctrl</kbd> + <kbd>←</kbd>
-Go right one word |<kbd>Ctrl</kbd> + <kbd>→</kbd>
-Erase line before cursor |<kbd>Ctrl</kbd> + <kbd>u</kbd>
-Paste register `a` contents | <kbd>Ctrl</kbd> + <kbd>r</kbd> followed by `a`
-Show completions based on typed characters | <kbd>Ctrl</kbd> + <kbd>d</kbd>
-Edit commands in normal mode | <kbd>Ctrl</kbd> + <kbd>f</kbd>
+ Action                                     | Keymap/command
+--------------------------------------------|------------------------------------------------
+ Go to start                                | <kbd>Ctrl</kbd> + <kbd>b</kbd>
+ Go to end                                  | <kbd>Ctrl</kbd> + <kbd>e</kbd>
+ Go left one word                           | <kbd>Ctrl</kbd> + <kbd>←</kbd>
+ Go right one word                          | <kbd>Ctrl</kbd> + <kbd>→</kbd>
+ Erase line before cursor                   | <kbd>Ctrl</kbd> + <kbd>u</kbd>
+ Paste register `a` contents                | <kbd>Ctrl</kbd> + <kbd>r</kbd> followed by `a`
+ Show completions based on typed characters | <kbd>Ctrl</kbd> + <kbd>d</kbd>
+ Edit commands in normal mode               | <kbd>Ctrl</kbd> + <kbd>f</kbd>
 
 ### History
 
@@ -314,14 +314,14 @@ Press <kbd>Enter</kbd> to select entry from history window.
 
 ## Search
 
-Action | Keymap/command
----------|----------
-Search down | `/`
-Search up | `?`
-Find word under cursor | `*`
-Find word under cursor (backwards) | `#`
-Find word under cursor (partial match) | `g*`
-Find word under cursor (backwards partial match) | `g#`
+ Action                                           | Keymap/command
+--------------------------------------------------|----------------
+ Search down                                      | `/`
+ Search up                                        | `?`
+ Find word under cursor                           | `*`
+ Find word under cursor (backwards)               | `#`
+ Find word under cursor (partial match)           | `g*`
+ Find word under cursor (backwards partial match) | `g#`
 
 ### Advanced usage
 
@@ -472,15 +472,15 @@ See `:h jump-motions`.
 
 When making changes, the cursor position is saved.
 
-Action | Keymap/command
----------|----------
-View jumps | `:jumps`
-Go to previous jump position | <kbd>Ctrl</kbd> + <kbd>o</kbd>
-Go to next jump position | <kbd>Ctrl</kbd> + <kbd>i</kbd>
-View changes | `:changes`
-Go to previous change position | <kbd>g</kbd> + <kbd>;</kbd>
-Go to next change position | <kbd>g</kbd> + <kbd>,</kbd>
-Go to last insert position and INSERT | <kbd>g</kbd> + <kbd>i</kbd>
+ Action                                | Keymap/command
+---------------------------------------|--------------------------------
+ View jumps                            | `:jumps`
+ Go to previous jump position          | <kbd>Ctrl</kbd> + <kbd>o</kbd>
+ Go to next jump position              | <kbd>Ctrl</kbd> + <kbd>i</kbd>
+ View changes                          | `:changes`
+ Go to previous change position        | <kbd>g</kbd> + <kbd>;</kbd>
+ Go to next change position            | <kbd>g</kbd> + <kbd>,</kbd>
+ Go to last insert position and INSERT | <kbd>g</kbd> + <kbd>i</kbd>
 
 ### Line-based
 
@@ -539,30 +539,30 @@ Move down screen line | <kbd>g</kbd> + <kbd>j</kbd>
 
 Source: <https://learnbyexample.github.io/tips/vim-tip-4/>
 
-Action | Keymap/command
----------|----------
-Reposition the current line to the middle of the visible window | <kbd>z</kbd> + <kbd>z</kbd>
-Reposition the current line to the top of the visible window | <kbd>z</kbd> + <kbd>t</kbd>
-Reposition the current line to the bottom of the visible window | <kbd>z</kbd> + <kbd>b</kbd>
+ Action                                                          | Keymap/command
+ -----------------------------------------------------------------|-----------------------------
+ Reposition the current line to the bottom of the visible window | <kbd>z</kbd> + <kbd>b</kbd>
+ Reposition the current line to the middle of the visible window | <kbd>z</kbd> + <kbd>z</kbd>
+ Reposition the current line to the top of the visible window    | <kbd>z</kbd> + <kbd>t</kbd>
 
 ### Moving Vertically
 
-Action | Keymap/command
----------|----------
-Move up 1 line | <kbd>k</kbd>
-Move down 1 line | <kbd>j</kbd>
-Move up 1 paragraph | <kbd>Shift</kbd> + <kbd>[</kbd>
-Move down 1 paragraph | <kbd>Shift</kbd> + <kbd>]</kbd>
-Scroll half a page down | <kbd>Ctrl</kbd> + <kbd>d</kbd>
-Scroll half a page up | <kbd>Ctrl</kbd> + <kbd>u</kbd>
-Scroll page forward | <kbd>Ctrl</kbd> + <kbd>f</kbd>
-Scroll page backward | <kbd>Ctrl</kbd> + <kbd>b</kbd>
-Scroll up 1 line | <kbd>Ctrl</kbd> + <kbd>e</kbd>
-Scroll down 1 line | <kbd>Ctrl</kbd> + <kbd>y</kbd>
-Move up 1 paragraph | <kbd>{</kbd>
-Move down 1 paragraph | <kbd>}</kbd>
-Move up 1 sentence | <kbd>(</kbd>
-Move down 1 sentence | <kbd>)</kbd>
+ Action                  | Keymap/command
+-------------------------|---------------------------------
+ Move up 1 line          | <kbd>k</kbd>
+ Move down 1 line        | <kbd>j</kbd>
+ Move up 1 paragraph     | <kbd>Shift</kbd> + <kbd>[</kbd>
+ Move down 1 paragraph   | <kbd>Shift</kbd> + <kbd>]</kbd>
+ Scroll half a page down | <kbd>Ctrl</kbd> + <kbd>d</kbd>  
+ Scroll half a page up   | <kbd>Ctrl</kbd> + <kbd>u</kbd>  
+ Scroll page forward     | <kbd>Ctrl</kbd> + <kbd>f</kbd>  
+ Scroll page backward    | <kbd>Ctrl</kbd> + <kbd>b</kbd>  
+ Scroll up 1 line        | <kbd>Ctrl</kbd> + <kbd>e</kbd>  
+ Scroll down 1 line      | <kbd>Ctrl</kbd> + <kbd>y</kbd>  
+ Move up 1 paragraph     | <kbd>{</kbd>
+ Move down 1 paragraph   | <kbd>}</kbd>
+ Move up 1 sentence      | <kbd>(</kbd>
+ Move down 1 sentence    | <kbd>)</kbd>
 
 ### Find characters
 
