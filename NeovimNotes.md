@@ -621,27 +621,27 @@ First, [need to know the difference between word and WORD](https://stackoverflow
 
 A WORD is a sequence of NBCs separated by whitespace. A word is delimited by non-keyword characters. It consists only of numbers, letters or underscores.
 
-Action | Keymap/command
----------|----------
-Move to next word | <kbd>w</kbd>
-Move to beginning of word | <kbd>b</kbd>
-Move to end of word | <kbd>e</kbd>
-Move to end of previous word | <kbd>g</kbd> + <kbd>e</kbd>
-Move to next WORD | <kbd>W</kbd>
-Move to beginning of WORD | <kbd>B</kbd>
-Move to end of WORD | <kbd>E</kbd>
-Move to end of previous WORD | <kbd>g</kbd> + <kbd>E</kbd>
+ Action                       | Keymap/command
+------------------------------|-----------------------------
+ Move to next word            | <kbd>w</kbd>
+ Move to beginning of word    | <kbd>b</kbd>
+ Move to end of word          | <kbd>e</kbd>
+ Move to end of previous word | `ge`
+ Move to next WORD            | <kbd>W</kbd>
+ Move to beginning of WORD    | <kbd>B</kbd>
+ Move to end of WORD          | <kbd>E</kbd>
+ Move to end of previous WORD | `gE`
 
 ### Moving within same line
 
-Action | Keymap/command
----------|------------
-Move to first character | `0`
-Move to first NBC | <kbd>\^</kbd>
-Move to end of line | <kbd>\$</kbd>
-Move to last NBC | <kbd>g</kbd> + <kbd>_</kbd>
-Move to 3rd character | `3\|`
-Move to middle of line |  <kbd>g</kbd> + <kbd>M</kbd>
+ Action                  | Keymap/command
+-------------------------|-----------------------------
+ Move to first character | `0`
+ Move to first NBC       | <kbd>\^</kbd>
+ Move to end of line     | <kbd>\$</kbd>
+ Move to last NBC        | `g_`
+ Move to 3rd character   | `3\|`
+ Move to middle of line  | `gM`
 
 `80gM` to go to position at 80% of current line.
 
@@ -653,12 +653,12 @@ See `:h left-right-motions`.
 
 A line that is wrapped will have 2 or more screen lines.
 
-Action | Keymap/command
----------|----------
-Move to the first character | <kbd>g</kbd> + <kbd>0</kbd>
-Move to the first NBC | <kbd>g</kbd> + <kbd>^</kbd>
-Move up screen line | <kbd>g</kbd> + <kbd>k</kbd>
-Move down screen line | <kbd>g</kbd> + <kbd>j</kbd>
+ Action                      | Keymap/command
+-----------------------------|----------------
+ Move to the first character | `g0`
+ Move to the first NBC       | `g^`
+ Move up screen line         | `gk`
+ Move down screen line       | `gj`
 
 `g2j` move down 2 screen lines.
 
@@ -686,10 +686,10 @@ Source: <https://learnbyexample.github.io/tips/vim-tip-4/>
  Scroll page backward    | <kbd>Ctrl</kbd> + <kbd>b</kbd>  
  Scroll up 1 line        | <kbd>Ctrl</kbd> + <kbd>e</kbd>  
  Scroll down 1 line      | <kbd>Ctrl</kbd> + <kbd>y</kbd>  
- Move up 1 paragraph     | <kbd>{</kbd>
- Move down 1 paragraph   | <kbd>}</kbd>
- Move up 1 sentence      | <kbd>(</kbd>
- Move down 1 sentence    | <kbd>)</kbd>
+ Move up 1 paragraph     | `{`
+ Move down 1 paragraph   | `}`
+ Move up 1 sentence      | `(`
+ Move down 1 sentence    | `)`
 
 ### Find characters
 
@@ -706,14 +706,14 @@ Use `t{character}` to move the cursor just before the next occurrence of a chara
 
 <kbd>h</kbd>, <kbd>l</kbd> are used for navigating left and right.
 
-Action | Keymap/command
----------|----------
-Move to first NBC of first line | <kbd>g</kbd> + <kbd>g</kbd>
-Move to first NBC of last line | <kbd>G</kbd>
-Moves to matching bracket (or end of current Treesitter node courtesy of `nvim-tree-pairs`s) | <kbd>%</kbd>
-Moves to line at 40% of total lines | `40%`
-Move to middle of window | <kbd>M</kbd>
-Move to bottom of window | <kbd>L</kbd>
+ Action                                                                                       | Keymap/command
+----------------------------------------------------------------------------------------------|-----------------------------
+ Move to first NBC of first line                                                              | `gg`
+ Move to first NBC of last line                                                               | <kbd>G</kbd>
+ Moves to matching bracket (or end of current Treesitter node courtesy of `nvim-tree-pairs`s) | <kbd>%</kbd>
+ Moves to line at 40% of total lines                                                          | `40%`
+ Move to middle of window                                                                     | <kbd>M</kbd>
+ Move to bottom of window                                                                     | <kbd>L</kbd>
 
 ## Editing
 
@@ -727,12 +727,12 @@ This is a good read on text objects: <https://blog.carbonfive.com/vim-text-objec
 
 ### Undo/redo
 
-Action | Keymap/command
----------|----------
-Undo | <kbd>u</kbd>
-Redo |<kbd>Ctrl</kbd> + <kbd>r</kbd>
-Undo latest changes on last edited line  | <kbd>Shift</kbd> + <kbd>u</kbd>
-Redo latest changes on last edited line |<kbd>Shift</kbd> + <kbd>u</kbd>
+ Action                                  | Keymap/command
+-----------------------------------------|---------------------------------
+ Undo                                    | <kbd>u</kbd>
+ Redo                                    | <kbd>Ctrl</kbd> + <kbd>r</kbd>  
+ Undo latest changes on last edited line | <kbd>Shift</kbd> + <kbd>u</kbd>
+ Redo latest changes on last edited line | <kbd>Shift</kbd> + <kbd>u</kbd>
 
 Install [telescope-undo.nvim](https://github.com/debugloop/telescope-undo.nvim) to view undo tree and search changes.
 
@@ -744,26 +744,26 @@ If you have found the undo state you were looking for, you can use `<C-S-r>` ~~o
 
 All these commands put you in insert mode.
 
-Action | Keymap/command
----------|----------
-Insert | <kbd>i</kbd>
-Append |<kbd>a</kbd>
-Insert at beginning of line | <kbd>Shift</kbd> + <kbd>i</kbd>
-Append at end of line | <kbd>Shift</kbd> + <kbd>a</kbd>
-Insert new line after line | <kbd>o</kbd>
-Insert new line before current line | <kbd>Shift</kbd> + <kbd>o</kbd>
+ Action                              | Keymap/command
+-------------------------------------|---------------------------------
+ Insert                              | <kbd>i</kbd>
+ Append                              | <kbd>a</kbd>
+ Insert at beginning of line         | <kbd>Shift</kbd> + <kbd>i</kbd>
+ Append at end of line               | <kbd>Shift</kbd> + <kbd>a</kbd>
+ Insert new line after line          | <kbd>o</kbd>
+ Insert new line before current line | <kbd>Shift</kbd> + <kbd>o</kbd>
 
 `gi` puts you into Insert mode at the last place you made a change.
 
 ### Delete/replace character
 
-Action | Keymap/command
----------|----------
-Delete current character | <kbd>x</kbd> OR <kbd>d</kbd> + <kbd>l</kbd>
-Delete current character and enter insert mode | <kbd>s</kbd> OR <kbd>c</kbd> + <kbd>l</kbd>
-Replace current character with `a`| <kbd>R</kbd> + <kbd>a</kbd>
-Replace current character with `a`, return to Normal mode | <kbd>r</kbd> + <kbd>a</kbd>
-Delete previous character | <kbd>X</kbd> OR <kbd>d</kbd> + <kbd>h</kbd>
+ Action                                                    | Keymap/command
+-----------------------------------------------------------|---------------------------------------------
+ Delete current character                                  | <kbd>x</kbd> OR <kbd>d</kbd> + <kbd>l</kbd>
+ Delete current character and enter insert mode            | <kbd>s</kbd> OR <kbd>c</kbd> + <kbd>l</kbd>
+ Replace current character with `a`                        | `Ra`
+ Replace current character with `a`, return to Normal mode | `ra`
+ Delete previous character                                 | <kbd>X</kbd> OR <kbd>d</kbd> + <kbd>h</kbd>
 
 <kbd>r</kbd> accepts motion, e.g. `cde` becomes `aae` if you type `2ra` with cursor on `c`
 
@@ -771,15 +771,13 @@ Delete previous character | <kbd>X</kbd> OR <kbd>d</kbd> + <kbd>h</kbd>
 
 ### Delete line
 
-Action | Keymap/command
----------|----------
-Delete current line | <kbd>d</kbd> + <kbd>d</kbd>
-Delete current line and enter insert mode | <kbd>Shift</kbd> + <kbd>s</kbd> OR <kbd>c</kbd> + <kbd>c</kbd>
-Delete line and line above | <kbd>d</kbd> + <kbd>k</kbd>
-Delete line below | `:+d`
-Delete line above | `:-d`
-Delete current line to bottom | <kbd>d</kbd> + <kbd>G</kbd>
-Delete from current character to end of line | <kbd>Shift</kbd> + <kbd>d</kbd> OR <kbd>d</kbd> + <kbd>$</kbd>
+ Action                                       | Keymap/command
+ ---------------------------------------------|----------------
+ Delete current line                          | `dd` OR `:d`
+ Delete current line and enter insert mode    | `S` OR `cc`
+ Delete line and line above                   | `dk`
+ Delete current line to bottom                | `dG`
+ Delete from current character to end of line | `D` OR `d$`
 
 `10dd` = delete current line and 9 lines below. Same as `d9j`.
 
@@ -787,8 +785,12 @@ Delete from current character to end of line | <kbd>Shift</kbd> + <kbd>d</kbd> O
 
 You can also delete in command-line mode:
 
-`:$d` deletes last line
-`:5d` deletes 5th line
+ Action                                 | Keymap/command
+----------------------------------------|----------------
+ Delete last line                       | `:$d`
+ Delete 5th line                        | `:5d`
+ Delete line below (works with `count`) | `:+d`
+ Delete line above (works with `count`) | `:-d`
 
 You can even delete lines based on matches 🤯
 
