@@ -685,6 +685,12 @@ sudo apt install r-base r-base-dev -y
     sudo apt install libglpk-dev
     ```
 
+1. For `magick` package:
+
+    ```bash
+    sudo apt install libmagick++-dev 
+    ```
+
 ### [Posit Package Manager for Linux R Binaries](https://tshafer.com/blog/2023/07/posit-package-manager-linux)
 
 You can use the Posit Package Manager (PPM) to install binary packages and avoid having to compile from source.
