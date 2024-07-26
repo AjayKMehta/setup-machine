@@ -1,6 +1,11 @@
 [default]
     check-filename = false
     unicode = true
+    # Ignore code spans
+    extend-ignore-re = ["(?s)^.*?`[^`]+`.*$"]
+
+[default.extend-words]
+        "Noice" = "Noice"
 
 [files]
     extend-exclude = [
@@ -15,5 +20,5 @@
         "**/.vscode/**",
         "**/.vscode-insiders/**",
         "**/.tmp-projections/**",
-        "**/*.interactive"
+        "**/*.interactive",
     ]
