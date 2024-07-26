@@ -975,7 +975,7 @@ Use `g!` or `v` to negate pattern.
 
 Can use `|`, `\`, `"` or any single byte character that is not alphanumeric as delimiter too:
 
-`:.g%call%d`
+`:.g%call%d` does same as `:.g/call/d`, i.e. delete all occurrences of `call` in current line.
 
 See `:h substitute`.
 
@@ -994,7 +994,7 @@ See `:h substitute`.
  Accept suggestion                                     | <kbd>Enter</kbd>
  **Toggle documentation window**                       | <kbd>Alt</kbd> + <kbd>d</kbd>
  Invoke completion                                     | <kbd>Ctrl</kbd> + <kbd>Space</kbd>
- **Toggle autocompletion**                             | `<Leader>tc`
+ **Toggle autocompletion**                             | `<leader>tc`
  **Go to next snippet node**                           | <kbd>Ctrl</kbd> + <kbd>k</kbd>
  **Go to previous snippet node**                       | <kbd>Ctrl</kbd> + <kbd>j</kbd>
  **Select current entry (Insert, Commandline mode)**   | <kbd>Ctrl</kbd> + <kbd>y</kbd>
@@ -1127,6 +1127,8 @@ All actions in **bold** in the table above have custom keymaps. The other comman
 
 - <kbd>Alt</kbd> + <kbd>p</kbd> toggles preview.
 
+- <kbd>s</kbd> in normal mode or <kbd>Alt</kbd> + <kbd>s</kbd> in normal mode activates search via [flash.nvim](https://github.com/folke/flash.nvim) plugin.
+
 <details>
   <summary>General</summary>
 
@@ -1149,7 +1151,7 @@ All actions in **bold** in the table above have custom keymaps. The other comman
  Tags            | `<leader>ftt`  
  Tabs            | `<leader>ftT`  
  Treesitter      | `<leader>fts`  
- Noice          | `<leader>fN`
+ Noice           | `<leader>fN`
 
 </details>
 
