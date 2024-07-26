@@ -806,24 +806,24 @@ This even works with marks: `:'a,'bd` deletes from line with mark `a` to line wi
 
 <kbd>y</kbd> is yank operator.
 
-Action | Keymap/command
----------|----------
-Copy line and line above | <kbd>y</kbd> + <kbd>k</kbd>
-Copy current line | <kbd>y</kbd> + <kbd>y</kbd>
-Copy from current character to end of line | <kbd>y</kbd> + <kbd>$</kbd>
+ Action                                     | Keymap/command
+ -------------------------------------------|---------------
+ Copy line and line above                   | `yk`
+ Copy current line                          | `yy`
+ Copy from current character to end of line | `y$`
 
 `yk` copies current line and above it.
 
 ### Paste
 
-Action | Keymap/command
----------|----------
-Paste below current line or to right of cursor | `p`
-Paste above current line or to left of cursor | <kbd>Shift</kbd> + <kbd>p</kbd>
-Paste below current line or right of cursor (matching indent) | `]p`
-Paste above current line or to left of cursor (matching indent) | `]P`
-Same as `p` but puts the cursor after the pasted selection | `gp`
-Same as `P` but puts the cursor after the pasted selection | `gP`
+ Action                                                          | Keymap/command
+-----------------------------------------------------------------|---------------------------------
+ Paste below current line or to right of cursor                  | `p`
+ Paste above current line or to left of cursor                   | <kbd>Shift</kbd> + <kbd>p</kbd>
+ Paste below current line or right of cursor (matching indent)   | `]p`
+ Paste above current line or to left of cursor (matching indent) | `]P`
+ Same as `p` but puts the cursor after the pasted selection      | `gp`
+ Same as `P` but puts the cursor after the pasted selection      | `gP`
 
 Duplicate a line: `yyp`
 
@@ -833,15 +833,15 @@ Using `CTRL-R {register}` you can paste the contents of a register after the cur
 
 This functionality was added to neovim 0.10 in this [PR](https://github.com/neovim/neovim/pull/28176).
 
-Action | Keymap/command
----------|----------
-Toggle comment current line | `gcc`
-Toggle block comment | `gbc`
-Add comment on the line above | `gcO`
-Add comment on the line below | `gco`
-Add comment at the end of line | `gcA`
-(Op-pending) Toggles the region using linewise comment | `gc[count]{motion}`
-(Op-pending) Toggles the region using blockwise comment | `gb[count]{motion}`
+ Action                                                  | Keymap/command
+  --------------------------------------------------------|---------------------
+ Toggle comment current line                             | `gcc`
+ Toggle block comment                                    | `gbc`
+ Add comment on the line above                           | `gcO`
+ Add comment on the line below                           | `gco`
+ Add comment at the end of line                          | `gcA`
+ (Op-pending) Toggles the region using linewise comment  | `gc[count]{motion}`
+ (Op-pending) Toggles the region using blockwise comment | `gb[count]{motion}`
 
 Both `gc` and `gb` act as leaders, e.g. comment to end of line: `gc$` or comment out entire paragraph: `gcip`.
 
@@ -853,26 +853,26 @@ This even has Treesitter integration, e.g. `gcam` to comment out method!
 
 Source: <https://learnbyexample.github.io/tips/vim-tip-2/>
 
-Action | Keymap/command
----------|----------
-Indent the current line (normal, visual mode) | `>>`
-Indent the current line (insert mode) | <kbd>Ctrl</kbd>+<kbd>t</kbd>
-Indent the current line and two lines below (same as `2>j`) | `3>>`
-Dedent the current line (normal, visual mode) | `<<`
-Dedent the current line (insert mode) | <kbd>Ctrl</kbd>+<kbd>d</kbd>
-Auto-indent code, use motion commands to indicate the portion to be indented | `=`
-Auto-indent current line and 4 lines below | `=4j`
-Auto-indent the current paragraph | `=ip`
+ Action                                                                       | Keymap/command
+ ------------------------------------------------------------------------------|------------------------------
+ Indent the current line (normal, visual mode)                                | `>>`
+ Indent the current line (insert mode)                                        | <kbd>Ctrl</kbd>+<kbd>t</kbd>
+ Indent the current line and two lines below (same as `2>j`)                  | `3>>`
+ Dedent the current line (normal, visual mode)                                | `<<`
+ Dedent the current line (insert mode)                                        | <kbd>Ctrl</kbd>+<kbd>d</kbd>
+ Auto-indent code, use motion commands to indicate the portion to be indented | `=`
+ Auto-indent current line and 4 lines below                                   | `=4j`
+ Auto-indent the current paragraph                                            | `=ip`
 
 ### Join Lines
 
 Source: <https://youtu.be/rubhH6v4lN0?feature=shared>
 
-Action | Keymap/command
----------|----------
-Join current and next line (replace EOL with space[^4] and remove indentation except for current) | <kbd>J</kbd>
-Join current and next 2 lines (replace EOL with space) | `3J`
-Join current and next line (remove EOL and preserve indentation) | `gJ`
+ Action                                                                                            | Keymap/command
+---------------------------------------------------------------------------------------------------|----------------
+ Join current and next line (replace EOL with space[^4] and remove indentation except for current) | <kbd>J</kbd>
+ Join current and next 2 lines (replace EOL with space)                                            | `3J`
+ Join current and next line (remove EOL and preserve indentation)                                  | `gJ`
 
 These also work in VISUAL or COMMAND-LINE mode.
 
@@ -909,13 +909,13 @@ You can also provide a count prefix!
 
 Some examples of using motions for editing:
 
-Action | Keymap/command
----------|----------
-Delete from current line to the end of the file | `dG`
-Delete from current line to the beginning of the file | `dgg`
-Copy until next `c` in current line | `yfc`
-Copy until end of sentence | `y)`
-Indent until end of paragraph | `>}`
+ Action                                                | Keymap/command
+-------------------------------------------------------|----------------
+ Delete from current line to the end of the file       | `dG`
+ Delete from current line to the beginning of the file | `dgg`
+ Copy until next `c` in current line                   | `yfc`
+ Copy until end of sentence                            | `y)`
+ Indent until end of paragraph                         | `>}`
 
 ### Text object selection
 
@@ -984,23 +984,23 @@ See `:h substitute`.
 `nvim-cmp.nvim` provides completion support.
 `luasnip.nvim` provides extensive snippet functionality.
 
-Action | Keymap
----------|----------
-Scroll documentation window back | <kbd>Ctrl</kbd> + <kbd>d</kbd>
-Scroll documentation window forward | <kbd>Ctrl</kbd> + <kbd>f</kbd>
-Close | <kbd>Ctrl</kbd> + <kbd>e</kbd>
-Next entry | <kbd>Ctrl</kbd> + <kbd>n</kbd> OR `<Down>` OR <kbd>Tab</kbd>
-Previous entry | <kbd>Ctrl</kbd> + <kbd>p</kbd> OR `<Up>` OR <kbd>Shift</kbd> + <kbd>Tab</kbd>
-Accept suggestion | <kbd>Enter</kbd>
-**Toggle documentation window** | <kbd>Alt</kbd> + <kbd>d</kbd>
-Invoke completion | <kbd>Ctrl</kbd> + <kbd>Space</kbd>
-**Toggle autocompletion** | `<Leader>tc`
-**Go to next snippet node** | <kbd>Ctrl</kbd> + <kbd>k</kbd>
-**Go to previous snippet node** | <kbd>Ctrl</kbd> + <kbd>j</kbd>
-**Select current entry (Insert, Commandline mode)** | <kbd>Ctrl</kbd> + <kbd>y</kbd>
-**Complete common string (Insert, Commandline mode)** | <kbd>Ctrl</kbd> + <kbd>l</kbd>
-**Select choice (shows dropdown for choice node)** | <kbd>Ctrl</kbd> + <kbd>u</kbd>
-**List snippets** | `<leader>sl`
+ Action                                                | Keymap
+-------------------------------------------------------|-------------------------------------------------------------------------------
+ Scroll documentation window back                      | <kbd>Ctrl</kbd> + <kbd>d</kbd>
+ Scroll documentation window forward                   | <kbd>Ctrl</kbd> + <kbd>f</kbd>
+ Close                                                 | <kbd>Ctrl</kbd> + <kbd>e</kbd>
+ Next entry                                            | <kbd>Ctrl</kbd> + <kbd>n</kbd> OR `<Down>` OR <kbd>Tab</kbd>
+ Previous entry                                        | <kbd>Ctrl</kbd> + <kbd>p</kbd> OR `<Up>` OR <kbd>Shift</kbd> + <kbd>Tab</kbd>
+ Accept suggestion                                     | <kbd>Enter</kbd>
+ **Toggle documentation window**                       | <kbd>Alt</kbd> + <kbd>d</kbd>
+ Invoke completion                                     | <kbd>Ctrl</kbd> + <kbd>Space</kbd>
+ **Toggle autocompletion**                             | `<Leader>tc`
+ **Go to next snippet node**                           | <kbd>Ctrl</kbd> + <kbd>k</kbd>
+ **Go to previous snippet node**                       | <kbd>Ctrl</kbd> + <kbd>j</kbd>
+ **Select current entry (Insert, Commandline mode)**   | <kbd>Ctrl</kbd> + <kbd>y</kbd>
+ **Complete common string (Insert, Commandline mode)** | <kbd>Ctrl</kbd> + <kbd>l</kbd>
+ **Select choice (shows dropdown for choice node)**    | <kbd>Ctrl</kbd> + <kbd>u</kbd>
+ **List snippets**                                     | `<leader>sl`
 
 Actions in **bold** above are custom actions I added in addition to those to provided by NvChad.
 
@@ -1061,11 +1061,11 @@ Direction is one of: `horizontal`, `vvertical`, `float`, `tab`.
 
 ##### Sending lines to the terminal
 
-Action | Keymap
----------|----------
-Send current line to terminal 1 | `:ToggleTermSendCurrentLine 1`
-Send all the (whole) lines in your visual selection | `:ToggleTermSendVisualLines`
-Sends only the visually selected text | `:ToggleTermSendVisualSelection`
+ Action                                              | Keymap
+-----------------------------------------------------|----------------------------------
+ Send current line to terminal 1                     | `:ToggleTermSendCurrentLine 1`
+ Send all the (whole) lines in your visual selection | `:ToggleTermSendVisualLines`
+ Sends only the visually selected text               | `:ToggleTermSendVisualSelection`
 
 Specifying terminal in above commandss is optional. If missing, it defaults to the first terminal.
 
@@ -1077,42 +1077,42 @@ To launch, press <kbd>Ctrl</kbd> + <kbd>n</kbd>. To close, press <kbd>q</kbd>.
 
 Here are some useful key maps for when the window is displayed:
 
-Action | Keymap
----------|----------
-**Change root to input path** | <kbd>Alt</kbd> + <kbd>r</kbd>
-Change root to node | <kbd>Ctrl</kbd> + <kbd>\]</kbd>
-**Change root to global cwd** | <kbd>Ctl</kbd> + <kbd>c</kbd>
-**Launch Find Files** | <kbd>Ctrl</kbd> + <kbd>f</kbd>
-**Launch Live Grep** | <kbd>Ctrl</kbd> + <kbd>g</kbd>
-**Print path** | <kbd>Ctrl</kbd> + <kbd>p</kbd>
-Open: Horizontal split | <kbd>Ctrl</kbd> + <kbd>x</kbd>
-Open | <kbd>Enter</kbd>
-Open: Vertical split | <kbd>Shift</kbd> + <kbd>l</kbd>
-Next sibling | <kbd>></kbd>
-Previous sibling | <kbd><</kbd>
-Change root to parent | <kbd>-</kbd>
-Prev git | <kbd>\[</kbd> + <kbd>c</kbd>
-Next git | <kbd>\]</kbd> + <kbd>c</kbd>
-Delete | <kbd>d</kbd>
-Expand All | <kbd>Shift</kbd> + <kbd>e</kbd>
-Rename: Basename | <kbd>e</kbd>
-Live Filter: Clear | <kbd>Shift</kbd> + <kbd>f</kbd>
-Live Filter: Search | <kbd>f</kbd>
-Help | <kbd>g</kbd> + <kbd>?</kbd>
-Copy Basename | <kbd>g</kbd> +  <kbd>e</kbd>
-**Toggle hidden files** | <kbd>g</kbd> +  <kbd>h</kbd>
-**Toggle group empty** | <kbd>g</kbd> +  <kbd>l</kbd>
-Copy absolute path | <kbd>g</kbd> +  <kbd>y</kbd>
-**Close parent folder** | <kbd>h</kbd>
-**Collapse all** | <kbd>Shift</kbd> + <kbd>h</kbd>
-Move down | <kbd>j</kbd>
-Move up | <kbd>k</kbd>
-**Expand folder or go to file** | <kbd>l</kbd>
-**Vsplit Preview** | <kbd>Shift</kbd> + <kbd>l</kbd>
-Toggle bookmark | <kbd>m</kbd>
-Collapse all | <kbd>Shift</kbd> + <kbd>w</kbd>
-Copy name | <kbd>y</kbd>
-Copy relative path | <kbd>Shift</kbd> +  <kbd>y</kbd>
+ Action                          | Keymap
+---------------------------------|----------------------------------
+ **Change root to input path**   | <kbd>Alt</kbd> + <kbd>r</kbd>
+ Change root to node             | <kbd>Ctrl</kbd> + <kbd>\]</kbd>  
+ **Change root to global cwd**   | <kbd>Ctl</kbd> + <kbd>c</kbd>
+ **Launch Find Files**           | <kbd>Ctrl</kbd> + <kbd>f</kbd>
+ **Launch Live Grep**            | <kbd>Ctrl</kbd> + <kbd>g</kbd>
+ **Print path**                  | <kbd>Ctrl</kbd> + <kbd>p</kbd>
+ Open: Horizontal split          | <kbd>Ctrl</kbd> + <kbd>x</kbd>
+ Open                            | <kbd>Enter</kbd>
+ Open: Vertical split            | <kbd>Shift</kbd> + <kbd>l</kbd>  
+ Next sibling                    | <kbd>></kbd>
+ Previous sibling                | <kbd><</kbd>
+ Change root to parent           | <kbd>-</kbd>
+ Prev git                        | <kbd>\[</kbd> + <kbd>c</kbd>
+ Next git                        | <kbd>\]</kbd> + <kbd>c</kbd>
+ Delete                          | <kbd>d</kbd>
+ Expand All                      | <kbd>Shift</kbd> + <kbd>e</kbd>  
+ Rename: Basename                | <kbd>e</kbd>
+ Live Filter: Clear              | <kbd>Shift</kbd> + <kbd>f</kbd>  
+ Live Filter: Search             | <kbd>f</kbd>
+ Help                            | <kbd>g</kbd> + <kbd>?</kbd>
+ Copy Basename                   | <kbd>g</kbd> +  <kbd>e</kbd>
+ **Toggle hidden files**         | <kbd>g</kbd> +  <kbd>h</kbd>
+ **Toggle group empty**          | <kbd>g</kbd> +  <kbd>l</kbd>
+ Copy absolute path              | <kbd>g</kbd> +  <kbd>y</kbd>
+ **Close parent folder**         | <kbd>h</kbd>
+ **Collapse all**                | <kbd>Shift</kbd> + <kbd>h</kbd>  
+ Move down                       | <kbd>j</kbd>
+ Move up                         | <kbd>k</kbd>
+ **Expand folder or go to file** | <kbd>l</kbd>
+ **Vsplit Preview**              | <kbd>Shift</kbd> + <kbd>l</kbd>  
+ Toggle bookmark                 | <kbd>m</kbd>
+ Collapse all                    | <kbd>Shift</kbd> + <kbd>w</kbd>  
+ Copy name                       | <kbd>y</kbd>
+ Copy relative path              | <kbd>Shift</kbd> +  <kbd>y</kbd>
 
 All actions in **bold** in the table above have custom keymaps. The other commands use plugin defaults.
 
@@ -1130,41 +1130,42 @@ All actions in **bold** in the table above have custom keymaps. The other comman
 <details>
   <summary>General</summary>
 
-Action | Keymap/command
----------|----------
-Bookmarks | `<leader>fM`
-Find buffers | `<leaderfB`
-Commands | `<leader>fcC`
-Command History | `<leader>fch`
-Colorschemes | `<leader>fcs`
-Keymap | `<leader>fk`
-Search History | `<leader>fS`
-Undo tree | `<leader>fu`
-Search buffers | `<leader>fy`
-Search emojis | `<leader>fe`
-Notifications | `<leader>fn`
-Jumplist | `<leader>fj`
-Registers | `<leader>fR`
-LuaSnip | `<leader>fs`
-Tags | `<leader>ftt`
-Tabs | `<leader>ftT`
-Treesitter | `<leader>fts`
+ Action          | Keymap/command
+-----------------|----------------
+ Bookmarks       | `<leader>fM`
+ Find buffers    | `<leaderfB`
+ Commands        | `<leader>fcC`  
+ Command History | `<leader>fch`  
+ Colorschemes    | `<leader>fcs`  
+ Keymap          | `<leader>fk`
+ Search History  | `<leader>fS`
+ Undo tree       | `<leader>fu`
+ Search buffers  | `<leader>fy`
+ Search emojis   | `<leader>fe`
+ Notifications   | `<leader>fn`
+ Jumplist        | `<leader>fj`
+ Registers       | `<leader>fR`
+ LuaSnip         | `<leader>fs`
+ Tags            | `<leader>ftt`  
+ Tabs            | `<leader>ftT`  
+ Treesitter      | `<leader>fts`  
+ Noice          | `<leader>fN`
 
 </details>
 
 <details>
   <summary>Files</summary>
 
-Action | Keymap/command
----------|----------
-File browser | `<leader>fb`
-Search home | `<leader>fh`
-Search config | `<leader>fcc`
-frecency | `<leader>fF<Space>`
-frecency (CWD)s | `<leader>fFc`
-Old files | `<leader>fo`
-Find files | `<leader>ff`
-Live grep | `<leader>fw`
+ Action          | Keymap/command
+-----------------|---------------------
+ File browser    | `<leader>fb`
+ Search home     | `<leader>fh`
+ Search config   | `<leader>fcc`
+ frecency        | `<leader>fF<Space>`
+ frecency (CWD)s | `<leader>fFc`
+ Old files       | `<leader>fo`
+ Find files      | `<leader>ff`
+ Live grep       | `<leader>fw`
 
 Courtesy of [togglescope](https://github.com/Theo-Steiner/togglescope), `C-\>` toggles between excluding (default) and including hidden and ignored files for **Find files** and **Live grep**.
 
@@ -1173,22 +1174,23 @@ Courtesy of [togglescope](https://github.com/Theo-Steiner/togglescope), `C-\>` t
 <details>
   <summary>Help</summary>
 
-Action | Keymap/command
----------|----------
-Help page | `<leader>f?`
-Man Pages | `<leader>fm`
-Grep help (live grep) | `<leader>fHl`
-Grep help (grep string) | `<leader>fHg`
+ Action                  | Keymap/command
+-------------------------|----------------
+ Help page               | `<leader>f?`
+ Man Pages               | `<leader>fm`
+ Grep help (live grep)   | `<leader>fHl`  
+ Grep help (grep string) | `<leader>fHg`  
 
 </details>
 
 <details>
   <summary>LSP</summary>
 
-Action | Keymap/command
----------|----------
-Search Document Symbols | `<leader>fls`
-Search Workspace Symbols | `<leader>flw`
+ Action                           | Keymap/command
+----------------------------------|---------------
+ Search Document Symbols          | `<leader>fls`
+ Search Workspace Symbols         | `<leader>flw`
+ Search Dynamic Workspace Symbols | `<leader>fld`
 
 </details>
 
@@ -1208,13 +1210,13 @@ git status (from  NvChad) | `<leader>gt`
 
 [Legendary](https://github.com/mrjones2014/legendary.nvim) provides a legend for your keymaps, commands, and autocmds.
 
-Action | Keymap/command
----------|----------
-Legend | `:Legendary`
-Search keymaps | `:Legendary keymaps`
-Search commands | `:Legendary commands`
-Search functions | `:Legendary functions`
-Repeat the last item executed via legendary.nvim's finder | `:LegendaryRepeat`
+ Action                                                    | Keymap/command
+ -----------------------------------------------------------|------------------------
+ Search commands                                           | `:Legendary commands`
+ Search functions                                          | `:Legendary functions`
+ Search keymaps                                            | `:Legendary keymaps`
+ Legend                                                    | `:Legendary`
+ Repeat the last item executed via legendary.nvim's finder | `:LegendaryRepeat`
 
 #### vim-tmux-navigator
 
