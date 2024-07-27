@@ -861,15 +861,12 @@ fc-list
     curl -s https://ohmyposh.dev/install.sh | sudo bash -s -- -d ~/bin
     ```
 
-2. Download themes:
+2. Themes are written to `/root/.cache/oh-my-posh/themes/`. You may need to fix permissions for this directory:
 
-    ```shell
-    ## Download the themes 
-    mkdir ~/.poshthemes
-    wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/themes.zip -O ~/.poshthemes/themes.zip
-    unzip ~/.poshthemes/themes.zip -d ~/.poshthemes
-    chmod u+rw ~/.poshthemes/*.json
-    rm ~/.poshthemes/themes.zip
+    ```bash
+    sudo chmod o+rx /root/.cache/oh-my-posh/themes/
+    sudo chmod o+rx /root/.cache/oh-my-posh/
+    sudo chmod o+rx /root/.cache/
     ```
 
 3. [Fonts](https://ohmyposh.dev/docs/installation/fonts)
@@ -877,7 +874,7 @@ fc-list
 4. [Set up prompt](https://ohmyposh.dev/docs/installation/prompt): Add the following to you `~/.bashrc` and then source it. Replace `{theme}` below with your preferred theme:
 
 ```shell
-eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/{theme}.omp.json)"
+eval "$(oh-my-posh --init --shell bash --config /root/.cache/oh-my-posh/themes/{theme}.omp.json)"
 ```
 
 ## Lua
