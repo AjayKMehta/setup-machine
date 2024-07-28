@@ -1242,13 +1242,13 @@ Courtesy of [togglescope](https://github.com/Theo-Steiner/togglescope), `C-\>` t
 
 [This plugin](https://github.com/christoomey/vim-tmux-navigator) provides seamless navigation between tmux panes and vim splits.
 
-Action | Keymap/command
----------|----------
-Left | <kbd>Ctrl</kbd> + <kbd>h</kbd>
-Right | <kbd>Ctrl</kbd> + <kbd>l</kbd>
-Up | <kbd>Ctrl</kbd> + <kbd>k</kbd>
-Down | <kbd>Ctrl</kbd> + <kbd>j</kbd>
-Go to previous | <kbd>Ctrl</kbd> + <kbd>\\</kbd>
+ Action         | Keymap/command
+----------------|---------------------------------
+ Left           | <kbd>Ctrl</kbd> + <kbd>h</kbd>  
+ Right          | <kbd>Ctrl</kbd> + <kbd>l</kbd>  
+ Up             | <kbd>Ctrl</kbd> + <kbd>k</kbd>  
+ Down           | <kbd>Ctrl</kbd> + <kbd>j</kbd>  
+ Go to previous | <kbd>Ctrl</kbd> + <kbd>\\</kbd>
 
 You also need to setup the same mappings in your `.tmux.conf`. The easiest way to do is add this to the file:
 
@@ -1290,13 +1290,13 @@ DAP stands for Debug Adapter Protocol.
 
 Kept same shortcuts as Visual Studio:
 
-Action | Keymap/command
----------|----------
-Toggle breakpoint | <kbd>F9</kbd>
-Launch debugger | <kbd>F5</kbd>
-Step over | <kbd>F10</kbd>
-Step into | <kbd>F11</kbd>
-Step out | <kbd>Shift</kbd> + <kbd>F11</kbd>
+ Action            | Keymap/command
+-------------------|-----------------------------------
+ Toggle breakpoint | <kbd>F9</kbd>
+ Launch debugger   | <kbd>F5</kbd>
+ Step over         | <kbd>F10</kbd>
+ Step into         | <kbd>F11</kbd>
+ Step out          | <kbd>Shift</kbd> + <kbd>F11</kbd>
 
 ### Editing
 
@@ -1339,17 +1339,17 @@ There are also insert-mode *<C-g>s* and visual-mode *S* mappings, that add the d
 
 For the following examples, `*` denotes the cursor position and `|` demarcates the start and end of a visual selection:
 
-Old text                   | Command   | New text
----------------------------|-----------|------------------------
-`surr*ound_words`          | `ysiw)`     | `(surround_words)`
-`*make strings`            | `ys$"`      | `"make strings"`
-`[delete ar*ound me!]`     | `ds]`       | `delete around me!`
-`remove <b>HTML t*ags</b>` | `dst`       | `remove HTML tags`
-`'change quot*es'`         | `cs'"`      | `"change quotes"`
-`<b>or tag* types</b>`     | `csth1<CR>` | `<h1>or tag types</h1>`
-`delete(functi*on calls)`  | `dsf`       | `function calls`
-`local str = *` (insert mode) | `<C-g>s"`  | `local str = "*"`
-`local str = \|some text\|` (visual mode)  | `S'` | `local str = 'some text'`
+ Old text                                  | Command     | New text
+-------------------------------------------|-------------|---------------------------
+ `surr*ound_words`                         | `ysiw)`     | `(surround_words)`
+ `*make strings`                           | `ys$"`      | `"make strings"`
+ `[delete ar*ound me!]`                    | `ds]`       | `delete around me!`
+ `remove <b>HTML t*ags</b>`                | `dst`       | `remove HTML tags`
+ `'change quot*es'`                        | `cs'"`      | `"change quotes"`
+ `<b>or tag* types</b>`                    | `csth1<CR>` | `<h1>or tag types</h1>`
+ `delete(functi*on calls)`                 | `dsf`       | `function calls`
+ `local str = *` (insert mode)             | `<C-g>s"`   | `local str = "*"`
+ `local str = \|some text\|` (visual mode) | `S'`        | `local str = 'some text'`
 
 Detailed information on how to use this plugin can be found in [`:h nvim-surround.usage`](https://github.com/kylechui/nvim-surround/blob/main/doc/nvim-surround.txt).
 
@@ -1359,47 +1359,48 @@ The  `yr`[^5] operator is a special case for `ys`, and operates on the **current
 
 [^5]: I overrode the default mappings of `yss` and `ySS` with `yr` and `yR` to make this smoother and eliminate warnings about overlapping keymaps.
 
-Old text                   | Command   | New text
----------------------------|-----------|------------------------
-`hel*lo world`  | `yss'`  | `'hello world'`
-`This is cool` | `ySStp` | <code>\<p><br>This is cool<br>\<p></code>
+ Old text       | Command | New text
+----------------|---------|-------------------------------------------
+ `hel*lo world` | `yr'`   | `'hello world'`
+ `This is cool` | `yRtp`  | <code>\<p><br>This is cool<br>\<p></code>
 
 The `<C-g>S` insert-mode operator is analogous to `C-g>s`, but adds the delimiter pair on new lines.
 
-Old text                   | Command   | New text
----------------------------|-----------|------------------------
-`func_name*`  (insert mode) |  `<C-g>S` | <code>func\_name(<br>*<br>)</code>
+ Old text                    | Command  | New text
+----------------------------|----------|------------------------------------
+ `func_name*`  (insert mode) | `<C-g>S` | <code>func\_name(<br>*<br>)</code>
 
 The `cS` normal-mode operator is analogous to `cs`, but adds the replacement delimiter pair on new lines.
 
-Old text                   | Command   | New text
----------------------------|-----------|------------------------
-`func(a*rgs)`  |  `cS))` | <code>func(<br>args<br>)</code>
+ Old text      | Command | New text
+---------------|---------|---------------------------------
+ `func(a*rgs)` | `cS))`  | <code>func(<br>args<br>)</code>
 
 ##### Default pairs
 
 When using open-close pairs like `()`, adding a surround with opening character adds a space between character and text but using closing character does not.
 
-Old text                   | Command   | New text
----------------------------|-----------|------------------------
-`hel*lo`          | `ysiw)`     | `(hello)`
-`hel*lo`          | `ysiw(`     | `( hello )`
+ Old text | Command | New text
+----------|---------|-------------
+ `hel*lo` | `ysiw)` | `(hello)`
+ `hel*lo` | `ysiw(` | `( hello )`
 
 This applies for `()`, `{}`, `[]`, and `<>` pairs.
 
 When deleting or changing open/close pairs, **the closing character always leaves whitespace intact**, while the opening character will try to remove a whitespace character (if it exists).
 
-Old text             | Command | New text
+ Old text             | Command | New text
 ----------------------|---------|-------------------
-`{( sa*mple_text )}` | `ds(`   | `{sample_text}`
-`{( sa*mple_text )}` | `ds)`   | `{ sample_text }`
-`(sa*mple_text)` | `cs({`   | `{ sample_text }`
-`( sa*mple_text )` | `cs)}`   | `{ sample_text }`
-`( sa*mple_text )` | `cs){`   | `{ sample_text }`
+ `{( sa*mple_text )}` | `ds(`   | `{sample_text}`
+ `{( sa*mple_text )}` | `ds)`   | `{ sample_text }`
+ `(sa*mple_text)`     | `cs({`  | `{ sample_text }`
+ `( sa*mple_text )`   | `cs)}`  | `{ sample_text }`
+ `( sa*mple_text )`   | `cs){`  | `{ sample_text }`
 
 There is an "insert" key, denoted by `i`. It queries the user for what should go on the left and right hand sides of a selection, and adds the delimiter pair to the buffer.
 
-For example, typing `yssi` for `Neo*vim` will bring up 2 prompts for left and right delimiter respectively. If we enter, `Hi,` and `is great.`, then text becomes: `Hi, Neovim is great.`
+<!-- markdownlint-disable-next-line MD038 -->
+For example, typing `yri` for `Neo*vim` will bring up 2 prompts for left and right delimiter respectively. If we enter, `Hi, ` and ` is great.`, then text becomes: `Hi, Neovim is great.`
 
 ##### Aliases
 
@@ -1407,13 +1408,13 @@ For example, typing `yssi` for `Neo*vim` will bring up 2 prompts for left and ri
 
 The other type of alias is a "tabular alias" e.g. `q` is for quotes (`'`, `"`, `` ` ``). It will always work on nearest match.
 
-Old text             | Command | New text
-----------------------|---------|-------------------
-`"Nested '*quotes'"`| `dsq` | `"Nested quotes"`
-`"Nes*ted 'quotes'"` | `dsq` | `Nested 'quotes'`
-`"Nes*ted 'quotes'"` | `csqb` | `(Nested 'quotes')`
+ Old text             | Command | New text
+----------------------|---------|---------------------
+ `"Nested '*quotes'"` | `dsq`   | `"Nested quotes"`
+ `"Nes*ted 'quotes'"` | `dsq`   | `Nested 'quotes'`
+ `"Nes*ted 'quotes'"` | `csqb`  | `(Nested 'quotes')`
 
-Here are the aliases based on default configuration:
+Here are the aliases based on the default configuration:
 
 ```lua
 aliases = {
@@ -1438,12 +1439,12 @@ By default (`move_cursor = "begin"`), the cursor will move to the beginning of t
 
 #### nvim-treesitter
 
-Action | Keymap
----------|----------
-Initialize selection | `<leader>ti`
-Increment selection to named node | `<leader>tk`
-Shrink selection to previous named node | `<leader>tj`
-Increment selection to surrounding scope | `<leader>ts`
+ Action                                   | Keymap
+------------------------------------------|--------------
+ Initialize selection                     | `<leader>ti`
+ Increment selection to named node        | `<leader>tk`
+ Shrink selection to previous named node  | `<leader>tj`
+ Increment selection to surrounding scope | `<leader>ts`
 
 See `:h nvim-treesitter-commands`.
 
@@ -1459,25 +1460,25 @@ Syntax aware text-objects, select, move, swap, and peek support.
 
 ##### Select
 
-Action | Keymap
----------|----------
-Select outer part of an assignment | `va=`
-Select inner part of an assignment | `vi=`
-Select left hand side of an assignment | `vL=`
-Select right hand side of an assignment | `vR=`
-Select outer part of a parameter/argument | `vaa`
-Select inner part of a parameter/argument | `via`
-Select outer part of a conditional | `vai`
-Select inner part of a conditional | `vii`
-Select outer part of a loop | `val`
-Select inner part of a loop | `vil`
-Select outer part of a function call | `vaf`
-Select inner part of a function call | `vif`
-Select outer part of a method/function definition | `vam`
-Select inner part of a method/function definition | `vim`
-Select outer part of a class | `vac`
-Select inner part of a class | `vic`
-~~Select language scope~~ | ~~`vaS`~~
+ Action                                            | Keymap
+---------------------------------------------------|-----------
+ Select outer part of an assignment                | `va=`
+ Select inner part of an assignment                | `vi=`
+ Select left hand side of an assignment            | `vL=`
+ Select right hand side of an assignment           | `vR=`
+ Select outer part of a parameter/argument         | `vaa`
+ Select inner part of a parameter/argument         | `via`
+ Select outer part of a conditional                | `vai`
+ Select inner part of a conditional                | `vii`
+ Select outer part of a loop                       | `val`
+ Select inner part of a loop                       | `vil`
+ Select outer part of a function call              | `vaf`
+ Select inner part of a function call              | `vif`
+ Select outer part of a method/function definition | `vam`
+ Select inner part of a method/function definition | `vim`
+ Select outer part of a class                      | `vac`
+ Select inner part of a class                      | `vic`
+ ~~Select language scope~~                         | ~~`vaS`~~
 
 :bulb: Pattern is `v<selection_style><node>`.
 
@@ -1491,73 +1492,73 @@ An example: `]f` will navigate to **start** (`f` is lower case) of **next** (`]`
 
 ###### Goto next start
 
-Action | Keymap
----------|----------
-Next function call start | `]f`
-Next method/function def start | `]m`
-Next class start | `]c`
-Next conditional start | `]i`
-Next loop start | `]l`
-Next fold | `]Z`
+ Action                         | Keymap
+--------------------------------|--------
+ Next function call start       | `]f`
+ Next method/function def start | `]m`
+ Next class start               | `]c`
+ Next conditional start         | `]i`
+ Next loop start                | `]l`
+ Next fold                      | `]Z`
 
 ###### Goto next end
 
-Action | Keymap
----------|----------
-Next function call end | `]F`
-Next method/function def end | `]M`
-Next class end | `]C`
-Next conditional end | `]I`
-Next loop end | `]L`
+ Action                       | Keymap
+------------------------------|--------
+ Next function call end       | `]F`
+ Next method/function def end | `]M`
+ Next class end               | `]C`
+ Next conditional end         | `]I`
+ Next loop end                | `]L`
 
 ###### Goto previous start
 
-Action | Keymap
----------|----------
-Previous function call start | `[f`
-Previous method/function def start | `[m`
-Previous class start | `[c`
-Previous conditional start | `[i`
-Previous loop start | `[l`
+ Action                             | Keymap
+------------------------------------|--------
+ Previous function call start       | `[f`
+ Previous method/function def start | `[m`
+ Previous class start               | `[c`
+ Previous conditional start         | `[i`
+ Previous loop start                | `[l`
 
 ###### Goto previous end
 
-Action | Keymap
----------|----------
-Previous function call end | `[F`
-Previous method/function def end | `[M`
-Previous class end | `[C`
-Previous conditional end | `[I`
-Previous loop end | `[L`
+ Action                           | Keymap
+----------------------------------|-------
+ Previous function call end       | `[F`
+ Previous method/function def end | `[M`
+ Previous class end               | `[C`
+ Previous conditional end         | `[I`
+ Previous loop end                | `[L`
 
 ##### Swap
 
-Action | Keymap
----------|----------
-Swap with previous function | `<leader>pm`
-Swap with previous property | `<leader>p:`
-Swap with previous parameter/argument | `<leader>pa`
-Swap with next function | `<leader>nm`
-Swap with next property | `<leader>n:`
-Swap with next parameter/argument | `<leader>na`
+ Action                                | Keymap
+--------------------------------------|--------------
+ Swap with previous function           | `<leader>pm`
+ Swap with previous property           | `<leader>p:`
+ Swap with previous parameter/argument | `<leader>pa`
+ Swap with next function               | `<leader>nm`
+ Swap with next property               | `<leader>n:`
+ Swap with next parameter/argument     | `<leader>na`
 
 ##### LSP interop
 
-Action | Keymap
----------|----------
-Peek definition of outer class | `<leader>pc`
-Peek definition of outer function | `<leader>pf`
+ Action                            | Keymap
+-----------------------------------|--------------
+ Peek definition of outer class    | `<leader>pc`
+ Peek definition of outer function | `<leader>pf`
 
 #### nvim-treesitter-refactor
 
-Action | Keymap
----------|----------
-Smart rename | `grr`
-Go to definition | `gd`
-List definitions | `gld`
-List definitions TOC | `glt`
-Go to next usage | <kbd>Shift</kbd> + <kbd>*</kbd>
-Go to previous usage | <kbd>Shift</kbd> + <kbd>#</kbd>
+ Action               | Keymap
+----------------------|---------------------------------
+ Smart rename         | `grr`
+ Go to definition     | `gd`
+ List definitions     | `gld`
+ List definitions TOC | `glt`
+ Go to next usage     | <kbd>Shift</kbd> + <kbd>*</kbd>
+ Go to previous usage | <kbd>Shift</kbd> + <kbd>#</kbd>
 
 #### syntax-tree-surfer
 
@@ -1565,50 +1566,50 @@ Go to previous usage | <kbd>Shift</kbd> + <kbd>#</kbd>
 
 ##### Normal mode
 
-Action | Keymap
----------|----------
-Swap node with sibling above | `vu`
-Swap node with sibling below | `vd`
-Swap master node with above | `vU`
-Swap master node with below | `vD`
+ Action                       | Keymap
+------------------------------|--------
+ Swap node with sibling above | `vu`
+ Swap node with sibling below | `vd`
+ Swap master node with above  | `vU`
+ Swap master node with below  | `vD`
 
 The actions above are dot-repeatable.
 
-Action | Keymap
----------|----------
-Select master node | `vx`
-Select current node | `vn`
-Hold or swap node | `gh`
+ Action              | Keymap
+---------------------|--------
+ Select master node  | `vx`
+ Select current node | `vn`
+ Hold or swap node   | `gh`
 
 Jumps:
 
-Action | Keymap
----------|----------
-Jump to any statement | `gja`
-Jump to function definition | `gjf`
-Jump to variable declaration | `gjv`
-Jump to if statement | `gji`
-Jump to loop statement | `gjl`
+ Action                       | Keymap
+------------------------------|--------
+ Jump to any statement        | `gja`  
+ Jump to function definition  | `gjf`  
+ Jump to variable declaration | `gjv`  
+ Jump to if statement         | `gji`  
+ Jump to loop statement       | `gjl`  
 
 ##### Visual mode
 
-Action | Keymap
----------|----------
-Select next sibling | `J`
-Select previous sibling | `K`
-Select parent node | `H`
-Select child node | `L`
-Swap with next sibling | <kbd>Shift</kbd> + <kbd>j</kbd>
-Swap with previous sibling | <kbd>Shift</kbd> + <kbd>k</kbd>
+ Action                     | Keymap
+----------------------------|---------------------------------
+ Select next sibling        | `J`
+ Select previous sibling    | `K`
+ Select parent node         | `H`
+ Select child node          | `L`
+ Swap with next sibling     | <kbd>Shift</kbd> + <kbd>j</kbd>
+ Swap with previous sibling | <kbd>Shift</kbd> + <kbd>k</kbd>
 
 #### nvim-treesitter-textsubjects
 
 Location and syntax aware text objects which *do what you mean*.
 
-Motion | Keymap
----------|----------
-Smart select | `.`
-Select outer container | `;`
-Select inner container | `i;`
+ Motion                 | Keymap
+------------------------|--------
+ Smart select           | `.`
+ Select outer container | `;`
+ Select inner container | `i;`
 
 These work with `d`, `v`, etc.
