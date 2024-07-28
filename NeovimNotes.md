@@ -1355,7 +1355,9 @@ Detailed information on how to use this plugin can be found in [`:h nvim-surroun
 
 ##### More Mappings
 
-The `yss` operator is a special case for `ys`, and operates on the **current line** via `yss{char}`, ignoring leading and trailing whitespace. The `yS` and `ySS` operators are analogous to `ys` and `yss`, but add the delimiter pair on new lines.
+The  `yr`[^5] operator is a special case for `ys`, and operates on the **current line** via `yr{char}`, ignoring leading and trailing whitespace. The `yS` and `yR` operators are analogous to `ys` and `yr`, but add the delimiter pair on new lines.
+
+[^5]: I overrode the default mappings of `yss` and `ySS` with `yr` and `yR` to make this smoother and eliminate warnings about overlapping keymaps.
 
 Old text                   | Command   | New text
 ---------------------------|-----------|------------------------
