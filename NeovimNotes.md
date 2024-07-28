@@ -317,7 +317,11 @@ To invoke previously-played macro: <kbd>@</kbd> + <kbd>@</kbd>.
 
 To run macro on visual selection:  `:'<,'> norm @x`.
 
-To modify macro, edit register's contents.
+To modify macro, edit register's contents:
+
+1. Paste register contents: `"wp`.
+2. Make edits. To enter special characters (in insert mode) like <kbd>Esc</kbd>, press <kbd>Ctrl</kbd> + <kbd>v</kbd> then the character. In this case, this will lead to `^[` for <kbd>Esc</kbd>.
+3. Place cursor on first character and `"wy`.
 
 ### Keymaps
 
