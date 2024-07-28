@@ -1137,7 +1137,7 @@ All actions in **bold** in the table above have custom keymaps. The other comman
   <summary>General</summary>
 
  Action          | Keymap/command
------------------|----------------
+ -----------------|---------------
  Bookmarks       | `<leader>fM`
  Find buffers    | `<leaderfB`
  Commands        | `<leader>fcC`  
@@ -1155,6 +1155,7 @@ All actions in **bold** in the table above have custom keymaps. The other comman
  Tags            | `<leader>ftt`  
  Tabs            | `<leader>ftT`  
  Treesitter      | `<leader>fts`  
+ TODO/Fix/FixMe  | `<leader>ftS`  
  Noice           | `<leader>fN`
 
 </details>
@@ -1203,6 +1204,13 @@ Courtesy of [togglescope](https://github.com/Theo-Steiner/togglescope), `C-\>` t
 <details>
   <summary>git</summary>
 
+ Action                   | Keymap/command
+--------------------------|----------------
+ Checkout branch          | `<leader>ga`
+ Checkout commit          | `<leader>gc`
+ git stash                | `<leader>gs`
+ git status (from NvChad) | `<leader>gt`
+
 Action | Keymap/command
 ---------|----------
 Checkout branch | `<leader>ga`
@@ -1250,7 +1258,7 @@ set -g @plugin 'christoomey/vim-tmux-navigator'
 
 See [here](https://github.com/hedyhli/outline.nvim#default-keymaps) for default keymaps.
 
-Activate via `<leader>` + <kbd>g</kbd> + <kbd>o</kbd>.
+Activate via `<leader>go`.
 
 #### Diffview
 
@@ -1290,26 +1298,26 @@ Step out | <kbd>Shift</kbd> + <kbd>F11</kbd>
 
 [mini.move](https://github.com/echasnovski/mini.move) lets you move lines in Normal/Visual mode.
 
-Action | Keymap/command
----------|----------
-Left | <kbd>Alt</kbd> + <kbd>h</kbd>
-Right | <kbd>Alt</kbd> + <kbd>l</kbd>
-Up | <kbd>Alt</kbd> + <kbd>k</kbd>
-Down | <kbd>Alt</kbd> + <kbd>j</kbd>
+ Action | Keymap/command
+--------|-------------------------------
+ Left   | <kbd>Alt</kbd> + <kbd>h</kbd>
+ Right  | <kbd>Alt</kbd> + <kbd>l</kbd>
+ Up     | <kbd>Alt</kbd> + <kbd>k</kbd>
+ Down   | <kbd>Alt</kbd> + <kbd>j</kbd>
 
 #### nvim-spider
 
 This plugin extends regular `web` motions to handle snake and camel case!
 
-I have mapped the actions separately to avoid clobbering default behavior.
+> :bulb: I have mapped the actions to different mappings to avoid clobbering the default mappings.
 
-Action | Keymap
----------|----------
-Move to next word | <kbd>Alt</kbd> + <kbd>w</kbd>
-Move to end of word | <kbd>Alt</kbd> + <kbd>e</kbd>
-Move to beginning of word | <kbd>Alt</kbd> + <kbd>b</kbd>
-Move to end of previous word | <kbd>g</kbd> + <kbd>E</kbd>
-Move to number | <kbd>1</kbd>
+ Action                       | Keymap
+------------------------------|-------------------------------
+ Move to next word            | <kbd>Alt</kbd> + <kbd>w</kbd>
+ Move to end of word          | <kbd>Alt</kbd> + <kbd>e</kbd>
+ Move to beginning of word    | <kbd>Alt</kbd> + <kbd>b</kbd>
+ Move to end of previous word | <kbd>g</kbd> + <kbd>E</kbd>
+ Move to number               | <kbd>1</kbd>
 
 #### [nvim-surround](https://github.com/kylechui/nvim-surround)
 
@@ -1321,8 +1329,7 @@ This provides three separate operators:
 
 Repeatable via `.`
 
-There are also insert-mode *<C-g>s* and visual-mode *S* mappings, that
-add the delimiter pair around the cursor and visual selection, respectively.
+There are also insert-mode *<C-g>s* and visual-mode *S* mappings, that add the delimiter pair around the cursor and visual selection, respectively.
 
 For the following examples, `*` denotes the cursor position and `|` demarcates the start and end of a visual selection:
 
@@ -1336,7 +1343,7 @@ Old text                   | Command   | New text
 `<b>or tag* types</b>`     | `csth1<CR>` | `<h1>or tag types</h1>`
 `delete(functi*on calls)`  | `dsf`       | `function calls`
 `local str = *` (insert mode) | `<C-g>s"`  | `local str = "*"`
-'local str = \|some text\|' (visual mode)  | `S'` | `local str = 'some text'`
+`local str = \|some text\|` (visual mode)  | `S'` | `local str = 'some text'`
 
 Detailed information on how to use this plugin can be found in [`:h nvim-surround.usage`](https://github.com/kylechui/nvim-surround/blob/main/doc/nvim-surround.txt).
 
@@ -1349,7 +1356,7 @@ Old text                   | Command   | New text
 `hel*lo world`  | `yss'`  | `'hello world'`
 `This is cool` | `ySStp` | <code>\<p><br>This is cool<br>\<p></code>
 
-The `<C-g>S` insert-mode operator is analogous to `C-g>s`|`, but adds the delimiter pair on new lines.
+The `<C-g>S` insert-mode operator is analogous to `C-g>s`, but adds the delimiter pair on new lines.
 
 Old text                   | Command   | New text
 ---------------------------|-----------|------------------------
