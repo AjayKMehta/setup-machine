@@ -1211,12 +1211,18 @@ Courtesy of [togglescope](https://github.com/Theo-Steiner/togglescope), `C-\>` t
  git stash                | `<leader>gs`
  git status (from NvChad) | `<leader>gt`
 
-Action | Keymap/command
----------|----------
-Checkout branch | `<leader>ga`
-Checkout commit | `<leader>gc`
-git stash | `<leader>gs`
-git status (from  NvChad) | `<leader>gt`
+</details>
+
+<details>
+  <summary>DAP</summary>
+
+ Action             | Keymap/command
+--------------------|----------------
+ List breakpoints   | `<leader>fdb`
+ List commands      | `<leader>fdc`
+ List configuration | `<leader>fdC`
+ List frames        | `<leader>fdf`
+ List variables     | `<leader>fdv`
 
 </details>
 
