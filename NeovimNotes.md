@@ -96,6 +96,8 @@
         - [Default pairs](#default-pairs)
         - [Aliases](#aliases)
         - [Cursor](#cursor)
+      - [multicursors](#multicursors)
+        - [Extend mode](#extend-mode)
     - [Treesitter-related](#treesitter-related)
       - [nvim-treesitter](#nvim-treesitter)
       - [ts-node-action](#ts-node-action)
@@ -1430,6 +1432,50 @@ aliases = {
 ##### Cursor
 
 By default (`move_cursor = "begin"`), the cursor will move to the beginning of the action but you can change this so that the absolute position remains the same (`move_cursor = false`) or position relative to current character remains same (`move_cursor = "sticky"`).
+
+#### multicursors
+
+With [this plugin](https://github.com/smoka7/multicursors.nvim), you can edit and execute commands on multiple selections all at once!
+
+The plugin provides the following commands:
+
+ Command           | Description
+-----------------|----------------------------------------------------------------------------------------------------------------
+ `MCstart`         | Select the word under the cursor and start listening for the actions. In visual mode, it acts like `MCvisual`.
+ `MCvisual`        | Select the last visual mode selection and start listening for the actions.
+ `MCpattern`       | Prompts for a pattern and selects every match in the buffer.
+ `MCvisualPattern` | Prompts for a pattern and selects every match in the visual selection.
+ `MCunderCursor`   | Select the char under the cursor and start listening for the actions.
+ `MCclear`         | Clears all the selections.
+
+Use one of the above commands to enter **Multicursor** mode. This mode will allow you to edit or execute commands on multiple selections at once.
+
+When it is activated, you should see a listing of commands to the right of the window as well as a visual indication in the status line.
+
+To exit this mode, press <kbd>Esc</kbd>.
+
+Let's show how to use this plugin for the case where you want to capitalize instances of `local` in your buffer and your cursor is on one of the instances:
+
+1. `:MCStart` or `<leader>ms` in normal mode (`ms` in visual mode) will activate multi-cursor mode.
+2. To select all instances, press `<C-a>`. If you want to select only a few instances, you can instead traverse instances via `n` (next match), `N` (previous match), `q` (skip current selection and find next), `Q` (skip current selection and find previous) -- all these mappings accept a `[count]`!
+3. Press `gU` to capitalize.
+4. Finally <kbd>Esc</kbd> to exit multicursor mode.
+
+> :bulb: We could have used `:MCpattern` instead to find all instances.
+
+Prepend word in front of selected lines:
+
+1. `:MCStart` or `<leader>ms` in normal mode (`ms` in visual mode) will activate multi-cursor mode.
+2. If you are not at beginning of word, press `b`.
+3. To select lines below (above), use `j` (`k`).
+4. Enter MC Insert mode: `i`.
+5. Type word to prepend.
+6. Press <kbd>Esc</kbd> to exit MC Insert mode.
+7. Finally press <kbd>Esc</kbd> again to exit multicursor mode.
+
+##### Extend mode
+
+Once you enter the Extend mode, you can expand or shrink your selections using Vim motions or Treesitter nodes. At first, the left side of the selections stays put, and selections get extended from the right side. But you can change which side of selections stay put by pressing `o`.
 
 ### Treesitter-related
 
