@@ -280,12 +280,15 @@ ls ~/tmp/*.zip | xargs rm
 
 ## Rust
 
-- Install cargo: `sudo apt install cargo`
+- Install `rustup`: `curl --proto '=https' --tlsv1.2 -sSf <https://sh.rustup.rs> | sh`.
 
-    > :bulb: If you want to install entire Rust toolchain, do this instead: `sudo apt install rust-all`.
+- Rustup metadata and toolchains will be installed into the Rustup home directory, i.e. `~/.rustup` (unless overridden by `$RUSTUP_HOME`).
 
-- Add `~/.cargo/bin` to `$PATH`.
+- `cargo`, `rustc`, `rustup` and other commands are added to `~/.cargo/bin` which is added to `$PATH` during installation.
+
 - List installed crates: `cargo install --list`.
+
+- To uninstall: `rustup self uninstall`.
 
 ## jnv
 
