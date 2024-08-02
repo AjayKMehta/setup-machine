@@ -14,6 +14,7 @@
       - [Usage](#usage)
       - [Tips](#tips)
     - [Macros](#macros)
+      - [Recursive Macros](#recursive-macros)
     - [Keymaps](#keymaps)
     - [Folds](#folds)
     - [Executing external commands](#executing-external-commands)
@@ -324,6 +325,23 @@ To modify macro, edit register's contents:
 1. Paste register contents: `"wp`.
 2. Make edits. To enter special characters (in insert mode) like <kbd>Esc</kbd>, press <kbd>Ctrl</kbd> + <kbd>v</kbd> then the character. In this case, this will lead to `^[` for <kbd>Esc</kbd>.
 3. Place cursor on first character and `"wy`.
+
+#### Recursive Macros
+
+Macros can be recursive!
+
+Here's an example: `qr0f:lr^M>>o^[j@rq`. This creates a macro in register `r` that does the following:
+
+1. Finds the first instance of `:` in the line.
+2. Moves right by 1 character (`l`)
+3. Replaces current character with new line ()`r^M`)
+4. Indents (`>>`)
+5. Adds new line via `o`
+6. Exits insert mode (<kbd>Esc</kbd>)
+7. Move down 1 line (`j`)
+8. Finally recurses (`@r`).
+
+> :bulb: Register should be empty before you record macro to avoid unforeseen problems.
 
 ### Keymaps
 
@@ -974,6 +992,8 @@ These work with `{count}` prefix, e.g. `2~`.
 `:g /cat/ s/rat/bat/g` : replace `rat` with `bat` in all lines containing `cat`.
 
 `:.,+2 g/\wa/ normal gU$` - for current line and 2 lines below it, convert to upper case all lines containing `\wa`.
+
+`:g/^def.*/ normal @d` - for all lines starting with `def`, apply macro in register `d`.
 
 Use `g!` or `v` to negate pattern.
 
