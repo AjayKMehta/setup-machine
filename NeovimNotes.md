@@ -99,6 +99,7 @@
         - [Cursor](#cursor)
       - [multicursors](#multicursors)
         - [Extend mode](#extend-mode)
+      - [flash](#flash)
     - [Treesitter-related](#treesitter-related)
       - [nvim-treesitter](#nvim-treesitter)
       - [ts-node-action](#ts-node-action)
@@ -1153,7 +1154,7 @@ All actions in **bold** in the table above have custom keymaps. The other comman
 
 - <kbd>Alt</kbd> + <kbd>p</kbd> toggles preview.
 
-- <kbd>s</kbd> in normal mode or <kbd>Alt</kbd> + <kbd>s</kbd> in normal mode activates search via [flash.nvim](https://github.com/folke/flash.nvim) plugin.
+- <kbd>s</kbd> in normal mode or <kbd>Alt</kbd> + <kbd>s</kbd> in insert mode activates search via [flash.nvim](https://github.com/folke/flash.nvim) plugin.
 
 <details>
   <summary>General</summary>
@@ -1496,6 +1497,32 @@ Prepend word in front of selected lines:
 ##### Extend mode
 
 Once you enter the Extend mode, you can expand or shrink your selections using Vim motions or Treesitter nodes. At first, the left side of the selections stays put, and selections get extended from the right side. But you can change which side of selections stay put by pressing `o`.
+
+#### flash
+
+[This plugin](<https://github.com/folke/flash.nvim>)  lets you search and navigate using labels + Treesitter integration.
+
+When you search via `/`, each match will have a corresponding label, e.g. `a`. Press the key(s) matching that label (here, <kbd>a</kbd>) to go to the search result.
+
+ Command                 | Normal mode  | Visual/operator-pending mode
+ -------------------------|--------------|---------------------------
+ Flash jump              | `<leader>ss` | `ss`
+ Flash jump (Treesitter) | `<leader>st` | `st`
+ Flash forward           | `<leader>sf` | `sf`
+ Flash backward          | `<leader>sb` | `sb`
+ Flash continue          | `<leader>sc` | `sc`
+ Flash Treesitter search | **NA**       | `sR`
+
+ **Flash jump** lets you search for text in any direction.
+ **Flash forward** searches only in the forward direction.
+ **Flash continue** continues the previous search.
+ **Flash jump (Treesitter)** lets you select Treesitter nodes based on cursor position.
+**Flash Treesitter search** lets you select Treesitter nodes containing text searched for.
+
+Let's illustrate usage for operator-pending and visual mode:
+
+1. `dss` would let you delete text based on a search and selected label.
+2. `v$` selects from current position to end of line. Type `sb` to extend selection based on search (backwards only) and selected label. Then type `d` to delete visual selection.
 
 ### Treesitter-related
 
