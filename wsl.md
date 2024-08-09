@@ -170,10 +170,23 @@ Refresh: `sudo snap refresh`.
 ```bash
 sudo apt install git
 
-# For diffs
-sudo apt install meld
 # Ubuntu package is ancient.
 cargo install git-absorb
+```
+
+### meld
+
+meld is used to view diffs.
+
+```bash
+sudo apt install meld
+
+# <https://stackoverflow.com/questions/76239470/running-meld-under-wsl2-from-the-command-line-i-get-a-constant-stream-of-errors>
+sudo apt install gnome-icon-theme adwaita-icon-theme-full
+
+# Configure meld as global diff tool
+git config --global diff.tool meld
+git config --global diff.guitool meld
 ```
 
 ### git lfs
