@@ -121,6 +121,7 @@
       - [markdown.nvim](#markdownnvim)
         - [Inline-style](#inline-style)
         - [Links](#links)
+        - [Table of contents](#table-of-contents)
 
 # Neovim
 
@@ -1758,3 +1759,21 @@ Set cursor to current section heading | `]c`
 Set cursor to parent section heading | `]p`
 Set cursor to next section heading | `]]`
 Set cursor to previous section heading | `[[`
+
+##### Table of contents
+
+- Use `:MDInsertToc [max_level]` to add a TOC.
+- The `:MDToc [max_level]` and `:MDTocAll [max_level]` commands show a TOC for the current buffer in the current window's location list. `:MDToc` omits flagged headings and `:MDTocAll` includes all headings.
+
+You can omit headings by flagging them as shown below:
+
+```markdown
+# heading 1 <!-- toc omit heading -->
+
+<!-- toc omit heading -->
+## heading 2
+
+<!-- toc omit section -->
+# section heading omitted
+## subsection heading also omitted
+```
