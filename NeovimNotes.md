@@ -117,6 +117,10 @@
         - [Normal mode](#normal-mode)
         - [Visual mode](#visual-mode-1)
       - [nvim-treesitter-textsubjects](#nvim-treesitter-textsubjects)
+    - [Markdown](#markdown)
+      - [markdown.nvim](#markdownnvim)
+        - [Inline-style](#inline-style)
+        - [Links](#links)
 
 # Neovim
 
@@ -1706,3 +1710,51 @@ Location and syntax aware text objects which *do what you mean*.
  Select inner container | `i;`
 
 These work with `d`, `v`, etc.
+
+### Markdown
+
+#### [markdown.nvim](https://github.com/tadmccorkle/markdown.nvim)
+
+This provides Markdown-related functionality.
+
+##### Inline-style
+
+ Action                                                 | Keymap
+ -------------------------------------------------------|------------------------------------------------
+ Toggle inline style                                    | `gs` (+ motion for normal mode) + `{emphasis}`
+ Line-wise toggle inline style                          | `gss{emphasis}`
+ Delete emphasis surrounding cursor                     | `ds{emphasis}`
+ Change emphasis surrounding cursor from `from` to `to` | `cs{from}{to}`
+
+Emphasis can be one of the following:
+
+1. Bold: `b`
+2. Italics: `i`
+3. Strikethrough: `s`
+4. Code: `c`
+
+Examples:
+
+1. Make current word bold: `gseb`.
+2. Italicize current line: `gssi`
+
+For visual mode, I set up keyboard shortcuts identically to the ones for VS Code:
+
+1. Bold: `<C-b>`
+2. Italics: `<C-i>`
+3. Strikethrough: `<A-s>`
+4. Code (span): `<C-m><C-i>`
+
+##### Links
+
+ Action       | Keymap
+ -------------|--------
+ Add link[^6] | `gl`
+ Follow link  | `gx`
+
+[^6]: Use motion in normal mode, e.g. `gl$` to add link for text upto and including end of line.
+
+Set cursor to current section heading | `]c`
+Set cursor to parent section heading | `]p`
+Set cursor to next section heading | `]]`
+Set cursor to previous section heading | `[[`
