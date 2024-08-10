@@ -122,6 +122,7 @@
         - [Inline-style](#inline-style)
         - [Links](#links)
         - [Table of contents](#table-of-contents)
+        - [Lists](#lists)
 
 # Neovim
 
@@ -1777,3 +1778,13 @@ You can omit headings by flagging them as shown below:
 # section heading omitted
 ## subsection heading also omitted
 ```
+
+##### Lists
+
+These commands work in normal mode:
+
+ Action                 | Keymap
+ -----------------------|-------------
+ Toggle task            | `<C-m><C-x>`
+ Insert list item below | `<C-m><C-j>`
+ Insert list item above | `<C-m><C-k>`
