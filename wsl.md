@@ -165,6 +165,18 @@ sudo snap install firefox
 
 Refresh: `sudo snap refresh`.
 
+## Rust
+
+- Install `rustup`: `curl --proto '=https' --tlsv1.2 -sSf <https://sh.rustup.rs> | sh`.
+
+- Rustup metadata and toolchains will be installed into the Rustup home directory, i.e. `~/.rustup` (unless overridden by `$RUSTUP_HOME`).
+
+- `cargo`, `rustc`, `rustup` and other commands are added to `~/.cargo/bin` which is added to `$PATH` during installation.
+
+- List installed crates: `cargo install --list`.
+
+- To uninstall: `rustup self uninstall`.
+
 ## git
 
 ```bash
@@ -290,18 +302,6 @@ ls ~/tmp/*.zip | xargs unzip -d ~/.local/bin
 chmod u+rwx ~/.local/bin/duckdb
 ls ~/tmp/*.zip | xargs rm
 ```
-
-## Rust
-
-- Install `rustup`: `curl --proto '=https' --tlsv1.2 -sSf <https://sh.rustup.rs> | sh`.
-
-- Rustup metadata and toolchains will be installed into the Rustup home directory, i.e. `~/.rustup` (unless overridden by `$RUSTUP_HOME`).
-
-- `cargo`, `rustc`, `rustup` and other commands are added to `~/.cargo/bin` which is added to `$PATH` during installation.
-
-- List installed crates: `cargo install --list`.
-
-- To uninstall: `rustup self uninstall`.
 
 ## jnv
 
