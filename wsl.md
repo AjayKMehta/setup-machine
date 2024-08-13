@@ -177,6 +177,13 @@ Refresh: `sudo snap refresh`.
 
 - To uninstall: `rustup self uninstall`.
 
+- Shell completions:
+
+    ```bash
+    rustup completions bash > ~/.config/bash_completions.d/rustup
+    rustup completions bash cargo > ~/.config/bash_completions.d/cargo
+    ```
+
 ## git
 
 ```bash
