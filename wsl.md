@@ -259,6 +259,7 @@ Install plugins:
 ```shell
 mise use chezmoi@latest
 mise use delta@latest
+delta --generate-completion bash >  .config/bash_completions.d/delta
 mise use deno@latest
 mise use difftastic@latest
 mise use docker-slim@latest

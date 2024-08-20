@@ -528,6 +528,8 @@ ripgrep is a powerful search tool.
 
 - Add to PowerShell profile: `$env:DELTA_PAGER = 'less -rFX'`
 
+- Generate shell completion: `delta --generate-completion powershell | Out-File -Encoding utf8 ~\Documents\PowerShell\Scripts\ArgumentCompleters\delta.ps1`
+
 ### yq
 
 **[yq](https://github.com/mikefarah/yq)** is a portable command-line YAML, JSON, XML, CSV and properties processor.
