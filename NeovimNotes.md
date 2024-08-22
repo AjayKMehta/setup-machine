@@ -85,6 +85,7 @@
       - [Telescope](#telescope)
       - [Legendary](#legendary)
       - [vim-tmux-navigator](#vim-tmux-navigator)
+      - [Toggle](#toggle)
     - [Coding](#coding)
       - [Outline](#outline)
       - [Diffview](#diffview)
@@ -1284,6 +1285,15 @@ You also need to setup the same mappings in your `.tmux.conf`. The easiest way t
 ```bash
 set -g @plugin 'christoomey/vim-tmux-navigator'
 ```
+
+#### Toggle
+
+[Toggle](https://github.com/gregorias/toggle.nvim) as its name suggests, lets you toggle settings.
+
+- Keymap prefix is `yo`, e.g. `yos` is to show settings that can be toggled.
+- Toggle on setting: `]o` + setting, e.g. `]or` to toggle on relative numbers.
+- Toggle off setting: `[o` + setting, e.g. `]ow` to toggle off wrap.
+- See [here](https://github.com/gregorias/toggle.nvim#default-options) for a list of default options that can be toggled.
 
 ### Coding
 
