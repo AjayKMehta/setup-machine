@@ -835,6 +835,10 @@ pipx ensurepath
 sudo pipx ensurepath
 ```
 
+If you want to install multiple versions, follow the instructions [here](https://www.bitecode.dev/i/112502596/installing-and-running-python-on-linux) to add [deadsnake PPA](https://launchpad.net/~deadsnakes/+archive/ubuntu/ppa). These versions will also get installed in `/usr/bin`.
+
+A better approach is to use [mise](https://mise.jdx.dev/lang/python.html).
+
 [Install visidata](https://jsvine.github.io/intro-to-visidata/the-big-picture/installation/
 ):
 
