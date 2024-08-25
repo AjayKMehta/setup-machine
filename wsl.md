@@ -489,6 +489,12 @@ See [instructions here](https://learn.microsoft.com/en-us/nuget/install-nuget-cl
 
 1. Reload the shell. Test the installation by running `nuget` and see if help is displayed.
 
+## K8s
+
+See [here](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/) for instructions on how to install kubectl.
+
+See [here](https://docs.altinity.com/altinitykubernetesoperator/kubernetesinstallguide/minikubeonlinux/>) for instructions on how to install minikube.
+
 ## tmux
 
 ```shell
@@ -839,11 +845,13 @@ If you want to install multiple versions, follow the instructions [here](https:/
 
 A better approach is to use [mise](https://mise.jdx.dev/lang/python.html).
 
+### visidata
+
 [Install visidata](https://jsvine.github.io/intro-to-visidata/the-big-picture/installation/
 ):
 
 ```shell
-pip install visidata
+python3 -m pip install visidata
 ```
 
 [Add completion for bash](https://pip.pypa.io/en/stable/user_guide/#command-completion):
