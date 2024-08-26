@@ -712,12 +712,12 @@ Source: <https://learnbyexample.github.io/tips/vim-tip-4/>
  Move down 1 line        | <kbd>j</kbd>
  Move up 1 paragraph     | <kbd>Shift</kbd> + <kbd>[</kbd>
  Move down 1 paragraph   | <kbd>Shift</kbd> + <kbd>]</kbd>
- Scroll half a page down | <kbd>Ctrl</kbd> + <kbd>d</kbd>  
- Scroll half a page up   | <kbd>Ctrl</kbd> + <kbd>u</kbd>  
- Scroll page forward     | <kbd>Ctrl</kbd> + <kbd>f</kbd>  
- Scroll page backward    | <kbd>Ctrl</kbd> + <kbd>b</kbd>  
- Scroll up 1 line        | <kbd>Ctrl</kbd> + <kbd>e</kbd>  
- Scroll down 1 line      | <kbd>Ctrl</kbd> + <kbd>y</kbd>  
+ Scroll half a page down | <kbd>Ctrl</kbd> + <kbd>d</kbd>
+ Scroll half a page up   | <kbd>Ctrl</kbd> + <kbd>u</kbd>
+ Scroll page forward     | <kbd>Ctrl</kbd> + <kbd>f</kbd>
+ Scroll page backward    | <kbd>Ctrl</kbd> + <kbd>b</kbd>
+ Scroll up 1 line        | <kbd>Ctrl</kbd> + <kbd>e</kbd>
+ Scroll down 1 line      | <kbd>Ctrl</kbd> + <kbd>y</kbd>
  Move up 1 paragraph     | `{`
  Move down 1 paragraph   | `}`
  Move up 1 sentence      | `(`
@@ -762,7 +762,7 @@ This is a good read on text objects: <https://blog.carbonfive.com/vim-text-objec
  Action                                  | Keymap/command
 -----------------------------------------|---------------------------------
  Undo                                    | <kbd>u</kbd>
- Redo                                    | <kbd>Ctrl</kbd> + <kbd>r</kbd>  
+ Redo                                    | <kbd>Ctrl</kbd> + <kbd>r</kbd>
  Undo latest changes on last edited line | <kbd>Shift</kbd> + <kbd>u</kbd>
  Redo latest changes on last edited line | <kbd>Shift</kbd> + <kbd>u</kbd>
 
@@ -1114,23 +1114,23 @@ Here are some useful key maps for when the window is displayed:
  Action                          | Keymap
 ---------------------------------|----------------------------------
  **Change root to input path**   | <kbd>Alt</kbd> + <kbd>r</kbd>
- Change root to node             | <kbd>Ctrl</kbd> + <kbd>\]</kbd>  
+ Change root to node             | <kbd>Ctrl</kbd> + <kbd>\]</kbd>
  **Change root to global cwd**   | <kbd>Ctl</kbd> + <kbd>c</kbd>
  **Launch Find Files**           | <kbd>Ctrl</kbd> + <kbd>f</kbd>
  **Launch Live Grep**            | <kbd>Ctrl</kbd> + <kbd>g</kbd>
  **Print path**                  | <kbd>Ctrl</kbd> + <kbd>p</kbd>
  Open: Horizontal split          | <kbd>Ctrl</kbd> + <kbd>x</kbd>
  Open                            | <kbd>Enter</kbd>
- Open: Vertical split            | <kbd>Shift</kbd> + <kbd>l</kbd>  
+ Open: Vertical split            | <kbd>Shift</kbd> + <kbd>l</kbd>
  Next sibling                    | <kbd>></kbd>
  Previous sibling                | <kbd><</kbd>
  Change root to parent           | <kbd>-</kbd>
  Prev git                        | <kbd>\[</kbd> + <kbd>c</kbd>
  Next git                        | <kbd>\]</kbd> + <kbd>c</kbd>
  Delete                          | <kbd>d</kbd>
- Expand All                      | <kbd>Shift</kbd> + <kbd>e</kbd>  
+ Expand All                      | <kbd>Shift</kbd> + <kbd>e</kbd>
  Rename: Basename                | <kbd>e</kbd>
- Live Filter: Clear              | <kbd>Shift</kbd> + <kbd>f</kbd>  
+ Live Filter: Clear              | <kbd>Shift</kbd> + <kbd>f</kbd>
  Live Filter: Search             | <kbd>f</kbd>
  Help                            | <kbd>g</kbd> + <kbd>?</kbd>
  Copy Basename                   | <kbd>g</kbd> +  <kbd>e</kbd>
@@ -1138,13 +1138,13 @@ Here are some useful key maps for when the window is displayed:
  **Toggle group empty**          | <kbd>g</kbd> +  <kbd>l</kbd>
  Copy absolute path              | <kbd>g</kbd> +  <kbd>y</kbd>
  **Close parent folder**         | <kbd>h</kbd>
- **Collapse all**                | <kbd>Shift</kbd> + <kbd>h</kbd>  
+ **Collapse all**                | <kbd>Shift</kbd> + <kbd>h</kbd>
  Move down                       | <kbd>j</kbd>
  Move up                         | <kbd>k</kbd>
  **Expand folder or go to file** | <kbd>l</kbd>
- **Vsplit Preview**              | <kbd>Shift</kbd> + <kbd>l</kbd>  
+ **Vsplit Preview**              | <kbd>Shift</kbd> + <kbd>l</kbd>
  Toggle bookmark                 | <kbd>m</kbd>
- Collapse all                    | <kbd>Shift</kbd> + <kbd>w</kbd>  
+ Collapse all                    | <kbd>Shift</kbd> + <kbd>w</kbd>
  Copy name                       | <kbd>y</kbd>
  Copy relative path              | <kbd>Shift</kbd> +  <kbd>y</kbd>
 
@@ -1170,9 +1170,9 @@ All actions in **bold** in the table above have custom keymaps. The other comman
  -----------------|---------------
  Bookmarks       | `<leader>fM`
  Find buffers    | `<leaderfB`
- Commands        | `<leader>fcC`  
- Command History | `<leader>fch`  
- Colorschemes    | `<leader>fcs`  
+ Commands        | `<leader>fcC`
+ Command History | `<leader>fch`
+ Colorschemes    | `<leader>fcs`
  Keymap          | `<leader>fk`
  Search History  | `<leader>fS`
  Undo tree       | `<leader>fu`
@@ -1182,10 +1182,10 @@ All actions in **bold** in the table above have custom keymaps. The other comman
  Jumplist        | `<leader>fj`
  Registers       | `<leader>fR`
  LuaSnip         | `<leader>fs`
- Tags            | `<leader>ftt`  
- Tabs            | `<leader>ftT`  
- Treesitter      | `<leader>fts`  
- TODO/Fix/FixMe  | `<leader>ftS`  
+ Tags            | `<leader>ftt`
+ Tabs            | `<leader>ftT`
+ Treesitter      | `<leader>fts`
+ TODO/Fix/FixMe  | `<leader>ftS`
  Noice           | `<leader>fN`
 
 </details>
@@ -1215,8 +1215,8 @@ Courtesy of [togglescope](https://github.com/Theo-Steiner/togglescope), `C-\>` t
 -------------------------|----------------
  Help page               | `<leader>f?`
  Man Pages               | `<leader>fm`
- Grep help (live grep)   | `<leader>fHl`  
- Grep help (grep string) | `<leader>fHg`  
+ Grep help (live grep)   | `<leader>fHl`
+ Grep help (grep string) | `<leader>fHg`
 
 </details>
 
@@ -1274,10 +1274,10 @@ Courtesy of [togglescope](https://github.com/Theo-Steiner/togglescope), `C-\>` t
 
  Action         | Keymap/command
 ----------------|---------------------------------
- Left           | <kbd>Ctrl</kbd> + <kbd>h</kbd>  
- Right          | <kbd>Ctrl</kbd> + <kbd>l</kbd>  
- Up             | <kbd>Ctrl</kbd> + <kbd>k</kbd>  
- Down           | <kbd>Ctrl</kbd> + <kbd>j</kbd>  
+ Left           | <kbd>Ctrl</kbd> + <kbd>h</kbd>
+ Right          | <kbd>Ctrl</kbd> + <kbd>l</kbd>
+ Up             | <kbd>Ctrl</kbd> + <kbd>k</kbd>
+ Down           | <kbd>Ctrl</kbd> + <kbd>j</kbd>
  Go to previous | <kbd>Ctrl</kbd> + <kbd>\\</kbd>
 
 You also need to setup the same mappings in your `.tmux.conf`. The easiest way to do is add this to the file:
@@ -1694,11 +1694,11 @@ Jumps:
 
  Action                       | Keymap
 ------------------------------|--------
- Jump to any statement        | `gja`  
- Jump to function definition  | `gjf`  
- Jump to variable declaration | `gjv`  
- Jump to if statement         | `gji`  
- Jump to loop statement       | `gjl`  
+ Jump to any statement        | `gja`
+ Jump to function definition  | `gjf`
+ Jump to variable declaration | `gjv`
+ Jump to if statement         | `gji`
+ Jump to loop statement       | `gjl`
 
 ##### Visual mode
 
