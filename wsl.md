@@ -831,6 +831,28 @@ Select key bindings:
 
 For more bindings, see [this](https://github.com/jalvesaq/Nvim-R/blob/master/doc/Nvim-R.txt#L317).
 
+## CUDA
+
+1. Refer to [CUDA on WSL User Guide](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#getting-started-with-cuda-on-wsl-2).
+
+    ```bash
+    sudo apt-key del 7fa2af80 # Remove old key
+    ```
+
+2. To determine the version of CUDA toolkit to download and install, type: `nvidia-smi` in PowerShell on Windows and note the driver version (in my case, 552.41). You can then check for [CUDA toolkit compatibility](https://docs.nvidia.com/deploy/cuda-compatibility/index.html).
+
+3. [Download the latest Linux CUDA toolkit package - WSL-Ubuntu](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=WSL-Ubuntu&target_version=2.0&target_type=deb_local):
+
+    ```bash
+    wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-wsl-ubuntu.pin
+    sudo mv cuda-wsl-ubuntu.pin /etc/apt/preferences.d/cuda-repository-pin-600
+    wget https://developer.download.nvidia.com/compute/cuda/12.6.0/local_installers/cuda-repo-wsl-ubuntu-12-6-local_12.6.0-1_amd64.deb
+    sudo dpkg -i cuda-repo-wsl-ubuntu-12-6-local_12.6.0-1_amd64.deb
+    sudo cp /var/cuda-repo-wsl-ubuntu-12-6-local/cuda-*-keyring.gpg /usr/share/keyrings/
+    sudo apt-get update
+    sudo apt-get -y install cuda-toolkit-12-6
+    ```
+
 ## Python
 
 ```shell
