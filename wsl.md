@@ -882,6 +882,19 @@ python3 -m pip install visidata
 python3 -m pip completion --bash >> ~/.config/bash_completions.d/pip
 ```
 
+### CUDA Python
+
+`pip install cuda-python`.
+
+### light-the-torch
+
+[`light-the-torch`](https://pypi.org/project/light-the-torch) is a small utility that wraps `pip` to ease the installation process for PyTorch distributions like `torch`, `torchvision`, `torchaudio`, and so on as well as third-party packages that depend on them. It auto-detects compatible CUDA versions from the local setup and installs the correct PyTorch binaries without user intervention.
+
+```bash
+pip install light-the-torch
+ltt install torch
+```
+
 ### Troubleshooting
 
 - <https://stackoverflow.com/questions/56123942/pip-failed-to-install-dbus-python>
@@ -891,7 +904,7 @@ python3 -m pip completion --bash >> ~/.config/bash_completions.d/pip
 
 See [here](https://askubuntu.com/a/372964) for more details.
 
-```shell
+```bash
 sudo apt-get install font-manager
 ```
 
