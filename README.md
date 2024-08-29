@@ -61,6 +61,7 @@
   - [WezTerm](#wezterm)
     - [Links](#links)
   - [Hadoop](#hadoop)
+  - [Geekbench AI](#geekbench-ai)
   - [Python](#python)
     - [conda](#conda)
     - [spacy](#spacy)
@@ -805,6 +806,10 @@ See [here](https://kontext.tech/article/447/install-hadoop-330-on-windows-10-ste
     ```
 
 2. Add `%HADOOP_HOME%\bin` to `$Path`.
+
+## Geekbench AI
+
+Geekbench AI helps you benchmark your machine to see how well it can perform tasks that are handled by AI. You can download it from [here](https://www.geekbench.com/ai/download/).
 
 ## Python
 
