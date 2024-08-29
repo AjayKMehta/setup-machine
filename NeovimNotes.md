@@ -124,6 +124,8 @@
         - [Links](#links)
         - [Table of contents](#table-of-contents)
         - [Lists](#lists)
+      - [Markdown Preview](#markdown-preview)
+      - [render-markdown.nvim](#render-markdownnvim)
 
 # Neovim
 
@@ -1798,3 +1800,15 @@ These commands work in normal mode:
  Toggle task            | `<C-m><C-x>`
  Insert list item below | `<C-m><C-j>`
  Insert list item above | `<C-m><C-k>`
+
+#### Markdown Preview
+
+[This plugin](https://github.com/iamcco/markdown-preview.nvim) lets you preview Markdown in your browser with synchronized scrolling and flexible configuration.
+
+Press `<leader>mp` to preview Markdown.
+
+#### render-markdown.nvim
+
+[This plugin](https://github.com/MeanderingProgrammer/render-markdown.nvim?tab=readme-ov-file) improves viewing Markdown files in Neovim.
+
+Press `<leader>mt` to toggle rendering.
