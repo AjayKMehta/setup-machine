@@ -69,6 +69,7 @@
     - [JupyterLab](#jupyterlab)
       - [Workaround for Quarto](#workaround-for-quarto)
       - [Git-friendly hooks](#git-friendly-hooks)
+      - [Kernel fails due to missing DLL](#kernel-fails-due-to-missing-dll)
     - [GenAI](#genai)
       - [Cohere](#cohere)
       - [Replicate](#replicate)
@@ -894,6 +895,10 @@ See [Use with nbconvert, voila, papermill,...](https://github.com/Anaconda-Platf
 #### Git-friendly hooks
 
 See [here](https://nbdev.fast.ai/tutorials/git_friendly_jupyter.html) for details.
+
+#### Kernel fails due to missing DLL
+
+See <https://stackoverflow.com/questions/54876404/unable-to-import-sqlite3-using-anaconda-python>.
 
 ### GenAI
 
