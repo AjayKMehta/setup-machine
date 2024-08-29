@@ -651,6 +651,19 @@ Important settings are in `~/.local/share/atuin`.
 
 - See [here](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode) for steps to configure WSL for use with VS Code.
 
+### Lua + Neovim support
+
+Add this to the appropriate `settings.json` file to reduce false positive diagnostic messages:
+
+```json
+"Lua.workspace.library": [
+    "${env:VIMRUNTIME}/lua/",
+    "${env:VIMRUNTIME}/lua/vim/lsp",
+    "~/.local/share/nvim/lazy/ui/nvchad_types",
+    "~/.local/share/nvim/lazy/lazy.nvim/lua/lazy"
+],
+```
+
 ### Resolve auth issue
 
 If `gh` is specified in `.gitconfig` for authenticating to GitHub and VS Code can't find `gh`, you will get a bunch of errors when pushing from VS Code.
