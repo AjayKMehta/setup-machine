@@ -161,6 +161,10 @@ sudo snap install tldr
 sudo snap install yq
 sudo snap install fx
 sudo snap install firefox
+
+sudo snap glow
+glow completion bash > ~/.config/bash_completions.d/glow
+# glow completion powershell > ~/.config/powershell/scripts/ArgumentCompleters/glow.ps1
 ```
 
 Refresh: `sudo snap refresh`.
