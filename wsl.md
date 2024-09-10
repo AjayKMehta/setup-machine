@@ -280,6 +280,7 @@ mise use stylua@latest
 mise use usage@latest
 mise use zoxide@latest
 mise use lazygit@latest
+mise use ripgrep@latest
 ```
 
 Add to `~/.bash_profile`:
@@ -497,7 +498,7 @@ See [instructions here](https://learn.microsoft.com/en-us/nuget/install-nuget-cl
 
 See [here](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/) for instructions on how to install kubectl.
 
-See [here](https://docs.altinity.com/altinitykubernetesoperator/kubernetesinstallguide/minikubeonlinux/>) for instructions on how to install minikube.
+See [here](https://docs.altinity.com/altinitykubernetesoperator/kubernetesinstallguide/minikubeonlinux/) for instructions on how to install minikube.
 
 ## tmux
 
@@ -1105,6 +1106,7 @@ sudo apt install wamerican-large
 
 cargo install typos-cli
 cargo install ast-grep
+cargo install nu
 
 # Java
 sudo apt install openjdk-17-jre-headless
