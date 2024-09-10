@@ -1185,10 +1185,11 @@ All actions in **bold** in the table above have custom keymaps. The other comman
  Registers       | `<leader>fR`
  LuaSnip         | `<leader>fs`
  Tags            | `<leader>ftt`
- Tabs            | `<leader>ftT`
  Treesitter      | `<leader>fts`
  TODO/Fix/FixMe  | `<leader>ftS`
  Noice           | `<leader>fN`
+ YAML schemas    | `<leader>fY`
+
 
 </details>
 
@@ -1215,7 +1216,7 @@ Courtesy of [togglescope](https://github.com/Theo-Steiner/togglescope), `C-\>` t
 
  Action                  | Keymap/command
 -------------------------|----------------
- Help page               | `<leader>f?`
+ Help tags               | `<leader>fHt`
  Man Pages               | `<leader>fm`
  Grep help (live grep)   | `<leader>fHl`
  Grep help (grep string) | `<leader>fHg`
