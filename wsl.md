@@ -268,6 +268,14 @@ mise use deno@latest
 mise use difftastic@latest
 mise use docker-slim@latest
 mise use eza@latest
+
+# For man pages
+cd ~/tmp && gh release download --repo eza-community/eza --pattern man*.*
+tar -xzvf ./man-0.19.2.tar.gz
+# Be consistent
+sudo chown root ./target/man-0.19.2/*
+sudo mv ./target/man-0.19.2/* /usr/share/man/man1
+
 mise use fzf@latest
 
 mise plugin add github-cli https://github.com/bartlomiejdanek/asdf-github-cli.git   
@@ -281,6 +289,11 @@ mise use usage@latest
 mise use zoxide@latest
 mise use lazygit@latest
 mise use ripgrep@latest
+
+# Generate with sudo in /usr/share/..., get Permission denied error.
+rg --generate man > rg.1
+sudo mv rg.1 /usr/share/man/man1
+sudo chown root /usr/share/man/man1/rg.1
 ```
 
 Add to `~/.bash_profile`:
