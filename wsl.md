@@ -310,10 +310,16 @@ mise ls-remote lazygit
 
 ## fzf
 
-Install:
+Install plugin:
 
 ```shell
-mise install fzf latest 
+mise install fzf
+```
+
+Update mise:
+
+```shell
+mise self-update
 ```
 
 ### Tips
