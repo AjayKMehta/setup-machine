@@ -79,6 +79,11 @@
     - [Multi-file find and replace](#multi-file-find-and-replace)
     - [Where are Treesitter parsers located?](#where-are-treesitter-parsers-located)
     - [Open/View URLs](#openview-urls)
+    - [Copy text to mark location](#copy-text-to-mark-location)
+    - [Check key maps](#check-key-maps)
+    - [Increment selection with search iterator](#increment-selection-with-search-iterator)
+    - [Add a string at a line number in multiple files](#add-a-string-at-a-line-number-in-multiple-files)
+    - [Suspend Neovim](#suspend-neovim)
   - [Plugins](#plugins)
     - [Utility](#utility)
       - [Toggleterm](#toggleterm)
@@ -1084,6 +1089,37 @@ They are located inside `parser` sub-folder of `nvim-treesitter` plugin install 
 
 Courtesy of `urlview.nvim` plugin, you can view a list of URLs: `:UrlView`.
 Use `]u` and `[u` to navigate to previous and next URL in buffer.
+
+### Copy text to mark location
+
+1. Set location to be marked (here, we use `a`): `ma`.
+2. Go to location of text to copy and type: `:.t'a`.
+
+### Check key maps
+
+You can use `<leader>fk`, `<leader>lk` to bring up GUI.
+Also, try `:[<MODE>]map <KEYMAP>`, e.g. `:nmap <leader>lf` tells you binding for `<leader>lf` in normal mode.
+
+Another approach is `:echo maparg("<leader>lf", "n")`
+
+### Increment selection with search iterator
+
+Replace all instances of `1` with auto-incremented sequence 🤯:
+
+`:let idx =0 | g/1/let idx+=1 | s//\=idx`
+
+([source](https://www.youtube.com/watch?v=X35yfs3yvKw&t=523s))
+
+### Add a string at a line number in multiple files
+
+1. Add files to quickfix list.
+2. To add `<TEXT>` to line 5 in each file: `:cfdo execute 'norm 5GO<TEXT>' | update` (`5G` goes to line 5, `O` inserts line above). Alternative: `:cfdo :call append(4, '<TEXT>')`.
+
+([source](https://www.youtube.com/watch?v=X35yfs3yvKw&t=723s))
+
+### Suspend Neovim
+
+<kbd>Ctrl</kbd> + <kbd>z</kbd> suspends Neovim. To resume, `fg` in shell.
 
 ## Plugins
 
