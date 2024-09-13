@@ -43,6 +43,7 @@
       - [Misc](#misc)
   - [Motions](#motions)
     - [Jumps and changes](#jumps-and-changes)
+    - [Use arrow keys](#use-arrow-keys)
     - [Line-based](#line-based)
     - [Word-based](#word-based)
     - [Moving within same line](#moving-within-same-line)
@@ -642,6 +643,17 @@ When making changes, the cursor position is saved.
  Go to previous change position        | <kbd>g</kbd> + <kbd>;</kbd>
  Go to next change position            | <kbd>g</kbd> + <kbd>,</kbd>
  Go to last insert position and INSERT | <kbd>g</kbd> + <kbd>i</kbd>
+
+### Use arrow keys
+
+Action | Keymap/command
+---------|----------
+Go 2 lines below | `2↓`
+Go 3 lines above | `3↑`
+Go 3 characters right | `3→`
+Go 2 characters leftt | `2←`
+
+These work with editing, e.g. `d2↑` will delete 2 lines above current line.
 
 ### Line-based
 
