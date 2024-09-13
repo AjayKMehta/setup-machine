@@ -57,7 +57,8 @@
     - [Insert](#insert)
     - [Delete/replace character](#deletereplace-character)
     - [Delete line](#delete-line)
-      - [Command-line mode](#command-line-mode-1)
+      - [Delete lines in normal mode](#delete-lines-in-normal-mode)
+      - [Delete lines in command-line mode](#delete-lines-in-command-line-mode)
     - [Yank](#yank)
     - [Paste](#paste)
     - [Comment](#comment)
@@ -813,9 +814,11 @@ All these commands put you in insert mode.
 
 <kbd>r</kbd> accepts motion, e.g. `cde` becomes `aae` if you type `2ra` with cursor on `c`
 
-<kbd>R</kbd> + multiple characters: `cde` becomes `abe` if you type `Rab` with cursor on `c`. Line will get extended as needed. Press <kb>Esc</kbd> when done replacing.
+<kbd>R</kbd> + multiple characters: `cde` becomes `abe` if you type `Rab` with cursor on `c`. Line will get extended as needed. Press <kbd>Esc</kbd> when done replacing.
 
 ### Delete line
+
+#### Delete lines in normal mode
 
  Action                                       | Keymap/command
  ---------------------------------------------|----------------
@@ -827,7 +830,7 @@ All these commands put you in insert mode.
 
 `10dd` = delete current line and 9 lines below. Same as `d9j`.
 
-#### Command-line mode
+#### Delete lines in command-line mode
 
 You can also delete in command-line mode:
 
