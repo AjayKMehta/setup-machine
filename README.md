@@ -253,7 +253,7 @@ See [ModulesToInstall.txt](./ModulesToInstall.txt) for list of modules to instal
 - Configure secret store:
 
     ```powershell
-    Set-secretstoreConfiguration -Scope CurrentUser -Authentication Password -PasswordTimeout 3600
+    Set-SecretstoreConfiguration -Scope CurrentUser -Authentication Password -PasswordTimeout 3600
     Set-SecretStorePassword
     ```
 
