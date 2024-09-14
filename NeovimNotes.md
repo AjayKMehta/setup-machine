@@ -506,7 +506,7 @@ Press <kbd>Esc</kbd> to clear search highlights.
 
 ### Delete search results
 
-You can use these operators in combination with `d` to delete text, e.g. `d/hello` to delete everything until the first occurrence of `hello`.
+You can use these operators in combination with `d` to delete text, e.g. `d/hello` to delete everything until the first occurrence of `hello`. To delete everything including first occurrence: `d/hello/e`.
 
 To delete search results:
 
@@ -665,7 +665,7 @@ These work with editing, e.g. `d2↑` will delete 2 lines above current line.
 
 Action | Keymap/command
 ---------|----------
-Go to 3rd line | `:3` OR `3gg`
+Go to 3rd line | `:3` OR `3gg` OR `3G`
 
 ### Word-based
 
@@ -766,6 +766,8 @@ Use `t{character}` to move the cursor just before the next occurrence of a chara
  Moves to line at 40% of total lines                                                          | `40%`
  Move to middle of window                                                                     | <kbd>M</kbd>
  Move to bottom of window                                                                     | <kbd>L</kbd>
+ Move to first non-empty character 2 lines below | `2+`
+ Move to first non-empty character 1 line above | `+`
 
 ## Editing
 
@@ -864,7 +866,7 @@ This even works with marks: `:'a,'bd` deletes from line with mark `a` to line wi
  -------------------------------------------|---------------
  Copy line and line above                   | `yk`
  Copy current line                          | `yy`
- Copy from current character to end of line | `y$`
+ Copy from current character to end of line | `y$` or `Y`
 
 `yk` copies current line and above it.
 
@@ -935,6 +937,8 @@ These also work in VISUAL or COMMAND-LINE mode.
 ### Moving lines
 
 In command-line mode: `<orig>m<new>`, e.g. `3m0` moves 3rd line to top of file or `2m$` moves 2nd line to bottom.
+
+This also works with ranges: `:10,15m4` to move lines 10-15 (both inclusive) after 4th line. To move after current line: `:10,15m.`.
 
 ### Digraphs
 
@@ -1011,6 +1015,8 @@ Lower case with motion: `gu<motion>`, e.g. `gue`.
 Upper case with motion: `gU<motion>`, e.g. `gUiw`.
 
 These work with `{count}` prefix, e.g. `2~`.
+
+Use `guu` to change all text on the line to lowercase, `gUU` for uppercase.
 
 ### [Editing line filtered by pattern](https://youtu.be/uQKaAOKgr2o?feature=shared)
 
@@ -1168,7 +1174,7 @@ Here are some useful key maps for when the window is displayed:
 ---------------------------------|----------------------------------
  **Change root to input path**   | <kbd>Alt</kbd> + <kbd>r</kbd>
  Change root to node             | <kbd>Ctrl</kbd> + <kbd>\]</kbd>
- **Change root to global cwd**   | <kbd>Ctl</kbd> + <kbd>c</kbd>
+ **Change root to global cwd**   | <kbd>Ctrl</kbd> + <kbd>c</kbd>
  **Launch Find Files**           | <kbd>Ctrl</kbd> + <kbd>f</kbd>
  **Launch Live Grep**            | <kbd>Ctrl</kbd> + <kbd>g</kbd>
  **Print path**                  | <kbd>Ctrl</kbd> + <kbd>p</kbd>
@@ -1240,7 +1246,6 @@ All actions in **bold** in the table above have custom keymaps. The other comman
  TODO/Fix/FixMe  | `<leader>ftS`
  Noice           | `<leader>fN`
  YAML schemas    | `<leader>fY`
-
 
 </details>
 
@@ -1428,7 +1433,7 @@ This provides three separate operators:
 
 Repeatable via `.`
 
-There are also insert-mode *<C-g>s* and visual-mode *S* mappings, that add the delimiter pair around the cursor and visual selection, respectively.
+There are also insert-mode `<C-g>s` and visual-mode `S` mappings, that add the delimiter pair around the cursor and visual selection, respectively.
 
 For the following examples, `*` denotes the cursor position and `|` demarcates the start and end of a visual selection:
 
