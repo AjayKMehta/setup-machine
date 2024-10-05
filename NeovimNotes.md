@@ -476,6 +476,9 @@ Use `O` to move cursor to other corner of current line in visual block mode.
 `ra` replaces every character in selection with `a`.
 `=` auto-indents code.
 
+Delete in selection everything starting from `,`: `:'<,'> norm f,D`.
+Delete in selection everything before `{`: `:'<,'>norm dt{`
+
 ## Command-line mode
 
 ### Motion, editing
@@ -903,13 +906,15 @@ This even works with marks: `:'a,'bd` deletes from line with mark `a` to line wi
 ### Paste
 
  Action                                                          | Keymap/command
------------------------------------------------------------------|---------------------------------
+ -----------------------------------------------------------------|---------------------------------
  Paste below current line or to right of cursor                  | `p`
  Paste above current line or to left of cursor                   | <kbd>Shift</kbd> + <kbd>p</kbd>
  Paste below current line or right of cursor (matching indent)   | `]p`
  Paste above current line or to left of cursor (matching indent) | `]P`
  Same as `p` but puts the cursor after the pasted selection      | `gp`
- Same as `P` but puts the cursor after the pasted selection      | `gP`
+ Same as `P` but puts the cursor after the pasted sele ction     | `gP`
+ Paste before line 2                                             | `:2pu`
+ Paste after line 3                                              | `:3pu`
 
 Duplicate a line: `yyp`
 
