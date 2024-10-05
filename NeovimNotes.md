@@ -17,6 +17,7 @@
       - [Recursive Macros](#recursive-macros)
     - [Keymaps](#keymaps)
     - [Folds](#folds)
+    - [Quickfix list](#quickfix-list)
     - [Executing external commands](#executing-external-commands)
   - [Visual Mode](#visual-mode)
     - [Visual Block Mode](#visual-block-mode)
@@ -403,6 +404,31 @@ Delete all folds under cursor | <kbd>z</kbd> + <kbd>D</kbd>
 **Peek fold** | <kbd>z</kbd> + <kbd>k</kbd>
 
 Actions in bold are courtesy of `ufo.nvim` plugin.
+
+### Quickfix list
+
+See `:help quickfix` and `:help quickfix-window`.
+
+Action | Keymap/command
+---------|----------
+Open window | `:cope[n]`
+Trouble quickfix list (must have `trouble.nvim` installed) | `<leader>tQ`
+Close window | `:cclose`
+Display first error | `:cfirst`
+Display next error | `:cnext`
+Display previous error | `:cprev`
+Display 2nd error | `:cc 2`
+Open older lists | `:colder`
+Open newer lists | `:cnewer`
+Operate on each QuickFix list entry | `:cdo <action>`
+Operate on each QuickFix file | `:cfdo <action>`
+
+Install `kevinhwang91/nvim-bqf` for a better quickfix experience.
+Refer to [this](https://github.com/kevinhwang91/nvim-bqf#function-table) for hotkeys for `nvim-bqf`
+
+If you want to save the list for future reference: `:w my_qf.txt`.
+
+Good read: [Examples.md](https://gist.github.com/Integralist/8d01300efcd2006c69e8b9492c0eada8).
 
 ### [Executing external commands](https://youtu.be/STSZt2c1rSA?feature=shared)
 
