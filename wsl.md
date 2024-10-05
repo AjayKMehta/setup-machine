@@ -60,6 +60,16 @@ sudo apt-cache policy
 
 ## Troubleshooting Tips
 
+## Delete bash sessions
+
+```bash
+# Get the terminal name of the current session
+CURRENT_TTY=$(tty)
+
+# List all Bash sessions, excluding the current one, and terminate them
+ps -o pid,tty,comm | grep bash$ | grep -v "$CURRENT_TTY" | awk '{print $1}' | xargs kill -TERM
+```
+
 ### apt update error
 
 If you get an error when running `sudo apt update`  along the lines of "Release file is not yet valid", you need to install `ntp` ([source](https://askubuntu.com/a/1300062)):
