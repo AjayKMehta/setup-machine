@@ -122,9 +122,6 @@
         - [Swap](#swap)
         - [LSP interop](#lsp-interop)
       - [nvim-treesitter-refactor](#nvim-treesitter-refactor)
-      - [syntax-tree-surfer](#syntax-tree-surfer)
-        - [Normal mode](#normal-mode)
-        - [Visual mode](#visual-mode-1)
       - [nvim-treesitter-textsubjects](#nvim-treesitter-textsubjects)
     - [Markdown](#markdown)
       - [markdown.nvim](#markdownnvim)
@@ -735,8 +732,8 @@ A line that is wrapped will have 2 or more screen lines.
 -----------------------------|----------------
  Move to the first character | `g0`
  Move to the first NBC       | `g^`
- Move up screen line         | `gk`
- Move down screen line       | `gj`
+ Move up screen line         | `gk` OR `g↑`
+ Move down screen line       | `gj` OR `g↓`
 
 `g2j` move down 2 screen lines.
 
@@ -1753,48 +1750,6 @@ An example: `]f` will navigate to **start** (`f` is lower case) of **next** (`]`
  List definitions TOC | `glt`
  Go to next usage     | <kbd>Shift</kbd> + <kbd>*</kbd>
  Go to previous usage | <kbd>Shift</kbd> + <kbd>#</kbd>
-
-#### syntax-tree-surfer
-
-[Syntax Tree Surfer](https://github.com/ziontee113/syntax-tree-surfer) is a plugin for Neovim that helps you surf through your document and move elements around using the Treesitter API.
-
-##### Normal mode
-
- Action                       | Keymap
-------------------------------|--------
- Swap node with sibling above | `vu`
- Swap node with sibling below | `vd`
- Swap master node with above  | `vU`
- Swap master node with below  | `vD`
-
-The actions above are dot-repeatable.
-
- Action              | Keymap
----------------------|--------
- Select master node  | `vx`
- Select current node | `vn`
- Hold or swap node   | `gh`
-
-Jumps:
-
- Action                       | Keymap
-------------------------------|--------
- Jump to any statement        | `gja`
- Jump to function definition  | `gjf`
- Jump to variable declaration | `gjv`
- Jump to if statement         | `gji`
- Jump to loop statement       | `gjl`
-
-##### Visual mode
-
- Action                     | Keymap
-----------------------------|---------------------------------
- Select next sibling        | `J`
- Select previous sibling    | `K`
- Select parent node         | `H`
- Select child node          | `L`
- Swap with next sibling     | <kbd>Shift</kbd> + <kbd>j</kbd>
- Swap with previous sibling | <kbd>Shift</kbd> + <kbd>k</kbd>
 
 #### nvim-treesitter-textsubjects
 
