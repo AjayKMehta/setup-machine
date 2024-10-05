@@ -75,6 +75,8 @@
     - [Editing line filtered by pattern](#editing-line-filtered-by-pattern)
   - [Completion and snippets](#completion-and-snippets)
   - [Recipes + FAQ](#recipes--faq)
+    - [How do you check if Neovim is built with luajit?](#how-do-you-check-if-neovim-is-built-with-luajit)
+    - [Open file under cursor](#open-file-under-cursor)
     - [Toggle line numbers](#toggle-line-numbers)
     - [Swap lines](#swap-lines)
     - [Multi-file find and replace](#multi-file-find-and-replace)
@@ -85,6 +87,11 @@
     - [Increment selection with search iterator](#increment-selection-with-search-iterator)
     - [Add a string at a line number in multiple files](#add-a-string-at-a-line-number-in-multiple-files)
     - [Suspend Neovim](#suspend-neovim)
+    - [Find and replace in multiple files at once](#find-and-replace-in-multiple-files-at-once)
+    - [Create auto-increment sequence](#create-auto-increment-sequence)
+  - [Where does mason install binaries?](#where-does-mason-install-binaries)
+    - [Copy text between brackets on multiple lines](#copy-text-between-brackets-on-multiple-lines)
+    - [Include/exclude text using external command](#includeexclude-text-using-external-command)
   - [Plugins](#plugins)
     - [Utility](#utility)
       - [Toggleterm](#toggleterm)
@@ -1091,6 +1098,18 @@ Actions in **bold** above are custom actions I added in addition to those to pro
 
 ## Recipes + FAQ
 
+### How do you check if Neovim is built with luajit?
+
+Run:
+
+```shell
+:lua print(jit.version)
+```
+
+### Open file under cursor
+
+Use `gf`.
+
 ### Toggle line numbers
 
 `:set relativenumber`: show relative numbers
@@ -1149,6 +1168,61 @@ Replace all instances of `1` with auto-incremented sequence 🤯:
 ### Suspend Neovim
 
 <kbd>Ctrl</kbd> + <kbd>z</kbd> suspends Neovim. To resume, `fg` in shell.
+
+### Find and replace in multiple files at once
+
+First, add files to quickfix list.
+
+Then to replace all instances of `cat` with `dog`:
+
+`:cfdo %s/cat/dog/g | update | bd`
+
+Less eficient way to do this is with `cdo` which operates on each entry (versus `cfdo` which operates on each file):
+
+`:cdo s/cat/dog/ | update | bd`
+
+### Create auto-increment sequence
+
+The command <kbd>g</kbd> + <kbd>Ctrl</kbd> + <kbd>a</kbd> in Neovim performs an incremental increment operation on numbers in visual mode. Here's a concise explanation:
+
+1. Select a block of text containing numbers in visual mode.
+2. Press `g + Ctrl + a`.
+3. Each number in the selection will be incremented by consecutive integers.
+
+Example:
+
+```text
+1
+2
+3
+4
+```
+
+After applying `g + Ctrl + a`, it becomes:
+
+```text
+1
+3
+5
+7
+```
+
+You can use this to create a series of `0` into auto-incremented series: $1,2,\cdots$ 😄
+
+## Where does mason install binaries?
+
+`~/.local/share/nvim/mason/bin`
+
+### Copy text between brackets on multiple lines
+
+1. Select lines containing text you want.
+2. `:'<,'>norm "Ayi{` copies text between brackets and *appends* to register `a`.
+3. Paste: `"aP`.
+
+### Include/exclude text using external command
+
+1. Select lines.
+2. To filter lines only containing `foo`: `:'<,'> ! rg -F foo`. Else to remove lines containing `foo`: `:'<,'> ! rg -v -F foo` (`-v` inverts match!).
 
 ## Plugins
 
