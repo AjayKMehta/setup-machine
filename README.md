@@ -63,6 +63,7 @@
   - [Hadoop](#hadoop)
   - [AI](#ai)
     - [NVIDIA CUDA Toolkit](#nvidia-cuda-toolkit)
+    - [CUDNN](#cudnn)
     - [llama.cpp](#llamacpp)
     - [Geekbench AI](#geekbench-ai)
   - [Python](#python)
@@ -815,6 +816,12 @@ See [here](https://kontext.tech/article/447/install-hadoop-330-on-windows-10-ste
 ### NVIDIA CUDA Toolkit
 
 Download and install from <https://developer.nvidia.com/cuda-downloads>. It is over 3 GB so if you don't have enough disk space on C:, install on a different drive.
+
+You should see an environment variable `$CUDA_PATH` created whose value is the install path.
+
+### CUDNN
+
+Download installer from <https://developer.nvidia.com/cudnn-downloads>.
 
 ### llama.cpp
 

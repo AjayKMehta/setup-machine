@@ -900,6 +900,18 @@ For more bindings, see [this](https://github.com/jalvesaq/Nvim-R/blob/master/doc
     sudo apt-get -y install cuda-toolkit-12-6
     ```
 
+### [CUDNN](https://developer.nvidia.com/cudnn-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=deb_network)
+
+```bash
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb
+sudo dpkg -i cuda-keyring_1.1-1_all.deb
+
+echo "deb [signed-by=/usr/share/keyrings/cuda-archive-keyring.gpg] https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/ /" | sudo tee /etc/apt/sources.list.d/cuda-ubuntu2204-x86_64.list
+
+sudo apt-get update
+sudo apt-get -y install cudnn
+```
+
 ## Python
 
 ```shell
