@@ -1688,11 +1688,14 @@ When you search via `/`, each match will have a corresponding label, e.g. `a`. P
  Command                 | Normal mode  | Visual/operator-pending mode
  -------------------------|--------------|---------------------------
  Flash jump              | `<leader>ss` | `ss`
- Flash jump (Treesitter) | `<leader>st` | `st`
+ Flash jump (Treesitter) | `<leader>sT` | `sT`
  Flash forward           | `<leader>sf` | `sf`
  Flash backward          | `<leader>sb` | `sb`
  Flash continue          | `<leader>sc` | `sc`
+ Flash diagnostics       | `<leader>sd` | `sd`
  Flash Treesitter search | **NA**       | `sR`
+ Flash toggle search     | `<leader>st` | **NA**
+ Flash current word      | `<leader>sw` | **NA**
 
  **Flash jump** lets you search for text in any direction.
  **Flash forward** searches only in the forward direction.
