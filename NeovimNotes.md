@@ -89,7 +89,7 @@
     - [Suspend Neovim](#suspend-neovim)
     - [Find and replace in multiple files at once](#find-and-replace-in-multiple-files-at-once)
     - [Create auto-increment sequence](#create-auto-increment-sequence)
-  - [Where does mason install binaries?](#where-does-mason-install-binaries)
+  - [Where does `mason` install binaries?](#where-does-mason-install-binaries)
     - [Copy text between brackets on multiple lines](#copy-text-between-brackets-on-multiple-lines)
     - [Include/exclude text using external command](#includeexclude-text-using-external-command)
   - [Plugins](#plugins)
@@ -239,6 +239,9 @@ Quit all and confirm for unsaved changes: `:confirm qa`.
 
 Quit and don't save changes: `:q!`.
 Quit and save all: `:wqa`.
+
+Save and close: `ZZ`
+Close without saving: `ZQ`
 
 Append to file: `:w >> <file>`.
 
@@ -721,7 +724,7 @@ A WORD is a sequence of NBCs separated by whitespace. A word is delimited by non
 
  Action                  | Keymap/command
 -------------------------|-----------------------------
- Move to first character | `0`
+ Move to first character | `0` OR `_`
  Move to first NBC       | <kbd>\^</kbd>
  Move to end of line     | <kbd>\$</kbd>
  Move to last NBC        | `g_`
@@ -841,6 +844,7 @@ All these commands put you in insert mode.
  Insert new line before current line | <kbd>Shift</kbd> + <kbd>o</kbd>
 
 `gi` puts you into Insert mode at the last place you made a change.
+Use `g;` and `g,` to navigate history of insertions.
 
 ### Delete/replace character
 
@@ -1214,7 +1218,7 @@ After applying `g + Ctrl + a`, it becomes:
 
 You can use this to create a series of `0` into auto-incremented series: $1,2,\cdots$ 😄
 
-## Where does mason install binaries?
+## Where does `mason` install binaries?
 
 `~/.local/share/nvim/mason/bin`
 
