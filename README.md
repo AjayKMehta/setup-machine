@@ -836,23 +836,23 @@ Geekbench AI helps you benchmark your machine to see how well it can perform tas
 > [!NOTE]
 > At some point, I would like to switch to **~~poetry~~** **uv** due to the challenges presented when using **conda** and **pip** together.
 
+- To use [UTF-8 mode on Windows](https://dev.to/methane/python-use-utf-8-mode-on-windows-212i), set environment variable `$PYTHONUTF8` to 1.
+- To prevent installing using base python, set `$PIP_REQUIRE_VIRTUALENV` to `true`[^1].
+
+[^1]: See <https://daniel.feldroy.com/posts/til-2023-12-forcing-pip-to-use-virtualenv> for details.
+
+- To resolve error **`URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:997)>`**, install <https://letsencrypt.org/certs/lets-encrypt-r3.der> ([source](https://github.com/thonny/thonny/issues/1986#issuecomment-934771923)).
+
+### conda
+
 - Download and install [Miniconda](https://docs.conda.io/en/latest/miniconda.html).
 - Add **bin** folder (**D:\Apps\Miniconda\condabin**) to `$Path`.
-- To use [UTF-8 mode on Windows](https://dev.to/methane/python-use-utf-8-mode-on-windows-212i), set environment variable `$PYTHONUTF8` to 1.
 - Add environment variables:
 
     ```powershell
     SET VS140COMNTOOLS = "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\"
     SET VS90COMNTOOLS = %VS140COMNTOOLS%
     ```
-
-- To resolve error **`URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:997)>`**, install <https://letsencrypt.org/certs/lets-encrypt-r3.der> ([source](https://github.com/thonny/thonny/issues/1986#issuecomment-934771923)).
-
-- To prevent installing using base python, set `$PIP_REQUIRE_VIRTUALENV` to `true`[^1].
-
-[^1]: See <https://daniel.feldroy.com/posts/til-2023-12-forcing-pip-to-use-virtualenv> for details.
-
-### conda
 
 - To enable conda in PowerShell, run the following in conda prompt:
 

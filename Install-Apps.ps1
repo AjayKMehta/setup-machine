@@ -1,4 +1,3 @@
-#Requires -RunAsAdministrator
 . "$PSScriptRoot\Install-WinGetApp.ps1"
 
 param (
@@ -7,10 +6,6 @@ param (
 
 if (!(Get-Module Microsoft.WinGet.Client -ListAvailable -ErrorAction Ignore)) {
     Install-Module Microsoft.WinGet.Client -Scope CurrentUser
-}
-
-if (!(Get-Command 'pwsh' CommandType Application -ErrorAction Ignore)) {
-    Install-WinGetPackage -Id Microsoft.PowerShell
 }
 
 Install-WinGetPackage -Id Mozilla.Firefox
