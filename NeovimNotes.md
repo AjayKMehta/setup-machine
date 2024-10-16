@@ -89,9 +89,10 @@
     - [Suspend Neovim](#suspend-neovim)
     - [Find and replace in multiple files at once](#find-and-replace-in-multiple-files-at-once)
     - [Create auto-increment sequence](#create-auto-increment-sequence)
-  - [Where does `mason` install binaries?](#where-does-mason-install-binaries)
+    - [Where does `mason` install binaries?](#where-does-mason-install-binaries)
     - [Copy text between brackets on multiple lines](#copy-text-between-brackets-on-multiple-lines)
     - [Include/exclude text using external command](#includeexclude-text-using-external-command)
+    - [Get list of local files in insert mode](#get-list-of-local-files-in-insert-mode)
   - [Plugins](#plugins)
     - [Utility](#utility)
       - [Toggleterm](#toggleterm)
@@ -1218,7 +1219,7 @@ After applying `g + Ctrl + a`, it becomes:
 
 You can use this to create a series of `0` into auto-incremented series: $1,2,\cdots$ 😄
 
-## Where does `mason` install binaries?
+### Where does `mason` install binaries?
 
 `~/.local/share/nvim/mason/bin`
 
@@ -1232,6 +1233,10 @@ You can use this to create a series of `0` into auto-incremented series: $1,2,\c
 
 1. Select lines.
 2. To filter lines only containing `foo`: `:'<,'> ! rg -F foo`. Else to remove lines containing `foo`: `:'<,'> ! rg -v -F foo` (`-v` inverts match!).
+
+### Get list of local files in insert mode
+
+Press `<C-x><C-f>` to get a list of local files when in insert mode ([source](https://www.reddit.com/r/neovim/comments/1g380b0/comment/lrvq01m/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)).
 
 ## Plugins
 
