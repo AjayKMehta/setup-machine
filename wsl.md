@@ -365,6 +365,12 @@ From [GitHub repo](https://github.com/Mic92/cntr?tab=readme-ov-file):
 
 Install: `cargo install cntr`.
 
+## parallel-disk-usage
+
+Install: `cargo install parallel-disk-usage --bin pdu`.
+
+Grab shell completion script from [Releases page](https://github.com/KSXGitHub/parallel-disk-usage/releases).
+
 ## [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/install-ubuntu)
 
 Available from the Linux package repository for Microsoft products, <https://packages.microsoft.com>, also known as PMC.
