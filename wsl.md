@@ -683,6 +683,8 @@ eval "$(atuin init bash --disable-up-arrow)"
 
 Important settings are in `~/.local/share/atuin`.
 
+Update: `atuin-update`.
+
 ## VS Code
 
 - See [here](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode) for steps to configure WSL for use with VS Code.
