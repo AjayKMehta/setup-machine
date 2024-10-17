@@ -379,6 +379,18 @@ Install: `cargo install parallel-disk-usage --bin pdu`.
 
 Grab shell completion script from [Releases page](https://github.com/KSXGitHub/parallel-disk-usage/releases).
 
+## rga
+
+[rga](https://github.com/phiresky/ripgrep-all)  is like **ripgrep** but also searches in PDFs, E-Books, Office documents, zip, tar.gz, etc.
+
+Install:
+
+```bash
+sudo apt install build-essential pandoc poppler-utils ffmpeg ripgrep cargo
+cargo install --locked ripgrep_all
+rga --version    # this should work now
+```
+
 ## [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/install-ubuntu)
 
 Available from the Linux package repository for Microsoft products, <https://packages.microsoft.com>, also known as PMC.
