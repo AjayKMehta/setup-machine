@@ -27,6 +27,7 @@
     - [git absorb](#git-absorb)
   - [Java](#java)
   - [CLI Apps](#cli-apps)
+    - [parallel-disk-usage](#parallel-disk-usage)
     - [typos](#typos)
     - [less](#less)
     - [fzf](#fzf)
@@ -469,6 +470,14 @@ Grab latest release from repo and add install folder to `$Path`.
 ## CLI Apps
 
 :bulb: Install CLI apps in a common directory and add common directory to `$Path`.
+
+### parallel-disk-usage
+
+From [Github repo](https://github.com/KSXGitHub/parallel-disk-usage):
+
+> Highly parallelized, blazing fast directory tree analyzer
+
+Grab latest binary and shell completion script from [Releases page](https://github.com/KSXGitHub/parallel-disk-usage/releases).
 
 ### typos
 
