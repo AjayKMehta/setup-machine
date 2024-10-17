@@ -365,6 +365,14 @@ From [GitHub repo](https://github.com/Mic92/cntr?tab=readme-ov-file):
 
 Install: `cargo install cntr`.
 
+## tailspin
+
+[This](https://github.com/bensadeh/tailspin) is a log viewer with highlighting!
+
+Install: `cargo install tailspin`.
+
+:point_right:Binary name is `tspin`.
+
 ## parallel-disk-usage
 
 Install: `cargo install parallel-disk-usage --bin pdu`.
