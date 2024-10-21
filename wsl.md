@@ -277,19 +277,27 @@ delta --generate-completion bash >  .config/bash_completions.d/delta
 mise use deno@latest
 mise use difftastic@latest
 mise use docker-slim@latest
+
+mise plugin add github-cli https://github.com/bartlomiejdanek/asdf-github-cli.git   
+mise use github-cli@latest
+
 mise use eza@latest
 
 # For man pages
 cd ~/tmp && gh release download --repo eza-community/eza --pattern man*.*
-tar -xzvf ./man-0.19.2.tar.gz
+eza_version='0.20.4'
+folder="man-$eza_version"
+tar -xzvf "./$folder.tar.gz"
+tmp="./target/${folder}/*"
 # Be consistent
-sudo chown root ./target/man-0.19.2/*
-sudo mv ./target/man-0.19.2/* /usr/share/man/man1
+sudo chown root $tmp
+sudo mv $tmp /usr/share/man/man1
+# cleanup
+rmdir target
+rm "./$folder.tar.gz"
+cd -
 
 mise use fzf@latest
-
-mise plugin add github-cli https://github.com/bartlomiejdanek/asdf-github-cli.git   
-mise use github-cli@latest
 
 mise use go@latest
 mise use lua-language-server@latest
@@ -318,18 +326,18 @@ To list available versions of an *installed* plugin (here **lazygit**):
 mise ls-remote lazygit
 ```
 
+Update mise:
+
+```shell
+mise self-update
+```
+
 ## fzf
 
 Install plugin:
 
 ```shell
 mise install fzf
-```
-
-Update mise:
-
-```shell
-mise self-update
 ```
 
 ### Tips
