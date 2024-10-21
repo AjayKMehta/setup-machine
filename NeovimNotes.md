@@ -62,6 +62,7 @@
       - [Delete lines in command-line mode](#delete-lines-in-command-line-mode)
     - [Yank](#yank)
     - [Paste](#paste)
+    - [Tuck](#tuck)
     - [Comment](#comment)
     - [Indent](#indent)
     - [Join Lines](#join-lines)
@@ -930,6 +931,18 @@ You can also use yank in command-line mode: `:5y a` yanks line 5 into register `
 Duplicate a line: `yyp`
 
 Using `CTRL-R {register}` you can paste the contents of a register after the cursor in **INSERT** mode.
+
+### Tuck
+
+`:1,3t.` tucks (copies) lines 1-3 and moves after current line.
+`.t-1` tucks current line and pastes above current line.
+
+You can use this to easily edit text:
+
+1. First, create a mark `a` using `ma` where you want to move text to.
+2. Select text to copy in visual mode.
+3. Press `:`.
+4. Now type `t'a` (so, command is `:'<,'>t'a`) to copy text after mark `a`.
 
 ### Comment
 
