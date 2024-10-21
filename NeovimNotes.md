@@ -288,7 +288,9 @@ To go to first non-blank character of line containing mark:  <kbd>'</kbd> + <kbd
 
 To delete from current character to mark `a` position: ``d`a``.
 
-:bulb: Whenever you jump across lines using motion, position gets saved in `` ` `` mark so you can jump to it using ``` `` ```!
+:bulb: Whenever you jump across lines using motion, position gets saved in `` ` `` mark so you can jump to it using ``` '` ```!
+
+:bulb: The built-in mark `'.` records the position of the last change in current!
 
 ### Registers
 
@@ -482,6 +484,8 @@ Use `O` to move cursor to other corner of current line in visual block mode.
 
 Delete in selection everything starting from `,`: `:'<,'> norm f,D`.
 Delete in selection everything before `{`: `:'<,'>norm dt{`
+
+:bulb: If you accidentally exit Visual mode before entering Command-line mode, you can use `*` as a shorthand for `'<,'>`. See [`:h :star`](https://neovim.io/doc/user/cmdline.html#%3Astar).
 
 ## Command-line mode
 
@@ -908,6 +912,8 @@ This even works with marks: `:'a,'bd` deletes from line with mark `a` to line wi
 
 `yk` copies current line and above it.
 
+You can also use yank in command-line mode: `:5y a` yanks line 5 into register `a`.
+
 ### Paste
 
  Action                                                          | Keymap/command
@@ -979,6 +985,8 @@ These also work in VISUAL or COMMAND-LINE mode.
 In command-line mode: `<orig>m<new>`, e.g. `3m0` moves 3rd line to top of file or `2m$` moves 2nd line to bottom.
 
 This also works with ranges: `:10,15m4` to move lines 10-15 (both inclusive) after 4th line. To move after current line: `:10,15m.`.
+
+`:m+1` moves current line below the line following it.
 
 ### Digraphs
 
@@ -1070,6 +1078,8 @@ Use `guu` to change all text on the line to lowercase, `gUU` for uppercase.
 `:.,+2 g/\wa/ normal gU$` - for current line and 2 lines below it, convert to upper case all lines containing `\wa`.
 
 `:g/^def.*/ normal @d` - for all lines starting with `def`, apply macro in register `d`.
+
+`:,/foo[0-9]/-1norm ^cEbar` changes the first word to `bar` for each of the lines from the current line to the line before the next line matching `foo[0-9]`.
 
 Use `g!` or `v` to negate pattern.
 
