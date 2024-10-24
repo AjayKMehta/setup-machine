@@ -66,7 +66,6 @@
     - [NVIDIA CUDA Toolkit](#nvidia-cuda-toolkit)
     - [CUDNN](#cudnn)
     - [llama.cpp](#llamacpp)
-    - [Geekbench AI](#geekbench-ai)
   - [Python](#python)
     - [conda](#conda)
     - [spacy](#spacy)
@@ -835,10 +834,6 @@ Download installer from <https://developer.nvidia.com/cudnn-downloads>.
 ### llama.cpp
 
 Install latest release from <https://github.com/ggerganov/llama.cpp/releases> or build locally. For the latter, the PowerShell scripts in [this GitHub repo](https://github.com/countzero/windows_llama.cpp/) are useful.
-
-### Geekbench AI
-
-Geekbench AI helps you benchmark your machine to see how well it can perform tasks that are handled by AI. You can download it from [here](https://www.geekbench.com/ai/download/).
 
 ## Python
 
