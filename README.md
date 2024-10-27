@@ -67,14 +67,13 @@
     - [CUDNN](#cudnn)
     - [llama.cpp](#llamacpp)
   - [Python](#python)
-    - [conda](#conda)
+    - [uv](#uv)
+      - [uv Tools](#uv-tools)
+      - [Working with projects](#working-with-projects)
     - [spacy](#spacy)
     - [faiss](#faiss)
     - [PyTorch](#pytorch)
     - [JupyterLab](#jupyterlab)
-      - [Workaround for Quarto](#workaround-for-quarto)
-      - [Git-friendly hooks](#git-friendly-hooks)
-      - [Kernel fails due to missing DLL](#kernel-fails-due-to-missing-dll)
     - [GenAI](#genai)
       - [Cohere](#cohere)
       - [Replicate](#replicate)
@@ -837,9 +836,6 @@ Install latest release from <https://github.com/ggerganov/llama.cpp/releases> or
 
 ## Python
 
-> [!NOTE]
-> At some point, I would like to switch to **~~poetry~~** **uv** due to the challenges presented when using **conda** and **pip** together.
-
 - To use [UTF-8 mode on Windows](https://dev.to/methane/python-use-utf-8-mode-on-windows-212i), set environment variable `$PYTHONUTF8` to 1.
 - To prevent installing using base python, set `$PIP_REQUIRE_VIRTUALENV` to `true`[^1].
 
@@ -847,47 +843,132 @@ Install latest release from <https://github.com/ggerganov/llama.cpp/releases> or
 
 - To resolve error **`URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:997)>`**, install <https://letsencrypt.org/certs/lets-encrypt-r3.der> ([source](https://github.com/thonny/thonny/issues/1986#issuecomment-934771923)).
 
-### conda
+### uv
 
-- Download and install [Miniconda](https://docs.conda.io/en/latest/miniconda.html).
-- Add **bin** folder (**D:\Apps\Miniconda\condabin**) to `$Path`.
-- Add environment variables:
+- Before installing, set environment variables if you don't want to use default locations:
 
     ```powershell
-    SET VS140COMNTOOLS = "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\"
-    SET VS90COMNTOOLS = %VS140COMNTOOLS%
+    [Environment]::SetEnvironmentVariable('UV_INSTALL_DIR', 'D:\Apps\uv', 'User')
+    [Environment]::SetEnvironmentVariable('UV_CACHE_DIR', 'D:\.cache\uv', 'User')
+    [Environment]::SetEnvironmentVariable('UV_TOOL_BIN_DIR', 'D:\Apps\uv\tools', 'User')
     ```
 
-- To enable conda in PowerShell, run the following in conda prompt:
+- Also, set `$UV_LINK_MODE` to `hardlink` to avoid annoying warnings.
+
+- Install `uv` and set up shell completion:
 
     ```powershell
-    conda init powershell cmd.exe
+    irm https://astral.sh/uv/install.ps1 | iex
+
+    uv generate-shell-completion powershell | Out-File ~\Documents\PowerShell\Scripts\ArgumentCompleters\uv.ps1
+
+    # Ensure that the tool executable directory is on the `PATH`
+    uv tool update-shell
     ```
 
-- Enable `pip` interoperability:
+- Use `uv self update` to update `uv`
+
+#### uv Tools
+
+- Install tools:
+  
+    ```powershell
+    uv tool radian # For R
+    uv tool install ipython
+    uv tool install ruff
+    uv tool install virtualenv
+    uv tool install cookiecutter
+    uv tool install mypy
+    uv tool install pipdeptree
+    uv tool install yamllint
+
+    # <https://pypi.org/project/tox-uv/>
+
+    uv tool install tox --with tox-uv
+
+    # <https://pypi.org/project/pre-commit-uv/>
+
+    uv tool install pre-commit --with pre-commit-uv --force-reinstall
+
+    uv tool 
+    ```
+
+- Use `uv tool upgrade --all` to upgrade tools.
+- Use `uv tool dir` to list directory where tools are installed.
+- Use `uv tool dir --bin` to list directory where tools' executables are installed.
+
+Run tool using `uv tool run <tool>` or `uvx <tool>`.
+
+#### Working with projects
+
+1. Create a project in current directory (pass `--lib` if library else `--app`):
 
     ```powershell
-    conda config --set pip_interop_enabled True
+    uv init -p 3.12.7 --author-from none --name $project --no-workspace --build-backend setuptools --python-preference managed --app
     ```
 
-- conda will automatically prepend the prompt with the name of the environment you're in. To disable this, [do the following](https://ohmyposh.dev/docs/faq#conda-environment-name-displayed-in-front-of-the-prompt):
+    This will create a virtual environment, `pyproject.toml` and other files.
+
+    Alternatively, you can use `cookiecutter` to create from a template.
+
+2. Add dependencies:
+   Add dependency `foo` (adds to `.venv` and `pyproject.toml`):
 
     ```powershell
-    conda config --set changeps1 False
+    uv add foo
     ```
+
+    Specify optional dependencies just as like you do for `pip install`:
+
+    ```powershell
+    uv add 'httpx[zstd]' 
+    ```
+
+    You can add constraints for version, etc. with [dependency specifiers](https://packaging.python.org/en/latest/specifications/dependency-specifiers/), formerly know as [PEP 508](https://peps.python.org/pep-0508/):
+
+    ```powershell
+    uv add 'starlette<0.41.1' # Need quotes with '>' or '<'
+    uv add numpy==2.0.2
+    uv add foo~=1.0.1
+    ```
+
+    Add [dev dependency](https://docs.astral.sh/uv/concepts/dependencies/#development-dependencies) `mypy` (adds to `.venv` and to `tool.uv` section in `pyproject.toml`):
+
+    ```powershell
+    uv add mypy --dev
+    ```
+
+    Add [optional dependency](https://docs.astral.sh/uv/concepts/dependencies/#optional-dependencies) (adds to `.venv` and to `project.optional-dependencies` section in `pyproject.toml`):
+
+    ```powershell
+    uv add httpx --optional network
+    ```
+
+    > :point_up: This is mostly useful for libraries.
+
+3. Sync `.venv` with lockfile: `uv sync`. Pass `--frozen` to avoid updating the lockfile.
+
+4. Update package: `uv lock --upgrade-package <pkg>`.
+
+5. To see what packages would change without updating lockfile: `uv lock -U --dry-run`.
+
+6. Update all packages: `uv lock --upgrade`.
+
+7. Export package info to requirements.txt: `uv pip compile --annotation-style line pyproject.toml | Out-File requirements.txt`. :bulb: If you don't specify `--annotation-style line`, it uses `split` which may produce multiple lines per package showing its dependents.
+
+8. Verify installed packages have compatible dependencies: `uv pip check`.
+
+9. Use `uv run` to run commands in the project environment: `uv run python -m spacy info`. To run a script: `uv run example.py`.
+
+    > :warning: Be careful not to use `uvx` to run a command corresponding to a tool with same name, e.g. `mypy` or you will be running in the wrong virtual environment!
 
 ### spacy
 
-Spacy models are not available on conda-forge for spacy 3.5+ as of the time this was written.
-
-Please do the following to install:
+Please do the following to install models, e.g. for [`en_core_web_sm-3.8.0`](https://spacy.io/models/en#en_core_web_sm):
 
 ```powershell
-# Best to run with --dry-run first to make sure no dependencies get clobbered.
-pip install $(spacy info en_core_web_md --url)
+uv add "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl"
 ```
-
-> :bulb: Package names are different on PyPi.org compared to conda-forge: *en\_core\_web\_md* vs **spacy-model-**_en\_core\_web\_md_. <!-- markdownlint-disable-line MD049 -->
 
 For more information, see [here](https://spacy.io/usage/models#download).
 
@@ -907,27 +988,28 @@ nvidia-smi
 
 ### JupyterLab
 
+Install (in uv project):
+
+```powershell
+uv add --group dev jupyterlab
+```
+
 Install following extensions:
 
-- jupyterlab-plotly
+- plotlywidget
 - @jupyterlab/latex
 - @ryantam626/jupyterlab_code_formatter
 
 ```powershell
-mamba install jupyterlab-latex jupyterlab-plotly-extension jupyterlab_code_formatter
+uv add --group dev jupyterlab-latex
+uv run jupyter labextension install plotlywidget jupyterlab_code_formatter
 ```
 
-#### Workaround for Quarto
+View extensions:
 
-See [Use with nbconvert, voila, papermill,...](https://github.com/Anaconda-Platform/nb_conda_kernels#use-with-nbconvert-voila-papermill).
-
-#### Git-friendly hooks
-
-See [here](https://nbdev.fast.ai/tutorials/git_friendly_jupyter.html) for details.
-
-#### Kernel fails due to missing DLL
-
-See <https://stackoverflow.com/questions/54876404/unable-to-import-sqlite3-using-anaconda-python>.
+```shell
+uv run jupyter labextension list
+```
 
 ### GenAI
 
@@ -976,7 +1058,7 @@ Set following [environment variables](https://huggingface.co/docs/huggingface_hu
 To enable faster downloads:
 
 ```powershell
-pip install hf_transfer
+uv add hf_transfer
 $env:HF_HUB_ENABLE_HF_TRANSFER = 1
 ```
 
@@ -985,15 +1067,13 @@ $env:HF_HUB_ENABLE_HF_TRANSFER = 1
 Once installed, check that **huggingface_hub** works properly by running the following command:
 
 ```shell
-python -c "from huggingface_hub import model_info; print(model_info('gpt2'))"
+uv run python -c "from huggingface_hub import model_info; print(model_info('gpt2'))"
 ```
 
 This command will fetch information from the Hub about the `gpt2` model. Output should look like this:
 
 ```text
-Model Name: gpt2
-Tags: ['pytorch', 'tf', 'jax', 'tflite', 'rust', 'safetensors', 'gpt2', 'text-generation', 'en', 'doi:10.57967/hf/0039', 'transformers', 'exbert', 'license:mit', 'has_space']
-Task: text-generation
+ModelInfo(id='openai-community/gpt2', author='openai-community', sha='607a30d783dfa663caf39e06633721c8d4cfcd7e', created_at=datetime.datetime(2022, 3, 2, 23, 29, 4, tzinfo=datetime.timezone.utc), last_modified=datetime.datetime(2024, 2, 19, 10, 57, 45, tzinfo=datetime.timezone.utc), private=False, disabled=False, downloads=12735669, downloads_all_time=None, gated=False, gguf=None, inference=None, likes=2327, library_name='transformers', tags=['transformers', 'pytorch', 'tf', 'jax', 'tflite', 'rust', 'onnx', 'safetensors', 'gpt2', 'text-generation', 'exbert', 'en', 'doi:10.57967/hf/0039', 'license:mit', 'autotrain_compatible', 'text-generation-inference', 'endpoints_compatible', 'region:us'], pipeline_tag='text-generation', mask_token=None, card_data={'base_model': None, 'datasets': None, 'eval_results': None, 'language': 'en', 'library_name': None, 'license': 'mit', 'license_name': None, 'license_link': None, 'metrics': None, 'model_name': None, 'pipeline_tag': None, 'tags': ['exbert']}, widget_data=[{'text': 'My name is Julien and I like to'}, {'text': 'My name is Thomas and my main'}, {'text': 'My name is Mariama, my favorite'}, {'text': 'My name is Clara and I am'}, {'text': 'My name is Lewis and I like to'}, {'text': 'My name is Merve and my favorite'}, {'text': 'My name is Teven and I am'}, {'text': 'Once upon a time,'}], model_index=None, config={'architectures': ['GPT2LMHeadModel'], 'model_type': 'gpt2', 'tokenizer_config': {}}, transformers_info=TransformersInfo(auto_model='AutoModelForCausalLM', custom_class=None, pipeline_tag='text-generation', processor='AutoTokenizer'), trending_score=None, siblings=[RepoSibling(rfilename='.gitattributes', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='64-8bits.tflite', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='64-fp16.tflite', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='64.tflite', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='README.md', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='config.json', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='flax_model.msgpack', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='generation_config.json', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='merges.txt', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='model.safetensors', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='onnx/config.json', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='onnx/decoder_model.onnx', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='onnx/decoder_model_merged.onnx', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='onnx/decoder_with_past_model.onnx', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='onnx/generation_config.json', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='onnx/merges.txt', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='onnx/special_tokens_map.json', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='onnx/tokenizer.json', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='onnx/tokenizer_config.json', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='onnx/vocab.json', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='pytorch_model.bin', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='rust_model.ot', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='tf_model.h5', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='tokenizer.json', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='tokenizer_config.json', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='vocab.json', size=None, blob_id=None, lfs=None)], spaces=['open-llm-leaderboard/open_llm_leaderboard', 'microsoft/HuggingGPT', 'Gustavosta/MagicPrompt-Stable-Diffusion', 'shi-labs/Versatile-Diffusion', 'optimum/llm-perf-leaderboard', 'yizhangliu/Grounded-Segment-Anything', 'microsoft/Promptist', 'h2oai/h2ogpt-chatbot', 'aliabid94/AutoGPT', 'Manmay/tortoise-tts', 'Yntec/ToyWorld', 'jadechoghari/OpenMusic', 'h2oai/h2ogpt-chatbot2', 'wangrongsheng/ChatPaper', 'OFA-Sys/OFA-Image_Caption', 'Intel/low_bit_open_llm_leaderboard', 'eduagarcia/open_pt_llm_leaderboard', 'm-ric/beam_search_visualizer', 'exbert-project/exbert', 'OpenMotionLab/MotionGPT', 'ShiwenNi/ChatReviewer', 'Yntec/HuggingfaceDiffusion', 'doevent/Stable-Diffusion-prompt-generator', 'open-llm-leaderboard/blog', 'flax-community/image-captioning', 'BAAI/open_cn_llm_leaderboard', 'Yntec/PrintingPress', 'treadon/prompt-fungineer-355M', 'nateraw/lavila', 'yizhangliu/Text-to-Image', 'BadToBest/EchoMimic', 'fffiloni/EchoMimic', 'gsaivinay/open_llm_leaderboard', 'TMElyralab/MuseTalk', 'deepklarity/poster2plot', 'FrankZxShen/so-vits-svc-models-ba', 'maxmax20160403/sovits5.0', 'Nymbo/Compare-6', 'EleutherAI/magma', 'akhaliq/CLIP_prefix_captioning', 'OFA-Sys/OFA-Visual_Grounding', 'phenomenon1981/MagicPrompt-Stable-Diffusion', 'Yntec/ToyWorldXL', 'OFA-Sys/OFA-vqa', 'aubmindlab/Arabic-NLP', 'Gustavosta/MagicPrompt-Dalle', 'OFA-Sys/OFA-Generic_Interface', 'johko/capdec-image-captioning', 'ShiwenNi/ChatResponse', 'hkunlp/Binder', 'SeaLLMs/SeaLLM-Chat', 'bipin/image2story', 'Omnibus/Chatbot-Compare', 'LilyF/Generate_Text_and_Audio', 'Yntec/blitz_diffusion', 'society-ethics/model-card-regulatory-check', 'Nick088/Audio-SR', 'CISCai/gguf-editor', 'Catmeow/AI_story_writing', 'hahahafofo/image2text_prompt_generator', 'ethanchern/Anole', 'ICML2022/OFA', 'thirdai/BOLT2.5B', 'FrankZxShen/so-vits-svc-models-pcr', 'mshukor/UnIVAL', 'sohaibcs1/Image-to-Text-Summary', 'aliabid94/GPT-Golf', 'Hello-SimpleAI/chatgpt-detector-ling', 'llizhx/TinyGPT-V', 'lfoppiano/document-qa', 'fireredteam/FireRedTTS', 'TencentARC/ImageConductor', 'RitaParadaRamos/SmallCapDemo', 'liyucheng/selective_context', 'sasha/BiasDetection', 'phenixrhyder/NSFW-ToyWorld', 'gsarti/pecore', 'BoomerangGirl/MagicPrompt-Stable-Diffusion', 'architext/Architext_deployed', 'kmacdermid/RpgRoomGenerator', 'SeViLA/SeViLA', 'AnimaLab/bias-test-gpt-pairs', 'optimum/auto-benchmark', 'GTBench/GTBench', 'sonalkum/GAMA', 'John6666/Diffusion80XX4sg', 'stanfordnlp/Backpack-Demo', 'shangdatalab-ucsd/LDB', 'abdullahmeda/detect-ai-text', 'oceansweep/tldw', 'zeno-ml/chatbot-report', 'luis112/text-generation-webui', 'Kaludi/Stable-Diffusion-Prompt-Generator_App', 'freQuensy23/LLMhistory', 'Vikhrmodels/small-shlepa-lb', 'prometheus-eval/BiGGen-Bench-Leaderboard', 'dromerosm/gpt-info-extraction', 'hahahafofo/prompt_generator', 'ccolas/TastyPiano', 'sasha/WinoBiasCheck'], safetensors=SafeTensorsInfo(parameters={'F32': 137022720}, total=137022720))
 ```
 
 #### LangSmith
@@ -1106,7 +1186,7 @@ From the project's [README.md](https://github.com/randy3k/radian/blob/master/REA
 
 Installation steps:
 
-1. Install `radian`: `conda install radian`.
+1. Install `radian`: `uv tool install radian`.
 1. Set `$R_BINARY` to **\<InstallPath\>\bin\x64\R.exe**. This is needed for `radian` to work properly.
 
 ### Setup for VS Code
@@ -1120,13 +1200,15 @@ See [here](https://code.visualstudio.com/docs/languages/r) for more details.
 
 ### Setup for Jupyter
 
-1. Install R package `IRKernel`: `install.packages("IRKernel")`.
-1. Activate conda environment with Jupyter installed.
+1. Install R package `IRKernel`: `install.packages("IRkernel")`.
+1. Activate venv environment for a uv project with Jupyter installed: `. .\.venv\Scripts\Activate.ps1` if in root directory. :bulb: VS Code automatically executes this if you open a PowerShell terminal AFAICT.
 1. Use `jupyter kernelspec list` to get location of existing kernels. If you see a path corresponding to `$Appdata\jupyter\kernels\ir`, then R kernel is already installed.
-1. Launch `radian` in conda environment's shell.
-1. In radian: `IRKernel::installspec()`.
+1. Launch `radian` in  environment's shell: `radian` or `uv run radian` (use project's version).
+1. In radian: `IRkernel::installspec()`.
 
 > Alternatively, you can copy files from `IRKernel` package installation directory's **kernelspec** subfolder to `$Appdata\jupyter\kernels\ir`.
+
+Now if you launch jupyterlab (`uv run jupyter lab`), you should see a R kernel and be able to select it for your notebook.
 
 ### catboost
 
