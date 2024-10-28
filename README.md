@@ -67,6 +67,7 @@
     - [CUDNN](#cudnn)
     - [llama.cpp](#llamacpp)
   - [Python](#python)
+    - [Build Tools](#build-tools)
     - [uv](#uv)
       - [uv Tools](#uv-tools)
       - [Working with projects](#working-with-projects)
@@ -74,6 +75,7 @@
     - [faiss](#faiss)
     - [PyTorch](#pytorch)
     - [JupyterLab](#jupyterlab)
+      - [nbQA](#nbqa)
     - [GenAI](#genai)
       - [Cohere](#cohere)
       - [Replicate](#replicate)
@@ -843,6 +845,10 @@ Install latest release from <https://github.com/ggerganov/llama.cpp/releases> or
 
 - To resolve error **`URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:997)>`**, install <https://letsencrypt.org/certs/lets-encrypt-r3.der> ([source](https://github.com/thonny/thonny/issues/1986#issuecomment-934771923)).
 
+### Build Tools
+
+In order to build certain sdist packages, you need to install latest version of VS Build Tools ([source](https://github.com/chroma-core/chroma/issues/250#issuecomment-1540934224)).
+
 ### uv
 
 - Before installing, set environment variables if you don't want to use default locations:
@@ -1011,6 +1017,16 @@ View extensions:
 uv run jupyter labextension list
 ```
 
+#### nbQA
+
+[nbQA](https://github.com/nbQA-dev/nbQA) lets you run mypy and other linters and formatters on Jupyter Notebooks.
+
+```powershell
+uv add --group dev nbqa
+```
+
+Usage: `uv run nbqa <tool> <args>`, e.g. `uv run nbqa mypy ./src/foo`.
+
 ### GenAI
 
 Make sure that you configure environment variables for API keys.
@@ -1035,6 +1051,12 @@ To override the directory used to store prompt templates, etc., set `$LLM_USER_P
 
 ```powershell
 [System.Environment]::SetEnvironmentVariable('LLM_USER_PATH', 'D:\llm', 'User')
+```
+
+Add plugins:
+
+```powershell
+uv run llm install gpt4 llm-claude-3
 ```
 
 #### OpenAI
