@@ -859,7 +859,15 @@ In order to build certain sdist packages, you need to install latest version of 
     [Environment]::SetEnvironmentVariable('UV_TOOL_BIN_DIR', 'D:\Apps\uv\tools', 'User')
     ```
 
-- Also, set `$UV_LINK_MODE` to `hardlink` to avoid annoying warnings.
+- Also, set `$UV_LINK_MODE` to `copy` to avoid annoying warnings:
+
+    ```console
+    warning: Failed to hardlink files; falling back to full copy. This may lead to degraded performance.
+         If the cache and target directories are on different filesystems, hardlinking may not be supported.
+         If this is intentional, set `export UV_LINK_MODE=copy` or use `--link-mode=copy` to suppress this warning.
+    ```
+
+- Set `$UV_FROZEN` to `1` or `true` to avoid `uv run` updating lock file.
 
 - Install `uv` and set up shell completion:
 
@@ -954,7 +962,7 @@ Run tool using `uv tool run <tool>` or `uvx <tool>`.
 
 3. Sync `.venv` with lockfile: `uv sync`. Pass `--frozen` to avoid updating the lockfile.
 
-4. Update package: `uv lock --upgrade-package <pkg>`.
+4. Update package: `uv lock --upgrade-package <pkg>`. To upgrade a single package to a specific version: `uv lock --upgrade-package <package>==<version>`.
 
 5. To see what packages would change without updating lockfile: `uv lock -U --dry-run`.
 
