@@ -736,15 +736,36 @@ When using WSL2 with Docker Desktop, a new distro called `docker-desktop-data` i
 
 ### Change images and containers directory
 
-Follow the instructions [here for WSL 2 backend](https://www.kindacode.com/article/docker-desktop-change-images-containers-directory/):
+Create a function based on instructions [here](https://dev.to/kim-ch/move-docker-desktop-data-distro-out-of-system-drive-4cg2):
+
+```powershell
+function Move-WslDistro {
+    [CmdletBinding()]
+    param (
+        [Parameter(Mandatory = $true)]
+        [ValidateScript(
+            { $_ -in $(wsl --list -q | Where-Object { $_.Trim() -ne '' }) },
+            ErrorMessage = 'Please specify the name of a WSL distro.'
+        )]
+        [string] $Distro,
+        [string] $ExportPath
+    )
+    $tarFile = "D:/temp/$Distro.tar"
+    wsl --export $Distro $tarFile
+    wsl --unregister $Distro
+    wsl --import $Distro $ExportPath $tarFile --version 2
+}
+```
+
+Now, shut down WSL and call this function to move distros for `docker-desktop` and `docker-desktop-data`:
 
 ```powershell
 wsl --shutdown
-wsl --export docker-desktop-data docker-desktop-data.tar
-wsl --unregister docker-desktop-data
-# Import the exported data to D:\wsl\Docker\data
-wsl --import docker-desktop-data D:/wsl/Docker/data docker-desktop-data.tar --version 2
+Move-WslDistro -Distro docker-desktop-data -ExportPath D:/wsl/Docker/data
+Move-WslDistro -Distro docker-desktop -ExportPath D:/wsl/Docker/distro
 ```
+
+When you are satisfied that this is working, you can delete tar files.
 
 ### Getting a Shell in Docker for Windows Moby VM
 
