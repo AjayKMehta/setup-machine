@@ -888,7 +888,7 @@ In order to build certain sdist packages, you need to install latest version of 
          If this is intentional, set `export UV_LINK_MODE=copy` or use `--link-mode=copy` to suppress this warning.
     ```
 
-- Set `$UV_FROZEN` to `1` or `true` to avoid `uv run` updating lock file.
+- (Optional) Set `$UV_FROZEN` to `1` or `true` to avoid `uv run` updating lock file. :warning: Doing so, causes `uv lock -U --dry-run` to fail.
 
 - Install `uv` and set up shell completion:
 
@@ -1020,6 +1020,8 @@ To get CUDA version installed on your machine, inspect the output of the followi
 ```shell
 nvidia-smi
 ```
+
+To install CUDA-enabled version, see [here](https://github.com/astral-sh/uv/issues/7202#issuecomment-2447539317).
 
 ### JupyterLab
 
