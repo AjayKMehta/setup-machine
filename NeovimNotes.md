@@ -1920,10 +1920,10 @@ For visual mode, I set up keyboard shortcuts identically to the ones for VS Code
 
 [^6]: Use motion in normal mode, e.g. `gl$` to add link for text upto and including end of line.
 
-Set cursor to current section heading | `]c`
-Set cursor to parent section heading | `]p`
-Set cursor to next section heading | `]]`
-Set cursor to previous section heading | `[[`
+Set cursor to current section heading | `<leader>mc`
+Set cursor to parent section heading | `<leader>mp`
+Set cursor to next section heading | `<leader>mh`
+Set cursor to previous section heading | `<leader>mH`
 
 ##### Table of contents
 
@@ -1957,7 +1957,7 @@ These commands work in normal mode:
 
 [This plugin](https://github.com/iamcco/markdown-preview.nvim) lets you preview Markdown in your browser with synchronized scrolling and flexible configuration.
 
-Press `<leader>mp` to preview Markdown.
+Press `<leader>mP` to preview Markdown.
 
 #### render-markdown.nvim
 
