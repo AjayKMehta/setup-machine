@@ -993,9 +993,11 @@ Run tool using `uv tool run <tool>` or `uvx <tool>`.
 
 8. Verify installed packages have compatible dependencies: `uv pip check`.
 
-9. Use `uv run` to run commands in the project environment: `uv run python -m spacy info`. To run a script: `uv run example.py`.
+9. Use `uv run` to run commands in the project environment: `uv run python -m spacy info`.
+   1. To run a script: `uv run example.py`.
+   2. Specify .env file to use: `--env-file .env`.
 
-    > :warning: Be careful not to use `uvx` to run a command corresponding to a tool with same name, e.g. `mypy` or you will be running in the wrong virtual environment!
+> :warning: Be careful not to use `uvx` to run a command corresponding to a tool with same name, e.g. `mypy` or you will be running in the wrong virtual environment!
 
 ### spacy
 
