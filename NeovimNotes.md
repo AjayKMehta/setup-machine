@@ -19,6 +19,7 @@
     - [Folds](#folds)
     - [Quickfix list](#quickfix-list)
     - [Executing external commands](#executing-external-commands)
+  - [LSP](#lsp)
   - [Visual Mode](#visual-mode)
     - [Visual Block Mode](#visual-block-mode)
     - [Editing](#editing)
@@ -450,6 +451,15 @@ Good read: [Examples.md](https://gist.github.com/Integralist/8d01300efcd2006c69e
 `:3,5! sort` sort lines 3-5.
 `:r !date` insert output of command below the current line.
 `:r ! <file>` insert contents of `<file>` below the current line.
+
+## LSP
+
+Action | Keymap/command
+---------|----------
+Go to definition | <kbd>Ctrl</kbd> + <kbd>]</kbd>
+Go to previous diagnostic in current buffer | `[d` OR `:lua vim.diagnostic.goto_prev()`
+Go to next diagnostic in current buffer | `]d` OR `:lua vim.diagnostic.goto_next()`
+Show diagnotics under the cursor | `<C-w>d` or `<C-w><c-d>`
 
 ## Visual Mode
 
