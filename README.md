@@ -90,6 +90,7 @@
     - [Updating packages for version upgrade](#updating-packages-for-version-upgrade)
     - [RStudio](#rstudio)
     - [RTools](#rtools)
+      - [Check if RTools works](#check-if-rtools-works)
     - [Packages](#packages)
     - [Spark](#spark)
     - [Stan](#stan)
@@ -1177,6 +1178,24 @@ winget install Posit.RStudio
 - Add bin folder in install path to `$PATH` -- this can be done by editing .Renviron: `PATH="${RTOOLS44_HOME}\usr\bin;${PATH}"`.
 
 [Usage notes](https://github.com/r-windows/docs/blob/master/rtools40.md#readme)
+
+#### [Check if RTools works](https://stackoverflow.com/questions/48137891/install-rtools-and-check-if-i-can-use-it)
+
+Perform a bunch of checks:
+
+```r
+Sys.getenv('PATH')
+system('g++ -v')
+system('where make')
+```
+
+Or, install `pkgbuild` from CRAN and use it:
+
+```r
+# install.packages("pkgbuild")
+pkgbuild::check_build_tools(debug = TRUE)
+pkgbuild::find_rtools(debug = TRUE)
+```
 
 ### Packages
 
