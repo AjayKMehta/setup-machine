@@ -74,6 +74,7 @@
     - [Editing with Ex commands](#editing-with-ex-commands)
     - [Change case](#change-case)
     - [Editing line filtered by pattern](#editing-line-filtered-by-pattern)
+    - [Exiting insert mode](#exiting-insert-mode)
   - [Completion and snippets](#completion-and-snippets)
   - [Recipes + FAQ](#recipes--faq)
     - [How do you check if Neovim is built with luajit?](#how-do-you-check-if-neovim-is-built-with-luajit)
@@ -1103,6 +1104,14 @@ Can use `|`, `\`, `"` or any single byte character that is not alphanumeric as d
 `:.g%call%d` does same as `:.g/call/d`, i.e. delete all occurrences of `call` in current line.
 
 See `:h substitute`.
+
+### Exiting insert mode
+
+You can use <kbd>Esc</kbd> or <kbd>Ctrl</kbd> + <kbd>[</kbd> to return to normal mode.
+
+<kbd>Ctrl</kbd> + <kbd>c</kbd> is much more powerful than both. It will cancel repetition for count, e.g. `3iabc<Esc>` will insert `abcabcabc`, while `3iabc<C-c>` will insert simply `abc`. It also does not trigger the `InsertLeave` autocommand event.
+
+([source](https://vimhelp.org/insert.txt.html#i_CTRL-C))
 
 ## Completion and snippets
 
