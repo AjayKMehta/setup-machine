@@ -96,6 +96,7 @@
     - [Copy text between brackets on multiple lines](#copy-text-between-brackets-on-multiple-lines)
     - [Include/exclude text using external command](#includeexclude-text-using-external-command)
     - [Get list of local files in insert mode](#get-list-of-local-files-in-insert-mode)
+    - [Use normal mode commands in insert mode](#use-normal-mode-commands-in-insert-mode)
   - [Plugins](#plugins)
     - [Utility](#utility)
       - [Toggleterm](#toggleterm)
@@ -165,6 +166,7 @@ A buffer is essentially the in-memory representation of a file.
  Action             | Keymap/command
 --------------------|---------------------------------------------------------------------
  Close buffer       | <kbd>Space</kbd> + <kbd>x</kbd>
+ New buffer         | `<leader>bb` OR `:enew`
  List buffers       | `:buffers` OR `:ls` OR `:Telescope buffers`
  Next buffer        | `:bnext` OR `:bn`
  Previous buffer    | `:bprevious` OR `:bp`
@@ -1280,6 +1282,13 @@ You can use this to create a series of `0` into auto-incremented series: $1,2,\c
 
 Press `<C-x><C-f>` to get a list of local files when in insert mode ([source](https://www.reddit.com/r/neovim/comments/1g380b0/comment/lrvq01m/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)).
 
+### Use normal mode commands in insert mode
+
+Prefix them with <kbd>Alt</kbd>, e.g. `<A-P>` pastes in insert mode.
+
+> [!NOTE]
+> :warning: Doesn't seem to work reliably, e.g. `<A-d>d`should delete current line but is not working.
+
 ## Plugins
 
 ### Utility
@@ -1875,10 +1884,11 @@ An example: `]f` will navigate to **start** (`f` is lower case) of **next** (`]`
 
 #### nvim-treesitter-refactor
 
+> :warning: Some of these keymaps do not seem to work.
+
  Action               | Keymap
 ----------------------|---------------------------------
  Smart rename         | `grr`
- Go to definition     | `gd`
  List definitions     | `gld`
  List definitions TOC | `glt`
  Go to next usage     | <kbd>Shift</kbd> + <kbd>*</kbd>
