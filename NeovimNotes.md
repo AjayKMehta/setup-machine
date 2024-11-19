@@ -1330,6 +1330,8 @@ Specifying terminal in above commandss is optional. If missing, it defaults to t
 
 To launch, press <kbd>Ctrl</kbd> + <kbd>n</kbd>. To close, press <kbd>q</kbd>.
 
+Floating preview is courtesy of [nvim-tree-preview.lua](https://github.com/b0o/nvim-tree-preview.lua).
+
 Here are some useful key maps for when the window is displayed:
 
  Action                          | Keymap
@@ -1368,6 +1370,9 @@ Here are some useful key maps for when the window is displayed:
  Collapse all                    | <kbd>Shift</kbd> + <kbd>w</kbd>
  Copy name                       | <kbd>y</kbd>
  Copy relative path              | <kbd>Shift</kbd> +  <kbd>y</kbd>
+ **Open folder or show preview** | <kbd>Tab</kbd>
+ **Preview (Watch)**             | <kbd>P</kbd>
+**Close Preview/Unwatch**        | <kbd>Esc</kbd>
 
 All actions in **bold** in the table above have custom keymaps. The other commands use plugin defaults.
 
