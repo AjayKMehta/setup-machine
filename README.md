@@ -20,6 +20,7 @@
   - [git](#git)
     - [GitHub CLI](#github-cli)
       - [GitHub PAT](#github-pat)
+    - [act](#act)
       - [Extensions](#extensions)
     - [GitLab CLI](#gitlab-cli)
       - [Authentication](#authentication)
@@ -389,6 +390,12 @@ Download it from [here](https://bayden.com/slickrun/).
 - [Create an authentication token for github.com API requests](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 - Set `$GITHUB_TOKEN` to this value to avoid being prompted to authenticate by CLI.
 - Alternatively, use `gh auth login --secure-storage -h github.com` to store the access token in the system keyring.
+
+### act
+
+[act](https://github.com/nektos/act) lets you run your GitHub Actions locally!
+
+Install: `winget install nektos.act`.
 
 #### Extensions
 
