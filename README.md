@@ -67,6 +67,7 @@
     - [NVIDIA CUDA Toolkit](#nvidia-cuda-toolkit)
     - [CUDNN](#cudnn)
     - [llama.cpp](#llamacpp)
+    - [aichat](#aichat)
   - [Python](#python)
     - [Build Tools](#build-tools)
     - [uv](#uv)
@@ -864,6 +865,11 @@ Download installer from <https://developer.nvidia.com/cudnn-downloads>.
 ### llama.cpp
 
 Install latest release from <https://github.com/ggerganov/llama.cpp/releases> or build locally. For the latter, the PowerShell scripts in [this GitHub repo](https://github.com/countzero/windows_llama.cpp/) are useful.
+
+### aichat
+
+Download latest release from [here](https://github.com/sigoden/aichat/releases).
+To override settings used by the app through environment variables, refer [here](https://github.com/sigoden/aichat/wiki/Environment-Variables#generic-envs).
 
 ## Python
 
