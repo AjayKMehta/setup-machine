@@ -1175,6 +1175,16 @@ gh download https://github.com/yazi-rs/flavors/tree/main/catppuccin-macchiato.ya
 gh download https://github.com/yazi-rs/flavors/tree/main/catppuccin-mocha.yazi --outdir ~/.config/yazi/flavors/catppuccin-mocha.yazi
 ```
 
+## HuggingFace Model Downloader
+
+The [HuggingFace Model Downloader](https://github.com/bodaay/HuggingFaceModelDownloader) is a utility tool for downloading models and datasets from HuggingFace.
+
+Install:
+
+```bash
+bash <(curl -sSL https://g.bodaay.io/hfd) -i -p ~/.local/bin/
+```
+
 ## Misc
 
 ```shell

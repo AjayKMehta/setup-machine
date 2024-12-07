@@ -68,6 +68,7 @@
     - [CUDNN](#cudnn)
     - [llama.cpp](#llamacpp)
     - [aichat](#aichat)
+    - [HuggingFace Model Downloader](#huggingface-model-downloader)
   - [Python](#python)
     - [Build Tools](#build-tools)
     - [uv](#uv)
@@ -878,6 +879,10 @@ Grab shell completion:
 ```powershell
 gh download https://github.com/sigoden/aichat/blob/main/scripts/completions/aichat.ps1
 ```
+
+### HuggingFace Model Downloader
+
+The [HuggingFace Model Downloader](https://github.com/bodaay/HuggingFaceModelDownloader) is a utility tool for downloading models and datasets from the HuggingFace website. Grab latest release from repo.
 
 ## Python
 
