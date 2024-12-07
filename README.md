@@ -871,6 +871,14 @@ Install latest release from <https://github.com/ggerganov/llama.cpp/releases> or
 Download latest release from [here](https://github.com/sigoden/aichat/releases).
 To override settings used by the app through environment variables, refer [here](https://github.com/sigoden/aichat/wiki/Environment-Variables#generic-envs).
 
+You can put all your secret environment variables in `$APPDATA\aichat\.env` (location can be overriden by `$AICHAT_ENV_FILE`).
+
+Grab shell completion:
+
+```powershell
+gh download https://github.com/sigoden/aichat/blob/main/scripts/completions/aichat.ps1
+```
+
 ## Python
 
 - To use [UTF-8 mode on Windows](https://dev.to/methane/python-use-utf-8-mode-on-windows-212i), set environment variable `$PYTHONUTF8` to 1.
