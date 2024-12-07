@@ -97,6 +97,7 @@
     - [Include/exclude text using external command](#includeexclude-text-using-external-command)
     - [Get list of local files in insert mode](#get-list-of-local-files-in-insert-mode)
     - [Use normal mode commands in insert mode](#use-normal-mode-commands-in-insert-mode)
+    - [Go backwards/forwards in time](#go-backwardsforwards-in-time)
   - [Plugins](#plugins)
     - [Utility](#utility)
       - [Toggleterm](#toggleterm)
@@ -462,6 +463,12 @@ Go to definition | <kbd>Ctrl</kbd> + <kbd>]</kbd>
 Go to previous diagnostic in current buffer | `[d` OR `:lua vim.diagnostic.goto_prev()`
 Go to next diagnostic in current buffer | `]d` OR `:lua vim.diagnostic.goto_next()`
 Show diagnotics under the cursor | `<C-w>d` or `<C-w><c-d>`
+
+To learn what capabilities are available you can run the following command in a buffer with a started LSP client:
+
+```vim
+:lua =vim.lsp.get_clients()[1].server_capabilities
+```
 
 ## Visual Mode
 
@@ -881,6 +888,10 @@ Use `g;` and `g,` to navigate history of insertions.
 
 ### Delete line
 
+<kbd>Shift</kbd> + <kbd>s</kbd> in normal mode, blanks the line, *sends you into insert mode*, also placing you at the right indent level too. It's perfect for wiping a line and writing something new without having to delete and then reposition the cursor.
+
+<kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>s</kbd> (`Alt+S`), does the same in both modes.
+
 #### Delete lines in normal mode
 
  Action                                       | Keymap/command
@@ -1288,6 +1299,10 @@ Prefix them with <kbd>Alt</kbd>, e.g. `<A-P>` pastes in insert mode.
 
 > [!NOTE]
 > :warning: Doesn't seem to work reliably, e.g. `<A-d>d`should delete current line but is not working.
+
+### Go backwards/forwards in time
+
+`:earlier` (`:later`) can be used to go back (forward) in time ([source](<https://www.reddit.c> om/r/neovim/comments/1fu9an8/neovim_gems/)).
 
 ## Plugins
 
