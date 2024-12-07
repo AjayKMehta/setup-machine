@@ -1185,6 +1185,12 @@ Install:
 bash <(curl -sSL https://g.bodaay.io/hfd) -i -p ~/.local/bin/
 ```
 
+## RAG Crawler
+
+Crawl a website to generate knowledge file for RAG.
+
+Install: `npm i -g rag-crawler`
+
 ## Misc
 
 ```shell

@@ -69,6 +69,7 @@
     - [llama.cpp](#llamacpp)
     - [aichat](#aichat)
     - [HuggingFace Model Downloader](#huggingface-model-downloader)
+    - [RAG Crawler](#rag-crawler)
   - [Python](#python)
     - [Build Tools](#build-tools)
     - [uv](#uv)
@@ -883,6 +884,12 @@ gh download https://github.com/sigoden/aichat/blob/main/scripts/completions/aich
 ### HuggingFace Model Downloader
 
 The [HuggingFace Model Downloader](https://github.com/bodaay/HuggingFaceModelDownloader) is a utility tool for downloading models and datasets from the HuggingFace website. Grab latest release from repo.
+
+### RAG Crawler
+
+Crawl a website to generate knowledge file for RAG.
+
+Install: `npm i -g rag-crawler`
 
 ## Python
 
