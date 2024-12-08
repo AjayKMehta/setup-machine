@@ -1142,6 +1142,15 @@ The instructions below are based on the following links:
         vim.g.vimtex_view_method = 'zathura_simple'
         ```
 
+    - If `zathura_simple` silently fails when using `vimtex`, try the following command in shell:
+
+        ```bash
+        zathura  -x "~/.local/share/mise/installs/neovim/0.10.2/bin/nvim --headless -c \"VimtexInverseSearch %{line} '%{input}'\"" --synctex-forward 13:1:'~/dev/main.tex' 'main.pdf'
+        ```
+
+    - If you get an error about D-Bus (`error: Got no usable data from SyncTeX or D-Bus failed in some way.`), try the steps listed [here](https://github.com/microsoft/WSL/issues/7915#issuecomment-2452400161
+    ).
+
 11. Installing and updating packages: see [here](https://tug.org/texlive/doc/tlmgr.html#EXAMPLES).
 
 12. To upgrade from TeX Live 2023 to 2024, [follow these instructions](https://tug.org/texlive/upgrade.html).

@@ -470,6 +470,8 @@ To learn what capabilities are available you can run the following command in a 
 :lua =vim.lsp.get_clients()[1].server_capabilities
 ```
 
+:point_right: Useful video to explain how code formatting works: [Code Formatting made easy](https://www.youtube.com/watch?v=mEqqkHLhlGY).
+
 ## Visual Mode
 
 `v` - select current character. Use any motion to extend selection, e.g. `ve` or `v$`.
