@@ -67,6 +67,7 @@
     - [NVIDIA CUDA Toolkit](#nvidia-cuda-toolkit)
     - [CUDNN](#cudnn)
     - [llama.cpp](#llamacpp)
+    - [Ollama](#ollama)
     - [aichat](#aichat)
     - [HuggingFace Model Downloader](#huggingface-model-downloader)
     - [RAG Crawler](#rag-crawler)
@@ -867,6 +868,12 @@ Download installer from <https://developer.nvidia.com/cudnn-downloads>.
 ### llama.cpp
 
 Install latest release from <https://github.com/ggerganov/llama.cpp/releases> or build locally. For the latter, the PowerShell scripts in [this GitHub repo](https://github.com/countzero/windows_llama.cpp/) are useful.
+
+### Ollama
+
+Install: `winget install Ollama.Ollama -l D:\Apps\Ollama --interactive`.
+
+If you want to change the download directory for models, then set `$OLLAMA_MODELS` ([source](https://github.com/ollama/ollama/issues/680#issuecomment-1996562577)).
 
 ### aichat
 

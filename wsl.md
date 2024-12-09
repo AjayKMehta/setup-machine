@@ -1200,6 +1200,12 @@ Crawl a website to generate knowledge file for RAG.
 
 Install: `npm i -g rag-crawler`
 
+## Ollama
+
+Install: `mise use Ollama@latest`.
+
+If you want to change the download directory for models, then set `$OLLAMA_MODELS` ([source](https://github.com/ollama/ollama/issues/680#issuecomment-1996562577)).
+
 ## Misc
 
 ```shell
