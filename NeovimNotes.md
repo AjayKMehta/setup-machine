@@ -144,6 +144,10 @@
         - [Lists](#lists)
       - [Markdown Preview](#markdown-preview)
       - [render-markdown.nvim](#render-markdownnvim)
+    - [VimTex](#vimtex)
+      - [Basic Usage](#basic-usage)
+      - [Specify PDF viewer](#specify-pdf-viewer)
+      - [Motions and text objects](#motions-and-text-objects)
 
 # Neovim
 
@@ -2015,3 +2019,72 @@ Press `<leader>mP` to preview Markdown.
 [This plugin](https://github.com/MeanderingProgrammer/render-markdown.nvim?tab=readme-ov-file) improves viewing Markdown files in Neovim.
 
 Press `<leader>mt` to toggle rendering.
+
+### VimTex
+
+[VimTeX](https://github.com/lervag/vimtex) is a filetype and syntax plugin for LaTeX files. Commands use `<localleader>` (which I have mapped to `\`).
+
+#### Basic Usage
+
+ Action                  | Keymap/command
+-------------------------|-------------------------------------
+ Clean                   | `<localleader>lc` OR `:VimtexClean`
+ Clean (full)            | `<localleader>lC`
+ View errors             | `<localleader>le`
+ View status             | `<localleader>lg`
+ View status (all)       | `<localleader>lG`
+ View info               | `<localleader>li` or `:VimtexInfo`  
+ View info (all)         | `<localleader>lI`
+ Stop compile            | `<localleader>lk`
+ Stop compile (all)      | `<localleader>lK`
+ Compile                 | `<localleader>ll`
+ Imaps (insert mappings) | `<localleader>lm`
+ Compile output          | `<localleader>lo`
+ View log                | `<localleader>lq`
+ View TOC                | `<localleader>lt`
+ Forward search          | `<localleader>lv`
+
+ `:VimtexInfo` shows information about the project including packages used.
+
+#### Specify PDF viewer
+
+🚧 **TBD**
+
+#### Motions and text objects
+
+:bulb: The word `section` below refers to `\section`, `\subsection` or `\subsubsection`, whichever comes first.
+
+Motion                 | Keymap
+-----------------------|--------
+Go to start of next section     | `]]`
+Go to start of current[^7] section | `[[`
+Go to end of previous section | `[]`
+Go to end of current section | `][`
+**Go to start of current environment** | `[e`
+**Go to start of next environment** | `]e`
+**Go to end of previous environment** | `[E`
+**Go to end of current environment** | `]E`
+
+:point_right: Motions in **bold* have their keymaps overridden from default (see `:help vimtex-default-mappings`).
+
+[^7]: If already at start of existing section, goes to previous one.
+
+Use `%` to move between matching delimiters, inline-math `$` delimiters, and LaTeX environments.
+
+Text object | Keymap| Example
+-----------------------|--------|---
+Surrounding environment   | `se` | `dse` removes surrounding brackets.
+Surrounding delimiters  | `sd` | `tsd` toggles between `()` and `\left(\right)`.
+`*` in environments[^8] | `tse` | Toggle `*`.
+Inner math environment | `i$ | `vi$` selects inner content of environment.
+Outer math environment | `a$ | `va$` selects outer content of environment.
+Inner section | `iP` | `viP` selects entire content below current section.
+Around section | `aP` | `daP` deletes whole section including `\section{...}`.
+Inner delimiter | `id`| `vid` applied to `{foo(1*+a)}` highlights `(1+a)`
+Around delimiter| `ad` | `dad` applied to `$\alpha = (1 + *\frac{2}{3})$` becomes `$alpha = $`.
+
+🚧 **FINISH LATER**
+
+:point_right: In the table above, `*` indicates cursor position.
+
+[^8]: See [Difference between equation and equation* enviroment](https://tex.stackexchange.com/questions/539986/difference-between-equation-and-equation-enviroment) for more details.
