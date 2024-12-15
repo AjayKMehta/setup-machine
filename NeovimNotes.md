@@ -1416,45 +1416,49 @@ All actions in **bold** in the table above have custom keymaps. The other comman
 <details>
   <summary>General</summary>
 
- Action          | Keymap/command
- -----------------|---------------
- Bookmarks       | `<leader>fM`
- Find buffers    | `<leaderfB`
- Commands        | `<leader>fcC`
- Command History | `<leader>fch`
- Colorschemes    | `<leader>fcs`
- Keymap          | `<leader>fk`
- Search History  | `<leader>fS`
- Undo tree       | `<leader>fu`
- Search buffers  | `<leader>fy`
- Search emojis   | `<leader>fe`
- Notifications   | `<leader>fn`
- Jumplist        | `<leader>fj`
- Registers       | `<leader>fR`
- LuaSnip         | `<leader>fs`
- Tags            | `<leader>ftt`
- Treesitter      | `<leader>fts`
- TODO/Fix/FixMe  | `<leader>ftS`
- Noice           | `<leader>fN`
- YAML schemas    | `<leader>fY`
+ Action                 | Keymap/command
+ -----------------------|---------------
+ Bookmarks              | `<leader>fM`
+ Find buffers           | `<leaderfB`
+ Commands               | `<leader>fcC`
+ Command History        | `<leader>fch`
+ Colorschemes           | `<leader>fcs`
+ Keymap                 | `<leader>fk`
+ Search History         | `<leader>fS`
+ Undo tree              | `<leader>fu`
+ Search buffers         | `<leader>fy`
+ Search emojis          | `<leader>fe`
+ Jumplist               | `<leader>fj`
+ Resume previous search | `<leader>fr`
+ Registers              | `<leader>fR`
+ LuaSnip                | `<leader>fs`
+ Tags                   | `<leader>ftt`
+ Treesitter             | `<leader>fts`
+ TODO/Fix/FixMe         | `<leader>ftS`
+ Noice                  | `<leader>fn`
+ YAML schemas           | `<leader>fY`
 
 </details>
 
 <details>
   <summary>Files</summary>
 
- Action          | Keymap/command
------------------|---------------------
- File browser    | `<leader>fb`
- Search home     | `<leader>fh`
- Search config   | `<leader>fcc`
- frecency        | `<leader>fF<Space>`
- frecency (CWD)s | `<leader>fFc`
- Old files       | `<leader>fo`
- Find files      | `<leader>ff`
- Live grep       | `<leader>fw`
+ Action              | Keymap/command
+ --------------------|--------------------
+ File browser        | `<leader>fb`
+ Search home         | `<leader>fh`
+ Search config       | `<leader>fcc`
+ frecency            | `<leader>fF<leader>`
+ frecency (CWD)      | `<leader>fFc`
+ Old files           | `<leader>fo`
+ Find files          | `<leader>ff`
+ Live grep           | `<leader>fw`
+ Live grep (Plugins) | `<leader>fp`
+ Multi-grep          | `<leader>f/`
 
 Courtesy of [togglescope](https://github.com/Theo-Steiner/togglescope), `C-\>` toggles between excluding (default) and including hidden and ignored files for **Find files** and **Live grep**.
+
+Multi-grep lets you also filter on file extension, e.g. enter `\d+  *.cs` to find numbers in C# source code.
 
 </details>
 
