@@ -66,9 +66,9 @@
   - [AI](#ai)
     - [NVIDIA CUDA Toolkit](#nvidia-cuda-toolkit)
     - [CUDNN](#cudnn)
-    - [llama.cpp](#llamacpp)
     - [Ollama](#ollama)
     - [aichat](#aichat)
+    - [aider-chat](#aider-chat)
     - [HuggingFace Model Downloader](#huggingface-model-downloader)
     - [RAG Crawler](#rag-crawler)
   - [Python](#python)
@@ -865,10 +865,6 @@ You should see an environment variable `$CUDA_PATH` created whose value is the i
 
 Download installer from <https://developer.nvidia.com/cudnn-downloads>.
 
-### llama.cpp
-
-Install latest release from <https://github.com/ggerganov/llama.cpp/releases> or build locally. For the latter, the PowerShell scripts in [this GitHub repo](https://github.com/countzero/windows_llama.cpp/) are useful.
-
 ### Ollama
 
 Install: `winget install Ollama.Ollama -l D:\Apps\Ollama --interactive`.
@@ -886,6 +882,14 @@ Grab shell completion:
 
 ```powershell
 gh download https://github.com/sigoden/aichat/blob/main/scripts/completions/aichat.ps1
+```
+
+### aider-chat
+
+Install:
+
+```shell
+uv tool install aider-chat
 ```
 
 ### HuggingFace Model Downloader
