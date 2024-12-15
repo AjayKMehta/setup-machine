@@ -443,6 +443,9 @@ Open newer lists | `:cnewer`
 Operate on each QuickFix list entry | `:cdo <action>`
 Operate on each QuickFix file | `:cfdo <action>`
 
+Replace `client` with `client_id` for every QF entry: `:cdo s/client/client_id/g`.
+Send diagnostics to QuickFix list: `:lua vim.diagnostic.setqflist()`.
+
 Install `kevinhwang91/nvim-bqf` for a better quickfix experience.
 Refer to [this](https://github.com/kevinhwang91/nvim-bqf#function-table) for hotkeys for `nvim-bqf`
 
@@ -1196,7 +1199,7 @@ Do this: `ddp`
 
 1. Search for files with text using Telescope live grep.
 2. Add results to QuickFix list via <kbd>Ctrl</kbd> + <kbd>q</kbd>.
-3. Now do `:cdo %s/{findWhat}/{replaceWith}/g` to replace all QuickFix results.
+3. Now do `:cdo %s/{findWhat}/{replaceWith}/g` to replace all QuickFix results. Add `c` at end if you want to be prompted to confirm each time.
 
 ### Where are Treesitter parsers located?
 
