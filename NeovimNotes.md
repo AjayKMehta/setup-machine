@@ -111,6 +111,7 @@
       - [Outline](#outline)
       - [Diffview](#diffview)
       - [nvim-dap](#nvim-dap)
+      - [code\_runner](#code_runner)
     - [Editing](#editing-2)
       - [mini.move](#minimove)
       - [nvim-spider](#nvim-spider)
@@ -148,6 +149,11 @@
       - [Basic Usage](#basic-usage)
       - [Specify PDF viewer](#specify-pdf-viewer)
       - [Motions and text objects](#motions-and-text-objects)
+    - [Linting + Formatting](#linting--formatting)
+      - [conform](#conform)
+    - [Web](#web)
+      - [urlview](#urlview)
+      - [rest](#rest)
 
 # Neovim
 
@@ -191,6 +197,7 @@ Split[^1] | `:sp` OR <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>s</kbd>
 Vertical split[^2] | `:vsp` OR <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>v</kbd>
 Switch window | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>w</kbd>
 Close window | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>q</kbd>
+Close floating window | `:fclose:`
 Swap window with next | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>x</kbd>
 
 Navigate to left/below/above/right window: <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>h</kbd>/<kbd>j</kbd>/<kbd>k</kbd>/<kbd>l</kbd>.
@@ -1404,7 +1411,7 @@ All actions in **bold** in the table above have custom keymaps. The other comman
 
 [Telescope](https://github.com/nvim-telescope/telescope.nvim) is a very powerful plugin to search for items.
 
-- `actions.which_key` (<kbd>Ctrl</kbd> + <kbd>/</kbd> in **insert** or <kbd>?</kbd> in **normal** mode)  shows the mappings for your picker. Press again to close.
+- `actions.which_key` (<kbd>Ctrl</kbd> + <kbd>/</kbd> in **insert** or <kbd>?</kbd> in **normal** mode)  shows the mappings for your picker. Press again to close. Default mappings are [here](https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/mappings.lua).
 
 - `builtin.grep_string` searches for the string under your cursor or selection in your current working directory.
 `builtin.live_grep` searches for a string in your current working directory and gets results live as you type, respects `.gitignore`. (Requires **ripgrep**)
@@ -1412,6 +1419,9 @@ All actions in **bold** in the table above have custom keymaps. The other comman
 - <kbd>Alt</kbd> + <kbd>p</kbd> toggles preview.
 
 - <kbd>s</kbd> in normal mode or <kbd>Alt</kbd> + <kbd>s</kbd> in insert mode activates search via [flash.nvim](https://github.com/folke/flash.nvim) plugin.
+
+- `:Telescope` lists all builtin pickers.
+- Example of custom command: `Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍`. For more details, see `:help telescope.command.`
 
 <details>
   <summary>General</summary>
@@ -1590,6 +1600,15 @@ Kept same shortcuts as Visual Studio:
  Step over         | <kbd>F10</kbd>
  Step into         | <kbd>F11</kbd>
  Step out          | <kbd>Shift</kbd> + <kbd>F11</kbd>
+
+#### code_runner
+
+ Action       | Keymap/command
+ -------------|---------------
+ Run code     | `<leader>rc`
+ Run file     | `<leader>rf`
+ Run project  | `<leader>rp`
+ Close runner | `<leader>rx`
 
 ### Editing
 
@@ -2095,3 +2114,23 @@ Around delimiter| `ad` | `dad` applied to `$\alpha = (1 + *\frac{2}{3})$` become
 :point_right: In the table above, `*` indicates cursor position.
 
 [^8]: See [Difference between equation and equation* enviroment](https://tex.stackexchange.com/questions/539986/difference-between-equation-and-equation-enviroment) for more details.
+
+### Linting + Formatting
+
+#### conform
+
+🚧 **TBD**
+
+### Web
+
+#### urlview
+
+[urlview](https://github.com/axieax/urlview.nvim?tab=readme-ov-file) finds and displays URLs from a variety of search contexts, e.g. buffer, lazy.
+
+- `:Urlview` or `:Urlview buffer` will display all the links in current buffer.
+- `:Urlview lazy` will display all the links for `lazy.nvim` plugins.
+- Use `]u` and `[u` to navigate to next and previous link.
+
+#### rest
+
+This is a asynchronous HTTP client that works with `http` files. Commands start with `:Rest`, e.g. `:Rest run`.
