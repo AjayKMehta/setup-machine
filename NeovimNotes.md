@@ -107,7 +107,15 @@
       - [Legendary](#legendary)
       - [vim-tmux-navigator](#vim-tmux-navigator)
       - [Toggle](#toggle)
+      - [yazi](#yazi)
+    - [UI](#ui)
+      - [hlchunk](#hlchunk)
+      - [lualine](#lualine)
+      - [bufferline](#bufferline)
+      - [dropbar](#dropbar)
+      - [nvim-ufo](#nvim-ufo)
     - [Coding](#coding)
+      - [Aerial](#aerial)
       - [Outline](#outline)
       - [Diffview](#diffview)
       - [nvim-dap](#nvim-dap)
@@ -137,6 +145,8 @@
         - [LSP interop](#lsp-interop)
       - [nvim-treesitter-refactor](#nvim-treesitter-refactor)
       - [nvim-treesitter-textsubjects](#nvim-treesitter-textsubjects)
+      - [nvim-tree-pairs](#nvim-tree-pairs)
+      - [treewalker.nvim](#treewalkernvim)
     - [Markdown](#markdown)
       - [markdown.nvim](#markdownnvim)
         - [Inline-style](#inline-style)
@@ -1428,7 +1438,6 @@ All actions in **bold** in the table above have custom keymaps. The other comman
 
  Action                 | Keymap/command
  -----------------------|---------------
- Bookmarks              | `<leader>fM`
  Find buffers           | `<leaderfB`
  Commands               | `<leader>fcC`
  Command History        | `<leader>fch`
@@ -1559,7 +1568,54 @@ set -g @plugin 'christoomey/vim-tmux-navigator'
 - Toggle off setting: `[o` + setting, e.g. `]ow` to toggle off wrap.
 - See [here](https://github.com/gregorias/toggle.nvim#default-options) for a list of default options that can be toggled.
 
+#### yazi
+
+ Action                         | Keymap/command
+ -------------------------------|---------------
+ Open yazi                      | `<leader>yy`
+ Open yazi in current directory | `<leader>yw`
+
+### UI
+
+#### hlchunk
+
+This is similar to indent-rainbow plugin in VS Code but also has additional functionality like showing current context.
+
+#### lualine
+
+[This](https://github.com/nvim-lualine/lualine.nvim) is a performant, highly configurable statusline plugin.
+
+See [here](https://github.com/nvim-lualine/lualine.nvim#usage-and-customization) on how to customize.
+
+#### bufferline
+
+[bufferline.nvim](https://github.com/akinsho/bufferline.nvim) provides a snazzy 💅 buffer line (with tabpage integration).
+
+#### dropbar
+
+[dropbar](https://github.com/Bekaboo/dropbar.nvim) provides an IDE-like, highly-customizable winbar with drop-down menu support.
+
+ Action                         | Keymap
+ -------------------------------|------------
+ Pick symbols in winbar         | `<leader>;`
+ Go to start of current context | `[;`
+ Select next context            | `];`
+
+Keymaps when menu is active:
+
+ Action       | Keymap
+ -------------|------------------------
+ Close        | `q` OR `<kbd>Esc</kbd>`
+ Select       | `<CR>`
+ Fuzzy-find   | `i`
+
+#### nvim-ufo
+
 ### Coding
+
+#### Aerial
+
+🚧 **TBD**
 
 #### Outline
 
@@ -1591,11 +1647,12 @@ Use `[c` and `]c` to jump btw hunks.
 
 DAP stands for Debug Adapter Protocol.
 
-Kept same shortcuts as Visual Studio:
+Tried to keep same shortcuts as Visual Studio:
 
  Action            | Keymap/command
 -------------------|-----------------------------------
  Toggle breakpoint | <kbd>F9</kbd>
+ Clear breakpoints | <kbd>F8</kbd>
  Launch debugger   | <kbd>F5</kbd>
  Step over         | <kbd>F10</kbd>
  Step into         | <kbd>F11</kbd>
@@ -1957,6 +2014,16 @@ Location and syntax aware text objects which *do what you mean*.
  Select inner container | `i;`
 
 These work with `d`, `v`, etc.
+
+#### nvim-tree-pairs
+
+NeoVim plugin for jumping to the other end of the current Tree-sitter node using `%`
+
+#### treewalker.nvim
+
+[This plugin](https://github.com/aaronik/treewalker.nvim) enables fast navigation around the abstract syntax tree (AST).
+
+Navigate: `:Treewalker <direction>` (`<direction>` is one of `Up`, `Down`, `Left`, `Right`).
 
 ### Markdown
 
