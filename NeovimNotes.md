@@ -156,6 +156,7 @@
       - [Markdown Preview](#markdown-preview)
       - [render-markdown.nvim](#render-markdownnvim)
     - [VimTex](#vimtex)
+      - [Configuration](#configuration)
       - [Basic Usage](#basic-usage)
       - [Specify PDF viewer](#specify-pdf-viewer)
       - [Motions and text objects](#motions-and-text-objects)
@@ -2117,6 +2118,10 @@ Press `<leader>mt` to toggle rendering.
 
 [VimTeX](https://github.com/lervag/vimtex) is a filetype and syntax plugin for LaTeX files. Commands use `<localleader>` (which I have mapped to `\`).
 
+#### Configuration
+
+Set `vim.g.vimtex_fold_enabled = 1` to enable folding.
+
 #### Basic Usage
 
  Action                  | Keymap/command
@@ -2167,7 +2172,9 @@ Use `%` to move between matching delimiters, inline-math `$` delimiters, and LaT
 Text object | Keymap| Example
 -----------------------|--------|---
 Surrounding environment   | `se` | `dse` removes surrounding brackets.
-Surrounding delimiters  | `sd` | `tsd` toggles between `()` and `\left(\right)`.
+Inner environment | `ie` | `vie` selects inner text in evironment
+Around environment | `ae` | `dae` deletes evironment
+Surrounding command | `sc` | `csc` changes a command while preserving the command's argument(s).
 `*` in environments[^8] | `tse` | Toggle `*`.
 Inner math environment | `i$ | `vi$` selects inner content of environment.
 Outer math environment | `a$ | `va$` selects outer content of environment.
@@ -2175,6 +2182,7 @@ Inner section | `iP` | `viP` selects entire content below current section.
 Around section | `aP` | `daP` deletes whole section including `\section{...}`.
 Inner delimiter | `id`| `vid` applied to `{foo(1*+a)}` highlights `(1+a)`
 Around delimiter| `ad` | `dad` applied to `$\alpha = (1 + *\frac{2}{3})$` becomes `$alpha = $`.
+Surrounding delimiters  | `sd` | `tsd` toggles between `()` and `\left(\right)`.
 
 🚧 **FINISH LATER**
 
