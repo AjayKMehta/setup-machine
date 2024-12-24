@@ -932,6 +932,7 @@ In order to build certain sdist packages, you need to install latest version of 
     irm https://astral.sh/uv/install.ps1 | iex
 
     uv generate-shell-completion powershell | Out-File ~\Documents\PowerShell\Scripts\ArgumentCompleters\uv.ps1
+    uvx --generate-shell-completion powershell | Out-File ~\Documents\PowerShell\Scripts\ArgumentCompleters\uvx.ps1
 
     # Ensure that the tool executable directory is on the `PATH`
     uv tool update-shell
@@ -944,13 +945,17 @@ In order to build certain sdist packages, you need to install latest version of 
 - Install tools:
   
     ```powershell
-    uv tool radian # For R
-    uv tool install ipython
-    uv tool install ruff
-    uv tool install virtualenv
     uv tool install cookiecutter
+    uv tool install ipython
+    uv tool install markitdown
     uv tool install mypy
     uv tool install pipdeptree
+    uv tool install pre-commit
+    uv tool install radian # For R
+    uv tool install ruff
+    uv tool install scalene
+    uv tool install tox
+    uv tool install virtualenv
     uv tool install yamllint
 
     # <https://pypi.org/project/tox-uv/>

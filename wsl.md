@@ -134,7 +134,7 @@ rustc
   Replaces: libstd-rust-dev
 ```
 
-Lastly, you can also use `dpkg -s <pkg> for installed packages.
+Lastly, you can also use `dpkg -s <pkg>` for installed packages.
 
 ### Reverse-dependencies
 
@@ -178,6 +178,69 @@ glow completion bash > ~/.config/bash_completions.d/glow
 ```
 
 Refresh: `sudo snap refresh`.
+
+## Python
+
+```shell
+sudo apt install systemd-coredump python3-pip python3.10-venv
+```
+
+[Add completion for pip in bash](https://pip.pypa.io/en/stable/user_guide/#command-completion):
+
+```shell
+python3 -m pip completion --bash >> ~/.config/bash_completions.d/pip
+```
+
+If you want to install multiple versions, follow the instructions [here](https://www.bitecode.dev/i/112502596/installing-and-running-python-on-linux) to add [deadsnake PPA](https://launchpad.net/~deadsnakes/+archive/ubuntu/ppa). These versions will also get installed in `/usr/bin`.
+
+### uv
+
+A better approach is to use [uv](https://docs.astral.sh/uv/getting-started/installation/):
+
+```shell
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+Update version: `uv self update`.
+
+Shell completion:
+
+```shell
+uv generate-shell-completion bash > ~/.config/bash_completions.d/uv
+uv generate-shell-completion powershell > ~/.config/powershell/scripts/ArgumentCompleters/uv.ps1
+
+uvx --generate-shell-completion bash > ~/.config/bash_completions.d/uvx
+uvx --generate-shell-completion powershell > ~/.config/powershell/scripts/ArgumentCompleters/uvx.ps1
+```
+
+Install python: `uv python install 3.12`. Omit version to use latest.
+
+#### uv Tools
+
+- Ensure tool directory is in `$PATH`: `uv tool update-shell`
+
+- Install tools
+
+    ```shell
+    uv tool install cookiecutter
+    uv tool install debugpy
+    uv tool install ipython
+    uv tool install markitdown
+    uv tool install mypy
+    uv tool install pipdeptree
+    uv tool install pre-commit
+    uv tool install ruff
+    uv tool install radian # For R
+    uv tool install scalene
+    uv tool install tox
+    uv tool install virtualenv
+    uv tool install yamllint
+    ```
+
+### Troubleshooting
+
+- <https://stackoverflow.com/questions/56123942/pip-failed-to-install-dbus-python>
+- <https://stackoverflow.com/questions/18025730/pygobject-2-28-6-wont-configure-no-package-gobject-introspection-1-0-found>
 
 ## Rust
 
@@ -275,7 +338,12 @@ mise use chezmoi@latest
 mise use delta@latest
 delta --generate-completion bash >  .config/bash_completions.d/delta
 mise use deno@latest
+
 mise use difftastic@latest
+wget https://raw.githubusercontent.com/Wilfred/difftastic/master/difft.1
+sudo mv difft.1 /usr/share/man/man1/
+sudo mandb
+
 mise use docker-slim@latest
 
 mise plugin add github-cli https://github.com/bartlomiejdanek/asdf-github-cli.git   
@@ -597,14 +665,7 @@ Install: `sudo apt install tmuxp`.
 This version is quite old so you can alternatively do:
 
 ```shell
-pip install tmuxp --user
-```
-
-Completions:
-
-```shell
-pip install shtab --user
-shtab --shell=bash -u tmuxp.cli.create_parser | sudo tee ~/.config/bash_completions.d/TMUXP
+uv tool install tmuxp
 ```
 
 ## HTTPie
@@ -948,53 +1009,6 @@ sudo apt-get update
 sudo apt-get -y install cudnn
 ```
 
-## Python
-
-```shell
-sudo apt install systemd-coredump python3-pip python3.10-venv
-
-sudo apt install pipx
-pipx ensurepath
-sudo pipx ensurepath
-```
-
-If you want to install multiple versions, follow the instructions [here](https://www.bitecode.dev/i/112502596/installing-and-running-python-on-linux) to add [deadsnake PPA](https://launchpad.net/~deadsnakes/+archive/ubuntu/ppa). These versions will also get installed in `/usr/bin`.
-
-A better approach is to use [mise](https://mise.jdx.dev/lang/python.html).
-
-### visidata
-
-[Install visidata](https://jsvine.github.io/intro-to-visidata/the-big-picture/installation/
-):
-
-```shell
-python3 -m pip install visidata
-```
-
-[Add completion for bash](https://pip.pypa.io/en/stable/user_guide/#command-completion):
-
-```shell
-python3 -m pip completion --bash >> ~/.config/bash_completions.d/pip
-```
-
-### CUDA Python
-
-`pip install cuda-python`.
-
-### light-the-torch
-
-[`light-the-torch`](https://pypi.org/project/light-the-torch) is a small utility that wraps `pip` to ease the installation process for PyTorch distributions like `torch`, `torchvision`, `torchaudio`, and so on as well as third-party packages that depend on them. It auto-detects compatible CUDA versions from the local setup and installs the correct PyTorch binaries without user intervention.
-
-```bash
-pip install light-the-torch
-ltt install torch
-```
-
-### Troubleshooting
-
-- <https://stackoverflow.com/questions/56123942/pip-failed-to-install-dbus-python>
-- <https://stackoverflow.com/questions/18025730/pygobject-2-28-6-wont-configure-no-package-gobject-introspection-1-0-found>
-
 ## Fonts
 
 See [here](https://askubuntu.com/a/372964) for more details.
@@ -1132,7 +1146,7 @@ The instructions below are based on the following links:
 9. Run `sudo apt install latexmk` to install `latexmk`.
 10. To edit LaTex files using `vimtex` plugin in neovim, the following are needed:
     - `sudo apt install zathura zathura-ps`.
-    - `pip install neovim-remote`
+    - `uv tool install neovim-remote`
     - `sudo apt-get install xdotool`
     - See [this](https://www.ejmastnak.com/tutorials/vim-latex/pdf-reader/#a-pdf-reader-on-linuxa) for more info.
     - If you run into issues with viewing PDF, try this :sparkles:: run `sudo loginctl enable-linger <username>` or `sudo systemctl restart user@1000` ([source](https://github.com/microsoft/WSL/issues/8842)).
