@@ -158,7 +158,6 @@
     - [VimTex](#vimtex)
       - [Configuration](#configuration)
       - [Basic Usage](#basic-usage)
-      - [Specify PDF viewer](#specify-pdf-viewer)
       - [Motions and text objects](#motions-and-text-objects)
     - [Linting + Formatting](#linting--formatting)
       - [conform](#conform)
@@ -2122,50 +2121,66 @@ Press `<leader>mt` to toggle rendering.
 
 Set `vim.g.vimtex_fold_enabled = 1` to enable folding.
 
+Use following to specify PDF viewer:
+
+```lua
+vim.g.vimtex_view_method = "zathura_simple"
+vim.g.vimtex_view_general_viewer = "zathura"
+```
+
 #### Basic Usage
 
  Action                  | Keymap/command
 -------------------------|-------------------------------------
  Clean                   | `<localleader>lc` OR `:VimtexClean`
- Clean (full)            | `<localleader>lC`
+ Clean (full)            | `<localleader>lC` OR `:VimtexClean!`
  View errors             | `<localleader>le`
- View status             | `<localleader>lg`
- View status (all)       | `<localleader>lG`
- View info               | `<localleader>li` or `:VimtexInfo`  
- View info (all)         | `<localleader>lI`
- Stop compile            | `<localleader>lk`
- Stop compile (all)      | `<localleader>lK`
- Compile                 | `<localleader>ll`
- Imaps (insert mappings) | `<localleader>lm`
+ View status             | `<localleader>lg` OR `:VimtexStatus`
+ View status (all)       | `<localleader>lG` OR `:VimtexStatus!`
+ View info               | `<localleader>li` OR `:VimtexInfo`  
+ View info (all)         | `<localleader>lI` OR `:VimtexInfo!`  
+ Stop compile            | `<localleader>lk` OR `:VimtexStop`
+ Stop compile (all)      | `<localleader>lK` OR `:VimtexStopAll`
+ Compile                 | `<localleader>ll` OR `:VimtexCompile`
+ Imaps (insert mappings)[^7] | `<localleader>lm` OR `:VimtexImapsList`
  Compile output          | `<localleader>lo`
- View log                | `<localleader>lq`
+ View log                | `<localleader>lq` OR `:VimtexLog`
  View TOC                | `<localleader>lt`
  Forward search          | `<localleader>lv`
 
+[^7]: Only visible if `vim.g.vimtex_imaps_enabled=1`.
+
  `:VimtexInfo` shows information about the project including packages used.
-
-#### Specify PDF viewer
-
-🚧 **TBD**
 
 #### Motions and text objects
 
 :bulb: The word `section` below refers to `\section`, `\subsection` or `\subsubsection`, whichever comes first.
 
+These motions support `count`, e.g. `2]]`.
+
 Motion                 | Keymap
 -----------------------|--------
-Go to start of next section     | `]]`
-Go to start of current[^7] section | `[[`
-Go to end of previous section | `[]`
-Go to end of current section | `][`
-**Go to start of current environment** | `[e`
-**Go to start of next environment** | `]e`
-**Go to end of previous environment** | `[E`
-**Go to end of current environment** | `]E`
+Go to next end of a section     | `]]`
+Go to previous start of section | `[[`
+Go to previous end of section | `[]`
+Go to next beginning of a section | `][`
+**Go to previous start of an environment** | `[e`
+**Go to next start of an environment** | `]e`
+**Go to previous end of an environment** | `[E`
+**Go to previous start of an environment** | `]E`
+Go to next start of a math zone     | `]n`
+Go to previous start of a math zone | `[n`
+Go to next end of of a math zone  | `]N`
+Go to previous end of a math zone  | `[N`
+
+Go to next start of a LaTeX comment     | `]/`
+Go to previous start of a LaTeX comment | `[/`
+Go to next end of of a LaTeX comment  | `]*`
+Go to previous end of a LaTeX comment  | `[*`
+
+<!-- TODO: Add tip to remember keymaps -->
 
 :point_right: Motions in **bold* have their keymaps overridden from default (see `:help vimtex-default-mappings`).
-
-[^7]: If already at start of existing section, goes to previous one.
 
 Use `%` to move between matching delimiters, inline-math `$` delimiters, and LaTeX environments.
 
