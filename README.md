@@ -28,6 +28,7 @@
     - [git absorb](#git-absorb)
   - [Java](#java)
   - [CLI Apps](#cli-apps)
+    - [clink](#clink)
     - [parallel-disk-usage](#parallel-disk-usage)
     - [typos](#typos)
     - [less](#less)
@@ -481,6 +482,20 @@ Grab latest release from repo and add install folder to `$Path`.
 ## CLI Apps
 
 :bulb: Install CLI apps in a common directory and add common directory to `$Path`.
+
+### clink
+
+FROM [README.md](https://github.com/chrisant996/clink):
+
+> Clink combines the native Windows shell cmd.exe with the powerful command line editing features of the GNU Readline library, which provides rich completion, history, and line-editing capabilities.
+
+Install: `winget install --id chrisant996.Clink`.
+Update: `clink update`
+List settings: `clink set -i`
+
+For :page_facing_up:, see [here](https://chrisant996.github.io/clink/).
+
+Follow [instructions](https://github.com/vladimir-kotikov/clink-completions?tab=readme-ov-file#from-the-zip-file) to set up completion.
 
 ### parallel-disk-usage
 
@@ -1897,7 +1912,6 @@ Download [latest version](https://pngquant.org/pngquant-windows.zip).
     winget install --id Mp3tag.Mp3tag
     winget install --id Citrix.Workspace
     winget install --id Postman.Postman
-    winget install --id chrisant996.Clink
     winget install --id 7zip.7zip
 
     winget install --id Graphviz.Graphviz -l 'D:\Apps\Graphviz'
