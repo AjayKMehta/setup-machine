@@ -115,7 +115,7 @@
       - [dropbar](#dropbar)
       - [nvim-ufo](#nvim-ufo)
     - [Coding](#coding)
-      - [Aerial](#aerial)
+      - [neominimap](#neominimap)
       - [Outline](#outline)
       - [Diffview](#diffview)
       - [nvim-dap](#nvim-dap)
@@ -440,7 +440,7 @@ Delete all folds under cursor | <kbd>z</kbd> + <kbd>D</kbd>
 **Go to previous closed fold** | <kbd>[</kbd> + <kbd>z</kbd>
 **Peek fold** | <kbd>z</kbd> + <kbd>k</kbd>
 
-Actions in bold are courtesy of `ufo.nvim` plugin.
+Actions in bold are courtesy of [`nim-ufo.nvim` plugin](#nvim-ufo).
 
 ### Quickfix list
 
@@ -1611,11 +1611,27 @@ Keymaps when menu is active:
 
 #### nvim-ufo
 
+[nvim-ufo](https://github.com/kevinhwang91/nvim-ufo) provides advanced fold functionality. See README for how to set up with different providers: LSP (what I use), Treesitter.
+
 ### Coding
 
-#### Aerial
+#### neominimap
 
-🚧 **TBD**
+[This plugin](https://github.com/Isrothy/neominimap.nvim) provides a visual representation of your code structure on the side of your windows, similar to the minimap found in VS Code.
+
+You can customize the display to show diagnostics, marks, search results, git information.
+
+ Action                             | Keymap
+------------------------------------|-------------
+ Toggle global minimap              | `<leader>ntg`
+ Refresh global minimap             | `<leader>nrg`
+ Toggle minimap for current window  | `<leader>ntw`
+ Refresh minimap for current window | `<leader>nrw`
+ Toggle minimap for current tab     | `<leader>ntt`
+ Refresh minimap for current tab    | `<leader>nrt`
+ Toggle minimap for current buffer  | `<leader>ntb`
+ Refresh minimap for current buffer | `<leader>nrb`
+ Toggle focus on minimap            | `<leader>ntf`
 
 #### Outline
 
@@ -2178,9 +2194,11 @@ Go to previous start of a LaTeX comment | `[/`
 Go to next end of of a LaTeX comment  | `]*`
 Go to previous end of a LaTeX comment  | `[*`
 
-<!-- TODO: Add tip to remember keymaps -->
+> [!NOTE]
+> Mnemonic for keymaps: `]` means *next* and `[` means *previous*. You can tell based on which side `|` is on. Lower case letter means *start* while upper case means *end*.
 
-:point_right: Motions in **bold* have their keymaps overridden from default (see `:help vimtex-default-mappings`).
+> [!NOTE]
+> Motions in **bold** have their keymaps overridden from default (see `:help vimtex-default-mappings`).
 
 Use `%` to move between matching delimiters, inline-math `$` delimiters, and LaTeX environments.
 
