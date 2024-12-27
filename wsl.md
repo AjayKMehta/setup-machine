@@ -161,16 +161,18 @@ rust-all
 
 Snap is pre-installed and ready to go on all recent releases of Ubuntu. Else, install: `sudo apt install snapd`.
 
+[To avoid filling up disk space](https://unix.stackexchange.com/questions/614070/keep-only-latest-version-of-snap-and-delete-other-to-free-up-space), run this:
+
+```shell
+snap set system refresh.retain=2
+```
+
 Install apps:
 
 ```shell
-sudo snap install btop
 sudo snap install chromium
 sudo snap install cups
 sudo snap install tldr
-sudo snap install yq
-sudo snap install fx
-sudo snap install firefox
 
 sudo snap glow
 glow completion bash > ~/.config/bash_completions.d/glow
@@ -375,6 +377,7 @@ mise use usage@latest
 mise use zoxide@latest
 mise use lazygit@latest
 mise use ripgrep@latest
+mise use direnv@latest
 
 # Generate with sudo in /usr/share/..., get Permission denied error.
 rg --generate man > rg.1
@@ -1232,6 +1235,9 @@ cargo install nu
 
 cargo install aichat
 gh download https://github.com/sigoden/aichat/blob/main/scripts/completions/aichat.bash --outfile ~/.config/bash_completions.d/aichat.bash
+
+# xml
+sudo apt-get install -y libxml2-utils
 
 # Java
 sudo apt install openjdk-17-jre-headless

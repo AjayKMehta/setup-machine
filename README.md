@@ -807,6 +807,8 @@ docker run -it --rm --privileged --pid=host justincormack/nsenter1
 Optimize-VHD -Path D:\wsl\Docker\data\ext4.vhdx -Mode Full
 ```
 
+For more tips, see <https://learn.microsoft.com/en-us/windows/wsl/disk-space>.
+
 ### docker scout
 
 [Docker Scout](https://www.docker.com/products/docker-scout/) is a set of software supply chain features integrated into Docker's user interfaces and command line interface (CLI).
