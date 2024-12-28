@@ -572,25 +572,6 @@ Set `DOTNET_ROOT` if install path is `/usr/share/dotnet`:
 export DONET_ROOT=/usr/share/dotnet
 ```
 
-### Omnisharp
-
-Omnisharp if installed via `mason.nvim` is found in `"~/.local/share/nvim/mason/packages/omnisharp/`. Create a config file located at `~/.omnisharp/omnisharp.json`.
-
-Don't forget to update `LocationPaths` in the config file if you update Roslynator extension:
-
-```json
-    "RoslynExtensionsOptions": {
-        "EnableAnalyzersSupport": true,
-        "EnableDecompilationSupport": true,
-        "LocationPaths": [
-            "/home/ajay/.vscode-server/extensions/josefpihrt-vscode.roslynator-4.12.1/roslyn/common",
-            "/home/ajay/.vscode-server/extensions/josefpihrt-vscode.roslynator-4.12.1/roslyn/analyzers",
-            "/home/ajay/.vscode-server/extensions/josefpihrt-vscode.roslynator-4.12.1/roslyn/refactorings",
-            "/home/ajay/.vscode-server/extensions/josefpihrt-vscode.roslynator-4.12.1/roslyn/fixes"
-        ]
-    },
-```
-
 ### Enable tab completion
 
 [Source](https://learn.microsoft.com/en-us/dotnet/core/tools/enable-tab-autocomplete#bash):
