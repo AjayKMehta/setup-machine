@@ -109,6 +109,7 @@
       - [Toggle](#toggle)
       - [yazi](#yazi)
     - [UI](#ui)
+      - [rainbow-delimiters](#rainbow-delimiters)
       - [hlchunk](#hlchunk)
       - [lualine](#lualine)
       - [bufferline](#bufferline)
@@ -117,6 +118,7 @@
     - [Coding](#coding)
       - [neominimap](#neominimap)
       - [Outline](#outline)
+        - [Commands](#commands)
       - [Diffview](#diffview)
       - [nvim-dap](#nvim-dap)
       - [code\_runner](#code_runner)
@@ -134,7 +136,8 @@
     - [Treesitter-related](#treesitter-related)
       - [nvim-treesitter](#nvim-treesitter)
       - [ts-node-action](#ts-node-action)
-      - [Treesitter-textobjects](#treesitter-textobjects)
+      - [nvim-treesitter-context](#nvim-treesitter-context)
+      - [treesitter-textobjects](#treesitter-textobjects)
         - [Select](#select)
         - [Navigate](#navigate)
           - [Goto next start](#goto-next-start)
@@ -1577,6 +1580,10 @@ set -g @plugin 'christoomey/vim-tmux-navigator'
 
 ### UI
 
+#### rainbow-delimiters
+
+[This](https://github.com/HiPhish/rainbow-delimiters.nvim) provides rainbow delimiters powered by Treesitter.
+
 #### hlchunk
 
 This is similar to indent-rainbow plugin in VS Code but also has additional functionality like showing current context.
@@ -1637,9 +1644,20 @@ You can customize the display to show diagnostics, marks, search results, git in
 
 [Outline.nvim](https://github.com/hedyhli/outline.nvim) produces a code outline sidebar powered by LSP.
 
-See [here](https://github.com/hedyhli/outline.nvim#default-keymaps) for default keymaps.
+See [here](https://github.com/hedyhli/outline.nvim#default-keymaps) for default keymaps. They are only active for the outline window.
 
-Activate via `<leader>go`.
+##### Commands
+
+- `:Outline[!]` toggles outline. If you use `!`, the cursor focus stays in your original window.
+You can use command modifiers `topleft`/`aboveleft`/`botright`/`belowright` on this command.
+
+- `:OutlineOpen[!]` opens outline. You can use modified to specify location as well.
+
+- Use `:OutlineFocusOutline` to focus on outline.
+
+- Use `:OutlineFocusCode` to focus on code.
+
+- `:OutlineFollow[!]` goes to corresponding node in outline based on cursor position in code, and focus on the outline window (use `!` to keep focus on original window).
 
 #### Diffview
 
@@ -1912,7 +1930,13 @@ Lets you run functions on Tree-sitter nodes, and update the buffer with the resu
 
 `gA` is used to trigger action (default is change case).
 
-#### Treesitter-textobjects
+#### nvim-treesitter-context
+
+This shows you current context when you scroll.
+
+Commands: `TSContextEnable`, `TSContextDisable` and `TSContextToggle`.
+
+#### treesitter-textobjects
 
 Syntax aware text-objects, select, move, swap, and peek support.
 
