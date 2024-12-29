@@ -122,6 +122,7 @@
       - [Diffview](#diffview)
       - [nvim-dap](#nvim-dap)
       - [code\_runner](#code_runner)
+      - [neotest](#neotest)
     - [Editing](#editing-2)
       - [mini.move](#minimove)
       - [nvim-spider](#nvim-spider)
@@ -133,6 +134,9 @@
       - [multicursors](#multicursors)
         - [Extend mode](#extend-mode)
       - [flash](#flash)
+    - [LSP-related](#lsp-related)
+      - [garbage-day.nvim](#garbage-daynvim)
+      - [lsp\_lines.nvim](#lsp_linesnvim)
     - [Treesitter-related](#treesitter-related)
       - [nvim-treesitter](#nvim-treesitter)
       - [ts-node-action](#ts-node-action)
@@ -1659,6 +1663,15 @@ You can use command modifiers `topleft`/`aboveleft`/`botright`/`belowright` on t
 
 - `:OutlineFollow[!]` goes to corresponding node in outline based on cursor position in code, and focus on the outline window (use `!` to keep focus on original window).
 
+  Action             | Keymap
+ --------------------|-------------
+  Outline Open       | `<leader>oo`  
+  Outline Close      | `<leader>oc`  
+  Outline Toggle     | `<leader>ot`  
+  Outline Focus      | `<leader>ofo`
+  Outline Focus code | `<leader>ofc`
+  Outline Follow     | `<leader>oF`  
+
 #### Diffview
 
 [Diffview](https://github.com/sindrets/diffview.nvim) helps you view diffs for any git revision.
@@ -1700,6 +1713,12 @@ Tried to keep same shortcuts as Visual Studio:
  Run file     | `<leader>rf`
  Run project  | `<leader>rp`
  Close runner | `<leader>rx`
+
+#### neotest
+
+[Neotest](https://github.com/nvim-neotest/neotest?tab=readme-ov-file#installation) is an extensible framework for managing tests.
+
+See [here](https://github.com/nvim-neotest/neotest?tab=readme-ov-file#supported-runners) for supported runners.
 
 ### Editing
 
@@ -1906,6 +1925,38 @@ Let's illustrate usage for operator-pending and visual mode:
 
 1. `dss` would let you delete text based on a search and selected label.
 2. `v$` selects from current position to end of line. Type `sb` to extend selection based on search (backwards only) and selected label. Then type `d` to delete visual selection.
+
+### LSP-related
+
+#### garbage-day.nvim
+
+[garbage-day.nvim](https://github.com/Zeioth/garbage-day.nvim) stops inactive LSP clients to free RAM.
+
+#### lsp_lines.nvim
+
+> :bulb: For my config, enabled via `vim.g.lsp_inline = true`.
+
+From [README](https://git.sr.ht/~whynothugo/lsp_lines.nvim):
+
+> `lsp_lines` is a simple neovim plugin that renders diagnostics using virtual lines on top of the real line of code.
+
+Use `<leader>ltd` to toggle virtual lines.
+
+Disable functionality: `vim.diagnostic.config({ virtual_lines = false })`
+
+And re-enable via: `vim.diagnostic.config({ virtual_lines = true })`
+
+To show virtual lines only for the current line's diagnostics:
+
+```lua
+vim.diagnostic.config({ virtual_lines = { only\_current\_line = true } })
+```
+
+If you don't want to highlight the entire diagnostic line, use:
+
+```lua
+vim.diagnostic.config({ virtual_lines = { highlight\_whole\_line = false } })
+```
 
 ### Treesitter-related
 
