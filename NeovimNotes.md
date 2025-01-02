@@ -137,6 +137,7 @@
     - [LSP-related](#lsp-related)
       - [garbage-day.nvim](#garbage-daynvim)
       - [lsp\_lines.nvim](#lsp_linesnvim)
+      - [nvim-lsp-endhints](#nvim-lsp-endhints)
     - [Treesitter-related](#treesitter-related)
       - [nvim-treesitter](#nvim-treesitter)
       - [ts-node-action](#ts-node-action)
@@ -168,6 +169,7 @@
       - [Motions and text objects](#motions-and-text-objects)
     - [Linting + Formatting](#linting--formatting)
       - [conform](#conform)
+      - [nvim-lint](#nvim-lint)
     - [Web](#web)
       - [urlview](#urlview)
       - [rest](#rest)
@@ -1646,7 +1648,7 @@ You can customize the display to show diagnostics, marks, search results, git in
 
 #### Outline
 
-[Outline.nvim](https://github.com/hedyhli/outline.nvim) produces a code outline sidebar powered by LSP.
+[Outline.nvim](https://github.com/hedyhli/outline.nvim) produces a code outline sidebar powered by LSP + Treesitter.
 
 See [here](https://github.com/hedyhli/outline.nvim#default-keymaps) for default keymaps. They are only active for the outline window.
 
@@ -1957,6 +1959,14 @@ If you don't want to highlight the entire diagnostic line, use:
 ```lua
 vim.diagnostic.config({ virtual_lines = { highlight\_whole\_line = false } })
 ```
+
+#### nvim-lsp-endhints
+
+> :bulb: For my config, enabled via `vim.g.lsp_inline = false`.
+
+[This plugin](https://github.com/chrisgrieser/nvim-lsp-endhints) displays LSP inlay hints at the end of the line, rather than within the line.
+
+Use `<leader>lte` to toggle behavior.
 
 ### Treesitter-related
 
@@ -2303,6 +2313,12 @@ Surrounding delimiters  | `sd` | `tsd` toggles between `()` and `\left(\right)`.
 #### conform
 
 🚧 **TBD**
+
+#### [nvim-lint](https://github.com/mfussenegger/nvim-lint)
+
+This is an asynchronous linter plugin.
+
+List of available linters: <https://github.com/mfussenegger/nvim-lint#available-linters>.
 
 ### Web
 
