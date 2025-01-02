@@ -965,7 +965,6 @@ In order to build certain sdist packages, you need to install latest version of 
     uv tool install cookiecutter
     uv tool install ipython
     uv tool install markitdown
-    uv tool install mypy
     uv tool install pipdeptree
     uv tool install pre-commit
     uv tool install radian # For R
@@ -1658,6 +1657,8 @@ This section is based on the following links:
     ```powershell
     ghcup config set url-source https://raw.githubusercontent.com/haskell/ghcup-metadata/master/ghcup-vanilla-0.0.8.yaml
     ```
+
+- Upgrade version: `ghcup upgrade`.
 
 [^3]: The online documentation says location is `~/.ghcup/config.yaml` which is not the case.
 

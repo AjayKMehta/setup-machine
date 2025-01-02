@@ -1089,6 +1089,12 @@ eval "$(oh-my-posh --init --shell bash --config /root/.cache/oh-my-posh/themes/{
     eval "$(stack --bash-completion-script stack)"
     ```
 
+- Download file for shell completion for `cabal` and add it to `~/.config/bash_completions.d`:
+
+    ```bash
+    gh download https://github.com/haskell/cabal/blob/master/cabal-install/bash-completion/cabal --outfile ~/.config/bash_completions.d/cabal
+    ```
+
 - Install [haskell-debug-adapter](https://github.com/phoityne/haskell-debug-adapter)
 
     ```bash
