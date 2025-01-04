@@ -123,6 +123,10 @@
       - [nvim-dap](#nvim-dap)
       - [code\_runner](#code_runner)
       - [neotest](#neotest)
+      - [Languages](#languages)
+        - [nvim-R](#nvim-r)
+          - [Settings](#settings)
+          - [Commands](#commands-1)
     - [Editing](#editing-2)
       - [mini.move](#minimove)
       - [nvim-spider](#nvim-spider)
@@ -1721,6 +1725,36 @@ Tried to keep same shortcuts as Visual Studio:
 [Neotest](https://github.com/nvim-neotest/neotest?tab=readme-ov-file#installation) is an extensible framework for managing tests.
 
 See [here](https://github.com/nvim-neotest/neotest?tab=readme-ov-file#supported-runners) for supported runners.
+
+#### Languages
+
+##### nvim-R
+
+[This plugin](https://github.com/jalvesaq/Nvim-R) supports working with R code.
+
+Nvim-R is a file-type plugin. Its functionalities will be available only when an R file type (.R, .Rmd, .qmd) is being edited.
+
+:point_right: [You must start R from neovim](https://github.com/jamespeapen/Nvim-R/wiki/Known-Bugs-and-Workarounds#r-must-be-started-by-vim).
+
+###### Settings
+
+Start R automatically: `vim.g.R_auto_start = 1` (Change to 2 to start automatically when editing an R Script).
+Start object browser automatically: `vim.g.R_objbr_auto_start = 1`
+
+To view dataframes, install `visidata`, then `vim.g.R_csv_app = "terminal:vd"`.
+
+To use radian, refer to instructions [here](https://github.com/randy3k/radian/blob/master/README.md#nvim-r-support).
+
+For more details, see [online documentation](https://github.com/jamespeapen/Nvim-R/wiki).
+
+###### Commands
+
+ Action | Keymap/command
+--------|-------------------------------
+ Start R   | `<localleader>rf`
+ View data.frame   | `<localleader>rv`
+ Send File | `<localleader>aa`
+ Send File (echo) | `<localleader>ae`
 
 ### Editing
 
