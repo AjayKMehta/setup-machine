@@ -235,6 +235,7 @@ Install python: `uv python install 3.12`. Omit version to use latest.
     uv tool install radian # For R
     uv tool install scalene
     uv tool install tox
+    uv tool install visidata
     uv tool install virtualenv
     uv tool install yamllint
     ```
