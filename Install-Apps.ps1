@@ -13,17 +13,17 @@ Install-WinGetPackage -Id Mozilla.Firefox
 # Java
 Install-WinGetPackage -Id Oracle.JDK.17
 
-# CLI apps
-Install-WinGetPackage -Id jftuga.less -Location "$CustomLocation\CLI"
-Install-WinGetPackage -Id MikeFarah.yq -Location "$CustomLocation\CLI"
-Install-WinGetPackage -Id jqlang.jq -Location "$CustomLocation\CLI"
-Install-WinGetPackage -Id DuckDB.cli -Location "$CustomLocation\CLI"
-Install-WinGetApp twpayne.chezmoi -Location "$CustomLocation\CLI"
-Install-WinGetPackage -Id charmbracelet.gum -Location "$CustomLocation\CLI"
-Install-WinGetPackage -Id muesli.duf -Location "$CustomLocation\CLI"
+# Portable CLI apps
+Install-WinGetPackage -Id jftuga.less
+Install-WinGetPackage -Id MikeFarah.yq
+Install-WinGetPackage -Id jqlang.jq
+Install-WinGetPackage -Id DuckDB.cli
+Install-WinGetApp twpayne.chezmoi
+Install-WinGetPackage -Id charmbracelet.gum
+Install-WinGetPackage -Id muesli.duf
 Install-WinGetPackage -Id GNU.wget2
-Install-WinGetPackage -Id Wilfred.difftastic -Location "$CustomLocation\CLI"
-Install-WinGetPackage -Id procs -Location "$CustomLocation\CLI"
+Install-WinGetPackage -Id Wilfred.difftastic
+Install-WinGetPackage -Id dalance.procs
 
 # Security
 Install-WinGetPackage -Id KeePassXCTeam.KeePassXC

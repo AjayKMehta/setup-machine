@@ -516,7 +516,7 @@ Grab latest binary and shell completion script from [Releases page](https://gith
 - Install:
 
     ```powershell
-    winget install jftuga.less -l D:\Apps\CLI
+    winget install jftuga.less
     ```
 
 - Set environment variables:
@@ -575,13 +575,13 @@ ripgrep is a powerful search tool.
 
 **[yq](https://github.com/mikefarah/yq)** is a portable command-line YAML, JSON, XML, CSV and properties processor.
 
-Install: `winget install MikeFarah.yq -l D:\Apps\CLI`.
+Install: `winget install MikeFarah.yq`.
 
 ### jq
 
 [jq](https://github.com/stedolan/jq) is a command-line JSON processor.
 
-Install: `winget install jqlang.jq -l D:\Apps\CLI`.
+Install: `winget install jqlang.jq`.
 
 ### bat
 
@@ -600,7 +600,7 @@ Install: `winget install jqlang.jq -l D:\Apps\CLI`.
 > Gum provides highly configurable, ready-to-use utilities to help you write useful shell scripts and dotfiles aliases with just a few lines of code.
 
 ```powershell
-winget install charmbracelet.gum -l D:\Apps\CLI
+winget install charmbracelet.gum
 ```
 
 ### duf
@@ -608,7 +608,7 @@ winget install charmbracelet.gum -l D:\Apps\CLI
 [duf](https://github.com/muesli/duf) is a Disk Usage/Free Utility.
 
 ```powershell
-winget install muesli.duf -l D:\Apps\CLI
+winget install muesli.duf
 ```
 
 ### procs
@@ -616,18 +616,18 @@ winget install muesli.duf -l D:\Apps\CLI
 A modern replacement for `ps` written in Rust.
 
 ```powershell
-winget install procs -l D:\Apps\CLI
+winget install dalance.procs
 ```
 
 ### duckdb
 
 ```powershell
-winget install DuckDB.cli -l D:\Apps\CLI
+winget install DuckDB.cli
 ```
 
 #### Upgrading
 
-Before installing new version of CLI, you need to export any databases from old CLI and re-import in new CLI :frowning:
+Before installing new version of CLI, you may need to export any databases from old CLI and re-import in new CLI :frowning:
 
 For example, let's say you have a database `D:/duck_db/nyc-taxi.duckdb`.
 
@@ -676,7 +676,7 @@ Grab latest binary from [GitHub](https://github.com/Orange-OpenSource/hurl) and 
 - Install [chezmoi](https://github.com/twpayne/chezmoi):
 
     ```powershell
-    winget install twpayne.chezmoi -l D:\Apps\CLI
+    winget install twpayne.chezmoi
     ```
 
 - Run `chezmoi init` to create an initial `chezmoi.toml` using template in repo:
@@ -750,7 +750,7 @@ When using WSL2 with Docker Desktop, a new distro called `docker-desktop-data` i
 
 ### [Docker Credentials Helper](https://github.com/docker/docker-credential-helpers)
 
-1. Go to the [Releases](https://github.com/docker/docker-credential-helpers/releases) page and download the binary (`docker-credential-wincred`) that works for you. Put that binary in your `$PATH`, so Docker can find it.
+1. ~~Go to the [Releases](https://github.com/docker/docker-credential-helpers/releases) page and download the binary (`docker-credential-wincred`) that works for you. Put that binary in your `$PATH`, so Docker can find it.~~ This is already installed with Docker Desktop and should be in your $PATH.
 
 2. Set the `credsStore` option in your `~/.docker/config.json` file with the suffix of the program you want to use (`wincred`).
 
@@ -971,6 +971,7 @@ In order to build certain sdist packages, you need to install latest version of 
     uv tool install ruff
     uv tool install scalene
     uv tool install tox
+    uv tool install visidata
     uv tool install virtualenv
     uv tool install yamllint
 
