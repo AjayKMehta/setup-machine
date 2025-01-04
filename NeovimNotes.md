@@ -1749,12 +1749,64 @@ For more details, see [online documentation](https://github.com/jamespeapen/Nvim
 
 ###### Commands
 
- Action | Keymap/command
---------|-------------------------------
- Start R   | `<localleader>rf`
- View data.frame   | `<localleader>rv`
- Send File | `<localleader>aa`
- Send File (echo) | `<localleader>ae`
+<details>
+<summary>Start/Close</summary>
+
+ Action  | Keymap/command
+ --------|------------------
+ Start R | `<localleader>rf`
+ Close R | `<localleader>rc`
+
+</details>
+
+<details>
+<summary>Send</summary>
+
+ Action                               | Keymap/command
+ -------------------------------------|-------------------
+ Send File                            | `<localleader>aa`
+ Send File (echo)                     | `<localleader>ae`
+ Send current block                   | `<localleader>bb`
+ Send current block (echo)            | `<localleader>be`
+ Send current block (move down)       | `<localleader>bd`
+ Send current block (echo, move down) | `<localleader>ba`
+ Send current chunk                   | `<localleader>cc`
+ Send current chunk (echo)            | `<localleader>ce`
+ Send current chunk (move down)       | `<localleader>cd`
+ Send current chunk (echo, move down) | `<localleader>ca`
+ Send current chunk + chunks above    | `<localleader>ch`
+ Send selection                       | `<localleader>ss`
+ Send selection (echo)                | `<localleader>se`
+ Send selection (move down)           | `<localleader>sd`
+ Send selection (echo, move down)     | `<localleader>sa`
+ Send line                            | `<localleader>l`  
+ Send line (move down)                | `<localleader>d`  
+
+In the table above, a block is defined as lines of text between two marks.
+
+</details>
+
+<details>
+<summary>RMarkdown + Quarto</summary>
+
+</details>
+
+<details>
+<summary>Other</summary>
+
+ Action  | Keymap/command
+ --------|------------------
+ `ls` | `<localleader>rv`
+ Clear console | `<localleader>rr`
+ View data.frame | `<localleader>rv`
+ Show arguments | `<localleader>ra`
+ Show examples | `localleader>re`
+ Show help | `localleader>rh`
+ Summary | `localleader>rs`
+ Plot current object | `localleader>rg`
+ Plot and summary | `localleader>rb`
+
+</details>
 
 ### Editing
 
