@@ -38,8 +38,8 @@ Install-WinGetPackage -Id tummychow.git-absorb -Location "$CustomLocation\CLI"
 
 # Docker
 Install-WinGetPackage -Id Docker.DockerDesktop
-Install-WinGetPackage -Id wagoodman.dive -Location "$CustomLocation\CLI"
-Install-WinGetPackage -Id JesseDuffield.Lazydocker -Location "$CustomLocation\CLI"
+Install-WinGetPackage -Id wagoodman.dive
+Install-WinGetPackage -Id JesseDuffield.Lazydocker
 
 # Dev
 Install-WinGetPackage -Id wez.wezterm -Location "$CustomLocation\WezTerm"

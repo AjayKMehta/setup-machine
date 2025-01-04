@@ -818,8 +818,8 @@ It comes bundled with Docker Desktop but if you wish to use a different version,
 ### Utilities
 
 ```powershell
-winget install wagoodman.dive -l D:\Apps\CLI
-winget install JesseDuffield.Lazydocker -l D:\Apps\CLI
+winget install wagoodman.dive
+winget install JesseDuffield.Lazydocker
 ```
 
 ## [WezTerm](https://wezfurlong.org/wezterm/index.html)
