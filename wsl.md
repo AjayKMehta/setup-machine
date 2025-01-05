@@ -181,6 +181,42 @@ glow completion bash > ~/.config/bash_completions.d/glow
 
 Refresh: `sudo snap refresh`.
 
+## Quarto
+
+[Quarto](https://quarto.org/) is an enhanced, multilingual successor to RMarkdown.
+
+### Installation
+
+1. View files for current release:
+
+    ```bash
+    rel_version=$(gh release list --repo quarto-dev/quarto-cli -L 1 --json tagName | jq -r '.[0].tagName')
+    gh release view $rel_version --repo quarto-dev/quarto-cli
+    ```
+
+2. After you determine file to use, download it:
+
+    ```bash
+    ls ~/tmp | xargs rm # Clean directory
+    gh release download $rel_version --repo quarto-dev/quarto-cli --pattern *linux-amd64.tar.gz -D ~/tmp
+    ```
+
+3. Extract files:
+
+    ```bash
+    tarball=$(ls *.tar.gz)
+    mkdir ~/opt
+    tar -C ~/opt -xvzf $tarball
+    ```
+
+4. Create a symlink:
+
+    ```bash
+    ln -s "${HOME}/opt/quarto-${rel_version:1}/bin/quarto" ~/.local/bin/quarto --force
+    ```
+
+5. Test installation: `quarto -v`.
+
 ## Python
 
 ```shell
