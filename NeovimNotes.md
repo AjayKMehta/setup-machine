@@ -1796,7 +1796,7 @@ mark. If the cursor is below the last mark, the plugin will send from the mark
 to the end of the file. The mark above the cursor is included and the mark
 below is excluded from the block to be sent to R.
 
-Use `<motion>` + `\m` to send motion to console.
+Use `\m` + `<motion>` to send motion to console, e.g. send paragraph to console with `\mip`.
 
 </details>
 
