@@ -1749,6 +1749,15 @@ For more details, see [online documentation](https://github.com/jamespeapen/Nvim
 
 ###### Commands
 
+The command `:Rinsert <cmd>` inserts one or more lines with the output of the R command sent to R e.g. `Rinsert dput(names(iris))` will insert in the buffer:
+
+```r
+c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width", 
+"Species")
+```
+
+Use `:RStop` to stop execution, i.e. sends `<C-c>` to R console.
+
 <details>
 <summary>Start/Close</summary>
 
@@ -1782,12 +1791,41 @@ For more details, see [online documentation](https://github.com/jamespeapen/Nvim
  Send line                            | `<localleader>l`  
  Send line (move down)                | `<localleader>d`  
 
-In the table above, a block is defined as lines of text between two marks.
+If the cursor is between manually inserted marks, the plugin will send the lines between them to R if you press `<localleader>bb`. If the cursor is above the first mark, the plugin will send from the beginning of the file to the
+mark. If the cursor is below the last mark, the plugin will send from the mark
+to the end of the file. The mark above the cursor is included and the mark
+below is excluded from the block to be sent to R.
+
+Use `<motion>` + `\m` to send motion to console.
 
 </details>
 
 <details>
 <summary>RMarkdown + Quarto</summary>
+
+ Action  | Keymap/command
+ --------|------------------
+ Make All| `<localleader>ka`
+ Make Rmd HTML | `<localleader>kh`
+ Knit current doc | `<localleader>kn`
+ Make Rmd PDF | `<localleader>kp`
+ Make Rmd (default) | `<localleader>kr`
+ Quarto render | `<localleader>qr`
+ Quarto preview | `<localleader>qp`
+ Go to next chunk | `<localleader>gn`
+ Go to previous chunk | `<localleader>gN`
+
+</details>
+
+<details>
+<summary>Object Browser</summary>
+
+ Action  | Keymap/command
+ --------|------------------
+ Open/close | `<localleader>ro`
+ Collapse all | `<localleader>r-`
+ Expand | `<localleader>r=`
+ Toggle current | `<CR>`
 
 </details>
 
