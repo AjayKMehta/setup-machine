@@ -7,6 +7,7 @@
       - [Create new tab(s)](#create-new-tabs)
     - [Executing command in tab](#executing-command-in-tab)
   - [General Neovim info](#general-neovim-info)
+    - [Options](#options)
     - [Autocommands](#autocommands)
     - [Find](#find)
     - [Marks](#marks)
@@ -213,6 +214,9 @@ A buffer is essentially the in-memory representation of a file.
  Go to next buffer  | <kbd>Tab</kbd>
  Go to prev. buffer | <kbd>Shift</kbd> + <kbd>Tab</kbd> OR <kbd>Ctrl</kbd> + <kbd>6</kbd>
 
+ To run a command on every buffer, use `:bufdo <command>`, e.g. `:bufdo normal @a` will run the macro in register `a` on every buffer!
+ To create a buffer, use `:badd <file>`, e.g. `:badd .gitconfig`.
+
 ### Windows
 
 A window is a viewport onto a buffer. Different windows correspond to one or more buffers.
@@ -221,12 +225,19 @@ A window is a viewport onto a buffer. Different windows correspond to one or mor
 
 Action | Keymap/command
 ---------|----------
+New window | `:new`
 Split[^1] | `:sp` OR <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>s</kbd>
 Vertical split[^2] | `:vsp` OR <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>v</kbd>
 Switch window | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>w</kbd>
 Close window | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>q</kbd>
 Close floating window | `:fclose:`
 Swap window with next | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>x</kbd>
+Split horizontally and edit a new file | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>n</kbd>
+Resize windows to fit with the same size | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>=</kbd>
+Decrease window height | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>-</kbd>
+Increase window height | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>+</kbd>
+Decrease window width | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd><</kbd>
+Increase window width | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>></kbd>
 
 Navigate to left/below/above/right window: <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>h</kbd>/<kbd>j</kbd>/<kbd>k</kbd>/<kbd>l</kbd>.
 
@@ -297,6 +308,19 @@ Run health checks: `:checkhealth`.
 
 [Close `nvterm`](https://github.com/NvChad/NvChad/issues/2704#issuecomment-1975743935
 ): <kbd>Ctrl</kbd> + <kbd>x</kbd>,`leader` + <kbd>x</kbd>
+
+### Options
+
+The table below assumes an option named `<option>`:
+
+Action | Command
+---------|----------
+Set option to `<value>` | `:set <option>=<value>`
+Unset the option | `:set no<option>`
+Toggle the option | `:set <option>!`
+Append or add value | `:set <option>+=<value>`
+Remove or subtract value | `:set <option>-=<value>`
+Set to default value | `:set <option>&`
 
 ### Autocommands
 
@@ -495,8 +519,9 @@ Highlight Groups contain a variety of display properties. These properties inclu
 See [`:h nvim_set_hl()`](https://neovim.io/doc/user/api.html#nvim_set_hl()) for a complete list of properties and `:h gui-colors` for an incomplete list of color names.
 Use `:highlight` to see all the Highlight Groups.
 
-To create or update a highlight group: `vim.api.nvim_set_hl(0, 'Normal', { bg = "#ff0000" })`.
-If you only want to create it, if it does not already exist, then use `default = true` :`vim.api.nvim_set_hl(0, 'Normal', { bg = "#ff0000", default = true })`.
+To create or update a highlight group: `vim.api.nvim_set_hl(0, 'Normal', { bg = "#ff0000" })`. Here, `0` stands for global namespace. Namespaces are used for buffer highlights and virtual text.
+
+If you only want to create it if it does not already exist, then use `default = true` :`vim.api.nvim_set_hl(0, 'Normal', { bg = "#ff0000", default = true })`.
 
 ### [Executing external commands](https://youtu.be/STSZt2c1rSA?feature=shared)
 
