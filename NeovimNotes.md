@@ -18,6 +18,7 @@
     - [Keymaps](#keymaps)
     - [Folds](#folds)
     - [Quickfix list](#quickfix-list)
+    - [Highlight groups](#highlight-groups)
     - [Executing external commands](#executing-external-commands)
   - [LSP](#lsp)
   - [Visual Mode](#visual-mode)
@@ -486,6 +487,16 @@ Refer to [this](https://github.com/kevinhwang91/nvim-bqf#function-table) for hot
 If you want to save the list for future reference: `:w my_qf.txt`.
 
 Good read: [Examples.md](https://gist.github.com/Integralist/8d01300efcd2006c69e8b9492c0eada8).
+
+### Highlight groups
+
+Highlight Groups contain a variety of display properties. These properties include the hex codes/names for the foreground & background color, as well as whether the text should be bold, etc.
+
+See [`:h nvim_set_hl()`](https://neovim.io/doc/user/api.html#nvim_set_hl()) for a complete list of properties and `:h gui-colors` for an incomplete list of color names.
+Use `:highlight` to see all the Highlight Groups.
+
+To create or update a highlight group: `vim.api.nvim_set_hl(0, 'Normal', { bg = "#ff0000" })`.
+If you only want to create it, if it does not already exist, then use `default = true` :`vim.api.nvim_set_hl(0, 'Normal', { bg = "#ff0000", default = true })`.
 
 ### [Executing external commands](https://youtu.be/STSZt2c1rSA?feature=shared)
 
