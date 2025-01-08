@@ -14,11 +14,12 @@ Install-WinGetPackage -Id Mozilla.Firefox
 Install-WinGetPackage -Id Oracle.JDK.17
 
 # Portable CLI apps
+Install-WinGetPackage -Id sharkdp.bat
 Install-WinGetPackage -Id jftuga.less
 Install-WinGetPackage -Id MikeFarah.yq
 Install-WinGetPackage -Id jqlang.jq
 Install-WinGetPackage -Id DuckDB.cli
-Install-WinGetApp twpayne.chezmoi
+Install-WinGetPackage -Id twpayne.chezmoi
 Install-WinGetPackage -Id charmbracelet.gum
 Install-WinGetPackage -Id muesli.duf
 Install-WinGetPackage -Id GNU.wget2
@@ -59,9 +60,9 @@ Install-WinGetPackage -Id Mp3tag.Mp3tag
 # .NET
 Install-WinGetPackage -Id Microsoft.VisualStudio.2022.Community
 Install-WinGetPackage -Id 'LINQPad.LINQPad.8' -Location "$CustomLocation\LINQPad8"
-Install-WinGetApp -Id '9WZDNCRDMDM3'
-Install-WinGetApp -Id KirillOsenkov.MSBuildStructuredLogViewer
-Install-WinGetApp -Id RicoSuter.NSwagStudio
+Install-WinGetPackage -Id '9WZDNCRDMDM3'
+Install-WinGetPackage -Id KirillOsenkov.MSBuildStructuredLogViewer
+Install-WinGetPackage -Id RicoSuter.NSwagStudio
 Install-WinGetPackage -Id Microsoft.NuGet
 Install-WinGetPackage -Id Microsoft.PerfView -Location "$CustomLocation\PerfView"
 

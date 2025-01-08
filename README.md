@@ -585,8 +585,7 @@ Install: `winget install jqlang.jq`.
 
 ### bat
 
-- Install [bat](https://github.com/sharkdp/bat) from [here](https://github.com/sharkdp/bat/releases).
-- Add installation path to `$Path`.
+- Install [bat](https://github.com/sharkdp/bat): `winget install sharkdp.bat`.
 - Create folder if it does not exist: `$env:AppData\Local\bat\cache`
 - Add following environment variables: `BAT_PAGER = less -RF`.
 - A default configuration file can be created with the `--generate-config-file` option.
