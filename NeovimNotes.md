@@ -138,10 +138,14 @@
       - [multicursors](#multicursors)
         - [Extend mode](#extend-mode)
       - [flash](#flash)
+      - [highlight-undo.nvim](#highlight-undonvim)
+      - [spellwarn.nvim](#spellwarnnvim)
+      - [precognition.nvim](#precognitionnvim)
     - [LSP-related](#lsp-related)
       - [garbage-day.nvim](#garbage-daynvim)
       - [lsp\_lines.nvim](#lsp_linesnvim)
       - [nvim-lsp-endhints](#nvim-lsp-endhints)
+      - [roslyn.nvim](#roslynnvim)
     - [Treesitter-related](#treesitter-related)
       - [nvim-treesitter](#nvim-treesitter)
       - [ts-node-action](#ts-node-action)
@@ -2052,6 +2056,18 @@ Let's illustrate usage for operator-pending and visual mode:
 1. `dss` would let you delete text based on a search and selected label.
 2. `v$` selects from current position to end of line. Type `sb` to extend selection based on search (backwards only) and selected label. Then type `d` to delete visual selection.
 
+#### highlight-undo.nvim
+
+[highlight-undo.nvim](https://github.com/tzachar/highlight-undo.nvim) highlights changed text after any action which modifies the current buffer. It is configurable -- in my config, it highlights text after undo (`u`), redo (`<C-r>`) and paste (`p` and `P`).
+
+#### spellwarn.nvim
+
+[This plugin](https://github.com/ravibrock/spellwarn.nvim) displays spelling errors as diagnostics.
+
+#### precognition.nvim
+
+[precognition.nvim](https://github.com/tris203/precognition.nvim) helps with discovering motions. It will display hints, e.g. `$` at end of current line.
+
 ### LSP-related
 
 #### garbage-day.nvim
@@ -2091,6 +2107,11 @@ vim.diagnostic.config({ virtual_lines = { highlight\_whole\_line = false } })
 [This plugin](https://github.com/chrisgrieser/nvim-lsp-endhints) displays LSP inlay hints at the end of the line, rather than within the line.
 
 Use `<leader>lte` to toggle behavior.
+
+#### roslyn.nvim
+
+<!-- TODO: Finish -->
+🚧 **TBD**
 
 ### Treesitter-related
 
@@ -2248,7 +2269,10 @@ NeoVim plugin for jumping to the other end of the current Tree-sitter node using
 
 [This plugin](https://github.com/aaronik/treewalker.nvim) enables fast navigation around the abstract syntax tree (AST).
 
-Navigate: `:Treewalker <direction>` (`<direction>` is one of `Up`, `Down`, `Left`, `Right`).
+Can navigate or swap nodes by specifying a direction (one of `Up`, `Down`, `Left`, or `Right`)
+
+Navigate: `:Treewalker <direction>` .
+Swap nodes: `:Treewalker Swap<direction>`, e.g. `:Treewalker SwapUp`.
 
 ### Markdown
 
@@ -2335,6 +2359,8 @@ Press `<leader>mP` to preview Markdown.
 #### render-markdown.nvim
 
 [This plugin](https://github.com/MeanderingProgrammer/render-markdown.nvim?tab=readme-ov-file) improves viewing Markdown files in Neovim.
+
+Install `latext2text` for LaTeX rendering: `uv tool install pylatexenc`.
 
 Press `<leader>mt` to toggle rendering.
 
@@ -2436,6 +2462,7 @@ Surrounding delimiters  | `sd` | `tsd` toggles between `()` and `\left(\right)`.
 
 #### conform
 
+<!-- TODO: Finish -->
 🚧 **TBD**
 
 #### [nvim-lint](https://github.com/mfussenegger/nvim-lint)
