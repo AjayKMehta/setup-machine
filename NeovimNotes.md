@@ -257,10 +257,11 @@ Tab pages are a collection of windows.
  Open a new tab page and edit `{file}`, like with `:find` | `:tabfind {file}`
  Go to previous tab                                       | `:tabprevious` OR `:tabp` OR `gT`
  Go to next tab                                           | `:tabnext` OR `:tabn` OR `gt`
- Go to first tab                                          | `:tabfirst` OR `:tabrewind` OR `:tabr`
+ Go to first tab                                          | `:tabfirst` OR `:tabrewind` OR `:tabr` OR `1gT`
  Go to last tab                                           | `:tablast` OR `:tabl`
  Edit file in new tab                                     | `:[count]tabe[dit] <file>`
  Close current tab page                                   | `:tabclose` OR `:tabc`
+ Close all tabs except current | `:tabonly` OR `:tabo`
 
 #### Create new tab(s)
 
@@ -447,7 +448,27 @@ See <https://www.ejmastnak.com/tutorials/vim-latex/vimscript/>.
 Vim offers two types of mapping commands:
 
 1. The recursive commands `map`, `nmap`, `imap`, and other *map functions.
-2. Their non-recursive equialents `noremap`, `nnoremap`, `inoremap`, etc.
+2. Their non-recursive equivalents `noremap`, `nnoremap`, `inoremap`, etc.
+
+To illustrate the difference between the two, consider this scenario whwere you want to remap `w` to `dd` and `v` to `w`.
+
+If you use:
+
+```text
+:nmap w dd
+:nmap v w
+```
+
+Then `v` will behave the same as `dd` since `w` is mapped to `dd` now.
+
+If you use:
+
+```text
+:nnoremap w dd
+:nnoremap v w
+```
+
+`w` will behave the same as in the previous example and delete the current line when invoked but `v` will behave like `w`'s original command, i.e. move to next word.
 
 You can use the Vim command `:help {key}<C-D>` to see if `{key}` is used for some built-in or plugin-defined Vim command. For example `:help s<C-D>` shows a multi-column list of all commands beginning with `s`.
 
