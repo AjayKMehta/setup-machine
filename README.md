@@ -69,6 +69,7 @@
     - [CUDNN](#cudnn)
     - [Ollama](#ollama)
     - [aichat](#aichat)
+    - [aider-chat](#aider-chat)
     - [HuggingFace Model Downloader](#huggingface-model-downloader)
     - [RAG Crawler](#rag-crawler)
   - [Python](#python)
@@ -897,6 +898,14 @@ Grab shell completion:
 
 ```powershell
 gh download https://github.com/sigoden/aichat/blob/main/scripts/completions/aichat.ps1
+```
+
+### aider-chat
+
+Install:
+
+```shell
+uv tool install aider-chat
 ```
 
 ### HuggingFace Model Downloader
