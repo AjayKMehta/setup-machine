@@ -908,6 +908,15 @@ Install:
 uv tool install aider-chat
 ```
 
+- Use `--vim` for vim keybindings.
+- To work with Ollama, set `$OLLAMA_API_BASE` to `http://127.0.0.1:11434`.
+
+> [!TIP]
+> To send long, multi-line messages in the chat:
+>
+> - Use <kbd>Esc</kbd> + <kbd>Enter</kbd> to enter a new line without sending the message.
+> - Use `/editor` to edit message in your editor.
+
 ### HuggingFace Model Downloader
 
 The [HuggingFace Model Downloader](https://github.com/bodaay/HuggingFaceModelDownloader) is a utility tool for downloading models and datasets from the HuggingFace website. Grab latest release from repo.
