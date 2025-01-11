@@ -26,6 +26,7 @@
     - [Visual Block Mode](#visual-block-mode)
     - [Editing](#editing)
   - [Command-line mode](#command-line-mode)
+    - [Ranges](#ranges)
     - [Motion, editing](#motion-editing)
     - [History](#history)
   - [Search](#search)
@@ -513,11 +514,13 @@ Action | Keymap/command
 ---------|----------
 Open window | `:cope[n]`
 Trouble quickfix list (must have `trouble.nvim` installed) | `<leader>tQ`
+Display all valid entries of the current quickfix list | `:clist` OR `:cl`
 Close window | `:cclose`
-Display first error | `:cfirst`
-Display next error | `:cnext`
-Display previous error | `:cprev`
-Display 2nd error | `:cc 2`
+Display first entry | `:cfirst`
+Diisplay last entry | `:clast`
+Display next entry | `:cnext` OR `:cn`
+Display previous entry | `:cprev` OR `:cp`
+Display 2nd entry | `:cc 2`
 Open older lists | `:colder`
 Open newer lists | `:cnewer`
 Operate on each QuickFix list entry | `:cdo <action>`
@@ -525,6 +528,11 @@ Operate on each QuickFix file | `:cfdo <action>`
 
 Replace `client` with `client_id` for every QF entry: `:cdo s/client/client_id/g`.
 Send diagnostics to QuickFix list: `:lua vim.diagnostic.setqflist()`.
+
+`cexpr` (OR `cex`) and `caddexpr` are very powerful commands:
+
+  - `:cexpr <cmd>` executes a command `<cmd>` and populates the QuickFix list with its results.
+  - `:caddexpr <cmd>` appends the command's results to QuickFix list.  
 
 Install `kevinhwang91/nvim-bqf` for a better quickfix experience.
 Refer to [this](https://github.com/kevinhwang91/nvim-bqf#function-table) for hotkeys for `nvim-bqf`
@@ -606,9 +614,23 @@ Use `O` to move cursor to other corner of current line in visual block mode.
 Delete in selection everything starting from `,`: `:'<,'> norm f,D`.
 Delete in selection everything before `{`: `:'<,'>norm dt{`
 
+`'<,'>` is a special range based on the selection made in visual mode. `'<` is a mark representing the first line selected and `'>` is a mark representing the last line.
+
 :bulb: If you accidentally exit Visual mode before entering Command-line mode, you can use `*` as a shorthand for `'<,'>`. See [`:h :star`](https://neovim.io/doc/user/cmdline.html#%3Astar).
 
 ## Command-line mode
+
+### Ranges
+
+Commands that accept a range have `[range]` in front of their name in Vim help.
+
+Examples of ranges:
+
+- `%` refers to whole file
+- `1,3` refers to lines 1-3
+- `$` refers to the last line of buffer
+- `*` refers to last selection you made in visual mode.
+- `'a,'b` refers to range between mark `'a` and mark `'b`.
 
 ### Motion, editing
 
@@ -1777,6 +1799,11 @@ Tried to keep same shortcuts as Visual Studio:
  Step over         | <kbd>F10</kbd>
  Step into         | <kbd>F11</kbd>
  Step out          | <kbd>Shift</kbd> + <kbd>F11</kbd>
+ Toggle REPl       | `<leader>dr`
+ DAP Hover         | `<leader>dh`
+ DAP Preview       | `<leader>dp`
+ REPL: Go to previous prompt | `[[`
+ REPL: Go to next prompt | `]]`
 
 #### code_runner
 
