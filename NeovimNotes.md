@@ -662,6 +662,9 @@ Type <kbd>n</kbd> to go to the next match or <kbd>N</kbd> to go to the previous 
 
 Press <kbd>Shift</kbd> + <kbd>q</kbd> to skip next match.
 
+`gn` goes to match of your last search, enters Visual mode and selects it. You can continue to hit `n` (or `gn`) to select the area between the current match and the next match!
+You can use this with an action, e.g. `dgn` to delete search result.
+
 ### Clear results
 
 Press <kbd>Esc</kbd> to clear search highlights.
@@ -960,14 +963,15 @@ If you have found the undo state you were looking for, you can use `<C-S-r>` ~~o
 
 All these commands put you in insert mode.
 
- Action                              | Keymap/command
--------------------------------------|---------------------------------
- Insert                              | <kbd>i</kbd>
- Append                              | <kbd>a</kbd>
- Insert at beginning of line         | <kbd>Shift</kbd> + <kbd>i</kbd>
- Append at end of line               | <kbd>Shift</kbd> + <kbd>a</kbd>
- Insert new line after line          | <kbd>o</kbd>
- Insert new line before current line | <kbd>Shift</kbd> + <kbd>o</kbd>
+ Action                                                            | Keymap/command
+ ------------------------------------------------------------------|---------------------------------
+ Insert                                                            | <kbd>i</kbd>
+ Append                                                            | <kbd>a</kbd>
+ Insert at beginning of line                                       | `gI`
+ Insert at beginning of line before the first non-blank characters | <kbd>Shift</kbd> + <kbd>i</kbd>
+ Append at end of line                                             | <kbd>Shift</kbd> + <kbd>a</kbd>
+ Insert new line after line                                        | <kbd>o</kbd>
+ Insert new line before current line                               | <kbd>Shift</kbd> + <kbd>o</kbd>
 
 `gi` puts you into Insert mode at the last place you made a change.
 Use `g;` and `g,` to navigate history of insertions.
@@ -1198,6 +1202,8 @@ Toggle case of character (works in VISUAL mode too): `~`
 Toggle case with motion: `g~<motion>`, e.g. `g~iw`.
 Lower case with motion: `gu<motion>`, e.g. `gue`.
 Upper case with motion: `gU<motion>`, e.g. `gUiw`.
+
+To get ASCII value of current character: `ga`.
 
 These work with `{count}` prefix, e.g. `2~`.
 
