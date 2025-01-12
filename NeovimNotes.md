@@ -13,12 +13,14 @@
     - [Marks](#marks)
     - [Registers](#registers)
       - [Usage](#usage)
+      - [Expression Register](#expression-register)
       - [Tips](#tips)
     - [Macros](#macros)
       - [Recursive Macros](#recursive-macros)
     - [Keymaps](#keymaps)
     - [Folds](#folds)
     - [Quickfix list](#quickfix-list)
+    - [Location list](#location-list)
     - [Highlight groups](#highlight-groups)
     - [Executing external commands](#executing-external-commands)
   - [LSP](#lsp)
@@ -394,6 +396,18 @@ Some examples:
 `"ayy` copies current line to `a` register.
 `"bp` pastes content from `b` register.
 
+In INSERT mode or COMMAND LINE mode, you can use `CTRL+R <reg>` to put the content of register `<reg>` in your current buffer.
+
+#### [Expression Register](https://thevaluable.dev/vim-advanced/#the-insane-expression-register)
+
+`=` register is for expressions.
+
+Try this:
+
+- Switch to INSERT mode and hit the keystroke `CTRL+r =`. You'll move to Vim's command-line.
+- From there, you can type any Vimscript expression you want, like `system("ls")`.
+- Hit `ENTER` to run the expression, and you'll see the output of the shell command `ls` directly inserted in your buffer!
+
 #### Tips
 
 - You can write to a register with a `:let` command, e.g.`:let @/ = "the"`
@@ -540,6 +554,16 @@ Refer to [this](https://github.com/kevinhwang91/nvim-bqf#function-table) for hot
 If you want to save the list for future reference: `:w my_qf.txt`.
 
 Good read: [Examples.md](https://gist.github.com/Integralist/8d01300efcd2006c69e8b9492c0eada8).
+
+### Location list
+
+A location list is similar to a quickfix list, except that it is local to a window.
+
+Action | Keymap/command
+---------|----------
+Display all valid entries | `:llist`
+Move to entry `<number>` | `:ll <numberer>`
+Move to next entry | `:lnext`
 
 ### Highlight groups
 
@@ -807,7 +831,7 @@ Compare this with: `:s/\/usr\/bin/\~\/bin`.
 
 Use `\={expression}` as replacement, e.g. `:s/te\(\w\+\)/\=strftime("%Y-%m-%d")/g` will replace `test` with `2024-05-22`.
 
-Can use `submatch()` for backreference, e.g.``:s/\d\+/\=sumatch(0)*2/g` will doublle every number found.
+Can use `submatch()` for backreference, e.g.``:s/\d\+/\=sumatch(0)*2/g` will double every number found.
 
 #### Misc
 
