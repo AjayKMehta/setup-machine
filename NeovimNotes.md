@@ -370,7 +370,7 @@ Delete marks in range`a-z` | `:delmarks!`
 
 > [!NOTE]
 > Use <kbd>m</kbd> + ***capital letter*** to create a mark you can access from a different buffer, e.g. <kbd>m</kbd> + <kbd>A</kbd>.
-> :bulb: Lower case letters only work within same buffer.
+> Lower case letters only work within same buffer.
 
 Marks are useful not only for navigation but also for editing:
 
