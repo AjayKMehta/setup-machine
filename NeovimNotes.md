@@ -48,6 +48,7 @@
     - [Command-line Mode](#command-line-mode-1)
       - [global](#global)
       - [substitute](#substitute)
+        - [Flags](#flags)
         - [Change case for replacement](#change-case-for-replacement)
         - [Replacement expressions](#replacement-expressions)
       - [Alternate delimiters](#alternate-delimiters)
@@ -651,6 +652,10 @@ Delete in selection everything before `{`: `:'<,'>norm dt{`
 
 ## Command-line mode
 
+You can use normal mode commands in command-line mode via `:norm`, e.g. `:norm dd` to delete current line.
+
+If you're writing a plugin, best to use `:norm!` as it uses default mappings not the ones your users set up.
+
 ### Ranges
 
 Commands that accept a range have `[range]` in front of their name in Vim help.
@@ -769,6 +774,8 @@ Example: `:s/\(0*\)\@>\d{3,}/(&)/g` will surround numbers >= 100 with brackets i
  Find word under cursor (backwards)               | `#`
  Find word under cursor (partial match)           | `g*`
  Find word under cursor (backwards partial match) | `g#`
+ Repeat the last substitute, without its range and its flags | `&`
+ Repeat the last substitute with the same flags, and replace its pattern with the last *search* pattern | `g&`
 
 #### Advanced usage
 
@@ -816,11 +823,13 @@ See [here](https://stackoverflow.com/a/25684690/781045) for more details on how 
 
 #### global
 
-`:[range]g[lobal]/{pattern}/[cmd]` is used to execute a command `[cmd]` on lines within `[range]` where pattern `[pattern]` matches.
+`:[range]g[lobal]/{pattern}/[cmd]` is used to execute a command `[cmd]` on *lines* within `[range]` where pattern `[pattern]` matches.
 
-`:[range]g[lobal]!/{pattern}/[cmd]` is used to execute a command `[cmd]` on lines within `[range]` where pattern `[pattern]` **DOES NOT** match.
+`:[range]g[lobal]!/{pattern}/[cmd]` is used to execute a command `[cmd]` on *lines* within `[range]` where pattern `[pattern]` **DOES NOT** match.
 
 You can also use `v` instead of `g!`
+
+It is very powerful when combined with normal commands via `:norm`, e.g. `:g/test/norm gu$` will make all lines containing `test` lower-case.
 
 #### substitute
 
@@ -830,21 +839,45 @@ You can also use `v` instead of `g!`
 
 If you omit `{pattern}`, then the matches are deleted.
 
-If you use `:s`, it repeats the last search.
+If you use `:s`, it repeats the last substitute without any flags.
+
+To repeat the last substitute with flags, use `:&&`.
+
+To repeat the last substitute command with the same replacement but using last *search* pattern, use `:~`.
 
 Examples:
 
-`10,12:s/test/ok` replaces first occurrences of `test` in lines 10-12 with `ok`.
+1. `10,12:s/test/ok` replaces first occurrences of `test` in lines 10-12 with `ok`.
 
-`:s/test/ok/g` (or `:.s/test/ok/g`) replaces all occurrences of `test` in current line with `ok`.
+2. `:s/test/ok/g` (or `:.s/test/ok/g`) replaces all occurrences of `test` in current line with `ok`.
 
-Replace in whole file: `:%/s/test/ok/g`.
+3. Replace in whole file: `:%/s/test/ok/g`.
+
+4. Here's a more complicated example involving `:~`:
+
+    ```shell
+    :s/foo/bar/g
+    /hello
+    :~
+    ```
+
+    This does the following:
+
+   1. Use `substitute` to replace all instances of `foo` with `bar`.
+   2. Search for `hello`.
+   3. Replace all instances of `hello` with `bar`.
+
+##### Flags
+
+We have already seen `g` can be used to replace all matches on each line (instead of just the first one).
 
 Other flags besides `g`:
 
 - `c` to confirm each submission
 - `i` for case-insensitive search
 - `I` for case-sensitive search
+- `n` to report the number of matches without replacing
+- `&` to use previous substitute call's flags.
 
 ##### Change case for replacement
 
