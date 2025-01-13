@@ -11,6 +11,7 @@
     - [Autocommands](#autocommands)
     - [Find](#find)
     - [Marks](#marks)
+      - [Special Marks](#special-marks)
     - [Registers](#registers)
       - [Usage](#usage)
       - [Expression Register](#expression-register)
@@ -354,21 +355,39 @@ Find in directory (recursive) | `:vim(grep) test **`
 
 ### Marks
 
-List marks:`:marks`
+Marks are like bookmarks in your favorite IDE but more powerful.
 
-Use <kbd>m</kbd> + ***capital letter*** to create a mark you can access from a different buffer, e.g. <kbd>m</kbd> + <kbd>A</kbd>.
+Action | Keymap/command
+---------|----------
+List marks | `:marks`
+Create mark `a` | `ma`
+Go to mark `A` | <kbd>`</kbd> + <kbd>A</kbd>.
+Go to first non-blank character of line containing mark `A` | <kbd>'</kbd> + <kbd>A</kbd>.
+Go to mark `A` without changing jump list | <kbd>g</kbd> + <kbd>`</kbd> + <kbd>A</kbd>
+Go to first non-blank character of line containing mark `A` without changing jump list |  <kbd>g</kbd> + <kbd>'</kbd> + <kbd>A</kbd>
+Delete mark `c` | `:delmarks c` OR `:delm c`
+Delete marks in range`a-z` | `:delmarks!`
 
-:bulb: Lower case letters only work within same buffer.
+> [!NOTE]
+> Use <kbd>m</kbd> + ***capital letter*** to create a mark you can access from a different buffer, e.g. <kbd>m</kbd> + <kbd>A</kbd>.
+> :bulb: Lower case letters only work within same buffer.
 
-To go back to mark: <kbd>`</kbd> + <kbd>A</kbd>.
+Marks are useful not only for navigation but also for editing:
 
-To go to first non-blank character of line containing mark:  <kbd>'</kbd> + <kbd>A</kbd>.
+For example, to delete from the current character to mark `a` position: ``d`a``.
 
-To delete from current character to mark `a` position: ``d`a``.
+#### Special Marks
 
-:bulb: Whenever you jump across lines using motion, position gets saved in `` ` `` mark so you can jump to it using ``` '` ```!
+ Mark    | Location
+---------|-----------------------------------------------------------------------
+ `` ` `` | Position before the latest jump.
+ `.`     | Position of the last change in current buffer
+ `[`     | First character of the previously changed, deleted, or yanked content
+ `]`     | Last character of the previously changed, deleted, or yanked content  
+ `^`     | Position where you last used Insert mode.
+ `"`     | Position you were at when you last closed the file.
 
-:bulb: The built-in mark `'.` records the position of the last change in current!
+You can go to these marks using `` ` `` or go to first non-blank character in containing line using `'`, e.g. `'"` goes to first non-blank character of line you were on when you last closed the file.
 
 ### Registers
 
