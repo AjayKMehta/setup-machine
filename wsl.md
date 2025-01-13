@@ -1255,7 +1255,6 @@ sudo apt install wamerican-large
 
 cargo install typos-cli
 cargo install ast-grep
-cargo install nu
 
 cargo install aichat
 gh download https://github.com/sigoden/aichat/blob/main/scripts/completions/aichat.bash --outfile ~/.config/bash_completions.d/aichat.bash
