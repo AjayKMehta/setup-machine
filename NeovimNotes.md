@@ -77,6 +77,8 @@
     - [Tuck](#tuck)
     - [Comment](#comment)
     - [Indent](#indent)
+    - [Sort Lines](#sort-lines)
+      - [Options](#options-1)
     - [Join Lines](#join-lines)
     - [Moving lines](#moving-lines)
     - [Digraphs](#digraphs)
@@ -1240,6 +1242,27 @@ Source: <https://learnbyexample.github.io/tips/vim-tip-2/>
  Auto-indent current line and 4 lines below                                   | `=4j`
  Auto-indent the current paragraph                                            | `=ip`
 
+### Sort Lines
+
+Usage: `:[range]sor[t][!] [b][f][i][l][n][o][r][u][x] [/{pattern}/]`
+
+If no `[range]` is provided, all lines are sorted.
+
+Use `:sort!` to reverse the order.
+
+See `:help sort` for more information.
+
+#### Options
+
+Specify `i` to ignore case, e.g. `:sort i`.
+
+Specify `n` to sort the first decimal on each line.
+`f` works similarly but for floats.
+`r/{pattern}/` is to sort based on `{pattern}`.
+`/{pattern}/` is to sort based on `{pattern}`.
+
+Sort based on value after `Value:`: `:sort /Value:/`
+
 ### Join Lines
 
 Source: <https://youtu.be/rubhH6v4lN0?feature=shared>
@@ -1281,9 +1304,11 @@ Source: <https://learnbyexample.github.io/tips/vim-tip-1/>
 
 <kbd>Ctrl</kbd> + <kbd>a</kbd> will increment the number under the cursor or the first occurrence of a number to the right of the cursor.
 
-Ctrl<kbd>Ctrl</kbd> + <kbd>x</kbd>  will decrement the number under the cursor or the first occurrence of a number to the right of the cursor
+<kbd>Ctrl</kbd> + <kbd>x</kbd>  will decrement the number under the cursor or the first occurrence of a number to the right of the cursor
 
-You can also provide a count prefix!
+You can also provide a count prefix, e.g. `5<c-a>` to increase number by 5.
+
+In Visual mode, prefix with `g`, e.g. `g<C-a>` to increment the first number of each line sequentially.
 
 ### Editing with motion
 
