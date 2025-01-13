@@ -32,11 +32,7 @@
     - [Motion, editing](#motion-editing)
     - [History](#history)
   - [Search](#search)
-    - [Advanced usage](#advanced-usage)
-    - [Navigation](#navigation)
-    - [Clear results](#clear-results)
-    - [Delete search results](#delete-search-results)
-    - [Using Ex-Commands](#using-ex-commands)
+    - [Patterns](#patterns)
       - [Quantifiers](#quantifiers)
       - [Character classes](#character-classes)
       - [Alternation and grouping](#alternation-and-grouping)
@@ -44,10 +40,18 @@
       - [Lookarounds](#lookarounds)
       - [Atomic grouping](#atomic-grouping)
       - [Case sensitivity](#case-sensitivity)
-      - [Change case for replacement](#change-case-for-replacement)
+    - [Normal Mode](#normal-mode)
+      - [Advanced usage](#advanced-usage)
+      - [Navigation](#navigation)
+      - [Clear results](#clear-results)
+      - [Delete search results](#delete-search-results)
+    - [Command-line Mode](#command-line-mode-1)
+      - [global](#global)
+      - [substitute](#substitute)
+        - [Change case for replacement](#change-case-for-replacement)
+        - [Replacement expressions](#replacement-expressions)
       - [Alternate delimiters](#alternate-delimiters)
-      - [Replacement expressions](#replacement-expressions)
-      - [Misc](#misc)
+      - [Search tips](#search-tips)
   - [Motions](#motions)
     - [Jumps and changes](#jumps-and-changes)
     - [Use arrow keys](#use-arrow-keys)
@@ -58,7 +62,7 @@
     - [Reposition current line](#reposition-current-line)
     - [Moving Vertically](#moving-vertically)
     - [Find characters](#find-characters)
-    - [Misc](#misc-1)
+    - [Misc](#misc)
   - [Editing](#editing-1)
     - [Undo/redo](#undoredo)
     - [Insert](#insert)
@@ -578,12 +582,15 @@ If you only want to create it if it does not already exist, then use `default = 
 
 ### [Executing external commands](https://youtu.be/STSZt2c1rSA?feature=shared)
 
-`:!ls` displays results of `ls` in separate window.
-`:.!date` replaces current line with output of `date` command.
-`:%! sort` sort all lines.
-`:3,5! sort` sort lines 3-5.
-`:r !date` insert output of command below the current line.
-`:r ! <file>` insert contents of `<file>` below the current line.
+- `:!ls` displays results of `ls` in separate window.
+- `:.!date` replaces current line with output of `date` command.
+- `:%! sort` sort all lines.
+- `:3,5! sort` sort lines 3-5.
+- `:r! date` insert output of command below the current line.
+- `:r <file>` insert contents of `<file>` at the current line.
+
+> [!NOTE]
+> `:r!` reads the results of a command.
 
 ## LSP
 
@@ -681,80 +688,21 @@ Press <kbd>Enter</kbd> to select entry from history window.
 
 ## Search
 
- Action                                           | Keymap/command
---------------------------------------------------|----------------
- Search down                                      | `/`
- Search up                                        | `?`
- Find word under cursor                           | `*`
- Find word under cursor (backwards)               | `#`
- Find word under cursor (partial match)           | `g*`
- Find word under cursor (backwards partial match) | `g#`
+### Patterns
 
-### Advanced usage
-
-`/searchpattern/s` places cursor at the start of the match.
-`/searchpattern/s+2` places cursor 2 characters after the start of the match.
-`/searchpattern/s-3` places cursor 3 characters before the start of the match.
-`/searchpattern/e` places cursor at the end of the match.
-`/searchpattern/e+2` and `/searchpattern/e-4` behave analogously to commands for start of match.
-
-`/searchpattern/+2` and `/searchpattern/-4` places cursor 2 lines below and 4 lines above match respectively.
-
-### Navigation
-
-After entering text for search, press <kbd>Enter</kbd>. All matches will be highlighted.
-
-Type <kbd>n</kbd> to go to the next match or <kbd>N</kbd> to go to the previous match.
-
-Press <kbd>Shift</kbd> + <kbd>q</kbd> to skip next match.
-
-`gn` goes to match of your last search, enters Visual mode and selects it. You can continue to hit `n` (or `gn`) to select the area between the current match and the next match!
-You can use this with an action, e.g. `dgn` to delete search result.
-
-### Clear results
-
-Press <kbd>Esc</kbd> to clear search highlights.
-
-### Delete search results
-
-You can use these operators in combination with `d` to delete text, e.g. `d/hello` to delete everything until the first occurrence of `hello`. To delete everything including first occurrence: `d/hello/e`.
-
-To delete search results:
-
-1. Press `gn` if your cursor is on match to select it in visual mode. Then press `dgn`.
-2. Else, press `dgn` to delete matches!
-
-Similarly, you can use `cgn` to change search result text.
-
-### Using Ex-Commands
-
-`:[range]s/{pattern}/{substitute}/{flags}`
-
-Examples:
-
-`10,12:s/test/ok` replaces first occurrences of `test` in lines 10-12 with `ok`.
-
-`:s/test/ok/g` (or `:.s/test/ok/g`) replaces all occurrences of `test` in current line with `ok`.
+See `:help pattern`.
 
 Just like regex, `\t` matches tab, `\r` matches carriage return and `\n` matches EOL.
 
-Replace in whole file: `:%/s/test/ok/g`.
-
-Other flags besides `g`:
-
-- `c` to confirm each submission
-- `i` for case-insensitive search
-- `I` for case-sensitive search
-
 #### Quantifiers
 
-Quantifiers are same as you would expect except they are prefixed by `\`: `\+` instead of `+`, `\?` for `?`, `\{m, n}` instead of `{m, n}`.
+Quantifiers are same as you would expect except they are prefixed by `\`: `\+` instead of `+`, `\?` (OR (`\=`) for `?`, `\{m, n}` instead of `{m, n}`.
 
 `:%s/^\s\+` will match all lines beginning with whitespace.
 
 Non-greedy quantifiers match as minimally as possible:
 
-`\{-}` matches zero or more time, e.g. `/t.{-}a`
+`\{-}` matches zero or more times, e.g. `at\(t\)\{-}e` will match `date` and `pattern`.
 `\{-m, n}` matches `m` to `n` times as minimally as possible.
 
 #### Character classes
@@ -811,7 +759,94 @@ Example: `:s/\(0*\)\@>\d{3,}/(&)/g` will surround numbers >= 100 with brackets i
 
 `/\cdog` matches `dog` and `Dog`.
 
-#### Change case for replacement
+### Normal Mode
+
+ Action                                           | Keymap/command
+--------------------------------------------------|----------------
+ Search forward                                   | `/`
+ Search backwards                                 | `?`
+ Find word under cursor                           | `*`
+ Find word under cursor (backwards)               | `#`
+ Find word under cursor (partial match)           | `g*`
+ Find word under cursor (backwards partial match) | `g#`
+
+#### Advanced usage
+
+You can supply an offset: `/[pattern]/[offset]<CR>`.
+
+`/[pattern]/s` places cursor at the start of the match.
+`/[pattern]/s+2` places cursor 2 characters after the start of the match.
+`/[pattern]/s-3` places cursor 3 characters before the start of the match.
+`/[pattern]/e` places cursor at the end of the match.
+`/[pattern]/e+2` and `/[pattern]/e-4` behave analogously to commands for start of match.
+
+`/[pattern]/+2` and `/[pattern]/-4` places cursor 2 lines below and 4 lines above match respectively.
+
+#### Navigation
+
+After entering text for search, press <kbd>Enter</kbd>. All matches will be highlighted.
+
+Type <kbd>n</kbd> to go to the next match or <kbd>N</kbd> to go to the previous match.
+
+Press <kbd>Shift</kbd> + <kbd>q</kbd> to skip next match.
+
+`gn` goes to match of your last search, enters Visual mode and selects it. You can continue to hit `n` (or `gn`) to select the area between the current match and the next match!
+You can use this with an action, e.g. `dgn` to delete search result.
+
+#### Clear results
+
+Press <kbd>Esc</kbd> to clear search highlights.
+
+#### Delete search results
+
+You can use these operators in combination with `d` to delete text, e.g. `d/hello` to delete everything until the first occurrence of `hello`. To delete everything including first occurrence: `d/hello/e`.
+
+To delete search results:
+
+1. Press `gn` if your cursor is on match to select it in visual mode. Then press `dgn`.
+2. Else, press `dgn` to delete matches!
+
+Similarly, you can use `cgn` to change search result text.
+
+### Command-line Mode
+
+Use `substitute` to search and replace and `global` to search and execute a command on search results.
+
+See [here](https://stackoverflow.com/a/25684690/781045) for more details on how they differ.
+
+#### global
+
+`:[range]g[lobal]/{pattern}/[cmd]` is used to execute a command `[cmd]` on lines within `[range]` where pattern `[pattern]` matches.
+
+`:[range]g[lobal]!/{pattern}/[cmd]` is used to execute a command `[cmd]` on lines within `[range]` where pattern `[pattern]` **DOES NOT** match.
+
+You can also use `v` instead of `g!`
+
+#### substitute
+
+`s` is susbstitute command used to find and replace.
+
+`:[range]s[ubstitute]/{pattern}/{string}/{flags} [count]`
+
+If you omit `{pattern}`, then the matches are deleted.
+
+If you use `:s`, it repeats the last search.
+
+Examples:
+
+`10,12:s/test/ok` replaces first occurrences of `test` in lines 10-12 with `ok`.
+
+`:s/test/ok/g` (or `:.s/test/ok/g`) replaces all occurrences of `test` in current line with `ok`.
+
+Replace in whole file: `:%/s/test/ok/g`.
+
+Other flags besides `g`:
+
+- `c` to confirm each submission
+- `i` for case-insensitive search
+- `I` for case-sensitive search
+
+##### Change case for replacement
 
 `\U` makes the following characters upper-case.
 `\u` makes the next character upper-case.
@@ -820,6 +855,12 @@ Example: `:s/\(0*\)\@>\d{3,}/(&)/g` will surround numbers >= 100 with brackets i
 
 Use `:s/\<\l/\u&/g` to capitalize every word.
 
+##### Replacement expressions
+
+Use `\={expression}` as replacement, e.g. `:s/te\(\w\+\)/\=strftime("%Y-%m-%d")/g` will replace `test` with `2024-05-22`.
+
+Can use `submatch()` for backreference, e.g.``:s/\d\+/\=sumatch(0)*2/g` will double every number found.
+
 #### Alternate delimiters
 
 If you wish to search for text containing `/`, you can use any other single-byte character except for alphanumeric, `\`, `"`, or `|` as delimiter.
@@ -827,19 +868,13 @@ If you wish to search for text containing `/`, you can use any other single-byte
 To search for `/usr/bin/` and replace with `~/bin`: `:s,/usr/bin,\~/bin`.
 Compare this with: `:s/\/usr\/bin/\~\/bin`.
 
-#### Replacement expressions
+#### Search tips
 
-Use `\={expression}` as replacement, e.g. `:s/te\(\w\+\)/\=strftime("%Y-%m-%d")/g` will replace `test` with `2024-05-22`.
+- Use `\%V` to only search in visual area! For example, use `:'<,'>s/\%Vds/x/g` to replace all occurrences of `ds` with `x`. Without `/g` flag, this only replaces the first occurrence for each line.
 
-Can use `submatch()` for backreference, e.g.``:s/\d\+/\=sumatch(0)*2/g` will double every number found.
+- Use `\%[set]` to match as many characters as possible in `set`, e.g. `sta\%[red]` matches longesst match from `sta`, `star`, `stare`, `stared`.
 
-#### Misc
-
-Use `\%V` to only search in visual area!
-
-`:'<,'>s/\%Vds/x/g` to replace all occurrences of `ds` with `x`. Without `/g` flag, only replaces first occurrence for each line.
-
-Use `\%[set]` to match as many characters as possible in `set`, e.g. `sta\%[red]` matches longesst match from `sta`, `star`, `stare`, `stared`.
+- Combine the power of `g` and `s`: `:% g/foo/s/bar/bat/g` will replace every occurrence of `bar` with `bat` on each line that contains `foo`!
 
 ## Motions
 
