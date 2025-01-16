@@ -610,6 +610,8 @@ If you only want to create it if it does not already exist, then use `default = 
 - `:3,5! sort` sort lines 3-5.
 - `:r! date` insert output of command below the current line.
 - `:r <file>` insert contents of `<file>` at the current line.
+- `:!!` repeats the last command executed.
+- `:read!!` OR `:r!!` repeats the last command executed and inserts output in current buffer.
 
 > [!NOTE]
 > `:r!` reads the results of a command.
@@ -646,7 +648,11 @@ Use `o` to move cursor to diagonally opposite corner of the visual selection.
 
 ### Visual Block Mode
 
-Press <kbd>Ctrl</kbd> + <kbd>q</kbd> or <kbd>Ctrl</kbd> + <kbd>v</kbd>[^3] to enter. Select a region of text, e.g. `2lj` selects a region with 3 columns and 2 rows. Press <kbd>Shift</kbd> + <kbd>i</kbd> to prepend or <kbd>Shift</kbd> + <kbd>a</kbd> to append. When you are done with your changes, press <kbd>Esc</kbd> and changes will be applied to all lines!
+Press <kbd>Ctrl</kbd> + <kbd>q</kbd> or <kbd>Ctrl</kbd> + <kbd>v</kbd>[^3] to enter. Select a region of text, e.g. `2lj` selects a region with 3 columns and 2 rows.
+
+Press <kbd>Shift</kbd> + <kbd>i</kbd> to prepend or <kbd>Shift</kbd> + <kbd>a</kbd> to append. To append at the end of line: `$A`. To delete and insert on each line: `c`.
+
+When you are done with your changes, press <kbd>Esc</kbd> and changes will be applied to all lines!
 
 [^3]: If using Windows Terminal, make sure to disable default binding for <kbd>Ctrl</kbd> + <kbd>v</kbd>.
 
@@ -663,6 +669,8 @@ Use `O` to move cursor to other corner of current line in visual block mode.
 `C` clears text *till end of the line* and enters insert mode.
 `ra` replaces every character in selection with `a`.
 `=` auto-indents code.
+`R` deletes selected lines and switches to INSERT mode.
+`U` makes selection upper-case.
 
 Delete in selection everything starting from `,`: `:'<,'> norm f,D`.
 Delete in selection everything before `{`: `:'<,'>norm dt{`
@@ -1195,6 +1203,8 @@ Duplicate a line: `yyp`
 
 Using `CTRL-R {register}` you can paste the contents of a register after the cursor in **INSERT** mode.
 
+Using `CTRL-R CTRL-P {register}` you can paste the contents of a register with the correct indentation in **INSERT** mode.
+
 ### Tuck
 
 `:1,3t.` tucks (copies) lines 1-3 and moves after current line.
@@ -1292,6 +1302,8 @@ To input a digraph, in insert mode, press <kbd>Ctrl</kbd>+<kbd>q</kbd> followed 
 <kbd>Ctrl</kbd>+<kbd>q</kbd> + <kbd>a</kbd>+<kbd>:</kbd> = ä
 <kbd>Ctrl</kbd>+<kbd>q</kbd> + <kbd>a</kbd>+<kbd>*</kbd> = α
 <kbd>Ctrl</kbd>+<kbd>q</kbd> + <kbd>T</kbd>+<kbd>E</kbd> = ∃
+
+Show digraphs: `:digraphs` OR `:dig`.
 
 Useful links:
 
@@ -2497,8 +2509,13 @@ NeoVim plugin for jumping to the other end of the current Tree-sitter node using
 
 Can navigate or swap nodes by specifying a direction (one of `Up`, `Down`, `Left`, or `Right`)
 
+`Up` refers to the previous neighbor node, `Down` to next.
+Similarly, `Left` refers to the first ancestor node that's on a different line while `Right` refers to the first node that's indented further than the current node.
+
 Navigate: `:Treewalker <direction>` .
 Swap nodes: `:Treewalker Swap<direction>`, e.g. `:Treewalker SwapUp`.
+
+👉 `Swap{Left,Right}` are meant for swapping function arguments, enum members, list elements, etc.  
 
 ### Markdown
 
@@ -2668,8 +2685,9 @@ Text object | Keymap| Example
 Surrounding environment   | `se` | `dse` removes surrounding brackets.
 Inner environment | `ie` | `vie` selects inner text in evironment
 Around environment | `ae` | `dae` deletes evironment
+Toggle environment | `tse` | `tse` toggles environment.
 Surrounding command | `sc` | `csc` changes a command while preserving the command's argument(s).
-`*` in environments[^8] | `tse` | Toggle `*`.
+`*` in environments[^8] | `tss` | Toggle `*`.
 Inner math environment | `i$ | `vi$` selects inner content of environment.
 Outer math environment | `a$ | `va$` selects outer content of environment.
 Inner section | `iP` | `viP` selects entire content below current section.
@@ -2677,8 +2695,6 @@ Around section | `aP` | `daP` deletes whole section including `\section{...}`.
 Inner delimiter | `id`| `vid` applied to `{foo(1*+a)}` highlights `(1+a)`
 Around delimiter| `ad` | `dad` applied to `$\alpha = (1 + *\frac{2}{3})$` becomes `$alpha = $`.
 Surrounding delimiters  | `sd` | `tsd` toggles between `()` and `\left(\right)`.
-
-🚧 **FINISH LATER**
 
 :point_right: In the table above, `*` indicates cursor position.
 
