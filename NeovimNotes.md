@@ -527,22 +527,25 @@ Get fold markers: `:set foldmarker`.
 
 Action | Keymap/command
 ---------|----------
-Toggle fold under cursor | <kbd>z</kbd> + <kbd>a</kbd>
-Toggle all folds under cursor | <kbd>z</kbd> + <kbd>A</kbd>
-Close fold under cursor | <kbd>z</kbd> + <kbd>c</kbd>
-Close all folds under cursor | <kbd>z</kbd> + <kbd>C</kbd>
-Fold more | <kbd>z</kbd> + <kbd>m</kbd>
-Close all folds | <kbd>z</kbd> + <kbd>M</kbd>
-Open fold under cursor | <kbd>z</kbd> + <kbd>o</kbd>
-Open all folds under cursor | <kbd>z</kbd> + <kbd>O</kbd>
-Fold less | <kbd>z</kbd> + <kbd>r</kbd>
-Open all folds | <kbd>z</kbd> + <kbd>R</kbd>
-Create fold | <kbd>z</kbd> + <kbd>f</kbd>
-Delete fold | <kbd>z</kbd> + <kbd>d</kbd>
-Delete all folds under cursor | <kbd>z</kbd> + <kbd>D</kbd>
-**Go to next closed fold** | <kbd>]</kbd> + <kbd>z</kbd>
-**Go to previous closed fold** | <kbd>[</kbd> + <kbd>z</kbd>
-**Peek fold** | <kbd>z</kbd> + <kbd>k</kbd>
+Toggle fold under cursor | `za`
+Toggle all folds under cursor | `zA`
+Close fold under cursor | `zc` OR `:foldclose` OR `:foldc`
+Close all folds under cursor | `zC` OR `:foldclose!` OR `:foldc!`
+Fold more | `zm`
+Close all folds | `zM`
+Open fold under cursor | `zo` OR `:foldopen` OR `:foldo`
+Open all folds under cursor | `zO` OR `:foldopen!` OR `:foldo!`
+Fold less | `zr`
+Open all folds | `zR`
+Create fold | `zf`
+Delete fold | `zd`
+Delete all folds under cursor | `zD`
+**Go to next closed fold** | `]z`
+**Go to previous closed fold** | `[z`
+**Peek fold** | `zK`
+Delete all folds in file | `zE`
+Move downward to the start of the next fold | `zj`
+Move upward to the start of the previous fold | `zk`
 
 Actions in bold are courtesy of [`nim-ufo.nvim` plugin](#nvim-ufo).
 
