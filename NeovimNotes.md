@@ -68,6 +68,7 @@
     - [Misc](#misc)
   - [Editing](#editing-1)
     - [Undo/redo](#undoredo)
+      - [telescope-undo](#telescope-undo)
     - [Insert](#insert)
     - [Delete/replace character](#deletereplace-character)
     - [Delete line](#delete-line)
@@ -112,6 +113,7 @@
     - [Get list of local files in insert mode](#get-list-of-local-files-in-insert-mode)
     - [Use normal mode commands in insert mode](#use-normal-mode-commands-in-insert-mode)
     - [Go backwards/forwards in time](#go-backwardsforwards-in-time)
+    - [Filter lines using external program](#filter-lines-using-external-program)
   - [Plugins](#plugins)
     - [Utility](#utility)
       - [Toggleterm](#toggleterm)
@@ -339,15 +341,18 @@ Set to default value | `:set <option>&`
 
 Action | Keymap/command
 ---------|----------
-List autocommands | `:autocmd`
-List autocommands for group `<augroup>` | `:autocmd augroup`
-Remove autocommands for group `<augroup>` | `:autocmd! <augroup>`
+List autocommands | `:autocmd` OR `:au`
+List autocommands for group `<augroup>` | `:autocmd <augroup>` OR `:au <augroup>`
+Delete autocommands for group `<augroup>` | `:autocmd! <augroup>` OR `:au! <augroup>`
+Add autocommand | `:autocmd <event> <pattern> <cmd>`
 
 Ignore events: `:set ei=all`.
 
 Don't forget to reset: `:set ei=""`.
 
 Can also ignore for certain events: `:set ei=CursorHold`
+
+See [here](https://thevaluable.dev/vim-expert/#autocommands) for more information.
 
 ### Find
 
@@ -1115,6 +1120,8 @@ This is a good read on text objects: <https://blog.carbonfive.com/vim-text-objec
  Undo latest changes on last edited line | <kbd>Shift</kbd> + <kbd>u</kbd>
  Redo latest changes on last edited line | <kbd>Shift</kbd> + <kbd>u</kbd>
 
+#### telescope-undo
+
 Install [telescope-undo.nvim](https://github.com/debugloop/telescope-undo.nvim) to view undo tree and search changes.
 
 Launch via `<leader>fu`. This will open a window in which you can browse undo tree.
@@ -1137,6 +1144,8 @@ All these commands put you in insert mode.
 
 `gi` puts you into Insert mode at the last place you made a change.
 Use `g;` and `g,` to navigate history of insertions.
+
+Use `<C-a>` to insert the last content inserted when in insert mode.
 
 ### Delete/replace character
 
@@ -1598,6 +1607,10 @@ Prefix them with <kbd>Alt</kbd>, e.g. `<A-P>` pastes in insert mode.
 ### Go backwards/forwards in time
 
 `:earlier` (`:later`) can be used to go back (forward) in time ([source](<https://www.reddit.c> om/r/neovim/comments/1fu9an8/neovim_gems/)).
+
+### Filter lines using external program
+
+`1,3!grep test` will filter out lines from 1 to 3 not containing `test`!
 
 ## Plugins
 
