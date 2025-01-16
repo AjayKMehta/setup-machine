@@ -36,6 +36,7 @@
     - [Patterns](#patterns)
       - [Quantifiers](#quantifiers)
       - [Character classes](#character-classes)
+      - [Zero-width](#zero-width)
       - [Alternation and grouping](#alternation-and-grouping)
       - [Backreferences](#backreferences)
       - [Lookarounds](#lookarounds)
@@ -758,6 +759,21 @@ Special character classes:
 To include EOL character, use `\_` instead of `\` for any of the escape sequences, e.g. `\_s` will match space between lines.
 
 There are also named sets like `[:digit:]`. For more info, see `:h :alnum:`.
+
+#### Zero-width
+
+This information is adapted from [here](https://thevaluable.dev/vim-adept/#zero-width).
+
+`\<` matches the beginning of a word.
+`\>` matches the end of a word.
+`\%<` matches the beginning of the file.
+`\%>` matches the end of the file.
+`\%V` matches inside the visual selection.
+
+You can even use marks:
+
+`\%<'a` matches before the position of mark `a`.
+`\%>'a` matches after the position of mark `a`.
 
 #### Alternation and grouping
 
