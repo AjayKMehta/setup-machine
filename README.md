@@ -886,10 +886,13 @@ Download installer from <https://developer.nvidia.com/cudnn-downloads>.
 
 [AI Shell](https://learn.microsoft.com/en-us/powershell/utility-modules/aishell/overview?view=ps-modules) is an interactive shell that provides a chat interface with language models.
 
-Install: `winget install Microsoft.AIShell`.
-Install PowerShell module: `Install-PSResource -Name AIShell -scope CurrentUser -Prerelease`.
+1. Install: `winget install Microsoft.AIShell`.
 
-To use this with OpenAI, you need to update the [configuration file](https://learn.microsoft.com/en-us/powershell/utility-modules/aishell/how-to/agent-openai?view=ps-modules#configuration).
+2. Install PowerShell module: `Install-PSResource -Name AIShell -scope CurrentUser -Prerelease`.
+
+3. To use this with OpenAI, you need to update the [configuration file](https://learn.microsoft.com/en-us/powershell/utility-modules/aishell/how-to/agent-openai?view=ps-modules#configuration).
+
+Keybindings for commands: <https://learn.microsoft.com/en-us/powershell/utility-modules/aishell/get-started/aishell-powershell?view=ps-modules#key-bindings-for-commands>.
 
 ### Ollama
 
