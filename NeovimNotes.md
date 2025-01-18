@@ -134,6 +134,7 @@
       - [dropbar](#dropbar)
       - [nvim-ufo](#nvim-ufo)
     - [Coding](#coding)
+      - [codecompanion](#codecompanion)
       - [neominimap](#neominimap)
       - [Outline](#outline)
         - [Commands](#commands)
@@ -1927,6 +1928,16 @@ Keymaps when menu is active:
 [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo) provides advanced fold functionality. See README for how to set up with different providers: LSP (what I use), Treesitter.
 
 ### Coding
+
+#### codecompanion
+
+[CodeCompanion](https://codecompanion.olimorris.dev/) is a plugin that enables AI-powered coding with LLMs.
+
+An adapter is what connects Neovim to an LLM. See [here](https://github.com/olimorris/codecompanion.nvim/tree/main/lua/codecompanion/adapters) for the list of supported adapters. API Keys can be provided via `*_API_KEY` environment variable or you can run commands from within your config by prefixing them with `cmd:` to retrieve the key.
+
+ Action                             | Keymap
+------------------------------------|-------------
+ Open chat buffer              | `<leader>cc` OR `:CodeCompanionChat`
 
 #### neominimap
 
