@@ -9,6 +9,8 @@
   - [General Neovim info](#general-neovim-info)
     - [Options](#options)
     - [Autocommands](#autocommands)
+      - [Autocommand groups](#autocommand-groups)
+      - [Ignore Events](#ignore-events)
     - [Find](#find)
     - [Marks](#marks)
       - [Special Marks](#special-marks)
@@ -339,12 +341,35 @@ Set to default value | `:set <option>&`
 
 ### Autocommands
 
+Help: `:help autocmd`
+
 Action | Keymap/command
 ---------|----------
-List autocommands | `:autocmd` OR `:au`
-List autocommands for group `<augroup>` | `:autocmd <augroup>` OR `:au <augroup>`
-Delete autocommands for group `<augroup>` | `:autocmd! <augroup>` OR `:au! <augroup>`
-Add autocommand | `:autocmd <event> <pattern> <cmd>`
+List autocommands | `:au[tocmd]`
+List autocommands for group `<group>` | `:au[tocmd] <group>`
+Delete autocommands for event `<event>` and pattern `<pattern>` | `:au[tocmd]! [group] <event> <pattern>`
+Delete autocommands for group `<group>` | `:au[tocmd]! <group>`
+Add autocommand | `:au[tocmd] [group] <event> <pattern> <cmd>`
+
+See [here](https://thevaluable.dev/vim-expert/#autocommands) for more information.
+
+#### Autocommand groups
+
+When you create an autocommand as we did above, it's added automatically to a default autocommand group without a name. Autocommand groups are like namespaces for autocommands.
+
+List autocommand groups: `:augroup`.
+
+Create autocommand group: `:augroup <name>` ( OR `:aug <name>`). All autocommands created after this command will be part of this group. To stop adding autocommands to the group, use `:augroup END`.
+
+You can also do something like this to create a group with command(s):
+
+`:augroup mine | au BufRead * set tw=70 | augroup END`
+
+Delete autocommand group `<name>`: `:augroup! <name>` OR `:aug! <name>`
+
+See [here](https://thevaluable.dev/vim-expert/#autocommand-groups) for more information.
+
+#### Ignore Events
 
 Ignore events: `:set ei=all`.
 
@@ -352,7 +377,9 @@ Don't forget to reset: `:set ei=""`.
 
 Can also ignore for certain events: `:set ei=CursorHold`
 
-See [here](https://thevaluable.dev/vim-expert/#autocommands) for more information.
+If you want to ignore the event `BufWrite` when running the command `:w`, you can run the following:
+
+`:noautocmd w`
 
 ### Find
 
