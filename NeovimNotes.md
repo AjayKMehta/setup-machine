@@ -1392,18 +1392,32 @@ Some examples of using motions for editing:
 
 ### Text object selection
 
-`a` is for around and `i` is for inner.
+`a` is for around (includes delimiters) and `i` is for inner (excludes delimiters).
 
-`dip` deletes paragraph.
-`ciw` deletes current word and enters INSERT.
-`dit`deletes all characters within HTML/XML tags. Nesting is taken care of.
-`ci"` deletes all text within double quotes and enters INSERT.
-`di'` deletes all text within single quotes.
-`yis` yanks a sentence.
+All text objects work with operators like:
 
-These work even with `{count}`, e.g. `d2i{` will delete inner braces and text between braces one level above.
+- `d` (delete)
+- `c` (change)
+- `y` (yank)
+- `v` (visual selection)
 
-Refer to `:h text-objects` for more details.
+Examples:
+
+- `dip` deletes paragraph
+- `ciw` deletes current word and enters INSERT mode
+- `dit` deletes all characters within HTML/XML tags (nesting is handled)
+- `ci"` deletes all text within double quotes and enters INSERT mode  
+- `di'` deletes all text within single quotes
+- `yis` yanks a sentence
+- `vib` selects text within parentheses (same as `vi(`))
+- `vat` selects a tag block (e.g. `<b>Test</b>`) including the tags
+- `vi{` selects everything within curly braces (same as `viB`))
+- `va[` selects everything within square brackets including brackets
+- - `ci<` deletes text inside `<>` block and enters INSERT mode
+
+These also work with `{count}`, e.g. `d2i{` will delete inner braces and text between braces one level above.
+
+See `:h text-objects` for more details.
 
 ### Editing with Ex commands
 
