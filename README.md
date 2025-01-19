@@ -18,11 +18,14 @@
   - [WinMerge](#winmerge)
   - [SlickRun](#slickrun)
   - [git](#git)
-    - [GitHub CLI](#github-cli)
-      - [GitHub PAT](#github-pat)
-    - [act](#act)
-      - [Extensions](#extensions)
-    - [GitLab CLI](#gitlab-cli)
+  - [git-related platforms](#git-related-platforms)
+    - [GitHub](#github)
+      - [GitHub CLI](#github-cli)
+        - [GitHub PAT](#github-pat)
+        - [Extensions](#extensions)
+      - [act](#act)
+    - [GitLab](#gitlab)
+      - [GitLab CLI](#gitlab-cli)
       - [Authentication](#authentication)
     - [GitExtensions](#gitextensions)
     - [git absorb](#git-absorb)
@@ -369,7 +372,11 @@ Download it from [here](https://bayden.com/slickrun/).
 
 :bulb: git comes bundled with Git Credential Manager on Windows. If you keep getting prompted to login when pushing to or pulling from a remote, you may have more than one account set up. To fix, see [these instructions](https://github.com/git-ecosystem/git-credential-manager/blob/main/docs/multiple-users.md#tldr-tell-gcm-to-remember-which-account-to-use).
 
-### GitHub CLI
+## git-related platforms
+
+### GitHub
+
+#### GitHub CLI
 
 - Download [GitHub CLI](https://github.com/cli/cli). See [Releases](https://github.com/cli/cli/releases) for latest version.
 
@@ -391,19 +398,13 @@ Download it from [here](https://bayden.com/slickrun/).
     gh completion -s powershell | Out-File -Encoding utf8 ~\Documents\PowerShell\Scripts\ArgumentCompleters\gh.ps1
     ```
 
-#### GitHub PAT
+##### GitHub PAT
 
 - [Create an authentication token for github.com API requests](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 - Set `$GITHUB_TOKEN` to this value to avoid being prompted to authenticate by CLI.
 - Alternatively, use `gh auth login --secure-storage -h github.com` to store the access token in the system keyring.
 
-### act
-
-[act](https://github.com/nektos/act) lets you run your GitHub Actions locally!
-
-Install: `winget install nektos.act`.
-
-#### Extensions
+##### Extensions
 
 Install extensions:
 
@@ -427,7 +428,15 @@ gh extension install samcoe/gh-triage
 gh extension install vilmibm/gh-user-status
 ```
 
-### GitLab CLI
+#### act
+
+[act](https://github.com/nektos/act) lets you run your GitHub Actions locally!
+
+Install: `winget install nektos.act`.
+
+### GitLab
+
+#### GitLab CLI
 
 - Install:
 
