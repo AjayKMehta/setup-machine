@@ -388,6 +388,9 @@ mise use docker-slim@latest
 mise plugin add github-cli https://github.com/bartlomiejdanek/asdf-github-cli.git   
 mise use github-cli@latest
 
+mise plugin add actionlint
+mise use actionlint@latest
+
 mise use eza@latest
 
 # For man pages

@@ -24,6 +24,7 @@
         - [GitHub PAT](#github-pat)
         - [Extensions](#extensions)
       - [act](#act)
+      - [actionlint](#actionlint)
     - [GitLab](#gitlab)
       - [GitLab CLI](#gitlab-cli)
       - [Authentication](#authentication)
@@ -433,6 +434,14 @@ gh extension install vilmibm/gh-user-status
 [act](https://github.com/nektos/act) lets you run your GitHub Actions locally!
 
 Install: `winget install nektos.act`.
+
+#### actionlint
+
+[actionlint](https://github.com/rhysd/actionlint) is a linter for GitHub Actions workflow files.
+
+Install: `winget install rhysd.actionlint`.
+
+To create a config in a repo: `actionlint --init-config`.
 
 ### GitLab
 
