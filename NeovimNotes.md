@@ -135,6 +135,8 @@
       - [nvim-ufo](#nvim-ufo)
     - [Coding](#coding)
       - [codecompanion](#codecompanion)
+        - [Chat Buffer](#chat-buffer)
+        - [Inline Assistant](#inline-assistant)
       - [neominimap](#neominimap)
       - [Outline](#outline)
         - [Commands](#commands)
@@ -1833,7 +1835,7 @@ Multi-grep lets you also filter on file extension, e.g. enter `\d+  *.cs` to fin
 
  Action                   | Keymap/command
 --------------------------|----------------
- Checkout branch          | `<leader>ga`
+ Checkout branch          | `<leader>gb`
  Checkout commit          | `<leader>gc`
  git stash                | `<leader>gs`
  git status (from NvChad) | `<leader>gt`
@@ -1952,6 +1954,37 @@ An adapter is what connects Neovim to an LLM. See [here](https://github.com/olim
  Action                             | Keymap
 ------------------------------------|-------------
  Open chat buffer              | `<leader>cc` OR `:CodeCompanionChat`
+ Toggle chat buffer | `:CodeCompanionChat Toggle`
+ Inline assistant | `<leader>ci` OR `:CodeCompanion`
+ Create command in command-line mode | `<leader>cC` OR  `:CodeCompanionCmd`
+ Add to chat (visual mode) | `<leader>cA` OR `:CodeCompanionChat Add`
+ Actions palette | `<leader>ca` OR `:CodeCompanionActions`
+
+##### Chat Buffer
+
+Press `?` for help.
+
+Press `<C-c>` to close (works for both NORMAL and INSERT modes).
+
+Press <kbd>Ctrl</kbd> + <kbd>Space</kbd> to activate completion in INSERT mode.
+
+See [here](https://codecompanion.olimorris.dev/usage/chat-buffer/#keymaps) for the full list of keymaps.
+
+You can add context from your code base by using [*Variables*](https://codecompanion.olimorris.dev/getting-started.html#variables) and [*Slash Commands*](https://codecompanion.olimorris.dev/getting-started.html#clash-commands) in the chat buffer, e.g. `#buffer:8-12` shares lines 8-12 of current buffer while `/buffer` is a command to insert an open buffer.
+
+In order to allow for references to self-update, they can be *pinned* (for files and buffers) using `gp` or *watched* (for buffers) using `gw`. See [here](https://codecompanion.olimorris.dev/usage/chat-buffer/#references) for more details.
+
+[Agents](https://codecompanion.olimorris.dev/configuration/chat-buffer.html#agents-and-tools) are prefixed with `@` and can be used to perform tasks like update code. The most comprehensive one is `@full_stack_dev` which is a combination of the `@cmd_runner`, @`editor` and `@files` tools. For a description of these agents, see [Using Agents and Tools](https://codecompanion.olimorris.dev/usage/chat-buffer/agents.html).
+
+##### Inline Assistant
+
+The Inline Assistant enables an LLM to write code directly into a Neovim buffer. Supply a prompt and the LLM will either write code or open a chat buffer. You can make a visual selection and call the Assistant.
+
+To accept changes: `<leader>ca`.
+
+To reject changes: `<leader>cr`.
+
+For convenience, you can call prompts from the [prompt library](https://codecompanion.olimorris.dev/configuration/prompt-library.html) via the Assistant such as `:'<,'>CodeCompanion /buffer what does this file do?`.
 
 #### neominimap
 
