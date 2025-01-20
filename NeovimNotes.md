@@ -169,7 +169,6 @@
       - [roslyn.nvim](#roslynnvim)
     - [Treesitter-related](#treesitter-related)
       - [nvim-treesitter](#nvim-treesitter)
-      - [ts-node-action](#ts-node-action)
       - [nvim-treesitter-context](#nvim-treesitter-context)
       - [treesitter-textobjects](#treesitter-textobjects)
         - [Select](#select)
@@ -2484,12 +2483,6 @@ Use `<leader>lte` to toggle behavior.
  Increment selection to surrounding scope | `<leader>ts`
 
 See `:h nvim-treesitter-commands`.
-
-#### ts-node-action
-
-Lets you run functions on Tree-sitter nodes, and update the buffer with the result.
-
-`gA` is used to trigger action (default is change case).
 
 #### nvim-treesitter-context
 
