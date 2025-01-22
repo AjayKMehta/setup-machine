@@ -1,3 +1,4 @@
+
 # WSL
 
 ## [Install](https://learn.microsoft.com/en-us/windows/wsl/install)
@@ -351,7 +352,7 @@ See [here](https://blog.jmorbegoso.com/post/configure-github-gpg-key-in-windows-
 
 ## mise
 
-[mise](https://mise.jdx.dev/) is a development environment setup tool. It has several advantages over asdf IMHO: better CLI, no shims.
+[mise](https://mise.jdx.dev/) is a development environment setup tool. It has several advantages over `asdf` IMHO: better CLI, no shims.
 
 Install: `curl <https://mise.run> | sh`.
 

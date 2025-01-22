@@ -64,6 +64,8 @@ Install-WinGetPackage -Id '9WZDNCRDMDM3'
 Install-WinGetPackage -Id KirillOsenkov.MSBuildStructuredLogViewer
 Install-WinGetPackage -Id RicoSuter.NSwagStudio
 Install-WinGetPackage -Id Microsoft.NuGet
+Install-WinGetPackage -Id icsharpcode.ILSpy
+
 Install-WinGetPackage -Id Microsoft.PerfView -Location "$CustomLocation\PerfView"
 
 

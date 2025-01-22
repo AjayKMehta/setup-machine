@@ -1529,6 +1529,12 @@ After
     winget install Microsoft.PerfView -l D:\Apps\PerfView
     ```
 
+- Install ILSpy:
+
+    ```powershell
+    winget install icsharpcode.ILSpy
+    ```
+
 ### Dotnet Tools
 
 Install following tools:
