@@ -61,7 +61,16 @@ sudo apt-cache policy
 
 ## Troubleshooting Tips
 
-## Delete bash sessions
+### Fix wl-copy issue
+
+After upgrading Ubuntu to 24.04, you may start getting an error message when using `wl-copy`, e.g. when yanking text in Neovim. To fix it, follow the instructions [here](https://github.com/microsoft/WSL/issues/11261#issuecomment-2233443300).
+
+```bash
+sudo chmod +rx /mnt/wslg/runtime-dir
+ln -s /mnt/wslg/runtime-dir/wayland-0* /run/user/$UID/
+```
+
+### Delete bash sessions
 
 ```bash
 # Get the terminal name of the current session
@@ -221,7 +230,7 @@ Refresh: `sudo snap refresh`.
 ## Python
 
 ```shell
-sudo apt install systemd-coredump python3-pip python3.10-venv
+sudo apt install systemd-coredump python3-pip python3.12-venv
 ```
 
 [Add completion for pip in bash](https://pip.pypa.io/en/stable/user_guide/#command-completion):
@@ -396,7 +405,7 @@ mise use eza@latest
 
 # For man pages
 cd ~/tmp && gh release download --repo eza-community/eza --pattern man*.*
-eza_version='0.20.4'
+eza_version=$(eza --version | rg '\d+\.\d+\.\d+' --only-matching --color never)
 folder="man-$eza_version"
 tar -xzvf "./$folder.tar.gz"
 tmp="./target/${folder}/*"
@@ -436,6 +445,12 @@ To list available versions of an *installed* plugin (here **lazygit**):
 
 ```bash
 mise ls-remote lazygit
+```
+
+To list available plugins:
+
+```bash
+mise plugins ls-remote
 ```
 
 Update mise:
@@ -595,7 +610,7 @@ See [here](https://ubuntuhandbook.org/index.php/2023/11/install-dotnet-8-ubuntu-
 
 [^1]: I was not able to add the Microsoft repository to `/etc/apt/sources.list.d/` using the instructions provided.
 
-#### Configure environment variables
+### Configure environment variables
 
 > [!NOTE]
 > For more info, refer to this [link](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-environment-variables).
@@ -1250,6 +1265,8 @@ Install: `npm i -g rag-crawler`
 Install: `mise use Ollama@latest`.
 
 If you want to change the download directory for models, then set `$OLLAMA_MODELS` ([source](https://github.com/ollama/ollama/issues/680#issuecomment-1996562577)).
+
+Instructions on how to add as startup service: [here](https://github.com/ollama/ollama/blob/main/docs/linux.md#adding-ollama-as-a-startup-service-recommended).
 
 ## Misc
 
