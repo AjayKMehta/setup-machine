@@ -1,6 +1,8 @@
 
 # WSL
 
+:point_right: This assumes your distribution is **Ubuntu 24.04**.
+
 ## [Install](https://learn.microsoft.com/en-us/windows/wsl/install)
 
 - For Windows 10 version 2004 and higher (Build 19041 and higher) or Windows 11, you can simply install via this command:
@@ -12,24 +14,24 @@
    It is better to specify a distribution (`wsl --list --online` to get list of available distributions):
 
     ```shell
-    wsl --install -d Ubuntu-22.04
+    wsl --install -d Ubuntu-24.04
     ```
 
 - Set default distribution:
 
     ```shell
-    wsl --set-default Ubuntu-22.04
+    wsl --set-default Ubuntu-24.04
     ```
 
 ### Move WSL root filesystem to different drive
 
 See this [link](https://stackoverflow.com/a/51767786/781045) for more details.
 
-1. Export to tar file: `wsl --export Ubuntu-22.04 D:\temp\Ubuntu.tar`
+1. Export to tar file: `wsl --export Ubuntu-24.04 D:\temp\Ubuntu.tar`
 
 2. Import into target folder: `wsl --import Ubuntu D:\wsl\Ubuntu D:\temp\Ubuntu.tar`
 
-3. Delete old installation: `wsl --unregister Ubuntu-22.04`
+3. Delete old installation: `wsl --unregister Ubuntu-24.04`
 
 4. Edit `/etc/wsl.conf`:
 
@@ -313,6 +315,10 @@ Install python: `uv python install 3.12`. Omit version to use latest.
 ## git
 
 ```bash
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt update
+
+# Ubuntu package is ancient.
 sudo apt install git
 
 # Ubuntu package is ancient.
@@ -610,6 +616,13 @@ See [here](https://ubuntuhandbook.org/index.php/2023/11/install-dotnet-8-ubuntu-
 
 [^1]: I was not able to add the Microsoft repository to `/etc/apt/sources.list.d/` using the instructions provided.
 
+### Install .NET 9
+
+```bash
+sudo add-apt-repository ppa:dotnet/backports
+sudo apt-get update && sudo apt-get install -y dotnet-sdk-9.0
+```
+
 ### Configure environment variables
 
 > [!NOTE]
@@ -622,7 +635,7 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export DOTNET_UPGRADEASSISTANT_TELEMETRY_OPTOUT=1
 ```
 
-Set `DOTNET_ROOT` if install path is `/usr/share/dotnet`:
+Set `DOTNET_ROOT` *only* if install path is `/usr/share/dotnet`:
 
 ```bash
 export DONET_ROOT=/usr/share/dotnet
@@ -776,6 +789,7 @@ bleopt
 | C-x <             | history-nsearch-backward          | Start non-incremental prefix-search in forward direction with a user-provided string                              |
 | C-x >             | history-nsearch-forward           | Start non-incremental prefix-search in backward direction backward with a user-provided string                    |
 | M-$ (Emacs)  |  complete context=variable  |Start completing variables|
+| C-z (Emacs) | vi-editing-mode | Start vi editing mode |
 
 In the above table:
 
@@ -846,7 +860,9 @@ sudo ln -s $(which gh) /usr/local/bin/gh
 - [wslu](https://wslutiliti.es/wslu/) is a collection of utilities for WSL.
 
     ```bash
-    sudo apt install ubuntu-wsl
+    sudo add-apt-repository ppa:wslutilities/wslu
+    sudo apt update
+    sudo apt install wslu
     ```
 
 - Check out this repo: [samuelramox/wsl-setup](
@@ -909,7 +925,7 @@ sudo apt install r-base r-base-dev -y
 
 You can use the Posit Package Manager (PPM) to install binary packages and avoid having to compile from source.
 
-1. Determine your repo URL from [the PPM setup page](https://packagemanager.posit.co/client/#/repos/2/overview/)<https://packagemanager.posit.co/client/#/repos/2/overview/>
+1. Determine your repo URL from [the PPM setup page](https://packagemanager.posit.co/client/#/repos/cran/setup?distribution=ubuntu-24.04&r_environment=other)
 
 1. Add this to your `.Rprofile`:
 
