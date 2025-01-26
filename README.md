@@ -157,7 +157,6 @@ This document hopefully alleviates the pain.
 
 > [!NOTE]
 > 🚧 Look into using [winget configure](<https://learn.microsoft.com/en-us/windows/package-manager/winget/configure>) to replace script to install apps.
-> <br>👉 Need to learn how to specify custom install path.
 
 ## winget
 
@@ -1710,7 +1709,7 @@ This section is based on the following links:
 - If your metadata is stale, then you can update your config to point to a recent metadata yaml:
 
     ```powershell
-    ghcup config set url-source https://raw.githubusercontent.com/haskell/ghcup-metadata/master/ghcup-vanilla-0.0.8.yaml
+    ghcup config set url-source https://raw.githubusercontent.com/haskell/ghcup-metadata/master/ghcup-vanilla-0.0.9.yaml
     ```
 
 - Upgrade version: `ghcup upgrade`.
