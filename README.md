@@ -140,6 +140,7 @@
     - [Configuring VS Code](#configuring-vs-code)
       - [Syntax highlighting](#syntax-highlighting)
       - [Language Server](#language-server)
+    - [cabal-fmt](#cabal-fmt)
       - [Debugging](#debugging)
       - [Theme](#theme)
       - [Troubleshooting](#troubleshooting-1)
@@ -1890,6 +1891,12 @@ stack install hlint
     stack install ormolu
     stack install brittany
     ```
+
+### cabal-fmt
+
+Formats `.cabal` files. Repo: <https://github.com/phadej/cabal-fmt>.
+
+Install: `stack install cabal-fmt`.
 
 #### Debugging
 
