@@ -1698,49 +1698,138 @@ To launch, press <kbd>Ctrl</kbd> + <kbd>n</kbd>. To close, press <kbd>q</kbd>.
 
 Floating preview is courtesy of [nvim-tree-preview.lua](https://github.com/b0o/nvim-tree-preview.lua).
 
-Here are some useful key maps for when the window is displayed:
+Below are some useful key maps for when the window is displayed.
 
- Action                          | Keymap
+👉 All actions in **bold** in the tables below have custom keymaps. The other commands use plugin defaults.
+
+<details>
+  <summary>Root</summary>
+
+Action                          | Keymap
 ---------------------------------|----------------------------------
- **Change root to input path**   | <kbd>Alt</kbd> + <kbd>r</kbd>
- Change root to node             | <kbd>Ctrl</kbd> + <kbd>\]</kbd>
- **Change root to global cwd**   | <kbd>Ctrl</kbd> + <kbd>c</kbd>
- **Launch Find Files**           | <kbd>Ctrl</kbd> + <kbd>f</kbd>
- **Launch Live Grep**            | <kbd>Ctrl</kbd> + <kbd>g</kbd>
- **Print path**                  | <kbd>Ctrl</kbd> + <kbd>p</kbd>
- Open: Horizontal split          | <kbd>Ctrl</kbd> + <kbd>x</kbd>
- Open                            | <kbd>Enter</kbd>
- Open: Vertical split            | <kbd>Shift</kbd> + <kbd>l</kbd>
- Next sibling                    | <kbd>></kbd>
- Previous sibling                | <kbd><</kbd>
- Change root to parent           | <kbd>-</kbd>
- Prev git                        | <kbd>\[</kbd> + <kbd>c</kbd>
- Next git                        | <kbd>\]</kbd> + <kbd>c</kbd>
- Delete                          | <kbd>d</kbd>
- Expand All                      | <kbd>Shift</kbd> + <kbd>e</kbd>
- Rename: Basename                | <kbd>e</kbd>
- Live Filter: Clear              | <kbd>Shift</kbd> + <kbd>f</kbd>
- Live Filter: Search             | <kbd>f</kbd>
- Help                            | <kbd>g</kbd> + <kbd>?</kbd>
- Copy Basename                   | <kbd>g</kbd> +  <kbd>e</kbd>
- **Toggle hidden files**         | <kbd>g</kbd> +  <kbd>h</kbd>
- **Toggle group empty**          | <kbd>g</kbd> +  <kbd>l</kbd>
- Copy absolute path              | <kbd>g</kbd> +  <kbd>y</kbd>
- **Close parent folder**         | <kbd>h</kbd>
- **Collapse all**                | <kbd>Shift</kbd> + <kbd>h</kbd>
- Move down                       | <kbd>j</kbd>
- Move up                         | <kbd>k</kbd>
- **Expand folder or go to file** | <kbd>l</kbd>
- **Vsplit Preview**              | <kbd>Shift</kbd> + <kbd>l</kbd>
- Toggle bookmark                 | <kbd>m</kbd>
- Collapse all                    | <kbd>Shift</kbd> + <kbd>w</kbd>
- Copy name                       | <kbd>y</kbd>
- Copy relative path              | <kbd>Shift</kbd> +  <kbd>y</kbd>
- **Open folder or show preview** | <kbd>Tab</kbd>
- **Preview (Watch)**             | <kbd>P</kbd>
-**Close Preview/Unwatch**        | <kbd>Esc</kbd>
+**Change root to input path**   | <kbd>Alt</kbd> + <kbd>r</kbd>
+Change root to node             | <kbd>Ctrl</kbd> + <kbd>\]</kbd>
+**Change root to global cwd**   | <kbd>Ctrl</kbd> + <kbd>c</kbd>
 
-All actions in **bold** in the table above have custom keymaps. The other commands use plugin defaults.
+</details>
+
+<details>
+  <summary>File and Directory</summary>
+
+Action                          | Keymap
+---------------------------------|----------------------------------
+**Launch Find Files**           | <kbd>Ctrl</kbd> + <kbd>f</kbd>
+**Launch Live Grep**            | <kbd>Ctrl</kbd> + <kbd>g</kbd>
+Open: Horizontal split          | <kbd>Ctrl</kbd> + <kbd>x</kbd>
+Open                            | <kbd>Enter</kbd>
+Open: Vertical split            | <kbd>Shift</kbd> + <kbd>l</kbd>
+Open: In place                  | <kbd>Ctrl</kbd> + <kbd>e</kbd>
+Run command                     | <kbd>.</kbd>
+Delete                          | <kbd>d</kbd>
+Rename (omit filename)          | <kbd>Ctrl</kbd> + <kbd>r</kbd>
+Rename: Basename                | <kbd>e</kbd>
+Create File Or Directory        | <kbd>a</kbd>
+Copy File Or Directory          | <kbd>c</kbd>
+Cut File Or Directory           | <kbd>x</kbd>
+Paste File Or Directory         | <kbd>p</kbd>
+
+</details>
+
+<details>
+  <summary>Info and preview</summary>
+
+Action                          | Keymap
+---------------------------------|----------------------------------
+Show Info (pop-up)              | <kbd>Ctrl</kbd> + <kbd>k</kbd>
+**Print path**                  | <kbd>Ctrl</kbd> + <kbd>p</kbd>
+**Preview (Watch)**             | <kbd>Shift</kbd> + <kbd>Tab</kbd>
+**Close Preview/Unwatch**       | <kbd>Esc</kbd>
+Help                            | <kbd>g</kbd> + <kbd>?</kbd>
+
+</details>
+
+<details>
+  <summary>git</summary>
+
+Action                          | Keymap
+---------------------------------|----------------------------------
+Prev git                        | <kbd>\[</kbd> + <kbd>c</kbd>
+Next git                        | <kbd>\]</kbd> + <kbd>c</kbd>
+Stage/unstage Files             | <kbd>g</kbd> + <kbd>a</kbd>
+
+</details>
+
+<details>
+  <summary>Navigation and Movement</summary>
+
+Action                          | Keymap
+---------------------------------|----------------------------------
+Next sibling                    | <kbd>></kbd>
+Previous sibling                | <kbd><</kbd>
+First sibling                   | `K`
+Last sibling                    | `J`
+Move down                       | <kbd>j</kbd>
+Move up                         | <kbd>k</kbd>
+**Expand folder or go to file** | <kbd>l</kbd>
+**Open folder or show preview** | <kbd>Tab</kbd>
+**Close parent folder**         | <kbd>h</kbd>
+Close Directory                 | <kbd>Backspace</kbd>
+Prev diagnostic                 | <kbd>\[</kbd> + <kbd>e</kbd>
+Next diagnostic                 | <kbd>\]</kbd> + <kbd>e</kbd>
+Parent directory                | `P`
+
+</details>
+
+<details>
+  <summary>Bookmark</summary>
+
+Action                          | Keymap
+---------------------------------|----------------------------------
+Toggle bookmark                 | <kbd>m</kbd>
+Delete bookmarked               | `bd`
+Trash bookmarked                | `bt`
+Move bookmarked                 | `bmv`
+
+</details>
+
+<details>
+  <summary>Filter and view</summary>
+
+Action                          | Keymap
+---------------------------------|----------------------------------
+Expand All                      | <kbd>Shift</kbd> + <kbd>e</kbd>
+Live Filter: Clear              | <kbd>Shift</kbd> + <kbd>f</kbd>
+Live Filter: Search             | <kbd>f</kbd>
+Toggle hidden files             | <kbd>Shift</kbd> + <kbd>h</kbd>
+**Toggle group empty**          | <kbd>g</kbd> +  <kbd>l</kbd>
+Collapse all                    | <kbd>Shift</kbd> + <kbd>w</kbd>
+Toggle bookmarks                | <kbd>Shift</kbd> + <kbd>m</kbd>
+
+</details>
+
+<details>
+  <summary>Copy info</summary>
+
+Action                          | Keymap
+---------------------------------|----------------------------------
+Copy Basename                   | <kbd>g</kbd> + <kbd>e</kbd>
+Copy absolute path              | <kbd>g</kbd> + <kbd>y</kbd>
+Copy name                       | <kbd>y</kbd>
+Copy relative path              | <kbd>Shift</kbd> + <kbd>y</kbd>
+
+</details>
+
+<details>
+  <summary>Buffer</summary>
+
+Action                          | Keymap
+---------------------------------|----------------------------------
+Wipe buffer                      | `BW`
+Delete buffer                    | `BD`
+
+These commands work on buffer for current node if it exists.
+
+</details>
 
 #### Telescope
 
