@@ -2,6 +2,7 @@
 
 - [Setup machine](#setup-machine)
   - [Overview](#overview)
+  - [XDG Base Directory Specification](#xdg-base-directory-specification)
   - [winget](#winget)
   - [Firefox](#firefox)
   - [Fonts](#fonts)
@@ -158,6 +159,15 @@ This document hopefully alleviates the pain.
 
 > [!NOTE]
 > 🚧 Look into using [winget configure](<https://learn.microsoft.com/en-us/windows/package-manager/winget/configure>) to replace script to install apps.
+
+## XDG Base Directory Specification
+
+[This specification](https://specifications.freedesktop.org/basedir-spec/latest/) defines where user-specific files related to config, caches, etc. should be looked for by defining one or more base directories relative to which files should be located.
+
+Preferably, you should set the environment variables based on the specification.
+
+> [!TIP]
+> point_right: You may want to override the default for $XDG_CACHE_HOME.
 
 ## winget
 
