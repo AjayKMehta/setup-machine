@@ -12,7 +12,7 @@
     wsl install
     ```
 
-   It is better to specify a distribution (`wsl --list --online` to get list of available distributions):
+   It is better to specify a distribution (`wsl --list --online` to get a list of available distributions):
 
     ```shell
     wsl --install -d Ubuntu-24.04
@@ -43,9 +43,9 @@ See this [link](https://stackoverflow.com/a/51767786/781045) for more details.
 
 ### [How can I transfer my WSL files from one machine to another?](https://learn.microsoft.com/en-us/windows/wsl/faq#how-can-i-transfer-my-wsl-files-from-one-machine-to-another-)
 
-1. On machine with WSL distribution, run `wsl --export --vhd <DistributionName> <FileName>`, e.g. `wsl --export --vhd Ubuntu Ubuntu.vhdx`.
-1. Copy `.vhdx` file to new machine.
-1. On new machine: `wsl --import <DistributionName> <InstallLocation> <FileName>`.
+1. On a machine with WSL distribution, run `wsl --export --vhd <DistributionName> <FileName>`, e.g. `wsl --export --vhd Ubuntu Ubuntu.vhdx`.
+1. Copy `.vhdx` file to the new machine.
+1. On the new machine: `wsl --import <DistributionName> <InstallLocation> <FileName>`.
 
 ### Get list of repositories
 
@@ -66,7 +66,7 @@ sudo apt-cache policy
 
 ### Fix wl-copy issue
 
-After upgrading Ubuntu to 24.04, you may start getting an error message when using `wl-copy`, e.g. when yanking text in Neovim. To fix it, follow the instructions [here](https://github.com/microsoft/WSL/issues/11261#issuecomment-2233443300).
+After upgrading Ubuntu to 24.04, you may start to get an error message when using `wl-copy`, e.g. when yanking text in Neovim. To fix it, follow the instructions [here](https://github.com/microsoft/WSL/issues/11261#issuecomment-2233443300).
 
 ```bash
 sudo chmod +rx /mnt/wslg/runtime-dir
