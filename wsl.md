@@ -2,7 +2,7 @@
 # WSL
 
 > [!IMPORTANT]
-> :point_right: This assumes your distribution is **Ubuntu 24.04**.
+> This assumes your distribution is ***Ubuntu 24.04***.
 
 ## [Install](https://learn.microsoft.com/en-us/windows/wsl/install)
 
@@ -513,7 +513,8 @@ Install: `cargo install cntr`.
 
 Install: `cargo install tailspin`.
 
-:point_right:Binary name is `tspin`.
+> [!NOTE]
+> Binary name is `tspin`.
 
 ## parallel-disk-usage
 
