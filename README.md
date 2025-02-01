@@ -167,7 +167,7 @@ This document hopefully alleviates the pain.
 Preferably, you should set the environment variables based on the specification.
 
 > [!TIP]
-> point_right: You may want to override the default for $XDG_CACHE_HOME.
+> :point_right: You may want to override the default for $XDG_CACHE_HOME.
 
 ## winget
 
@@ -381,7 +381,8 @@ Download it from [here](https://bayden.com/slickrun/).
 
 - [Enable auto-signing Git commits with GnuPG](https://gist.github.com/BoGnY/f9b1be6393234537c3e247f33e74094a).
 
-:bulb: git comes bundled with Git Credential Manager on Windows. If you keep getting prompted to login when pushing to or pulling from a remote, you may have more than one account set up. To fix, see [these instructions](https://github.com/git-ecosystem/git-credential-manager/blob/main/docs/multiple-users.md#tldr-tell-gcm-to-remember-which-account-to-use).
+> [!NOTE]
+> git comes bundled with Git Credential Manager on Windows. If you keep getting prompted to login when pushing to or pulling from a remote, you may have more than one account set up. To fix, see [these instructions](https://github.com/git-ecosystem/git-credential-manager/blob/main/docs/multiple-users.md#tldr-tell-gcm-to-remember-which-account-to-use).
 
 ## git-related platforms
 
@@ -504,7 +505,8 @@ Grab latest release from repo and add install folder to `$Path`.
 
 ## CLI Apps
 
-:bulb: Install CLI apps in a common directory and add common directory to `$Path`.
+> [!TIP]
+> Install CLI apps in a common directory and add common directory to `$Path`.
 
 ### clink
 
@@ -1281,7 +1283,8 @@ winget install Posit.RStudio
 
 ### RTools
 
-:bulb: Install location is usually C:\RTools but if you have limited disk space, change folder during installation. Installer will set `$RTOOLS<VER>_HOME` automatically, e.g. if you set install path for RTools 4.4 to `D:\rtools44`, then this path will be value for `$RTOOLS44_HOME`.
+> [!NOTE]
+> Install location defaults to C:\RTools but if you have limited disk space, change folder during installation. Installer will set `$RTOOLS<VER>_HOME` automatically, e.g. if you set install path for RTools 4.4 to `D:\rtools44`, then this path will be value for `$RTOOLS44_HOME`.
 
 - Download and run [R Build tools](https://cran.r-project.org/bin/windows/Rtools/).
 - Add bin folder in install path to `$PATH` -- this can be done by editing .Renviron: `PATH="${RTOOLS44_HOME}\usr\bin;${PATH}"`.
@@ -1912,16 +1915,16 @@ Install: `stack install cabal-fmt`.
 
 Install [haskell-dap](https://hackage.haskell.org/package/haskell-dap), [ghci-dap](https://hackage.haskell.org/package/ghci-dap), [haskell-debug-adapter](https://hackage.haskell.org/package/haskell-debug-adapter):
 
- ```powershell
+```powershell
 $ stack update
 $
 $ stack install haskell-dap ghci-dap haskell-debug-adapter
--```
-
+```
 
 **Usage:**
 
-:bulb: If you use `Debug: Add Configuration...` command in VS Code and select `haskell-debug-adapter`, it will create a `launch.json` for you with 2 configurations - one using `stack` and the other using `cabal`. The former can be changed to run `app/Main.hs` instead of `test/Spec.hs` (also, need to remove `--test` from `ghciCmd`). The latter does not work.
+> [!NOTE]
+> If you use `Debug: Add Configuration...` command in VS Code and select `haskell-debug-adapter`, it will create a `launch.json` for you with 2 configurations - one using `stack` and the other using `cabal`. The former can be changed to run `app/Main.hs` instead of `test/Spec.hs` (also, need to remove `--test` from `ghciCmd`). The latter does not work.
 
 ```powershell
 stack update
