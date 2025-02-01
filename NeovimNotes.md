@@ -697,9 +697,12 @@ Use `o` to move cursor to diagonally opposite corner of the visual selection.
 
 ### Visual Block Mode
 
-Press <kbd>Ctrl</kbd> + <kbd>q</kbd> or <kbd>Ctrl</kbd> + <kbd>v</kbd>[^4] to enter. Select a region of text, e.g. `2lj` selects a region with 3 columns and 2 rows.
+Press <kbd>Ctrl</kbd> + <kbd>q</kbd> or <kbd>Ctrl</kbd> + <kbd>v</kbd>[^4] to enter.
 
-Press <kbd>Shift</kbd> + <kbd>i</kbd> to prepend or <kbd>Shift</kbd> + <kbd>a</kbd> to append. To append at the end of line: `$A`. To delete and insert on each line: `c`.
+Select a region of text, e.g. `2lj` selects a region with 3 columns and 2 rows.
+
+Press <kbd>Shift</kbd> + <kbd>i</kbd> to prepend or <kbd>Shift</kbd> + <kbd>a</kbd> to
+append. To append at the end of line: `$A`. To delete and insert on each line: `c`.
 
 When you are done with your changes, press <kbd>Esc</kbd> and changes will be applied to all lines!
 
@@ -712,21 +715,33 @@ Use `O` to move cursor to other corner of current line in visual block mode.
 ### Editing
 
 `d` deletes selection.
+
 `p` replaces selection with contents from `"` register.
+
 `"ap` replaces selection with contents from `a` register.
+
 `c` clears text and enters insert mode. Whatever you type will be applied to all lines in visual block after you press <kbd>Esc</kbd>.
+
 `C` clears text *till end of the line* and enters insert mode.
+
 `ra` replaces every character in selection with `a`.
+
 `=` auto-indents code.
+
 `R` deletes selected lines and switches to INSERT mode.
+
 `U` makes selection upper-case.
 
 Delete in selection everything starting from `,`: `:'<,'> norm f,D`.
+
 Delete in selection everything before `{`: `:'<,'>norm dt{`
 
-`'<,'>` is a special range based on the selection made in visual mode. `'<` is a mark representing the first line selected and `'>` is a mark representing the last line.
+`'<,'>` is a special range based on the selection made in visual mode.
 
-:bulb: If you accidentally exit Visual mode before entering Command-line mode, you can use `*` as a shorthand for `'<,'>`. See [`:h :star`](https://neovim.io/doc/user/cmdline.html#%3Astar).
+`'<` is a mark representing the first line selected and `'>` is a mark representing the last line.
+
+> [!TIP]
+> If you accidentally exit Visual mode before entering Command-line mode, you can use `*` as a shorthand for `'<,'>`. See [`:h :star`](https://neovim.io/doc/user/cmdline.html#%3Astar).
 
 ## Command-line mode
 
@@ -2542,7 +2557,6 @@ Let's illustrate usage for operator-pending and visual mode:
 [This plugin](https://github.com/chrisgrieser/nvim-lsp-endhints) displays LSP inlay hints at the end of the line, rather than within the line.
 
 Use `<leader>lte` to toggle behavior.
-
 
 ### Treesitter-related
 
