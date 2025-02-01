@@ -971,6 +971,25 @@ Examples:
 
 3. Replace in whole file: `:%/s/test/ok/g`.
 
+4. Here's a more complicated example involving `:~`:
+   1. Use `substitute` to replace all instances of `foo` with `bar`.
+
+      ```vim
+      :s/foo/bar/g
+      ```
+
+   2. Search for `hello`.
+
+      ```vim
+      /hello
+      ```
+
+   3. Replace all instances of `hello` with `bar`.
+
+      ```vim
+      :~
+      ```
+
 ##### Flags
 
 We have already seen `g` can be used to replace all matches on each line (instead of just the first one).
