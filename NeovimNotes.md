@@ -951,7 +951,7 @@ It is very powerful when combined with normal commands via `:norm`, e.g. `:g/tes
 
 #### substitute
 
-`s` is susbstitute command used to find and replace.
+`s` is substitute command used to find and replace.
 
 `:[range]s[ubstitute]/{pattern}/{string}/{flags} [count]`
 
