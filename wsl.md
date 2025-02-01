@@ -1,7 +1,8 @@
 
 # WSL
 
-:point_right: This assumes your distribution is **Ubuntu 24.04**.
+> [!IMPORTANT]
+> :point_right: This assumes your distribution is **Ubuntu 24.04**.
 
 ## [Install](https://learn.microsoft.com/en-us/windows/wsl/install)
 
