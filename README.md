@@ -1471,7 +1471,7 @@ After
     ```
 
 > [!NOTE]
-> [Enabled by default in .NET 8]([text](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8?WT.mc_id=DT-MVP-5003978#performance-improvements)) so no longer needed after upgrading to .NET 8.
+> [Enabled by default in .NET 8](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8?WT.mc_id=DT-MVP-5003978#performance-improvements) so no longer needed after upgrading to .NET 8.
 
 - Disable telemetry:
 
@@ -1556,6 +1556,8 @@ dotnet tool install -g upgrade-assistant
 # https://learn.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-telemetry?tabs=powershell#how-to-opt-out
 [System.Environment]::SetEnvironmentVariable('DOTNET_UPGRADEASSISTANT_TELEMETRY_OPTOUT', '1', 'User')
 ```
+
+To update tools: `dotnet tool update -g --all`.
 
 ## LaTeX
 

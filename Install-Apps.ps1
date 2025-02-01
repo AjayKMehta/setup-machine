@@ -70,7 +70,6 @@ Install-WinGetPackage -Id Microsoft.PerfView -Location "$CustomLocation\PerfView
 
 
 # Misc
-Install-WinGetPackage -Id Hugo.Hugo -Location "$CustomLocation\Hugo"
 Install-WinGetPackage -Id Graphviz.Graphviz -Location "$CustomLocation\Graphviz"
 Install-WinGetPackage -Id WinSCP.WinSCP -Location "$CustomLocation\WinSCP"
 Install-WinGetPackage -Id Citrix.Workspace
