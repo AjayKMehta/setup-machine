@@ -530,6 +530,7 @@ See <https://www.ejmastnak.com/tutorials/vim-latex/vimscript/>.
 Vim offers two types of mapping commands:
 
 1. The recursive commands `map`, `nmap`, `imap`, and other *map functions.
+
 2. Their non-recursive equivalents `noremap`, `nnoremap`, `inoremap`, etc.
 
 To illustrate the difference between the two, consider this scenario whwere you want to remap `w` to `dd` and `v` to `w`.
@@ -611,6 +612,7 @@ Operate on each QuickFix list entry | `:cdo <action>`
 Operate on each QuickFix file | `:cfdo <action>`
 
 Replace `client` with `client_id` for every QF entry: `:cdo s/client/client_id/g`.
+
 Send diagnostics to QuickFix list: `:lua vim.diagnostic.setqflist()`.
 
 `cexpr` (OR `cex`) and `caddexpr` are very powerful commands:
@@ -619,6 +621,7 @@ Send diagnostics to QuickFix list: `:lua vim.diagnostic.setqflist()`.
   - `:caddexpr <cmd>` appends the command's results to QuickFix list.  
 
 Install `kevinhwang91/nvim-bqf` for a better quickfix experience.
+
 Refer to [this](https://github.com/kevinhwang91/nvim-bqf#function-table) for hotkeys for `nvim-bqf`
 
 If you want to save the list for future reference: `:w my_qf.txt`.
@@ -675,7 +678,8 @@ To learn what capabilities are available you can run the following command in a 
 :lua =vim.lsp.get_clients()[1].server_capabilities
 ```
 
-:point_right: Useful video to explain how code formatting works: [Code Formatting made easy](https://www.youtube.com/watch?v=mEqqkHLhlGY).
+> [!TIP]
+> Useful video to explain how code formatting works: [Code Formatting made easy](https://www.youtube.com/watch?v=mEqqkHLhlGY).
 
 ## Visual Mode
 
@@ -683,8 +687,9 @@ To learn what capabilities are available you can run the following command in a 
 
 `V` - select current line. Can also extend with motion or count, e.g.`Vgg` selects from current line to start of file and `5V` selects 5 lines starting from current line.
 
-`gv` selects previously highlighted visual area.
-:point_right: This works in normal mode too.
+`gv` selects previously highlighted visual area[^3].
+
+[^3]: This works in normal mode too.
 
 Use `o` to move cursor to diagonally opposite corner of the visual selection.
 
@@ -692,13 +697,13 @@ Use `o` to move cursor to diagonally opposite corner of the visual selection.
 
 ### Visual Block Mode
 
-Press <kbd>Ctrl</kbd> + <kbd>q</kbd> or <kbd>Ctrl</kbd> + <kbd>v</kbd>[^3] to enter. Select a region of text, e.g. `2lj` selects a region with 3 columns and 2 rows.
+Press <kbd>Ctrl</kbd> + <kbd>q</kbd> or <kbd>Ctrl</kbd> + <kbd>v</kbd>[^4] to enter. Select a region of text, e.g. `2lj` selects a region with 3 columns and 2 rows.
 
 Press <kbd>Shift</kbd> + <kbd>i</kbd> to prepend or <kbd>Shift</kbd> + <kbd>a</kbd> to append. To append at the end of line: `$A`. To delete and insert on each line: `c`.
 
 When you are done with your changes, press <kbd>Esc</kbd> and changes will be applied to all lines!
 
-[^3]: If using Windows Terminal, make sure to disable default binding for <kbd>Ctrl</kbd> + <kbd>v</kbd>.
+[^4]: If using Windows Terminal, make sure to disable default binding for <kbd>Ctrl</kbd> + <kbd>v</kbd>.
 
 Press `$` to select to end of each line.
 
@@ -1342,13 +1347,13 @@ Source: <https://youtu.be/rubhH6v4lN0?feature=shared>
 
  Action                                                                                            | Keymap/command
 ---------------------------------------------------------------------------------------------------|----------------
- Join current and next line (replace EOL with space[^4] and remove indentation except for current) | <kbd>J</kbd>
+ Join current and next line (replace EOL with space[^5] and remove indentation except for current) | <kbd>J</kbd>
  Join current and next 2 lines (replace EOL with space)                                            | `3J`
  Join current and next line (remove EOL and preserve indentation)                                  | `gJ`
 
 These also work in VISUAL or COMMAND-LINE mode.
 
-[^4]: When there is a trailing space at end of line or next line begins with `)`, then no space is added.
+[^5]: When there is a trailing space at end of line or next line begins with `)`, then no space is added.
 
 ### Moving lines
 
