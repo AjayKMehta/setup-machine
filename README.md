@@ -167,7 +167,7 @@ This document hopefully alleviates the pain.
 Preferably, you should set the environment variables based on the specification.
 
 > [!TIP]
-> :point_right: You may want to override the default for $XDG_CACHE_HOME.
+> :point_right: You may want to override the default for `$XDG_CACHE_HOME`.
 
 ## winget
 
@@ -377,11 +377,12 @@ Download it from [here](https://bayden.com/slickrun/).
 
 ## git
 
-- Install: `winget install --id Git.Git -e --source winget`.
+Install: `winget install --id Git.Git -e --source winget`.
 
-- [Enable auto-signing Git commits with GnuPG](https://gist.github.com/BoGnY/f9b1be6393234537c3e247f33e74094a).
+> [!TIP]
+> [Enable auto-signing Git commits with GnuPG](https://gist.github.com/BoGnY/f9b1be6393234537c3e247f33e74094a).
 
-> [!NOTE]
+> [!TIP]
 > git comes bundled with Git Credential Manager on Windows. If you keep getting prompted to login when pushing to or pulling from a remote, you may have more than one account set up. To fix, see [these instructions](https://github.com/git-ecosystem/git-credential-manager/blob/main/docs/multiple-users.md#tldr-tell-gcm-to-remember-which-account-to-use).
 
 ## git-related platforms
