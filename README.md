@@ -1685,14 +1685,14 @@ This section is based on the following links:
 
 1. Assuming you plan to install `msys` to `D:\msys64` and `ghcup.exe` to `D:\Apps\ghcup\bin`, set the following environment variables first:
 
-    | Env Variable                | Value                                                    | Notes                                                                                                                                                                                                                                              |
-    |-----------------------------|----------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | `GHCUP_INSTALL_BASE_PREFIX` | D:\Apps                                                  | [Defaults to `$HOME`](https://www.haskell.org/ghcup/guide/#env-variables)                                                                                                                                                                          |
-    | `CABAL_DIR`                 | D:\Apps\cabal                                            | If set, *all* `cabal-install` content files will be stored as subdirectories of this directory, including the configuration file if `CABAL_CONFIG` is unset. See [here](https://cabal.readthedocs.io/en/stable/config.html#environment-variables). |
-    | `CABAL_CONFIG`              | `$USERPROFILE`\\.config\cabal\config                       | Path for global configuration file.                                                                                                                                                                                                                |
-    | `GHCUP_MSYS2`               | D:\msys64                                                | [Has to point to the root of an existing MSYS2 installation](https://www.haskell.org/ghcup/guide/#env-variables)                                                                                                                                   |
-    | `STACK_ROOT`                | D:\sr                                                    | This is where `stack` stores important files. See [here](https://docs.haskellstack.org/en/stable/stack_root/).                                                                                                           |
-    | `GITHUB_TOKEN`              | GitHub PAT. See [GitHub Token](#github-pat) for details. | Used by `stack` to authenticate when using GitHub REST API. See [here](https://docs.haskellstack.org/en/stable/environment_variables/).|
+     Env Variable                | Value                                                    | Notes
+    -----------------------------|----------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+     `GHCUP_INSTALL_BASE_PREFIX` | D:\Apps                                                  | [Defaults to `$HOME`](https://www.haskell.org/ghcup/guide/#env-variables)
+     `CABAL_DIR`                 | D:\Apps\cabal                                            | If set, *all* `cabal-install` content files will be stored as subdirectories of this directory, including the configuration file if `CABAL_CONFIG` is unset. See [here](https://cabal.readthedocs.io/en/stable/config.html#environment-variables).
+     `CABAL_CONFIG`              | `$USERPROFILE`\\.config\cabal\config                     | Path for global configuration file.
+     `GHCUP_MSYS2`               | D:\msys64                                                | [Has to point to the root of an existing MSYS2 installation](https://www.haskell.org/ghcup/guide/#env-variables)
+     `STACK_ROOT`                | D:\sr                                                    | This is where `stack` stores important files. See [here](https://docs.haskellstack.org/en/stable/stack_root/).
+     `GITHUB_TOKEN`              | GitHub PAT. See [GitHub Token](#github-pat) for details. | Used by `stack` to authenticate when using GitHub REST API. See [here](https://docs.haskellstack.org/en/stable/environment_variables/).
 
 > [!IMPORTANT]
 > You also need to add `D:\Apps\ghcup\bin` to `$Path`. <br>
@@ -1765,7 +1765,7 @@ This section is based on the following links:
 
 #### stack
 
-- Edit [Stack's global configuration file](https://docs.haskellstack.org/en/stable/stack_root/#configyaml) which should be located at `${STACK_ROOT}\config.yaml`, e.g. `D:/sr/config.yaml`[^4]:
+- Edit [Stack's global configuration file](https://docs.haskellstack.org/en/stable/stack_root/#configyaml) which should be located at `${STACK_ROOT}\config.yaml`, e.g. `D:/sr/config.yaml`[^4][^5]:
 
     ```yaml
     # The target directory for stack build --copy-bins and stack install.
@@ -1787,19 +1787,7 @@ This section is based on the following links:
 
 [^4]: If you execute a `stack` command before your config file is set up correctly, it will attempt to download GHC, msys2 which is not what we want :astonished:
 
-    For more details, see [here](https://docs.haskellstack.org/en/stable/faq/#i-already-have-ghc-installed-can-i-still-use-stack) and [here](https://docs.haskellstack.org/en/stable/faq/#can-i-change-stacks-default-temporary-directory).
-
-- If you wish to add your config file to your [dot files repo](#dot-files), do the following:
-
-    ```powershell
-    # Create symlink to actual config file
-    New-Item -Path ~\.stack\config.yaml -Value D:\sr\config.yaml -ItemType SymbolicLink -Force
-
-    chezmoi add --follow --template ~/.stack/config.yaml
-    ```
-
-> [!WARNING]
-> `chezmoi re-add` will not pick up updates to the original `config.yaml`. You will need to add it again via `chezmoi add ...` if there are any updates :frowning:
+[^5]: To add the config file to my dotfiles repo, I created it at the following location: `~/.stack/config.yaml` and then created a symlink to it in `$STACK_ROOT`.
 
 - Run `ghcup install stack latest`.
 - Make sure that the value of `local-bin-path` (if not set, value is `~\AppData\Roaming\local\bin`) is in `$PATH` as that is where `stack install` installs generated binaries ([source](https://docs.haskellstack.org/en/stable/GUIDE/#the-stack-install-command-and-copy-bins-option)).
