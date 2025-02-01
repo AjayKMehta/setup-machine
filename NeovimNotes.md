@@ -148,6 +148,7 @@
         - [nvim-R](#nvim-r)
           - [Settings](#settings)
           - [Commands](#commands-1)
+      - [roslyn.nvim](#roslynnvim)
     - [Editing](#editing-2)
       - [mini.move](#minimove)
       - [nvim-spider](#nvim-spider)
@@ -164,9 +165,7 @@
       - [precognition.nvim](#precognitionnvim)
     - [LSP-related](#lsp-related)
       - [garbage-day.nvim](#garbage-daynvim)
-      - [lsp\_lines.nvim](#lsp_linesnvim)
       - [nvim-lsp-endhints](#nvim-lsp-endhints)
-      - [roslyn.nvim](#roslynnvim)
     - [Treesitter-related](#treesitter-related)
       - [nvim-treesitter](#nvim-treesitter)
       - [nvim-treesitter-context](#nvim-treesitter-context)
@@ -2295,6 +2294,11 @@ Use `\m` + `<motion>` to send motion to console, e.g. send paragraph to console 
 
 </details>
 
+#### roslyn.nvim
+
+<!-- TODO: Finish -->
+🚧 **TBD**
+
 ### Editing
 
 #### mini.move
@@ -2519,44 +2523,12 @@ Let's illustrate usage for operator-pending and visual mode:
 
 [garbage-day.nvim](https://github.com/Zeioth/garbage-day.nvim) stops inactive LSP clients to free RAM.
 
-#### lsp_lines.nvim
-
-> :bulb: For my config, enabled via `vim.g.lsp_inline = true`.
-
-From [README](https://git.sr.ht/~whynothugo/lsp_lines.nvim):
-
-> `lsp_lines` is a simple neovim plugin that renders diagnostics using virtual lines on top of the real line of code.
-
-Use `<leader>ltd` to toggle virtual lines.
-
-Disable functionality: `vim.diagnostic.config({ virtual_lines = false })`
-
-And re-enable via: `vim.diagnostic.config({ virtual_lines = true })`
-
-To show virtual lines only for the current line's diagnostics:
-
-```lua
-vim.diagnostic.config({ virtual_lines = { only\_current\_line = true } })
-```
-
-If you don't want to highlight the entire diagnostic line, use:
-
-```lua
-vim.diagnostic.config({ virtual_lines = { highlight\_whole\_line = false } })
-```
-
 #### nvim-lsp-endhints
-
-> :bulb: For my config, enabled via `vim.g.lsp_inline = false`.
 
 [This plugin](https://github.com/chrisgrieser/nvim-lsp-endhints) displays LSP inlay hints at the end of the line, rather than within the line.
 
 Use `<leader>lte` to toggle behavior.
 
-#### roslyn.nvim
-
-<!-- TODO: Finish -->
-🚧 **TBD**
 
 ### Treesitter-related
 
