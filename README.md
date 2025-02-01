@@ -410,23 +410,16 @@ Download it from [here](https://bayden.com/slickrun/).
 Install extensions:
 
 ```powershell
+gh extension install cschleiden/gh-actionlint
 gh extension install actions/gh-actions-cache
 gh extension install securesauce/gh-alerts
-gh extension install mislav/gh-branch
 gh extension install chelnak/gh-changelog
-gh extension install vilmibm/gh-contribute
-gh extension install mislav/gh-cp
 gh extension install dlvhdr/gh-dash
 gh extension install yuler/gh-download
-gh extension install owenvoke/gh-gpg-key
-gh extension install k1LoW/gh-grep
-gh extension install redraw/gh-install
-gh extension install heaths/gh-label
 gh extension install meiji163/gh-notify
 gh extension install seachicken/gh-poi
 gh extension install samcoe/gh-repo-explore
-gh extension install samcoe/gh-triage
-gh extension install vilmibm/gh-user-status
+gh extension install gennaro-tedesco/gh-s
 ```
 
 #### act
