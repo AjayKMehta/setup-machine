@@ -343,7 +343,9 @@ Set to default value | `:set <option>&`
 
 ### Autocommands
 
-Help: `:help autocmd`
+Autocommands let you respond to events like opening a buffer.
+
+Refer to `:help autocmd` for more information.
 
 Action | Keymap/command
 ---------|----------
@@ -455,6 +457,7 @@ Prefix register name with `"` to use in commands.
 Some examples:
 
 `"ayy` copies current line to `a` register.
+
 `"bp` pastes content from `b` register.
 
 In INSERT mode or COMMAND LINE mode, you can use `CTRL+R <reg>` to put the content of register `<reg>` in your current buffer.
@@ -489,7 +492,9 @@ Try this:
 4. To stop recording, press <kbd>q</kbd> again.
 
 To invoke macro: <kbd>@</kbd> + <kbd>x</kbd>.
+
 Also, supports repeat, e.g. `3@x` to execute 3 times.
+
 To invoke previously-played macro: <kbd>@</kbd> + <kbd>@</kbd>.
 
 To run macro on visual selection:  `:'<,'> norm @x`.
@@ -508,7 +513,7 @@ Here's an example: `qr0f:lr^M>>o^[j@rq`. This creates a macro in register `r` th
 
 1. Finds the first instance of `:` in the line.
 2. Moves right by 1 character (`l`)
-3. Replaces current character with new line ()`r^M`)
+3. Replaces current character with new line (`r^M`)
 4. Indents (`>>`)
 5. Adds new line via `o`
 6. Exits insert mode (<kbd>Esc</kbd>)
