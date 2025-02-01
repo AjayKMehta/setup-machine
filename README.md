@@ -1814,9 +1814,9 @@ Checks:
     ```
 
 > [!IMPORTANT]
-> Do not use `stack runghc` with a local package. Use `stack exec` instead.[^5]
+> Do not use `stack runghc` with a local package. Use `stack exec` instead.[^6]
 
-[^5]: <https://www.reddit.com/r/haskell/comments/a6st8j/comment/ebyyb8n/>.
+[^6]: <https://www.reddit.com/r/haskell/comments/a6st8j/comment/ebyyb8n/>.
 
 #### Haskell Language Server
 
