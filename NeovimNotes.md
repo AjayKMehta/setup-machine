@@ -137,6 +137,7 @@
       - [codecompanion](#codecompanion)
         - [Chat Buffer](#chat-buffer)
         - [Inline Assistant](#inline-assistant)
+        - [Workspaces](#workspaces)
       - [neominimap](#neominimap)
       - [Outline](#outline)
         - [Commands](#commands)
@@ -779,6 +780,7 @@ Examples of ranges:
 Use `↑` and `↓` to navigate history.
 
 `q:` opens window for `:` commands.
+
 `q/` and `q?` open window for search patterns.
 <kbd>Ctrl</kbd> + <kbd>f</kbd> opens appropriate history window.
 
@@ -838,7 +840,9 @@ You can even use marks:
 #### Alternation and grouping
 
 Need to use `\|` instead of `|`. So, instead of `\d|\s`, write `\d\|\s`.
+
 For grouping, use `\(` and `\)`, e.g. `\(bar\|cat\)`
+
 For non-capturing group: `\%(pattern\)`
 
 #### Backreferences
@@ -850,11 +854,16 @@ In `:s/\(\d\w\)\1`, `\1` refers to the first capture group.
 #### Lookarounds
 
 Syntax is different: `\d\@!` vs `(?!\d)` and `\(pat.*\)\@<=` vs `(?<=pat.*)`.
-:point_right: Notice that `\@` always follows the pattern atom.
+
+> [!TIP]
+> Notice that `\@` always follows the pattern atom.
 
 Negative lookahead: `ice\d\@!` matches `ice` or `iced` but not `ice1`.
+
 Negative lookbehind: `s\@<!c` matches `cool` but not `school`.
+
 Positive lookahead: `ice\d\@=` matches `ice1` but not `ice`.
+
 Positive lookbehind: `s\@<=c` matches `school` but not `cool`.
 
 #### Atomic grouping
@@ -906,6 +915,7 @@ Type <kbd>n</kbd> to go to the next match or <kbd>N</kbd> to go to the previous 
 Press <kbd>Shift</kbd> + <kbd>q</kbd> to skip next match.
 
 `gn` goes to match of your last search, enters Visual mode and selects it. You can continue to hit `n` (or `gn`) to select the area between the current match and the next match!
+
 You can use this with an action, e.g. `dgn` to delete search result.
 
 #### Clear results
@@ -960,20 +970,6 @@ Examples:
 2. `:s/test/ok/g` (or `:.s/test/ok/g`) replaces all occurrences of `test` in current line with `ok`.
 
 3. Replace in whole file: `:%/s/test/ok/g`.
-
-4. Here's a more complicated example involving `:~`:
-
-    ```shell
-    :s/foo/bar/g
-    /hello
-    :~
-    ```
-
-    This does the following:
-
-   1. Use `substitute` to replace all instances of `foo` with `bar`.
-   2. Search for `hello`.
-   3. Replace all instances of `hello` with `bar`.
 
 ##### Flags
 
@@ -2090,6 +2086,10 @@ In order to allow for references to self-update, they can be *pinned* (for files
 
 [Agents](https://codecompanion.olimorris.dev/configuration/chat-buffer.html#agents-and-tools) are prefixed with `@` and can be used to perform tasks like update code. The most comprehensive one is `@full_stack_dev` which is a combination of the `@cmd_runner`, @`editor` and `@files` tools. For a description of these agents, see [Using Agents and Tools](https://codecompanion.olimorris.dev/usage/chat-buffer/agents.html).
 
+> [!NOTE]
+> The message history can be modified via the debug window (`gd`) in the chat buffer.
+> This window is simply a Lua buffer which the user can edit as they wish. To persist any changes, the chat buffer keymaps for sending a message (defaults: `<CR>` or `<C-s>`) can be used.
+
 ##### Inline Assistant
 
 The Inline Assistant enables an LLM to write code directly into a Neovim buffer. Supply a prompt and the LLM will either write code or open a chat buffer. You can make a visual selection and call the Assistant.
@@ -2101,6 +2101,14 @@ By default, an inline assistant prompt will trigger the diff feature, showing di
 To accept changes: `<leader>ca`.
 
 To reject changes: `<leader>cr`.
+
+##### Workspaces
+
+From the [announcement](https://github.com/olimorris/codecompanion.nvim/discussions/705):
+
+> The new workspace slash command allows users to share defined groups of files and/or symbols with an LLM, alongside some pre-written context.
+
+In order to use this, you need to create a file called `codecompanion-workspace.json` in the root of your current working directory. See an example [here](https://github.com/olimorris/codecompanion.nvim/blob/main/codecompanion-workspace.json).
 
 #### neominimap
 
@@ -2850,7 +2858,8 @@ vim.g.vimtex_view_general_viewer = "zathura"
 
 #### Motions and text objects
 
-:bulb: The word `section` below refers to `\section`, `\subsection` or `\subsubsection`, whichever comes first.
+> [!NOTE]
+> The word `section` below refers to `\section`, `\subsection` or `\subsubsection`, whichever comes first.
 
 These motions support `count`, e.g. `2]]`.
 
