@@ -238,7 +238,8 @@ A buffer is essentially the in-memory representation of a file.
 
 A window is a viewport onto a buffer. Different windows correspond to one or more buffers.
 
-:bulb: Multiple windows displaying different parts of the same buffer is useful for comparing two sections of a file side by side.
+> [!TIP]
+> Multiple windows displaying different parts of the same buffer is useful for comparing two sections of a file side by side.
 
 Action | Keymap/command
 ---------|----------
@@ -429,7 +430,7 @@ You can go to these marks using `` ` `` or go to first non-blank character in co
 
 There are ten types of registers:
 
-1. `"` is the default register. If no register is specified, this register is used. It is **always populated** unless you specify `_` register, e.g. `_dd`.
+1. `"` is the default register. If no register is specified, this register is used. It is **always populated** unless you specify `_` register, e.g. `"_dd` when deleting a line.
 1. `*` and `+`: selection registers. system clipboards (only one of these works on Windows, but there are two of these registers because Linux uses two clipboards).
 1. `0-9`:
     - `0` contains the last yank unless you specify another register, e.g. `"xyy`.
@@ -514,7 +515,8 @@ Here's an example: `qr0f:lr^M>>o^[j@rq`. This creates a macro in register `r` th
 7. Move down 1 line (`j`)
 8. Finally recurses (`@r`).
 
-> :bulb: Register should be empty before you record macro to avoid unforeseen problems.
+> [!WARNING]
+> Register should be empty before you record macro to avoid unforeseen problems.
 
 ### Keymaps
 
@@ -1643,8 +1645,8 @@ Press `<C-x><C-f>` to get a list of local files when in insert mode ([source](ht
 
 Prefix them with <kbd>Alt</kbd>, e.g. `<A-P>` pastes in insert mode.
 
-> [!NOTE]
-> :warning: Doesn't seem to work reliably, e.g. `<A-d>d`should delete current line but is not working.
+> [!WARNING]
+> Doesn't seem to work reliably, e.g. `<A-d>d`should delete current line but is not working.
 
 ### Go backwards/forwards in time
 
@@ -2316,7 +2318,8 @@ Use `\m` + `<motion>` to send motion to console, e.g. send paragraph to console 
 
 This plugin extends regular `web` motions to handle snake and camel case!
 
-> :bulb: I have mapped the actions to different mappings to avoid clobbering the default mappings.
+> [!NOTE]
+> I have mapped the actions to different mappings to avoid clobbering the default mappings.
 
  Action                       | Keymap
 ------------------------------|-------------------------------
@@ -2460,7 +2463,8 @@ Let's show how to use this plugin for the case where you want to capitalize inst
 3. Press `gU` to capitalize.
 4. Finally <kbd>Esc</kbd> to exit multicursor mode.
 
-> :bulb: We could have used `:MCpattern` instead to find all instances.
+> [!TIP]
+> We could have used `:MCpattern` instead to find all instances.
 
 Prepend word in front of selected lines:
 
@@ -2650,7 +2654,8 @@ An example: `]f` will navigate to **start** (`f` is lower case) of **next** (`]`
 
 #### nvim-treesitter-refactor
 
-> :warning: Some of these keymaps do not seem to work.
+> [!WARNING]
+> Some of these keymaps do not seem to work.
 
  Action               | Keymap
 ----------------------|---------------------------------

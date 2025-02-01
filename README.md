@@ -1103,7 +1103,8 @@ Run tool using `uv tool run <tool>` or `uvx <tool>`.
    1. To run a script: `uv run example.py`.
    2. Specify .env file to use: `--env-file .env`.
 
-> :warning: Be careful not to use `uvx` to run a command corresponding to a tool with same name, e.g. `mypy` or you will be running in the wrong virtual environment!
+> [!WARNING]
+> Be careful not to use `uvx` to run a command corresponding to a tool with same name, e.g. `mypy` or you will be running in the wrong virtual environment!
 
 ### spacy
 
@@ -1477,7 +1478,8 @@ After
     [System.Environment]::SetEnvironmentVariable('DOTNET_TieredPGO', 1, 'User')
     ```
 
-    > :bulb: [Enabled by default in .NET 8]([text](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8?WT.mc_id=DT-MVP-5003978#performance-improvements)) so no longer needed after upgrading to .NET 8.
+    > [!NOTE]
+    > [Enabled by default in .NET 8]([text](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8?WT.mc_id=DT-MVP-5003978#performance-improvements)) so no longer needed after upgrading to .NET 8.
 
 - Disable telemetry:
 
@@ -1829,7 +1831,8 @@ Checks:
     stack exec sh
     ```
 
-> :bulb: Do not use `stack runghc` with a local package. Use `stack exec` instead.[^5]
+> [!IMPORTANT]
+> Do not use `stack runghc` with a local package. Use `stack exec` instead.[^5]
 
 [^5]: <https://www.reddit.com/r/haskell/comments/a6st8j/comment/ebyyb8n/>.
 
