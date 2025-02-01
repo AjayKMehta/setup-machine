@@ -56,7 +56,6 @@
   - [Dot files](#dot-files)
   - [VS Code](#vs-code)
   - [Node](#node)
-  - [Hugo](#hugo)
   - [WSL](#wsl)
   - [Docker](#docker)
     - [Where are Docker images located?](#where-are-docker-images-located)
@@ -475,7 +474,7 @@ winget install GitExtensionsTeam.GitExtensions
 
 ### git absorb
 
-[git absorb](https://github.com/tummychow/git-absorb) eliminates tedious manual work of creating fixup commits (and rebasing if you specify `--and-rebase`). It can automatically identify which commits are safe to modify, and which staged changes belong to each of those commits. It will then write `fixup!` commits for each of those changes.
+[git absorb](https://github.com/tummychow/git-absorb) eliminates the tedious manual work of creating fixup commits (and rebasing if you specify `--and-rebase`). It can automatically identify which commits are safe to modify, and which staged changes belong to each of those commits. It will then write `fixup!` commits for each of those changes.
 
 ```shell
 git add . # fixed files
@@ -747,18 +746,6 @@ Grab latest binary from [GitHub](https://github.com/Orange-OpenSource/hurl) and 
 - Install from <https://nodejs.org/en/download/>.
 - Change installation path for modules by setting `$NODE_PATH`
 
-## Hugo
-
-[Hugo](https://gohugo.io/) is an open-source static site generator.
-
-- Install:
-
-    ```powershell
-    winget install Hugo.Hugo -l D:\apps\Hugo
-    ```
-
-- Add installation folder to `$Path`.
-
 ## WSL
 
 See [wsl.md](wsl.md).
@@ -775,15 +762,15 @@ When using WSL2 with Docker Desktop, a new distro called `docker-desktop-data` i
 
 ### [Docker Credentials Helper](https://github.com/docker/docker-credential-helpers)
 
-1. ~~Go to the [Releases](https://github.com/docker/docker-credential-helpers/releases) page and download the binary (`docker-credential-wincred`) that works for you. Put that binary in your `$PATH`, so Docker can find it.~~ This is already installed with Docker Desktop and should be in your $PATH.
+This is already installed with Docker Desktop and should be in your $PATH.
 
-2. Set the `credsStore` option in your `~/.docker/config.json` file with the suffix of the program you want to use (`wincred`).
+Set the `credsStore` option in your `~/.docker/config.json` file with the suffix of the program you want to use (`wincred`).
 
-    ```json
-    {
-        "credsStore": "wincred"
-    }
-    ```
+```json
+{
+    "credsStore": "wincred"
+}
+```
 
 ### Change images and containers directory
 
@@ -816,7 +803,7 @@ Move-WslDistro -Distro docker-desktop-data -ExportPath D:/wsl/Docker/data
 Move-WslDistro -Distro docker-desktop -ExportPath D:/wsl/Docker/distro
 ```
 
-When you are satisfied that this is working, you can delete tar files.
+When you are satisfied that this is working, you can delete the tar files.
 
 ### Getting a Shell in Docker for Windows Moby VM
 
@@ -1030,19 +1017,17 @@ In order to build certain sdist packages, you need to install latest version of 
     uv tool install yamllint
 
     # <https://pypi.org/project/tox-uv/>
-
     uv tool install tox --with tox-uv
 
     # <https://pypi.org/project/pre-commit-uv/>
-
     uv tool install pre-commit --with pre-commit-uv --force-reinstall
 
     uv tool 
     ```
 
 - Use `uv tool upgrade --all` to upgrade tools.
-- Use `uv tool dir` to list directory where tools are installed.
-- Use `uv tool dir --bin` to list directory where tools' executables are installed.
+- Use `uv tool dir` to list the directory where tools are installed.
+- Use `uv tool dir --bin` to list the directory where tools' executables are installed.
 
 Run tool using `uv tool run <tool>` or `uvx <tool>`.
 
@@ -1485,8 +1470,8 @@ After
     [System.Environment]::SetEnvironmentVariable('DOTNET_TieredPGO', 1, 'User')
     ```
 
-    > [!NOTE]
-    > [Enabled by default in .NET 8]([text](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8?WT.mc_id=DT-MVP-5003978#performance-improvements)) so no longer needed after upgrading to .NET 8.
+> [!NOTE]
+> [Enabled by default in .NET 8]([text](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8?WT.mc_id=DT-MVP-5003978#performance-improvements)) so no longer needed after upgrading to .NET 8.
 
 - Disable telemetry:
 
