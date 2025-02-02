@@ -1362,12 +1362,13 @@ See `:help sort` for more information.
 
 Specify `i` to ignore case, e.g. `:sort i`.
 
-Specify `n` to sort the first decimal on each line.
-`f` works similarly but for floats.
-`r/{pattern}/` is to sort based on `{pattern}`.
-`/{pattern}/` is to sort based on `{pattern}`.
+Specify `f|n|o|b` to sort based on the first `float | decimal | octal | binary` number on each line.
 
-Sort based on value after `Value:`: `:sort /Value:/`
+`/{pattern}/` is to sort lines based on **what comes after** `{pattern}`, e.g. to sort based on value after `Value:`: `:sort /Value:/`
+
+If you specify `r /{pattern}/`, it will sort based on the pattern, e.g. `:sort /\a r` to sort based on the first letter on each line.
+
+If a pattern is used and there are any lines that do not match it, they will be placed in their original order, right before the sorted lines but if you sorted in reverse, they will be in reverse order after the sorted lines.
 
 ### Join Lines
 
