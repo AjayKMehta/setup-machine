@@ -1175,7 +1175,7 @@ Use `t{character}` to move the cursor just before the next occurrence of a chara
 
 To execute a normal mode command from insert mode in Neovim, you can use the `<C-o>` (<kbd>Ctrl</kbd> + <kbd>o</kbd>) shortcut. This allows you to execute a single normal mode command without leaving insert mode. After executing the command, you will return to insert mode.
 
-For good overview of different operators: <https://www.barbarianmeetscoding.com/boost-your-coding-fu-with-vscode-and-vim/editing-like-magic-with-vim-operators/>
+For a good overview of different operators: <https://www.barbarianmeetscoding.com/boost-your-coding-fu-with-vscode-and-vim/editing-like-magic-with-vim-operators/>
 
 In Vim, editing commands have the following structure: `<number><command><text object or motion>`.
 
@@ -1276,7 +1276,7 @@ This even works with marks: `:'a,'bd` deletes from line with mark `a` to line wi
 
  Action                                     | Keymap/command
  -------------------------------------------|---------------
- Copy line and line above                   | `yk`
+ Copy line and line above into register `d` | `"dyk`
  Copy current line                          | `yy`
  Copy from current character to end of line | `y$` or `Y`
 
@@ -1286,16 +1286,16 @@ You can also use yank in command-line mode: `:5y a` yanks line 5 into register `
 
 ### Paste
 
- Action                                                          | Keymap/command
- -----------------------------------------------------------------|---------------------------------
- Paste below current line or to right of cursor                  | `p`
- Paste above current line or to left of cursor                   | <kbd>Shift</kbd> + <kbd>p</kbd>
- Paste below current line or right of cursor (matching indent)   | `]p`
- Paste above current line or to left of cursor (matching indent) | `]P`
- Same as `p` but puts the cursor after the pasted selection      | `gp`
- Same as `P` but puts the cursor after the pasted sele ction     | `gP`
- Paste before line 2                                             | `:2pu`
- Paste after line 3                                              | `:3pu`
+ Action                                                           | Keymap/command
+ -----------------------------------------------------------------|---------------
+ Paste from register `w` below current line or to right of cursor | `"wp`
+ Paste above current line or to left of cursor                    | `P`
+ Paste below current line or right of cursor (matching indent)    | `]p`
+ Paste above current line or to left of cursor (matching indent)  | `]P`
+ Same as `p` but puts the cursor after the pasted selection       | `gp`
+ Same as `P` but puts the cursor after the pasted sele ction      | `gP`
+ Paste from register `n` before line 2                            | `:2pu n`
+ Paste after line 3                                               | `:3pu`
 
 Duplicate a line: `yyp`
 
@@ -1332,8 +1332,6 @@ This functionality was added to neovim 0.10 in this [PR](https://github.com/neov
 Both `gc` and `gb` act as leaders, e.g. comment to end of line: `gc$` or comment out entire paragraph: `gcip`.
 
 This even has Treesitter integration, e.g. `gcam` to comment out method!
-
-~~`<leader>cc` will comment out text smartly, i.e.use block comment style only if more than one line selected.~~
 
 ### Indent
 
