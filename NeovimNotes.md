@@ -1696,8 +1696,7 @@ Press `<C-x><C-f>` to get a list of local files when in insert mode ([source](ht
 
 Prefix them with <kbd>Alt</kbd>, e.g. `<A-P>` pastes in insert mode.
 
-> [!WARNING]
-> Doesn't seem to work reliably, e.g. `<A-d>d`should delete current line but is not working.
+`<A-d>,d` deletes current line.
 
 ### Go backwards/forwards in time
 
@@ -1726,9 +1725,9 @@ Direction is one of: `horizontal`, `vvertical`, `float`, `tab`.
 
 `ToggleTermToggleAll` will toggle all terminal windows.
 
-`TermSelect` will let user select terminal window to open or to focus if already open.
+`TermSelect` lets the user select the terminal window to open or to focus if already open.
 
-`<C-\>` will toggle last opened terminal in normal mode. You can prefix by count to specify a certain window.
+`<C-\>` toggles the last opened terminal in normal mode. You can prefix by count to specify a certain window.
 
 `TermExec` allows you to execute a command in a terminal, e.g. `2TermExec cmd="git status" dir=~/<my-repo-path>` will run git status in terminal 2. :point_right: `cmd` argument **must** be quoted.
 
@@ -1740,19 +1739,22 @@ Direction is one of: `horizontal`, `vvertical`, `float`, `tab`.
  Send all the (whole) lines in your visual selection | `:ToggleTermSendVisualLines`
  Sends only the visually selected text               | `:ToggleTermSendVisualSelection`
 
-Specifying terminal in above commandss is optional. If missing, it defaults to the first terminal.
+Specifying a terminal in the above commands is optional. If missing, it defaults to the first terminal.
 
 #### nvim-tree
 
 [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) is a file explorer for Neovim.
 
-To launch, press <kbd>Ctrl</kbd> + <kbd>n</kbd>. To close, press <kbd>q</kbd>.
+To launch, press <kbd>Ctrl</kbd> + <kbd>n</kbd>.
+
+To close, press <kbd>q</kbd>.
 
 Floating preview is courtesy of [nvim-tree-preview.lua](https://github.com/b0o/nvim-tree-preview.lua).
 
 Below are some useful key maps for when the window is displayed.
 
-👉 All actions in **bold** in the tables below have custom keymaps. The other commands use plugin defaults.
+> [!NOTE]
+> All actions in **bold** in the tables below have custom keymaps. The other commands use plugin defaults.
 
 <details>
   <summary>Root</summary>
@@ -1879,7 +1881,7 @@ Action                          | Keymap
 Wipe buffer                      | `BW`
 Delete buffer                    | `BD`
 
-These commands work on buffer for current node if it exists.
+These commands work on the buffer for the current node if it exists.
 
 </details>
 
@@ -1887,7 +1889,7 @@ These commands work on buffer for current node if it exists.
 
 [Telescope](https://github.com/nvim-telescope/telescope.nvim) is a very powerful plugin to search for items.
 
-- `actions.which_key` (<kbd>Ctrl</kbd> + <kbd>/</kbd> in **insert** or <kbd>?</kbd> in **normal** mode)  shows the mappings for your picker. Press again to close. Default mappings are [here](https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/mappings.lua).
+- `actions.which_key` (<kbd>Ctrl</kbd> + <kbd>/</kbd> in **insert** or <kbd>?</kbd> in **normal** mode) shows the mappings for your picker. Press again to close. Default mappings are [here](https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/mappings.lua).
 
 - `builtin.grep_string` searches for the string under your cursor or selection in your current working directory.
 `builtin.live_grep` searches for a string in your current working directory and gets results live as you type, respects `.gitignore`. (Requires **ripgrep**)
@@ -2059,7 +2061,7 @@ See [here](https://github.com/nvim-lualine/lualine.nvim#usage-and-customization)
 
 #### bufferline
 
-[bufferline.nvim](https://github.com/akinsho/bufferline.nvim) provides a snazzy 💅 buffer line (with tabpage integration).
+[bufferline.nvim](https://github.com/akinsho/bufferline.nvim) provides a snazzy buffer line (with tabpage integration).
 
 #### dropbar
 
