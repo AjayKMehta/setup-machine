@@ -1397,7 +1397,9 @@ This also works with ranges: `:10,15m4` to move lines 10-15 (both inclusive) aft
 To input a digraph, in insert mode, press <kbd>Ctrl</kbd>+<kbd>q</kbd> followed by the two letters which define the digraph. Here are a few useful, built-in, combinations:
 
 <kbd>Ctrl</kbd>+<kbd>q</kbd> + <kbd>a</kbd>+<kbd>:</kbd> = ä
+
 <kbd>Ctrl</kbd>+<kbd>q</kbd> + <kbd>a</kbd>+<kbd>*</kbd> = α
+
 <kbd>Ctrl</kbd>+<kbd>q</kbd> + <kbd>T</kbd>+<kbd>E</kbd> = ∃
 
 Show digraphs: `:digraphs` OR `:dig`.
@@ -1467,10 +1469,13 @@ See `:h text-objects` for more details.
 `:[range]command[options]`
 
 Delete the lines 10, 11 and 12 and puts them inside the `a` register: `:10,12d a` or `:10,+2d a`.
+
 Copy current line: `:.y`
+
 Delete whole file: `:%d`
 
 `0` refers to beginning of the file and `$` to end.
+
 So, `:.,$y` copies text from current line to end of file.
 
 `:'<,'>` shows up if you type `:` and you're in **VISUAL** mode. It refers to current selection so to delete it: `:'<,'>d`.
@@ -1480,8 +1485,11 @@ Repeat last ex-command: `@:`. After that, type `@@` to repeat it again.
 ### Change case
 
 Toggle case of character (works in VISUAL mode too): `~`
+
 Toggle case with motion: `g~<motion>`, e.g. `g~iw`.
+
 Lower case with motion: `gu<motion>`, e.g. `gue`.
+
 Upper case with motion: `gU<motion>`, e.g. `gUiw`.
 
 To get ASCII value of current character: `ga`.
@@ -1497,6 +1505,7 @@ Use `guu` to change all text on the line to lowercase, `gUU` for uppercase.
 `:g/call/d a` - delete all lines containing `call` and store in `a` register
 
 `:1,5 g/call/m0` - move all lines from 1 to 5 containing `call` to top of file.
+
 `:g /cat/ s/rat/bat/g` : replace `rat` with `bat` in all lines containing `cat`.
 
 `:.,+2 g/\wa/ normal gU$` - for current line and 2 lines below it, convert to upper case all lines containing `\wa`.
@@ -1526,6 +1535,7 @@ You can use <kbd>Esc</kbd> or <kbd>Ctrl</kbd> + <kbd>[</kbd> to return to normal
 ## Completion and snippets
 
 `nvim-cmp.nvim` provides completion support.
+
 `luasnip.nvim` provides extensive snippet functionality.
 
  Action                                                | Keymap
@@ -1546,7 +1556,8 @@ You can use <kbd>Esc</kbd> or <kbd>Ctrl</kbd> + <kbd>[</kbd> to return to normal
  **Select choice (shows dropdown for choice node)**    | <kbd>Ctrl</kbd> + <kbd>u</kbd>
  **List snippets**                                     | `<leader>sl`
 
-Actions in **bold** above are custom actions I added in addition to those to provided by NvChad.
+> [!NOTE]
+> Actions in **bold** above are custom actions I added in addition to those to provided by NvChad.
 
 ## Recipes + FAQ
 
@@ -1597,7 +1608,8 @@ Use `]u` and `[u` to navigate to previous and next URL in buffer.
 
 ### Check key maps
 
-You can use `<leader>fk`, `<leader>lk` to bring up GUI.
+You can use `<leader>fk` ()`telescope.nvim`), `<leader>lk` (`legendary.nvim`) to bring up a GUI showing a list of keymaps that you can search.
+
 Also, try `:[<MODE>]map <KEYMAP>`, e.g. `:nmap <leader>lf` tells you binding for `<leader>lf` in normal mode.
 
 Another approach is `:echo maparg("<leader>lf", "n")`
