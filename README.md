@@ -74,6 +74,9 @@
     - [AIShell](#aishell)
     - [Ollama](#ollama)
     - [aichat](#aichat)
+      - [Configuration](#configuration)
+      - [Roles](#roles)
+      - [Usage](#usage)
     - [aider-chat](#aider-chat)
     - [HuggingFace Model Downloader](#huggingface-model-downloader)
     - [RAG Crawler](#rag-crawler)
@@ -913,16 +916,58 @@ If you want to change the download directory for models, then set `$OLLAMA_MODEL
 
 ### aichat
 
-Download latest release from [here](https://github.com/sigoden/aichat/releases).
+Download the latest release from [here](https://github.com/sigoden/aichat/releases).
 To override settings used by the app through environment variables, refer [here](https://github.com/sigoden/aichat/wiki/Environment-Variables#generic-envs).
 
+#### Configuration
+
 You can put all your secret environment variables in `$APPDATA\aichat\.env` (location can be overriden by `$AICHAT_ENV_FILE`).
+
+See [here](https://github.com/sigoden/aichat/wiki/Configuration-Guide#configuration-file) for how to create a configuration file. You can override the default location of `$APPDATA\aichat\config.toml` by setting `$AICHAT_CONFIG_FILE` or (`$AICHAT_CONFIG_DIR`).
 
 Grab shell completion:
 
 ```powershell
 gh download https://github.com/sigoden/aichat/blob/main/scripts/completions/aichat.ps1
 ```
+
+#### Roles
+
+A role primarily consists of a name and a prompt, alongside several optional configurations. You can create a role by creating a file in the roles directory (default is `${AICHAT_CONFIG_DIR}\roles` but it can be overriden by `$AICHAT_ROLES_DIR`).:
+
+```markdown
+---
+model: openai:gpt-4o
+temperature: 0
+top_p: 0
+---
+
+All code you write MUST be fully optimized.
+
+"Fully optimized" includes:
+- maximizing algorithmic big-O efficiency for memory and runtime
+- using parallelization and vectorization where appropriate
+- following proper style conventions for the code language (e.g. maximizing code reuse (DRY))
+- no extra code beyond what is absolutely necessary to solve the problem the user provides
+
+If the code is not fully optimized, you will be fined $100.
+```
+
+See [here](https://github.com/sigoden/aichat/wiki/Role-Guide#built-in-roles) for a list of built-in roles.
+
+#### Usage
+
+```powershell
+aichat --info
+aichat --list-sessions  
+aichat --list-models  
+aichat --list-rags  
+
+aichat -f .github/ Document what these workflows do --model ollama:codellama:13b
+aichat -c fibonacci in python  # Generate code for fibonacci in Python
+```
+
+Simply type `alt+e` to let `aichat` provide intelligent completions directly in your terminal.
 
 ### aider-chat
 
@@ -1184,11 +1229,13 @@ To override the directory used to store prompt templates, etc., set `$LLM_USER_P
 [System.Environment]::SetEnvironmentVariable('LLM_USER_PATH', 'D:\llm', 'User')
 ```
 
-Add plugins:
+Add plugins (in same virtual environment where you added `llm`):
 
 ```powershell
-uv run llm install gpt4 llm-claude-3
+uv add llm-claude-3 llm-jq llm-ollama llm-deepseek llm-sentence-transformers
 ```
+
+For the complete list of plugins, see [here](https://llm.datasette.io/en/stable/plugins/directory.html).
 
 #### OpenAI
 
