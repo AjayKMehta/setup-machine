@@ -1181,6 +1181,8 @@ In Vim, editing commands have the following structure: `<number><command><text o
 
 This is a good read on text objects: <https://blog.carbonfive.com/vim-text-objects-the-definitive-guide/>.
 
+If you want to create your own text object, please read [this blog post](https://jdhao.github.io/2020/11/15/nvim_text_objects).
+
 ### Undo/redo
 
  Action                                  | Keymap/command
@@ -1885,6 +1887,18 @@ These commands work on the buffer for the current node if it exists.
 
 </details>
 
+<details>
+  <summary>AI</summary>
+
+Action                          | Keymap
+---------------------------------|----------------------------------
+**Add file or directory to chat**   | `<leaber>ca`
+**Add file or directory to chat (pinned)**   | `<leaber>cp`
+
+These require [codecompanion.nvim](#codecompanion).
+
+</details>
+
 #### Telescope
 
 [Telescope](https://github.com/nvim-telescope/telescope.nvim) is a very powerful plugin to search for items.
@@ -2140,7 +2154,7 @@ From the [announcement](https://github.com/olimorris/codecompanion.nvim/discussi
 
 > The new workspace slash command allows users to share defined groups of files and/or symbols with an LLM, alongside some pre-written context.
 
-In order to use this, you need to create a file called `codecompanion-workspace.json` in the root of your current working directory. See an example [here](https://github.com/olimorris/codecompanion.nvim/blob/main/codecompanion-workspace.json).
+In order to use this, you need to create a file called [`codecompanion-workspace.json`](https://codecompanion.olimorris.dev/extending/workspace.html) in the root of your current working directory. See an example [here](https://github.com/olimorris/codecompanion.nvim/blob/main/codecompanion-workspace.json).
 
 #### neominimap
 
@@ -2897,10 +2911,10 @@ These motions support `count`, e.g. `2]]`.
 
 Motion                 | Keymap
 -----------------------|--------
-Go to next end of a section     | `]]`
+Go to next start of a section     | `]]`
 Go to previous start of section | `[[`
 Go to previous end of section | `[]`
-Go to next beginning of a section | `][`
+Go to next end of a section | `][`
 **Go to previous start of an environment** | `[e`
 **Go to next start of an environment** | `]e`
 **Go to previous end of an environment** | `[E`
