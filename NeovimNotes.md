@@ -137,6 +137,7 @@
       - [codecompanion](#codecompanion)
         - [Chat Buffer](#chat-buffer)
         - [Inline Assistant](#inline-assistant)
+        - [Prompts](#prompts)
         - [Workspaces](#workspaces)
       - [neominimap](#neominimap)
       - [Outline](#outline)
@@ -2147,6 +2148,19 @@ By default, an inline assistant prompt will trigger the diff feature, showing di
 To accept changes: `<leader>ca`.
 
 To reject changes: `<leader>cr`.
+
+##### Prompts
+
+CodeCompanion comes with a set of built-in prompts that can be accessed via the Actions Palette or by `:CodeCompanion <prompt>`.
+
+For more information on how to create custom prompts, see [here](https://codecompanion.olimorris.dev/extending/prompts.html). You can assign a keymap and even specify that it is a slash command.
+
+My custom prompts:
+
+ Action                    | Mode           | Keymap/Command
+ --------------------------|----------------|--------------------------
+ Generate a commit message | NORMAL, VISUAL | `<leader>cm` OR `/commit`
+ Review code               | NORMAL, VISUAL | `<leader>cr` OR `/review`
 
 ##### Workspaces
 
