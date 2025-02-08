@@ -2108,6 +2108,8 @@ Keymaps when menu is active:
 
 An adapter is what connects Neovim to an LLM. See [here](https://github.com/olimorris/codecompanion.nvim/tree/main/lua/codecompanion/adapters) for the list of supported adapters. API Keys can be provided via `*_API_KEY` environment variable or you can run commands from within your config by prefixing them with `cmd:` to retrieve the key.
 
+In the table below, actions in **bold** are courtesy of custom prompts.
+
  Action                             | Keymap
 ------------------------------------|-------------
  Open chat buffer              | `<leader>cc` OR `:CodeCompanionChat`
@@ -2116,6 +2118,12 @@ An adapter is what connects Neovim to an LLM. See [here](https://github.com/olim
  Create command in command-line mode | `<leader>cC` OR  `:CodeCompanionCmd`
  Add to chat (visual mode) | `<leader>cA` OR `:CodeCompanionChat Add`
  Actions palette | `<leader>ca` OR `:CodeCompanionActions`
+ Fix code | `<leader>cf` OR `:'<,'>CodeCompanion /fix`
+ LSP Diagnostics | `<leader>cl` OR `:'<,'>CodeCompanion /lsp`
+ Generate Tests | `<leader>ct` OR `:'<,'>CodeCompanion /tests`
+ **Generate Documentation** | `<leader>cd` OR `:'<,'>CodeCompanion /doc`
+ **Generate a commit message (advanced)** | `<leader>cm`
+ **Review code** | `<leader>cr`
 
 ##### Chat Buffer
 
@@ -2155,12 +2163,7 @@ CodeCompanion comes with a set of built-in prompts that can be accessed via the 
 
 For more information on how to create custom prompts, see [here](https://codecompanion.olimorris.dev/extending/prompts.html). You can assign a keymap and even specify that it is a slash command.
 
-My custom prompts:
-
- Action                    | Mode           | Keymap/Command
- --------------------------|----------------|--------------------------
- Generate a commit message | NORMAL, VISUAL | `<leader>cm` OR `/commit`
- Review code               | NORMAL, VISUAL | `<leader>cr` OR `/review`
+Prompts can be used inline or in chat buffer.
 
 ##### Workspaces
 
