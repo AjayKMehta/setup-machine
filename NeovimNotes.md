@@ -181,7 +181,6 @@
         - [Swap](#swap)
         - [LSP interop](#lsp-interop)
       - [nvim-treesitter-refactor](#nvim-treesitter-refactor)
-      - [nvim-treesitter-textsubjects](#nvim-treesitter-textsubjects)
       - [nvim-tree-pairs](#nvim-tree-pairs)
       - [treewalker.nvim](#treewalkernvim)
     - [Markdown](#markdown)
@@ -2758,20 +2757,8 @@ An example: `]f` will navigate to **start** (`f` is lower case) of **next** (`]`
  Smart rename         | `grr`
  List definitions     | `gld`
  List definitions TOC | `glt`
- Go to next usage     | <kbd>Shift</kbd> + <kbd>*</kbd>
- Go to previous usage | <kbd>Shift</kbd> + <kbd>#</kbd>
-
-#### nvim-treesitter-textsubjects
-
-Location and syntax aware text objects which *do what you mean*.
-
- Motion                 | Keymap
-------------------------|--------
- Smart select           | `.`
- Select outer container | `;`
- Select inner container | `i;`
-
-These work with `d`, `v`, etc.
+ Go to next usage     | `]U`
+ Go to previous usage | `[U`
 
 #### nvim-tree-pairs
 
