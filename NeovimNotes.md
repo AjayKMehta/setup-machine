@@ -2660,8 +2660,8 @@ Syntax aware text-objects, select, move, swap, and peek support.
 ---------------------------------------------------|-----------
  Select outer part of an assignment                | `va=`
  Select inner part of an assignment                | `vi=`
- Select left hand side of an assignment            | `vL=`
- Select right hand side of an assignment           | `vR=`
+ Select left hand side of an assignment            | `v=L`
+ Select right hand side of an assignment           | `v=R`
  Select outer part of a parameter/argument         | `vaa`
  Select inner part of a parameter/argument         | `via`
  Select outer part of a conditional                | `vai`
