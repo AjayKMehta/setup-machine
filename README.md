@@ -1812,7 +1812,7 @@ This section is based on the following links:
 
 #### stack
 
-- Edit [Stack's global configuration file](https://docs.haskellstack.org/en/stable/stack_root/#configyaml) which should be located at `${STACK_ROOT}\config.yaml`, e.g. `D:/sr/config.yaml`[^4][^5]:
+- Edit [Stack's global configuration file](https://docs.haskellstack.org/en/stable/stack_root/#configyaml) which should be located at `${STACK_ROOT}\config.yaml`, e.g. `D:/sr/config.yaml`[^4] [^5]:
 
     ```yaml
     # The target directory for stack build --copy-bins and stack install.

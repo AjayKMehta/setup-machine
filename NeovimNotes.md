@@ -2196,25 +2196,25 @@ See [here](https://github.com/hedyhli/outline.nvim#default-keymaps) for default 
 
 ##### Commands
 
-- `:Outline[!]` toggles outline. If you use `!`, the cursor focus stays in your original window.
+- `:Outline[!]` toggles the outline window. If you use `!`, the cursor focus stays in your original window.
 You can use command modifiers `topleft`/`aboveleft`/`botright`/`belowright` on this command.
 
-- `:OutlineOpen[!]` opens outline. You can use modified to specify location as well.
+- `:OutlineOpen[!]` opens the outline window. You can use modified to specify location as well.
 
-- Use `:OutlineFocusOutline` to focus on outline.
+- Use `:OutlineFocusOutline` to focus on the outline window.
 
 - Use `:OutlineFocusCode` to focus on code.
 
-- `:OutlineFollow[!]` goes to corresponding node in outline based on cursor position in code, and focus on the outline window (use `!` to keep focus on original window).
+- `:OutlineFollow[!]` goes to the corresponding node in the outline window based on the cursor position in code, and then switches focus on the outline window (use `!` to keep focus on original window).
 
-  Action             | Keymap
- --------------------|-------------
-  Outline Open       | `<leader>oo`  
-  Outline Close      | `<leader>oc`  
-  Outline Toggle     | `<leader>ot`  
-  Outline Focus      | `<leader>ofo`
-  Outline Focus code | `<leader>ofc`
-  Outline Follow     | `<leader>oF`  
+ Action             | Keymap
+ -------------------|---------------
+ Outline Open       | `<leader>oo`  
+ Outline Close      | `<leader>oc`  
+ Outline Toggle     | `<leader>ot`  
+ Outline Focus      | `<leader>ofo`
+ Outline Focus code | `<leader>ofc`
+ Outline Follow     | `<leader>oF`  
 
 #### Diffview
 
@@ -2238,7 +2238,7 @@ Use `[c` and `]c` to jump btw hunks.
 
 DAP stands for Debug Adapter Protocol.
 
-Tried to keep same shortcuts as Visual Studio:
+I tried to keep the shortcuts the same as those in Visual Studio as much as possible:
 
  Action            | Keymap/command
 -------------------|-----------------------------------
@@ -2277,7 +2277,8 @@ See [here](https://github.com/nvim-neotest/neotest?tab=readme-ov-file#supported-
 
 Nvim-R is a file-type plugin. Its functionalities will be available only when an R file type (.R, .Rmd, .qmd) is being edited.
 
-:point_right: [You must start R from neovim](https://github.com/jamespeapen/Nvim-R/wiki/Known-Bugs-and-Workarounds#r-must-be-started-by-vim).
+> [!IMPORTANT]
+> [You must start R from neovim](https://github.com/jamespeapen/Nvim-R/wiki/Known-Bugs-and-Workarounds#r-must-be-started-by-vim).
 
 ###### Settings
 
@@ -2286,7 +2287,7 @@ Start object browser automatically: `vim.g.R_objbr_auto_start = 1`
 
 To view dataframes, install `visidata`, then `vim.g.R_csv_app = "terminal:vd"`.
 
-To use radian, refer to instructions [here](https://github.com/randy3k/radian/blob/master/README.md#nvim-r-support).
+To use radian, please refer to the instructions [here](https://github.com/randy3k/radian/blob/master/README.md#nvim-r-support).
 
 For more details, see [online documentation](https://github.com/jamespeapen/Nvim-R/wiki).
 
@@ -2452,9 +2453,9 @@ Detailed information on how to use this plugin can be found in [`:h nvim-surroun
 
 ##### More Mappings
 
-The  `yr`[^5] operator is a special case for `ys`, and operates on the **current line** via `yr{char}`, ignoring leading and trailing whitespace. The `yS` and `yR` operators are analogous to `ys` and `yr`, but add the delimiter pair on new lines.
+The  `yr`[^6] operator is a special case for `ys`, and operates on the **current line** via `yr{char}`, ignoring leading and trailing whitespace. The `yS` and `yR` operators are analogous to `ys` and `yr`, but add the delimiter pair on new lines.
 
-[^5]: I overrode the default mappings of `yss` and `ySS` with `yr` and `yR` to make this smoother and eliminate warnings about overlapping keymaps.
+[^6]: I overrode the default mappings of `yss` and `ySS` with `yr` and `yR` to make this smoother and eliminate warnings about overlapping keymaps.
 
  Old text       | Command | New text
 ----------------|---------|-------------------------------------------
@@ -2825,10 +2826,10 @@ For visual mode, I set up keyboard shortcuts identically to the ones for VS Code
 
  Action       | Keymap
  -------------|--------
- Add link[^6] | `gl`
+ Add link[^7] | `gl`
  Follow link  | `gx`
 
-[^6]: Use motion in normal mode, e.g. `gl$` to add link for text upto and including end of line.
+[^7]: Use motion in normal mode, e.g. `gl$` to add link for text upto and including end of line.
 
 Set cursor to current section heading | `<leader>mc`
 Set cursor to parent section heading | `<leader>mp`
@@ -2906,13 +2907,13 @@ vim.g.vimtex_view_general_viewer = "zathura"
  Stop compile            | `<localleader>lk` OR `:VimtexStop`
  Stop compile (all)      | `<localleader>lK` OR `:VimtexStopAll`
  Compile                 | `<localleader>ll` OR `:VimtexCompile`
- Imaps (insert mappings)[^7] | `<localleader>lm` OR `:VimtexImapsList`
+ Imaps (insert mappings)[^8] | `<localleader>lm` OR `:VimtexImapsList`
  Compile output          | `<localleader>lo`
  View log                | `<localleader>lq` OR `:VimtexLog`
  View TOC                | `<localleader>lt`
  Forward search          | `<localleader>lv`
 
-[^7]: Only visible if `vim.g.vimtex_imaps_enabled=1`.
+[^8]: Only visible if `vim.g.vimtex_imaps_enabled=1`.
 
  `:VimtexInfo` shows information about the project including packages used.
 
@@ -2958,7 +2959,7 @@ Inner environment | `ie` | `vie` selects inner text in evironment
 Around environment | `ae` | `dae` deletes evironment
 Toggle environment | `tse` | `tse` toggles environment.
 Surrounding command | `sc` | `csc` changes a command while preserving the command's argument(s).
-`*` in environments[^8] | `tss` | Toggle `*`.
+`*` in environments[^9] | `tss` | Toggle `*`.
 Inner math environment | `i$ | `vi$` selects inner content of environment.
 Outer math environment | `a$ | `va$` selects outer content of environment.
 Inner section | `iP` | `viP` selects entire content below current section.
@@ -2969,7 +2970,7 @@ Surrounding delimiters  | `sd` | `tsd` toggles between `()` and `\left(\right)`.
 
 :point_right: In the table above, `*` indicates cursor position.
 
-[^8]: See [Difference between equation and equation* enviroment](https://tex.stackexchange.com/questions/539986/difference-between-equation-and-equation-enviroment) for more details.
+[^9]: See [Difference between equation and equation* enviroment](https://tex.stackexchange.com/questions/539986/difference-between-equation-and-equation-enviroment) for more details.
 
 ### Linting + Formatting
 
