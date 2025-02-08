@@ -2469,7 +2469,7 @@ The `<C-g>S` insert-mode operator is analogous to `C-g>s`, but adds the delimite
 
  Old text                    | Command  | New text
 ----------------------------|----------|------------------------------------
- `func_name*`  (insert mode) | `<C-g>S` | <code>func\_name(<br>*<br>)</code>
+ `func_name*`  (insert mode) | `<C-g>s(` | <code>func\_name(<br>*<br>)</code>
 
 The `cS` normal-mode operator is analogous to `cs`, but adds the replacement delimiter pair on new lines.
 
@@ -2608,7 +2608,7 @@ Let's illustrate usage for operator-pending and visual mode:
 
 #### highlight-undo.nvim
 
-[highlight-undo.nvim](https://github.com/tzachar/highlight-undo.nvim) highlights changed text after any action which modifies the current buffer. It is configurable -- in my config, it highlights text after undo (`u`), redo (`<C-r>`) and paste (`p` and `P`).
+[highlight-undo.nvim](https://github.com/tzachar/highlight-undo.nvim) highlights changed text after any action which modifies the current buffer. I have configured it to highlight text after undo (`u`), redo (`<C-r>`) and paste (`p` and `P`).
 
 #### spellwarn.nvim
 
