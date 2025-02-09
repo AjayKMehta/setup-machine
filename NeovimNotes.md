@@ -165,6 +165,8 @@
       - [highlight-undo.nvim](#highlight-undonvim)
       - [spellwarn.nvim](#spellwarnnvim)
       - [precognition.nvim](#precognitionnvim)
+      - [nvim-various-textobjs](#nvim-various-textobjs)
+      - [nvim-next](#nvim-next)
     - [LSP-related](#lsp-related)
       - [garbage-day.nvim](#garbage-daynvim)
       - [nvim-lsp-endhints](#nvim-lsp-endhints)
@@ -622,6 +624,8 @@ Send diagnostics to QuickFix list: `:lua vim.diagnostic.setqflist()`.
   - `:caddexpr <cmd>` appends the command's results to QuickFix list.  
 
 Install `kevinhwang91/nvim-bqf` for a better quickfix experience.
+
+:point_right: Courtesy of [nvim-next](#nvim-next), `[q` is for previous quickfix list item and `]q` is for next one.
 
 Refer to [this](https://github.com/kevinhwang91/nvim-bqf#function-table) for hotkeys for `nvim-bqf`
 
@@ -2626,6 +2630,14 @@ Let's illustrate usage for operator-pending and visual mode:
 
 [precognition.nvim](https://github.com/tris203/precognition.nvim) helps with discovering motions. It will display hints, e.g. `$` at end of current line.
 
+#### nvim-various-textobjs
+
+[This plugin](https://github.com/chrisgrieser/nvim-various-textobjs) provides additional textobjects that are quite useful. See [List of text objects](https://github.com/chrisgrieser/nvim-various-textobjs?tab=readme-ov-file#list-of-text-objects) for specifics.
+
+#### nvim-next
+
+This plugin provides a streamlined approach to implement `;` and `,` for various motions.
+
 ### LSP-related
 
 #### garbage-day.nvim
@@ -2664,6 +2676,8 @@ Commands: `TSContextEnable`, `TSContextDisable` and `TSContextToggle`.
 #### treesitter-textobjects
 
 Syntax aware text-objects, select, move, swap, and peek support.
+
+Courtesy of [nvim-next](#nvim-next), all rpvoded motions are repeatable via `;` and `,`.
 
 ##### Select
 
