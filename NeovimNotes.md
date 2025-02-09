@@ -2583,7 +2583,7 @@ Once you enter the Extend mode, you can expand or shrink your selections using V
 When you search via `/`, each match will have a corresponding label, e.g. `a`. Press the key(s) matching that label (here, <kbd>a</kbd>) to go to the search result.
 
  Command                 | Normal mode  | Visual/operator-pending mode
- -------------------------|--------------|---------------------------
+ -------------------------|--------------|----------------------------
  Flash jump              | `<leader>ss` | `ss`
  Flash jump (Treesitter) | `<leader>sT` | `sT`
  Flash forward           | `<leader>sf` | `sf`
@@ -2593,11 +2593,20 @@ When you search via `/`, each match will have a corresponding label, e.g. `a`. P
  Flash Treesitter search | **NA**       | `sR`
  Flash toggle search     | `<leader>st` | **NA**
  Flash current word      | `<leader>sw` | **NA**
+ Move next               | `L`          | **NA**
+ Move previous           | `H`          | **NA**
 
- **Flash jump** lets you search for text in any direction.
- **Flash forward** searches only in the forward direction.
- **Flash continue** continues the previous search.
- **Flash jump (Treesitter)** lets you select Treesitter nodes based on cursor position.
+> [!NOTE]
+> Move next/previous do not use the standard `;`/`,` as this was conflicting with [another plugin](#treesitter-textobjects) that also provides this functionality.
+
+**Flash jump** lets you search for text in any direction.
+
+**Flash forward** searches only in the forward direction.
+
+**Flash continue** continues the previous search.
+
+**Flash jump (Treesitter)** lets you select Treesitter nodes based on cursor position.
+
 **Flash Treesitter search** lets you select Treesitter nodes containing text searched for.
 
 Let's illustrate usage for operator-pending and visual mode:
@@ -2655,6 +2664,8 @@ Commands: `TSContextEnable`, `TSContextDisable` and `TSContextToggle`.
 #### treesitter-textobjects
 
 Syntax aware text-objects, select, move, swap, and peek support.
+
+All move actions are repeatable via `;` and `,`.
 
 ##### Select
 
