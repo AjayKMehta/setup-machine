@@ -2597,7 +2597,7 @@ When you search via `/`, each match will have a corresponding label, e.g. `a`. P
  Move previous           | `H`          | **NA**
 
 > [!NOTE]
-> Move next/previous do not use the standard `;`/`,` as this was conflicting with [another plugin](#treesitter-textobjects) that also provides this functionality.
+> Move next/previous do not use the standard `;`/`,` as they do not seem to work.
 
 **Flash jump** lets you search for text in any direction.
 
@@ -2664,8 +2664,6 @@ Commands: `TSContextEnable`, `TSContextDisable` and `TSContextToggle`.
 #### treesitter-textobjects
 
 Syntax aware text-objects, select, move, swap, and peek support.
-
-All move actions are repeatable via `;` and `,`.
 
 ##### Select
 
