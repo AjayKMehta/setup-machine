@@ -1506,9 +1506,10 @@ After
 - Install [templates for `dotnet new`](https://github.com/dotnet/templating/wiki/Available-templates-for-dotnet-new):
 
     ```powershell
-    dotnet new install "Boxed.Templates"
-    dotnet new install "Amazon.Lambda.Templates"
-    dotnet new install "NUnit3.DotNetNew.Template"
+    dotnet new install Boxed.Templates
+    dotnet new install Amazon.Lambda.Templates
+    dotnet new install NUnit3.DotNetNew.Template
+    dotnet new install xunit.v3.templates  
     ```
 
 - Set environment variables related to [runtime configuration for compilation](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/compilation):
