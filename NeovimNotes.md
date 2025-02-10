@@ -138,6 +138,7 @@
         - [Chat Buffer](#chat-buffer)
         - [Inline Assistant](#inline-assistant)
         - [Prompts](#prompts)
+        - [Workflows](#workflows)
         - [Workspaces](#workspaces)
       - [neominimap](#neominimap)
       - [Outline](#outline)
@@ -2167,6 +2168,20 @@ CodeCompanion comes with a set of built-in prompts that can be accessed via the 
 For more information on how to create custom prompts, see [here](https://codecompanion.olimorris.dev/extending/prompts.html). You can assign a keymap and even specify that it is a slash command.
 
 Prompts can be used inline or in chat buffer.
+
+##### Workflows
+
+From [Creating Workflows](https://codecompanion.olimorris.dev/extending/workflows):
+
+> Workflows in CodeCompanion, are successive prompts which can be automatically sent to the LLM in a turn-based manner.
+> ...
+> When initiated from the [Action Palette](https://codecompanion.olimorris.dev/usage/action-palette.html), workflows attach themselves to a [chat buffer](https://codecompanion.olimorris.dev/usage/chat-buffer/index.html) via the notion of a *subscription*.
+
+To disable the requirement of approvals and automatically save any edited buffer:
+
+```lua
+vim.g.codecompanion_auto_tool_mode = true
+```
 
 ##### Workspaces
 
