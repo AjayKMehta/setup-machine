@@ -116,6 +116,7 @@
     - [Use normal mode commands in insert mode](#use-normal-mode-commands-in-insert-mode)
     - [Go backwards/forwards in time](#go-backwardsforwards-in-time)
     - [Filter lines using external program](#filter-lines-using-external-program)
+    - [Search help](#search-help)
   - [Plugins](#plugins)
     - [Utility](#utility)
       - [Toggleterm](#toggleterm)
@@ -1057,6 +1058,8 @@ When making changes, the cursor position is saved.
  Go to next change position            | <kbd>g</kbd> + <kbd>,</kbd>
  Go to last insert position and INSERT | <kbd>g</kbd> + <kbd>i</kbd>
 
+`<C-]>` jumps to the location of the tag given by the word under the cursor. Tags in help are essentially hyperlinks. Press `<C-T>` to go back to original location.
+
 ### Use arrow keys
 
 Action | Keymap/command
@@ -1712,6 +1715,10 @@ Prefix them with <kbd>Alt</kbd>, e.g. `<A-P>` pastes in insert mode.
 ### Filter lines using external program
 
 `1,3!grep test` will filter out lines from 1 to 3 not containing `test`!
+
+### Search help
+
+Use [`:helpgrep`](https://neovim.io/doc/user/helphelp.html#%3Ahelpgrep) to search in all help pages (and also of any installed plugins). All matches are available in the quickfix list.
 
 ## Plugins
 
