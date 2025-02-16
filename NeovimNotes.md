@@ -164,7 +164,7 @@
       - [multicursors](#multicursors)
         - [Extend mode](#extend-mode)
       - [flash](#flash)
-      - [highlight-undo.nvim](#highlight-undonvim)
+      - [undo-glow.nvim](#undo-glownvim)
       - [spellwarn.nvim](#spellwarnnvim)
       - [precognition.nvim](#precognitionnvim)
       - [nvim-various-textobjs](#nvim-various-textobjs)
@@ -2640,9 +2640,9 @@ Let's illustrate usage for operator-pending and visual mode:
 1. `dss` would let you delete text based on a search and selected label.
 2. `v$` selects from current position to end of line. Type `sb` to extend selection based on search (backwards only) and selected label. Then type `d` to delete visual selection.
 
-#### highlight-undo.nvim
+#### undo-glow.nvim
 
-[highlight-undo.nvim](https://github.com/tzachar/highlight-undo.nvim) highlights changed text after any action which modifies the current buffer. I have configured it to highlight text after undo (`u`), redo (`<C-r>`) and paste (`p` and `P`).
+[undo-glow.nvim](https://github.com/y3owk1n/undo-glow.nvim) highlights changed text after any action which modifies the current buffer. I have configured it to highlight text after undo (`u`), redo (`<C-r>`).
 
 #### spellwarn.nvim
 
