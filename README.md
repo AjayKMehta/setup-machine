@@ -914,6 +914,26 @@ Install: `winget install Ollama.Ollama -l D:\Apps\Ollama --interactive`.
 
 If you want to change the download directory for models, then set `$OLLAMA_MODELS` ([source](https://github.com/ollama/ollama/issues/680#issuecomment-1996562577)).
 
+To view the Modelfile of a given model, use the `ollama show --modelfile` command:
+
+```powershell
+ollama show --modelfile llama3.2
+```
+
+See [here](https://github.com/ollama/ollama/blob/main/docs/modelfile.md#parameter) for the list of parameters that can be set when a model is run.
+
+For example, set the context window when making an API request:
+
+```bash
+curl http://localhost:11434/api/generate -d '{
+  "model": "llama3.2",
+  "prompt": "Explain what recursion is.",
+  "options": {
+    "num_ctx": 4096
+  }
+}'
+```
+
 ### aichat
 
 Download the latest release from [here](https://github.com/sigoden/aichat/releases).
