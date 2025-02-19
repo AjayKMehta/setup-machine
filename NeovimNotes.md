@@ -136,6 +136,7 @@
       - [nvim-ufo](#nvim-ufo)
     - [Coding](#coding)
       - [codecompanion](#codecompanion)
+        - [Adapters](#adapters)
         - [Chat Buffer](#chat-buffer)
         - [Inline Assistant](#inline-assistant)
         - [Prompts](#prompts)
@@ -2117,15 +2118,13 @@ Keymaps when menu is active:
 
 [CodeCompanion](https://codecompanion.olimorris.dev/) is a plugin that enables AI-powered coding with LLMs.
 
-An adapter is what connects Neovim to an LLM. See [here](https://github.com/olimorris/codecompanion.nvim/tree/main/lua/codecompanion/adapters) for the list of supported adapters. API Keys can be provided via `*_API_KEY` environment variable or you can run commands from within your config by prefixing them with `cmd:` to retrieve the key.
-
 In the table below, actions in **bold** are courtesy of custom prompts.
 
  Action                             | Keymap
 ------------------------------------|-------------
- Open chat buffer              | `<leader>cc` OR `:CodeCompanionChat`
+ Open chat buffer              | `<leader>cc` OR `:CodeCompanionChat [adapter]`
  Toggle chat buffer | `:CodeCompanionChat Toggle`
- Inline assistant | `<leader>ci` OR `:CodeCompanion`
+ Inline assistant | `<leader>ci` OR `:CodeCompanion [adapter] [prompt]`
  Create command in command-line mode | `<leader>cC` OR  `:CodeCompanionCmd`
  Add to chat (visual mode) | `<leader>cA` OR `:CodeCompanionChat Add`
  Actions palette | `<leader>ca` OR `:CodeCompanionActions`
@@ -2135,6 +2134,23 @@ In the table below, actions in **bold** are courtesy of custom prompts.
  **Generate Documentation** | `<leader>cd` OR `:'<,'>CodeCompanion /doc`
  **Generate a commit message (advanced)** | `<leader>cm`
  **Review code** | `<leader>cr`
+
+##### Adapters
+
+An adapter is what connects Neovim to an LLM. See [here](https://github.com/olimorris/codecompanion.nvim/tree/main/lua/codecompanion/adapters) for the list of supported adapters. API Keys can be provided via `*_API_KEY` environment variable or you can run commands from within your config by prefixing them with `cmd:` to retrieve the key.
+
+If you prefer to only display the adapters defined in your user configuration, you can set the `show_defaults` option to `false`:
+
+```lua
+require("codecompanion").setup({
+  adapters = {
+    opts = {
+      show_defaults = false,
+    },
+    -- Define your custom adapters here
+  },
+})
+```
 
 ##### Chat Buffer
 
@@ -2912,6 +2928,8 @@ Press `<leader>mP` to preview Markdown.
 Install `latext2text` for LaTeX rendering: `uv tool install pylatexenc`.
 
 Press `<leader>mt` to toggle rendering.
+
+Run `:RenderMarkdown config` to validate your configuration.
 
 ### VimTex
 
