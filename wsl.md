@@ -62,6 +62,22 @@ sudo add-apt-repository --list
 sudo apt-cache policy
 ```
 
+### Access Windows host
+
+After trying various options listed [here](https://learn.microsoft.com/en-us/windows/wsl/networking) and other places online, this is what finally worked:
+
+1. Set `networkingMode` to `mirrored` in `~/.wslconfig` on your Windows machine:
+
+    ```ini
+    [wsl2]
+    ...
+    networkingMode=mirrored
+    ```
+
+2. Run the following command in PowerShell window with admin privileges to [Configure Hyper-V firewall](https://learn.microsoft.com/en-us/windows/security/operating-system-security/network-security/windows-firewall/hyper-v-firewall) settings to allow inbound connections: `Set-NetFirewallHyperVVMSetting -Name '{40E0AC32-46A5-438A-A0B2-2B479E8F2E90}' -DefaultInboundAction Allow`.
+
+After I did this, I am able to access Ollama running on Windows from WSL, i.e.  running `curl http://localhost:11434` in bash on WSL produces `Ollama is running`.
+
 ## Troubleshooting Tips
 
 ### Fix wl-copy issue

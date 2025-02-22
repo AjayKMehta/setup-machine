@@ -67,6 +67,7 @@
     - [Reposition current line](#reposition-current-line)
     - [Moving Vertically](#moving-vertically)
     - [Find characters](#find-characters)
+    - [Forcing a motion to be linewise, charwise or blockwise](#forcing-a-motion-to-be-linewise-charwise-or-blockwise)
     - [Misc](#misc)
   - [Editing](#editing-1)
     - [Undo/redo](#undoredo)
@@ -1165,6 +1166,20 @@ Use `t{character}` to move the cursor just before the next occurrence of a chara
 
 <kbd>,</kbd> repeats the last find motion in the opposite direction.
 
+### Forcing a motion to be linewise, charwise or blockwise
+
+When a motion is not of the type you would like to use, you can force another type by using "v", "V" or `CTRL-V` just after the operator.
+
+For example:
+
+`dj` deletes 2 lines.
+
+`dVj` deletes from the cursor position until the character below the cursor (LINEWISE).
+
+`d<C-V>j` deletes the character under the cursor and the character below the cursor (BLOCKWISE).
+
+To force a linewise motion to be charwise, use `v`.
+
 ### Misc
 
 <kbd>h</kbd>, <kbd>l</kbd> are used for navigating left and right.
@@ -1178,7 +1193,7 @@ Use `t{character}` to move the cursor just before the next occurrence of a chara
  Move to middle of window                                                                     | <kbd>M</kbd>
  Move to bottom of window                                                                     | <kbd>L</kbd>
  Move to first non-empty character 2 lines below | `2+`
- Move to first non-empty character 1 line above | `+`
+ Move to first non-empty character 1 line above | `-`
 
 ## Editing
 
