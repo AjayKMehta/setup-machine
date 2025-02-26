@@ -1308,6 +1308,8 @@ sudo apt install wamerican-large
 
 cargo install typos-cli
 cargo install ast-grep
+-- A fast, simple TUI for interacting with systemd services and their logs.
+cargo install systemctl-tui --locked
 
 cargo install aichat
 gh download https://github.com/sigoden/aichat/blob/main/scripts/completions/aichat.bash --outfile ~/.config/bash_completions.d/aichat.bash

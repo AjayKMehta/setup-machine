@@ -914,6 +914,8 @@ Install: `winget install Ollama.Ollama -l D:\Apps\Ollama --interactive`.
 
 If you want to change the download directory for models, then set `$OLLAMA_MODELS` ([source](https://github.com/ollama/ollama/issues/680#issuecomment-1996562577)).
 
+To view available models: <https://ollama.com/search>. To view models that support tools: <https://ollama.com/search?c=tools>.
+
 To view the Modelfile of a given model, use the `ollama show --modelfile` command:
 
 ```powershell
