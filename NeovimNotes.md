@@ -226,16 +226,17 @@ To seamlessly navigate left/down/up/right whether Tmux or Nvim buffer/window: <k
 
 A buffer is essentially the in-memory representation of a file.
 
- Action             | Keymap/command
---------------------|---------------------------------------------------------------------
- Close buffer       | <kbd>Space</kbd> + <kbd>x</kbd>
- New buffer         | `<leader>bb` OR `:enew`
- List buffers       | `:buffers` OR `:ls` OR `:Telescope buffers`
- Next buffer        | `:bnext` OR `:bn`
- Previous buffer    | `:bprevious` OR `:bp`
- Get filetype       | `:echo &filetype`
- Go to next buffer  | <kbd>Tab</kbd>
- Go to prev. buffer | <kbd>Shift</kbd> + <kbd>Tab</kbd> OR <kbd>Ctrl</kbd> + <kbd>6</kbd>
+ Action                    | Keymap/command
+ --------------------------|--------------------------------------------------------------------
+ Close buffer              | <kbd>Space</kbd> + <kbd>x</kbd>
+ New buffer                | `<leader>bb` OR `:enew`
+ Edit `file` in new buffer | `:edit <file>`
+ List buffers              | `:buffers` OR `:ls` OR `:Telescope buffers`
+ Next buffer               | `:bnext` OR `:bn`
+ Previous buffer           | `:bprevious` OR `:bp`
+ Get filetype              | `:echo &filetype` OR `:set ft?`
+ Go to next buffer         | <kbd>Tab</kbd>
+ Go to prev. buffer        | <kbd>Shift</kbd> + <kbd>Tab</kbd> OR <kbd>Ctrl</kbd> + <kbd>6</kbd>
 
  To run a command on every buffer, use `:bufdo <command>`, e.g. `:bufdo normal @a` will run the macro in register `a` on every buffer!
  To create a buffer, use `:badd <file>`, e.g. `:badd .gitconfig`.
@@ -668,6 +669,10 @@ If you only want to create it if it does not already exist, then use `default = 
 
 > [!NOTE]
 > `:r!` reads the results of a command.
+
+[Advanced example](https://stackoverflow.com/a/51091200/781045):
+
+Find all lines containing `print` and save to new buffer: `:vnew | 0r!grep print #`.
 
 ## LSP
 
