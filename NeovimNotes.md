@@ -481,7 +481,9 @@ Try this:
 
 #### Tips
 
-- You can write to a register with a `:let` command, e.g.`:let @/ = "the"`
+- You can write to a register with a `:let` command, e.g.`:let @/ = "the"`.
+
+- Use `:let @a=''` to clear register `a`.
 
 - Use `:reg(isters)` to display register contents. `:reg ab` will display contents of registers `a` and `b`.
 
@@ -669,6 +671,8 @@ If you only want to create it if it does not already exist, then use `default = 
 
 > [!NOTE]
 > `:r!` reads the results of a command.
+>
+> It **does not** handle vim commands. For that reason, I created a user command that dumps the results of a command at current cursor position (based on [this](https://www.reddit.com/r/neovim/comments/1ixsk40/comment/meqnilu/)).
 
 [Advanced example](https://stackoverflow.com/a/51091200/781045):
 
@@ -1311,6 +1315,8 @@ This even works with marks: `:'a,'bd` deletes from line with mark `a` to line wi
 `yk` copies current line and above it.
 
 You can also use yank in command-line mode: `:5y a` yanks line 5 into register `a`.
+
+Use `gV` to select previously yanked area in normal mode.
 
 ### Paste
 
