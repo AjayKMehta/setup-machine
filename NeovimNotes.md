@@ -71,7 +71,6 @@
     - [Misc](#misc)
   - [Editing](#editing-1)
     - [Undo/redo](#undoredo)
-      - [telescope-undo](#telescope-undo)
     - [Insert](#insert)
     - [Delete/replace character](#deletereplace-character)
     - [Delete line](#delete-line)
@@ -1222,13 +1221,9 @@ If you want to create your own text object, please read [this blog post](https:/
  Undo latest changes on last edited line | <kbd>Shift</kbd> + <kbd>u</kbd>
  Redo latest changes on last edited line | <kbd>Shift</kbd> + <kbd>u</kbd>
 
-#### telescope-undo
+~~Install [telescope-undo.nvim](https://github.com/debugloop/telescope-undo.nvim) to view undo tree and search changes.~~
 
-Install [telescope-undo.nvim](https://github.com/debugloop/telescope-undo.nvim) to view undo tree and search changes.
-
-Launch via `<leader>fu`. This will open a window in which you can browse undo tree.
-
-If you have found the undo state you were looking for, you can use `<C-S-r>` ~~or `<C-cr>`~~ to revert to that state. If you'd rather not change your whole buffer, you can use `<cr>` to yank the additions of this undo state into your default register (use `<S-cr>` or `<C-y>` to yank the deletions).
+<!-- TODO: Add snippet about Snacks picker for undo after switching. -->
 
 ### Insert
 
@@ -1962,18 +1957,10 @@ These require [codecompanion.nvim](#codecompanion).
  Colorschemes           | `<leader>fcs`
  Keymap                 | `<leader>fk`
  Search History         | `<leader>fS`
- Undo tree              | `<leader>fu`
  Search buffers         | `<leader>fy`
- Search emojis          | `<leader>fe`
  Jumplist               | `<leader>fj`
  Resume previous search | `<leader>fr`
- Registers              | `<leader>fR`
- LuaSnip                | `<leader>fs`
  Tags                   | `<leader>ftt`
- Treesitter             | `<leader>fts`
- TODO/Fix/FixMe         | `<leader>ftS`
- Noice                  | `<leader>fn`
- YAML schemas           | `<leader>fY`
 
 </details>
 
@@ -1982,18 +1969,11 @@ These require [codecompanion.nvim](#codecompanion).
 
  Action              | Keymap/command
  --------------------|--------------------
- File browser        | `<leader>fb`
- Search home         | `<leader>fh`
  Search config       | `<leader>fcc`
  frecency            | `<leader>fF<leader>`
  frecency (CWD)      | `<leader>fFc`
  Old files           | `<leader>fo`
- Find files          | `<leader>ff`
- Live grep           | `<leader>fw`
- Live grep (Plugins) | `<leader>fp`
  Multi-grep          | `<leader>f/`
-
-Courtesy of [togglescope](https://github.com/Theo-Steiner/togglescope), `C-\>` toggles between excluding (default) and including hidden and ignored files for **Find files** and **Live grep**.
 
 Multi-grep lets you also filter on file extension, e.g. enter `\d+  *.cs` to find numbers in C# source code.
 
@@ -2004,10 +1984,7 @@ Multi-grep lets you also filter on file extension, e.g. enter `\d+  *.cs` to fin
 
  Action                  | Keymap/command
 -------------------------|----------------
- Help tags               | `<leader>fHt`
  Man Pages               | `<leader>fm`
- Grep help (live grep)   | `<leader>fHl`
- Grep help (grep string) | `<leader>fHg`
 
 </details>
 
@@ -2016,21 +1993,7 @@ Multi-grep lets you also filter on file extension, e.g. enter `\d+  *.cs` to fin
 
  Action                           | Keymap/command
 ----------------------------------|---------------
- Search Document Symbols          | `<leader>fls`
- Search Workspace Symbols         | `<leader>flw`
  Search Dynamic Workspace Symbols | `<leader>fld`
-
-</details>
-
-<details>
-  <summary>git</summary>
-
- Action                   | Keymap/command
---------------------------|----------------
- Checkout branch          | `<leader>gb`
- Checkout commit          | `<leader>gc`
- git stash                | `<leader>gs`
- git status (from NvChad) | `<leader>gt`
 
 </details>
 
