@@ -309,6 +309,8 @@ Open terminal: `:terminal` OR `<leader>` + <kbd>h</kbd> / <kbd>v</kbd> (horizont
 
 Install LSP (requires `mason.nvim`): `:MasonInstall bash-language-server`
 
+Get location info: `<C-g>`.
+
 Edit file: `:e <file>`
 
 Read file: `:read <file>`
@@ -1160,6 +1162,8 @@ Source: <https://learnbyexample.github.io/tips/vim-tip-4/>
  Move up 1 sentence      | `(`
  Move down 1 sentence    | `)`
 
+`zt` puts cursor line on top and `zb` to bottom.
+
 ### Find characters
 
 - Use `f{character}` to move to the next occurrence of a character in a line. For instance, `2f"` sends you to the second next occurrence of a double quote.
@@ -1195,10 +1199,15 @@ To force a linewise motion to be charwise, use `v`.
  Move to first NBC of last line                                                               | <kbd>G</kbd>
  Moves to matching bracket (or end of current Treesitter node courtesy of `nvim-tree-pairs`s) | <kbd>%</kbd>
  Moves to line at 40% of total lines                                                          | `40%`
+ Move to top of window                                                                        | <kbd>H</kbd>
  Move to middle of window                                                                     | <kbd>M</kbd>
  Move to bottom of window                                                                     | <kbd>L</kbd>
  Move to first non-empty character 2 lines below | `2+`
  Move to first non-empty character 1 line above | `-`
+
+> [!TIP]
+> `H` stands for Home, `M` for Middle and `L` for Last.  Alternatively,
+`H` for High, `M` for Middle and `L` for Low.
 
 ## Editing
 
@@ -2656,7 +2665,9 @@ Let's illustrate usage for operator-pending and visual mode:
 
 #### nvim-various-textobjs
 
-[This plugin](https://github.com/chrisgrieser/nvim-various-textobjs) provides additional textobjects that are quite useful. See [List of text objects](https://github.com/chrisgrieser/nvim-various-textobjs?tab=readme-ov-file#list-of-text-objects) for specifics.
+[This plugin](https://github.com/chrisgrieser/nvim-various-textobjs) provides additional textobjects that are quite useful. See [List of text objects](https://github.com/chrisgrieser/nvim-various-textobjs?tab=readme-ov-file#list-of-text-objects) for specifics -- `ai`, `aI`, `ii` from that table have been disabled.
+
+Based on [this](https://github.com/chrisgrieser/nvim-various-textobjs?tab=readme-ov-file#smarter-gx), I added a keymap `gX` to smartly open a URL. Unlike the builtin `gx`, you do not have to have your cursor on a URL as it's forward seeking!
 
 ### LSP-related
 
