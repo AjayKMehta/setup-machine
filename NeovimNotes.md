@@ -2292,6 +2292,10 @@ I tried to keep the shortcuts the same as those in Visual Studio as much as poss
  DAP Preview       | `<leader>dp`
  REPL: Go to previous prompt | `[[`
  REPL: Go to next prompt | `]]`
+ DAP Set conditional breakpoint | `<leader>db`
+ DAP Log Message | `<leader>dl`
+
+ For Python, there is an addional keymap for **DAP Debug closest method to cursor**: `<leader>dt`.
 
 #### code_runner
 
@@ -2667,7 +2671,7 @@ Let's illustrate usage for operator-pending and visual mode:
 
 [This plugin](https://github.com/chrisgrieser/nvim-various-textobjs) provides additional textobjects that are quite useful. See [List of text objects](https://github.com/chrisgrieser/nvim-various-textobjs?tab=readme-ov-file#list-of-text-objects) for specifics -- `ai`, `aI`, `ii` from that table have been disabled.
 
-Based on [this](https://github.com/chrisgrieser/nvim-various-textobjs?tab=readme-ov-file#smarter-gx), I added a keymap `gX` to smartly open a URL. Unlike the builtin `gx`, you do not have to have your cursor on a URL as it's forward seeking!
+Based on [this](https://github.com/chrisgrieser/nvim-various-textobjs?tab=readme-ov-file#smarter-gx), I added a keymap `gX` to smartly open a URL. Unlike the builtin `gx`, you do not have to have your cursor on a URL as it's forward seeking! Also, added `dsi` to [delete surrounding indentation](https://github.com/chrisgrieser/nvim-various-textobjs?tab=readme-ov-file#delete-surrounding-indentation).
 
 ### LSP-related
 
