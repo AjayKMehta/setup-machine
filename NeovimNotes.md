@@ -2217,15 +2217,15 @@ You can customize the display to show diagnostics, marks, search results, git in
 
  Action                             | Keymap
 ------------------------------------|-------------
- Toggle global minimap              | `<leader>ntg`
- Refresh global minimap             | `<leader>nrg`
- Toggle minimap for current window  | `<leader>ntw`
- Refresh minimap for current window | `<leader>nrw`
- Toggle minimap for current tab     | `<leader>ntt`
- Refresh minimap for current tab    | `<leader>nrt`
- Toggle minimap for current buffer  | `<leader>ntb`
- Refresh minimap for current buffer | `<leader>nrb`
- Toggle focus on minimap            | `<leader>ntf`
+ Toggle global minimap              | `<leader>mtg`
+ Refresh global minimap             | `<leader>mrg`
+ Toggle minimap for current window  | `<leader>mtw`
+ Refresh minimap for current window | `<leader>mrw`
+ Toggle minimap for current tab     | `<leader>mtt`
+ Refresh minimap for current tab    | `<leader>mrt`
+ Toggle minimap for current buffer  | `<leader>mtb`
+ Refresh minimap for current buffer | `<leader>mrb`
+ Toggle focus on minimap            | `<leader>mtf`
 
 #### Outline
 
@@ -2671,7 +2671,7 @@ Let's illustrate usage for operator-pending and visual mode:
 
 [This plugin](https://github.com/chrisgrieser/nvim-various-textobjs) provides additional textobjects that are quite useful. See [List of text objects](https://github.com/chrisgrieser/nvim-various-textobjs?tab=readme-ov-file#list-of-text-objects) for specifics -- `ai`, `aI`, `ii` from that table have been disabled.
 
-Based on [this](https://github.com/chrisgrieser/nvim-various-textobjs?tab=readme-ov-file#smarter-gx), I added a keymap `gX` to smartly open a URL. Unlike the builtin `gx`, you do not have to have your cursor on a URL as it's forward seeking! Also, added `dsi` to [delete surrounding indentation](https://github.com/chrisgrieser/nvim-various-textobjs?tab=readme-ov-file#delete-surrounding-indentation).
+Based on [this](https://github.com/chrisgrieser/nvim-various-textobjs?tab=readme-ov-file#smarter-gx), I added a keymap `gX` to smartly open a URL. Unlike the builtin `gx`, you do not have to have your cursor on a URL as it's forward seeking! Also, added `Dsi` to [delete surrounding indentation](https://github.com/chrisgrieser/nvim-various-textobjs?tab=readme-ov-file#delete-surrounding-indentation).
 
 ### LSP-related
 
@@ -2922,7 +2922,7 @@ Press `<leader>mP` to preview Markdown.
 
 Install `latext2text` for LaTeX rendering: `uv tool install pylatexenc`.
 
-Press `<leader>mt` to toggle rendering.
+Press `<leader>tm` to toggle rendering.
 
 Run `:RenderMarkdown config` to validate your configuration.
 
