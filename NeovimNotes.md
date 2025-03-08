@@ -123,7 +123,6 @@
         - [Sending lines to the terminal](#sending-lines-to-the-terminal)
       - [nvim-tree](#nvim-tree)
       - [Telescope](#telescope)
-      - [Legendary](#legendary)
       - [vim-tmux-navigator](#vim-tmux-navigator)
       - [Toggle](#toggle)
       - [yazi](#yazi)
@@ -1646,7 +1645,7 @@ Use `]u` and `[u` to navigate to previous and next URL in buffer.
 
 ### Check key maps
 
-You can use `<leader>fk` ()`telescope.nvim`), `<leader>lk` (`legendary.nvim`) to bring up a GUI showing a list of keymaps that you can search.
+You can use `<leader>Sk` (`snacks.nvim`) or `:Telescope keymaps` to bring up a GUI showing a list of keymaps that you can search.
 
 Also, try `:[<MODE>]map <KEYMAP>`, e.g. `:nmap <leader>lf` tells you binding for `<leader>lf` in normal mode.
 
@@ -1955,43 +1954,9 @@ These require [codecompanion.nvim](#codecompanion).
 - `:Telescope` lists all builtin pickers.
 - Example of custom command: `Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍`. For more details, see `:help telescope.command.`
 
-<details>
-  <summary>General</summary>
+To resume previous search: `<leader>fr`.
 
- Action                 | Keymap/command
- -----------------------|---------------
- Commands               | `<leader>fcC`
- Command History        | `<leader>fch`
- Colorschemes           | `<leader>fcs`
- Search History         | `<leader>fS`
- Search buffers         | `<leader>fy`
- Jumplist               | `<leader>fj`
- Resume previous search | `<leader>fr`
-
-</details>
-
-<details>
-  <summary>Files</summary>
-
- Action              | Keymap/command
- --------------------|--------------------
- Search config       | `<leader>fcc`
- Old files           | `<leader>fo`
-
-
-</details>
-
-<details>
-  <summary>LSP</summary>
-
- Action                           | Keymap/command
-----------------------------------|---------------
- Search Dynamic Workspace Symbols | `<leader>fld`
-
-</details>
-
-<details>
-  <summary>DAP</summary>
+<summary>DAP</summary>
 
  Action             | Keymap/command
 --------------------|----------------
@@ -2002,18 +1967,6 @@ These require [codecompanion.nvim](#codecompanion).
  List variables     | `<leader>dlv`
 
 </details>
-
-#### Legendary
-
-[Legendary](https://github.com/mrjones2014/legendary.nvim) provides a legend for your keymaps, commands, and autocmds.
-
- Action                                                    | Keymap/command
- -----------------------------------------------------------|------------------------
- Search commands                                           | `:Legendary commands`
- Search functions                                          | `:Legendary functions`
- Search keymaps                                            | `:Legendary keymaps`
- Legend                                                    | `:Legendary`
- Repeat the last item executed via legendary.nvim's finder | `:LegendaryRepeat`
 
 #### vim-tmux-navigator
 
