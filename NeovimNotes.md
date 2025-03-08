@@ -1960,16 +1960,13 @@ These require [codecompanion.nvim](#codecompanion).
 
  Action                 | Keymap/command
  -----------------------|---------------
- Find buffers           | `<leaderfB`
  Commands               | `<leader>fcC`
  Command History        | `<leader>fch`
  Colorschemes           | `<leader>fcs`
- Keymap                 | `<leader>fk`
  Search History         | `<leader>fS`
  Search buffers         | `<leader>fy`
  Jumplist               | `<leader>fj`
  Resume previous search | `<leader>fr`
- Tags                   | `<leader>ftt`
 
 </details>
 
@@ -1979,21 +1976,8 @@ These require [codecompanion.nvim](#codecompanion).
  Action              | Keymap/command
  --------------------|--------------------
  Search config       | `<leader>fcc`
- frecency            | `<leader>fF<leader>`
- frecency (CWD)      | `<leader>fFc`
  Old files           | `<leader>fo`
- Multi-grep          | `<leader>f/`
 
-Multi-grep lets you also filter on file extension, e.g. enter `\d+  *.cs` to find numbers in C# source code.
-
-</details>
-
-<details>
-  <summary>Help</summary>
-
- Action                  | Keymap/command
--------------------------|----------------
- Man Pages               | `<leader>fm`
 
 </details>
 
@@ -2011,11 +1995,11 @@ Multi-grep lets you also filter on file extension, e.g. enter `\d+  *.cs` to fin
 
  Action             | Keymap/command
 --------------------|----------------
- List breakpoints   | `<leader>fdb`
- List commands      | `<leader>fdc`
- List configuration | `<leader>fdC`
- List frames        | `<leader>fdf`
- List variables     | `<leader>fdv`
+ List breakpoints   | `<leader>dlb`
+ List commands      | `<leader>dlc`
+ List configuration | `<leader>dlC`
+ List frames        | `<leader>dlf`
+ List variables     | `<leader>dlv`
 
 </details>
 
