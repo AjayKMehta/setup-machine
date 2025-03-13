@@ -1954,7 +1954,7 @@ These require [codecompanion.nvim](#codecompanion).
 - `:Telescope` lists all builtin pickers.
 - Example of custom command: `Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍`. For more details, see `:help telescope.command.`
 
-To resume previous search: `<leader>fr`.
+To resume previous search: `<leader>rs`.
 
 <summary>DAP</summary>
 
@@ -2562,15 +2562,15 @@ When you search via `/`, each match will have a corresponding label, e.g. `a`. P
 
  Command                 | Normal mode  | Visual/operator-pending mode
  -------------------------|--------------|----------------------------
- Flash jump              | `<leader>ss` | `ss`
- Flash jump (Treesitter) | `<leader>sT` | `sT`
- Flash forward           | `<leader>sf` | `sf`
- Flash backward          | `<leader>sb` | `sb`
- Flash continue          | `<leader>sc` | `sc`
- Flash diagnostics       | `<leader>sd` | `sd`
- Flash Treesitter search | **NA**       | `sR`
- Flash toggle search     | `<leader>st` | **NA**
- Flash current word      | `<leader>sw` | **NA**
+ Flash jump              | `<leader>fs` | `fs`
+ Flash jump (Treesitter) | `<leader>fT` | `fT`
+ Flash forward           | `<leader>ff` | `ff`
+ Flash backward          | `<leader>fb` | `fb`
+ Flash continue          | `<leader>fc` | `fc`
+ Flash diagnostics       | `<leader>fd` | `fd`
+ Flash Treesitter search | **NA**       | `fR`
+ Flash toggle search     | `<leader>ft` | **NA**
+ Flash current word      | `<leader>fw` | **NA**
  Move next               | `;`          | **NA**
  Move previous           | `,`          | **NA**
 
@@ -2589,8 +2589,8 @@ When you search via `/`, each match will have a corresponding label, e.g. `a`. P
 
 Let's illustrate usage for operator-pending and visual mode:
 
-1. `dss` would let you delete text based on a search and selected label.
-2. `v$` selects from current position to end of line. Type `sb` to extend selection based on search (backwards only) and selected label. Then type `d` to delete visual selection.
+1. `dfs` would let you delete text based on a search and selected label.
+2. `v$` selects from current position to end of line. Type `fb` to extend selection based on search (backwards only) and selected label. Then type `d` to delete visual selection.
 
 #### undo-glow.nvim
 
