@@ -2,6 +2,7 @@
   - [NvChad](#nvchad)
   - [Layout](#layout)
     - [Buffers](#buffers)
+      - [Deleting buffers](#deleting-buffers)
     - [Windows](#windows)
     - [Tabs](#tabs)
       - [Create new tab(s)](#create-new-tabs)
@@ -238,6 +239,15 @@ A buffer is essentially the in-memory representation of a file.
 
  To run a command on every buffer, use `:bufdo <command>`, e.g. `:bufdo normal @a` will run the macro in register `a` on every buffer!
  To create a buffer, use `:badd <file>`, e.g. `:badd .gitconfig`.
+
+#### Deleting buffers
+
+There are 2 commands:
+
+1. `:bdelete` makes the buffer unlisted but doesn't purge marks, etc.
+2. `:bwipeout` removes everything associated with the buffer.
+
+For more information, see this [link](https://vi.stackexchange.com/questions/2212/what-bad-things-can-happen-if-i-use-bwipeout).
 
 ### Windows
 
