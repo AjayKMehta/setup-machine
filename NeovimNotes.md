@@ -415,7 +415,7 @@ Marks are like bookmarks in your favorite IDE but more powerful.
 
 Action | Keymap/command
 ---------|----------
-List marks | `:marks`
+List marks | `:marks`  OR `<leader>sm` (courtesy of **snacks.nvim**)
 Create mark `a` | `ma`
 Go to mark `A` | <kbd>`</kbd> + <kbd>A</kbd>.
 Go to first non-blank character of line containing mark `A` | <kbd>'</kbd> + <kbd>A</kbd>.
@@ -1068,8 +1068,8 @@ When making changes, the cursor position is saved.
 
  Action                                | Keymap/command
 ---------------------------------------|--------------------------------
- View jumps                            | `:jumps`
- Go to previous jump position          | <kbd>Ctrl</kbd> + <kbd>o</kbd>
+ View jumps                            | `:jumps` OR `<leader>sj` (courtesy of **snacks.nvim**)
+ Go to previous jump position          | <kbd>Ctrl</kbd> + <kbd>o</kbd> OR <code>``</code>
  Go to next jump position              | <kbd>Ctrl</kbd> + <kbd>i</kbd>
  View changes                          | `:changes`
  Go to previous change position        | <kbd>g</kbd> + <kbd>;</kbd>
@@ -1278,7 +1278,7 @@ Use `<C-a>` to insert the last content inserted when in insert mode.
 
 ### Delete line
 
-<kbd>Shift</kbd> + <kbd>s</kbd> in normal mode, blanks the line, *sends you into insert mode*, also placing you at the right indent level too. It's perfect for wiping a line and writing something new without having to delete and then reposition the cursor.
+<kbd>Shift</kbd> + <kbd>s</kbd> (or `cc`) in normal mode, blanks the line, *sends you into insert mode*, also placing you at the right indent level too. It's perfect for wiping a line and writing something new without having to delete and then reposition the cursor.
 
 <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>s</kbd> (`Alt+S`), does the same in both modes.
 
@@ -1291,6 +1291,7 @@ Use `<C-a>` to insert the last content inserted when in insert mode.
  Delete line and line above                   | `dk`
  Delete current line to bottom                | `dG`
  Delete from current character to end of line | `D` OR `d$`
+ Delete from current character to end of line and enter insert mode | `C` OR `d$`
 
 `10dd` = delete current line and 9 lines below. Same as `d9j`.
 
