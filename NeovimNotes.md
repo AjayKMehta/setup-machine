@@ -944,7 +944,9 @@ You can use this with an action, e.g. `dgn` to delete search result.
 
 #### Clear results
 
-Press <kbd>Esc</kbd> to clear search highlights.
+Press <kbd>Esc</kbd>[^5] to clear search highlights.
+
+[^5]: Built-in keymap is `<c-l>` but this is overridden in my config by the command `TmuxNavigateRight`.
 
 #### Delete search results
 
@@ -1424,13 +1426,13 @@ Source: <https://youtu.be/rubhH6v4lN0?feature=shared>
 
  Action                                                                                            | Keymap/command
 ---------------------------------------------------------------------------------------------------|----------------
- Join current and next line (replace EOL with space[^5] and remove indentation except for current) | <kbd>J</kbd>
+ Join current and next line (replace EOL with space[^6] and remove indentation except for current) | <kbd>J</kbd>
  Join current and next 2 lines (replace EOL with space)                                            | `3J`
  Join current and next line (remove EOL and preserve indentation)                                  | `gJ`
 
 These also work in VISUAL or COMMAND-LINE mode.
 
-[^5]: When there is a trailing space at end of line or next line begins with `)`, then no space is added.
+[^6]: When there is a trailing space at end of line or next line begins with `)`, then no space is added.
 
 ### Moving lines
 
@@ -2109,6 +2111,8 @@ You can add context from your code base by using [*Variables*](https://codecompa
 
 In order to allow for references to self-update, they can be *pinned* (for files and buffers) using `gp` or *watched* (for buffers) using `gw`. See [here](https://codecompanion.olimorris.dev/usage/chat-buffer/#references) for more details. If you pin a buffer, then the whole contents of the buffer or file is added to the message stack before your current message. If you watch it, it will send only the added, edited or deleted lines to the LLM.
 
+You can also pin (or watch) the current buffer using `#buffer:pin` (or `#buffer:watch`).
+
 [Agents](https://codecompanion.olimorris.dev/configuration/chat-buffer.html#agents-and-tools) are prefixed with `@` and can be used to perform tasks like update code. The most comprehensive one is `@full_stack_dev` which is a combination of the `@cmd_runner`, @`editor` and `@files` tools. For a description of these agents, see [Using Agents and Tools](https://codecompanion.olimorris.dev/usage/chat-buffer/agents.html).
 
 > [!NOTE]
@@ -2444,9 +2448,9 @@ Detailed information on how to use this plugin can be found in [`:h nvim-surroun
 
 ##### More Mappings
 
-The  `yr`[^6] operator is a special case for `ys`, and operates on the **current line** via `yr{char}`, ignoring leading and trailing whitespace. The `yS` and `yR` operators are analogous to `ys` and `yr`, but add the delimiter pair on new lines.
+The  `yr`[^7] operator is a special case for `ys`, and operates on the **current line** via `yr{char}`, ignoring leading and trailing whitespace. The `yS` and `yR` operators are analogous to `ys` and `yr`, but add the delimiter pair on new lines.
 
-[^6]: I overrode the default mappings of `yss` and `ySS` with `yr` and `yR` to make this smoother and eliminate warnings about overlapping keymaps.
+[^7]: I overrode the default mappings of `yss` and `ySS` with `yr` and `yR` to make this smoother and eliminate warnings about overlapping keymaps.
 
  Old text       | Command | New text
 ----------------|---------|-------------------------------------------
@@ -2820,10 +2824,10 @@ For visual mode, I set up keyboard shortcuts identically to the ones for VS Code
 
  Action       | Keymap
  -------------|--------
- Add link[^7] | `gl`
+ Add link[^8] | `gl`
  Follow link  | `gx`
 
-[^7]: Use motion in normal mode, e.g. `gl$` to add link for text upto and including end of line.
+[^8]: Use motion in normal mode, e.g. `gl$` to add link for text upto and including end of line.
 
 Set cursor to current section heading | `<leader>mc`
 Set cursor to parent section heading | `<leader>mp`
@@ -2903,13 +2907,13 @@ vim.g.vimtex_view_general_viewer = "zathura"
  Stop compile            | `<localleader>lk` OR `:VimtexStop`
  Stop compile (all)      | `<localleader>lK` OR `:VimtexStopAll`
  Compile                 | `<localleader>ll` OR `:VimtexCompile`
- Imaps (insert mappings)[^8] | `<localleader>lm` OR `:VimtexImapsList`
+ Imaps (insert mappings)[^9] | `<localleader>lm` OR `:VimtexImapsList`
  Compile output          | `<localleader>lo`
  View log                | `<localleader>lq` OR `:VimtexLog`
  View TOC                | `<localleader>lt`
  Forward search          | `<localleader>lv`
 
-[^8]: Only visible if `vim.g.vimtex_imaps_enabled=1`.
+[^9]: Only visible if `vim.g.vimtex_imaps_enabled=1`.
 
  `:VimtexInfo` shows information about the project including packages used.
 
@@ -2955,7 +2959,7 @@ Inner environment | `ie` | `vie` selects inner text in evironment
 Around environment | `ae` | `dae` deletes evironment
 Toggle environment | `tse` | `tse` toggles environment.
 Surrounding command | `sc` | `csc` changes a command while preserving the command's argument(s).
-`*` in environments[^9] | `tss` | Toggle `*`.
+`*` in environments[^10] | `tss` | Toggle `*`.
 Inner math environment | `i$ | `vi$` selects inner content of environment.
 Outer math environment | `a$ | `va$` selects outer content of environment.
 Inner section | `iP` | `viP` selects entire content below current section.
@@ -2966,7 +2970,7 @@ Surrounding delimiters  | `sd` | `tsd` toggles between `()` and `\left(\right)`.
 
 :point_right: In the table above, `*` indicates cursor position.
 
-[^9]: See [Difference between equation and equation* enviroment](https://tex.stackexchange.com/questions/539986/difference-between-equation-and-equation-enviroment) for more details.
+[^10]: See [Difference between equation and equation* enviroment](https://tex.stackexchange.com/questions/539986/difference-between-equation-and-equation-enviroment) for more details.
 
 ### Linting + Formatting
 
