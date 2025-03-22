@@ -2105,6 +2105,10 @@ Press `<C-c>` to close (works for both NORMAL and INSERT modes).
 
 Press <kbd>Ctrl</kbd> + <kbd>Space</kbd> to activate completion in INSERT mode.
 
+Press `ga` to change the adapter for the current chat.
+
+Press `gr` to regenerate the last response.
+
 See [here](https://codecompanion.olimorris.dev/usage/chat-buffer/#keymaps) for the full list of keymaps.
 
 You can add context from your code base by using [*Variables*](https://codecompanion.olimorris.dev/getting-started.html#variables) and [*Slash Commands*](https://codecompanion.olimorris.dev/getting-started.html#clash-commands) in the chat buffer, e.g. `#buffer:8-12` shares lines 8-12 of current buffer while `/buffer` is a command to insert an open buffer.
