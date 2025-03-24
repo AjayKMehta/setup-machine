@@ -2031,6 +2031,14 @@ This is similar to indent-rainbow plugin in VS Code but also has additional func
 
 See [here](https://github.com/nvim-lualine/lualine.nvim#usage-and-customization) on how to customize.
 
+To get your current config: `:lua vim.notify(vim.inspect(require('lualine').get_config()))`.
+
+I added the following 3 user commands for this plugin:
+
+1. `LuaLineRefresh`
+2. `LuaLineEnable`
+3. `LuaLineDisable`
+
 #### bufferline
 
 [bufferline.nvim](https://github.com/akinsho/bufferline.nvim) provides a snazzy buffer line (with tabpage integration).
