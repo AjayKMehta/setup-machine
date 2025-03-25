@@ -125,6 +125,8 @@
       - [nvim-tree](#nvim-tree)
       - [Telescope](#telescope)
       - [vim-tmux-navigator](#vim-tmux-navigator)
+      - [nvim-highlight-colors](#nvim-highlight-colors)
+      - [screenkey](#screenkey)
       - [Toggle](#toggle)
       - [yazi](#yazi)
     - [UI](#ui)
@@ -263,7 +265,7 @@ Split[^1] | `:sp` OR <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>s</kbd>
 Vertical split[^2] | `:vsp` OR <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>v</kbd>
 Switch window | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>w</kbd>
 Close window | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>q</kbd>
-Close floating window | `:fclose:`
+Close floating window | `:fclose`
 Swap window with next | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>x</kbd>
 Split horizontally and edit a new file | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>n</kbd>
 Resize windows to fit with the same size | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>=</kbd>
@@ -1955,6 +1957,9 @@ These require [codecompanion.nvim](#codecompanion).
 
 [Telescope](https://github.com/nvim-telescope/telescope.nvim) is a very powerful plugin to search for items.
 
+> [!NOTE]
+> I have replaced many pickers from Telescope and its extensions with those from [Snacks](#snacks).
+
 - `actions.which_key` (<kbd>Ctrl</kbd> + <kbd>/</kbd> in **insert** or <kbd>?</kbd> in **normal** mode) shows the mappings for your picker. Press again to close. Default mappings are [here](https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/mappings.lua).
 
 - `builtin.grep_string` searches for the string under your cursor or selection in your current working directory.
@@ -1998,6 +2003,16 @@ You also need to setup the same mappings in your `.tmux.conf`. The easiest way t
 ```bash
 set -g @plugin 'christoomey/vim-tmux-navigator'
 ```
+
+#### nvim-highlight-colors
+
+Highlight colors within Neovim. This works for color names ('red'), hex values ('#FFFFFF'), etc.
+
+#### screenkey
+
+[This](https://github.com/NStefan002/screenkey.nvim) is a very useful plugin that shows keys pressed. You can toggle it on /off using `:Screenkey [toggle]`.
+
+This plugin exposes `get_keys` function that you can use in a statusline component. You can use `:Screenkey toggle_statusline_component` or change `vim.g.screenkey_statusline_component` to toggle this feature on/off.
 
 #### Toggle
 
