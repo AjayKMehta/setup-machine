@@ -769,13 +769,14 @@ Use `O` to move cursor to other corner of current line in visual block mode.
 
 `U` makes selection upper-case.
 
-Delete in selection everything starting from `,`: `:'<,'> norm f,D`.
+Delete in selection everything starting from `,` (included): `:'<,'> norm f,D`.
 
-Delete in selection everything before `{`: `:'<,'>norm dt{`
+Delete in selection everything before `{` (excluded): `:'<,'>norm dt{`
 
-`'<,'>` is a special range based on the selection made in visual mode.
-
-`'<` is a mark representing the first line selected and `'>` is a mark representing the last line.
+> [!NOTE]
+> `'<,'>` is a special range based on the selection made in visual mode.
+>
+> `'<` is a mark representing the first line selected and `'>` is a mark representing the last line.
 
 > [!TIP]
 > If you accidentally exit Visual mode before entering Command-line mode, you can use `*` as a shorthand for `'<,'>`. See [`:h :star`](https://neovim.io/doc/user/cmdline.html#%3Astar).
