@@ -698,7 +698,13 @@ Find all lines containing `print` and save to new buffer: `:vnew | 0r!grep print
 
 Action | Keymap/command
 ---------|----------
-Go to definition | <kbd>Ctrl</kbd> + <kbd>]</kbd>
+Go to definition | <kbd>Ctrl</kbd> + <kbd>]</kbd> OR `<leader>ld` OR <kbd>F12</kbd>
+Go to declaration | `<leader>lD`
+Go to implementation | `<leader>li`
+Go to type definition | `<leader>lT`
+Show signature help | `<leader>lh`
+Show references | `<leader>lr`
+Code Action | `<leader>lc`
 Go to previous diagnostic in current buffer | `[d` OR `:lua vim.diagnostic.goto_prev()`
 Go to next diagnostic in current buffer | `]d` OR `:lua vim.diagnostic.goto_next()`
 Show diagnotics under the cursor | `<C-w>d` or `<C-w><c-d>`
