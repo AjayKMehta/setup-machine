@@ -771,7 +771,7 @@ Use `O` to move cursor to other corner of current line in visual block mode.
 
 Delete in selection everything starting from `,` (included): `:'<,'> norm f,D`.
 
-Delete in selection everything before `{` (excluded): `:'<,'>norm dt{`
+Delete in selection everything before `{` (excluded): `:'<,'>norm dt{`.
 
 > [!NOTE]
 > `'<,'>` is a special range based on the selection made in visual mode.
@@ -833,7 +833,7 @@ Just like regex, `\t` matches tab, `\r` matches carriage return and `\n` matches
 
 #### Quantifiers
 
-Quantifiers are same as you would expect except they are prefixed by `\`: `\+` instead of `+`, `\?` (OR (`\=`) for `?`, `\{m, n}` instead of `{m, n}`.
+Quantifiers are same as you would expect except they are prefixed by `\`: `\+` instead of `+`, `\?` (OR `\=`) for `?`, `\{m, n}` instead of `{m, n}`.
 
 `:%s/^\s\+` will match all lines beginning with whitespace.
 
