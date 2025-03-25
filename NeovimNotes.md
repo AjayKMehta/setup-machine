@@ -720,15 +720,15 @@ To learn what capabilities are available you can run the following command in a 
 
 ## Visual Mode
 
-`v` - select current character. Use any motion to extend selection, e.g. `ve` or `v$`.
+`v` selects the current character. Use any motion to extend selection, e.g. `ve` or `v$`.
 
-`V` - select current line. Can also extend with motion or count, e.g.`Vgg` selects from current line to start of file and `5V` selects 5 lines starting from current line.
+Use `V` to select the current line. This can be extended with motion or count, e.g.`Vgg` selects from current line to start of file and `5V` selects 5 lines starting from current line.
 
-`gv` selects previously highlighted visual area[^3].
+`gv` selects the previously highlighted visual area[^3].
 
 [^3]: This works in normal mode too.
 
-Use `o` to move cursor to diagonally opposite corner of the visual selection.
+Use `o` to move the cursor to the diagonally opposite corner of the visual selection.
 
 `Q` and `@` in Visual mode will execute the last recorded/executed macro for all visually selected lines.
 
