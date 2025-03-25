@@ -316,7 +316,7 @@ Examples: `:tab vsplit`, `:tab help`.
 
 ## General Neovim info
 
-Open terminal: `:terminal` OR `<leader>` + <kbd>h</kbd> / <kbd>v</kbd> (horizontal / vertical)
+Open terminal: `:terminal` (OR `:ToggleTerm` if [Toggleterm](#toggleterm) is installed).
 
 Install LSP (requires `mason.nvim`): `:MasonInstall bash-language-server`
 
@@ -378,7 +378,9 @@ See [here](https://thevaluable.dev/vim-expert/#autocommands) for more informatio
 
 #### Autocommand groups
 
-When you create an autocommand as we did above, it's added automatically to a default autocommand group without a name. Autocommand groups are like namespaces for autocommands.
+When you create an autocommand as we did above, it's added automatically to a default autocommand group without a name.
+
+Autocommand groups are like namespaces for autocommands.
 
 List autocommand groups: `:augroup`.
 
@@ -448,6 +450,8 @@ For example, to delete from the current character to mark `a` position: ``d`a``.
 You can go to these marks using `` ` `` or go to first non-blank character in containing line using `'`, e.g. `'"` goes to first non-blank character of line you were on when you last closed the file.
 
 ### Registers
+
+Registers are like clipboards but again more powerful 😀
 
 There are ten types of registers:
 
