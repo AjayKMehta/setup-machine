@@ -935,13 +935,12 @@ Example: `:s/\(0*\)\@>\d{3,}/(&)/g` will surround numbers >= 100 with brackets i
 
 You can supply an offset: `/[pattern]/[offset]<CR>`.
 
-`/[pattern]/s` places cursor at the start of the match.
-`/[pattern]/s+2` places cursor 2 characters after the start of the match.
-`/[pattern]/s-3` places cursor 3 characters before the start of the match.
-`/[pattern]/e` places cursor at the end of the match.
-`/[pattern]/e+2` and `/[pattern]/e-4` behave analogously to commands for start of match.
-
-`/[pattern]/+2` and `/[pattern]/-4` places cursor 2 lines below and 4 lines above match respectively.
+- `/[pattern]/s` places cursor at the start of the match.
+- `/[pattern]/s+2` places cursor 2 characters after the start of the match.
+- `/[pattern]/s-3` places cursor 3 characters before the start of the match.
+- `/[pattern]/e` places cursor at the end of the match.
+- `/[pattern]/e+2` and `/[pattern]/e-4` behave analogously to commands for start of match.
+- `/[pattern]/+2` and `/[pattern]/-4` places cursor 2 lines below and 4 lines above match respectively.
 
 #### Navigation
 
@@ -949,9 +948,9 @@ After entering text for search, press <kbd>Enter</kbd>. All matches will be high
 
 Type <kbd>n</kbd> to go to the next match or <kbd>N</kbd> to go to the previous match.
 
-Press <kbd>Shift</kbd> + <kbd>q</kbd> to skip next match.
+These motions support count, e.g. `2n` to go to second (forward) match.
 
-`gn` goes to match of your last search, enters Visual mode and selects it. You can continue to hit `n` (or `gn`) to select the area between the current match and the next match!
+`gn` goes to the match of your last search, enters Visual mode and selects it. If you then hit `n`, it will select the whole line containing the match. Instead, if you press `gn` again, it will select the area between the current match and the next match!
 
 You can use this with an action, e.g. `dgn` to delete search result.
 
@@ -980,9 +979,9 @@ See [here](https://stackoverflow.com/a/25684690/781045) for more details on how 
 
 #### global
 
-`:[range]g[lobal]/{pattern}/[cmd]` is used to execute a command `[cmd]` on *lines* within `[range]` where pattern `[pattern]` matches.
+`:[range]g[lobal]/{pattern}/[cmd]` is used to execute a command `[cmd]` on *lines* within `[range]` where pattern `{pattern}` matches.
 
-`:[range]g[lobal]!/{pattern}/[cmd]` is used to execute a command `[cmd]` on *lines* within `[range]` where pattern `[pattern]` **DOES NOT** match.
+`:[range]g[lobal]!/{pattern}/[cmd]` is used to execute a command `[cmd]` on *lines* within `[range]` where pattern `{pattern}` **DOES NOT** match.
 
 You can also use `v` instead of `g!`
 
