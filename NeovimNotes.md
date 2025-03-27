@@ -1053,13 +1053,14 @@ Use `:s/\<\l/\u&/g` to capitalize every word.
 
 Use `\={expression}` as replacement, e.g. `:s/te\(\w\+\)/\=strftime("%Y-%m-%d")/g` will replace `test` with `2024-05-22`.
 
-Can use `submatch()` for backreference, e.g.``:s/\d\+/\=sumatch(0)*2/g` will double every number found.
+Can use `submatch()` for backreference, e.g.`:s/\d\+/\=submatch(0)*2/g` will double every number found.
 
 #### Alternate delimiters
 
 If you wish to search for text containing `/`, you can use any other single-byte character except for alphanumeric, `\`, `"`, or `|` as delimiter.
 
 To search for `/usr/bin/` and replace with `~/bin`: `:s,/usr/bin,\~/bin`.
+
 Compare this with: `:s/\/usr\/bin/\~\/bin`.
 
 #### Search tips
@@ -1250,10 +1251,7 @@ If you want to create your own text object, please read [this blog post](https:/
 -----------------------------------------|---------------------------------
  Undo                                    | <kbd>u</kbd>
  Redo                                    | <kbd>Ctrl</kbd> + <kbd>r</kbd>
- Undo latest changes on last edited line | <kbd>Shift</kbd> + <kbd>u</kbd>
  Redo latest changes on last edited line | <kbd>Shift</kbd> + <kbd>u</kbd>
-
-~~Install [telescope-undo.nvim](https://github.com/debugloop/telescope-undo.nvim) to view undo tree and search changes.~~
 
 <!-- TODO: Add snippet about Snacks picker for undo after switching. -->
 
@@ -1305,7 +1303,7 @@ Use `<C-a>` to insert the last content inserted when in insert mode.
  Delete line and line above                   | `dk`
  Delete current line to bottom                | `dG`
  Delete from current character to end of line | `D` OR `d$`
- Delete from current character to end of line and enter insert mode | `C` OR `d$`
+ Delete from current character to end of line and enter insert mode | `C` OR `c$`
 
 `10dd` = delete current line and 9 lines below. Same as `d9j`.
 
