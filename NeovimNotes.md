@@ -811,6 +811,9 @@ Examples of ranges:
  Paste register `a` contents                | <kbd>Ctrl</kbd> + <kbd>r</kbd> followed by `a`
  Show completions based on typed characters | <kbd>Ctrl</kbd> + <kbd>d</kbd>
  Edit commands in normal mode               | <kbd>Ctrl</kbd> + <kbd>f</kbd>
+ **Yank comand-line text**                  | <kbd>Ctrl</kbd> + <kbd>y</kbd>
+
+Actions in **bold** are custom actions I added.
 
 ### History
 
@@ -1239,6 +1242,8 @@ To execute a normal mode command from insert mode in Neovim, you can use the `<C
 
 For a good overview of different operators: <https://www.barbarianmeetscoding.com/boost-your-coding-fu-with-vscode-and-vim/editing-like-magic-with-vim-operators/>
 
+The "." command is used to repeat the last change. It works for all changes you make, except for `u` (undo), `<C-R>` (redo) and commands that start with a colon (:).
+
 In Vim, editing commands have the following structure: `<number><command><text object or motion>`.
 
 This is a good read on text objects: <https://blog.carbonfive.com/vim-text-objects-the-definitive-guide/>.
@@ -1284,7 +1289,7 @@ Use `<C-a>` to insert the last content inserted when in insert mode.
  Replace current character with `a`, return to Normal mode | `ra`
  Delete previous character                                 | <kbd>X</kbd> OR <kbd>d</kbd> + <kbd>h</kbd>
 
-<kbd>r</kbd> accepts motion, e.g. `cde` becomes `aae` if you type `2ra` with cursor on `c`
+<kbd>r</kbd> accepts count, e.g. `cde` becomes `aae` if you type `2ra` with cursor on `c`
 
 <kbd>R</kbd> + multiple characters: `cde` becomes `abe` if you type `Rab` with cursor on `c`. Line will get extended as needed. Press <kbd>Esc</kbd> when done replacing.
 
@@ -1354,7 +1359,8 @@ Use `gV` to select previously yanked area in normal mode.
  Paste above current line or to left of cursor (matching indent)  | `]P`
  Same as `p` but puts the cursor after the pasted selection       | `gp`
  Same as `P` but puts the cursor after the pasted sele ction      | `gP`
- Paste from register `n` before line 2                            | `:2pu n`
+ Paste from register `n` after line 2                             | `:2pu n`
+ Paste from register `t` above current line                       | `:-1put t`
  Paste after line 3                                               | `:3pu`
 
 Duplicate a line: `yyp`
@@ -1446,7 +1452,7 @@ These also work in VISUAL or COMMAND-LINE mode.
 
 ### Moving lines
 
-In command-line mode: `<orig>m<new>`, e.g. `3m0` moves 3rd line to top of file or `2m$` moves 2nd line to bottom.
+In command-line mode: `<orig>m<new>`, e.g. `:3m0` moves 3rd line to top of file or `:2m$` moves 2nd line to bottom.
 
 This also works with ranges: `:10,15m4` to move lines 10-15 (both inclusive) after 4th line. To move after current line: `:10,15m.`.
 
@@ -1454,7 +1460,7 @@ This also works with ranges: `:10,15m4` to move lines 10-15 (both inclusive) aft
 
 ### Digraphs
 
-To input a digraph, in insert mode, press <kbd>Ctrl</kbd>+<kbd>q</kbd> followed by the two letters which define the digraph. Here are a few useful, built-in, combinations:
+To input a digraph, in INSERT mode, press <kbd>Ctrl</kbd>+<kbd>q</kbd> followed by the two letters which define the digraph. Here are a few useful, built-in, combinations:
 
 <kbd>Ctrl</kbd>+<kbd>q</kbd> + <kbd>a</kbd>+<kbd>:</kbd> = ä
 
@@ -1508,6 +1514,7 @@ Examples:
 
 - `dip` deletes paragraph
 - `ciw` deletes current word and enters INSERT mode
+- `daW` deletes current word + leading and trailing whitespace.
 - `dit` deletes all characters within HTML/XML tags (nesting is handled)
 - `ci"` deletes all text within double quotes and enters INSERT mode  
 - `di'` deletes all text within single quotes
@@ -1519,6 +1526,14 @@ Examples:
 - - `ci<` deletes text inside `<>` block and enters INSERT mode
 
 These also work with `{count}`, e.g. `d2i{` will delete inner braces and text between braces one level above.
+
+To illustrate the difference between `a` and `i`, consider the following:
+
+```text
+|Neovim rocks!
+```
+
+Here, `|` represents the cursor position. `d2aw` will delete `Neovim rocks` while `d2aW` will delete `Neovim rocks!`.
 
 See `:h text-objects` for more details.
 
