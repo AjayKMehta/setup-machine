@@ -261,10 +261,11 @@ A window is a viewport onto a buffer. Different windows correspond to one or mor
 Action | Keymap/command
 ---------|----------
 New window | `:new`
-Split[^1] | `:sp` OR <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>s</kbd>
+Split[^1] | `:sp[lit]` OR <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>s</kbd>
 Vertical split[^2] | `:vsp` OR <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>v</kbd>
 Switch window | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>w</kbd>
-Close window | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>q</kbd>
+Close window | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>q</kbd> OR `:close`
+Close other windows | `:only`
 Close floating window | `:fclose`
 Swap window with next | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>x</kbd>
 Split horizontally and edit a new file | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>n</kbd>
@@ -276,7 +277,7 @@ Increase window width | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>></kbd>
 
 Navigate to left/below/above/right window: <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>h</kbd>/<kbd>j</kbd>/<kbd>k</kbd>/<kbd>l</kbd>.
 
-[^1]: Opens same buffer in new window below current window.
+[^1]: Opens same buffer in new window below current window. If you pass `<file>`, then it will open that.
 
 [^2]: Opens same buffer in new window to the right of current window.
 
@@ -328,6 +329,8 @@ Read file: `:read <file>`
 
 Write file: `:write` or `:w`. Can specify fillename if new or saving as new file.
 
+Save as: `:saveas <new_name>`.
+
 Write read-only file: `:w!`
 
 Quit all and confirm for unsaved changes: `:confirm qa`.
@@ -359,6 +362,7 @@ Toggle the option | `:set <option>!`
 Append or add value | `:set <option>+=<value>`
 Remove or subtract value | `:set <option>-=<value>`
 Set to default value | `:set <option>&`
+List options | `:options`
 
 ### Autocommands
 
@@ -1291,7 +1295,15 @@ Use `<C-a>` to insert the last content inserted when in insert mode.
 
 <kbd>r</kbd> accepts count, e.g. `cde` becomes `aae` if you type `2ra` with cursor on `c`
 
-<kbd>R</kbd> + multiple characters: `cde` becomes `abe` if you type `Rab` with cursor on `c`. Line will get extended as needed. Press <kbd>Esc</kbd> when done replacing.
+The `R` command causes Vim to enter replace mode.  In this mode, each
+character you type replaces the one under the cursor.  
+
+For example, `cde` becomes `abe` if you type `Rab` with cursor on `c`. Line will get extended as needed.
+
+When you use `<BS>` (backspace) to make a correction, you will notice that the
+old text is put back.
+
+Press <kbd>Esc</kbd> when done replacing.
 
 ### Delete line
 
@@ -1514,7 +1526,7 @@ Examples:
 
 - `dip` deletes paragraph
 - `ciw` deletes current word and enters INSERT mode
-- `daW` deletes current word + leading and trailing whitespace.
+- `daW` deletes current word + trailing whitespace (leading if word is at the end of the line).
 - `dit` deletes all characters within HTML/XML tags (nesting is handled)
 - `ci"` deletes all text within double quotes and enters INSERT mode  
 - `di'` deletes all text within single quotes
@@ -1547,7 +1559,7 @@ Delete the lines 10, 11 and 12 and puts them inside the `a` register: `:10,12d a
 
 Copy current line: `:.y`
 
-Delete whole file: `:%d`
+Delete emtire buffer's contents: `:%d`
 
 `0` refers to beginning of the file and `$` to end.
 
