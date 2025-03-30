@@ -96,6 +96,7 @@
     - [Exiting insert mode](#exiting-insert-mode)
   - [Completion and snippets](#completion-and-snippets)
   - [Recipes + FAQ](#recipes--faq)
+    - [Select lines](#select-lines)
     - [How do you check if Neovim is built with luajit?](#how-do-you-check-if-neovim-is-built-with-luajit)
     - [Open file under cursor](#open-file-under-cursor)
     - [Toggle line numbers](#toggle-line-numbers)
@@ -261,6 +262,7 @@ A window is a viewport onto a buffer. Different windows correspond to one or mor
 Action | Keymap/command
 ---------|----------
 New window | `:new`
+New vertical window | `:vertical new`
 Split[^1] | `:sp[lit]` OR <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>s</kbd>
 Vertical split[^2] | `:vsp` OR <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>v</kbd>
 Switch window | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>w</kbd>
@@ -272,8 +274,12 @@ Split horizontally and edit a new file | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>n<
 Resize windows to fit with the same size | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>=</kbd>
 Decrease window height | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>-</kbd>
 Increase window height | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>+</kbd>
+Maximize >window height | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>_</kbd>
 Decrease window width | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd><</kbd>
 Increase window width | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>></kbd>
+
+> [!TIP]
+> All the commands to change window height or width take a `count`, e.g. `4<C-w>+` increase windows's height by 4 lines while `10<C-w><` decreases window's width by 10 columns.
 
 Navigate to left/below/above/right window: <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>h</kbd>/<kbd>j</kbd>/<kbd>k</kbd>/<kbd>l</kbd>.
 
@@ -325,9 +331,11 @@ Get location info: `<C-g>`.
 
 Edit file: `:e <file>`
 
-Read file: `:read <file>`
+Read file: `:read <file>` (puts `<file>` contents after current line)
 
 Write file: `:write` or `:w`. Can specify fillename if new or saving as new file.
+
+Write lines to a file: `:.,$write test` writes text from current line onwards to file named `test`. If the file already exists, you can use `write!` to overwrite or you will get an error.
 
 Save as: `:saveas <new_name>`.
 
@@ -516,7 +524,7 @@ Try this:
 ### Macros
 
 1. Press <kbd>q</kbd>.
-2. Type letter you want, e.g. <kbd>x</kbd>.
+2. Type letter you want, e.g. <kbd>x</kbd>. If you want to append to an existing macro, use an uppercase letter instead.
 3. Make edits, etc.
 4. To stop recording, press <kbd>q</kbd> again.
 
@@ -743,7 +751,9 @@ Press <kbd>Ctrl</kbd> + <kbd>q</kbd> or <kbd>Ctrl</kbd> + <kbd>v</kbd>[^4] to en
 Select a region of text, e.g. `2lj` selects a region with 3 columns and 2 rows.
 
 Press <kbd>Shift</kbd> + <kbd>i</kbd> to prepend or <kbd>Shift</kbd> + <kbd>a</kbd> to
-append. To append at the end of line: `$A`. To delete and insert on each line: `c`.
+append. To append at the end of line: `$A`.
+
+To delete and insert on each line: `c`. To delete and insert from the left edge of the block to the end of each line: `C`.
 
 When you are done with your changes, press <kbd>Esc</kbd> and changes will be applied to all lines!
 
@@ -802,6 +812,7 @@ Examples of ranges:
 - `$` refers to the last line of buffer
 - `*` refers to last selection you made in visual mode.
 - `'a,'b` refers to range between mark `'a` and mark `'b`.
+- `?^Chapter?,/^Chapter` refers to range between previous occurrence of `^Chapter` and next occurence of `^Chapter`.
 
 ### Motion, editing
 
@@ -994,11 +1005,15 @@ You can also use `v` instead of `g!`
 
 It is very powerful when combined with normal commands via `:norm`, e.g. `:g/test/norm gu$` will make all lines containing `test` lower-case.
 
+The default range for the command is the whole file.
+
 #### substitute
 
 `s` is substitute command used to find and replace.
 
 `:[range]s[ubstitute]/{pattern}/{string}/{flags} [count]`
+
+If you omit `[range]`, then the `[range]` is the current line (`.`).
 
 If you omit `{pattern}`, then the matches are deleted.
 
@@ -1426,6 +1441,8 @@ Source: <https://learnbyexample.github.io/tips/vim-tip-2/>
  Auto-indent current line and 4 lines below                                   | `=4j`
  Auto-indent the current paragraph                                            | `=ip`
 
+You can change amount text is shifted: `:set shiftwidth=4`.
+
 ### Sort Lines
 
 Usage: `:[range]sor[t][!] [b][f][i][l][n][o][r][u][x] [/{pattern}/]`
@@ -1583,7 +1600,7 @@ To get ASCII value of current character: `ga`.
 
 These work with `{count}` prefix, e.g. `2~`.
 
-Use `guu` to change all text on the line to lowercase, `gUU` for uppercase.
+Use `guu` to change all text on the line to lowercase, `gUU` for uppercase, `g~~` to toggle case.
 
 ### [Editing line filtered by pattern](https://youtu.be/uQKaAOKgr2o?feature=shared)
 
@@ -1647,6 +1664,10 @@ You can use <kbd>Esc</kbd> or <kbd>Ctrl</kbd> + <kbd>[</kbd> to return to normal
 > Actions in **bold** above are custom actions I added in addition to those to provided by NvChad.
 
 ## Recipes + FAQ
+
+### Select lines
+
+Press `4:` to bring up `:.,.+3`. If you then press `d`, it will delete from current line to 3 lines below.
 
 ### How do you check if Neovim is built with luajit?
 
@@ -2683,7 +2704,7 @@ Let's illustrate usage for operator-pending and visual mode:
 
 #### nvim-various-textobjs
 
-[This plugin](https://github.com/chrisgrieser/nvim-various-textobjs) provides additional textobjects that are quite useful. See [List of text objects](https://github.com/chrisgrieser/nvim-various-textobjs?tab=readme-ov-file#list-of-text-objects) for specifics -- `ai`, `aI`, `ii` from that table have been disabled.
+[This plugin](https://github.com/chrisgrieser/nvim-various-textobjs) provides additional textobjects that are quite useful. See [List of text objects](https://github.com/chrisgrieser/nvim-various-textobjs?tab=readme-ov-file#list-of-text-objects) for specifics -- `ai`, `aI`, `ii`, `C` from that table have been disabled.
 
 Based on [this](https://github.com/chrisgrieser/nvim-various-textobjs?tab=readme-ov-file#smarter-gx), I added a keymap `gX` to smartly open a URL. Unlike the builtin `gx`, you do not have to have your cursor on a URL as it's forward seeking! Also, added `Dsi` to [delete surrounding indentation](https://github.com/chrisgrieser/nvim-various-textobjs?tab=readme-ov-file#delete-surrounding-indentation).
 
