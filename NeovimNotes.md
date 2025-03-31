@@ -244,6 +244,9 @@ A buffer is essentially the in-memory representation of a file.
  To run a command on every buffer, use `:bufdo <command>`, e.g. `:bufdo normal @a` will run the macro in register `a` on every buffer!
  To create a buffer, use `:badd <file>`, e.g. `:badd .gitconfig`.
 
+> [!NOTE]
+> New in Neovim 0.11: `[b`, `]b`, `[B`, `]B` navigate through the buffer list
+
 #### Deleting buffers
 
 There are 2 commands:
