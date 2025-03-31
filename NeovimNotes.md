@@ -715,14 +715,19 @@ Action | Keymap/command
 ---------|----------
 Go to definition | <kbd>Ctrl</kbd> + <kbd>]</kbd> OR `<leader>ld` OR <kbd>F12</kbd>
 Go to declaration | `<leader>lD`
-Go to implementation | `<leader>li`
+Go to implementation | `gri`
 Go to type definition | `<leader>lT`
-Show signature help | `<leader>lh`
-Show references | `<leader>lr`
+Show references | `grr`
 Code Action | `gra`
+Rename | `grn`
 Go to previous diagnostic in current buffer | `[d` OR `:lua vim.diagnostic.goto_prev()`
 Go to next diagnostic in current buffer | `]d` OR `:lua vim.diagnostic.goto_next()`
+Go to first diagnostic in current buffer | `[D`
+Go to last diagnostic in current buffer | `]D`
 Show diagnotics under the cursor | `<C-w>d` or `<C-w><c-d>`
+Show signature help (Insert and Select mode) | `<C-s>`
+Show signature help (Normal mode) | `<leader>lh`
+
 
 To learn what capabilities are available you can run the following command in a buffer with a started LSP client:
 
