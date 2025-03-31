@@ -86,6 +86,7 @@
     - [Sort Lines](#sort-lines)
       - [Options](#options-1)
     - [Join Lines](#join-lines)
+    - [Add empty lines](#add-empty-lines)
     - [Moving lines](#moving-lines)
     - [Digraphs](#digraphs)
     - [Increment](#increment)
@@ -97,6 +98,7 @@
     - [Exiting insert mode](#exiting-insert-mode)
   - [Completion and snippets](#completion-and-snippets)
   - [Recipes + FAQ](#recipes--faq)
+    - [Run code block in help buffer](#run-code-block-in-help-buffer)
     - [Select lines](#select-lines)
     - [How do you check if Neovim is built with luajit?](#how-do-you-check-if-neovim-is-built-with-luajit)
     - [Open file under cursor](#open-file-under-cursor)
@@ -175,7 +177,7 @@
       - [nvim-various-textobjs](#nvim-various-textobjs)
     - [LSP-related](#lsp-related)
       - [garbage-day.nvim](#garbage-daynvim)
-      - [nvim-lsp-endhints](#nvim-lsp-endhints)
+      - [lsp-toggle.nvim](#lsp-togglenvim)
     - [Treesitter-related](#treesitter-related)
       - [nvim-treesitter](#nvim-treesitter)
       - [nvim-treesitter-context](#nvim-treesitter-context)
@@ -245,7 +247,7 @@ A buffer is essentially the in-memory representation of a file.
  To create a buffer, use `:badd <file>`, e.g. `:badd .gitconfig`.
 
 > [!NOTE]
-> New in Neovim 0.11: `[b`, `]b`, `[B`, `]B` navigate through the buffer list
+> **New in Neovim 0.11:** Use `[b`, `]b`, `[B`, `]B` to navigate through the buffer list.
 
 #### Deleting buffers
 
@@ -327,7 +329,7 @@ Examples: `:tab vsplit`, `:tab help`.
 
 ## General Neovim info
 
-Open terminal: `:terminal` (OR `:ToggleTerm` if [Toggleterm](#toggleterm) is installed).
+Open terminal: `:terminal` (OR `:ToggleTerm` if [Toggleterm](#toggleterm) is installed). To navigate between shell prompts, use `[[` and `]]`.
 
 Install LSP (requires `mason.nvim`): `:MasonInstall bash-language-server`
 
@@ -654,6 +656,9 @@ Open newer lists | `:cnewer`
 Operate on each QuickFix list entry | `:cdo <action>`
 Operate on each QuickFix file | `:cfdo <action>`
 
+> [!NOTE]
+> **New in Neovim 0.11:** Use `[q`, `]q`, `[Q`, `]Q`, `[<C-Q>`, `]<C-Q>` to navigate through the quickfix list.
+
 Replace `client` with `client_id` for every QF entry: `:cdo s/client/client_id/g`.
 
 Send diagnostics to QuickFix list: `:lua vim.diagnostic.setqflist()`.
@@ -719,18 +724,20 @@ Action | Keymap/command
 Go to definition | <kbd>Ctrl</kbd> + <kbd>]</kbd> OR `<leader>ld` OR <kbd>F12</kbd>
 Go to declaration | `<leader>lD`
 Go to implementation | `gri`
-Go to type definition | `<leader>lT`
 Show references | `grr`
+Show document symbols | `gO`
+Displays hover information about the symbol under the cursor | `K`
 Code Action | `gra`
 Rename | `grn`
 Go to previous diagnostic in current buffer | `[d` OR `:lua vim.diagnostic.goto_prev()`
 Go to next diagnostic in current buffer | `]d` OR `:lua vim.diagnostic.goto_next()`
+Go to previous error in current buffer | `[e`
+Go to next error in current buffer | `]e`
 Go to first diagnostic in current buffer | `[D`
 Go to last diagnostic in current buffer | `]D`
 Show diagnotics under the cursor | `<C-w>d` or `<C-w><c-d>`
 Show signature help (Insert and Select mode) | `<C-s>`
 Show signature help (Normal mode) | `<leader>lh`
-
 
 To learn what capabilities are available you can run the following command in a buffer with a started LSP client:
 
@@ -1498,6 +1505,10 @@ These also work in VISUAL or COMMAND-LINE mode.
 
 [^6]: When there is a trailing space at end of line or next line begins with `)`, then no space is added.
 
+### Add empty lines
+
+`[<Space>`, `]<Space>` add an empty line above and below the cursor.
+
 ### Moving lines
 
 In command-line mode: `<orig>m<new>`, e.g. `:3m0` moves 3rd line to top of file or `:2m$` moves 2nd line to bottom.
@@ -1683,6 +1694,10 @@ You can use <kbd>Esc</kbd> or <kbd>Ctrl</kbd> + <kbd>[</kbd> to return to normal
 > Actions in **bold** above are custom actions I added in addition to those to provided by NvChad.
 
 ## Recipes + FAQ
+
+### Run code block in help buffer
+
+Use `g==` in Normal mode in a help buffer to execute a block of code.
 
 ### Select lines
 
@@ -2733,11 +2748,9 @@ Based on [this](https://github.com/chrisgrieser/nvim-various-textobjs?tab=readme
 
 [garbage-day.nvim](https://github.com/Zeioth/garbage-day.nvim) stops inactive LSP clients to free RAM.
 
-#### nvim-lsp-endhints
+#### lsp-toggle.nvim
 
-[This plugin](https://github.com/chrisgrieser/nvim-lsp-endhints) displays LSP inlay hints at the end of the line, rather than within the line.
-
-Use `<leader>lte` to toggle behavior.
+[lsp-toggle.nvim](https://github.com/adoyle-h/lsp-toggle.nvim) provies a command to toggle LSP: `:ToggleLSP`.
 
 ### Treesitter-related
 
