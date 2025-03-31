@@ -82,6 +82,7 @@
     - [Tuck](#tuck)
     - [Comment](#comment)
     - [Indent](#indent)
+    - [Filter](#filter)
     - [Sort Lines](#sort-lines)
       - [Options](#options-1)
     - [Join Lines](#join-lines)
@@ -332,6 +333,8 @@ Get location info: `<C-g>`.
 Edit file: `:e <file>`
 
 Read file: `:read <file>` (puts `<file>` contents after current line)
+
+Read external command output: `:read !<cmd>`, e.g. `:read !ls`.
 
 Write file: `:write` or `:w`. Can specify fillename if new or saving as new file.
 
@@ -716,7 +719,7 @@ Go to implementation | `<leader>li`
 Go to type definition | `<leader>lT`
 Show signature help | `<leader>lh`
 Show references | `<leader>lr`
-Code Action | `<leader>lc`
+Code Action | `gra`
 Go to previous diagnostic in current buffer | `[d` OR `:lua vim.diagnostic.goto_prev()`
 Go to next diagnostic in current buffer | `]d` OR `:lua vim.diagnostic.goto_next()`
 Show diagnotics under the cursor | `<C-w>d` or `<C-w><c-d>`
@@ -1442,6 +1445,14 @@ Source: <https://learnbyexample.github.io/tips/vim-tip-2/>
  Auto-indent the current paragraph                                            | `=ip`
 
 You can change amount text is shifted: `:set shiftwidth=4`.
+
+### Filter
+
+A filter is a program tht accepts text at standard input, modifies it and sends output to standard output.
+
+`!{motion}{filter}`
+
+`!5Gsort` sends the current line + 4 lines below to `sort`.
 
 ### Sort Lines
 
@@ -2840,14 +2851,8 @@ An example: `]f` will navigate to **start** (`f` is lower case) of **next** (`]`
 
 #### nvim-treesitter-refactor
 
-> [!WARNING]
-> Some of these keymaps do not seem to work.
-
  Action               | Keymap
 ----------------------|---------------------------------
- Smart rename         | `grr`
- List definitions     | `gld`
- List definitions TOC | `glt`
  Go to next usage     | `]U`
  Go to previous usage | `[U`
 
