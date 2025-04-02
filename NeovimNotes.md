@@ -28,6 +28,7 @@
     - [Highlight groups](#highlight-groups)
     - [Executing external commands](#executing-external-commands)
   - [LSP](#lsp)
+    - [Completion](#completion)
   - [Visual Mode](#visual-mode)
     - [Visual Block Mode](#visual-block-mode)
     - [Editing](#editing)
@@ -747,6 +748,15 @@ To learn what capabilities are available you can run the following command in a 
 
 > [!TIP]
 > Useful video to explain how code formatting works: [Code Formatting made easy](https://www.youtube.com/watch?v=mEqqkHLhlGY).
+
+### Completion
+
+If a LSP supports text completion, press `<C-x><C-o>` in INSERT mode to trigger completion.
+
+To select an item from the menu, press `<C-Y>`.
+
+> [!TIP]
+> If completion does not work, check that [`omnifunc`](https://neovim.io/doc/user/options.html#%27omnifunc%27) is set to "v:lua.vim.lsp.omnifunc": `:verbose set omnifunc?`
 
 ## Visual Mode
 
