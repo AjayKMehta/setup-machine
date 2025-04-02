@@ -26,6 +26,7 @@
     - [Quickfix list](#quickfix-list)
     - [Location list](#location-list)
     - [Highlight groups](#highlight-groups)
+    - [Recover from a crash](#recover-from-a-crash)
     - [Executing external commands](#executing-external-commands)
   - [LSP](#lsp)
     - [Completion](#completion)
@@ -99,6 +100,7 @@
     - [Exiting insert mode](#exiting-insert-mode)
   - [Completion and snippets](#completion-and-snippets)
   - [Recipes + FAQ](#recipes--faq)
+    - [Reverse line order](#reverse-line-order)
     - [Run code block in help buffer](#run-code-block-in-help-buffer)
     - [Select lines](#select-lines)
     - [How do you check if Neovim is built with luajit?](#how-do-you-check-if-neovim-is-built-with-luajit)
@@ -698,6 +700,14 @@ To create or update a highlight group: `vim.api.nvim_set_hl(0, 'Normal', { bg = 
 
 If you only want to create it if it does not already exist, then use `default = true` :`vim.api.nvim_set_hl(0, 'Normal', { bg = "#ff0000", default = true })`.
 
+### Recover from a crash
+
+Go to the directory the file was in and execute `nvim -r` to list the swap files.
+
+These swap files are located in `~/.local/state/nvim/swap/`.
+
+See [here](https://neovim.io/doc/user/usr_11.html#usr_11.txt) for more details.
+
 ### [Executing external commands](https://youtu.be/STSZt2c1rSA?feature=shared)
 
 - `:!ls` displays results of `ls` in separate window.
@@ -846,8 +856,10 @@ Examples of ranges:
 
  Action                                     | Keymap/command
 --------------------------------------------|------------------------------------------------
- Go to start                                | <kbd>Ctrl</kbd> + <kbd>b</kbd>
- Go to end                                  | <kbd>Ctrl</kbd> + <kbd>e</kbd>
+ Go to start                                | <kbd>Ctrl</kbd> + <kbd>b</kbd> OR <kbd>HOME</kbd>
+ Go to end                                  | <kbd>Ctrl</kbd> + <kbd>e</kbd> OR <kbd>END</kbd>
+ Go left one character                      | <kbd>←</kbd>
+ Go right one character                     | <kbd>→</kbd>
  Go left one word                           | <kbd>Ctrl</kbd> + <kbd>←</kbd>
  Go right one word                          | <kbd>Ctrl</kbd> + <kbd>→</kbd>
  Erase line before cursor                   | <kbd>Ctrl</kbd> + <kbd>u</kbd>
@@ -855,14 +867,19 @@ Examples of ranges:
  Show completions based on typed characters | <kbd>Ctrl</kbd> + <kbd>d</kbd>
  Edit commands in normal mode               | <kbd>Ctrl</kbd> + <kbd>f</kbd>
  **Yank comand-line text**                  | <kbd>Ctrl</kbd> + <kbd>y</kbd>
+ Delete word                                | <kbd>Ctrl</kbd> + <kbd>w</kbd>
+ Delete all text                            | <kbd>Ctrl</kbd> + <kbd>u</kbd>
 
 Actions in **bold** are custom actions I added.
+
+If you are typing in the command line and you have multiple completion options, then `<C-L>` will select the longest unambiguous string.
 
 ### History
 
 Use `↑` and `↓` to navigate history.
 
 `q:` opens window for `:` commands.
+View history of commands: `:history`.
 
 `q/` and `q?` open window for search patterns.
 <kbd>Ctrl</kbd> + <kbd>f</kbd> opens appropriate history window.
@@ -933,6 +950,8 @@ For non-capturing group: `\%(pattern\)`
 In `:s/\(\d\w\)\1`, `\1` refers to the first capture group.
 
 `&` and `\0` refer to the entire match.
+
+Another example to replace names like `Smith, John` with `John Smith`: `:%s/\([^,]*\), \(.*\)/\2 \1/`.
 
 #### Lookarounds
 
@@ -1089,6 +1108,7 @@ Other flags besides `g`:
 - `I` for case-sensitive search
 - `n` to report the number of matches without replacing
 - `&` to use previous substitute call's flags.
+- `e` to indicate that not finding a match is not an error.
 
 ##### Change case for replacement
 
@@ -1704,6 +1724,12 @@ You can use <kbd>Esc</kbd> or <kbd>Ctrl</kbd> + <kbd>[</kbd> to return to normal
 > Actions in **bold** above are custom actions I added in addition to those to provided by NvChad.
 
 ## Recipes + FAQ
+
+### [Reverse line order](https://neovim.io/doc/user/usr_12.html#_reverse-line-order)
+
+Use `:global` + `:move` commands to move all the lines before the first line resulting in a reversed file: `:global/^/move 0` (OR `:g/^m 0`).
+
+This also works on a range of lines.  First move to above the first line and mark it with `mt`.  Then move the cursor to the last line in the range and type: `:'t+1,.g/^m 't`.
 
 ### Run code block in help buffer
 
