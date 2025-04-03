@@ -140,6 +140,7 @@
       - [rainbow-delimiters](#rainbow-delimiters)
       - [hlchunk](#hlchunk)
       - [lualine](#lualine)
+        - [Lualine Layout](#lualine-layout)
       - [bufferline](#bufferline)
       - [dropbar](#dropbar)
       - [nvim-ufo](#nvim-ufo)
@@ -2186,6 +2187,76 @@ I added the following 3 user commands for this plugin:
 1. `LuaLineRefresh`
 2. `LuaLineEnable`
 3. `LuaLineDisable`
+
+##### Lualine Layout
+
+Below is an overview of how I have configured Lualine. It explains the structure of the statusline, the components in each section, and the actions triggered by clickable segments.
+
+<details open>
+  <summary>lualine_a</summary>
+
+ Name        | Description                                                                  | Click Action
+-------------|------------------------------------------------------------------------------|--------------------------------------------------------------------------------
+ mason       | Displays Mason status.                                                       | None
+ diagnostics | Displays diagnostics for `error`, `warn`, `info`, and `hint` severity types. | **Left Click**: Opens diagnostics picker. <br> **Right**: Opens location list.
+
+</details>
+
+<details open>
+  <summary>lualine_b</summary>
+
+ Name              | Description                                         | Click Action
+-------------------|-----------------------------------------------------|-----------------------------------------------------------------------------------------------
+ git | Displays the current Git branch.                    | **Left Click**: Opens Git branches picker. <br> **Other Clicks**: Opens Git log picker.
+ diff            | Displays Git diff stats (added, modified, removed). | **Click**: Opens `Diffview`.
+
+</details>
+
+<details open>
+  <summary>lualine_c</summary>
+
+ Name                   | Description                                                    | Click Action
+------------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------------------------
+ file info        | Displays the filename with color based on its modified status. | **Click**: Toggles `NvimTree`.
+ screenkey            | Displays active keybindings if `vim.g.screenkey_statusline_component` is `true`.                  | None
+ lsp status           | Displays LSP status with a spinner for ongoing operations.     | **Left Click**: `:LspInfo`. <br> **Other Clicks**: Use `trouble` to display LSP document symbols.
+ Available Formatters | Lists available formatters from `conform` if `vim.g.show_formatters` is `true`.                     | None
+ Linters      | Displays active linters from `nvim-lint` if `vim.g.show_linters`   is `true`.                      | None
+
+</details>
+
+<details open>
+  <summary>lualine_x</summary>
+
+ Name             | Description                                              | Click Action
+------------------|----------------------------------------------------------|-----------------------------------------
+ Code Companion | Displays a spinner for CodeCompanion operations.                    | None
+ lazy   | Displays pending updates from `lazy.nvim`.               | **Click**: Opens `Lazy` plugin manager.
+ noice   | Displays mode and search status from `noice.nvim`.       | None
+ encoding       | Displays file encoding.                                  | None
+ file format    | Displays file format (e.g., Unix, DOS, Mac).             | None
+ filetype       | Displays the filetype icon.                              | None
+ yaml key/value | Displays the current YAML key and value (if applicable). | None
+
+</details>
+
+<details open>
+  <summary>lualine_y</summary>
+
+Name      | Description                                  | Click Action |
+-----------|----------------------------------------------|--------------|
+ r | Displays the status of the R plugin. | None         |
+
+</details>
+
+<details open>
+  <summary>lualine_z</summary>
+
+ Name     | Description                                                       | Click Action
+ ----------|-------------------------------------------------------------------|--------------
+ location | Displays the current cursor position in the format `line:column`. | None            |
+
+</details>
 
 #### bufferline
 
