@@ -338,8 +338,6 @@ You can change current directory for everything, current window or tab: `cd`/`lc
 
 Open terminal: `:terminal` (OR `:ToggleTerm` if [Toggleterm](#toggleterm) is installed). To navigate between shell prompts, use `[[` and `]]`.
 
-Install LSP (requires `mason.nvim`): `:MasonInstall bash-language-server`
-
 Get location info: `<C-g>`.
 
 Edit file: `:e <file>`
@@ -2198,7 +2196,7 @@ Below is an overview of how I have configured Lualine. It explains the structure
  Name        | Description                                                                  | Click Action
 -------------|------------------------------------------------------------------------------|--------------------------------------------------------------------------------
  mason       | Displays Mason status.                                                       | None
- diagnostics | Displays diagnostics for `error`, `warn`, `info`, and `hint` severity types. | **Left Click**: Opens diagnostics picker. <br> **Right**: Opens location list.
+ diagnostics | Displays diagnostics for `error`, `warn`, `info`, and `hint` severity types. | **Left**: Opens diagnostics picker. <br> **Right**: Opens location list.
 
 </details>
 
@@ -2207,8 +2205,8 @@ Below is an overview of how I have configured Lualine. It explains the structure
 
  Name              | Description                                         | Click Action
 -------------------|-----------------------------------------------------|-----------------------------------------------------------------------------------------------
- git | Displays the current Git branch.                    | **Left Click**: Opens Git branches picker. <br> **Other Clicks**: Opens Git log picker.
- diff            | Displays Git diff stats (added, modified, removed). | **Click**: Opens `Diffview`.
+ git | Displays the current Git branch.                    | **Left**: Opens Git branches picker. <br> **Other**: Opens Git log picker.
+ diff            | Displays Git diff stats (added, modified, removed). | Opens `Diffview`.
 
 </details>
 
@@ -2217,9 +2215,9 @@ Below is an overview of how I have configured Lualine. It explains the structure
 
  Name                   | Description                                                    | Click Action
 ------------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------------------------
- file info        | Displays the filename with color based on its modified status. | **Click**: Toggles `NvimTree`.
+ file info        | Displays the filename with color based on its modified status. | Toggles `NvimTree`.
  screenkey            | Displays active keybindings if `vim.g.screenkey_statusline_component` is `true`.                  | None
- lsp status           | Displays LSP status with a spinner for ongoing operations.     | **Left Click**: `:LspInfo`. <br> **Other Clicks**: Use `trouble` to display LSP document symbols.
+ lsp status           | Displays LSP status with a spinner for ongoing operations.     | **Left**: `:LspInfo`. <br> **Other**: Use `trouble` to display LSP document symbols.
  Available Formatters | Lists available formatters from `conform` if `vim.g.show_formatters` is `true`.                     | None
  Linters      | Displays active linters from `nvim-lint` if `vim.g.show_linters`   is `true`.                      | None
 
@@ -2231,7 +2229,7 @@ Below is an overview of how I have configured Lualine. It explains the structure
  Name             | Description                                              | Click Action
 ------------------|----------------------------------------------------------|-----------------------------------------
  Code Companion | Displays a spinner for CodeCompanion operations.                    | None
- lazy   | Displays pending updates from `lazy.nvim`.               | **Click**: Opens `Lazy` plugin manager.
+ lazy   | Displays pending updates from `lazy.nvim`.               | Opens `Lazy` plugin manager.
  noice   | Displays mode and search status from `noice.nvim`.       | None
  encoding       | Displays file encoding.                                  | None
  file format    | Displays file format (e.g., Unix, DOS, Mac).             | None
