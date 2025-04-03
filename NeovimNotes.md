@@ -332,6 +332,9 @@ Examples: `:tab vsplit`, `:tab help`.
 
 ## General Neovim info
 
+Get current directory: `:pwd`.
+You can change current directory for everything, current window or tab: `cd`/`lcd`/`tcd`.
+
 Open terminal: `:terminal` (OR `:ToggleTerm` if [Toggleterm](#toggleterm) is installed). To navigate between shell prompts, use `[[` and `]]`.
 
 Install LSP (requires `mason.nvim`): `:MasonInstall bash-language-server`
@@ -471,6 +474,8 @@ For example, to delete from the current character to mark `a` position: ``d`a``.
  `"`     | Position you were at when you last closed the file.
 
 You can go to these marks using `` ` `` or go to first non-blank character in containing line using `'`, e.g. `'"` goes to first non-blank character of line you were on when you last closed the file.
+
+Neovim creates a mark each time you exit.  The last one is `0`, second last is `1` (this goes all the way to `9`). So, `'0` takes you to the place where you were when you last exited Neovim!
 
 ### Registers
 
@@ -729,6 +734,8 @@ See [here](https://neovim.io/doc/user/usr_11.html#usr_11.txt) for more details.
 Find all lines containing `print` and save to new buffer: `:vnew | 0r!grep print #`.
 
 ## LSP
+
+Install LSP (requires `mason.nvim`): `:MasonInstall bash-language-server`
 
 Action | Keymap/command
 ---------|----------
