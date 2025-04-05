@@ -165,6 +165,7 @@
           - [Commands](#commands-1)
       - [roslyn.nvim](#roslynnvim)
     - [Editing](#editing-2)
+      - [nvim-autopairs](#nvim-autopairs)
       - [mini.move](#minimove)
       - [nvim-spider](#nvim-spider)
       - [nvim-surround](#nvim-surround)
@@ -2196,7 +2197,7 @@ Below is an overview of how I have configured Lualine. It explains the structure
  Name        | Description                                                                  | Click Action
 -------------|------------------------------------------------------------------------------|--------------------------------------------------------------------------------
  mason       | Displays Mason status.                                                       | None
- diagnostics | Displays diagnostics for `error`, `warn`, `info`, and `hint` severity types. | **Left**: Opens diagnostics picker. <br> **Right**: Opens location list.
+ diagnostics | Displays diagnostics for `error`, `warn`, `info`, and `hint` severity types. | **Left**: Opens diagnostics picker (Press <kbd>Ctrl</kbd> to get workspace level diagnostics. Default is buffer). <br> **Right**: Opens location list.
 
 </details>
 
@@ -2620,6 +2621,34 @@ Use `\m` + `<motion>` to send motion to console, e.g. send paragraph to console 
 🚧 **TBD**
 
 ### Editing
+
+#### [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
+
+nvim-autopairs provides auto-completion of brackets. One useful feature is **FastWrap**:
+
+If you're in INSERT mode and have following text (`|` indicates cursor position):
+
+```text
+(|the(test)
+```
+
+Then pressing `<C-m>` will insert a closing bracket at the end!
+
+```text
+(the(test))
+```
+
+If there is text after the last bracket or no closing bracket, then you can choose where to put the bracket.
+
+```text
+(|the test is OK
+```
+
+Press `qh`: `(the) test is OK`.
+Press `ql`: `(the )test is OK`.
+Press `wh`: `(the test) is OK`.
+Press `wl`: `(the test )is OK`.
+Press `$`: `(the test is OK)`.
 
 #### mini.move
 
