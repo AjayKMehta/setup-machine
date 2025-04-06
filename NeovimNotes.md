@@ -144,7 +144,7 @@
       - [bufferline](#bufferline)
       - [dropbar](#dropbar)
       - [nvim-ufo](#nvim-ufo)
-    - [Coding](#coding)
+    - [AI](#ai)
       - [codecompanion](#codecompanion)
         - [Adapters](#adapters)
         - [Chat Buffer](#chat-buffer)
@@ -152,6 +152,7 @@
         - [Prompts](#prompts)
         - [Workflows](#workflows)
         - [Workspaces](#workspaces)
+    - [Coding](#coding)
       - [neominimap](#neominimap)
       - [Outline](#outline)
         - [Commands](#commands)
@@ -159,11 +160,11 @@
       - [nvim-dap](#nvim-dap)
       - [code\_runner](#code_runner)
       - [neotest](#neotest)
-      - [Languages](#languages)
-        - [nvim-R](#nvim-r)
-          - [Settings](#settings)
-          - [Commands](#commands-1)
-      - [roslyn.nvim](#roslynnvim)
+    - [Language-specific](#language-specific)
+      - [R](#r)
+        - [Settings](#settings)
+        - [Commands](#commands-1)
+      - [C#](#c)
     - [Editing](#editing-2)
       - [nvim-autopairs](#nvim-autopairs)
       - [mini.move](#minimove)
@@ -2242,9 +2243,9 @@ Below is an overview of how I have configured Lualine. It explains the structure
 <details open>
   <summary>lualine_y</summary>
 
-Name      | Description                                  | Click Action |
------------|----------------------------------------------|--------------|
- r | Displays the status of the R plugin. | None         |
+Name      | Description                                  | Click Action
+-----------|----------------------------------------------|--------------
+ r | Displays the status of the R plugin. | None
 
 </details>
 
@@ -2283,7 +2284,7 @@ Keymaps when menu is active:
 
 [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo) provides advanced fold functionality. See README for how to set up with different providers: LSP (what I use), Treesitter.
 
-### Coding
+### AI
 
 #### codecompanion
 
@@ -2391,6 +2392,8 @@ From the [announcement](https://github.com/olimorris/codecompanion.nvim/discussi
 
 In order to use this, you need to create a file called [`codecompanion-workspace.json`](https://codecompanion.olimorris.dev/extending/workspace.html) in the root of your current working directory. See an example [here](https://github.com/olimorris/codecompanion.nvim/blob/main/codecompanion-workspace.json).
 
+### Coding
+
 #### neominimap
 
 [This plugin](https://github.com/Isrothy/neominimap.nvim) provides a visual representation of your code structure on the side of your windows, similar to the minimap found in VS Code.
@@ -2494,18 +2497,18 @@ I tried to keep the shortcuts the same as those in Visual Studio as much as poss
 
 See [here](https://github.com/nvim-neotest/neotest?tab=readme-ov-file#supported-runners) for supported runners.
 
-#### Languages
+### Language-specific
 
-##### nvim-R
+#### R
 
-[This plugin](https://github.com/jalvesaq/Nvim-R) supports working with R code.
+[nvim-R](https://github.com/jalvesaq/Nvim-R) supports working with R code.
 
 Nvim-R is a file-type plugin. Its functionalities will be available only when an R file type (.R, .Rmd, .qmd) is being edited.
 
 > [!IMPORTANT]
 > [You must start R from neovim](https://github.com/jamespeapen/Nvim-R/wiki/Known-Bugs-and-Workarounds#r-must-be-started-by-vim).
 
-###### Settings
+##### Settings
 
 Start R automatically: `vim.g.R_auto_start = 1` (Change to 2 to start automatically when editing an R Script).
 Start object browser automatically: `vim.g.R_objbr_auto_start = 1`
@@ -2516,7 +2519,7 @@ To use radian, please refer to the instructions [here](https://github.com/randy3
 
 For more details, see [online documentation](https://github.com/jamespeapen/Nvim-R/wiki).
 
-###### Commands
+##### Commands
 
 The command `:Rinsert <cmd>` inserts one or more lines with the output of the R command sent to R e.g. `Rinsert dput(names(iris))` will insert in the buffer:
 
@@ -2615,9 +2618,9 @@ Use `\m` + `<motion>` to send motion to console, e.g. send paragraph to console 
 
 </details>
 
-#### roslyn.nvim
+#### C\#
 
-<!-- TODO: Finish -->
+<!-- TODO: Add info for roslyn.nvim -->
 🚧 **TBD**
 
 ### Editing
