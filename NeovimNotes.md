@@ -145,6 +145,7 @@
       - [dropbar](#dropbar)
       - [nvim-ufo](#nvim-ufo)
     - [AI](#ai)
+      - [copilot.vim](#copilotvim)
       - [codecompanion](#codecompanion)
         - [Adapters](#adapters)
         - [Chat Buffer](#chat-buffer)
@@ -2285,6 +2286,32 @@ Keymaps when menu is active:
 [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo) provides advanced fold functionality. See README for how to set up with different providers: LSP (what I use), Treesitter.
 
 ### AI
+
+#### [copilot.vim](https://github.com/github/copilot.vim/)
+
+This is a Neovim plugin for GitHub Copilot.
+
+Assuming that you have GitHub Copilot access, run `:Copilot setup` to get started.
+
+Action | Command/Keymap
+--------|---------
+Authenticate and enable GitHub Copilot. | `:Copilot setup`
+Globally disable Copilot inline suggestions. | `:Copilot disable`
+Re-enable GitHub Copilot. | `:Copilot enable`
+Sign out of GitHub Copilot. | `:Copilot signout`
+Check if GitHub Copilot is operational for the current buffer and report any issues. | `:Copilot status`
+Open a window with up to 10 completions for the current buffer.  Use `<CR>` to accept a completion. | `:Copilot panel`
+Show version information. | `:Copilot version`
+Accept suggestion | `<M-a>`
+
+`:Copilot panel` is the default command if `:Copilot` is called without an argument.
+
+:bulb: Set `vim.b.copilot_enabled` to `false` to disable Copilot for the current buffer.
+
+:bulb: To improve the quality of suggestions, you can set `vim.b.workspace_folder` for an individual buffer.
+
+> [!IMPORTANT]
+> This plugin is currently disabled as it's flaky and has outdated support for `nvim-cmp`.
 
 #### codecompanion
 
