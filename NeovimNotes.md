@@ -184,7 +184,7 @@
       - [nvim-various-textobjs](#nvim-various-textobjs)
     - [LSP-related](#lsp-related)
       - [garbage-day.nvim](#garbage-daynvim)
-      - [lsp-toggle.nvim](#lsp-togglenvim)
+      - [lsplinks.nvim](#lsplinksnvim)
     - [Treesitter-related](#treesitter-related)
       - [nvim-treesitter](#nvim-treesitter)
       - [nvim-treesitter-context](#nvim-treesitter-context)
@@ -243,15 +243,18 @@ A buffer is essentially the in-memory representation of a file.
  Close buffer              | <kbd>Space</kbd> + <kbd>x</kbd>
  New buffer                | `<leader>bb` OR `:enew`
  Edit `file` in new buffer | `:edit <file>`
- List buffers              | `:buffers` OR `:ls` OR `:Telescope buffers`
- Next buffer               | `:bnext` OR `:bn`
- Previous buffer           | `:bprevious` OR `:bp`
+ List buffers              | `:buffers` OR `:ls` OR `<leader>sB`
+ Go to next buffer         | `:bnext` OR `:bn` OR <kbd>Tab</kbd>
+ Go to previous buffer     | `:bprevious` OR `:bp` OR <kbd>Shift</kbd> + <kbd>Tab</kbd> OR <kbd>Ctrl</kbd> + <kbd>6</kbd>
  Get filetype              | `:echo &filetype` OR `:set ft?`
- Go to next buffer         | <kbd>Tab</kbd>
- Go to prev. buffer        | <kbd>Shift</kbd> + <kbd>Tab</kbd> OR <kbd>Ctrl</kbd> + <kbd>6</kbd>
+ Go to first buffer        | `:bfirst`
+ Go to last buffer         | `:blast`
+ Edit buffer               | `:buffer <bufnr>`
 
  To run a command on every buffer, use `:bufdo <command>`, e.g. `:bufdo normal @a` will run the macro in register `a` on every buffer!
  To create a buffer, use `:badd <file>`, e.g. `:badd .gitconfig`.
+
+ To include unlisted buffers when listing buffers: `:buffers!`.
 
 > [!NOTE]
 > **New in Neovim 0.11:** Use `[b`, `]b`, `[B`, `]B` to navigate through the buffer list.
@@ -2369,7 +2372,7 @@ You can add context from your code base by using [*Variables*](https://codecompa
 
 In order to allow for references to self-update, they can be *pinned* (for files and buffers) using `gp` or *watched* (for buffers) using `gw`. See [here](https://codecompanion.olimorris.dev/usage/chat-buffer/#references) for more details. If you pin a buffer, then the whole contents of the buffer or file is added to the message stack before your current message. If you watch it, it will send only the added, edited or deleted lines to the LLM.
 
-You can also pin (or watch) the current buffer using `#buffer:pin` (or `#buffer:watch`).
+You can also pin (or watch) the current buffer using `#buffer[pin]` (or `#buffer[watch]`).
 
 [Agents](https://codecompanion.olimorris.dev/configuration/chat-buffer.html#agents-and-tools) are prefixed with `@` and can be used to perform tasks like update code. The most comprehensive one is `@full_stack_dev` which is a combination of the `@cmd_runner`, @`editor` and `@files` tools. For a description of these agents, see [Using Agents and Tools](https://codecompanion.olimorris.dev/usage/chat-buffer/agents.html).
 
@@ -2919,9 +2922,9 @@ Based on [this](https://github.com/chrisgrieser/nvim-various-textobjs?tab=readme
 
 [garbage-day.nvim](https://github.com/Zeioth/garbage-day.nvim) stops inactive LSP clients to free RAM.
 
-#### lsp-toggle.nvim
+#### lsplinks.nvim
 
-[lsp-toggle.nvim](https://github.com/adoyle-h/lsp-toggle.nvim) provies a command to toggle LSP: `:ToggleLSP`.
+[lsplinks.nvim](https://github.com/icholy/lsplinks.nvim) extends the behavior of `gx` to support LSP document links.
 
 ### Treesitter-related
 
