@@ -2219,6 +2219,8 @@ Below are some of the commands with their respective keymaps:
 <details open>
   <summary>Files</summary>
 
+ Action                            | Keymap
+ ----------------------------------|---------------
  Snacks Find Old Files             | `<leader>sff`
  Snacks File Explorer              | `<leader>se`  
  Snacks Find Config File           | `<leader>sfc`
