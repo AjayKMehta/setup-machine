@@ -134,6 +134,7 @@
       - [vim-tmux-navigator](#vim-tmux-navigator)
       - [nvim-highlight-colors](#nvim-highlight-colors)
       - [screenkey](#screenkey)
+      - [Snacks](#snacks)
       - [Toggle](#toggle)
       - [yazi](#yazi)
     - [UI](#ui)
@@ -2151,6 +2152,82 @@ Highlight colors within Neovim. This works for color names ('red'), hex values (
 [This](https://github.com/NStefan002/screenkey.nvim) is a very useful plugin that shows keys pressed. You can toggle it on /off using `:Screenkey [toggle]`.
 
 This plugin exposes `get_keys` function that you can use in a statusline component. You can use `:Screenkey toggle_statusline_component` or change `vim.g.screenkey_statusline_component` to toggle this feature on/off.
+
+#### Snacks
+
+[snacks](https://github.com/folke/snacks.nvim) is a "collection of small QoL plugins for Neovim".
+
+Below are some of the commands with their respective keymaps:
+
+<details open>
+  <summary>LSP</summary>
+
+ Action                          | Keymap
+ --------------------------------|--------------
+ Next Reference                  | `]r`
+ Prev Reference                  | `[r`
+ Snacks LSP Diagnostics          | `<leader>lSD`
+ Snacks LSP Diagnostics (Buffer) | `<leader>lSd`
+ Lsp type definitions            | `<leader>ltd`
+ Lsp document symbols            | `<leader>ls`  
+ Lsp workspace symbols           | `<leader>lws`
+
+</details>
+
+<details open>
+  <summary>Grep</summary>
+
+ Action                          | Keymap
+ --------------------------------|--------------
+ Snacks Grep                     | `<leader>sgg`
+ Snacks Grep (hidden)            | `<leader>sgh`
+ Snacks Grep cwd                 | `<leader>sgc`
+ Snacks Visual selection or word | `<leader>sw`  
+ Snacks Grep Open Buffers        | `<leader>sgB`
+
+</details>
+
+<details open>
+  <summary>General</summary>
+
+ Action                      | Keymap
+ ----------------------------|--------------
+ Snacks picker builtins      | `<leader>sb`
+ Snacks Command History      | `<leader>s:`
+ Snacks Notification History | `<leader>sn`
+ Snacks Find projects        | `<leader>sp`
+ Snacks Find plugins         | `<leader>sP`
+ Snacks Quickfix List        | `<leader>sq`
+ Resume                      | `<leader>sR`
+ Snacks Treesitter           | `<leader>st`
+ Undo History                | `<leader>su`
+ Snacks Zoxide               | `<leader>sz`
+ Snacks Registers            | `<leader>s"`
+ Snacks Search History       | `<leader>s/`
+ Snacks Autocmds             | `<leader>sa`
+ Snacks Colorschemes         | `<leader>sc`
+ Snacks Commands             | `<leader>sC`
+ Snacks Help Pages           | `<leader>s?`
+ Snacks Highlights           | `<leader>sH`
+ Snacks Jumps                | `<leader>sj`
+ Snacks Keymaps              | `<leader>sk`
+ Marks                       | `<leader>sm`
+ Man Pages                   | `<leader>sM`
+
+</details>
+
+<details open>
+  <summary>Files</summary>
+
+ Snacks Find Old Files             | `<leader>sff`
+ Snacks File Explorer              | `<leader>se`  
+ Snacks Find Config File           | `<leader>sfc`
+ Snacks Recent                     | `<leader>sr`  
+ Delete current buffer             | `<leader>bd`  
+ Delete all buffers except current | `<leader>bD`  
+ Snacks Find Buffers               | `<leader>sB`  
+
+</details>
 
 #### Toggle
 
