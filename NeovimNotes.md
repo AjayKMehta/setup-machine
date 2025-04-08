@@ -79,6 +79,7 @@
     - [Delete line](#delete-line)
       - [Delete lines in normal mode](#delete-lines-in-normal-mode)
       - [Delete lines in command-line mode](#delete-lines-in-command-line-mode)
+    - [Delete text in INSERT mode](#delete-text-in-insert-mode)
     - [Yank](#yank)
     - [Paste](#paste)
     - [Tuck](#tuck)
@@ -99,6 +100,7 @@
     - [Editing line filtered by pattern](#editing-line-filtered-by-pattern)
     - [Exiting insert mode](#exiting-insert-mode)
   - [Completion and snippets](#completion-and-snippets)
+    - [Special completions](#special-completions)
   - [Recipes + FAQ](#recipes--faq)
     - [Reverse line order](#reverse-line-order)
     - [Run code block in help buffer](#run-code-block-in-help-buffer)
@@ -251,6 +253,7 @@ A buffer is essentially the in-memory representation of a file.
  Go to first buffer        | `:bfirst`
  Go to last buffer         | `:blast`
  Edit buffer               | `:buffer <bufnr>`
+ Change file format        | `:set fileformat=<fmt>` where `<fmt>` is `unix`, `mac` or `dos`.
 
  To run a command on every buffer, use `:bufdo <command>`, e.g. `:bufdo normal @a` will run the macro in register `a` on every buffer!
  To create a buffer, use `:badd <file>`, e.g. `:badd .gitconfig`.
@@ -1421,6 +1424,14 @@ Delete from line 5 and line after that containing `for`: `:5;/for/d`
 
 This even works with marks: `:'a,'bd` deletes from line with mark `a` to line with mark `b`!
 
+### Delete text in INSERT mode
+
+`<C-W>` deletes from cursor the beinning of word (or previous, if on first character of current word).
+
+`<BS>` works as expected.
+
+`<C-U>` deletes to start of the line.
+
 ### Yank
 
 <kbd>y</kbd> is yank operator.
@@ -1502,7 +1513,7 @@ Source: <https://learnbyexample.github.io/tips/vim-tip-2/>
  Auto-indent current line and 4 lines below                                   | `=4j`
  Auto-indent the current paragraph                                            | `=ip`
 
-You can change amount text is shifted: `:set shiftwidth=4`.
+To change the amount text is shifted: `:set shiftwidth=4`.
 
 ### Filter
 
@@ -1735,6 +1746,18 @@ You can use <kbd>Esc</kbd> or <kbd>Ctrl</kbd> + <kbd>[</kbd> to return to normal
 
 > [!NOTE]
 > Actions in **bold** above are custom actions I added in addition to those to provided by NvChad.
+
+### Special completions
+
+These keymaps work in INSERT mode. See `:help ins-completion` for more information.
+
+1. Press `<C-X><C-F>` to insert file names.
+2. Press `<C-X><C-L>` to insert whole lines.
+3. Press `<C-X><C-N>` to insert keywords from current file.
+4. Press `<C-X><C-K>` to insert items from the dictionary.
+5. Press `<C-X><C-]>` to insert tags.
+6. Press `<C-X><C-D>` to insert definitions or macros.
+7. Press `<C-X><C-V>` to insert command-line entries.
 
 ## Recipes + FAQ
 
