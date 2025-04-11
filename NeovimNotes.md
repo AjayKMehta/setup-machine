@@ -184,6 +184,7 @@
       - [multicursors](#multicursors)
         - [Extend mode](#extend-mode)
       - [flash](#flash)
+      - [grug-far](#grug-far)
       - [undo-glow.nvim](#undo-glownvim)
       - [spellwarn.nvim](#spellwarnnvim)
       - [precognition.nvim](#precognitionnvim)
@@ -3026,6 +3027,22 @@ Let's illustrate usage for operator-pending and visual mode:
 
 1. `dfs` would let you delete text based on a search and selected label.
 2. `v$` selects from current position to end of line. Type `fb` to extend selection based on search (backwards only) and selected label. Then type `d` to delete visual selection.
+
+#### grug-far
+
+[grug-far.nvim](https://github.com/MagicDuck/grug-far.nvim) is a find-and-replace plugin for Neovim. It lets you use regular regex syntax with `ripgrep` and `ast-grep`.
+
+`:GrugFar` launches a new buffer to search. Use `g?` to see list of commands for this buffer.
+
+:bulb: I also added `<localleader>h` to toggle `--hidden` switch.
+
+There are 2 keymaps available:
+
+1. `<leader>g*` to find the current word.
+2. `<leader>gc` to find in the current file.
+
+> [!NOTE]
+> Due to clunky UX and lack of docummentation, I probably will replace or remove this eventually.
 
 #### undo-glow.nvim
 
