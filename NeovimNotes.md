@@ -73,6 +73,7 @@
     - [Forcing a motion to be linewise, charwise or blockwise](#forcing-a-motion-to-be-linewise-charwise-or-blockwise)
     - [Misc](#misc)
   - [Editing](#editing-1)
+    - [Formatting text](#formatting-text)
     - [Undo/redo](#undoredo)
     - [Insert](#insert)
     - [Delete/replace character](#deletereplace-character)
@@ -91,6 +92,7 @@
     - [Join Lines](#join-lines)
     - [Add empty lines](#add-empty-lines)
     - [Moving lines](#moving-lines)
+    - [Abbreviations](#abbreviations)
     - [Digraphs](#digraphs)
     - [Increment](#increment)
     - [Editing with motion](#editing-with-motion)
@@ -102,6 +104,7 @@
   - [Completion and snippets](#completion-and-snippets)
     - [Special completions](#special-completions)
   - [Recipes + FAQ](#recipes--faq)
+    - [Enter Special characters](#enter-special-characters)
     - [Reverse line order](#reverse-line-order)
     - [Run code block in help buffer](#run-code-block-in-help-buffer)
     - [Select lines](#select-lines)
@@ -1333,6 +1336,16 @@ This is a good read on text objects: <https://blog.carbonfive.com/vim-text-objec
 
 If you want to create your own text object, please read [this blog post](https://jdhao.github.io/2020/11/15/nvim_text_objects).
 
+### Formatting text
+
+Use `gq` operator in NORMAL and VISUAL mode to format, e.g. `gqip` to format a paragraph.
+
+To align lines, there are 3 commands:
+
+1. `:[range]le[ft] [indent]` : Default `indent` is 0.
+2. `:[range]ce[nter] [width]` : Default `width` is `textwidth` (or 80 when `textwidth` is 0).
+3. `:[range]ri[ght] [width]` : Default `width` is `textwidth` (or 80 when `textwidth` is 0).
+
 ### Undo/redo
 
  Action                                  | Keymap/command
@@ -1360,7 +1373,9 @@ All these commands put you in insert mode.
 `gi` puts you into Insert mode at the last place you made a change.
 Use `g;` and `g,` to navigate history of insertions.
 
-Use `<C-a>` to insert the last content inserted when in insert mode.
+> [!TIP]
+> Use `<C-a>` to insert the last content inserted when in insert mode.
+> Use `<C-y>` to insert character from the line above and `<C-e>` to insert character from the line below.
 
 ### Delete/replace character
 
@@ -1571,6 +1586,14 @@ This also works with ranges: `:10,15m4` to move lines 10-15 (both inclusive) aft
 
 `:m+1` moves current line below the line following it.
 
+### Abbreviations
+
+You can create abbreviations to expand words into their full form, e.g. `ad` for `advertisement`: `:iab[brev] ad advertisement`.
+
+It is possible to define an abbreviation that results in multiple words: `:iabbrev PS public static`.
+
+List abbreviations: `:abbreviate`.
+
 ### Digraphs
 
 To input a digraph, in INSERT mode, press <kbd>Ctrl</kbd>+<kbd>q</kbd> followed by the two letters which define the digraph. Here are a few useful, built-in, combinations:
@@ -1760,6 +1783,10 @@ These keymaps work in INSERT mode. See `:help ins-completion` for more informati
 7. Press `<C-X><C-V>` to insert command-line entries.
 
 ## Recipes + FAQ
+
+### [Enter Special characters](https://neovim.io/doc/user/usr_24.html#_entering-special-characters)
+
+Use `<C-V>` followed by character, e.g. `<C-V> <Esc>` in INSERT mode yields `^[` while `<C-V> <BS>` yields `<BS>`.
 
 ### [Reverse line order](https://neovim.io/doc/user/usr_12.html#_reverse-line-order)
 
