@@ -776,6 +776,14 @@ To learn what capabilities are available you can run the following command in a 
 :lua =vim.lsp.get_clients()[1].server_capabilities
 ```
 
+List enabled LSPs:
+
+```lua
+for k, v in pairs(vim.lsp._enabled_configs) do
+    vim.print(k)
+end
+```
+
 > [!TIP]
 > Useful video to explain how code formatting works: [Code Formatting made easy](https://www.youtube.com/watch?v=mEqqkHLhlGY).
 
