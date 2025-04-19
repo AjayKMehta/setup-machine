@@ -317,8 +317,8 @@ Action | Keymap/command
 ---------|----------
 New window | `:new`
 New vertical window | `:vertical new`
-Split[^1] | `:sp[lit]` OR <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>s</kbd>
-Vertical split[^2] | `:vsp` OR <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>v</kbd>
+Split[^split] | `:sp[lit]` OR <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>s</kbd>
+Vertical split[^vsplit] | `:vsp` OR <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>v</kbd>
 Switch window | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>w</kbd>
 Close window | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>q</kbd> OR `:close`
 Close other windows | `:only`
@@ -337,9 +337,9 @@ Increase window width | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>></kbd>
 
 Navigate to left/below/above/right window: <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>h</kbd>/<kbd>j</kbd>/<kbd>k</kbd>/<kbd>l</kbd>.
 
-[^1]: Opens same buffer in new window below current window. If you pass `<file>`, then it will open that.
+[^split]: Opens same buffer in new window below current window. If you pass `<file>`, then it will open that.
 
-[^2]: Opens same buffer in new window to the right of current window.
+[^vsplit]: Opens same buffer in new window to the right of current window.
 
 ### Tabs
 
@@ -837,9 +837,9 @@ To select an item from the menu, press `<C-Y>`.
 
 Use `V` to select the current line. This can be extended with motion or count, e.g.`Vgg` selects from current line to start of file and `5V` selects 5 lines starting from current line.
 
-`gv` selects the previously highlighted visual area[^3].
+`gv` selects the previously highlighted visual area[^gv].
 
-[^3]: This works in normal mode too.
+[^gv]: This works in normal mode too.
 
 Use `o` to move the cursor to the diagonally opposite corner of the visual selection.
 
@@ -847,7 +847,7 @@ Use `o` to move the cursor to the diagonally opposite corner of the visual selec
 
 ### Visual Block Mode
 
-Press <kbd>Ctrl</kbd> + <kbd>q</kbd> or <kbd>Ctrl</kbd> + <kbd>v</kbd>[^4] to enter.
+Press <kbd>Ctrl</kbd> + <kbd>q</kbd> or <kbd>Ctrl</kbd> + <kbd>v</kbd>[^vbm] to enter.
 
 Select a region of text, e.g. `2lj` selects a region with 3 columns and 2 rows.
 
@@ -858,7 +858,7 @@ To delete and insert on each line: `c`. To delete and insert from the left edge 
 
 When you are done with your changes, press <kbd>Esc</kbd> and changes will be applied to all lines!
 
-[^4]: If using Windows Terminal, make sure to disable default binding for <kbd>Ctrl</kbd> + <kbd>v</kbd>.
+[^vbm]: If using Windows Terminal, make sure to disable default binding for <kbd>Ctrl</kbd> + <kbd>v</kbd>.
 
 Press `$` to select to end of each line.
 
