@@ -428,9 +428,9 @@ Append or add value | `:set <option>+=<value>`
 Remove or subtract value | `:set <option>-=<value>`
 Set to default value | `:set <option>&`
 List options | `:options`
-Show all options that differ from their default value.[^t]
+Show all options that differ from their default value.[^!] | `:se[t][!]`
 
-[^t]:ff
+[^!]:When [!] is present every option is on a separate line. 
 
 For more information, refer to [online help](https://neovim.io/doc/user/options.html#_1.-setting-options).
 
@@ -1084,9 +1084,9 @@ You can use this with an action, e.g. `dgn` to delete search result.
 
 #### Clear results
 
-Press <kbd>Esc</kbd>[^5] to clear search highlights.
+Press <kbd>Esc</kbd>[^clear-res] to clear search highlights.
 
-[^5]: Built-in keymap is `<c-l>` but this is overridden in my config by the command `TmuxNavigateRight`.
+[^clear-res]: Built-in keymap is `<c-l>` but this is overridden in my config by the command `TmuxNavigateRight`.
 
 #### Delete search results
 
@@ -1610,13 +1610,13 @@ Source: <https://youtu.be/rubhH6v4lN0?feature=shared>
 
  Action                                                                                            | Keymap/command
 ---------------------------------------------------------------------------------------------------|----------------
- Join current and next line (replace EOL with space[^6] and remove indentation except for current) | <kbd>J</kbd>
+ Join current and next line (replace EOL with space[^join] and remove indentation except for current) | <kbd>J</kbd>
  Join current and next 2 lines (replace EOL with space)                                            | `3J`
  Join current and next line (remove EOL and preserve indentation)                                  | `gJ`
 
 These also work in VISUAL or COMMAND-LINE mode.
 
-[^6]: When there is a trailing space at end of line or next line begins with `)`, then no space is added.
+[^join]: When there is a trailing space at end of line or next line begins with `)`, then no space is added.
 
 ### Add empty lines
 
@@ -2912,9 +2912,9 @@ Detailed information on how to use this plugin can be found in [`:h nvim-surroun
 
 ##### More Mappings
 
-The  `yr`[^7] operator is a special case for `ys`, and operates on the **current line** via `yr{char}`, ignoring leading and trailing whitespace. The `yS` and `yR` operators are analogous to `ys` and `yr`, but add the delimiter pair on new lines.
+The  `yr`[^yr] operator is a special case for `ys`, and operates on the **current line** via `yr{char}`, ignoring leading and trailing whitespace. The `yS` and `yR` operators are analogous to `ys` and `yr`, but add the delimiter pair on new lines.
 
-[^7]: I overrode the default mappings of `yss` and `ySS` with `yr` and `yR` to make this smoother and eliminate warnings about overlapping keymaps.
+[^yr]: I overrode the default mappings of `yss` and `ySS` with `yr` and `yR` to make this smoother and eliminate warnings about overlapping keymaps.
 
  Old text       | Command | New text
 ----------------|---------|-------------------------------------------
@@ -3296,10 +3296,10 @@ For visual mode, I set up keyboard shortcuts identically to the ones for VS Code
 
  Action       | Keymap
  -------------|--------
- Add link[^8] | `gl`
+ Add link[^gl] | `gl`
  Follow link  | `gx`
 
-[^8]: Use motion in normal mode, e.g. `gl$` to add link for text upto and including end of line.
+[^gl]: Use motion in normal mode, e.g. `gl$` to add link for text upto and including end of line.
 
 Set cursor to current section heading | `<leader>mc`
 Set cursor to parent section heading | `<leader>mp`
@@ -3379,13 +3379,13 @@ vim.g.vimtex_view_general_viewer = "zathura"
  Stop compile            | `<localleader>lk` OR `:VimtexStop`
  Stop compile (all)      | `<localleader>lK` OR `:VimtexStopAll`
  Compile                 | `<localleader>ll` OR `:VimtexCompile`
- Imaps (insert mappings)[^9] | `<localleader>lm` OR `:VimtexImapsList`
+ Imaps (insert mappings)[^imaps] | `<localleader>lm` OR `:VimtexImapsList`
  Compile output          | `<localleader>lo`
  View log                | `<localleader>lq` OR `:VimtexLog`
  View TOC                | `<localleader>lt`
  Forward search          | `<localleader>lv`
 
-[^9]: Only visible if `vim.g.vimtex_imaps_enabled=1`.
+[^imaps]: Only visible if `vim.g.vimtex_imaps_enabled=1`.
 
  `:VimtexInfo` shows information about the project including packages used.
 
@@ -3431,7 +3431,7 @@ Inner environment | `ie` | `vie` selects inner text in evironment
 Around environment | `ae` | `dae` deletes evironment
 Toggle environment | `tse` | `tse` toggles environment.
 Surrounding command | `sc` | `csc` changes a command while preserving the command's argument(s).
-`*` in environments[^10] | `tss` | Toggle `*`.
+`*` in environments[^tss] | `tss` | Toggle `*`.
 Inner math environment | `i$ | `vi$` selects inner content of environment.
 Outer math environment | `a$ | `va$` selects outer content of environment.
 Inner section | `iP` | `viP` selects entire content below current section.
@@ -3442,7 +3442,7 @@ Surrounding delimiters  | `sd` | `tsd` toggles between `()` and `\left(\right)`.
 
 :point_right: In the table above, `*` indicates cursor position.
 
-[^10]: See [Difference between equation and equation* enviroment](https://tex.stackexchange.com/questions/539986/difference-between-equation-and-equation-enviroment) for more details.
+[^tss]: See [Difference between equation and equation* enviroment](https://tex.stackexchange.com/questions/539986/difference-between-equation-and-equation-enviroment) for more details.
 
 ### Linting + Formatting
 
