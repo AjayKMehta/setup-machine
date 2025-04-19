@@ -428,6 +428,11 @@ Append or add value | `:set <option>+=<value>`
 Remove or subtract value | `:set <option>-=<value>`
 Set to default value | `:set <option>&`
 List options | `:options`
+Show all options that differ from their default value.[^t]
+
+[^t]:ff
+
+For more information, refer to [online help](https://neovim.io/doc/user/options.html#_1.-setting-options).
 
 ### Autocommands
 
