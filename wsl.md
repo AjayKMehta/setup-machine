@@ -628,12 +628,6 @@ Starting with Ubuntu 22.04, some versions of .NET are available in the Ubuntu pa
 
 See [Supported distributions](https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#supported-distributions) for details on how to install .NET for specific Ubuntu versions.
 
-### Install .NET 8
-
-See [here](https://ubuntuhandbook.org/index.php/2023/11/install-dotnet-8-ubuntu-22-04/) for details.[^1]
-
-[^1]: I was not able to add the Microsoft repository to `/etc/apt/sources.list.d/` using the instructions provided.
-
 ### Install .NET 9
 
 ```bash
