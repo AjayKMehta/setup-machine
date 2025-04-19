@@ -3,6 +3,7 @@
   - [Layout](#layout)
     - [Buffers](#buffers)
       - [Deleting buffers](#deleting-buffers)
+      - [Executing actions on multiple buffers](#executing-actions-on-multiple-buffers)
     - [Windows](#windows)
     - [Tabs](#tabs)
       - [Create new tab(s)](#create-new-tabs)
@@ -275,6 +276,35 @@ There are 2 commands:
 2. `:bwipeout` removes everything associated with the buffer.
 
 For more information, see this [link](https://vi.stackexchange.com/questions/2212/what-bad-things-can-happen-if-i-use-bwipeout).
+
+#### Executing actions on multiple buffers
+
+You can execute actions on each buffer in the buffer list using `:bufdo`!
+
+[An example](https://neovim.io/doc/user/windows.html#_8.-do-a-command-in-all-buffers-or-windows):
+
+```vim
+:bufdo set fileencoding= | update
+```
+
+This resets the file encoding in each buffer and writes it if the buffer is changed.
+
+The argument list is used for working on a subset of the buffer list.
+
+Suppose you want to find and replace in C# files. First, add the files to the argument list:
+
+```vim
+:args *.cs
+```
+
+To add or remove items from the list, use `:argadd` or `:argdel`.
+
+Now, you can perform a
+substitution command on all these files:
+
+```vim
+:argdo %s/\<x_cnt\>/x_counter/ge | update
+```
 
 ### Windows
 
