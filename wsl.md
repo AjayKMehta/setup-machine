@@ -710,6 +710,16 @@ sudo apt install tmux
 
 Prefix for commands is `<C-b>`.
 
+## ncdu
+
+You can use nCurses Disk Usage tool to locate large files.
+
+```shell
+sudo apt-get install ncdu
+# Usage
+sudo ncdu --exclude-kernfs --exclude /mnt/d /
+```
+
 ### tpm
 
 tpm is a TMUX plugin manager.
