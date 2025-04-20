@@ -41,6 +41,7 @@
   - [Search](#search)
     - [Patterns](#patterns)
       - [Quantifiers](#quantifiers)
+      - [Character ranges](#character-ranges)
       - [Character classes](#character-classes)
       - [Zero-width](#zero-width)
       - [Alternation and grouping](#alternation-and-grouping)
@@ -53,6 +54,7 @@
       - [Navigation](#navigation)
       - [Clear results](#clear-results)
       - [Delete search results](#delete-search-results)
+      - [Toggling wrapping](#toggling-wrapping)
     - [Command-line Mode](#command-line-mode-1)
       - [global](#global)
       - [substitute](#substitute)
@@ -421,16 +423,20 @@ The table below assumes an option named `<option>`:
 
 Action | Command
 ---------|----------
-Set option to `<value>` | `:set <option>=<value>`
-Unset the option | `:set no<option>`
-Toggle the option | `:set <option>!`
+Set option to `<value>` | `:se[t] <option>=<value>`
+Unset the option | `:se[t] no<option>`
+Show value (string or number option) | `:se[t] <option>`
+Toggle the option | `:se[t] <option>[!]` OR `:se[t] inv<option>`
 Append or add value | `:set <option>+=<value>`
-Remove or subtract value | `:set <option>-=<value>`
-Set to default value | `:set <option>&`
+Remove or subtract value | `:se[t] <option>-=<value>`
+Set to default value | `:se[t] <option>&`
+Set all options to default value | `:se[t] all&`
+Reset option to its Vim default value. | `:se[t] <option>&vim`
 List options | `:options`
-Show all options that differ from their default value.[^!] | `:se[t][!]`
+Show all options that differ from their default value[^!] | `:se[t][!]`
+Show all options[^!] | `:se[t][!] all`
 
-[^!]:When [!] is present every option is on a separate line. 
+[^!]:When [!] is present every option is on a separate line.
 
 For more information, refer to [online help](https://neovim.io/doc/user/options.html#_1.-setting-options).
 
@@ -968,9 +974,16 @@ Non-greedy quantifiers match as minimally as possible:
 `\{-}` matches zero or more times, e.g. `at\(t\)\{-}e` will match `date` and `pattern`.
 `\{-m, n}` matches `m` to `n` times as minimally as possible.
 
+#### Character ranges
+
+> This is pretty much the same as how they work for most regex implemntations.
+
+`/[a-z]` matches characters from **a** to **z**.
+`/[^"]*` matches zero or more characters that are not **"**.
+
 #### Character classes
 
-Special character classes:
+In adition to the usual `\s` (`\S`), `\d` ( `\D`) and `\w` (`\W`) which work as expected, here are some special character classes:
 
 1. `\a` is `[a-zA-Z]`
 1. `\A` is non-alphabet, `[^a-zA-Z]`.
@@ -980,6 +993,7 @@ Special character classes:
 1. `\U` is non-uppercase, `[^A-Z]`.
 1. `\o` is octal, `[0-7]`.
 1. `\x` is hexadecimal, `[0-9a-fA-F]`
+1. `\X` is non-hex digit, `[^0-9a-fA-F]`
 
 To include EOL character, use `\_` instead of `\` for any of the escape sequences, e.g. `\_s` will match space between lines.
 
@@ -1046,6 +1060,8 @@ Example: `:s/\(0*\)\@>\d{3,}/(&)/g` will surround numbers >= 100 with brackets i
 
 `/\cdog` matches `dog` and `Dog`.
 
+Use `:set ignorecase` OR `:set noignorecase`. There is also `:set smartcase`.
+
 ### Normal Mode
 
  Action                                           | Keymap/command
@@ -1064,11 +1080,13 @@ Example: `:s/\(0*\)\@>\d{3,}/(&)/g` will surround numbers >= 100 with brackets i
 You can supply an offset: `/[pattern]/[offset]<CR>`.
 
 - `/[pattern]/s` places cursor at the start of the match.
-- `/[pattern]/s+2` places cursor 2 characters after the start of the match.
+- `/[pattern]/s+2` (OR `/[pattern]/b+2`) places cursor 2 characters after the start of the match.
 - `/[pattern]/s-3` places cursor 3 characters before the start of the match.
 - `/[pattern]/e` places cursor at the end of the match.
 - `/[pattern]/e+2` and `/[pattern]/e-4` behave analogously to commands for start of match.
 - `/[pattern]/+2` and `/[pattern]/-4` places cursor 2 lines below and 4 lines above match respectively.
+
+If you're searching backwards, replace `/` in above commands with `?`, e.g. `?test?e`.
 
 #### Navigation
 
@@ -1098,6 +1116,10 @@ To delete search results:
 2. Else, press `dgn` to delete matches!
 
 Similarly, you can use `cgn` to change search result text.
+
+#### Toggling wrapping
+
+To turn off search wrapping, use the following command: `:set nowrapscan`.
 
 ### Command-line Mode
 
