@@ -676,38 +676,75 @@ Get method: `:set foldmethod`.
 
 Get fold markers: `:set foldmarker`.
 
-Create fold using `zf` operator (`zf{motion}`), e.g. `zfap` will create a fold around the current paragraph.
+To automatically close folds when you move out of them: `:set foldclose=all`.
 
-Action | Keymap/command
----------|----------
-Toggle fold under cursor | `za`
-Toggle all folds under cursor | `zA`
-Close fold under cursor | `zc` OR `:foldclose` OR `:foldc`
-Close all folds under cursor | `zC` OR `:foldclose!` OR `:foldc!`
-Fold more | `zm`
-Close all folds | `zM`
-Open fold under cursor | `zo` OR `:foldopen` OR `:foldo`
-Open all folds under cursor | `zO` OR `:foldopen!` OR `:foldo!`
-Fold less | `zr`
-Open all folds | `zR`
-Create fold for `{n}` lines | `{n}zF`
-Delete fold | `zd`
-Delete all folds under cursor | `zD`
-Eliminate all folds[^zE] | `zE`
-Fold none | `zn`
-Fold normal | `zN`
-Move to the start of the current open fold | `[z`
-Move to the end of the current open fold | `]z`
-**Go to next closed fold** | `]Z`
-**Go to previous closed fold** | `[Z`
-**Peek fold** | `zK`
-Delete all folds in file | `zE`
-Move downward to the start of the next fold | `zj`
-Move upward to the start of the previous fold | `zk`
+<details open>
+  <summary>Open/Close</summary>
+
+ Action                       | Keymap/command
+------------------------------|------------------------------------
+ Close fold under cursor      | `zc` OR `:foldclose` OR `:foldc`
+ Close all folds under cursor | `zC` OR `:foldclose!` OR `:foldc!`
+ Fold more                    | `zm`
+ Close all folds              | `zM`
+ Open fold under cursor       | `zo` OR `:foldopen` OR `:foldo`
+ Open all folds under cursor  | `zO` OR `:foldopen!` OR `:foldo!`  
+ Fold less                    | `zr`
+ Open all folds               | `zR`
+ Fold none[^zn]               | `zn`
+
+[^zn]: All folds will be open.
+
+</details>
+
+<details open>
+  <summary>Create/Delete</summary>
+
+ Action                        | Keymap/command
+-------------------------------|----------------
+ Create fold for `{n}` lines   | `{n}zF`
+ Delete fold                   | `zd`
+ Delete all folds under cursor | `zD`
+ Eliminate all folds[^zE]      | `zE`
+ Delete all folds in file      | `zE`
 
 [^zE]: This only works when [`foldmethod`](https://neovim.io/doc/user/options.html#%27foldmethod%27) is `"manual"` or `"marker"`.
 
-Actions in bold are courtesy of [`nim-ufo.nvim` plugin](#nvim-ufo).
+Create fold using `zf` operator (`zf{motion}`), e.g. `zfap` will create a fold around the current paragraph.
+
+</details>
+
+<details open>
+  <summary>Navigation</summary>
+
+  Action                                        | Keymap/command
+ -----------------------------------------------|----------------
+  Move to the start of the current open fold    | `[z`
+  Move to the end of the current open fold      | `]z`
+  **Go to next closed fold**                    | `]Z`
+  **Go to previous closed fold**                | `[Z`
+  Move downward to the start of the next fold   | `zj`
+  Move upward to the start of the previous fold | `zk`
+
+</details>
+
+<details open>
+  <summary>Misc</summary>
+
+ Action                        | Keymap/command
+-------------------------------|----------------
+ Toggle fold under cursor      | `za`
+ Toggle all folds under cursor | `zA`
+ Toggle all folds              | `zi`
+ Fold normal                   | `zN`
+ **Peek fold**                 | `zK`
+
+</details>
+
+
+
+
+> :bulb: Actions in bold are courtesy of [`nim-ufo.nvim` plugin](#nvim-ufo).
 
 #### Saving folds
 
@@ -726,7 +763,7 @@ For example:
 
 `:set foldlevel=3` means all folds with 3 *'shiftwidth' ( 3* 4 = 12) indent or more will be closed.
 
-> 💡 `zM` effectively sets `foldlevel` to 0. `zR` sets 'foldlevel' to the max fold level that is present in the file.
+> 💡 `zM` effectively sets `foldlevel` to 0. `zR` sets `foldlevel` to the max fold level that is present in the file.
 
 ### Quickfix list
 
