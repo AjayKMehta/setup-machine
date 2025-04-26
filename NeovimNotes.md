@@ -24,6 +24,8 @@
       - [Recursive Macros](#recursive-macros)
     - [Keymaps](#keymaps)
     - [Folds](#folds)
+      - [Saving folds](#saving-folds)
+      - [foldlevel](#foldlevel)
     - [Quickfix list](#quickfix-list)
     - [Location list](#location-list)
     - [Highlight groups](#highlight-groups)
@@ -674,6 +676,8 @@ Get method: `:set foldmethod`.
 
 Get fold markers: `:set foldmarker`.
 
+Create fold using `zf` operator (`zf{motion}`), e.g. `zfap` will create a fold around the current paragraph.
+
 Action | Keymap/command
 ---------|----------
 Toggle fold under cursor | `za`
@@ -686,17 +690,43 @@ Open fold under cursor | `zo` OR `:foldopen` OR `:foldo`
 Open all folds under cursor | `zO` OR `:foldopen!` OR `:foldo!`
 Fold less | `zr`
 Open all folds | `zR`
-Create fold | `zf`
+Create fold for `{n}` lines | `{n}zF`
 Delete fold | `zd`
 Delete all folds under cursor | `zD`
-**Go to next closed fold** | `]z`
-**Go to previous closed fold** | `[z`
+Eliminate all folds[^zE] | `zE`
+Fold none | `zn`
+Fold normal | `zN`
+Move to the start of the current open fold | `[z`
+Move to the end of the current open fold | `]z`
+**Go to next closed fold** | `]Z`
+**Go to previous closed fold** | `[Z`
 **Peek fold** | `zK`
 Delete all folds in file | `zE`
 Move downward to the start of the next fold | `zj`
 Move upward to the start of the previous fold | `zk`
 
+[^zE]: This only works when [`foldmethod`](https://neovim.io/doc/user/options.html#%27foldmethod%27) is `"manual"` or `"marker"`.
+
 Actions in bold are courtesy of [`nim-ufo.nvim` plugin](#nvim-ufo).
+
+#### Saving folds
+
+If you have created folds manually and stop editing a file, these folds are not saved. To save the folds, use the `:mkview` command. When you return to editing the file, you can use `:loadview` to load the view again.
+
+> [!TIP]
+> `viewoptions` (OR `vop`) option controls what settings are saved by the `:mkview` command. You can save more than one (max. 10) view for a file. To do so, pass a number to `:mkview` and use the same value later with `:loadview` to load that specific view.
+
+#### foldlevel
+
+When `foldmethod` option is set to `indent`, then the `foldlevel` option determines which folds are open/closed.
+
+This is based on `shiftwidth` option. Each 'shiftwidth' worth of indent adds one to the depth of the fold.
+
+For example:
+
+`:set foldlevel=3` means all folds with 3 *'shiftwidth' ( 3* 4 = 12) indent or more will be closed.
+
+> 💡 `zM` effectively sets `foldlevel` to 0. `zR` sets 'foldlevel' to the max fold level that is present in the file.
 
 ### Quickfix list
 
@@ -3205,7 +3235,6 @@ An example: `]f` will navigate to **start** (`f` is lower case) of **next** (`]`
  Next class start               | `]c`
  Next conditional start         | `]i`
  Next loop start                | `]l`
- Next fold                      | `]Z`
 
 ###### Goto next end
 
