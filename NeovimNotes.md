@@ -22,6 +22,7 @@
       - [Tips](#tips)
     - [Macros](#macros)
       - [Recursive Macros](#recursive-macros)
+    - [Tags](#tags)
     - [Keymaps](#keymaps)
     - [Folds](#folds)
       - [Saving folds](#saving-folds)
@@ -631,6 +632,16 @@ Here's an example: `qr0f:lr^M>>o^[j@rq`. This creates a macro in register `r` th
 
 > [!WARNING]
 > Register should be empty before you record macro to avoid unforeseen problems.
+
+### Tags
+
+First, you need to use `ctags` to generate tags, e.g. `ctags src/**/*.cs`.
+
+In Neovim, you can use `:tag` to go to the definition of an identifier, e.g. `:tag MyFunc` will navigate to the definition of `MyFunc`.
+
+`<C-]>` jumps to the tag of the word that is under the cursor.
+
+To see the list of tags you have visited, use `:tags`.
 
 ### Keymaps
 
