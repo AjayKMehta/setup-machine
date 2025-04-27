@@ -27,6 +27,7 @@
     - [Folds](#folds)
       - [Saving folds](#saving-folds)
       - [foldlevel](#foldlevel)
+      - [Executing commands on folds](#executing-commands-on-folds)
     - [Quickfix list](#quickfix-list)
     - [Location list](#location-list)
     - [Highlight groups](#highlight-groups)
@@ -635,9 +636,9 @@ Here's an example: `qr0f:lr^M>>o^[j@rq`. This creates a macro in register `r` th
 
 ### Tags
 
-First, you need to use `ctags` to generate tags, e.g. `ctags src/**/*.cs`.
+First, you need to use `ctags` to generate tags, e.g. `ctags -R --languages=Lua,Tex,C#,PowerShell .`.
 
-In Neovim, you can use `:tag` to go to the definition of an identifier, e.g. `:tag MyFunc` will navigate to the definition of `MyFunc`.
+In Neovim, you can use `:tag` to go to the definition of an identifier, e.g. `:tag MyFunc` will navigate to the definition of `MyFunc`. This will replace the current file in the window. To avoid this, you can use `:stag` instead which will open definition in a split window. 
 
 `<C-]>` jumps to the tag of the word that is under the cursor.
 
@@ -752,10 +753,7 @@ Create fold using `zf` operator (`zf{motion}`), e.g. `zfap` will create a fold a
 
 </details>
 
-
-
-
-> :bulb: Actions in bold are courtesy of [`nim-ufo.nvim` plugin](#nvim-ufo).
+> :bulb: Actions in **bold** are courtesy of [`nim-ufo.nvim` plugin](#nvim-ufo).
 
 #### Saving folds
 
@@ -775,6 +773,16 @@ For example:
 `:set foldlevel=3` means all folds with 3 *'shiftwidth' ( 3* 4 = 12) indent or more will be closed.
 
 > 💡 `zM` effectively sets `foldlevel` to 0. `zR` sets `foldlevel` to the max fold level that is present in the file.
+
+#### Executing commands on folds
+
+To execute commands on all lines that are not in a closed fold, use `:[range]folddo[open] {cmd}`.
+Here's an example: `:folddoopen s/public/private/ge`.
+
+To execute commands on all lines that are in a closed fold, use `:[range]folddoc[losed] {cmd}`.
+Here's an example: `:1,100folddoclosed s/public/private/ge`.
+
+If `[range]` is specified, then the command only applies to folds in those lines else it will apply for whole buffer.
 
 ### Quickfix list
 
