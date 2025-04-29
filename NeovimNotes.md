@@ -82,6 +82,7 @@
   - [Editing](#editing-1)
     - [Formatting text](#formatting-text)
     - [Undo/redo](#undoredo)
+      - [Undo up to a file write](#undo-up-to-a-file-write)
     - [Insert](#insert)
     - [Delete/replace character](#deletereplace-character)
     - [Delete line](#delete-line)
@@ -134,7 +135,6 @@
     - [Include/exclude text using external command](#includeexclude-text-using-external-command)
     - [Get list of local files in insert mode](#get-list-of-local-files-in-insert-mode)
     - [Use normal mode commands in insert mode](#use-normal-mode-commands-in-insert-mode)
-    - [Go backwards/forwards in time](#go-backwardsforwards-in-time)
     - [Filter lines using external program](#filter-lines-using-external-program)
     - [Search help](#search-help)
   - [Plugins](#plugins)
@@ -1500,13 +1500,27 @@ To align lines, there are 3 commands:
 
 ### Undo/redo
 
+Neovim has advanced undo/redo functionality.  If you undo a few changes and then make a new
+change, you create a branch in the undo tree.
+
  Action                                  | Keymap/command
 -----------------------------------------|---------------------------------
  Undo                                    | <kbd>u</kbd>
  Redo                                    | <kbd>Ctrl</kbd> + <kbd>r</kbd>
  Redo latest changes on last edited line | <kbd>Shift</kbd> + <kbd>u</kbd>
+ Go to older text state[^count]          | `g-`
+ Go to newer text state[^count]          | `g+`
+ List the leafs in the undo tree         | `:undolist`
 
-<!-- TODO: Add snippet about Snacks picker for undo after switching. -->
+[^count]: Accepts `{count}`: use `{count}` to repeat that many times.
+
+Courtesy of [Snacks](#snacks) plugin, you can use `<leader>su` to view undo-tree.
+
+#### Undo up to a file write
+
+To go back/forwards to a version of a file (**that was written**), use `:earlier` or `:later`. You can specify a number `n` with `f` to go to `n`th last version: `:later 1f` (here, `f` stands for file).
+
+You can also specify a time to go back, e.g. `:earlier 10m` to go to version of file from 10 minutes ago.
 
 ### Insert
 
@@ -2090,10 +2104,6 @@ Press `<C-x><C-f>` to get a list of local files when in insert mode ([source](ht
 Prefix them with <kbd>Alt</kbd>, e.g. `<A-P>` pastes in insert mode.
 
 `<A-d>,d` deletes current line.
-
-### Go backwards/forwards in time
-
-`:earlier` (`:later`) can be used to go back (forward) in time ([source](<https://www.reddit.c> om/r/neovim/comments/1fu9an8/neovim_gems/)).
 
 ### Filter lines using external program
 
