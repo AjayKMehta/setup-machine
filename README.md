@@ -21,6 +21,7 @@
   - [git](#git)
   - [git-related platforms](#git-related-platforms)
     - [GitHub](#github)
+      - [Set up GPG and SSH keys](#set-up-gpg-and-ssh-keys)
       - [GitHub CLI](#github-cli)
         - [GitHub PAT](#github-pat)
         - [Extensions](#extensions)
@@ -389,6 +390,14 @@ Install: `winget install --id Git.Git -e --source winget`.
 ## git-related platforms
 
 ### GitHub
+
+#### Set up GPG and SSH keys
+
+You can set up SSH keys to connect to GitHub. For more information, please see [Connecting to GitHub with SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
+
+For commit signing, it is recommended to set up GPG keys. Refer to [online docs](https://docs.github.com/en/authentication/managing-commit-signature-verification) for more details.
+
+[This gist](https://gist.github.com/TheSherlockHomie) shows how to update expired GPG keys.
 
 #### GitHub CLI
 
