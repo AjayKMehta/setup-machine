@@ -454,9 +454,12 @@ Action | Keymap/command
 ---------|----------
 List autocommands | `:au[tocmd]`
 List autocommands for group `<group>` | `:au[tocmd] <group>`
+List all autocommands for pattern | `:au[tocmd] * <pattern>`
 Delete autocommands for event `<event>` and pattern `<pattern>` | `:au[tocmd]! [group] <event> <pattern>`
 Delete autocommands for group `<group>` | `:au[tocmd]! <group>`
-Add autocommand | `:au[tocmd] [group] <event> <pattern> <cmd>`
+Add autocommand | `:au[tocmd] [group] <events> <pattern> [++nested] <cmd>`
+
+In the table above, `<events>` is a comma separated list of events. `<pattern>` is a pattern for file names, e.g. `*.txt`
 
 See [here](https://thevaluable.dev/vim-expert/#autocommands) for more information.
 
@@ -650,9 +653,11 @@ See <https://www.ejmastnak.com/tutorials/vim-latex/vimscript/>.
 
 Vim offers two types of mapping commands:
 
-1. The recursive commands `map`, `nmap`, `imap`, and other *map functions.
+1. The recursive commands `map`[^map], `nmap`, `imap`, and other *map functions.
 
 2. Their non-recursive equivalents `noremap`, `nnoremap`, `inoremap`, etc.
+
+[^map]: This creates a mapping for normal, operator-pending and visual modes.
 
 To illustrate the difference between the two, consider this scenario whwere you want to remap `w` to `dd` and `v` to `w`.
 
@@ -671,6 +676,8 @@ If you use:
 :nnoremap w dd
 :nnoremap v w
 ```
+
+To remove mappings, use `:unmap <keymap>` or versions for specific modes like `:nunmap`, `:cunmap`, etc.
 
 `w` will behave the same as in the previous example and delete the current line when invoked but `v` will behave like `w`'s original command, i.e. move to next word.
 
@@ -989,6 +996,8 @@ Delete in selection everything before `{` (excluded): `:'<,'>norm dt{`.
 > If you accidentally exit Visual mode before entering Command-line mode, you can use `*` as a shorthand for `'<,'>`. See [`:h :star`](https://neovim.io/doc/user/cmdline.html#%3Astar).
 
 ## Command-line mode
+
+List commands: `:command`.
 
 You can use normal mode commands in command-line mode via `:norm`, e.g. `:norm dd` to delete current line.
 
