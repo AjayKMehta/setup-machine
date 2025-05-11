@@ -12,6 +12,7 @@
     - [Options](#options)
     - [Autocommands](#autocommands)
       - [Autocommand groups](#autocommand-groups)
+      - [Nesting](#nesting)
       - [Ignore Events](#ignore-events)
     - [Find](#find)
     - [Marks](#marks)
@@ -481,13 +482,19 @@ Delete autocommand group `<name>`: `:augroup! <name>` OR `:aug! <name>`
 
 See [here](https://thevaluable.dev/vim-expert/#autocommand-groups) for more information.
 
+#### Nesting
+
+By default, autocommands do not trigger any new events. To do so, you need to specify `++nested`:
+
+`:autocmd BufReadPost *.log ++nested normal G` will go to the last line in log files.
+
 #### Ignore Events
 
-Ignore events: `:set ei=all`.
+Ignore all events: `:set eventignore=all` OR `:set ei=all`.
 
-Don't forget to reset: `:set ei=""`.
+Don't forget to reset: `:set ei=`.
 
-Can also ignore for certain events: `:set ei=CursorHold`
+Can also ignore for certain events: `:set ei=CursorHold,WinEnter`
 
 If you want to ignore the event `BufWrite` when running the command `:w`, you can run the following:
 
