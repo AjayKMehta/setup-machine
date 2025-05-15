@@ -54,6 +54,7 @@
     - [ast-grep](#ast-grep)
     - [Hurl](#hurl)
   - [Dot files](#dot-files)
+    - [Encryption](#encryption)
   - [VS Code](#vs-code)
   - [Node](#node)
   - [WSL](#wsl)
@@ -730,6 +731,23 @@ Grab latest binary from [GitHub](https://github.com/Orange-OpenSource/hurl) and 
     ```powershell
     chezmoi apply
     ```
+
+### Encryption
+
+You can use [gpg](#gpg) to encrypt sensitive files.
+
+First, create an entry in your `chezmoi.toml` file. You can do this via `chezmoi edit-config`.
+
+```toml
+[gpg]
+    recipient = <KEY ID>
+```
+
+Next, add a file with encryption using `--encrypt`:
+
+```shell
+chezmoi add --encrypt ~/.ssh/id_rsa
+```
 
 ## VS Code
 
