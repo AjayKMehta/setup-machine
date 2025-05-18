@@ -1642,6 +1642,7 @@ dotnet tool install -g minver-cli
 dotnet tool install -g roslynator.dotnet.cli
 dotnet tool install -g snitch
 dotnet tool install -g upgrade-assistant
+dotnet tool install -g CentralisedPackageConverter
 
 # https://learn.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-telemetry?tabs=powershell#how-to-opt-out
 [System.Environment]::SetEnvironmentVariable('DOTNET_UPGRADEASSISTANT_TELEMETRY_OPTOUT', '1', 'User')
