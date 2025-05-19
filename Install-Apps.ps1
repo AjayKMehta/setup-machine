@@ -35,7 +35,7 @@ Install-WinGetPackage -Id GnuPG.Gpg4win -Location "$CustomLocation\Gpg4win"
 Install-WinGetPackage -Id Git.Git
 Install-WinGetPackage -Id Glab.Glab
 Install-WinGetPackage -Id GitExtensionsTeam.GitExtensions
-Install-WinGetPackage -Id tummychow.git-absorb -Location "$CustomLocation\CLI"
+Install-WinGetPackage -Id tummychow.git-absorb
 
 # Docker
 Install-WinGetPackage -Id Docker.DockerDesktop
@@ -77,4 +77,4 @@ Install-WinGetPackage -Id Postman.Postman
 Install-WinGetPackage -Id chrisant996.Clink
 Install-WinGetPackage -Id 7zip.7zip
 Install-WinGetPackage -Id Microsoft.Sysinternals.ProcessExplorer
-Install-WinGetPackage -Id eza-community.eza -Location "$CustomLocation\CLI"
+Install-WinGetPackage -Id eza-community.eza
