@@ -16,6 +16,8 @@ Install-WinGetPackage -Id Oracle.JDK.17
 # Portable CLI apps
 Install-WinGetPackage -Id sharkdp.bat
 Install-WinGetPackage -Id jftuga.less
+Install-WinGetPackage -Id BurntSushi.ripgrep.MSVC
+Install-WinGetPackage -Id dandavison.delta
 Install-WinGetPackage -Id MikeFarah.yq
 Install-WinGetPackage -Id jqlang.jq
 Install-WinGetPackage -Id DuckDB.cli

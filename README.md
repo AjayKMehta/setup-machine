@@ -176,6 +176,8 @@ Preferably, you should set the environment variables based on the specification.
 
 Install **winget** from Microsoft Store if it is not already installed.
 
+You may wish to customize the settings for the CLI app, e.g. change location where portable apps are installed. For more details, see [here](https://github.com/microsoft/winget-cli/blob/master/doc/Settings.md).
+
 ## Firefox
 
 - Install: `winget install Mozilla.Firefox`.
@@ -1172,7 +1174,9 @@ Run tool using `uv tool run <tool>` or `uvx <tool>`.
 
 6. Update all packages: `uv lock --upgrade`.
 
-7. Export package info to requirements.txt: `uv pip compile --annotation-style line pyproject.toml | Out-File requirements.txt`. :bulb: If you don't specify `--annotation-style line`, it uses `split` which may produce multiple lines per package showing its dependents.
+7. Export package info to requirements.txt: `uv pip compile --annotation-style line pyproject.toml | Out-File requirements.txt`.
+
+   :bulb: If you don't specify `--annotation-style line`, it uses `split` which may produce multiple lines per package showing its dependents.
 
 8. Verify installed packages have compatible dependencies: `uv pip check`.
 
