@@ -437,12 +437,12 @@ gh extension install cschleiden/gh-actionlint
 gh extension install actions/gh-actions-cache
 gh extension install securesauce/gh-alerts
 gh extension install chelnak/gh-changelog
+gh extension install github/gh-copilot
 gh extension install dlvhdr/gh-dash
 gh extension install yuler/gh-download
 gh extension install meiji163/gh-notify
 gh extension install seachicken/gh-poi
 gh extension install samcoe/gh-repo-explore
-gh extension install gennaro-tedesco/gh-s
 ```
 
 #### act
@@ -493,9 +493,9 @@ git add . # fixed files
 git absorb --and-rebase
 ```
 
-~~Install: `winget install tummychow.git-absorb -l D:\Apps\CLI`.~~
+Install: `winget install tummychow.git-absorb`.
 
-Grab latest release from repo and add install folder to `$Path`.
+Generate shell completions: `git absorb --gen-completions powershell | Out-File -Encoding utf8 ~\Documents\PowerShell\Scripts\ArgumentCompleters\git-absorb.ps1`.
 
 ## Java
 
