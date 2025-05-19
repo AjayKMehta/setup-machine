@@ -595,8 +595,7 @@ Grab latest binary and shell completion script from [Releases page](https://gith
 
 ripgrep is a powerful search tool.
 
-- Get it from [here](https://github.com/BurntSushi/ripgrep/releases).
-- Add installation path to `$Path`.
+Install: `winget install BurntSushi.ripgrep.MSVC`.
 
 ### delta
 

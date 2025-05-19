@@ -340,6 +340,8 @@ sudo apt install git
 
 # Ubuntu package is ancient.
 cargo install git-absorb
+# Shell completion
+git-absorb --gen-completions bash > ~/.config/bash_completions.d/git-absorb
 ```
 
 ### meld
