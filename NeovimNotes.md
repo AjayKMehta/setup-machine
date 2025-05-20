@@ -167,6 +167,7 @@
         - [Prompts](#prompts)
         - [Workflows](#workflows)
         - [Workspaces](#workspaces)
+      - [mcphub](#mcphub)
     - [Coding](#coding)
       - [neominimap](#neominimap)
       - [Outline](#outline)
@@ -2728,6 +2729,32 @@ From the [announcement](https://github.com/olimorris/codecompanion.nvim/discussi
 > The new workspace slash command allows users to share defined groups of files and/or symbols with an LLM, alongside some pre-written context.
 
 In order to use this, you need to create a file called [`codecompanion-workspace.json`](https://codecompanion.olimorris.dev/extending/workspace.html) in the root of your current working directory. See an example [here](https://github.com/olimorris/codecompanion.nvim/blob/main/codecompanion-workspace.json).
+
+#### mcphub
+
+[MCPHub.nvim](https://ravitemer.github.io/mcphub.nvim/) is a MCP client for neovim. To get started, install and create a [config file](https://ravitemer.github.io/mcphub.nvim/configuration.html) at `~/.config/mcphub/servers.json`.
+
+You can register MCPHub as an extension in your CodeCompanion configuration.
+Refer to [CodeCompanion Integration](https://ravitemer.github.io/mcphub.nvim/extensions/codecompanion.html) for more details.
+
+```lua
+require("codecompanion").setup({
+  extensions = {
+    mcphub = {
+      callback = "mcphub.extensions.codecompanion",
+      opts = {
+        show_result_in_chat = true,  -- Show mcp tool results in chat
+        make_vars = true,            -- Convert resources to #variables
+        make_slash_commands = true,  -- Add prompts as /slash commands
+      }
+    }
+  }
+})
+```
+
+With `make_vars = true`, MCPHub resources can be accessed as variables prefixed with `#mcp:`, e.g. `#mcp:lsp:get_diagnostics`.
+
+With `make_slash_commands = true`, MCPHub prompts are available as slash commands (`/mcp:<prompt>`).
 
 ### Coding
 
