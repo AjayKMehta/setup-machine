@@ -649,7 +649,7 @@ Here's an example: `qr0f:lr^M>>o^[j@rq`. This creates a macro in register `r` th
 
 First, you need to use `ctags` to generate tags, e.g. `ctags -R --languages=Lua,Tex,C#,PowerShell .`.
 
-In Neovim, you can use `:tag` to go to the definition of an identifier, e.g. `:tag MyFunc` will navigate to the definition of `MyFunc`. This will replace the current file in the window. To avoid this, you can use `:stag` instead which will open definition in a split window. 
+In Neovim, you can use `:tag` to go to the definition of an identifier, e.g. `:tag MyFunc` will navigate to the definition of `MyFunc`. This will replace the current file in the window. To avoid this, you can use `:stag` instead which will open definition in a split window.
 
 `<C-]>` jumps to the tag of the word that is under the cursor.
 
@@ -2677,6 +2677,14 @@ Press `gr` to regenerate the last response.
 See [here](https://codecompanion.olimorris.dev/usage/chat-buffer/#keymaps) for the full list of keymaps.
 
 You can add context from your code base by using [*Variables*](https://codecompanion.olimorris.dev/getting-started.html#variables) and [*Slash Commands*](https://codecompanion.olimorris.dev/getting-started.html#clash-commands) in the chat buffer, e.g. `#buffer:8-12` shares lines 8-12 of current buffer while `/buffer` is a command to insert an open buffer.
+
+You can configure slash commands to be triggered by keymaps:
+
+ Slash Command | KeyMap
+--------------|--------------------------------
+ buffer        | i: `<C-b>`. n : `<C-b>`, `gb`.
+ fetch         | i: `<C-f>`. n : `<C-f>`, `gF`.
+ help          | i: `<C-?>`. n : `<C-?>`, `g?`.
 
 In order to allow for references to self-update, they can be *pinned* (for files and buffers) using `gp` or *watched* (for buffers) using `gw`. See [here](https://codecompanion.olimorris.dev/usage/chat-buffer/#references) for more details. If you pin a buffer, then the whole contents of the buffer or file is added to the message stack before your current message. If you watch it, it will send only the added, edited or deleted lines to the LLM.
 
