@@ -80,6 +80,12 @@ After I did this, I am able to access Ollama running on Windows from WSL, i.e.  
 
 ## Troubleshooting Tips
 
+### Collect WSL logs for networking issues
+
+Install `tcpdump` in WSL and then install [Windows Performance Recorder](https://learn.microsoft.com/en-us/windows-hardware/test/wpt/windows-performance-recorder).
+
+Follow [instructions here](https://github.com/microsoft/WSL/blob/master/CONTRIBUTING.md#collect-wsl-logs-for-networking-issues).
+
 ### Fix wl-copy issue
 
 After upgrading Ubuntu to 24.04, you may start to get an error message when using `wl-copy`, e.g. when yanking text in Neovim. To fix it, follow the instructions [here](https://github.com/microsoft/WSL/issues/11261#issuecomment-2233443300).
