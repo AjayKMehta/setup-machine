@@ -506,7 +506,7 @@ Open file in Neovim: `fzf --bind 'enter:become(nvim {})'`
 
 ```bash
 gh release download -R duckdb/duckdb --pattern *cli-linux-amd64.zip -D ~/tmp
-ls ~/tmp/*.zip | xargs unzip -d ~/.local/bin
+ls ~/tmp/*.zip | xargs unzip -d ~/.local/bin -o
 chmod u+rwx ~/.local/bin/duckdb
 ls ~/tmp/*.zip | xargs rm
 ```
