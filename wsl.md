@@ -700,9 +700,7 @@ See [instructions here](https://learn.microsoft.com/en-us/nuget/install-nuget-cl
 
 ## K8s
 
-See [here](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/) for instructions on how to install kubectl.
-
-See [here](https://docs.altinity.com/altinitykubernetesoperator/kubernetesinstallguide/minikubeonlinux/) for instructions on how to install minikube.
+Install `minikube` and kubectl` using `mise`.
 
 ## tmux
 
