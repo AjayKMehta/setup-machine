@@ -1283,6 +1283,7 @@ The instructions below are based on the following links:
 11. Installing and updating packages: see [here](https://tug.org/texlive/doc/tlmgr.html#EXAMPLES).
 
 12. To upgrade from TeX Live 2024 to 2025, [follow these instructions](https://tug.org/texlive/upgrade.html). If you want to remove the previous installation:
+
     i) Run `~/texlive/2024/bin/x86_64-linux/tlmgr uninstall`.
     ii) This does not remove all the files so you will have to manually delete `~/texlive/2024`.
 
