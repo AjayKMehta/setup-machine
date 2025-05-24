@@ -963,6 +963,19 @@ sudo apt install r-base r-base-dev -y
     sudo apt install libmagick++-dev 
     ```
 
+1. For `V8` package:
+
+    ```bash
+    sudo apt install libnode-dev
+    ```
+
+1. For `textshaping` package:
+
+    ```bash
+    sudo apt install libharfbuzz-dev
+    sudo apt install libfribidi-dev
+    ```
+
 ### [Posit Package Manager for Linux R Binaries](https://tshafer.com/blog/2023/07/posit-package-manager-linux)
 
 You can use the Posit Package Manager (PPM) to install binary packages and avoid having to compile from source.
