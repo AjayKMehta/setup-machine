@@ -1247,15 +1247,15 @@ The instructions below are based on the following links:
     cd /tmp
     wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
     zcat < install-tl-unx.tar.gz | tar xf -
-    cd install-tl-20240226/ # change to appropriate directory name
+    cd install-tl-20250524/ # change to appropriate directory name
     perl ./install-tl --paper=letter --scheme=small
     ```
 
 2. This will bring up a menu in shell. Choose option **D** to specify your user directory. Then return to the main options with **R** and subsequently choose **I** to install.
 3. If you get an error `cannot setup TLPDB in /home/...`, execute `tlmgr init-usertree` to initialize user tree .
-4. Add `~/texlive/2023/texmf-dist/doc/man` to **MANPATH**.
-5. Add `~/texlive/2023/texmf-dist/doc/info` to **INFOPATH**.
-6. Add `~/texlive/2023/bin/x86_64-linux` to your **PATH** for current and future sessions.
+4. Add `~/texlive/2025/texmf-dist/doc/man` to **MANPATH**.
+5. Add `~/texlive/2025/texmf-dist/doc/info` to **INFOPATH**.
+6. Add `~/texlive/2025/bin/x86_64-linux` to your **PATH** for current and future sessions.
 7. Install font using user-mode: `tlmgr --usermode install courier`
 8. Install `chtex`: `sudo apt install chktex`
 9. Run `sudo apt install latexmk` to install `latexmk`.
@@ -1282,7 +1282,17 @@ The instructions below are based on the following links:
 
 11. Installing and updating packages: see [here](https://tug.org/texlive/doc/tlmgr.html#EXAMPLES).
 
-12. To upgrade from TeX Live 2023 to 2024, [follow these instructions](https://tug.org/texlive/upgrade.html).
+12. To upgrade from TeX Live 2024 to 2025, [follow these instructions](https://tug.org/texlive/upgrade.html).
+
+> [!NOTE]
+> You can edit `/etc/profile` to set necessary environment variables:
+>
+> ```bash
+> TEX_HOME=/home/ajay/texlive/2025
+> export PATH=$TEX_HOME/bin/x86_64-linux:/home/ajay/.cargo/bin:$PATH
+> export MANPATH=$TEX_HOME/texmf-dist/doc/man:$MANPATH
+> export INFOPATH=$TEX_HOME/texmf-dist/doc/info:$INFOPATH
+> ```
 
 ### tectonic
 
