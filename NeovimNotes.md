@@ -3292,13 +3292,6 @@ Based on [this](https://github.com/chrisgrieser/nvim-various-textobjs?tab=readme
 
 #### nvim-treesitter
 
- Action                                   | Keymap
-------------------------------------------|--------------
- Initialize selection                     | `<leader>ti`
- Increment selection to named node        | `<leader>tk`
- Shrink selection to previous named node  | `<leader>tj`
- Increment selection to surrounding scope | `<leader>ts`
-
 See `:h nvim-treesitter-commands`.
 
 #### nvim-treesitter-context
@@ -3327,8 +3320,8 @@ Syntax aware text-objects, select, move, swap, and peek support.
  Select inner part of a loop                       | `vil`
  Select outer part of a function call              | `vaf`
  Select inner part of a function call              | `vif`
- Select outer part of a method/function definition | `vam`
- Select inner part of a method/function definition | `vim`
+ Select outer part of a method/function definition | `vaM`
+ Select inner part of a method/function definition | `viM`
  Select outer part of a class                      | `vac`
  Select inner part of a class                      | `vic`
  ~~Select language scope~~                         | ~~`vaS`~~
