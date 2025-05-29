@@ -200,7 +200,6 @@
       - [nvim-various-textobjs](#nvim-various-textobjs)
     - [LSP-related](#lsp-related)
       - [garbage-day.nvim](#garbage-daynvim)
-      - [lsplinks.nvim](#lsplinksnvim)
     - [Treesitter-related](#treesitter-related)
       - [nvim-treesitter](#nvim-treesitter)
       - [nvim-treesitter-context](#nvim-treesitter-context)
@@ -3279,10 +3278,6 @@ Based on [this](https://github.com/chrisgrieser/nvim-various-textobjs?tab=readme
 #### garbage-day.nvim
 
 [garbage-day.nvim](https://github.com/Zeioth/garbage-day.nvim) stops inactive LSP clients to free RAM.
-
-#### lsplinks.nvim
-
-[lsplinks.nvim](https://github.com/icholy/lsplinks.nvim) extends the behavior of `gx` to support LSP document links.
 
 ### Treesitter-related
 
