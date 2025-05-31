@@ -79,6 +79,14 @@ After I did this, I am able to access Ollama running on Windows from WSL, i.e.  
 
 ## Troubleshooting Tips
 
+### [How can I use browser on host Windows machine?](https://superuser.com/questions/1262977/open-browser-in-host-system-from-windows-subsystem-for-linux)
+
+```bash
+export BROWSER='/mnt/c/Program Files/Firefox/firefox.exe'
+```
+
+> :bulb: `wslview` is currently not working.
+
 ### Collect WSL logs for networking issues
 
 Install `tcpdump` in WSL and then install [Windows Performance Recorder](https://learn.microsoft.com/en-us/windows-hardware/test/wpt/windows-performance-recorder).
