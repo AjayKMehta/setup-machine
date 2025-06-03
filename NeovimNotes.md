@@ -2689,6 +2689,8 @@ In order to allow for references to self-update, they can be *pinned* (for files
 
 You can also pin (or watch) the current buffer using `#buffer[pin]` (or `#buffer[watch]`).
 
+Use `gR` to go to the file under cursor (in a new tab).
+
 [Agents](https://codecompanion.olimorris.dev/configuration/chat-buffer.html#agents-and-tools) are prefixed with `@` and can be used to perform tasks like update code. The most comprehensive one is `@full_stack_dev` which is a combination of the `@cmd_runner`, @`editor` and `@files` tools. For a description of these agents, see [Using Agents and Tools](https://codecompanion.olimorris.dev/usage/chat-buffer/agents.html).
 
 > [!NOTE]
@@ -3293,7 +3295,7 @@ See `:h nvim-treesitter-commands`.
 
 This shows you current context when you scroll.
 
-Commands: `TSContextEnable`, `TSContextDisable` and `TSContextToggle`.
+Commands: `TSContext enable`, `TSContext disable` and `TSContext toggle`.
 
 #### treesitter-textobjects
 

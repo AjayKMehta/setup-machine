@@ -609,6 +609,8 @@ Install: `winget install BurntSushi.ripgrep.MSVC`.
 
 - Generate shell completion: `delta --generate-completion powershell | Out-File -Encoding utf8 ~\Documents\PowerShell\Scripts\ArgumentCompleters\delta.ps1`
 
+- To toggle delta features, you can use DELTA_FEATURES, e.g. `$env:DELTA_FEATURES='+side-by-side dracula' (`+` means add to features configured in git config).
+
 ### yq
 
 **[yq](https://github.com/mikefarah/yq)** is a portable command-line YAML, JSON, XML, CSV and properties processor.
