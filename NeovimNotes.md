@@ -2691,7 +2691,13 @@ You can also pin (or watch) the current buffer using `#buffer[pin]` (or `#buffer
 
 Use `gR` to go to the file under cursor (in a new tab).
 
-[Agents](https://codecompanion.olimorris.dev/configuration/chat-buffer.html#agents-and-tools) are prefixed with `@` and can be used to perform tasks like update code. The most comprehensive one is `@full_stack_dev` which is a combination of the `@cmd_runner`, @`editor` and `@files` tools. For a description of these agents, see [Using Agents and Tools](https://codecompanion.olimorris.dev/usage/chat-buffer/agents.html).
+*Tools*, accessed via `@`, allow the LLM to function as an agent and carry out actions.
+
+Tools can also be grouped together to form *Agents*, which are also accessed via `@` in the chat buffer:
+
+- `@files` - is a combination of the `@create_file`,`@insert_edit_into_file` and `@read_file` tools.
+
+For more information, see [Using Agents and Tools](https://codecompanion.olimorris.dev/usage/chat-buffer/agents.html).
 
 > [!NOTE]
 > The message history can be modified via the debug window (`gd`) in the chat buffer.
