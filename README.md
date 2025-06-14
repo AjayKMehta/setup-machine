@@ -34,6 +34,7 @@
     - [git absorb](#git-absorb)
   - [Java](#java)
   - [CLI Apps](#cli-apps)
+    - [feluda](#feluda)
     - [clink](#clink)
     - [parallel-disk-usage](#parallel-disk-usage)
     - [typos](#typos)
@@ -521,6 +522,16 @@ Generate shell completions: `git absorb --gen-completions powershell | Out-File 
 
 > [!TIP]
 > Install CLI apps in a common directory and add common directory to `$Path`.
+
+### feluda
+
+Feluda is a Rust-based command-line tool that analyzes the dependencies of a project and lists and checks their licenses. Grab the latest release from [the releases page](https://github.com/anistark/feluda/releases).
+
+Basic usage:
+
+```powershell
+feluda -p <project_path>
+```
 
 ### clink
 
