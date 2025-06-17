@@ -2702,7 +2702,16 @@ Use `gR` to go to the file under cursor (in a new tab).
 
 Tools can also be grouped together to form *Agents*, which are also accessed via `@` in the chat buffer:
 
+- `@cmd_runner` - enables an LLM to execute commands on your machine, subject to your authorization.
+- `grep_search` - enables an LLM to search for text in the current working directory.
+- `@file_search`- enables an LLM to search for files in the current working directory.
+- `@next_edit_suggestion` - The LLM can only suggest edits in files or buffers that have been shared with it as context.
+- `@web_search` - Need `$TAVILY_API_KEY` set. See <https://www.tavily.com/> for more information.
+
+Tool groups:
+
 - `@files` - is a combination of the `@create_file`,`@insert_edit_into_file` and `@read_file` tools.
+- `@full_stack_dev` - contains `cmd_runner`, `create_file`, `read_file`, and `insert_edit_into_file`.
 
 For more information, see [Using Agents and Tools](https://codecompanion.olimorris.dev/usage/chat-buffer/agents.html).
 
