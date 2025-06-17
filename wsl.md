@@ -335,12 +335,22 @@ Install python: `uv python install 3.12`. Omit version to use latest.
 
 - To uninstall: `rustup self uninstall`.
 
+- To update: `rustup update`
+
 - Shell completions:
 
     ```bash
     rustup completions bash > ~/.config/bash_completions.d/rustup
     rustup completions bash cargo > ~/.config/bash_completions.d/cargo
     ```
+
+### Updating crates
+
+Install [cargo-update](https://github.com/nabijaczleweli/cargo-update): `cargo install cargo-update`.
+
+Check for and install all updates: `cargo install-update -a`.
+
+You can also update specific crates: `cargo install-update crate1 crate2...`.
 
 ## git
 
