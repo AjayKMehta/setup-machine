@@ -2168,7 +2168,7 @@ Specifying a terminal in the above commands is optional. If missing, it defaults
 
 [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) is a file explorer for Neovim.
 
-To launch, press <kbd>Ctrl</kbd> + <kbd>n</kbd>.
+To launch, press <kbd>Ctrl</kbd> + <kbd>n</kbd> or `:NvimTreeFocus`.
 
 To close, press <kbd>q</kbd>.
 
@@ -2247,10 +2247,6 @@ First sibling                   | `K`
 Last sibling                    | `J`
 Move down                       | <kbd>j</kbd>
 Move up                         | <kbd>k</kbd>
-**Expand folder or go to file** | <kbd>l</kbd>
-**Open folder or show preview** | <kbd>Tab</kbd>
-**Close parent folder**         | <kbd>h</kbd>
-Close Directory                 | <kbd>Backspace</kbd>
 Prev diagnostic                 | <kbd>\[</kbd> + <kbd>e</kbd>
 Next diagnostic                 | <kbd>\]</kbd> + <kbd>e</kbd>
 Parent directory                | `P`
@@ -2274,13 +2270,24 @@ Move bookmarked                 | `bmv`
 
 Action                          | Keymap
 ---------------------------------|----------------------------------
+**Expand folder or go to file** | <kbd>l</kbd>
+**Open folder or show preview** | <kbd>Tab</kbd>
+**Close parent folder**         | <kbd>h</kbd>
+Close Directory                 | <kbd>Backspace</kbd>
 Expand All                      | <kbd>Shift</kbd> + <kbd>e</kbd>
 Live Filter: Clear              | <kbd>Shift</kbd> + <kbd>f</kbd>
 Live Filter: Search             | <kbd>f</kbd>
 Toggle hidden files             | <kbd>Shift</kbd> + <kbd>h</kbd>
 **Toggle group empty**          | <kbd>g</kbd> +  <kbd>l</kbd>
 Collapse all                    | <kbd>Shift</kbd> + <kbd>w</kbd>
+**Collapse all (keep[^kp])**    | <kbd>Alt</kbd> + <kbd>w</kbd>
+**Collapse node**               | `[w`
+**Collapse node (keep[^kp])**   | `[W`
+**Expand node**                 | `]w`
+**Expand node (all)**           | `]W`
 Toggle bookmarks                | <kbd>Shift</kbd> + <kbd>m</kbd>
+
+[^kp]: Keep directories with open buffers expanded.
 
 </details>
 
