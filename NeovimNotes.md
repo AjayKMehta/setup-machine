@@ -2179,7 +2179,7 @@ Below are some useful key maps for when the window is displayed.
 > [!NOTE]
 > All actions in **bold** in the tables below have custom keymaps. The other commands use plugin defaults.
 
-<details>
+<details open>
   <summary>Root</summary>
 
 Action                          | Keymap
@@ -2190,7 +2190,7 @@ Change root to node             | <kbd>Ctrl</kbd> + <kbd>\]</kbd>
 
 </details>
 
-<details>
+<details open>
   <summary>File and Directory</summary>
 
 Action                          | Keymap
@@ -2212,7 +2212,7 @@ Paste File Or Directory         | <kbd>p</kbd>
 
 </details>
 
-<details>
+<details open>
   <summary>Info and preview</summary>
 
 Action                          | Keymap
@@ -2225,7 +2225,7 @@ Help                            | <kbd>g</kbd> + <kbd>?</kbd>
 
 </details>
 
-<details>
+<details open>
   <summary>git</summary>
 
 Action                          | Keymap
@@ -2236,7 +2236,7 @@ Stage/unstage Files             | <kbd>g</kbd> + <kbd>a</kbd>
 
 </details>
 
-<details>
+<details open>
   <summary>Navigation and Movement</summary>
 
 Action                          | Keymap
@@ -2253,7 +2253,7 @@ Parent directory                | `P`
 
 </details>
 
-<details>
+<details open>
   <summary>Bookmark</summary>
 
 Action                          | Keymap
@@ -2265,7 +2265,7 @@ Move bookmarked                 | `bmv`
 
 </details>
 
-<details>
+<details open>
   <summary>Filter and view</summary>
 
 Action                          | Keymap
@@ -2291,7 +2291,7 @@ Toggle bookmarks                | <kbd>Shift</kbd> + <kbd>m</kbd>
 
 </details>
 
-<details>
+<details open>
   <summary>Copy info</summary>
 
 Action                          | Keymap
@@ -2303,7 +2303,7 @@ Copy relative path              | <kbd>Shift</kbd> + <kbd>y</kbd>
 
 </details>
 
-<details>
+<details open>
   <summary>Buffer</summary>
 
 Action                          | Keymap
@@ -2315,7 +2315,7 @@ These commands work on the buffer for the current node if it exists.
 
 </details>
 
-<details>
+<details open>
   <summary>AI</summary>
 
 Action                          | Keymap
@@ -2925,7 +2925,7 @@ c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width",
 
 Use `:RStop` to stop execution, i.e. sends `<C-c>` to R console.
 
-<details>
+<details open>
 <summary>Start/Close</summary>
 
  Action  | Keymap/command
@@ -2935,7 +2935,7 @@ Use `:RStop` to stop execution, i.e. sends `<C-c>` to R console.
 
 </details>
 
-<details>
+<details open>
 <summary>Send</summary>
 
  Action                               | Keymap/command
@@ -2967,7 +2967,7 @@ Use `\m` + `<motion>` to send motion to console, e.g. send paragraph to console 
 
 </details>
 
-<details>
+<details open>
 <summary>RMarkdown + Quarto</summary>
 
  Action  | Keymap/command
@@ -2984,7 +2984,7 @@ Use `\m` + `<motion>` to send motion to console, e.g. send paragraph to console 
 
 </details>
 
-<details>
+<details open>
 <summary>Object Browser</summary>
 
  Action  | Keymap/command
@@ -2996,7 +2996,7 @@ Use `\m` + `<motion>` to send motion to console, e.g. send paragraph to console 
 
 </details>
 
-<details>
+<details open>
 <summary>Other</summary>
 
  Action  | Keymap/command
