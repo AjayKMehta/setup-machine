@@ -125,7 +125,7 @@
     - [Dotnet Tools](#dotnet-tools)
   - [LaTeX](#latex)
     - [MikTeX](#miktex)
-      - [Troubleshooting](#troubleshooting)
+      - [MikTeX Troubleshooting](#miktex-troubleshooting)
     - [latexindent](#latexindent)
     - [tectonic](#tectonic)
     - [chktex](#chktex)
@@ -148,7 +148,7 @@
     - [cabal-fmt](#cabal-fmt)
       - [Debugging](#debugging)
       - [Theme](#theme)
-      - [Troubleshooting](#troubleshooting-1)
+      - [Troubleshooting](#troubleshooting)
   - [pngquant](#pngquant)
   - [Miscellaneous](#miscellaneous)
 
@@ -1710,7 +1710,7 @@ To update tools: `dotnet tool update -g --all`.
 
 - Add `$installFolder\bin\x64\` to `$Path`.
 
-#### Troubleshooting
+#### MikTeX Troubleshooting
 
 If you encounter an error about a missing Qt plugin, uninstall and reinstall `miktex-qt6-bin-x64`:
 

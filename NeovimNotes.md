@@ -38,7 +38,7 @@
     - [Completion](#completion)
   - [Visual Mode](#visual-mode)
     - [Visual Block Mode](#visual-block-mode)
-    - [Editing](#editing)
+    - [Editing (Visual Mode)](#editing-visual-mode)
   - [Command-line mode](#command-line-mode)
     - [Ranges](#ranges)
     - [Motion, editing](#motion-editing)
@@ -60,7 +60,7 @@
       - [Clear results](#clear-results)
       - [Delete search results](#delete-search-results)
       - [Toggling wrapping](#toggling-wrapping)
-    - [Command-line Mode](#command-line-mode-1)
+    - [Search (Command-line Mode)](#search-command-line-mode)
       - [global](#global)
       - [substitute](#substitute)
         - [Flags](#flags)
@@ -80,7 +80,7 @@
     - [Find characters](#find-characters)
     - [Forcing a motion to be linewise, charwise or blockwise](#forcing-a-motion-to-be-linewise-charwise-or-blockwise)
     - [Misc](#misc)
-  - [Editing](#editing-1)
+  - [Editing Text](#editing-text)
     - [Formatting text](#formatting-text)
     - [Undo/redo](#undoredo)
       - [Undo up to a file write](#undo-up-to-a-file-write)
@@ -97,7 +97,7 @@
     - [Indent](#indent)
     - [Filter](#filter)
     - [Sort Lines](#sort-lines)
-      - [Options](#options-1)
+      - [Sort Options](#sort-options)
     - [Join Lines](#join-lines)
     - [Add empty lines](#add-empty-lines)
     - [Moving lines](#moving-lines)
@@ -171,7 +171,7 @@
     - [Coding](#coding)
       - [neominimap](#neominimap)
       - [Outline](#outline)
-        - [Commands](#commands)
+        - [Outline Commands](#outline-commands)
       - [Diffview](#diffview)
       - [nvim-dap](#nvim-dap)
       - [code\_runner](#code_runner)
@@ -179,9 +179,9 @@
     - [Language-specific](#language-specific)
       - [R](#r)
         - [Settings](#settings)
-        - [Commands](#commands-1)
+        - [R Commands](#r-commands)
       - [C#](#c)
-    - [Editing](#editing-2)
+    - [Editing](#editing)
       - [nvim-autopairs](#nvim-autopairs)
       - [mini.move](#minimove)
       - [nvim-spider](#nvim-spider)
@@ -970,7 +970,7 @@ Press `$` to select to end of each line.
 
 Use `O` to move cursor to other corner of current line in visual block mode.
 
-### Editing
+### Editing (Visual Mode)
 
 `d` deletes selection.
 
@@ -1223,7 +1223,7 @@ Similarly, you can use `cgn` to change search result text.
 
 To turn off search wrapping, use the following command: `:set nowrapscan`.
 
-### Command-line Mode
+### Search (Command-line Mode)
 
 Use `substitute` to search and replace and `global` to search and execute a command on search results.
 
@@ -1490,7 +1490,7 @@ To force a linewise motion to be charwise, use `v`.
 > `H` stands for Home, `M` for Middle and `L` for Last.  Alternatively,
 `H` for High, `M` for Middle and `L` for Low.
 
-## Editing
+## Editing Text
 
 To execute a normal mode command from insert mode in Neovim, you can use the `<C-o>` (<kbd>Ctrl</kbd> + <kbd>o</kbd>) shortcut. This allows you to execute a single normal mode command without leaving insert mode. After executing the command, you will return to insert mode.
 
@@ -1730,7 +1730,7 @@ Use `:sort!` to reverse the order.
 
 See `:help sort` for more information.
 
-#### Options
+#### Sort Options
 
 Specify `i` to ignore case, e.g. `:sort i`.
 
@@ -2572,7 +2572,7 @@ Name      | Description                                  | Click Action
 
  Name     | Description                                                       | Click Action
  ----------|-------------------------------------------------------------------|--------------
- location | Displays the current cursor position in the format `line:column`. | None            |
+ location | Displays the current cursor position in the format `line:column`. | None
 
 </details>
 
@@ -2914,7 +2914,7 @@ To use radian, please refer to the instructions [here](https://github.com/randy3
 
 For more details, see [online documentation](https://github.com/jamespeapen/Nvim-R/wiki).
 
-##### Commands
+##### R Commands
 
 The command `:Rinsert <cmd>` inserts one or more lines with the output of the R command sent to R e.g. `Rinsert dput(names(iris))` will insert in the buffer:
 
