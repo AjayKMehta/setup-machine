@@ -168,6 +168,7 @@
         - [Workflows](#workflows)
         - [Workspaces](#workspaces)
       - [mcphub](#mcphub)
+      - [codecompanion-history](#codecompanion-history)
     - [Coding](#coding)
       - [neominimap](#neominimap)
       - [Outline](#outline)
@@ -2790,6 +2791,14 @@ You can access MCP tools via the `@mcp` tool in the chat buffer. By default, you
 With `make_vars = true`, MCPHub resources can be accessed as variables prefixed with `#mcp:`, e.g. `#mcp:lsp:get_diagnostics`.
 
 With `make_slash_commands = true`, MCPHub prompts are available as slash commands (`/mcp:<prompt>`).
+
+#### [codecompanion-history](https://github.com/ravitemer/codecompanion-history.nvim)
+
+This plugin is a history management extension for codecompanion.
+
+See [here](https://github.com/ravitemer/codecompanion-history.nvim#add-history-extension-to-codecompanion-config) for adding this as an extension to **codecompanion.nvim**.
+
+In the chat buffer, press `gh` to browse chat history and `sc` to save the current chat.
 
 ### Coding
 
