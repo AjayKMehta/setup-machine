@@ -832,7 +832,7 @@ Send diagnostics to QuickFix list: `:lua vim.diagnostic.setqflist()`.
 
 Install `kevinhwang91/nvim-bqf` for a better quickfix experience.
 
-Refer to [this](https://github.com/kevinhwang91/nvim-bqf#function-table) for hotkeys for `nvim-bqf`
+Refer to [this link](https://github.com/kevinhwang91/nvim-bqf#function-table) for keymaps available in quicklist window courtesy of `nvim-bqf`
 
 If you want to save the list for future reference: `:w my_qf.txt`.
 
@@ -2680,6 +2680,8 @@ Press `ga` to change the adapter for the current chat.
 
 Press `gr` to regenerate the last response.
 
+Press `gS` to get Copilot usage stats.
+
 See [here](https://codecompanion.olimorris.dev/usage/chat-buffer/#keymaps) for the full list of keymaps.
 
 You can add context from your code base by using [*Variables*](https://codecompanion.olimorris.dev/getting-started.html#variables) and [*Slash Commands*](https://codecompanion.olimorris.dev/getting-started.html#clash-commands) in the chat buffer, e.g. `#buffer:8-12` shares lines 8-12 of current buffer while `/buffer` is a command to insert an open buffer.
@@ -2783,6 +2785,8 @@ require("codecompanion").setup({
 })
 ```
 
+You can access MCP tools via the `@mcp` tool in the chat buffer. By default, you will prompted for approval unless [auto-approval](https://github.com/ravitemer/mcphub.nvim/blob/main/doc/extensions/codecompanion.md#auto-approval) is set.
+
 With `make_vars = true`, MCPHub resources can be accessed as variables prefixed with `#mcp:`, e.g. `#mcp:lsp:get_diagnostics`.
 
 With `make_slash_commands = true`, MCPHub prompts are available as slash commands (`/mcp:<prompt>`).
@@ -2813,7 +2817,7 @@ You can customize the display to show diagnostics, marks, search results, git in
 
 See [here](https://github.com/hedyhli/outline.nvim#default-keymaps) for default keymaps. They are only active for the outline window.
 
-##### Commands
+##### Outline Commands
 
 - `:Outline[!]` toggles the outline window. If you use `!`, the cursor focus stays in your original window.
 You can use command modifiers `topleft`/`aboveleft`/`botright`/`belowright` on this command.
