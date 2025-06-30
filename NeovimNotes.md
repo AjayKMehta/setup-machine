@@ -2717,7 +2717,7 @@ Tool groups:
 For more information, see [Using Agents and Tools](https://codecompanion.olimorris.dev/usage/chat-buffer/agents.html).
 
 > [!IMPORTANT]
-> As of v17.5.0, tools and variables must be wrapped in curly braces, such as @{grep_search} or #{lsp}.
+> As of v17.5.0, tools and variables must be wrapped in curly braces, such as `@{grep_search}` or `#{lsp}`.
 
 > [!NOTE]
 > The message history can be modified via the debug window (`gd`) in the chat buffer.
