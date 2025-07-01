@@ -655,10 +655,29 @@ See [Supported distributions](https://learn.microsoft.com/en-us/dotnet/core/inst
 
 ### Install .NET 9
 
+#### Using a package manager
+
 ```bash
 sudo add-apt-repository ppa:dotnet/backports
 sudo apt-get update && sudo apt-get install -y dotnet-sdk-9.0
 ```
+
+#### [Install manually](https://learn.microsoft.com/en-us/dotnet/core/install/linux-scripted-manual#manual-install)
+
+> :bulb: The package manager seem to lag Windows in terms of availability of SDK (and runtime) versions. This can be an issue if you have a `global.json` in your repo that gets updated by Dependabot to a SDK version not available in package manger.
+
+If you want to install manually:
+
+```bash
+cd ~/tmp
+# https://dotnet.microsoft.com/en-us/download/dotnet/9.0
+wget https://builds.dotnet.microsoft.com/dotnet/Sdk/9.0.301/dotnet-sdk-9.0.301-linux-x64.tar.gz
+export DOTNET_ROOT=$HOME/.dotnet # Add to .bashrc
+mkdir -p "$DOTNET_ROOT" && tar zxf dotnet-sdk-9.0.301-linux-x64.tar.gz -C "$DOTNET_ROOT"
+export PATH=$DOTNET_ROOT:$DOTNET_ROOT/tools:$PATH  # Add to .bashrc
+```
+
+Confirm that it's working: `dotnet sdk check`.
 
 ### Configure environment variables
 
