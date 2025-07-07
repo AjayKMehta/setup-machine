@@ -1179,13 +1179,13 @@ fc-list
 1. [Install app](https://ohmyposh.dev/docs/installation/linux):
 
     ```shell
-    curl -s https://ohmyposh.dev/install.sh | sudo bash -s
+    curl -s https://ohmyposh.dev/install.sh | bash -s
     ```
 
-    By default the script will install to `/usr/local/bin` or the existing Oh My Posh executable's installation folder. If you want to install to a different location you can specify it using the `-d` flag:
+    By default the script will install to `~/bin` or `~/.local/bin` depending on which one exists or the existing Oh My Posh executable's installation folder. If you want to install to a different location you can specify it using the `-d` flag:
 
     ```shell
-    curl -s https://ohmyposh.dev/install.sh | sudo bash -s -- -d ~/bin
+    curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
     ```
 
 2. Themes are written to `/root/.cache/oh-my-posh/themes/`. You may need to fix permissions for this directory:
