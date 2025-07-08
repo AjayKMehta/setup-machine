@@ -2690,7 +2690,7 @@ You can add context from your code base by using [*Variables*](https://codecompa
 You can configure slash commands to be triggered by keymaps:
 
  Slash Command | KeyMap
---------------|--------------------------------
+ --------------|-------------------------------
  buffer        | i: `<C-b>`. n : `<C-b>`, `gb`.
  fetch         | i: `<C-f>`. n : `<C-f>`, `gF`.
  help          | i: `<C-?>`. n : `<C-?>`, `g?`.
@@ -2799,7 +2799,13 @@ This plugin is a history management extension for codecompanion.
 
 See [here](https://github.com/ravitemer/codecompanion-history.nvim#add-history-extension-to-codecompanion-config) for adding this as an extension to **codecompanion.nvim**.
 
-In the chat buffer, press `gh` to browse chat history and `sc` to save the current chat.
+ Action                | Keymap
+ ----------------------|------------------
+ Browse chat history   | `gh`
+ Save current chat     | `<localleader>sc`
+ Generate chat summary | `gcs`
+ Browse chat summaries | `gbs`
+ Preview chat summary  | `gps`
 
 ### Coding
 
