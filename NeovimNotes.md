@@ -227,7 +227,7 @@
     - [VimTex](#vimtex)
       - [Configuration](#configuration)
       - [Basic Usage](#basic-usage)
-      - [Motions and text objects](#motions-and-text-objects)
+      - [Motions and textobjects](#motions-and-textobjects)
     - [Linting + Formatting](#linting--formatting)
       - [conform](#conform)
       - [nvim-lint](#nvim-lint)
@@ -898,6 +898,7 @@ Go to definition | <kbd>Ctrl</kbd> + <kbd>]</kbd> OR `<leader>ld` OR <kbd>F12</k
 Go to declaration | `<leader>lD`
 Go to implementation | `gri`
 Show references | `grr`
+Show type definition | `grt`
 Show document symbols | `gO`
 Displays hover information about the symbol under the cursor | `K`
 Code Action | `gra`
@@ -3589,7 +3590,7 @@ vim.g.vimtex_view_general_viewer = "zathura"
 
  `:VimtexInfo` shows information about the project including packages used.
 
-#### Motions and text objects
+#### Motions and textobjects
 
 > [!NOTE]
 > The word `section` below refers to `\section`, `\subsection` or `\subsubsection`, whichever comes first.
