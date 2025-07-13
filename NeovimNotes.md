@@ -150,6 +150,7 @@
       - [Snacks](#snacks)
       - [Toggle](#toggle)
       - [yazi](#yazi)
+      - [vim-coach](#vim-coach)
     - [UI](#ui)
       - [rainbow-delimiters](#rainbow-delimiters)
       - [hlchunk](#hlchunk)
@@ -2483,6 +2484,22 @@ Below are some of the commands with their respective keymaps:
  -------------------------------|---------------
  Open yazi                      | `<leader>yy`
  Open yazi in current directory | `<leader>yw`
+
+#### [vim-coach](https://github.com/shahshlok/vim-coach.nvim)
+
+This plugin provides an interactive, searchable reference for Vim commands with explanations, tips, and context-aware guidance.
+
+ Action                             | Keymap/command
+ -----------------------------------|-------------------------------------
+ Open comprehensive help            | `<leader>?` OR `:VimCoach`
+ Open help for motion commands      | `<leader>hm` OR `:VimCoach motions`
+ Open help for editing commands     | `<leader>he` OR `:VimCoach editing`
+ Open help for visual mode commands | `<leader>hv` OR `:VimCoach visual`
+ Open help for plugin commands      | `<leader>hp` OR `:VimCoach plugins`
+ Open help for all commands         | `<leader>hh` OR `:VimCoach all`
+
+> [!NOTE]
+> This plugin is currently disabled.
 
 ### UI
 
