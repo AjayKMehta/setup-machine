@@ -2808,7 +2808,7 @@ require("codecompanion").setup({
 })
 ```
 
-You can access MCP tools via the `@mcp` tool in the chat buffer. By default, you will prompted for approval unless [auto-approval](https://github.com/ravitemer/mcphub.nvim/blob/main/doc/extensions/codecompanion.md#auto-approval) is set.
+You can access MCP tools via the `@mcp` tool in the chat buffer or using their namespace, e.g. `@neovim__read_file`. By default, you will prompted for approval unless [auto-approval](https://github.com/ravitemer/mcphub.nvim/blob/main/doc/extensions/codecompanion.md#auto-approval) is set.
 
 With `make_vars = true`, MCPHub resources can be accessed as variables prefixed with `#mcp:`, e.g. `#mcp:lsp:get_diagnostics`.
 
