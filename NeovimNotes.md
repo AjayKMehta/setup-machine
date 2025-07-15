@@ -175,9 +175,12 @@
       - [Outline](#outline)
         - [Outline Commands](#outline-commands)
       - [Diffview](#diffview)
-      - [nvim-dap](#nvim-dap)
       - [code\_runner](#code_runner)
       - [neotest](#neotest)
+      - [Debugging](#debugging)
+        - [nvim-dap](#nvim-dap)
+        - [persistent-breakpoints.nvim](#persistent-breakpointsnvim)
+        - [dap-breakpoints.nvim](#dap-breakpointsnvim)
     - [Language-specific](#language-specific)
       - [R](#r)
         - [Settings](#settings)
@@ -2891,7 +2894,24 @@ Run as if git was started in a specific directory: `:DiffviewOpen -C/foo/bar/baz
 
 Use `[c` and `]c` to jump btw hunks.
 
-#### nvim-dap
+#### code_runner
+
+ Action       | Keymap/command
+ -------------|---------------
+ Run code     | `<leader>rc`
+ Run file     | `<leader>rf`
+ Run project  | `<leader>rp`
+ Close runner | `<leader>rx`
+
+#### neotest
+
+[Neotest](https://github.com/nvim-neotest/neotest?tab=readme-ov-file#installation) is an extensible framework for managing tests.
+
+See [here](https://github.com/nvim-neotest/neotest?tab=readme-ov-file#supported-runners) for supported runners.
+
+#### Debugging
+
+##### nvim-dap
 
 DAP stands for Debug Adapter Protocol.
 
@@ -2910,25 +2930,28 @@ I tried to keep the shortcuts the same as those in Visual Studio as much as poss
  DAP Preview       | `<leader>dp`
  REPL: Go to previous prompt | `[[`
  REPL: Go to next prompt | `]]`
- DAP Set conditional breakpoint | `<leader>db`
+ DAP Set conditional breakpoint | `<leader>dtc`
  DAP Log Message | `<leader>dl`
 
  For Python, there is an addional keymap for **DAP Debug closest method to cursor**: `<leader>dt`.
 
-#### code_runner
+##### [persistent-breakpoints.nvim](https://github.com/Weissle/persistent-breakpoints.nvim)
 
- Action       | Keymap/command
- -------------|---------------
- Run code     | `<leader>rc`
- Run file     | `<leader>rf`
- Run project  | `<leader>rp`
- Close runner | `<leader>rx`
+This lets you save and automatically load breakpoints.
 
-#### neotest
+##### [dap-breakpoints.nvim](https://github.com/Carcuis/dap-breakpoints.nvim)
 
-[Neotest](https://github.com/nvim-neotest/neotest?tab=readme-ov-file#installation) is an extensible framework for managing tests.
+This plugin helps manage breakpoints.
 
-See [here](https://github.com/nvim-neotest/neotest?tab=readme-ov-file#supported-runners) for supported runners.
+ Action                         | Keymap/command
+ -------------------------------|---------------
+ Set Hit Condition Breakpoint   | `<leader>dth`
+ Load Breakpoints               | `<leader>dtL`
+ Save Breakpoints               | `<leader>dtS`
+ Edit Breakpoint Property       | `<leader>dte`
+ Toggle Breakpoint Virtual Text | `<leader>dtv`
+ Go to previous breakpoint      | `[,`
+ Go to next breakpoint          | `],`
 
 ### Language-specific
 
