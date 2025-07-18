@@ -80,6 +80,7 @@
       - [Roles](#roles)
       - [Usage](#usage)
     - [aider-chat](#aider-chat)
+    - [Open WebUI](#open-webui)
     - [HuggingFace Model Downloader](#huggingface-model-downloader)
     - [RAG Crawler](#rag-crawler)
   - [Python](#python)
@@ -1041,6 +1042,25 @@ uv tool install aider-chat
 >
 > - Use <kbd>Esc</kbd> + <kbd>Enter</kbd> to enter a new line without sending the message.
 > - Use `/editor` to edit message in your editor.
+
+### [Open WebUI](https://github.com/open-webui/open-webui)
+
+This provides a user-friendly AI Interface.
+
+Install with Docker: `docker pull ghcr.io/open-webui/open-webui:cuda`
+
+> :bulb: `cuda` tag enables use of NVIDIA GPUs.
+
+Run:
+
+```powershell
+docker run -d -p 3000:8080 --gpus all --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:cuda
+```
+
+Once the container is up and running, you can navigate to <http://localhost:3000/>.
+
+> [!TIP]
+> You can set the `HF_HUB_OFFLINE` environment variable to `1` to prevent downloading models from the internet.
 
 ### HuggingFace Model Downloader
 
