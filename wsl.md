@@ -1103,25 +1103,6 @@ Install cairo graphics:
 sudo apt-get install libcairo2-dev
 ```
 
-### neovim
-
-Install [Nvim-R](https://github.com/jalvesaq/Nvim-R).
-
-Select key bindings:
-
-| Keys              | Action                     |
-|-------------------|----------------------------|
-| `<LocalLeader>rf` | Start R                    |
-| `<LocalLeader>rd` | Set working directory      |
-| `<LocalLeader>d`  | Send line to R + move down |
-| `<LocalLeader>l`  | Send line to R + stay      |
-| `<LocalLeader>aa` | Send file                  |
-
-> [!TIP]
-> For `<LocalLeader>`, press <kbd>\</kbd>.
-
-For more bindings, see [this](https://github.com/jalvesaq/Nvim-R/blob/master/doc/Nvim-R.txt#L317).
-
 ## CUDA
 
 1. Refer to [CUDA on WSL User Guide](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#getting-started-with-cuda-on-wsl-2).
