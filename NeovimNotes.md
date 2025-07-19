@@ -1491,10 +1491,14 @@ To force a linewise motion to be charwise, use `v`.
  Move to bottom of window                                                                     | <kbd>L</kbd>
  Move to first non-empty character 2 lines below | `2+`
  Move to first non-empty character 1 line above | `-`
+ Go to `[count]` byte in buffer | `[count]go`
 
 > [!TIP]
 > `H` stands for Home, `M` for Middle and `L` for Last.  Alternatively,
 `H` for High, `M` for Middle and `L` for Low.
+
+> [!NOTE]
+> `go` is like `gg` except it will always go to first character in first line.
 
 ## Editing Text
 
