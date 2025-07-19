@@ -542,7 +542,7 @@ For example, to delete from the current character to mark `a` position: ``d`a``.
  `` ` `` | Position before the latest jump.
  `.`     | Position of the last change in current buffer
  `[`     | First character of the previously changed, deleted, or yanked content
- `]`     | Last character of the previously changed, deleted, or yanked content  
+ `]`     | Last character of the previously changed, deleted, or yanked content
  `^`     | Position where you last used Insert mode.
  `"`     | Position you were at when you last closed the file.
 
@@ -719,7 +719,7 @@ To automatically close folds when you move out of them: `:set foldclose=all`.
  Fold more                    | `zm`
  Close all folds              | `zM`
  Open fold under cursor       | `zo` OR `:foldopen` OR `:foldo`
- Open all folds under cursor  | `zO` OR `:foldopen!` OR `:foldo!`  
+ Open all folds under cursor  | `zO` OR `:foldopen!` OR `:foldo!`
  Fold less                    | `zr`
  Open all folds               | `zR`
  Fold none[^zn]               | `zn`
@@ -833,7 +833,7 @@ Send diagnostics to QuickFix list: `:lua vim.diagnostic.setqflist()`.
 `cexpr` (OR `cex`) and `caddexpr` are very powerful commands:
 
   - `:cexpr <cmd>` executes a command `<cmd>` and populates the QuickFix list with its results.
-  - `:caddexpr <cmd>` appends the command's results to QuickFix list.  
+  - `:caddexpr <cmd>` appends the command's results to QuickFix list.
 
 Install `kevinhwang91/nvim-bqf` for a better quickfix experience.
 
@@ -1578,7 +1578,7 @@ Use `g;` and `g,` to navigate history of insertions.
 <kbd>r</kbd> accepts count, e.g. `cde` becomes `aae` if you type `2ra` with cursor on `c`
 
 The `R` command causes Vim to enter replace mode.  In this mode, each
-character you type replaces the one under the cursor.  
+character you type replaces the one under the cursor.
 
 For example, `cde` becomes `abe` if you type `Rab` with cursor on `c`. Line will get extended as needed.
 
@@ -1840,7 +1840,7 @@ Examples:
 - `ciw` deletes current word and enters INSERT mode
 - `daW` deletes current word + trailing whitespace (leading if word is at the end of the line).
 - `dit` deletes all characters within HTML/XML tags (nesting is handled)
-- `ci"` deletes all text within double quotes and enters INSERT mode  
+- `ci"` deletes all text within double quotes and enters INSERT mode
 - `di'` deletes all text within single quotes
 - `yis` yanks a sentence
 - `vib` selects text within parentheses (same as `vi(`))
@@ -2410,7 +2410,7 @@ Below are some of the commands with their respective keymaps:
  Snacks LSP Diagnostics          | `<leader>lSD`
  Snacks LSP Diagnostics (Buffer) | `<leader>lSd`
  Lsp type definitions            | `<leader>ltd`
- Lsp document symbols            | `<leader>ls`  
+ Lsp document symbols            | `<leader>ls`
  Lsp workspace symbols           | `<leader>lws`
 
 </details>
@@ -2423,7 +2423,7 @@ Below are some of the commands with their respective keymaps:
  Snacks Grep                     | `<leader>sgg`
  Snacks Grep (hidden)            | `<leader>sgh`
  Snacks Grep cwd                 | `<leader>sgc`
- Snacks Visual selection or word | `<leader>sw`  
+ Snacks Visual selection or word | `<leader>sw`
  Snacks Grep Open Buffers        | `<leader>sgB`
 
 </details>
@@ -2463,12 +2463,12 @@ Below are some of the commands with their respective keymaps:
  Action                            | Keymap
  ----------------------------------|---------------
  Snacks Find Old Files             | `<leader>sff`
- Snacks File Explorer              | `<leader>se`  
+ Snacks File Explorer              | `<leader>se`
  Snacks Find Config File           | `<leader>sfc`
- Snacks Recent                     | `<leader>sr`  
- Delete current buffer             | `<leader>bd`  
- Delete all buffers except current | `<leader>bD`  
- Snacks Find Buffers               | `<leader>sB`  
+ Snacks Recent                     | `<leader>sr`
+ Delete current buffer             | `<leader>bd`
+ Delete all buffers except current | `<leader>bD`
+ Snacks Find Buffers               | `<leader>sB`
 
 </details>
 
@@ -2869,12 +2869,12 @@ You can use command modifiers `topleft`/`aboveleft`/`botright`/`belowright` on t
 
  Action             | Keymap
  -------------------|---------------
- Outline Open       | `<leader>oo`  
- Outline Close      | `<leader>oc`  
- Outline Toggle     | `<leader>ot`  
+ Outline Open       | `<leader>oo`
+ Outline Close      | `<leader>oc`
+ Outline Toggle     | `<leader>ot`
  Outline Focus      | `<leader>ofo`
  Outline Focus code | `<leader>ofc`
- Outline Follow     | `<leader>oF`  
+ Outline Follow     | `<leader>oF`
 
 #### Diffview
 
@@ -3497,7 +3497,7 @@ Similarly, `Left` refers to the first ancestor node that's on a different line w
 Navigate: `:Treewalker <direction>` .
 Swap nodes: `:Treewalker Swap<direction>`, e.g. `:Treewalker SwapUp`.
 
-👉 `Swap{Left,Right}` are meant for swapping function arguments, enum members, list elements, etc.  
+👉 `Swap{Left,Right}` are meant for swapping function arguments, enum members, list elements, etc.
 
 ### Markdown
 
@@ -3615,8 +3615,8 @@ vim.g.vimtex_view_general_viewer = "zathura"
  View errors             | `<localleader>le`
  View status             | `<localleader>lg` OR `:VimtexStatus`
  View status (all)       | `<localleader>lG` OR `:VimtexStatus!`
- View info               | `<localleader>li` OR `:VimtexInfo`  
- View info (all)         | `<localleader>lI` OR `:VimtexInfo!`  
+ View info               | `<localleader>li` OR `:VimtexInfo`
+ View info (all)         | `<localleader>lI` OR `:VimtexInfo!`
  Stop compile            | `<localleader>lk` OR `:VimtexStop`
  Stop compile (all)      | `<localleader>lK` OR `:VimtexStopAll`
  Compile                 | `<localleader>ll` OR `:VimtexCompile`
