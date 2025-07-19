@@ -2827,7 +2827,7 @@ See [here](https://github.com/ravitemer/codecompanion-history.nvim#add-history-e
  Action                | Keymap
  ----------------------|------------------
  Browse chat history   | `gh`
- Save current chat     | `<localleader>sc`
+ Save current chat     | `<LocalLeader>sc`
  Generate chat summary | `gcs`
  Browse chat summaries | `gbs`
  Preview chat summary  | `gps`
@@ -3334,7 +3334,7 @@ Let's illustrate usage for operator-pending and visual mode:
 
 `:GrugFar` launches a new buffer to search. Use `g?` to see list of commands for this buffer.
 
-:bulb: I also added `<localleader>h` to toggle `--hidden` switch.
+:bulb: I also added `<LocalLeader>h` to toggle `--hidden` switch.
 
 There are 2 keymaps available:
 
@@ -3597,7 +3597,7 @@ Run `:RenderMarkdown config` to validate your configuration.
 
 ### VimTex
 
-[VimTeX](https://github.com/lervag/vimtex) is a filetype and syntax plugin for LaTeX files. Commands use `<localleader>` (which I have mapped to `\`).
+[VimTeX](https://github.com/lervag/vimtex) is a filetype and syntax plugin for LaTeX files. Commands use `<LocalLeader>` (which I have mapped to `\`).
 
 #### Configuration
 
@@ -3614,21 +3614,21 @@ vim.g.vimtex_view_general_viewer = "zathura"
 
  Action                  | Keymap/command
 -------------------------|-------------------------------------
- Clean                   | `<localleader>lc` OR `:VimtexClean`
- Clean (full)            | `<localleader>lC` OR `:VimtexClean!`
- View errors             | `<localleader>le`
- View status             | `<localleader>lg` OR `:VimtexStatus`
- View status (all)       | `<localleader>lG` OR `:VimtexStatus!`
- View info               | `<localleader>li` OR `:VimtexInfo`
- View info (all)         | `<localleader>lI` OR `:VimtexInfo!`
- Stop compile            | `<localleader>lk` OR `:VimtexStop`
- Stop compile (all)      | `<localleader>lK` OR `:VimtexStopAll`
- Compile                 | `<localleader>ll` OR `:VimtexCompile`
- Imaps (insert mappings)[^imaps] | `<localleader>lm` OR `:VimtexImapsList`
- Compile output          | `<localleader>lo`
- View log                | `<localleader>lq` OR `:VimtexLog`
- View TOC                | `<localleader>lt`
- Forward search          | `<localleader>lv`
+ Clean                   | `<LocalLeader>lc` OR `:VimtexClean`
+ Clean (full)            | `<LocalLeader>lC` OR `:VimtexClean!`
+ View errors             | `<LocalLeader>le`
+ View status             | `<LocalLeader>lg` OR `:VimtexStatus`
+ View status (all)       | `<LocalLeader>lG` OR `:VimtexStatus!`
+ View info               | `<LocalLeader>li` OR `:VimtexInfo`
+ View info (all)         | `<LocalLeader>lI` OR `:VimtexInfo!`
+ Stop compile            | `<LocalLeader>lk` OR `:VimtexStop`
+ Stop compile (all)      | `<LocalLeader>lK` OR `:VimtexStopAll`
+ Compile                 | `<LocalLeader>ll` OR `:VimtexCompile`
+ Imaps (insert mappings)[^imaps] | `<LocalLeader>lm` OR `:VimtexImapsList`
+ Compile output          | `<LocalLeader>lo`
+ View log                | `<LocalLeader>lq` OR `:VimtexLog`
+ View TOC                | `<LocalLeader>lt`
+ Forward search          | `<LocalLeader>lv`
 
 [^imaps]: Only visible if `vim.g.vimtex_imaps_enabled=1`.
 
