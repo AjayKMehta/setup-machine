@@ -183,8 +183,9 @@
         - [dap-breakpoints.nvim](#dap-breakpointsnvim)
     - [Language-specific](#language-specific)
       - [R](#r)
-        - [Settings](#settings)
-        - [R Commands](#r-commands)
+        - [R.nvim](#rnvim)
+          - [Viewing data.frames](#viewing-dataframes)
+          - [Inserting and formatting code](#inserting-and-formatting-code)
       - [C#](#c)
     - [Editing](#editing)
       - [nvim-autopairs](#nvim-autopairs)
@@ -2961,122 +2962,170 @@ This plugin helps manage breakpoints.
 
 #### R
 
-[nvim-R](https://github.com/jalvesaq/Nvim-R) supports working with R code.
+##### R.nvim
 
-Nvim-R is a file-type plugin. Its functionalities will be available only when an R file type (.R, .Rmd, .qmd) is being edited.
+[R.nvim](https://github.com/R-nvim/R.nvim?tab=readme-ov-file) adds R support to Neovim. R autocompletion should be configured via a separate plugin like [cmp-r](https://github.com/R-nvim/cmp-r).
 
-> [!IMPORTANT]
-> [You must start R from neovim](https://github.com/jamespeapen/Nvim-R/wiki/Known-Bugs-and-Workarounds#r-must-be-started-by-vim).
-
-##### Settings
-
-Start R automatically: `vim.g.R_auto_start = 1` (Change to 2 to start automatically when editing an R Script).
-Start object browser automatically: `vim.g.R_objbr_auto_start = 1`
-
-To view dataframes, install `visidata`, then `vim.g.R_csv_app = "terminal:vd"`.
+Run `:checkhealth r` to check if the dependencies are installed and treesitter is working properly.
 
 To use radian, please refer to the instructions [here](https://github.com/randy3k/radian/blob/master/README.md#nvim-r-support).
 
-For more details, see [online documentation](https://github.com/jamespeapen/Nvim-R/wiki).
-
-##### R Commands
-
-The command `:Rinsert <cmd>` inserts one or more lines with the output of the R command sent to R e.g. `Rinsert dput(names(iris))` will insert in the buffer:
-
-```r
-c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width", 
-"Species")
-```
-
-Use `:RStop` to stop execution, i.e. sends `<C-c>` to R console.
+> [!TIP]
+> The R documentation window is opened in a *modifiable* buffer so you can edit code in the examples! You can press `<LocalLeader>gn` to jump to the next section of R code ("Usage" or "Examples" section) and use the plugin's key bindings to send code to the R Console.
 
 <details open>
-<summary>Start/Close</summary>
+<summary>Start/Quit</summary>
 
- Action  | Keymap/command
- --------|------------------
- Start R | `<localleader>rf`
- Close R | `<localleader>rc`
+ Action                                  | Keymap/command                       | Mode(s)
+ ----------------------------------------|--------------------------------------|--------
+ Install missing package                 | `<LocalLeader>ip` OR `:RPackages`    | n
+ Quit R, saving the workspace            | `<LocalLeader>rw` OR `:RSaveClose`   | nv
+ Quit R (save = 'no')                    | `<LocalLeader>rq` OR `:RClose`       | nv
+ Ask user to enter parameters to start R | `<LocalLeader>rc` OR `:RCustomStart` | nv
+ Start R or reopen terminal window       | `<LocalLeader>rf` OR `:RStart`       | nv
+
+</details>
+
+<details open>
+<summary>Edit</summary>
+
+ Action                                                      | Keymap/command                            | Mode(s)
+-------------------------------------------------------------|-------------------------------------------|---------
+ Extract the Examples section and paste it in a split window | `<LocalLeader>re` OR `:RShowEx`           | nv
+ Insert `\|>`                                                | `<LocalLeader>,` OR `:RInsertPipe`        | i
+ Insert ` <- `                                               | `<M-->` OR `:RInsertAssign`               | i
+ Replace all the `$` subsetting operators with `[[`          | `<LocalLeader>cs` OR `:RFormatSubsetting` | nv
+ Add an 'L' suffix after numbers                             | `<LocalLeader>cn` OR `:RFormatNumbers`    | nv
+ Split the file path or the url under the cursor             | `<LocalLeader>sp` OR `:RSeparatePath`     | nv
+ Open the PDF generated from the current document            | `:ROpenPDF` | N/A
+ Run dput(`<cword>`) and show the output in a new tab          | `<LocalLeader>td` OR `:RDputObj`          | nv
+ Insert chunk delimiter                                      | `:RmdInsertChunk`                         | N/A
+ View the data.frame or matrix under cursor in a new tab     | `<LocalLeader>rv` OR `:RViewDF`           | nv
+
+</details>
+
+<details open>
+<summary>Navigate</summary>
+
+ Action                                                    | Keymap/command
+-----------------------------------------------------------|--------------------
+ Go the corresponding line in the generated LaTeX document | `:RGoToTeX`
+ SyncTeX forward                                           | `:RSyncFor`
+ Go to the previous chunk of R code                        | `:RPreviousRChunk`
+ Go to the next chunk of R code                            | `:RNextRChunk`
 
 </details>
 
 <details open>
 <summary>Send</summary>
 
- Action                               | Keymap/command
- -------------------------------------|-------------------
- Send File                            | `<localleader>aa`
- Send File (echo)                     | `<localleader>ae`
- Send current block                   | `<localleader>bb`
- Send current block (echo)            | `<localleader>be`
- Send current block (move down)       | `<localleader>bd`
- Send current block (echo, move down) | `<localleader>ba`
- Send current chunk                   | `<localleader>cc`
- Send current chunk (echo)            | `<localleader>ce`
- Send current chunk (move down)       | `<localleader>cd`
- Send current chunk (echo, move down) | `<localleader>ca`
- Send current chunk + chunks above    | `<localleader>ch`
- Send selection                       | `<localleader>ss`
- Send selection (echo)                | `<localleader>se`
- Send selection (move down)           | `<localleader>sd`
- Send selection (echo, move down)     | `<localleader>sa`
- Send line                            | `<localleader>l`  
- Send line (move down)                | `<localleader>d`  
+ Action                                                                              | Keymap/command                            | Mode(s)
+-------------------------------------------------------------------------------------|-------------------------------------------|---------
+ Send to R the current chunk of R code and move down to next chunk                   | `:RDSendChunk`                            | N/A
+ Send the current chunk of code to R                                                 | `:RSendChunk`                             | N/A
+ Send the whole file to R                                                            | `<LocalLeader>aa` OR `:RSendFile`         | n
+ Send to R all lines above the current one                                           | `<LocalLeader>su` OR `:RSendAboveLines`   | n
+ Send to R the part of the line on the right of the cursor                           | `:RIRightPart`                            | N/A
+ Send to R the part of the line on the left of the cursor                            | `:RILeftPart`                             | N/A
+ Send to R the part of the line on the right of the cursor                           | `<LocalLeader>r<right>` OR `:RNRightPart` | n
+ Send to R the part of the line on the left of the cursor                            | `<LocalLeader>r<left>` OR `:RNLeftPart`   | n
+ Send to R the lines in a Vim motion                                                 | `<LocalLeader>m` OR `:RSendMotion`        | n
+ Send the current line and open a new one                                            | `:RSendLAndOpenNewOne`                    | N/A
+ Ask R to evaluate the line and insert the output as comments                        | `<LocalLeader>o` OR `:RInsertLineOutput`  | nv
+ Send to R the current line and move down to next line                               | `<LocalLeader>d` OR `<Cr>` OR `:RDSendLine` | n
+ Send the current line to R                                                          | `<LocalLeader>l` OR `:RSendLine`          | n
+ Send to R the next sequence of consecutive non-empty lines                          | `<LocalLeader>pd` OR `:RDSendParagraph`   | n
+ Send to R the next consecutive non-empty lines                                      | `<LocalLeader>pp` OR `:RSendParagraph`    | n
+ Send to R visually selected lines or part of a line                                 | `<LocalLeader>sd` OR `<Cr>` OR `:RDSendSelection` | nv
+ Send visually selected lines of part of a line                                      | `<LocalLeader>ss` OR `:RSendSelection`    | nv
+ Send all chunks of R code from the document's begin up to here                      | `:RSendChunkFH`                           | N/A
+ Send to R the above chain of piped commands                                         | `<LocalLeader>sc` OR `:RSendChain`        | nv
+ Send to R the lines between two marks and move to next line                         | `<LocalLeader>bd` OR `:RDSendMBlock`      | n
+ Send the current function and move the cursor to the end of the function definition | `<LocalLeader>fd` OR `:RDSendCurrentFun`  | nv
+ Send the current function                                                           | `<LocalLeader>fc` OR `:RSendCurrentFun`   | nv
+ Send all the top level functions in the current buffer                              | `<LocalLeader>fa` OR `:RSendAllFun`       | nv
+ Send to R the lines between two marks                                               | `<LocalLeader>bb` OR `:RSendMBlock`       | n
 
-If the cursor is between manually inserted marks, the plugin will send the lines between them to R if you press `<localleader>bb`. If the cursor is above the first mark, the plugin will send from the beginning of the file to the
-mark. If the cursor is below the last mark, the plugin will send from the mark
-to the end of the file. The mark above the cursor is included and the mark
-below is excluded from the block to be sent to R.
+- If the cursor is between manually inserted marks, the plugin will send the lines between them to R if you press `<LocalLeader>bb`. The mark above the cursor is included and the mark below is excluded from the block to be sent to R.
+- If the cursor is above the first mark, the plugin will send from the beginning of the file to the mark.
+- If the cursor is below the last mark, the plugin will send from the mark to the end of the file.
 
-Use `\m` + `<motion>` to send motion to console, e.g. send paragraph to console with `\mip`.
+Use `<LocalLeader>m` + `<motion>` to send motion to console, e.g. send paragraph to console with `\mip`.
 
 </details>
 
 <details open>
-<summary>RMarkdown + Quarto</summary>
+<summary>Command</summary>
 
- Action  | Keymap/command
- --------|------------------
- Make All| `<localleader>ka`
- Make Rmd HTML | `<localleader>kh`
- Knit current doc | `<localleader>kn`
- Make Rmd PDF | `<localleader>kp`
- Make Rmd (default) | `<localleader>kr`
- Quarto render | `<localleader>qr`
- Quarto preview | `<localleader>qp`
- Go to next chunk | `<localleader>gn`
- Go to previous chunk | `<localleader>gN`
+ Action                                                             | Keymap/command                        | Mode(s)
+--------------------------------------------------------------------|---------------------------------------|---------
+ Send to R: undebug                                                 | `<LocalLeader>ud` OR `:RUndebug`      | nv
+ Send to R command to run summary and plot with `<cword>` as argument | `<LocalLeader>rb` OR `:RSPlot`        | nv
+ Send to R: `plot(<cword)`                                          | `<LocalLeader>rg` OR `:RPlot`         | nv
+ Send to R: `nvim.args(<cword)`                                     | `<LocalLeader>ra` OR `:RShowArgs`     | nv
+ Get help for the object under cursor                 | `<LocalLeader>rh` OR `:RHelp`         | nv
+ Send to R: `print(<cword>)`                                        | `<LocalLeader>rp` OR `:RObjectPr`     | nv
+ Send to R: debug                                                   | `<LocalLeader>bg` OR `:RDebug`        | nv
+ Send to R: `<Ctrl-L>`                                              | `<LocalLeader>rr` OR `:RClearConsole` | nv
+ Send to R: `ls()`                                                    | `<LocalLeader>rl` OR `:RListSpace`    | nv
+ Send to R: `nvim.names(<cword)`                                    | `<LocalLeader>rn` OR `:RObjectNames`  | nv
+ Send to R: `rm(list = ls())`                                       | `<LocalLeader>rm` OR `:RClearAll`     | nv
+ Set current directory to current document's                 | `<LocalLeader>rd` OR `:RSetwd`        | nv
+ Send to R: `str(<cword)`                                           | `<LocalLeader>rt` OR `:RObjectStr`    | nv
+ Send to R: `summary(<cword)`                                       | `<LocalLeader>rs` OR `:RSummary`      | nv
+ Get file info | `<LocalLeader>fi` | n
+ Close last graphics window | `<LocalLeader>cw` | n
+
+</details>
+
+<details open>
+<summary>Weave</summary>
+
+ Action                                                             | Keymap/command                         | Mode(s)
+ -------------------------------------------------------------------|----------------------------------------|--------
+ Delete files from knitr cache                                      | `:RKnitRmCache`                        | N/A
+ Knit the document, run bibtex and generate the PDF                 | `:RBibTeXK`                            | N/A
+ Sweave the document and run bibtex                                 | `:RBibTeX`                             | N/A
+ Stop Quarto Preview                                                | `:RQuartoStop` OR `<LocalLeader>qs`    | n
+ Preview Quarto                                                     | `:RQuartoPreview` OR `<LocalLeader>qp` | n
+ Render Quarto                                                      | `:RQuartoRender` OR `<LocalLeader>qr`  | n
+ Knit the document                                                  | `:RKnit`                               | N/A
+ Knit the current document and generate an ODT document             | `<LocalLeader>ko` OR `:RMakeODT`       | nv
+ Knit the current document and generate an HTML document            | `<LocalLeader>kh` OR `:RMakeHTML`      | nv
+ Knit the current document and generate a Word document             | `<LocalLeader>kw` OR `:RMakeWord`      | nv
+ Knit the current document and generate a beamer presentation       | `<LocalLeader>kl` OR `:RMakePDFKb`     | nv
+ Knit the current document and generate the default document format | `<LocalLeader>kr` OR `:RMakeRmd`       | nv
+ Knit the current document and generate a PDF document              | `<LocalLeader>kp` OR `:RMakePDFK`      | nv
+ Knit the current document and generate all formats in the header   | `<LocalLeader>ka` OR `:RMakeAll`       | nv
 
 </details>
 
 <details open>
 <summary>Object Browser</summary>
 
- Action  | Keymap/command
- --------|------------------
- Open/close | `<localleader>ro`
- Collapse all | `<localleader>r-`
- Expand | `<localleader>r=`
- Toggle current | `<CR>`
+ Action                                                        | Keymap/command                        | Mode(s)
+---------------------------------------------------------------|---------------------------------------|---------
+ Close S4 objects, lists and data.frames in the Object Browser | `<LocalLeader>r-` OR `:ROBCloseLists` | nv
+ Open S4 objects, lists and data.frames in the Object Browser  | `<LocalLeader>r=` OR `:ROBOpenLists`  | nv
+ Toggle the Object Browser                                     | `<LocalLeader>ro` OR `:ROBToggle`     | nv
 
 </details>
 
-<details open>
-<summary>Other</summary>
+###### Viewing data.frames
 
- Action  | Keymap/command
- --------|------------------
- `ls` | `<localleader>rv`
- Clear console | `<localleader>rr`
- View data.frame | `<localleader>rv`
- Show arguments | `<localleader>ra`
- Show examples | `localleader>re`
- Show help | `localleader>rh`
- Summary | `localleader>rs`
- Plot current object | `localleader>rg`
- Plot and summary | `localleader>rb`
+You can use `<LocalLeader>rv` to view the data.frame in a new tab. You will see a text files with the values separated by tab characters.
+To view `head()`, you can use `<LocalLeader>vh`.
 
-</details>
+###### Inserting and formatting code
+
+The command `:Rinsert <cmd>` inserts one or more lines with the output of the R command sent to R e.g. `Rinsert dput(names(iris))` will insert in the buffer:
+
+```r
+c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width",
+"Species")
+```
+
+The command `:RFormat` calls the function `styler::style_text()` to format the selection or whole file if no text is selected.
 
 #### C\#
 
