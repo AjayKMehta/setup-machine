@@ -3480,7 +3480,7 @@ An example: `]f` will navigate to **start** (`f` is lower case) of **next** (`]`
  Next method/function def start | `]m`
  Next class start               | `]c`
  Next conditional start         | `]i`
- Next loop start                | `]l`
+ Next loop start                | `]{`
 
 ###### Goto next end
 
@@ -3490,7 +3490,7 @@ An example: `]f` will navigate to **start** (`f` is lower case) of **next** (`]`
  Next method/function def end | `]M`
  Next class end               | `]C`
  Next conditional end         | `]I`
- Next loop end                | `]L`
+ Next loop end                | `]}`
 
 ###### Goto previous start
 
@@ -3500,7 +3500,7 @@ An example: `]f` will navigate to **start** (`f` is lower case) of **next** (`]`
  Previous method/function def start | `[m`
  Previous class start               | `[c`
  Previous conditional start         | `[i`
- Previous loop start                | `[l`
+ Previous loop start                | `[{`
 
 ###### Goto previous end
 
@@ -3510,7 +3510,7 @@ An example: `]f` will navigate to **start** (`f` is lower case) of **next** (`]`
  Previous method/function def end | `[M`
  Previous class end               | `[C`
  Previous conditional end         | `[I`
- Previous loop end                | `[L`
+ Previous loop end                | `[}`
 
 ##### Swap
 
