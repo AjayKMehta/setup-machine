@@ -852,7 +852,10 @@ Action | Keymap/command
 ---------|----------
 Display all valid entries | `:llist`
 Move to entry `<number>` | `:ll <numberer>`
-Move to next entry | `:lnext`
+Move to next entry | `:lnext` OR `]l`
+Move to previous entry | `:lprevious` OR `[l`
+Move to last entry | `]L`
+Move to first entry | `[L`
 
 ### Highlight groups
 
