@@ -66,6 +66,7 @@
     - [Getting a Shell in Docker for Windows Moby VM](#getting-a-shell-in-docker-for-windows-moby-vm)
     - [Shrink your WSL2 Virtual Disks and Docker Images and Reclaim Disk Space](#shrink-your-wsl2-virtual-disks-and-docker-images-and-reclaim-disk-space)
     - [docker scout](#docker-scout)
+    - [grype](#grype)
     - [Utilities](#utilities)
   - [WezTerm](#wezterm)
     - [Links](#links)
@@ -864,6 +865,12 @@ For more tips, see <https://learn.microsoft.com/en-us/windows/wsl/disk-space>.
 [Docker Scout](https://www.docker.com/products/docker-scout/) is a set of software supply chain features integrated into Docker's user interfaces and command line interface (CLI).
 
 It comes bundled with Docker Desktop but if you wish to use a different version, please follow [these instructions](https://github.com/docker/scout-cli?tab=readme-ov-file#manual-installation).
+
+### [grype](https://github.com/anchore/grype)
+
+This is a vulnerability scanner for container images and filesystems.
+
+Install: `winget install Anchore.Grype`
 
 ### Utilities
 
