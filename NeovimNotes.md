@@ -144,6 +144,7 @@
         - [Sending lines to the terminal](#sending-lines-to-the-terminal)
       - [nvim-tree](#nvim-tree)
       - [Telescope](#telescope)
+      - [log-highlight](#log-highlight)
       - [vim-tmux-navigator](#vim-tmux-navigator)
       - [nvim-highlight-colors](#nvim-highlight-colors)
       - [screenkey](#screenkey)
@@ -2373,6 +2374,10 @@ To resume previous search: `<leader>rs`.
  List variables     | `<leader>dlv`
 
 </details>
+
+#### [log-highlight](https://github.com/fei6409/log-highlight.nvim)
+
+This adds syntx highlighting to log files.
 
 #### vim-tmux-navigator
 
