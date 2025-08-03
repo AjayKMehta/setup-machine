@@ -917,7 +917,7 @@ Go to previous error in current buffer | `[e`
 Go to next error in current buffer | `]e`
 Go to first diagnostic in current buffer | `[D`
 Go to last diagnostic in current buffer | `]D`
-Show diagnotics under the cursor | `<C-w>d` or `<C-w><c-d>`
+Show diagnostics under the cursor | `<C-w>d` or `<C-w><c-d>`
 Show signature help (Insert and Select mode) | `<C-s>`
 Show signature help (Normal mode) | `<leader>lh`
 
@@ -1031,7 +1031,7 @@ Examples of ranges:
 - `$` refers to the last line of buffer
 - `*` refers to last selection you made in visual mode.
 - `'a,'b` refers to range between mark `'a` and mark `'b`.
-- `?^Chapter?,/^Chapter` refers to range between previous occurrence of `^Chapter` and next occurence of `^Chapter`.
+- `?^Chapter?,/^Chapter` refers to range between previous occurrence of `^Chapter` and next occurrence of `^Chapter`.
 
 ### Motion, editing
 
@@ -1047,7 +1047,7 @@ Examples of ranges:
  Paste register `a` contents                | <kbd>Ctrl</kbd> + <kbd>r</kbd> followed by `a`
  Show completions based on typed characters | <kbd>Ctrl</kbd> + <kbd>d</kbd>
  Edit commands in normal mode               | <kbd>Ctrl</kbd> + <kbd>f</kbd>
- **Yank comand-line text**                  | <kbd>Ctrl</kbd> + <kbd>y</kbd>
+ **Yank command-line text**                  | <kbd>Ctrl</kbd> + <kbd>y</kbd>
  Delete word                                | <kbd>Ctrl</kbd> + <kbd>w</kbd>
  Delete all text                            | <kbd>Ctrl</kbd> + <kbd>u</kbd>
 
@@ -1088,14 +1088,14 @@ Non-greedy quantifiers match as minimally as possible:
 
 #### Character ranges
 
-> This is pretty much the same as how they work for most regex implemntations.
+> This is pretty much the same as how they work for most regex implementations.
 
 `/[a-z]` matches characters from **a** to **z**.
 `/[^"]*` matches zero or more characters that are not **"**.
 
 #### Character classes
 
-In adition to the usual `\s` (`\S`), `\d` ( `\D`) and `\w` (`\W`) which work as expected, here are some special character classes:
+In addition to the usual `\s` (`\S`), `\d` ( `\D`) and `\w` (`\W`) which work as expected, here are some special character classes:
 
 1. `\a` is `[a-zA-Z]`
 1. `\A` is non-alphabet, `[^a-zA-Z]`.
@@ -1540,7 +1540,7 @@ change, you create a branch in the undo tree.
  Redo latest changes on last edited line | <kbd>Shift</kbd> + <kbd>u</kbd>
  Go to older text state[^count]          | `g-`
  Go to newer text state[^count]          | `g+`
- List the leafs in the undo tree         | `:undolist`
+ List the leaves in the undo tree         | `:undolist`
 
 [^count]: Accepts `{count}`: use `{count}` to repeat that many times.
 
@@ -1637,7 +1637,7 @@ This even works with marks: `:'a,'bd` deletes from line with mark `a` to line wi
 
 ### Delete text in INSERT mode
 
-`<C-W>` deletes from cursor the beinning of word (or previous, if on first character of current word).
+`<C-W>` deletes from cursor the beginning of word (or previous, if on first character of current word).
 
 `<BS>` works as expected.
 
@@ -1728,7 +1728,7 @@ To change the amount text is shifted: `:set shiftwidth=4`.
 
 ### Filter
 
-A filter is a program tht accepts text at standard input, modifies it and sends output to standard output.
+A filter is a program that accepts text at standard input, modifies it and sends output to standard output.
 
 `!{motion}{filter}`
 
@@ -2078,7 +2078,7 @@ Then to replace all instances of `cat` with `dog`:
 
 `:cfdo %s/cat/dog/g | update | bd`
 
-Less eficient way to do this is with `cdo` which operates on each entry (versus `cfdo` which operates on each file):
+Less efficient way to do this is with `cdo` which operates on each entry (versus `cfdo` which operates on each file):
 
 `:cdo s/cat/dog/ | update | bd`
 
@@ -2941,7 +2941,7 @@ I tried to keep the shortcuts the same as those in Visual Studio as much as poss
  DAP Set conditional breakpoint | `<leader>dtc`
  DAP Log Message | `<leader>dl`
 
- For Python, there is an addional keymap for **DAP Debug closest method to cursor**: `<leader>dt`.
+ For Python, there is an additional keymap for **DAP Debug closest method to cursor**: `<leader>dt`.
 
 ##### [persistent-breakpoints.nvim](https://github.com/Weissle/persistent-breakpoints.nvim)
 
@@ -3724,8 +3724,8 @@ Use `%` to move between matching delimiters, inline-math `$` delimiters, and LaT
 Text object | Keymap| Example
 -----------------------|--------|---
 Surrounding environment   | `se` | `dse` removes surrounding brackets.
-Inner environment | `ie` | `vie` selects inner text in evironment
-Around environment | `ae` | `dae` deletes evironment
+Inner environment | `ie` | `vie` selects inner text in environment
+Around environment | `ae` | `dae` deletes environment
 Toggle environment | `tse` | `tse` toggles environment.
 Surrounding command | `sc` | `csc` changes a command while preserving the command's argument(s).
 `*` in environments[^tss] | `tss` | Toggle `*`.
@@ -3739,7 +3739,7 @@ Surrounding delimiters  | `sd` | `tsd` toggles between `()` and `\left(\right)`.
 
 :point_right: In the table above, `*` indicates cursor position.
 
-[^tss]: See [Difference between equation and equation* enviroment](https://tex.stackexchange.com/questions/539986/difference-between-equation-and-equation-enviroment) for more details.
+[^tss]: See [Difference between equation and equation* environment](https://tex.stackexchange.com/questions/539986/difference-between-equation-and-equation-enviroment) for more details.
 
 ### Linting + Formatting
 
