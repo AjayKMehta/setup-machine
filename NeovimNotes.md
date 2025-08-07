@@ -2952,6 +2952,9 @@ I tried to keep the shortcuts the same as those in Visual Studio as much as poss
  REPL: Go to next prompt | `]]`
  DAP Set conditional breakpoint | `<leader>dtc`
  DAP Log Message | `<leader>dl`
+ Run To cursor | `<leader>dc`
+ Go down stack frame | `<leader>dj`
+ Go up stack frame | `<leader>dk`
 
  For Python, there is an additional keymap for **DAP Debug closest method to cursor**: `<leader>dt`.
 
