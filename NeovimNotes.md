@@ -248,10 +248,10 @@ These notes are based on my setup using NvChad. My Neovim config files can be fo
 
 ## NvChad
 
-  Action       | Keymap
- --------------|------------------------------------------------
-  Change theme | <kbd>Space</kbd> + <kbd>t</kbd> + <kbd>h</kbd>
-  Cheatsheet   | <kbd>Space</kbd> + <kbd>c</kbd> + <kbd>h</kbd>
+ Action       | Keymap
+ --------------|----------------------------------------------
+ Change theme | <kbd>Space</kbd> + <kbd>t</kbd> + <kbd>h</kbd>
+ Cheatsheet   | <kbd>Space</kbd> + <kbd>c</kbd> + <kbd>h</kbd>
 
 ## Layout
 
@@ -521,7 +521,7 @@ Marks are like bookmarks in your favorite IDE but more powerful.
 
 Action | Keymap/command
 ---------|----------
-List marks | `:marks`  OR `<leader>sm` (courtesy of **snacks.nvim**)
+List marks | `:marks` OR `<leader>sm` (courtesy of **snacks.nvim**)
 Create mark `a` | `ma`
 Go to mark `A` | <kbd>`</kbd> + <kbd>A</kbd>.
 Go to first non-blank character of line containing mark `A` | <kbd>'</kbd> + <kbd>A</kbd>.
@@ -551,7 +551,7 @@ For example, to delete from the current character to mark `a` position: ``d`a``.
 
 You can go to these marks using `` ` `` or go to first non-blank character in containing line using `'`, e.g. `'"` goes to first non-blank character of line you were on when you last closed the file.
 
-Neovim creates a mark each time you exit.  The last one is `0`, second last is `1` (this goes all the way to `9`). So, `'0` takes you to the place where you were when you last exited Neovim!
+Neovim creates a mark each time you exit. The last one is `0`, second last is `1` (this goes all the way to `9`). So, `'0` takes you to the place where you were when you last exited Neovim!
 
 ### Registers
 
@@ -565,8 +565,8 @@ There are ten types of registers:
     - `0` contains the last yank unless you specify another register, e.g. `"xyy`.
     - `1-9` contain the last 9 things you deleted/changed. When you delete a new thing, Vim will insert that into the `1` register and shift everything along.
 1. `-`: "small deletion" register (stores the last deletion less than a line)
-1. Named registers `a` to `z` or `A` to `Z`: Vim fills these registers only when you say so.  Specify them as lowercase letters to replace their previous contents or as uppercase letters to append to their previous contents.
-1. Read-only registers:  You can use them only with the `p`, `P`, and `:put` commands and with <kbd>Ctrl</kbd> + <kbd>R</kbd>.
+1. Named registers `a` to `z` or `A` to `Z`: Vim fills these registers only when you say so. Specify them as lowercase letters to replace their previous contents or as uppercase letters to append to their previous contents.
+1. Read-only registers: You can use them only with the `p`, `P`, and `:put` commands and with <kbd>Ctrl</kbd> + <kbd>R</kbd>.
     - `.` contains the last inserted text
     - `%`: current file name
     - `:`: last command-line command
@@ -751,14 +751,14 @@ Create fold using `zf` operator (`zf{motion}`), e.g. `zfap` will create a fold a
 <details open>
   <summary>Navigation</summary>
 
-  Action                                        | Keymap/command
- -----------------------------------------------|----------------
-  Move to the start of the current open fold    | `[z`
-  Move to the end of the current open fold      | `]z`
-  **Go to next closed fold**                    | `]Z`
-  **Go to previous closed fold**                | `[Z`
-  Move downward to the start of the next fold   | `zj`
-  Move upward to the start of the previous fold | `zk`
+ Action                                        | Keymap/command
+-----------------------------------------------|----------------
+ Move to the start of the current open fold    | `[z`
+ Move to the end of the current open fold      | `]z`
+ **Go to next closed fold**                    | `]Z`
+ **Go to previous closed fold**                | `[Z`
+ Move downward to the start of the next fold   | `zj`
+ Move upward to the start of the previous fold | `zk`
 
 </details>
 
@@ -3356,7 +3356,7 @@ Once you enter the Extend mode, you can expand or shrink your selections using V
 
 #### flash
 
-[This plugin](<https://github.com/folke/flash.nvim>)  lets you search and navigate using labels + Treesitter integration.
+[This plugin](<https://github.com/folke/flash.nvim>) lets you search and navigate using labels + Treesitter integration.
 
 When you search via `/`, each match will have a corresponding label, e.g. `a`. Press the key(s) matching that label (here, <kbd>a</kbd>) to go to the search result.
 
