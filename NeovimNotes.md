@@ -147,6 +147,7 @@
       - [log-highlight](#log-highlight)
       - [vim-tmux-navigator](#vim-tmux-navigator)
       - [nvim-highlight-colors](#nvim-highlight-colors)
+      - [quicker](#quicker)
       - [screenkey](#screenkey)
       - [Snacks](#snacks)
       - [Toggle](#toggle)
@@ -2400,6 +2401,12 @@ set -g @plugin 'christoomey/vim-tmux-navigator'
 #### nvim-highlight-colors
 
 Highlight colors within Neovim. This works for color names ('red'), hex values ('#FFFFFF'), etc.
+
+#### [quicker](https://github.com/stevearc/quicker.nvim)
+
+This plugin adds syntax highlighting to quickfix list and shows context lines. You can even make changes across your entire project by editing the quickfix buffer and `:w`.
+
+> :bulb: Use `>` to expand the context and `<` to collapse it.
 
 #### screenkey
 
