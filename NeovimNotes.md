@@ -36,13 +36,18 @@
     - [Executing external commands](#executing-external-commands)
   - [LSP](#lsp)
     - [Completion](#completion)
-  - [Visual Mode](#visual-mode)
+  - [Modes](#modes)
+    - [Insert Mode](#insert-mode)
+    - [Visual Mode](#visual-mode)
+      - [Editing (Visual Mode)](#editing-visual-mode)
     - [Visual Block Mode](#visual-block-mode)
-    - [Editing (Visual Mode)](#editing-visual-mode)
-  - [Command-line mode](#command-line-mode)
-    - [Ranges](#ranges)
-    - [Motion, editing](#motion-editing)
-    - [History](#history)
+    - [Select mode](#select-mode)
+    - [Replace mode](#replace-mode)
+    - [Visual Replace mode](#visual-replace-mode)
+    - [Command-line mode](#command-line-mode)
+      - [Ranges](#ranges)
+      - [Motion, editing](#motion-editing)
+      - [History](#history)
   - [Search](#search)
     - [Patterns](#patterns)
       - [Quantifiers](#quantifiers)
@@ -949,7 +954,21 @@ To select an item from the menu, press `<C-Y>`.
 > [!TIP]
 > If completion does not work, check that [`omnifunc`](https://neovim.io/doc/user/options.html#%27omnifunc%27) is set to "v:lua.vim.lsp.omnifunc": `:verbose set omnifunc?`
 
-## Visual Mode
+## Modes
+
+This video is super useful: [Explaining every vim mode (even the weird ones)](https://youtu.be/S3ox5MNDY5Y?feature=shared).
+
+### Insert Mode
+
+Enter using `i` when in normal mode.
+
+To execute a normal mode command from insert mode in Neovim, you can use the `<C-o>` (<kbd>Ctrl</kbd> + <kbd>o</kbd>) shortcut. This allows you to execute a single normal mode command without leaving insert mode. After executing the command, you will return to insert mode.
+
+`<C-O>v` puts you in insert visual mode. You can select text with a motion, apply an operator and return to insert mode, e.g. `<C-O>v$d` will delete text to end of the line then return to insert mode.
+
+`<C-O>V` puts you in insert (visual block) mode, e.g. `<C-O>Vjc` will clear contents of current line and line below and allow you to type replacement text.
+
+### Visual Mode
 
 `v` selects the current character. Use any motion to extend selection, e.g. `ve` or `v$`.
 
@@ -963,26 +982,7 @@ Use `o` to move the cursor to the diagonally opposite corner of the visual selec
 
 `Q` and `@` in Visual mode will execute the last recorded/executed macro for all visually selected lines.
 
-### Visual Block Mode
-
-Press <kbd>Ctrl</kbd> + <kbd>q</kbd> or <kbd>Ctrl</kbd> + <kbd>v</kbd>[^vbm] to enter.
-
-Select a region of text, e.g. `2lj` selects a region with 3 columns and 2 rows.
-
-Press <kbd>Shift</kbd> + <kbd>i</kbd> to prepend or <kbd>Shift</kbd> + <kbd>a</kbd> to
-append. To append at the end of line: `$A`.
-
-To delete and insert on each line: `c`. To delete and insert from the left edge of the block to the end of each line: `C`.
-
-When you are done with your changes, press <kbd>Esc</kbd> and changes will be applied to all lines!
-
-[^vbm]: If using Windows Terminal, make sure to disable default binding for <kbd>Ctrl</kbd> + <kbd>v</kbd>.
-
-Press `$` to select to end of each line.
-
-Use `O` to move cursor to other corner of current line in visual block mode.
-
-### Editing (Visual Mode)
+#### Editing (Visual Mode)
 
 `d` deletes selection.
 
@@ -1014,7 +1014,53 @@ Delete in selection everything before `{` (excluded): `:'<,'>norm dt{`.
 > [!TIP]
 > If you accidentally exit Visual mode before entering Command-line mode, you can use `*` as a shorthand for `'<,'>`. See [`:h :star`](https://neovim.io/doc/user/cmdline.html#%3Astar).
 
-## Command-line mode
+### Visual Block Mode
+
+Press <kbd>Ctrl</kbd> + <kbd>q</kbd> or <kbd>Ctrl</kbd> + <kbd>v</kbd>[^vbm] to enter.
+
+Select a region of text, e.g. `2lj` selects a region with 3 columns and 2 rows.
+
+Press <kbd>Shift</kbd> + <kbd>i</kbd> to prepend or <kbd>Shift</kbd> + <kbd>a</kbd> to
+append. To append at the end of line: `$A`.
+
+To delete and insert on each line: `c`. To delete and insert from the left edge of the block to the end of each line: `C`.
+
+When you are done with your changes, press <kbd>Esc</kbd> and changes will be applied to all lines!
+
+[^vbm]: If using Windows Terminal, make sure to disable default binding for <kbd>Ctrl</kbd> + <kbd>v</kbd>.
+
+Press `$` to select to end of each line.
+
+Use `O` to move cursor to other corner of current line in visual block mode.
+
+### Select mode
+
+This is like visual mode but you use arrow keys or your mouse. Press `gh` to activate.
+If you enter a key, it will replace text at cursor with it so it's like visual + insert.
+
+### Replace mode
+
+The `R` command causes Vim to enter replace mode.  In this mode, each
+character you type replaces the one under the cursor.
+
+For example, `cde` becomes `abe` if you type `Rab` with cursor on `c`. Line will get extended as needed.
+
+When you use `<BS>` (backspace) to make a correction, you will notice that the
+old text is put back.
+
+Press <kbd>Esc</kbd> when done replacing.
+
+### Visual Replace mode
+
+Enter Virtual Replace mode with the `gR` command in normal mode.
+
+Virtual Replace mode is similar to Replace mode, but instead of replacing
+actual characters in the file, you are replacing screen real estate, so that
+characters further on in the file never appear to move.
+
+This mode is very useful for editing `<Tab>` separated columns in tables, for entering new data while keeping all the columns aligned.
+
+### Command-line mode
 
 List commands: `:command`.
 
@@ -1022,7 +1068,7 @@ You can use normal mode commands in command-line mode via `:norm`, e.g. `:norm d
 
 If you're writing a plugin, best to use `:norm!` as it uses default mappings not the ones your users set up.
 
-### Ranges
+#### Ranges
 
 Commands that accept a range have `[range]` in front of their name in Vim help.
 
@@ -1035,7 +1081,7 @@ Examples of ranges:
 - `'a,'b` refers to range between mark `'a` and mark `'b`.
 - `?^Chapter?,/^Chapter` refers to range between previous occurrence of `^Chapter` and next occurrence of `^Chapter`.
 
-### Motion, editing
+#### Motion, editing
 
  Action                                     | Keymap/command
 --------------------------------------------|------------------------------------------------
@@ -1057,7 +1103,7 @@ Actions in **bold** are custom actions I added.
 
 If you are typing in the command line and you have multiple completion options, then `<C-L>` will select the longest unambiguous string.
 
-### History
+#### History
 
 Use `↑` and `↓` to navigate history.
 
@@ -1508,8 +1554,6 @@ To force a linewise motion to be charwise, use `v`.
 
 ## Editing Text
 
-To execute a normal mode command from insert mode in Neovim, you can use the `<C-o>` (<kbd>Ctrl</kbd> + <kbd>o</kbd>) shortcut. This allows you to execute a single normal mode command without leaving insert mode. After executing the command, you will return to insert mode.
-
 For a good overview of different operators: <https://www.barbarianmeetscoding.com/boost-your-coding-fu-with-vscode-and-vim/editing-like-magic-with-vim-operators/>
 
 The "." command is used to repeat the last change. It works for all changes you make, except for `u` (undo), `<C-R>` (redo) and commands that start with a colon (:).
@@ -1586,16 +1630,6 @@ Use `g;` and `g,` to navigate history of insertions.
  Delete previous character                                 | <kbd>X</kbd> OR <kbd>d</kbd> + <kbd>h</kbd>
 
 <kbd>r</kbd> accepts count, e.g. `cde` becomes `aae` if you type `2ra` with cursor on `c`
-
-The `R` command causes Vim to enter replace mode.  In this mode, each
-character you type replaces the one under the cursor.
-
-For example, `cde` becomes `abe` if you type `Rab` with cursor on `c`. Line will get extended as needed.
-
-When you use `<BS>` (backspace) to make a correction, you will notice that the
-old text is put back.
-
-Press <kbd>Esc</kbd> when done replacing.
 
 ### Delete line
 
