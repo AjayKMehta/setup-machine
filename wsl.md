@@ -738,14 +738,6 @@ See [instructions here](https://learn.microsoft.com/en-us/nuget/install-nuget-cl
 
 Install `minikube` and kubectl` using `mise`.
 
-## tmux
-
-```shell
-sudo apt install tmux
-```
-
-Prefix for commands is `<C-b>`.
-
 ## ncdu
 
 You can use nCurses Disk Usage tool to locate large files.
@@ -755,6 +747,14 @@ sudo apt-get install ncdu
 # Usage
 sudo ncdu --exclude-kernfs --exclude /mnt/d /
 ```
+
+## tmux
+
+```shell
+sudo apt install tmux
+```
+
+Prefix for commands is `<C-b>`.
 
 ### tpm
 
