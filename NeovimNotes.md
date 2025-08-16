@@ -166,6 +166,7 @@
       - [bufferline](#bufferline)
       - [dropbar](#dropbar)
       - [nvim-ufo](#nvim-ufo)
+      - [overlook.nvim](#overlooknvim)
     - [AI](#ai)
       - [copilot.vim](#copilotvim)
       - [codecompanion](#codecompanion)
@@ -2677,6 +2678,19 @@ Keymaps when menu is active:
 #### nvim-ufo
 
 [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo) provides advanced fold functionality. See README for how to set up with different providers: LSP (what I use), Treesitter.
+
+#### overlook.nvim
+
+[overlook.nvim](https://github.com/WilliamHsieh/overlook.nvim) provides stackable popups for Neovim. These popups are **buffers** - you can edit them, save them, etc.
+
+Action | Command/Keymap
+--------|---------
+Peek defintion | `<leader>pd`
+Close all popups | `<leader>pc`
+Switch focus | `leader>pf`
+Open popup in tab | `<leader>pt`
+Restore popup | `<leader>pu`
+Restore all popups | `<leader>pU`
 
 ### AI
 
