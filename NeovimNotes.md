@@ -2802,13 +2802,16 @@ For more information, see [Using Agents and Tools](https://codecompanion.olimorr
 
 The Inline Assistant enables an LLM to write code directly into a Neovim buffer. Supply a prompt and the LLM will either write code or open a chat buffer. You can make a visual selection and call the Assistant.
 
-For convenience, you can call prompts from the [prompt library](https://codecompanion.olimorris.dev/configuration/prompt-library.html) via the Assistant such as `:'<,'>CodeCompanion /buffer what does this file do?`.
+For convenience, you can call prompts with their `short_name` from the [prompt library](https://codecompanion.olimorris.dev/configuration/prompt-library.html) via the Assistant such as `:'<,'>CodeCompanion /buffer what does this file do?`.
 
 By default, an inline assistant prompt will trigger the diff feature, showing differences between the original buffer and the changes from the LLM.
 
 To accept changes: `<leader>ca`.
 
 To reject changes: `<leader>cr`.
+
+> [!TIP]
+> To specify a different adapter to the default one, include the adapter name within `<>`. For example `<','>CodeCompanion <deepseek> can you refactor this?`. This approach can also be combined with variables.
 
 ##### Prompts
 
@@ -2817,6 +2820,8 @@ CodeCompanion comes with a set of built-in prompts that can be accessed via the 
 For more information on how to create custom prompts, see [here](https://codecompanion.olimorris.dev/extending/prompts.html). You can assign a keymap and even specify that it is a slash command.
 
 Prompts can be used inline or in chat buffer.
+
+You can have multiple variables as part of a prompt, for example: `:CodeCompanion #{buffer} #{clipboard} analyze this code`.
 
 ##### Workflows
 
