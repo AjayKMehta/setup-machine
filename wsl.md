@@ -495,10 +495,22 @@ To list available versions of an *installed* plugin (here **lazygit**):
 mise ls-remote lazygit
 ```
 
+To list available tools to install:
+
+```bash
+mise registry
+```
+
 To list available plugins:
 
 ```bash
 mise plugins ls-remote
+```
+
+To list config files:
+
+```bash
+mise config ls
 ```
 
 Update mise:
