@@ -115,8 +115,7 @@
     - [Change case](#change-case)
     - [Editing line filtered by pattern](#editing-line-filtered-by-pattern)
     - [Exiting insert mode](#exiting-insert-mode)
-  - [Completion and snippets](#completion-and-snippets)
-    - [Special completions](#special-completions)
+  - [Completion (built-in)](#completion-built-in)
   - [Recipes + FAQ](#recipes--faq)
     - [Enter Special characters](#enter-special-characters)
     - [Reverse line order](#reverse-line-order)
@@ -146,6 +145,8 @@
   - [Plugins](#plugins)
     - [Completion](#completion-1)
       - [nvim-cmp](#nvim-cmp)
+        - [Sources](#sources)
+        - [Keymaps](#keymaps-1)
     - [Utility](#utility)
       - [Toggleterm](#toggleterm)
         - [Sending lines to the terminal](#sending-lines-to-the-terminal)
@@ -1978,34 +1979,7 @@ You can use <kbd>Esc</kbd> or <kbd>Ctrl</kbd> + <kbd>[</kbd> to return to normal
 
 ([source](https://vimhelp.org/insert.txt.html#i_CTRL-C))
 
-## Completion and snippets
-
-`nvim-cmp.nvim` provides completion support.
-
-`luasnip.nvim` provides extensive snippet functionality.
-
- Action                                                | Keymap
--------------------------------------------------------|-------------------------------------------------------------------------------
- Scroll documentation window back                      | <kbd>Ctrl</kbd> + <kbd>d</kbd>
- Scroll documentation window forward                   | <kbd>Ctrl</kbd> + <kbd>f</kbd>
- Close                                                 | <kbd>Ctrl</kbd> + <kbd>e</kbd>
- Next entry                                            | <kbd>Ctrl</kbd> + <kbd>n</kbd> OR `<Down>` OR <kbd>Tab</kbd>
- Previous entry                                        | <kbd>Ctrl</kbd> + <kbd>p</kbd> OR `<Up>` OR <kbd>Shift</kbd> + <kbd>Tab</kbd>
- Accept suggestion                                     | <kbd>Enter</kbd>
- **Toggle documentation window**                       | <kbd>Alt</kbd> + <kbd>d</kbd>
- Invoke completion                                     | <kbd>Ctrl</kbd> + <kbd>Space</kbd>
- **Toggle autocompletion**                             | `<leader>tc`
- **Go to next snippet node**                           | <kbd>Ctrl</kbd> + <kbd>k</kbd>
- **Go to previous snippet node**                       | <kbd>Ctrl</kbd> + <kbd>j</kbd>
- **Select current entry (Insert, Commandline mode)**   | <kbd>Ctrl</kbd> + <kbd>y</kbd>
- **Complete common string (Insert, Commandline mode)** | <kbd>Ctrl</kbd> + <kbd>l</kbd>
- **Select choice (shows dropdown for choice node)**    | <kbd>Ctrl</kbd> + <kbd>u</kbd>
- **List snippets**                                     | `<leader>sl`
-
-> [!NOTE]
-> Actions in **bold** above are custom actions I added in addition to those to provided by NvChad.
-
-### Special completions
+## Completion (built-in)
 
 These keymaps work in INSERT mode. See `:help ins-completion` for more information.
 
@@ -2190,6 +2164,8 @@ Use [`:helpgrep`](https://neovim.io/doc/user/helphelp.html#%3Ahelpgrep) to searc
 
 [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) is a completion plugin that allows you to set up different completion sources based on filetype and also for the command-line!
 
+##### Sources
+
  Filetype   | Sources (Priority)
  ------------|------------------------------------------------------------------------------------------------------------------------------------------------------------
  Default    | 1. nvim_lsp (100)<br>2. luasnip_choice (95)<br>3. luasnip (90)<br>4. unitex (80)
@@ -2212,6 +2188,28 @@ Notes:
 3. All fuzzy_buffer sources are configured to only work with visible buffers of 1 MB or less.
 4. Most LSP completions require 2 characters to trigger, except C# which triggers after 1.
 
+##### Keymaps
+
+ Action                                                | Keymap
+-------------------------------------------------------|-------------------------------------------------------------------------------
+ Scroll documentation window back                      | `<C-d>`
+ Scroll documentation window forward                   | `<C-f>`
+ Close                                                 | `<C-e>`
+ Next entry                                            | `<C-n>` OR `<Down>` OR <kbd>Tab</kbd>
+ Previous entry                                        | `<C-p>` OR `<Up>` OR <kbd>Shift</kbd> + <kbd>Tab</kbd>
+ Accept suggestion                                     | <kbd>Enter</kbd>
+ **Toggle documentation window**                       | <kbd>Alt</kbd> + <kbd>d</kbd>
+ Invoke completion                                     | <kbd>Ctrl</kbd> + <kbd>Space</kbd>
+ **Toggle autocompletion**                             | `<leader>tc`
+ **Go to next snippet node**                           | `<C-k>`
+ **Go to previous snippet node**                       | `<C-j>`
+ **Select current entry (Insert, Commandline mode)**   | `<C-y>`
+ **Complete common string (Insert, Commandline mode)** | `<C-l>`
+ **Select choice (shows dropdown for choice node)**    | `<C-u>`
+ **List snippets**                                     | `<leader>sl`
+
+> [!NOTE]
+> Actions in **bold** above are custom actions I added in addition to those to provided by NvChad.
 
 ### Utility
 
