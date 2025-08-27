@@ -144,6 +144,8 @@
     - [Filter lines using external program](#filter-lines-using-external-program)
     - [Search help](#search-help)
   - [Plugins](#plugins)
+    - [Completion](#completion-1)
+      - [nvim-cmp](#nvim-cmp)
     - [Utility](#utility)
       - [Toggleterm](#toggleterm)
         - [Sending lines to the terminal](#sending-lines-to-the-terminal)
@@ -270,7 +272,7 @@ A buffer is essentially the in-memory representation of a file.
  Action                    | Keymap/command
  --------------------------|--------------------------------------------------------------------
  Close buffer              | <kbd>Space</kbd> + <kbd>x</kbd>
- New buffer                | `<leader>bb` OR `:enew`
+ New buffer                | `:enew`
  Edit `file` in new buffer | `:edit <file>`
  List buffers              | `:buffers` OR `:ls` OR `<leader>sB`
  Go to next buffer         | `:bnext` OR `:bn` OR <kbd>Tab</kbd>
@@ -2181,6 +2183,31 @@ Prefix them with <kbd>Alt</kbd>, e.g. `<A-P>` pastes in insert mode.
 Use [`:helpgrep`](https://neovim.io/doc/user/helphelp.html#%3Ahelpgrep) to search in all help pages (and also of any installed plugins). All matches are available in the quickfix list.
 
 ## Plugins
+
+### Completion
+
+#### nvim-cmp
+
+[nvim-cmp](https://github.com/hrsh7th/nvim-cmp) is a completion plugin that allows you to set up different completion sources based on filetype and also for the command-line!
+
+ Filetype   | Sources (Priority)
+ ------------|------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Default    | 1. nvim_lsp (100)<br>2. luasnip_choice (95)<br>3. luasnip (90)<br>4. unitex (80)
+ Lua        | 1. lazydev (100)<br>2. nvim_lsp (100)<br>3. luasnip_choice (95)<br>4. luasnip (90)<br>5. unitex (80)
+ GitRebase  | 1. git (100)<br>2. async_path (70)<br>3. fuzzy_buffer (60)
+ Search     | 1. fuzzy_buffer (60)
+ Cmdline    | 1. cmdline (100)<br>2. async_path (80)<br>3. fuzzy_buffer (20)
+ TeX        | 1. nvim_lsp (100)<br>2. luasnip_choice (95)<br>3. luasnip (90)<br>4. async_path (60)<br>5. fuzzy_buffer (50)
+ Markdown   | 1. nvim_lsp (100)<br>2. luasnip_choice (95)<br>3. luasnip (90)<br>4. render-markdown (80)<br>5. nerdfont (60)<br>6. async_path (60)<br>7. fuzzy_buffer (50)
+ R          | 1. cmp_r (100)<br>2. nvim_lsp (100)<br>3. luasnip_choice (95)<br>4. luasnip (90)<br>5. unitex (80)
+ Quarto/RMD | Same as Markdown + cmp_r
+ C# (.NET)  | 1. nvim_lsp (100)<br>2. easy-dotnet (95)<br>3. luasnip_choice (95)<br>4. luasnip (90)<br>5. unitex (80)
+  
+Notes:
+
+1. Higher priority sources appear first.
+2. All fuzzy_buffer sources are configured to only work with visible buffers of 1 MB or less.
+3. Most LSP completions require 2 characters to trigger, except C# which triggers after 1.
 
 ### Utility
 
