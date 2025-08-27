@@ -546,6 +546,13 @@ ls ~/tmp/*.zip | xargs rm
 
 For key bindings, see [here](https://github.com/ynqa/jnv#keymap).
 
+## fd
+
+```bash
+cargo install fd-find
+ln -s ~/.cargo/bin/fd ~/.local/bin/fd-find
+```
+
 ## pngquant
 
 [pngquant](https://pngquant.org/) is a command-line utility and a library for lossy compression of PNG images.
@@ -1403,7 +1410,6 @@ sudo apt install openjdk-17-jre-headless
 curl -sSL https://bit.ly/install-xq | sudo bash
 
 # Installs as fdfind
-sudo apt install fd-find
 sudo apt install age
 sudo apt install shellcheck
 sudo apt install cmake
