@@ -200,6 +200,7 @@
           - [Inserting and formatting code](#inserting-and-formatting-code)
       - [C#](#c)
     - [Editing](#editing)
+      - [marks.nvim](#marksnvim)
       - [nvim-autopairs](#nvim-autopairs)
       - [mini.move](#minimove)
       - [nvim-spider](#nvim-spider)
@@ -3240,6 +3241,32 @@ The command `:RFormat` calls the function `styler::style_text()` to format the s
 🚧 **TBD**
 
 ### Editing
+
+#### [marks.nvim](https://github.com/chentoast/marks.nvim)
+
+As the name suggests, this plugin provides functionality related to [marks](#marks). You can display marks in the sign column, use keymaps for useful actions and set bookmarks.
+
+Listed below are some useful actions with their default keymaps (can be modified in `setup()`):
+
+ Action                                                                                                     | keymap
+ -----------------------------------------------------------------------------------------------------------|-------------
+  Set mark                                                                                                   | `mx`
+ Set the next available alphabetical (lowercase) mark                                                       | `m,`
+ Toggle the next available mark at the current line                                                         | `m;`
+ Delete mark `x`                                                                                            | `dmx`
+ Delete all marks on the current line                                                                       | `dm-`
+ Delete all marks in the current buffer                                                                     | `dm<space>`
+ Move to next mark                                                                                          | `m]`
+ Move to previous mark                                                                                      | `m[`
+ Preview mark[^preview]                                                                                     | `m:`
+ Add a bookmark from bookmark group[0-9].                                                                   | `m[0-9]`
+ Delete all bookmarks from bookmark group[0-9].                                                             | `dm[0-9]`
+ Move to the next bookmark having the same type as the current bookmark[^wb].     | `m}`
+ Move to the previous bookmark having the same type as the current bookmark[^wb]. | `m{`
+ Delete the bookmark under the cursor.                                                                      | `dm=`
+
+[^wb]: Works across buffers.
+[^[preview]: This will prompt you for a specific mark to preview; press `<cr>` to preview the next mark.
 
 #### [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 
