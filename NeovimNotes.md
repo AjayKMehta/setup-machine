@@ -147,6 +147,7 @@
       - [nvim-cmp](#nvim-cmp)
         - [Sources](#sources)
         - [Keymaps](#keymaps-1)
+      - [blink.cmp](#blinkcmp)
     - [Utility](#utility)
       - [Toggleterm](#toggleterm)
         - [Sending lines to the terminal](#sending-lines-to-the-terminal)
@@ -2172,7 +2173,7 @@ Use [`:helpgrep`](https://neovim.io/doc/user/helphelp.html#%3Ahelpgrep) to searc
  Lua        | 1. lazydev[^ld] (100)<br>2. nvim_lsp (100)<br>3. luasnip_choice (95)<br>4. luasnip (90)<br>5. unitex (80)
  GitRebase  | 1. git (100)<br>2. async_path (70)<br>3. fuzzy_buffer (60)
  Search (`/`, `?`)     | 1. fuzzy_buffer (60)
- Cmdline (`:`)    | 1. cmdline (100)<br>2. async_path (80)<br>3. *fuzzy_buffer* (20)
+ Cmdline (`:`)    | 1. cmdline (100)<br>2. async_path (80)<br>3. *fuzzy_buffer* (60)
  TeX        | 1. nvim_lsp (100)<br>2. luasnip_choice (95)<br>3. luasnip (90)<br>4. *async_path* (60)<br>5. *fuzzy_buffer* (50)
  Markdown   | 1. nvim_lsp (100)<br>2. luasnip_choice (95)<br>3. luasnip (90)<br>4. render-markdown (90)<br>5. unitex (80)<br>6. nerdfont (60)<br>
  R          | 1. cmp_r (100)<br>2. nvim_lsp (100)<br>3. luasnip_choice (95)<br>4. luasnip (90)<br>5. unitex (80)
@@ -2192,13 +2193,15 @@ Notes:
 
  Action                                                | Keymap
 -------------------------------------------------------|-------------------------------------------------------------------------------
- Scroll documentation window back                      | `<C-d>`
+ Scroll documentation window back                      | `<C-b>`
  Scroll documentation window forward                   | `<C-f>`
  Close                                                 | `<C-e>`
  Next entry                                            | `<C-n>` OR `<Down>` OR <kbd>Tab</kbd>
  Previous entry                                        | `<C-p>` OR `<Up>` OR <kbd>Shift</kbd> + <kbd>Tab</kbd>
+ Next choice (when snippet has choices)                | `<C-n>`
+ Previous choice (when snippet has choices)            | `<C-p>`
  Accept suggestion                                     | <kbd>Enter</kbd>
- **Toggle documentation window**                       | <kbd>Alt</kbd> + <kbd>d</kbd>
+ **Toggle documentation window**                       | `<C-d>`
  Invoke completion                                     | <kbd>Ctrl</kbd> + <kbd>Space</kbd>
  **Toggle autocompletion**                             | `<leader>tc`
  **Go to next snippet node**                           | `<C-k>`
@@ -2210,6 +2213,10 @@ Notes:
 
 > [!NOTE]
 > Actions in **bold** above are custom actions I added in addition to those to provided by NvChad.
+
+#### blink.cmp
+
+This is a completion plugin written in Rust. The keymaps resemble those for `nvim-cmp` (except there's no mapping for `<C-l>`).
 
 ### Utility
 
