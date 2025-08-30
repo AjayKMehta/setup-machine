@@ -201,7 +201,6 @@
       - [C#](#c)
     - [Editing](#editing)
       - [marks.nvim](#marksnvim)
-      - [nvim-autopairs](#nvim-autopairs)
       - [mini.move](#minimove)
       - [nvim-spider](#nvim-spider)
       - [nvim-surround](#nvim-surround)
@@ -3267,34 +3266,6 @@ Listed below are some useful actions with their default keymaps (can be modified
 
 [^wb]: Works across buffers.
 [^preview]: This will prompt you for a specific mark to preview; press `<cr>` to preview the next mark.
-
-#### [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
-
-nvim-autopairs provides auto-completion of brackets. One useful feature is **FastWrap**:
-
-If you're in INSERT mode and have following text (`|` indicates cursor position):
-
-```text
-|the(test
-```
-
-Then pressing `<C-m>` will insert a closing bracket at the end!
-
-```text
-(the(test))
-```
-
-If there is text after the last bracket or no closing bracket, then you can choose where to put the bracket.
-
-```text
-(|the test is OK
-```
-
-Press `qh`: `(the) test is OK`.
-Press `ql`: `(the )test is OK`.
-Press `wh`: `(the test) is OK`.
-Press `wl`: `(the test )is OK`.
-Press `$`: `(the test is OK)`.
 
 #### mini.move
 
