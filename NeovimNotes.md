@@ -3261,12 +3261,12 @@ Listed below are some useful actions with their default keymaps (can be modified
  Preview mark[^preview]                                                                                     | `m:`
  Add a bookmark from bookmark group[0-9].                                                                   | `m[0-9]`
  Delete all bookmarks from bookmark group[0-9].                                                             | `dm[0-9]`
- Move to the next bookmark having the same type as the current bookmark[^wb].     | `m}`
- Move to the previous bookmark having the same type as the current bookmark[^wb]. | `m{`
+ Move to the next bookmark having the same type as the current bookmark.[^wb]     | `m}`
+ Move to the previous bookmark having the same type as the current bookmark.[^wb] | `m{`
  Delete the bookmark under the cursor.                                                                      | `dm=`
 
 [^wb]: Works across buffers.
-[^[preview]: This will prompt you for a specific mark to preview; press `<cr>` to preview the next mark.
+[^preview]: This will prompt you for a specific mark to preview; press `<cr>` to preview the next mark.
 
 #### [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 
@@ -3275,7 +3275,7 @@ nvim-autopairs provides auto-completion of brackets. One useful feature is **Fas
 If you're in INSERT mode and have following text (`|` indicates cursor position):
 
 ```text
-(|the(test)
+|the(test
 ```
 
 Then pressing `<C-m>` will insert a closing bracket at the end!
