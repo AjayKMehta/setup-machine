@@ -2208,7 +2208,7 @@ Notes:
  **Go to previous snippet node**                       | `<C-j>`
  **Select current entry (Insert, Commandline mode)**   | `<C-y>`
  **Complete common string (Insert, Commandline mode)** | `<C-l>`
- **Select choice (shows dropdown for choice node)**    | `<C-u>`
+ **Change choice for choice node**                     | `<C-c>`
  **List snippets**                                     | `<leader>sl`
 
 > [!NOTE]
