@@ -186,6 +186,7 @@
       - [neominimap](#neominimap)
       - [Outline](#outline)
         - [Outline Commands](#outline-commands)
+      - [lensline.nvim](#lenslinenvim)
       - [Diffview](#diffview)
       - [code\_runner](#code_runner)
       - [neotest](#neotest)
@@ -2984,6 +2985,10 @@ You can use command modifiers `topleft`/`aboveleft`/`botright`/`belowright` on t
  Outline Focus      | `<leader>ofo`
  Outline Focus code | `<leader>ofc`
  Outline Follow     | `<leader>oF`
+
+#### [lensline.nvim](https://github.com/oribarilan/lensline.nvim)
+
+This provides code lens for references, git information, diagnostics.
 
 #### Diffview
 
