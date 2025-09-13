@@ -118,6 +118,7 @@
     - [Setup for Jupyter](#setup-for-jupyter)
     - [catboost](#catboost)
     - [INLA](#inla)
+    - [irace](#irace)
     - [Quarto](#quarto)
       - [Extras](#extras)
     - [Use OpenBLAS](#use-openblas)
@@ -1491,7 +1492,7 @@ From the project's [README.md](https://github.com/randy3k/radian/blob/master/REA
 Installation steps:
 
 1. Install `radian`: `uv tool install radian`.
-1. Set `$R_BINARY` to **\<InstallPath\>\bin\x64\R.exe**. This is needed for `radian` to work properly.
+2. Set `$R_HOME` to **\<InstallPath\>**. This is needed for `radian` to work properly.
 
 ### Setup for VS Code
 
@@ -1524,6 +1525,10 @@ This is available from [GitHub](https://github.com/catboost/catboost).
 ### INLA
 
 See [here](https://www.r-inla.org/download-install).
+
+### irace
+
+See [here](https://lopez-ibanez.eu/2024-redheur/#setup).
 
 ### Quarto
 
