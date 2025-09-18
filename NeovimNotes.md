@@ -3469,6 +3469,8 @@ When you search via `/`, each match will have a corresponding label, e.g. `a`. P
  Move next               | `;`          | **NA**
  Move previous           | `,`          | **NA**
 
+For incremental search using Treesitter (normal, operator-pending mode), use `<C-Space>` to search for next and `<BS>` to search for previous.
+
 > [!NOTE]
 > Move next/previous do not use the standard `;`/`,` as they do not seem to work.
 
