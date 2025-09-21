@@ -1342,6 +1342,23 @@ sudo snap install tectonic
 
 ([Source](https://snapcraft.io/install/tectonic/ubuntu))
 
+## [envx](https://github.com/mikeleppane/envx)
+
+Environment variable manager with TUI + CLI.
+
+Install:
+
+```bash
+cargo install envex
+```
+
+Usage:
+
+```bash
+envx tui
+envx list
+```
+
 ## yazi
 
 [yazi](https://yazi-rs.github.io) is a fast terminal file manager written in Rust.

@@ -34,6 +34,7 @@
     - [git absorb](#git-absorb)
   - [Java](#java)
   - [CLI Apps](#cli-apps)
+    - [envx](#envx)
     - [feluda](#feluda)
     - [clink](#clink)
     - [parallel-disk-usage](#parallel-disk-usage)
@@ -525,6 +526,19 @@ Generate shell completions: `git absorb --gen-completions powershell | Out-File 
 
 > [!TIP]
 > Install CLI apps in a common directory and add common directory to `$Path`.
+
+### envx
+
+Environment variable manager with TUI + CLI.
+
+Download latest release from [GitHub repo](https://github.com/mikeleppane/envx).
+
+Usage:
+
+```bash
+envx tui
+envx list
+```
 
 ### feluda
 
