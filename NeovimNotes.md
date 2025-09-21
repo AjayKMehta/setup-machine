@@ -3625,12 +3625,12 @@ An example: `]f` will navigate to **start** (`f` is lower case) of **next** (`]`
 
  Action                                | Keymap
 --------------------------------------|--------------
- Swap with previous function           | `<leader>pm`
- Swap with previous property           | `<leader>p:`
- Swap with previous parameter/argument | `<leader>pa`
- Swap with next function               | `<leader>nm`
- Swap with next property               | `<leader>n:`
- Swap with next parameter/argument     | `<leader>na`
+ Swap with previous function           | `<leader>Sf`
+ Swap with previous property           | `<leader>Sp`
+ Swap with previous parameter/argument | `<leader>Sa`
+ Swap with next function               | `<leader>SF`
+ Swap with next property               | `<leader>SP`
+ Swap with next parameter/argument     | `<leader>SA`
 
 ##### LSP interop
 
