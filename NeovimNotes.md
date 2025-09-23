@@ -3660,7 +3660,7 @@ Can navigate or swap nodes by specifying a direction (one of `Up`, `Down`, `Left
 Similarly, `Left` refers to the first ancestor node that's on a different line while `Right` refers to the first node that's indented further than the current node.
 
 Navigate: `:Treewalker <direction>` .
-Swap nodes: `:Treewalker Swap<direction>`, e.g. `:Treewalker SwapUp`.
+Swap nodes: `:Treewalker Swap<direction>`, e.g. `:Treewalker SwapUp`. Also, can use keymaps: `<leader>S<dir>` where `<dir>` is usual vim keymap for navigating in a particular direction: `h`/`j`/`k`/`l`.
 
 👉 `Swap{Left,Right}` are meant for swapping function arguments, enum members, list elements, etc.
 
