@@ -865,6 +865,12 @@ List variables:
 bleopt
 ```
 
+Change color scheme:
+
+```shell
+bleopt color_scheme=[default|base16|catppuccin_mocha]
+```
+
 ### [Manual editing](https://github.com/akinomyoga/ble.sh/wiki/Manual-%C2%A74-Editing)
 
 | Key combination    | Widget                                | Description                                                             |
