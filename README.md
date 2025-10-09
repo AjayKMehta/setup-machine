@@ -19,7 +19,9 @@
   - [WinMerge](#winmerge)
   - [SlickRun](#slickrun)
   - [git](#git)
-  - [git-related platforms](#git-related-platforms)
+    - [GitExtensions](#gitextensions)
+    - [git absorb](#git-absorb)
+    - [git-metrics](#git-metrics)
     - [GitHub](#github)
       - [Set up GPG and SSH keys](#set-up-gpg-and-ssh-keys)
       - [GitHub CLI](#github-cli)
@@ -30,8 +32,6 @@
     - [GitLab](#gitlab)
       - [GitLab CLI](#gitlab-cli)
       - [Authentication](#authentication)
-    - [GitExtensions](#gitextensions)
-    - [git absorb](#git-absorb)
   - [Java](#java)
   - [CLI Apps](#cli-apps)
     - [envx](#envx)
@@ -394,8 +394,29 @@ Install: `winget install --id Git.Git -e --source winget`.
 
 > [!TIP]
 > git comes bundled with Git Credential Manager on Windows. If you keep getting prompted to login when pushing to or pulling from a remote, you may have more than one account set up. To fix, see [these instructions](https://github.com/git-ecosystem/git-credential-manager/blob/main/docs/multiple-users.md#tldr-tell-gcm-to-remember-which-account-to-use).
+>
+### GitExtensions
 
-## git-related platforms
+Install: `
+winget install GitExtensionsTeam.GitExtensions
+`.
+
+### git absorb
+
+[git absorb](https://github.com/tummychow/git-absorb) eliminates the tedious manual work of creating fixup commits (and rebasing if you specify `--and-rebase`). It can automatically identify which commits are safe to modify, and which staged changes belong to each of those commits. It will then write `fixup!` commits for each of those changes.
+
+```shell
+git add . # fixed files
+git absorb --and-rebase
+```
+
+Install: `winget install tummychow.git-absorb`.
+
+Generate shell completions: `git absorb --gen-completions powershell | Out-File -Encoding utf8 ~\Documents\PowerShell\Scripts\ArgumentCompleters\git-absorb.ps1`.
+
+### git-metrics
+
+[git-metrics](https://github.com/steffen/git-metrics?tab=readme-ov-file) is a CLI tool that provides metrics about git repositories. You can install it by downloading a binary from the [releases page](https://github.com/steffen/git-metrics/releases).
 
 ### GitHub
 
@@ -484,25 +505,6 @@ To create a config in a repo: `actionlint --init-config`.
 
 1. Create a PAT.
 2. Follow prompts for `glab auth login`. Or, create `$GITLAB_TOKEN` with value set to PAT.
-
-### GitExtensions
-
-Install: `
-winget install GitExtensionsTeam.GitExtensions
-`.
-
-### git absorb
-
-[git absorb](https://github.com/tummychow/git-absorb) eliminates the tedious manual work of creating fixup commits (and rebasing if you specify `--and-rebase`). It can automatically identify which commits are safe to modify, and which staged changes belong to each of those commits. It will then write `fixup!` commits for each of those changes.
-
-```shell
-git add . # fixed files
-git absorb --and-rebase
-```
-
-Install: `winget install tummychow.git-absorb`.
-
-Generate shell completions: `git absorb --gen-completions powershell | Out-File -Encoding utf8 ~\Documents\PowerShell\Scripts\ArgumentCompleters\git-absorb.ps1`.
 
 ## Java
 
