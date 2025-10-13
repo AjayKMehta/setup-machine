@@ -1365,6 +1365,21 @@ envx tui
 envx list
 ```
 
+## grc
+
+[grc](https://github.com/garabik/grc) or Generic Colouriser helps colorize the output of programs.
+
+```bash
+sudo apt install grc
+```
+
+Add to `~/.bashrc`:
+
+```bash
+GRC_ALIASES=true
+[[ -s "/etc/profile.d/grc.sh" ]] && source /etc/profile.d/grc.sh
+```
+
 ## yazi
 
 [yazi](https://yazi-rs.github.io) is a fast terminal file manager written in Rust.
