@@ -1692,7 +1692,6 @@ dotnet tool install -g benchmarkdotnet.tool
 dotnet tool install -g coverlet.console
 dotnet tool install -g diffenginetray
 dotnet tool install -g dotnet-counters
-dotnet tool install -g dotnet-depends
 dotnet tool install -g dotnet-monitor
 dotnet tool install -g dotnet-outdated-tool
 dotnet tool install -g dotnet-reportgenerator-globaltool
@@ -1707,6 +1706,7 @@ dotnet tool install -g roslynator.dotnet.cli
 dotnet tool install -g snitch
 dotnet tool install -g upgrade-assistant
 dotnet tool install -g CentralisedPackageConverter
+dotnet tool install -g Microsoft.Web.LibraryManager.Cli
 
 # https://learn.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-telemetry?tabs=powershell#how-to-opt-out
 [System.Environment]::SetEnvironmentVariable('DOTNET_UPGRADEASSISTANT_TELEMETRY_OPTOUT', '1', 'User')
