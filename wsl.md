@@ -1440,9 +1440,14 @@ sudo apt install clang-format
 
 sudo apt install command-not-found
 
+# bat option 1: Use apt.
+# Version tends to be behind current
 sudo apt install bat
 mkdir -p ~/.local/bin
 ln -s /usr/bin/batcat ~/.local/bin/bat
+
+# bat option 2: Manual download and install.
+# sudo dpkg -i bat_0.26.0_amd64.deb # adjust version number
 
 sudo apt install plocate
 
