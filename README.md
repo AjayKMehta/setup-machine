@@ -629,6 +629,12 @@ ripgrep is a powerful search tool.
 
 Install: `winget install BurntSushi.ripgrep.MSVC`.
 
+Shell completion:
+
+```powershell
+rg --generate=complete-powershell | Out-File ~\Documents\PowerShell\Scripts\ArgumentCompleters\_rg.ps1 -Encoding utf8
+```
+
 ### delta
 
 **[delta](https://github.com/dandavison/delta)** is a syntax-highlighting pager for git, diff, and grep output. In order to use it with git, you need to modify `.gitconfig` or you can import dot files.
