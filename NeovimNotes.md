@@ -2524,6 +2524,24 @@ Below are some of the commands with their respective keymaps:
 </details>
 
 <details open>
+  <summary>git</summary>
+
+These are triggered by autocmd if busfer is in a git repo.
+
+ Action                      | Keymap
+ ----------------------------|---------------
+ Git find files              | `<leader>gf`
+ Git branches                | `<leader>gb`
+ Git browse (open on remote) | `<leader>gB`
+ Git diff (hunks)            | `<leader>gdh`
+ Git log                     | `<leader>gL`
+ Git log file                | `<leader>glf`
+ Git log line                | `<leader>gll`
+ Git status                  | `<leader>gS`
+
+<details>
+
+<details open>
   <summary>General</summary>
 
  Action                      | Keymap
