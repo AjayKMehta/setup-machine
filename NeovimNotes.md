@@ -2180,7 +2180,7 @@ Use [`:helpgrep`](https://neovim.io/doc/user/helphelp.html#%3Ahelpgrep) to searc
  R          | 1. cmp_r (100)<br>2. nvim_lsp (100)<br>3. luasnip_choice (95)<br>4. luasnip (90)<br>5. unitex (80)
  Quarto/RMD | Same as Markdown + cmp_r
  C# (.NET)  | 1. nvim_lsp (100)<br>2. easy-dotnet (95)<br>3. luasnip_choice (95)<br>4. luasnip (90)<br>5. unitex (80)
-  
+
 [^ld]: Set group index to 0 to skip loading LuaLS completions.
 
 Notes:
@@ -2504,6 +2504,9 @@ Below are some of the commands with their respective keymaps:
  Lsp type definitions            | `<leader>ltd`
  Lsp document symbols            | `<leader>ls`
  Lsp workspace symbols           | `<leader>lws`
+ Lsp Go to implementation        | `<leader>lI`
+ Lsp Incoming calls              | `<leader>li`
+ Lsp Outgoing calls              | `<leader>lo`
 
 </details>
 
