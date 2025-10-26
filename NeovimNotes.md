@@ -3523,9 +3523,6 @@ There are 2 keymaps available:
 1. `<leader>g*` to find the current word.
 2. `<leader>gc` to find in the current file.
 
-> [!NOTE]
-> Due to clunky UX and lack of docummentation, I probably will replace or remove this eventually.
-
 #### undo-glow.nvim
 
 [undo-glow.nvim](https://github.com/y3owk1n/undo-glow.nvim) highlights changed text after any action which modifies the current buffer. I have configured it to highlight text after undo (`u`), redo (`<C-r>`).
