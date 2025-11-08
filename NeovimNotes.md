@@ -49,6 +49,7 @@
       - [Motion, editing](#motion-editing)
       - [History](#history)
   - [Search](#search)
+    - [Magic](#magic)
     - [Patterns](#patterns)
       - [Quantifiers](#quantifiers)
       - [Character ranges](#character-ranges)
@@ -1122,6 +1123,31 @@ View history of commands: `:history`.
 Press <kbd>Enter</kbd> to select entry from history window.
 
 ## Search
+
+### Magic
+
+There is a [`magic`](https://neovim.io/doc/user/options.html#'magic') option that you can toggle on/off. It is recommended to *always* enable it unless you want compatibility with Vi.
+
+To illustrate the difference between the two:
+
+  - `\.` matches any character for `nomagic` while for `magic`, you use `.`.
+  - `.` matches a literal dot for `nomagic` while for `magic`, you use `\.`.
+  
+So, essentially, the meanings are reversed between the two options for these cases.
+
+ :bulb: To always set `magic` regardless of option value, use `\m` at the start of the pattern. Similarly, for `nomagic`, you can use `\M`.
+
+ There are also `very magic` (`\v`) and `very nomagic` (`\V`). I won't cover the latter as I don't find it useful.
+
+`\v` lets you write patterns similar to the ones you write for regular expressions in most languages.
+
+Given the text: `This is great.`, `:s/\v\w{2}a` matches `rea` but for (regular) magic mode, you need to use `:s\w\{2}a`. `very magic` mode basically lets you omit `\` in front of `{`, `+`, etc. that you need for `magic` mode.
+
+> [!TIP]
+> See `:help magic` for more details.
+
+> [!IMPORTANT]
+> The following sections assume that the `magic` option is ***enabled***.
 
 ### Patterns
 
