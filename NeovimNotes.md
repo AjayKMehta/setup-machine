@@ -486,7 +486,7 @@ See [here](https://thevaluable.dev/vim-expert/#autocommands) for more informatio
 
 #### Autocommand groups
 
-When you create an autocommand as we did above, it's added automatically to a default autocommand group without a name.
+When you create an autocommand as shown in the above section, it's added automatically to a default autocommand group without a name.
 
 Autocommand groups are like namespaces for autocommands.
 
@@ -1157,7 +1157,9 @@ Just like regex, `\t` matches tab, `\r` matches carriage return and `\n` matches
 
 #### Quantifiers
 
-Quantifiers are same as you would expect except they are prefixed by `\`: `\+` instead of `+`, `\?` (OR `\=`) for `?`, `\{m, n}` instead of `{m, n}`.
+Quantifiers are same as you would expect except they are prefixed by `\`[^star]: `\+` instead of `+`, `\?` (OR `\=`) for `?`, `\{m, n}` instead of `{m, n}`.
+
+[^star]: `*` is the exeception, e.g. `:s/\w\{2}a*`.
 
 `:%s/^\s\+` will match all lines beginning with whitespace.
 
