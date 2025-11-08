@@ -1159,7 +1159,7 @@ Just like regex, `\t` matches tab, `\r` matches carriage return and `\n` matches
 
 Quantifiers are same as you would expect except they are prefixed by `\`[^star]: `\+` instead of `+`, `\?` (OR `\=`) for `?`, `\{m, n}` instead of `{m, n}`.
 
-[^star]: `*` is the exeception, e.g. `:s/\w\{2}a*`.
+[^star]: `*` is the exception, e.g. `\w\{2}a*`.
 
 `:%s/^\s\+` will match all lines beginning with whitespace.
 
@@ -1188,6 +1188,8 @@ In addition to the usual `\s` (`\S`), `\d` ( `\D`) and `\w` (`\W`) which work as
 1. `\o` is octal, `[0-7]`.
 1. `\x` is hexadecimal, `[0-9a-fA-F]`
 1. `\X` is non-hex digit, `[^0-9a-fA-F]`
+1. `\f` is file name character.
+1. `\F` is like `\f` but excludes digits.
 
 To include EOL character, use `\_` instead of `\` for any of the escape sequences, e.g. `\_s` will match space between lines.
 
@@ -1195,13 +1197,25 @@ There are also named sets like `[:digit:]`. For more info, see `:h :alnum:`.
 
 #### Zero-width
 
-This information is adapted from [here](https://thevaluable.dev/vim-adept/#zero-width).
+This information is adapted from [here](https://thevaluable.dev/vim-adept/#zero-width) and Neovim help.
 
 `\<` matches the beginning of a word.
 `\>` matches the end of a word.
-`\%<` matches the beginning of the file.
-`\%>` matches the end of the file.
+`\%^` matches the beginning of the file.
+`\%$` matches the end of the file.
 `\%V` matches inside the visual selection.
+`^` matches start-of-line (at start of pattern).
+`\_^` matches start-of-line (anywhere in pattern).
+`$` matches end-of-line (at end of pattern).
+`\_.` matches any cacter end-of-line (anywhere in pattern)
+`\_$` matches end-of-line (anywhere in pattern), e.g. `!\_$\_..*D` matches text from `!` at the end of a line to `D` in the next line![^demo]
+`\zs` matches anything and sets start of match.
+`\ze` matches anything and sets end of match.
+`\%#` matches cursor position.
+`\%nl` matches line `n`, e.g. `:s/\%3l\k/4` will substitute keyword character in line 3 with `4`.
+`\%nc` matches column `n`, e.g. `\%2c` for matching column 2.
+
+[^demo]: This is for demonstration purposes only. You would be better off using `!\n.*D`.
 
 You can even use marks:
 
