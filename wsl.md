@@ -1037,6 +1037,19 @@ sudo apt install r-base r-base-dev -y
     sudo apt install libfribidi-dev
     ```
 
+### OpenBLAS support
+
+1. Install `ropenblas` package and execute `ropenblas()`:
+
+    ```r
+    install.packages("ropenblas")
+    library(ropenblas)
+
+    ropenblas() # This will download, compile, and link OpenBLAS with your R installation.
+    ```
+
+2. Close your R session and reopen. Now, if you run `sessionInfo()`, you should see mention of OpenBLAS.
+
 ### [Posit Package Manager for Linux R Binaries](https://tshafer.com/blog/2023/07/posit-package-manager-linux)
 
 You can use the Posit Package Manager (PPM) to install binary packages and avoid having to compile from source.
