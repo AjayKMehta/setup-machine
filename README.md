@@ -464,13 +464,9 @@ Install extensions:
 gh extension install cschleiden/gh-actionlint
 gh extension install actions/gh-actions-cache
 gh extension install securesauce/gh-alerts
-gh extension install chelnak/gh-changelog
 gh extension install github/gh-copilot
-gh extension install dlvhdr/gh-dash
 gh extension install yuler/gh-download
-gh extension install meiji163/gh-notify
 gh extension install seachicken/gh-poi
-gh extension install samcoe/gh-repo-explore
 ```
 
 #### act
