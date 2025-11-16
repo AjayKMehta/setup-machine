@@ -1109,7 +1109,7 @@ Install: `npm i -g rag-crawler`
 
 ### Build Tools
 
-In order to build certain sdist packages, you need to install latest version of VS Build Tools ([source](https://github.com/chroma-core/chroma/issues/250#issuecomment-1540934224)).
+In order to build certain sdist packages, you need to install latest version of [VS Build Tools](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2026) ([source](https://github.com/chroma-core/chroma/issues/250#issuecomment-1540934224)).
 
 ### uv
 
@@ -1603,21 +1603,19 @@ After
 <!-- Stupid Markdown TOC extension cant handle '.' in header 😠 -->
 ## DotNet
 
-- Install Visual Studio Community 2022:
+- Install Visual Studio Community 2026:
 
     ```powershell
-    winget install Microsoft.VisualStudio.2022.Community
+    winget install Microsoft.VisualStudio.2026.Community
     ```
 
-    This will also install .NET 8 SDK.
+    This will also install .NET 10 SDK.
 
 - Install [templates for `dotnet new`](https://github.com/dotnet/templating/wiki/Available-templates-for-dotnet-new):
 
     ```powershell
-    dotnet new install Boxed.Templates
     dotnet new install Amazon.Lambda.Templates
     dotnet new install NUnit3.DotNetNew.Template
-    dotnet new install xunit.v3.templates  
     ```
 
 - Set environment variables related to [runtime configuration for compilation](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/compilation):
