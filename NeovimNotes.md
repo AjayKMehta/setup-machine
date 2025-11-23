@@ -1666,6 +1666,7 @@ Use `g;` and `g,` to navigate history of insertions.
 > [!TIP]
 > Use `<C-a>` to insert the last content inserted when in insert mode.
 > Use `<C-y>` to insert character from the line above and `<C-e>` to insert character from the line below.
+> If you are inside a pair of brackets `(...)`, type closing bracket (`)`) to go to the right of the closing bracket.
 
 ### Delete/replace character
 
