@@ -2925,6 +2925,8 @@ To accept changes: `<leader>ca`.
 
 To reject changes: `<leader>cr`.
 
+To cancel a request: `q`.
+
 > [!TIP]
 > To specify a different adapter to the default one, include the adapter name within `<>`. For example `<','>CodeCompanion <deepseek> can you refactor this?`. This approach can also be combined with variables.
 

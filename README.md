@@ -1154,7 +1154,7 @@ In order to build certain sdist packages, you need to install latest version of 
     uv tool install ipython
     uv tool install markitdown
     uv tool install pipdeptree
-    uv tool install pre-commit
+    uv tool install prek
     uv tool install radian # For R
     uv tool install ruff
     uv tool install scalene
