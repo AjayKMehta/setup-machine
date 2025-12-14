@@ -175,6 +175,7 @@
     - [AI](#ai)
       - [copilot.vim](#copilotvim)
       - [codecompanion](#codecompanion)
+        - [Interactions](#interactions)
         - [Adapters](#adapters)
         - [Chat Buffer](#chat-buffer)
         - [Inline Assistant](#inline-assistant)
@@ -2841,6 +2842,15 @@ In the table below, actions in **bold** are courtesy of custom prompts.
  **Generate Documentation** | `<leader>cd` OR `:'<,'>CodeCompanion /doc`
  **Generate a commit message (advanced)** | `<leader>cm`
  **Review code** | `<leader>cr`
+
+##### Interactions
+
+There are 4 ways you can interact with an LLM using CodeCompanion:
+
+1. Chat (`:CodeCompanionChat`)
+2. Inline (`:CodeCompanion`)
+3. Command: Create Neovim commands for the command-line
+4. Background: You can run tasks in the background
 
 ##### Adapters
 
