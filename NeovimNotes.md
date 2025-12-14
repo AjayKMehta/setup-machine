@@ -2876,17 +2876,17 @@ require("codecompanion").setup({
 
 ##### Chat Buffer
 
-Press `?` for help.
-
-Press `<C-c>` to close (works for both NORMAL and INSERT modes).
-
-Press <kbd>Ctrl</kbd> + <kbd>Space</kbd> to activate completion in INSERT mode.
-
-Press `ga` to change the adapter for the current chat.
-
-Press `gr` to regenerate the last response.
-
-Press `gS` to get Copilot usage stats.
+ Action                                      | Keymap
+ --------------------------------------------|-----------------------------------
+ Help                                        | `?`
+ Close buffer                                | `<C-c>`
+ Activate completion in INSERT mode.         | <kbd>Ctrl</kbd> + <kbd>Space</kbd>
+ Change the adapter for the current chat.    | `ga`
+ Clear the chat.                             | `gx`
+ Debug the chat buffer's contents.           | `gd`
+ Yank the last codeblock in the chat buffer. | `gy`
+ Regenerate the last response.               | `gr`
+ Get Copilot usage stats.                    | `gS`
 
 See [here](https://codecompanion.olimorris.dev/usage/chat-buffer/#keymaps) for the full list of keymaps.
 
