@@ -1132,7 +1132,7 @@ To illustrate the difference between the two:
 
   - `\.` matches any character for `nomagic` while for `magic`, you use `.`.
   - `.` matches a literal dot for `nomagic` while for `magic`, you use `\.`.
-  
+
 So, essentially, the meanings are reversed between the two options for these cases.
 
  :bulb: To always set `magic` regardless of option value, use `\m` at the start of the pattern. Similarly, for `nomagic`, you can use `\M`.
@@ -2846,13 +2846,18 @@ In the table below, actions in **bold** are courtesy of custom prompts.
 
 An adapter is what connects Neovim to an LLM. See [here](https://github.com/olimorris/codecompanion.nvim/tree/main/lua/codecompanion/adapters) for the list of supported adapters. API Keys can be provided via `*_API_KEY` environment variable or you can run commands from within your config by prefixing them with `cmd:` to retrieve the key.
 
-If you prefer to only display the adapters defined in your user configuration, you can set the `show_defaults` option to `false`:
+There are 2 types of adapter: HTTP and ACP (Agent CLient Protocol).
+
+> [!IMPORTANT]
+> ACP adapters can only be used for chat interactions.
+
+If you prefer to only display the adapters defined in your user configuration, you can set the `show_presets` option to `false`:
 
 ```lua
 require("codecompanion").setup({
   adapters = {
     opts = {
-      show_defaults = false,
+      show_presets = false,
     },
     -- Define your custom adapters here
   },
@@ -2875,7 +2880,7 @@ Press `gS` to get Copilot usage stats.
 
 See [here](https://codecompanion.olimorris.dev/usage/chat-buffer/#keymaps) for the full list of keymaps.
 
-You can add context from your code base by using [*Variables*](https://codecompanion.olimorris.dev/getting-started.html#variables) and [*Slash Commands*](https://codecompanion.olimorris.dev/getting-started.html#clash-commands) in the chat buffer, e.g. `#{buffer:8-12}` shares lines 8-12 of current buffer while `/buffer` is a command to insert an open buffer.
+You can add context from your code base by using [*Variables*](https://codecompanion.olimorris.dev/getting-started.html#variables) and [*Slash Commands*](https://codecompanion.olimorris.dev/getting-started.html#slash-commands) in the chat buffer, e.g. `#{buffer:8-12}` shares lines 8-12 of current buffer while `/buffer` is a command to insert an open buffer.
 
 You can configure slash commands to be triggered by keymaps:
 
@@ -2885,7 +2890,7 @@ You can configure slash commands to be triggered by keymaps:
  fetch         | i: `<C-f>`. n : `<C-f>`, `gF`.
  help          | i: `<C-?>`. n : `<C-?>`, `g?`.
 
-In order to allow for references to self-update, they can be *pinned* (for files and buffers) using `gp` or *watched* (for buffers) using `gw`. See [here](https://codecompanion.olimorris.dev/usage/chat-buffer/#references) for more details. If you pin a buffer, then the whole contents of the buffer or file is added to the message stack before your current message. If you watch it, it will send only the added, edited or deleted lines to the LLM.
+In order to allow for references to self-update, *all their content* can be *synced* (for files and buffers) using `gba` or just *the diff* can be *synced* (for buffers only) using `gbd`. See [here](https://codecompanion.olimorris.dev/usage/chat-buffer/#references) for more details. If you sync all the content of a buffer, then the whole contents of the buffer or file is added to the message stack before your current message. If you sync the diff, it will send only the added, edited or deleted lines to the LLM.
 
 Use `gR` to go to the file under cursor (in a new tab).
 
@@ -2928,7 +2933,7 @@ To reject changes: `<leader>cr`.
 To cancel a request: `q`.
 
 > [!TIP]
-> To specify a different adapter to the default one, include the adapter name within `<>`. For example `<','>CodeCompanion <deepseek> can you refactor this?`. This approach can also be combined with variables.
+> To specify a different adapter to the default one, include the adapter name after `adapter=`. For example `<','>CodeCompanion adapter=deepseek can you refactor this?`. This approach can also be combined with variables.
 
 ##### Prompts
 
@@ -2954,13 +2959,7 @@ To disable the requirement of approvals and automatically save any edited buffer
 vim.g.codecompanion_auto_tool_mode = true
 ```
 
-##### Workspaces
-
-From the [announcement](https://github.com/olimorris/codecompanion.nvim/discussions/705):
-
-> The new workspace slash command allows users to share defined groups of files and/or symbols with an LLM, alongside some pre-written context.
-
-In order to use this, you need to create a file called [`codecompanion-workspace.json`](https://codecompanion.olimorris.dev/extending/workspace.html) in the root of your current working directory. See an example [here](https://github.com/olimorris/codecompanion.nvim/blob/main/codecompanion-workspace.json).
+##### Rules
 
 #### mcphub
 
