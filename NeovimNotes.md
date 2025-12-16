@@ -2876,6 +2876,8 @@ require("codecompanion").setup({
 
 ##### Chat Buffer
 
+> :bulb: To open a chat buffer for a specific adapter: `:CodeCompanionChat adapter=<adapter>`.
+
  Action                                      | Keymap
  --------------------------------------------|-----------------------------------
  Help                                        | `?`
@@ -2886,6 +2888,7 @@ require("codecompanion").setup({
  Debug the chat buffer's contents.           | `gd`
  Yank the last codeblock in the chat buffer. | `gy`
  Regenerate the last response.               | `gr`
+ Toggle system prompt                        | `gs`
  Get Copilot usage stats.                    | `gS`
 
 See [here](https://codecompanion.olimorris.dev/usage/chat-buffer/#keymaps) for the full list of keymaps.
@@ -2904,20 +2907,26 @@ In order to allow for references to self-update, *all their content* can be *syn
 
 Use `gR` to go to the file under cursor (in a new tab).
 
-*Tools*, accessed via `@`, allow the LLM to function as an agent and carry out actions.
+[*Tools*](https://codecompanion.olimorris.dev/usage/chat-buffer/tools), accessed via `@`, allow the LLM to function as an agent and carry out actions.
 
-Tools can also be grouped together to form *Agents*, which are also accessed via `@` in the chat buffer:
+Tools can also be grouped together to form *Agents*, which are also accessed via `@` in the chat buffer. When you include a tool group in the chat, all tools within that group become available to the LLM.
+
+Here are some of the built-in tools:
 
 - `@{cmd_runner}` - enables an LLM to execute commands on your machine, subject to your authorization.
+- `@{create_file}` - requires approval by default before running.
+- `@{delete_file}` - requires approval by default before running.
+- `@{get_changed_files}` - enables an LLM to use `git diff` to get changes to files in the current working directory.
 - `@{grep_search}` - enables an LLM to search for text in the current working directory.
 - `@{file_search}`- enables an LLM to search for files in the current working directory.
+- `@{list_code_usages}`- needs LSP to be configured.
 - `@{next_edit_suggestion}` - The LLM can only suggest edits in files or buffers that have been shared with it as context.
 - `@{web_search}` - Need `$TAVILY_API_KEY` set. See <https://www.tavily.com/> for more information.
 
-Tool groups:
+Built-in tool groups:
 
-- `@{files}` - is a combination of the `@{create_file}`,`@{insert_edit_into_file}` and `@{read_file}` tools.
-- `@{full_stack_dev}` - contains `@{cmd_runner}`, `@{create_file}`, `@{read_file}`, and `@{insert_edit_into_file}`.
+- [`@{files}`](https://codecompanion.olimorris.dev/usage/chat-buffer/tools#files) is a combination of file-related tools such as `@{create_file}`,`@{insert_edit_into_file}` and `@{read_file}`.
+- [`@{full_stack_dev}`](https://codecompanion.olimorris.dev/usage/chat-buffer/tools#full-stack-dev) contains tools to enable an LLM to create applications and understand and refactor code bases.
 
 For more information, see [Using Agents and Tools](https://codecompanion.olimorris.dev/usage/chat-buffer/agents.html).
 
