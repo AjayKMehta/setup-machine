@@ -181,7 +181,7 @@
         - [Inline Assistant](#inline-assistant)
         - [Prompts](#prompts)
         - [Workflows](#workflows)
-        - [Workspaces](#workspaces)
+        - [Rules](#rules)
       - [mcphub](#mcphub)
       - [codecompanion-history](#codecompanion-history)
     - [Coding](#coding)
@@ -2978,7 +2978,44 @@ To disable the requirement of approvals and automatically save any edited buffer
 vim.g.codecompanion_auto_tool_mode = true
 ```
 
-##### Rules
+##### [Rules](https://codecompanion.olimorris.dev/usage/chat-buffer/rules)
+
+Rules help provide system-level instructions to your LLM as well as persistent context via files in your project. You can create a default rule group and even nest rule groups (see below).
+
+```lua
+require("codecompanion").setup(
+{ 
+  -- Rest of config here
+  rules = {
+    default = {
+        description = "Default rules",
+        files = {
+            ".clinerules",
+            ".goosehints",
+            ".rules",
+            ".github/copilot-instructions.md",
+            "AGENT.md",
+            "AGENTS.md",
+            { path = "CLAUDE.md", parser = "claude" },
+            { path = "CLAUDE.local.md", parser = "claude" },
+            { path = "~/.claude/CLAUDE.md", parser = "claude" },
+        },
+        is_preset = true,
+    },
+    opts = {
+        chat = {
+            enabled = true,
+            condition = function(chat)
+                return chat.adapter.type ~= "acp"
+            end,
+            default_rules = "default", -- The rule groups to load
+        },
+    },
+  },
+})
+```
+
+To auto-load rules, specify them in `rules.opts.chat.autoload` in the table passed to `setup`.
 
 #### mcphub
 
