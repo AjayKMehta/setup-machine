@@ -2958,9 +2958,11 @@ To cancel a request: `q`.
 
 CodeCompanion comes with a set of built-in prompts that can be accessed via the Actions Palette or by `:CodeCompanion <prompt>`.
 
-For more information on how to create custom prompts, see [here](https://codecompanion.olimorris.dev/extending/prompts.html). You can assign a keymap and even specify that it is a slash command.
+For more information on how to create custom prompts, see [here](https://codecompanion.olimorris.dev/configuration/prompt-library#creating-prompts). You can assign a keymap and even specify that it is a slash command.
 
 Prompts can be used inline or in chat buffer.
+
+To refresh markdown prompts: `:CodeCompanionActions refresh`.
 
 You can have multiple variables as part of a prompt, for example: `:CodeCompanion #{buffer} #{clipboard} analyze this code`.
 
