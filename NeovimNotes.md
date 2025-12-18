@@ -2970,17 +2970,13 @@ You can also [create keymaps for prompts](https://codecompanion.olimorris.dev/us
 
 ##### Workflows
 
-From [Creating Workflows](https://codecompanion.olimorris.dev/extending/workflows):
+- Workflows in CodeCompanion, are successive prompts which can be automatically sent to the LLM in a turn-based manner.
+- They can only be initiated from the [Action Palette](https://codecompanion.olimorris.dev/usage/action-palette.html).
+- To disable the requirement of approvals and automatically save any edited buffer:
 
-> Workflows in CodeCompanion, are successive prompts which can be automatically sent to the LLM in a turn-based manner.
-> ...
-> When initiated from the [Action Palette](https://codecompanion.olimorris.dev/usage/action-palette.html), workflows attach themselves to a [chat buffer](https://codecompanion.olimorris.dev/usage/chat-buffer/index.html) via the notion of a *subscription*.
-
-To disable the requirement of approvals and automatically save any edited buffer:
-
-```lua
-vim.g.codecompanion_auto_tool_mode = true
-```
+  ```lua
+  vim.g.codecompanion_auto_tool_mode = true
+  ```
 
 ##### [Rules](https://codecompanion.olimorris.dev/usage/chat-buffer/rules)
 
