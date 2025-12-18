@@ -2966,6 +2966,8 @@ To refresh markdown prompts: `:CodeCompanionActions refresh`.
 
 You can have multiple variables as part of a prompt, for example: `:CodeCompanion #{buffer} #{clipboard} analyze this code`.
 
+You can also [create keymaps for prompts](https://codecompanion.olimorris.dev/usage/prompt-library#keymaps), e.g. I have `<localleader>d` mapped to a prompt for generating documentation comments and `<localleader>D` mapped to a prompt for generating documentation.
+
 ##### Workflows
 
 From [Creating Workflows](https://codecompanion.olimorris.dev/extending/workflows):
