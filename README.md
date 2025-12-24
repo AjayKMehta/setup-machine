@@ -22,6 +22,7 @@
     - [GitExtensions](#gitextensions)
     - [git absorb](#git-absorb)
     - [git-metrics](#git-metrics)
+    - [git-interactive-rebase-tool](#git-interactive-rebase-tool)
     - [GitHub](#github)
       - [Set up GPG and SSH keys](#set-up-gpg-and-ssh-keys)
       - [GitHub CLI](#github-cli)
@@ -417,6 +418,18 @@ Generate shell completions: `git absorb --gen-completions powershell | Out-File 
 ### git-metrics
 
 [git-metrics](https://github.com/steffen/git-metrics?tab=readme-ov-file) is a CLI tool that provides metrics about git repositories. You can install it by downloading a binary from the [releases page](https://github.com/steffen/git-metrics/releases).
+
+### [git-interactive-rebase-tool](https://github.com/MitMaro/git-interactive-rebase-tool)
+
+This is a terminal-based sequence editor for interactive rebase written in 🦀.
+
+Download binary from [Releases](https://github.com/MitMaro/git-interactive-rebase-tool/releases) page of repo.
+
+Configure git to use it:
+
+```shell
+git config --global sequence.editor interactive-rebase-tool
+```
 
 ### GitHub
 
