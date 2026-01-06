@@ -23,6 +23,7 @@
     - [git absorb](#git-absorb)
     - [git-metrics](#git-metrics)
     - [git-interactive-rebase-tool](#git-interactive-rebase-tool)
+    - [lefthook](#lefthook)
     - [GitHub](#github)
       - [Set up GPG and SSH keys](#set-up-gpg-and-ssh-keys)
       - [GitHub CLI](#github-cli)
@@ -430,6 +431,12 @@ Configure git to use it:
 ```shell
 git config --global sequence.editor interactive-rebase-tool
 ```
+
+### [lefthook](https://lefthook.dev/)
+
+[Lefthook](https://github.com/evilmartians/lefthook) is a Git hooks manager.
+
+Install: `winget install evilmartians.lefthook`.
 
 ### GitHub
 
