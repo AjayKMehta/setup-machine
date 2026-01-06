@@ -45,6 +45,7 @@
     - [Replace mode](#replace-mode)
     - [Visual Replace mode](#visual-replace-mode)
     - [Command-line mode](#command-line-mode)
+      - [Command-line registers](#command-line-registers)
       - [Ranges](#ranges)
       - [Motion, editing](#motion-editing)
       - [History](#history)
@@ -1041,6 +1042,8 @@ Press `$` to select to end of each line.
 
 Use `O` to move cursor to other corner of current line in visual block mode.
 
+You can also use normal mode comments using `norm`, e.g. `:'<,'>norm A!` appends `!` to each line.
+
 ### Select mode
 
 This is like visual mode but you use arrow keys or your mouse. Press `gh` to activate.
@@ -1075,6 +1078,17 @@ List commands: `:command`.
 You can use normal mode commands in command-line mode via `:norm`, e.g. `:norm dd` to delete current line.
 
 If you're writing a plugin, best to use `:norm!` as it uses default mappings not the ones your users set up.
+
+#### Command-line registers
+
+You can insert contents to `:` or `/` prompts:
+
+ Action                     | Keymap/command
+ ---------------------------|---------------
+ Insert word under cursor   | `<C-r> <C-w>`
+ Insert last yank           | `<C-r> "`
+ Insert last search pattern | `<C-r> /`
+ Insert expression result   | `<C-r> =`
 
 #### Ranges
 
@@ -1820,6 +1834,8 @@ A filter is a program that accepts text at standard input, modifies it and sends
 
 `!5Gsort` sends the current line + 4 lines below to `sort`.
 
+`!ip sort`
+
 ### Sort Lines
 
 Usage: `:[range]sor[t][!] [b][f][i][l][n][o][r][u][x] [/{pattern}/]`
@@ -1961,11 +1977,15 @@ See `:h text-objects` for more details.
 
 `:[range]command[options]`
 
+To use a Unix tool as `command`, prefix with `!`.
+
 Delete the lines 10, 11 and 12 and puts them inside the `a` register: `:10,12d a` or `:10,+2d a`.
 
 Copy current line: `:.y`
 
-Delete emtire buffer's contents: `:%d`
+Replace line with date output: `:.!date`.
+
+Delete entire buffer's contents: `:%d`
 
 `0` refers to beginning of the file and `$` to end.
 
@@ -1995,9 +2015,13 @@ Use `guu` to change all text on the line to lowercase, `gUU` for uppercase, `g~~
 
 `:[range]g[lobal]/{pattern}/[cmd]` - edit lines that are first filtered by a pattern
 
+`:g/^$/d` - delete all empty lines.
+
 `:g/call/d a` - delete all lines containing `call` and store in `a` register
 
 `:1,5 g/call/m0` - move all lines from 1 to 5 containing `call` to top of file.
+
+`:g/test/t$` - copy all lines containing `test` to end of file.
 
 `:g /cat/ s/rat/bat/g` : replace `rat` with `bat` in all lines containing `cat`.
 
@@ -3948,7 +3972,7 @@ Go to previous end of a LaTeX comment  | `[*`
 
 Use `%` to move between matching delimiters, inline-math `$` delimiters, and LaTeX environments.
 
-Text object | Keymap| Example
+Text object |Keymap| Example
 -----------------------|--------|---
 Surrounding environment   | `se` | `dse` removes surrounding brackets.
 Inner environment | `ie` | `vie` selects inner text in environment
