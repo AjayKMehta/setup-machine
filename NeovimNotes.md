@@ -243,7 +243,7 @@
         - [Links](#links)
         - [Table of contents](#table-of-contents)
         - [Lists](#lists)
-      - [Markdown Preview](#markdown-preview)
+      - [live-preview.nvim](#live-previewnvim)
       - [render-markdown.nvim](#render-markdownnvim)
     - [VimTex](#vimtex)
       - [Configuration](#configuration)
@@ -3882,11 +3882,11 @@ These commands work in normal mode:
  Insert list item below | `<C-m><C-j>`
  Insert list item above | `<C-m><C-k>`
 
-#### Markdown Preview
+#### live-preview.nvim
 
-[This plugin](https://github.com/iamcco/markdown-preview.nvim) lets you preview Markdown in your browser with synchronized scrolling and flexible configuration.
+[This plugin](https://github.com/brianhuster/live-preview.nvim) lets you preview Markdown files in your browser with synchronized scrolling.
 
-Press `<leader>mP` to preview Markdown.
+Use `:LivePreview start|pick` to preview Markdown files.
 
 #### render-markdown.nvim
 
