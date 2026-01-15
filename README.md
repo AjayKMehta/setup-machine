@@ -31,6 +31,8 @@
         - [Extensions](#extensions)
       - [act](#act)
       - [actionlint](#actionlint)
+      - [zizmor](#zizmor)
+      - [pin-github-action](#pin-github-action)
     - [GitLab](#gitlab)
       - [GitLab CLI](#gitlab-cli)
       - [Authentication](#authentication)
@@ -502,6 +504,18 @@ Install: `winget install nektos.act`.
 Install: `winget install rhysd.actionlint`.
 
 To create a config in a repo: `actionlint --init-config`.
+
+#### [zizmor](https://github.com/zizmorcore/zizmor)
+
+This is a tool for static analysis of GitHub Actions.
+
+Install: `winget install zizmor.zizmor`.
+
+#### pin-github-action
+
+This helps you pin your GitHub actions to a specific hash.
+
+Install: `npm install -g pin-github-action`.
 
 ### GitLab
 
@@ -1517,8 +1531,8 @@ pkgbuild::find_rtools(debug = TRUE)
 ```r
 install.packages("cmdstanr")
 cmdstanr::check_cmdstan_toolchain(fix = TRUE)
-cmdstanr::install_cmdstan(dir = "D:/Apps", overwrite = TRUE, cores = 6)
-cmdstanr::set_cmdstan_path() # D:/Apps/cmdstan-2.24.1
+cmdstanr::install_cmdstan(dir = "D:/Apps", version = "2.38.0", overwrite = TRUE, cores = 6, wsl = FALSE)
+cmdstanr::set_cmdstan_path() # D:/Apps/cmdstan-2.38.0
 ```
 
 ### radian
