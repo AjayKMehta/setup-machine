@@ -10,11 +10,15 @@
     "MD028": false,
     "MD033": {
         "allowed_elements": [
+            "a",
             "br",
             "code",
             "details",
             "img",
             "kbd",
+            "p",
+            "picture",
+            "source",
             "summary"
         ]
     },
