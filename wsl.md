@@ -1382,10 +1382,10 @@ envx list
 
 [yazi](https://yazi-rs.github.io) is a fast terminal file manager written in Rust.
 
-Install:
+Due to [Cargo's limitations](https://github.com/rust-lang/cargo/issues/11599), `yazi` must be installed via [`yazi-build`](https://crates.io/crates/yazi-build).
 
 ```bash
-cargo install --locked yazi-fm yazi-cli
+cargo install --force yazi-build
 ```
 
 See [here](https://yazi-rs.github.io/docs/quick-start) for help on keyboard shortcuts (very similar to ones in Neovim). Press `~` to display help.
