@@ -2358,7 +2358,7 @@ Open                            | <kbd>Enter</kbd>
 Open: Vertical split            | <kbd>Shift</kbd> + <kbd>l</kbd>
 Open: In place                  | <kbd>Ctrl</kbd> + <kbd>e</kbd>
 Run command                     | <kbd>.</kbd>
-Delete                          | <kbd>d</kbd>
+Delete                          | <kbd>d</kbd> OR `<Del>`
 Rename (omit filename)          | <kbd>Ctrl</kbd> + <kbd>r</kbd>
 Rename: Basename                | <kbd>e</kbd>
 Create File Or Directory        | <kbd>a</kbd>
