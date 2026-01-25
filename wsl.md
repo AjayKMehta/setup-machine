@@ -1500,3 +1500,4 @@ sudo apt update && sudo apt install gum
 - <https://tex.stackexchange.com/questions/137428/tlmgr-cannot-setup-tlpdb>
 - <https://www.reddit.com/r/bashonubuntuonwindows/comments/zu6wk1/comment/j1je4j3/?utm_source=share&utm_medium=web2x&context=3>
 - <https://www.freecodecamp.org/news/how-to-set-an-environment-variable-in-linux>
+- <https://dev.to/anurag_pramanik/how-to-enable-undercurl-in-neovim-terminal-and-tmux-setup-guide-2ld7>
