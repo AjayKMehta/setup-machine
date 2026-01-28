@@ -32,7 +32,7 @@
       - [act](#act)
       - [actionlint](#actionlint)
       - [zizmor](#zizmor)
-      - [pin-github-action](#pin-github-action)
+      - [pinact](#pinact)
     - [GitLab](#gitlab)
       - [GitLab CLI](#gitlab-cli)
       - [Authentication](#authentication)
@@ -511,11 +511,11 @@ This is a tool for static analysis of GitHub Actions.
 
 Install: `winget install zizmor.zizmor`.
 
-#### pin-github-action
+#### pinact
 
-This helps you pin your GitHub actions to a specific hash.
+This helps you pin your GitHub actions to a specific hash: `pinact run`.
 
-Install: `npm install -g pin-github-action`.
+Grab latest release from [here](https://github.com/suzuki-shunsuke/pinact/releases).
 
 ### GitLab
 
