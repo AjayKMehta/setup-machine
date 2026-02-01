@@ -89,6 +89,7 @@
     - [Open WebUI](#open-webui)
     - [HuggingFace Model Downloader](#huggingface-model-downloader)
     - [RAG Crawler](#rag-crawler)
+    - [grepai](#grepai)
   - [Python](#python)
     - [Build Tools](#build-tools)
     - [uv](#uv)
@@ -514,6 +515,8 @@ Install: `winget install zizmor.zizmor`.
 #### pinact
 
 This helps you pin your GitHub actions to a specific hash: `pinact run`.
+
+It will use `$GITHUB_TOKEN` or `$PINACT_GITHUB_TOKEN` if set.
 
 Grab latest release from [here](https://github.com/suzuki-shunsuke/pinact/releases).
 
@@ -1124,13 +1127,21 @@ Once the container is up and running, you can navigate to <http://localhost:3000
 
 ### HuggingFace Model Downloader
 
-The [HuggingFace Model Downloader](https://github.com/bodaay/HuggingFaceModelDownloader) is a utility tool for downloading models and datasets from the HuggingFace website. Grab latest release from repo.
+The [HuggingFace Model Downloader](https://github.com/bodaay/HuggingFaceModelDownloader) is a utility tool for downloading models and datasets from the HuggingFace website.
+
+Install: `winget install bodaay.hfdownloader`.
 
 ### RAG Crawler
 
 Crawl a website to generate knowledge file for RAG.
 
 Install: `npm i -g rag-crawler`
+
+### grepai
+
+[grepai](https://yoanbernabeu.github.io/grepai/) indexes your code and lets you perform sematic search.
+
+Grab latest release from [GitHub](https://github.com/yoanbernabeu/grepai/releases).
 
 ## Python
 
