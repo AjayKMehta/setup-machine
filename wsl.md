@@ -775,6 +775,29 @@ sudo apt install tmux
 
 Prefix for commands is `<C-b>`.
 
+### Check settings
+
+#### From tmux
+
+1. `<C-b>:` to open command prompt.
+2. At command prompt, type:
+   i.  `show-options -g` to display all **global** session options.
+   ii. `show-options -w` to display all **window** options for the current window.
+   iii. `show-options` to display all options for the current window.
+   iv. `show-options -A` to display all options in effect (inherited options are marked with an asterisk).
+
+#### CLI
+
+> [!NOTE]
+> This only works if `tmux` is running.
+
+Switches are same as in the previous section.
+
+```bash
+# show is short for show-options
+tmux show -g
+```
+
 ### tpm
 
 tpm is a TMUX plugin manager.
