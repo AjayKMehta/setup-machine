@@ -335,6 +335,8 @@ substitution command on all these files:
 :argdo %s/\<x_cnt\>/x_counter/ge | update
 ```
 
+Use `[a`, `]a`, `[A`, `]A` to navigate through the argument list.
+
 ### Windows
 
 A window is a viewport onto a buffer. Different windows correspond to one or more buffers.
@@ -926,6 +928,7 @@ Show type definition | `grt`
 Show document symbols | `gO`
 Displays hover information about the symbol under the cursor | `K`
 Code Action | `gra`
+Document symbols | `gO`
 Rename | `grn`
 Go to previous diagnostic in current buffer | `[d` OR `:lua vim.diagnostic.goto_prev()`
 Go to next diagnostic in current buffer | `]d` OR `:lua vim.diagnostic.goto_next()`
