@@ -90,6 +90,7 @@
     - [HuggingFace Model Downloader](#huggingface-model-downloader)
     - [RAG Crawler](#rag-crawler)
     - [grepai](#grepai)
+      - [Usage](#usage-1)
   - [Python](#python)
     - [Build Tools](#build-tools)
     - [uv](#uv)
@@ -1142,6 +1143,27 @@ Install: `npm i -g rag-crawler`
 [grepai](https://yoanbernabeu.github.io/grepai/) indexes your code and lets you perform sematic search.
 
 Grab latest release from [GitHub](https://github.com/yoanbernabeu/grepai/releases).
+
+#### Usage
+
+- In your repo's root folder: `grepai init`.
+- To start indexing daemon: `grepai watch`.
+_ After index is built, you can search in new terminal: `grepai search <query>`.
+
+Alternatively, you can run daemon in background:
+
+```powershell
+# Start in background
+grepai watch --background
+
+# Check status
+grepai watch --status
+
+# Stop the background watcher gracefully
+grepai watch --stop
+```
+
+> :bulb: Logs are stored in `~/.local/state/grepai/logs/` and are **not rotated**.
 
 ## Python
 
