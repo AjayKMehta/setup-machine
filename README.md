@@ -81,6 +81,7 @@
     - [CUDNN](#cudnn)
     - [AIShell](#aishell)
     - [Ollama](#ollama)
+      - [llm-checker](#llm-checker)
     - [aichat](#aichat)
       - [Configuration](#configuration)
       - [Roles](#roles)
@@ -91,6 +92,7 @@
     - [RAG Crawler](#rag-crawler)
     - [grepai](#grepai)
       - [Usage](#usage-1)
+      - [Skills](#skills)
   - [Python](#python)
     - [Build Tools](#build-tools)
     - [uv](#uv)
@@ -1035,6 +1037,16 @@ curl http://localhost:11434/api/generate -d '{
 }'
 ```
 
+#### llm-checker
+
+[llm-checker](https://github.com/Pavelevich/llm-checker) helps you find the right model based on your hardware.
+
+Install: `npm install -g llm-checker`.
+
+Check installed models: `llm-checker installed`.
+
+Recommend models: `llm-checker recommend`.
+
 ### aichat
 
 Download the latest release from [here](https://github.com/sigoden/aichat/releases).
@@ -1164,6 +1176,14 @@ grepai watch --stop
 ```
 
 > :bulb: Logs are stored in `~/.local/state/grepai/logs/` and are **not rotated**.
+
+#### Skills
+
+Install: `npx skills add yoanbernabeu/grepai-skills -g`.
+
+Check for updates: `npx skills check -g`.
+
+Location: `~/.agents/skills/`.
 
 ## Python
 
