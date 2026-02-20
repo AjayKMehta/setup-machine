@@ -1625,7 +1625,7 @@ Now if you launch jupyterlab (`uv run jupyter lab`), you should see a R kernel a
 This is available from [GitHub](https://github.com/catboost/catboost).
 
 1. Download latest release from <https://github.com/catboost/catboost/releases>.
-1. Install (change download location accordingly): `install.packages(repo = NULL, type = "source", paste(Sys.getenv("HOME"), r"{Downloads\catboost-R-windows-x86_64-1.2.2.tgz}", sep="\\")`.
+1. Install (change download location accordingly): `install.packages(repo = NULL, type = "source", paste(Sys.getenv("HOME"), r"{Downloads\catboost-R-windows-x86_64-1.2.2.tgz}", sep="\\"))`.
 
 ### INLA
 
