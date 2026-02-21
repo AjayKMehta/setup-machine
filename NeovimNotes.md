@@ -245,10 +245,12 @@
         - [Lists](#lists)
       - [live-preview.nvim](#live-previewnvim)
       - [render-markdown.nvim](#render-markdownnvim)
-    - [VimTex](#vimtex)
-      - [Configuration](#configuration)
-      - [Basic Usage](#basic-usage)
-      - [Motions and textobjects](#motions-and-textobjects)
+    - [LaTeX](#latex)
+      - [sigil.nvim](#sigilnvim)
+      - [VimTex](#vimtex)
+        - [Configuration](#configuration)
+        - [Basic Usage](#basic-usage)
+        - [Motions and textobjects](#motions-and-textobjects)
     - [Linting + Formatting](#linting--formatting)
       - [conform](#conform)
       - [nvim-lint](#nvim-lint)
@@ -262,10 +264,10 @@ These notes are based on my setup using NvChad. My Neovim config files can be fo
 
 ## NvChad
 
- Action       | Keymap
- --------------|----------------------------------------------
- Change theme | <kbd>Space</kbd> + <kbd>t</kbd> + <kbd>h</kbd>
- Cheatsheet   | <kbd>Space</kbd> + <kbd>c</kbd> + <kbd>h</kbd>
+  Action       | Keymap
+ --------------|------------------------------------------------
+  Change theme | <kbd>Space</kbd> + <kbd>t</kbd> + <kbd>h</kbd>
+  Cheatsheet   | <kbd>Space</kbd> + <kbd>c</kbd> + <kbd>h</kbd>
 
 ## Layout
 
@@ -275,19 +277,19 @@ To seamlessly navigate left/down/up/right whether Tmux or Nvim buffer/window: <k
 
 A buffer is essentially the in-memory representation of a file.
 
- Action                    | Keymap/command
- --------------------------|--------------------------------------------------------------------
- Close buffer              | <kbd>Space</kbd> + <kbd>x</kbd>
- New buffer                | `:enew`
- Edit `file` in new buffer | `:edit <file>`
- List buffers              | `:buffers` OR `:ls` OR `<leader>sB`
- Go to next buffer         | `:bnext` OR `:bn` OR <kbd>Tab</kbd>
- Go to previous buffer     | `:bprevious` OR `:bp` OR <kbd>Shift</kbd> + <kbd>Tab</kbd> OR <kbd>Ctrl</kbd> + <kbd>6</kbd>
- Get filetype              | `:echo &filetype` OR `:set ft?`
- Go to first buffer        | `:bfirst`
- Go to last buffer         | `:blast`
- Edit buffer               | `:buffer <bufnr>`
- Change file format        | `:set fileformat=<fmt>` where `<fmt>` is `unix`, `mac` or `dos`.
+  Action                    | Keymap/command
+ ---------------------------|----------------------------------------------------------------------------------------------
+  Close buffer              | <kbd>Space</kbd> + <kbd>x</kbd>
+  New buffer                | `:enew`
+  Edit `file` in new buffer | `:edit <file>`
+  List buffers              | `:buffers` OR `:ls` OR `<leader>sB`
+  Go to next buffer         | `:bnext` OR `:bn` OR <kbd>Tab</kbd>
+  Go to previous buffer     | `:bprevious` OR `:bp` OR <kbd>Shift</kbd> + <kbd>Tab</kbd> OR <kbd>Ctrl</kbd> + <kbd>6</kbd>
+  Get filetype              | `:echo &filetype` OR `:set ft?`
+  Go to first buffer        | `:bfirst`
+  Go to last buffer         | `:blast`
+  Edit buffer               | `:buffer <bufnr>`
+  Change file format        | `:set fileformat=<fmt>` where `<fmt>` is `unix`, `mac` or `dos`.
 
  To run a command on every buffer, use `:bufdo <command>`, e.g. `:bufdo normal @a` will run the macro in register `a` on every buffer!
  To create a buffer, use `:badd <file>`, e.g. `:badd .gitconfig`.
@@ -344,24 +346,24 @@ A window is a viewport onto a buffer. Different windows correspond to one or mor
 > [!TIP]
 > Multiple windows displaying different parts of the same buffer is useful for comparing two sections of a file side by side.
 
-Action | Keymap/command
----------|----------
-New window | `:new`
-New vertical window | `:vertical new`
-Split[^split] | `:sp[lit]` OR <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>s</kbd>
-Vertical split[^vsplit] | `:vsp` OR <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>v</kbd>
-Switch window | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>w</kbd>
-Close window | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>q</kbd> OR `:close`
-Close other windows | `:only`
-Close floating window | `:fclose`
-Swap window with next | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>x</kbd>
-Split horizontally and edit a new file | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>n</kbd>
-Resize windows to fit with the same size | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>=</kbd>
-Decrease window height | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>-</kbd>
-Increase window height | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>+</kbd>
-Maximize >window height | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>_</kbd>
-Decrease window width | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd><</kbd>
-Increase window width | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>></kbd>
+  Action                                   | Keymap/command
+ ------------------------------------------|------------------------------------------------------------
+  New window                               | `:new`
+  New vertical window                      | `:vertical new`
+  Split[^split]                            | `:sp[lit]` OR <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>s</kbd>
+  Vertical split[^vsplit]                  | `:vsp` OR <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>v</kbd>
+  Switch window                            | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>w</kbd>
+  Close window                             | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>q</kbd> OR `:close`
+  Close other windows                      | `:only`
+  Close floating window                    | `:fclose`
+  Swap window with next                    | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>x</kbd>
+  Split horizontally and edit a new file   | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>n</kbd>
+  Resize windows to fit with the same size | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>=</kbd>
+  Decrease window height                   | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>-</kbd>
+  Increase window height                   | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>+</kbd>
+  Maximize >window height                  | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>_</kbd>
+  Decrease window width                    | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd><</kbd>
+  Increase window width                    | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>></kbd>
 
 > [!TIP]
 > All the commands to change window height or width take a `count`, e.g. `4<C-w>+` increase windows's height by 4 lines while `10<C-w><` decreases window's width by 10 columns.
@@ -378,27 +380,27 @@ For more info, see `:help tab-page`.
 
 Tab pages are a collection of windows.
 
- Action                                                   | Keymap/command
-----------------------------------------------------------|----------------------------------------
- List tabs                                                | `:tabs`
- Open a new tab page and edit `{file}`, like with `:find` | `:tabfind {file}`
- Go to previous tab                                       | `:tabprevious` OR `:tabp` OR `gT`
- Go to next tab                                           | `:tabnext` OR `:tabn` OR `gt`
- Go to first tab                                          | `:tabfirst` OR `:tabrewind` OR `:tabr` OR `1gT`
- Go to last tab                                           | `:tablast` OR `:tabl`
- Edit file in new tab                                     | `:[count]tabe[dit] <file>`
- Close current tab page                                   | `:tabclose` OR `:tabc`
- Close all tabs except current | `:tabonly` OR `:tabo`
+  Action                                                   | Keymap/command
+ ----------------------------------------------------------|-------------------------------------------------
+  List tabs                                                | `:tabs`
+  Open a new tab page and edit `{file}`, like with `:find` | `:tabfind {file}`
+  Go to previous tab                                       | `:tabprevious` OR `:tabp` OR `gT`
+  Go to next tab                                           | `:tabnext` OR `:tabn` OR `gt`
+  Go to first tab                                          | `:tabfirst` OR `:tabrewind` OR `:tabr` OR `1gT`
+  Go to last tab                                           | `:tablast` OR `:tabl`
+  Edit file in new tab                                     | `:[count]tabe[dit] <file>`
+  Close current tab page                                   | `:tabclose` OR `:tabc`
+  Close all tabs except current                            | `:tabonly` OR `:tabo`
 
 #### Create new tab(s)
 
-Action | Keymap/command
----------|----------
-Create tabpage after the current one |      `:tabnew` OR  `:.tabnew`
-Create tabpage after the next one | `:+tabnew`
-Create tabpage before the current | `:-tabnew`
-Create tabpage before the first | `:0tabnew`
-Create tabpage after the last | `:$tabnew`
+ Action                               | Keymap/command
+--------------------------------------|--------------------------
+ Create tabpage after the current one | `:tabnew` OR  `:.tabnew`
+ Create tabpage after the next one    | `:+tabnew`
+ Create tabpage before the current    | `:-tabnew`
+ Create tabpage before the first      | `:0tabnew`
+ Create tabpage after the last        | `:$tabnew`
 
 ### Executing command in tab
 
@@ -450,20 +452,20 @@ Run health checks: `:checkhealth`.
 
 The table below assumes an option named `<option>`:
 
-Action | Command
----------|----------
-Set option to `<value>` | `:se[t] <option>=<value>`
-Unset the option | `:se[t] no<option>`
-Show value (string or number option) | `:se[t] <option>`
-Toggle the option | `:se[t] <option>[!]` OR `:se[t] inv<option>`
-Append or add value | `:set <option>+=<value>`
-Remove or subtract value | `:se[t] <option>-=<value>`
-Set to default value | `:se[t] <option>&`
-Set all options to default value | `:se[t] all&`
-Reset option to its Vim default value. | `:se[t] <option>&vim`
-List options | `:options`
-Show all options that differ from their default value[^!] | `:se[t][!]`
-Show all options[^!] | `:se[t][!] all`
+ Action                                                    | Command
+-----------------------------------------------------------|----------------------------------------------
+ Set option to `<value>`                                   | `:se[t] <option>=<value>`
+ Unset the option                                          | `:se[t] no<option>`
+ Show value (string or number option)                      | `:se[t] <option>`
+ Toggle the option                                         | `:se[t] <option>[!]` OR `:se[t] inv<option>`
+ Append or add value                                       | `:set <option>+=<value>`
+ Remove or subtract value                                  | `:se[t] <option>-=<value>`
+ Set to default value                                      | `:se[t] <option>&`
+ Set all options to default value                          | `:se[t] all&`
+ Reset option to its Vim default value.                    | `:se[t] <option>&vim`
+ List options                                              | `:options`
+ Show all options that differ from their default value[^!] | `:se[t][!]`
+ Show all options[^!]                                      | `:se[t][!] all`
 
 [^!]:When [!] is present every option is on a separate line.
 
@@ -475,14 +477,14 @@ Autocommands let you respond to events like opening a buffer.
 
 Refer to `:help autocmd` for more information.
 
-Action | Keymap/command
----------|----------
-List autocommands | `:au[tocmd]`
-List autocommands for group `<group>` | `:au[tocmd] <group>`
-List all autocommands for pattern | `:au[tocmd] * <pattern>`
-Delete autocommands for event `<event>` and pattern `<pattern>` | `:au[tocmd]! [group] <event> <pattern>`
-Delete autocommands for group `<group>` | `:au[tocmd]! <group>`
-Add autocommand | `:au[tocmd] [group] <events> <pattern> [++nested] <cmd>`
+  Action                                                          | Keymap/command
+ -----------------------------------------------------------------|----------------------------------------------------------
+  List autocommands                                               | `:au[tocmd]`
+  List autocommands for group `<group>`                           | `:au[tocmd] <group>`
+  List all autocommands for pattern                               | `:au[tocmd] * <pattern>`
+  Delete autocommands for event `<event>` and pattern `<pattern>` | `:au[tocmd]! [group] <event> <pattern>`
+  Delete autocommands for group `<group>`                         | `:au[tocmd]! <group>`
+  Add autocommand                                                 | `:au[tocmd] [group] <events> <pattern> [++nested] <cmd>`
 
 In the table above, `<events>` is a comma separated list of events. `<pattern>` is a pattern for file names, e.g. `*.txt`
 
@@ -526,25 +528,25 @@ If you want to ignore the event `BufWrite` when running the command `:w`, you ca
 
 ### Find
 
-Action | Keymap/command
----------|----------
-Find in directory | `:vim(grep) test *`
-Find in directory (recursive) | `:vim(grep) test **`
+  Action                        | Keymap/command
+ -------------------------------|----------------------
+  Find in directory             | `:vim(grep) test *`  
+  Find in directory (recursive) | `:vim(grep) test **`
 
 ### Marks
 
 Marks are like bookmarks in your favorite IDE but more powerful.
 
-Action | Keymap/command
----------|----------
-List marks | `:marks` OR `<leader>sm` (courtesy of **snacks.nvim**)
-Create mark `a` | `ma`
-Go to mark `A` | <kbd>`</kbd> + <kbd>A</kbd>.
-Go to first non-blank character of line containing mark `A` | <kbd>'</kbd> + <kbd>A</kbd>.
-Go to mark `A` without changing jump list | <kbd>g</kbd> + <kbd>`</kbd> + <kbd>A</kbd>
-Go to first non-blank character of line containing mark `A` without changing jump list |  <kbd>g</kbd> + <kbd>'</kbd> + <kbd>A</kbd>
-Delete mark `c` | `:delmarks c` OR `:delm c`
-Delete marks in range`a-z` | `:delmarks!`
+ Action                                                                                 | Keymap/command
+----------------------------------------------------------------------------------------|--------------------------------------------------------
+ List marks                                                                             | `:marks` OR `<leader>sm` (courtesy of **snacks.nvim**)
+ Create mark `a`                                                                        | `ma`
+ Go to mark `A`                                                                         | <kbd>`</kbd> + <kbd>A</kbd>.
+ Go to first non-blank character of line containing mark `A`                            | <kbd>'</kbd> + <kbd>A</kbd>.
+ Go to mark `A` without changing jump list                                              | <kbd>g</kbd> + <kbd>`</kbd> + <kbd>A</kbd>
+ Go to first non-blank character of line containing mark `A` without changing jump list | <kbd>g</kbd> + <kbd>'</kbd> + <kbd>A</kbd>
+ Delete mark `c`                                                                        | `:delmarks c` OR `:delm c`
+ Delete marks in range`a-z`                                                             | `:delmarks!`
 
 > [!NOTE]
 > Use <kbd>m</kbd> + ***capital letter*** to create a mark you can access from a different buffer, e.g. <kbd>m</kbd> + <kbd>A</kbd>.
@@ -556,14 +558,14 @@ For example, to delete from the current character to mark `a` position: ``d`a``.
 
 #### Special Marks
 
- Mark    | Location
----------|-----------------------------------------------------------------------
- `` ` `` | Position before the latest jump.
- `.`     | Position of the last change in current buffer
- `[`     | First character of the previously changed, deleted, or yanked content
- `]`     | Last character of the previously changed, deleted, or yanked content
- `^`     | Position where you last used Insert mode.
- `"`     | Position you were at when you last closed the file.
+  Mark    | Location
+ ---------|-----------------------------------------------------------------------
+  `` ` `` | Position before the latest jump.
+  `.`     | Position of the last change in current buffer
+  `[`     | First character of the previously changed, deleted, or yanked content
+  `]`     | Last character of the previously changed, deleted, or yanked content  
+  `^`     | Position where you last used Insert mode.
+  `"`     | Position you were at when you last closed the file.
 
 You can go to these marks using `` ` `` or go to first non-blank character in containing line using `'`, e.g. `'"` goes to first non-blank character of line you were on when you last closed the file.
 
@@ -731,17 +733,17 @@ To automatically close folds when you move out of them: `:set foldclose=all`.
 <details open>
   <summary>Open/Close</summary>
 
- Action                       | Keymap/command
-------------------------------|------------------------------------
- Close fold under cursor      | `zc` OR `:foldclose` OR `:foldc`
- Close all folds under cursor | `zC` OR `:foldclose!` OR `:foldc!`
- Fold more                    | `zm`
- Close all folds              | `zM`
- Open fold under cursor       | `zo` OR `:foldopen` OR `:foldo`
- Open all folds under cursor  | `zO` OR `:foldopen!` OR `:foldo!`
- Fold less                    | `zr`
- Open all folds               | `zR`
- Fold none[^zn]               | `zn`
+  Action                       | Keymap/command
+ ------------------------------|------------------------------------
+  Close fold under cursor      | `zc` OR `:foldclose` OR `:foldc`
+  Close all folds under cursor | `zC` OR `:foldclose!` OR `:foldc!`
+  Fold more                    | `zm`
+  Close all folds              | `zM`
+  Open fold under cursor       | `zo` OR `:foldopen` OR `:foldo`
+  Open all folds under cursor  | `zO` OR `:foldopen!` OR `:foldo!`  
+  Fold less                    | `zr`
+  Open all folds               | `zR`
+  Fold none[^zn]               | `zn`
 
 [^zn]: All folds will be open.
 
@@ -750,13 +752,13 @@ To automatically close folds when you move out of them: `:set foldclose=all`.
 <details open>
   <summary>Create/Delete</summary>
 
- Action                        | Keymap/command
--------------------------------|----------------
- Create fold for `{n}` lines   | `{n}zF`
- Delete fold                   | `zd`
- Delete all folds under cursor | `zD`
- Eliminate all folds[^zE]      | `zE`
- Delete all folds in file      | `zE`
+  Action                        | Keymap/command
+ -------------------------------|----------------
+  Create fold for `{n}` lines   | `{n}zF`
+  Delete fold                   | `zd`
+  Delete all folds under cursor | `zD`
+  Eliminate all folds[^zE]      | `zE`
+  Delete all folds in file      | `zE`
 
 [^zE]: This only works when [`foldmethod`](https://neovim.io/doc/user/options.html#%27foldmethod%27) is `"manual"` or `"marker"`.
 
@@ -767,27 +769,27 @@ Create fold using `zf` operator (`zf{motion}`), e.g. `zfap` will create a fold a
 <details open>
   <summary>Navigation</summary>
 
- Action                                        | Keymap/command
------------------------------------------------|----------------
- Move to the start of the current open fold    | `[z`
- Move to the end of the current open fold      | `]z`
- **Go to next closed fold**                    | `]Z`
- **Go to previous closed fold**                | `[Z`
- Move downward to the start of the next fold   | `zj`
- Move upward to the start of the previous fold | `zk`
+  Action                                        | Keymap/command
+ -----------------------------------------------|----------------
+  Move to the start of the current open fold    | `[z`
+  Move to the end of the current open fold      | `]z`
+  **Go to next closed fold**                    | `]Z`
+  **Go to previous closed fold**                | `[Z`
+  Move downward to the start of the next fold   | `zj`
+  Move upward to the start of the previous fold | `zk`
 
 </details>
 
 <details open>
   <summary>Misc</summary>
 
- Action                        | Keymap/command
--------------------------------|----------------
- Toggle fold under cursor      | `za`
- Toggle all folds under cursor | `zA`
- Toggle all folds              | `zi`
- Fold normal                   | `zN`
- **Peek fold**                 | `zK`
+  Action                        | Keymap/command
+ -------------------------------|----------------
+  Toggle fold under cursor      | `za`
+  Toggle all folds under cursor | `zA`
+  Toggle all folds              | `zi`
+  Fold normal                   | `zN`
+  **Peek fold**                 | `zK`
 
 </details>
 
@@ -826,21 +828,21 @@ If `[range]` is specified, then the command only applies to folds in those lines
 
 See `:help quickfix` and `:help quickfix-window`.
 
-Action | Keymap/command
----------|----------
-Open window | `:cope[n]`
-Trouble quickfix list (must have `trouble.nvim` installed) | `<leader>tQ`
-Display all valid entries of the current quickfix list | `:clist` OR `:cl`
-Close window | `:cclose`
-Display first entry | `:cfirst`
-Diisplay last entry | `:clast`
-Display next entry | `:cnext` OR `:cn`
-Display previous entry | `:cprev` OR `:cp`
-Display 2nd entry | `:cc 2`
-Open older lists | `:colder`
-Open newer lists | `:cnewer`
-Operate on each QuickFix list entry | `:cdo <action>`
-Operate on each QuickFix file | `:cfdo <action>`
+ Action                                                     | Keymap/command
+------------------------------------------------------------|-------------------
+ Open window                                                | `:cope[n]`
+ Trouble quickfix list (must have `trouble.nvim` installed) | `<leader>tQ`
+ Display all valid entries of the current quickfix list     | `:clist` OR `:cl`
+ Close window                                               | `:cclose`
+ Display first entry                                        | `:cfirst`
+ Diisplay last entry                                        | `:clast`
+ Display next entry                                         | `:cnext` OR `:cn`
+ Display previous entry                                     | `:cprev` OR `:cp`
+ Display 2nd entry                                          | `:cc 2`
+ Open older lists                                           | `:colder`
+ Open newer lists                                           | `:cnewer`
+ Operate on each QuickFix list entry                        | `:cdo <action>`
+ Operate on each QuickFix file                              | `:cfdo <action>`  
 
 > [!NOTE]
 > **New in Neovim 0.11:** Use `[q`, `]q`, `[Q`, `]Q`, `[<C-Q>`, `]<C-Q>` to navigate through the quickfix list.
@@ -866,14 +868,14 @@ Good read: [Examples.md](https://gist.github.com/Integralist/8d01300efcd2006c69e
 
 A location list is similar to a quickfix list, except that it is local to a window.
 
-Action | Keymap/command
----------|----------
-Display all valid entries | `:llist`
-Move to entry `<number>` | `:ll <numberer>`
-Move to next entry | `:lnext` OR `]l`
-Move to previous entry | `:lprevious` OR `[l`
-Move to last entry | `]L`
-Move to first entry | `[L`
+ Action                    | Keymap/command
+---------------------------|----------------------
+ Display all valid entries | `:llist`
+ Move to entry `<number>`  | `:ll <numberer>`
+ Move to next entry        | `:lnext` OR `]l`
+ Move to previous entry    | `:lprevious` OR `[l`
+ Move to last entry        | `]L`
+ Move to first entry       | `[L`
 
 ### Highlight groups
 
@@ -918,27 +920,27 @@ Find all lines containing `print` and save to new buffer: `:vnew | 0r!grep print
 
 Install LSP (requires `mason.nvim`): `:MasonInstall bash-language-server`
 
-Action | Keymap/command
----------|----------
-Go to definition | <kbd>Ctrl</kbd> + <kbd>]</kbd> OR `<leader>ld` OR <kbd>F12</kbd>
-Go to declaration | `<leader>lD`
-Go to implementation | `gri`
-Show references | `grr`
-Show type definition | `grt`
-Show document symbols | `gO`
-Displays hover information about the symbol under the cursor | `K`
-Code Action | `gra`
-Document symbols | `gO`
-Rename | `grn`
-Go to previous diagnostic in current buffer | `[d` OR `:lua vim.diagnostic.goto_prev()`
-Go to next diagnostic in current buffer | `]d` OR `:lua vim.diagnostic.goto_next()`
-Go to previous error in current buffer | `[e`
-Go to next error in current buffer | `]e`
-Go to first diagnostic in current buffer | `[D`
-Go to last diagnostic in current buffer | `]D`
-Show diagnostics under the cursor | `<C-w>d` or `<C-w><c-d>`
-Show signature help (Insert and Select mode) | `<C-s>`
-Show signature help (Normal mode) | `<leader>lh`
+  Action                                                       | Keymap/command
+ --------------------------------------------------------------|------------------------------------------------------------------
+  Go to definition                                             | <kbd>Ctrl</kbd> + <kbd>]</kbd> OR `<leader>ld` OR <kbd>F12</kbd>
+  Go to declaration                                            | `<leader>lD`
+  Go to implementation                                         | `gri`
+  Show references                                              | `grr`
+  Show type definition                                         | `grt`
+  Show document symbols                                        | `gO`
+  Displays hover information about the symbol under the cursor | `K`
+  Code Action                                                  | `gra`
+  Document symbols                                             | `gO`
+  Rename                                                       | `grn`
+  Go to previous diagnostic in current buffer                  | `[d` OR `:lua vim.diagnostic.goto_prev()`
+  Go to next diagnostic in current buffer                      | `]d` OR `:lua vim.diagnostic.goto_next()`
+  Go to previous error in current buffer                       | `[e`
+  Go to next error in current buffer                           | `]e`
+  Go to first diagnostic in current buffer                     | `[D`
+  Go to last diagnostic in current buffer                      | `]D`
+  Show diagnostics under the cursor                            | `<C-w>d` or `<C-w><c-d>`
+  Show signature help (Insert and Select mode)                 | `<C-s>`
+  Show signature help (Normal mode)                            | `<leader>lh`
 
 To learn what capabilities are available you can run the following command in a buffer with a started LSP client:
 
@@ -1086,12 +1088,12 @@ If you're writing a plugin, best to use `:norm!` as it uses default mappings not
 
 You can insert contents to `:` or `/` prompts:
 
- Action                     | Keymap/command
- ---------------------------|---------------
- Insert word under cursor   | `<C-r> <C-w>`
- Insert last yank           | `<C-r> "`
- Insert last search pattern | `<C-r> /`
- Insert expression result   | `<C-r> =`
+  Action                     | Keymap/command
+ ----------------------------|----------------
+  Insert word under cursor   | `<C-r> <C-w>`  
+  Insert last yank           | `<C-r> "`
+  Insert last search pattern | `<C-r> /`
+  Insert expression result   | `<C-r> =`
 
 #### Ranges
 
@@ -1108,21 +1110,21 @@ Examples of ranges:
 
 #### Motion, editing
 
- Action                                     | Keymap/command
---------------------------------------------|------------------------------------------------
- Go to start                                | <kbd>Ctrl</kbd> + <kbd>b</kbd> OR <kbd>HOME</kbd>
- Go to end                                  | <kbd>Ctrl</kbd> + <kbd>e</kbd> OR <kbd>END</kbd>
- Go left one character                      | <kbd>←</kbd>
- Go right one character                     | <kbd>→</kbd>
- Go left one word                           | <kbd>Ctrl</kbd> + <kbd>←</kbd>
- Go right one word                          | <kbd>Ctrl</kbd> + <kbd>→</kbd>
- Erase line before cursor                   | <kbd>Ctrl</kbd> + <kbd>u</kbd>
- Paste register `a` contents                | <kbd>Ctrl</kbd> + <kbd>r</kbd> followed by `a`
- Show completions based on typed characters | <kbd>Ctrl</kbd> + <kbd>d</kbd>
- Edit commands in normal mode               | <kbd>Ctrl</kbd> + <kbd>f</kbd>
- **Yank command-line text**                  | <kbd>Ctrl</kbd> + <kbd>y</kbd>
- Delete word                                | <kbd>Ctrl</kbd> + <kbd>w</kbd>
- Delete all text                            | <kbd>Ctrl</kbd> + <kbd>u</kbd>
+  Action                                     | Keymap/command
+ --------------------------------------------|---------------------------------------------------
+  Go to start                                | <kbd>Ctrl</kbd> + <kbd>b</kbd> OR <kbd>HOME</kbd>
+  Go to end                                  | <kbd>Ctrl</kbd> + <kbd>e</kbd> OR <kbd>END</kbd>  
+  Go left one character                      | <kbd>←</kbd>
+  Go right one character                     | <kbd>→</kbd>
+  Go left one word                           | <kbd>Ctrl</kbd> + <kbd>←</kbd>
+  Go right one word                          | <kbd>Ctrl</kbd> + <kbd>→</kbd>
+  Erase line before cursor                   | <kbd>Ctrl</kbd> + <kbd>u</kbd>
+  Paste register `a` contents                | <kbd>Ctrl</kbd> + <kbd>r</kbd> followed by `a`
+  Show completions based on typed characters | <kbd>Ctrl</kbd> + <kbd>d</kbd>
+  Edit commands in normal mode               | <kbd>Ctrl</kbd> + <kbd>f</kbd>
+  **Yank command-line text**                 | <kbd>Ctrl</kbd> + <kbd>y</kbd>
+  Delete word                                | <kbd>Ctrl</kbd> + <kbd>w</kbd>
+  Delete all text                            | <kbd>Ctrl</kbd> + <kbd>u</kbd>
 
 Actions in **bold** are custom actions I added.
 
@@ -1290,16 +1292,16 @@ Use `:set ignorecase` OR `:set noignorecase`. There is also `:set smartcase`.
 
 ### Normal Mode
 
- Action                                           | Keymap/command
---------------------------------------------------|----------------
- Search forward                                   | `/`
- Search backwards                                 | `?`
- Find word under cursor                           | `*`
- Find word under cursor (backwards)               | `#`
- Find word under cursor (partial match)           | `g*`
- Find word under cursor (backwards partial match) | `g#`
- Repeat the last substitute, without its range and its flags | `&`
- Repeat the last substitute with the same flags, and replace its pattern with the last *search* pattern | `g&`
+   Action                                                                                                 | Keymap/command
+  --------------------------------------------------------------------------------------------------------|----------------
+   Search forward                                                                                         | `/`
+   Search backwards                                                                                       | `?`
+   Find word under cursor                                                                                 | `*`
+   Find word under cursor (backwards)                                                                     | `#`
+   Find word under cursor (partial match)                                                                 | `g*`
+   Find word under cursor (backwards partial match)                                                       | `g#`
+   Repeat the last substitute, without its range and its flags                                            | `&`
+   Repeat the last substitute with the same flags, and replace its pattern with the last *search* pattern | `g&`
 
 #### Advanced usage
 
@@ -1462,34 +1464,34 @@ See `:h jump-motions`.
 
 When making changes, the cursor position is saved.
 
- Action                                | Keymap/command
----------------------------------------|--------------------------------
- View jumps                            | `:jumps` OR `<leader>sj` (courtesy of **snacks.nvim**)
- Go to previous jump position          | <kbd>Ctrl</kbd> + <kbd>o</kbd> OR <code>``</code>
- Go to next jump position              | <kbd>Ctrl</kbd> + <kbd>i</kbd>
- View changes                          | `:changes`
- Go to previous change position        | <kbd>g</kbd> + <kbd>;</kbd>
- Go to next change position            | <kbd>g</kbd> + <kbd>,</kbd>
- Go to last insert position and INSERT | <kbd>g</kbd> + <kbd>i</kbd>
+  Action                                | Keymap/command
+ ---------------------------------------|--------------------------------------------------------
+  View jumps                            | `:jumps` OR `<leader>sj` (courtesy of **snacks.nvim**)
+  Go to previous jump position          | <kbd>Ctrl</kbd> + <kbd>o</kbd> OR <code>``</code>
+  Go to next jump position              | <kbd>Ctrl</kbd> + <kbd>i</kbd>
+  View changes                          | `:changes`
+  Go to previous change position        | <kbd>g</kbd> + <kbd>;</kbd>
+  Go to next change position            | <kbd>g</kbd> + <kbd>,</kbd>
+  Go to last insert position and INSERT | <kbd>g</kbd> + <kbd>i</kbd>
 
 `<C-]>` jumps to the location of the tag given by the word under the cursor. Tags in help are essentially hyperlinks. Press `<C-T>` to go back to original location.
 
 ### Use arrow keys
 
-Action | Keymap/command
----------|----------
-Go 2 lines below | `2↓`
-Go 3 lines above | `3↑`
-Go 3 characters right | `3→`
-Go 2 characters leftt | `2←`
+  Action                | Keymap/command
+ -----------------------|----------------
+  Go 2 lines below      | `2↓`
+  Go 3 lines above      | `3↑`
+  Go 3 characters right | `3→`
+  Go 2 characters leftt | `2←`
 
 These work with editing, e.g. `d2↑` will delete 2 lines above current line.
 
 ### Line-based
 
-Action | Keymap/command
----------|----------
-Go to 3rd line | `:3` OR `3gg` OR `3G`
+ Action         | Keymap/command
+----------------|-----------------------
+ Go to 3rd line | `:3` OR `3gg` OR `3G`
 
 ### Word-based
 
@@ -1497,27 +1499,27 @@ First, [need to know the difference between word and WORD](https://stackoverflow
 
 A WORD is a sequence of NBCs separated by whitespace. A word is delimited by non-keyword characters. It consists only of numbers, letters or underscores.
 
- Action                       | Keymap/command
-------------------------------|-----------------------------
- Move to next word            | <kbd>w</kbd>
- Move to beginning of word    | <kbd>b</kbd>
- Move to end of word          | <kbd>e</kbd>
- Move to end of previous word | `ge`
- Move to next WORD            | <kbd>W</kbd>
- Move to beginning of WORD    | <kbd>B</kbd>
- Move to end of WORD          | <kbd>E</kbd>
- Move to end of previous WORD | `gE`
+  Action                       | Keymap/command
+ ------------------------------|----------------
+  Move to next word            | <kbd>w</kbd>
+  Move to beginning of word    | <kbd>b</kbd>
+  Move to end of word          | <kbd>e</kbd>
+  Move to end of previous word | `ge`
+  Move to next WORD            | <kbd>W</kbd>
+  Move to beginning of WORD    | <kbd>B</kbd>
+  Move to end of WORD          | <kbd>E</kbd>
+  Move to end of previous WORD | `gE`
 
 ### Moving within same line
 
- Action                  | Keymap/command
--------------------------|-----------------------------
- Move to first character | `0` OR `_`
- Move to first NBC       | <kbd>\^</kbd>
- Move to end of line     | <kbd>\$</kbd>
- Move to last NBC        | `g_`
- Move to 3rd character   | `3\|`
- Move to middle of line  | `gM`
+  Action                  | Keymap/command
+ -------------------------|----------------
+  Move to first character | `0` OR `_`
+  Move to first NBC       | <kbd>\^</kbd>  
+  Move to end of line     | <kbd>\$</kbd>  
+  Move to last NBC        | `g_`
+  Move to 3rd character   | `3\|`
+  Move to middle of line  | `gM`
 
 `80gM` to go to position at 80% of current line.
 
@@ -1529,12 +1531,12 @@ See `:h left-right-motions`.
 
 A line that is wrapped will have 2 or more screen lines.
 
- Action                      | Keymap/command
------------------------------|----------------
- Move to the first character | `g0`
- Move to the first NBC       | `g^`
- Move up screen line         | `gk` OR `g↑`
- Move down screen line       | `gj` OR `g↓`
+  Action                      | Keymap/command
+ -----------------------------|----------------
+  Move to the first character | `g0`
+  Move to the first NBC       | `g^`
+  Move up screen line         | `gk` OR `g↑`
+  Move down screen line       | `gj` OR `g↓`
 
 `g2j` move down 2 screen lines.
 
@@ -1542,30 +1544,30 @@ A line that is wrapped will have 2 or more screen lines.
 
 Source: <https://learnbyexample.github.io/tips/vim-tip-4/>
 
- Action                                                          | Keymap/command
+  Action                                                          | Keymap/command
  -----------------------------------------------------------------|-----------------------------
- Reposition the current line to the bottom of the visible window | <kbd>z</kbd> + <kbd>b</kbd>
- Reposition the current line to the middle of the visible window | <kbd>z</kbd> + <kbd>z</kbd>
- Reposition the current line to the top of the visible window    | <kbd>z</kbd> + <kbd>t</kbd>
+  Reposition the current line to the bottom of the visible window | <kbd>z</kbd> + <kbd>b</kbd>
+  Reposition the current line to the middle of the visible window | <kbd>z</kbd> + <kbd>z</kbd>
+  Reposition the current line to the top of the visible window    | <kbd>z</kbd> + <kbd>t</kbd>
 
 ### Moving Vertically
 
- Action                  | Keymap/command
--------------------------|---------------------------------
- Move up 1 line          | <kbd>k</kbd>
- Move down 1 line        | <kbd>j</kbd>
- Move up 1 paragraph     | <kbd>Shift</kbd> + <kbd>[</kbd>
- Move down 1 paragraph   | <kbd>Shift</kbd> + <kbd>]</kbd>
- Scroll half a page down | <kbd>Ctrl</kbd> + <kbd>d</kbd>
- Scroll half a page up   | <kbd>Ctrl</kbd> + <kbd>u</kbd>
- Scroll page forward     | <kbd>Ctrl</kbd> + <kbd>f</kbd>
- Scroll page backward    | <kbd>Ctrl</kbd> + <kbd>b</kbd>
- Scroll up 1 line        | <kbd>Ctrl</kbd> + <kbd>e</kbd>
- Scroll down 1 line      | <kbd>Ctrl</kbd> + <kbd>y</kbd>
- Move up 1 paragraph     | `{`
- Move down 1 paragraph   | `}`
- Move up 1 sentence      | `(`
- Move down 1 sentence    | `)`
+  Action                  | Keymap/command
+ -------------------------|---------------------------------
+  Move up 1 line          | <kbd>k</kbd>
+  Move down 1 line        | <kbd>j</kbd>
+  Move up 1 paragraph     | <kbd>Shift</kbd> + <kbd>[</kbd>
+  Move down 1 paragraph   | <kbd>Shift</kbd> + <kbd>]</kbd>
+  Scroll half a page down | <kbd>Ctrl</kbd> + <kbd>d</kbd>  
+  Scroll half a page up   | <kbd>Ctrl</kbd> + <kbd>u</kbd>  
+  Scroll page forward     | <kbd>Ctrl</kbd> + <kbd>f</kbd>  
+  Scroll page backward    | <kbd>Ctrl</kbd> + <kbd>b</kbd>  
+  Scroll up 1 line        | <kbd>Ctrl</kbd> + <kbd>e</kbd>  
+  Scroll down 1 line      | <kbd>Ctrl</kbd> + <kbd>y</kbd>  
+  Move up 1 paragraph     | `{`
+  Move down 1 paragraph   | `}`
+  Move up 1 sentence      | `(`
+  Move down 1 sentence    | `)`
 
 `zt` puts cursor line on top and `zb` to bottom.
 
@@ -1598,18 +1600,18 @@ To force a linewise motion to be charwise, use `v`.
 
 <kbd>h</kbd>, <kbd>l</kbd> are used for navigating left and right.
 
- Action                                                                                       | Keymap/command
-----------------------------------------------------------------------------------------------|-----------------------------
- Move to first NBC of first line                                                              | `gg`
- Move to first NBC of last line                                                               | <kbd>G</kbd>
- Moves to matching bracket (or end of current Treesitter node courtesy of `nvim-tree-pairs`s) | <kbd>%</kbd>
- Moves to line at 40% of total lines                                                          | `40%`
- Move to top of window                                                                        | <kbd>H</kbd>
- Move to middle of window                                                                     | <kbd>M</kbd>
- Move to bottom of window                                                                     | <kbd>L</kbd>
- Move to first non-empty character 2 lines below | `2+`
- Move to first non-empty character 1 line above | `-`
- Go to `[count]` byte in buffer | `[count]go`
+  Action                                                                                       | Keymap/command
+ ----------------------------------------------------------------------------------------------|----------------
+  Move to first NBC of first line                                                              | `gg`
+  Move to first NBC of last line                                                               | <kbd>G</kbd>
+  Moves to matching bracket (or end of current Treesitter node courtesy of `nvim-tree-pairs`s) | <kbd>%</kbd>
+  Moves to line at 40% of total lines                                                          | `40%`
+  Move to top of window                                                                        | <kbd>H</kbd>
+  Move to middle of window                                                                     | <kbd>M</kbd>
+  Move to bottom of window                                                                     | <kbd>L</kbd>
+  Move to first non-empty character 2 lines below                                              | `2+`
+  Move to first non-empty character 1 line above                                               | `-`
+  Go to `[count]` byte in buffer                                                               | `[count]go`
 
 > [!TIP]
 > `H` stands for Home, `M` for Middle and `L` for Last.  Alternatively,
@@ -1645,14 +1647,14 @@ To align lines, there are 3 commands:
 Neovim has advanced undo/redo functionality.  If you undo a few changes and then make a new
 change, you create a branch in the undo tree.
 
- Action                                  | Keymap/command
------------------------------------------|---------------------------------
- Undo                                    | <kbd>u</kbd>
- Redo                                    | <kbd>Ctrl</kbd> + <kbd>r</kbd>
- Redo latest changes on last edited line | <kbd>Shift</kbd> + <kbd>u</kbd>
- Go to older text state[^count]          | `g-`
- Go to newer text state[^count]          | `g+`
- List the leaves in the undo tree         | `:undolist`
+  Action                                  | Keymap/command
+ -----------------------------------------|---------------------------------
+  Undo                                    | <kbd>u</kbd>
+  Redo                                    | <kbd>Ctrl</kbd> + <kbd>r</kbd>  
+  Redo latest changes on last edited line | <kbd>Shift</kbd> + <kbd>u</kbd>
+  Go to older text state[^count]          | `g-`
+  Go to newer text state[^count]          | `g+`
+  List the leaves in the undo tree        | `:undolist`
 
 [^count]: Accepts `{count}`: use `{count}` to repeat that many times.
 
@@ -1668,15 +1670,15 @@ You can also specify a time to go back, e.g. `:earlier 10m` to go to version of 
 
 All these commands put you in insert mode.
 
- Action                                                            | Keymap/command
- ------------------------------------------------------------------|---------------------------------
- Insert                                                            | <kbd>i</kbd>
- Append                                                            | <kbd>a</kbd>
- Insert at beginning of line                                       | `gI`
- Insert at beginning of line before the first non-blank characters | <kbd>Shift</kbd> + <kbd>i</kbd>
- Append at end of line                                             | <kbd>Shift</kbd> + <kbd>a</kbd>
- Insert new line after line                                        | <kbd>o</kbd>
- Insert new line before current line                               | <kbd>Shift</kbd> + <kbd>o</kbd>
+  Action                                                            | Keymap/command
+ -------------------------------------------------------------------|---------------------------------
+  Insert                                                            | <kbd>i</kbd>
+  Append                                                            | <kbd>a</kbd>
+  Insert at beginning of line                                       | `gI`
+  Insert at beginning of line before the first non-blank characters | <kbd>Shift</kbd> + <kbd>i</kbd>
+  Append at end of line                                             | <kbd>Shift</kbd> + <kbd>a</kbd>
+  Insert new line after line                                        | <kbd>o</kbd>
+  Insert new line before current line                               | <kbd>Shift</kbd> + <kbd>o</kbd>
 
 `gi` puts you into Insert mode at the last place you made a change.
 Use `g;` and `g,` to navigate history of insertions.
@@ -1688,13 +1690,13 @@ Use `g;` and `g,` to navigate history of insertions.
 
 ### Delete/replace character
 
- Action                                                    | Keymap/command
------------------------------------------------------------|---------------------------------------------
- Delete current character                                  | <kbd>x</kbd> OR <kbd>d</kbd> + <kbd>l</kbd>
- Delete current character and enter insert mode            | <kbd>s</kbd> OR <kbd>c</kbd> + <kbd>l</kbd>
- Replace current character with `a`                        | `Ra`
- Replace current character with `a`, return to Normal mode | `ra`
- Delete previous character                                 | <kbd>X</kbd> OR <kbd>d</kbd> + <kbd>h</kbd>
+  Action                                                    | Keymap/command
+ -----------------------------------------------------------|---------------------------------------------
+  Delete current character                                  | <kbd>x</kbd> OR <kbd>d</kbd> + <kbd>l</kbd>
+  Delete current character and enter insert mode            | <kbd>s</kbd> OR <kbd>c</kbd> + <kbd>l</kbd>
+  Replace current character with `a`                        | `Ra`
+  Replace current character with `a`, return to Normal mode | `ra`
+  Delete previous character                                 | <kbd>X</kbd> OR <kbd>d</kbd> + <kbd>h</kbd>
 
 <kbd>r</kbd> accepts count, e.g. `cde` becomes `aae` if you type `2ra` with cursor on `c`
 
@@ -1706,14 +1708,14 @@ Use `g;` and `g,` to navigate history of insertions.
 
 #### Delete lines in normal mode
 
- Action                                       | Keymap/command
- ---------------------------------------------|----------------
- Delete current line                          | `dd` OR `:d`
- Delete current line and enter insert mode    | `S` OR `cc`
- Delete line and line above                   | `dk`
- Delete current line to bottom                | `dG`
- Delete from current character to end of line | `D` OR `d$`
- Delete from current character to end of line and enter insert mode | `C` OR `c$`
+  Action                                                             | Keymap/command
+ --------------------------------------------------------------------|----------------
+  Delete current line                                                | `dd` OR `:d`
+  Delete current line and enter insert mode                          | `S` OR `cc`
+  Delete line and line above                                         | `dk`
+  Delete current line to bottom                                      | `dG`
+  Delete from current character to end of line                       | `D` OR `d$`
+  Delete from current character to end of line and enter insert mode | `C` OR `c$`
 
 `10dd` = delete current line and 9 lines below. Same as `d9j`.
 
@@ -1721,12 +1723,12 @@ Use `g;` and `g,` to navigate history of insertions.
 
 You can also delete in command-line mode:
 
- Action                                 | Keymap/command
-----------------------------------------|----------------
- Delete last line                       | `:$d`
- Delete 5th line                        | `:5d`
- Delete line below (works with `count`) | `:+d`
- Delete line above (works with `count`) | `:-d`
+  Action                                 | Keymap/command
+ ----------------------------------------|----------------
+  Delete last line                       | `:$d`
+  Delete 5th line                        | `:5d`
+  Delete line below (works with `count`) | `:+d`
+  Delete line above (works with `count`) | `:-d`
 
 You can even delete lines based on matches 🤯
 
@@ -1750,11 +1752,11 @@ This even works with marks: `:'a,'bd` deletes from line with mark `a` to line wi
 
 <kbd>y</kbd> is yank operator.
 
- Action                                     | Keymap/command
- -------------------------------------------|---------------
- Copy line and line above into register `d` | `"dyk`
- Copy current line                          | `yy`
- Copy from current character to end of line | `y$` or `Y`
+  Action                                     | Keymap/command
+ --------------------------------------------|----------------
+  Copy line and line above into register `d` | `"dyk`
+  Copy current line                          | `yy`
+  Copy from current character to end of line | `y$` or `Y`
 
 `yk` copies current line and above it.
 
@@ -1764,17 +1766,17 @@ Use `gV` to select previously yanked area in normal mode.
 
 ### Paste
 
- Action                                                           | Keymap/command
- -----------------------------------------------------------------|---------------
- Paste from register `w` below current line or to right of cursor | `"wp`
- Paste above current line or to left of cursor                    | `P`
- Paste below current line or right of cursor (matching indent)    | `]p`
- Paste above current line or to left of cursor (matching indent)  | `]P`
- Same as `p` but puts the cursor after the pasted selection       | `gp`
- Same as `P` but puts the cursor after the pasted sele ction      | `gP`
- Paste from register `n` after line 2                             | `:2pu n`
- Paste from register `t` above current line                       | `:-1put t`
- Paste after line 3                                               | `:3pu`
+  Action                                                           | Keymap/command
+ ------------------------------------------------------------------|----------------
+  Paste from register `w` below current line or to right of cursor | `"wp`
+  Paste above current line or to left of cursor                    | `P`
+  Paste below current line or right of cursor (matching indent)    | `]p`
+  Paste above current line or to left of cursor (matching indent)  | `]P`
+  Same as `p` but puts the cursor after the pasted selection       | `gp`
+  Same as `P` but puts the cursor after the pasted sele ction      | `gP`
+  Paste from register `n` after line 2                             | `:2pu n`
+  Paste from register `t` above current line                       | `:-1put t`
+  Paste after line 3                                               | `:3pu`
 
 Duplicate a line: `yyp`
 
@@ -1798,15 +1800,15 @@ You can use this to easily edit text:
 
 This functionality was added to neovim 0.10 in this [PR](https://github.com/neovim/neovim/pull/28176).
 
- Action                                                  | Keymap/command
-  --------------------------------------------------------|---------------------
- Toggle comment current line                             | `gcc`
- Toggle block comment                                    | `gbc`
- Add comment on the line above                           | `gcO`
- Add comment on the line below                           | `gco`
- Add comment at the end of line                          | `gcA`
- (Op-pending) Toggles the region using linewise comment  | `gc[count]{motion}`
- (Op-pending) Toggles the region using blockwise comment | `gb[count]{motion}`
+  Action                                                  | Keymap/command
+ ---------------------------------------------------------|---------------------
+  Toggle comment current line                             | `gcc`
+  Toggle block comment                                    | `gbc`
+  Add comment on the line above                           | `gcO`
+  Add comment on the line below                           | `gco`
+  Add comment at the end of line                          | `gcA`
+  (Op-pending) Toggles the region using linewise comment  | `gc[count]{motion}`
+  (Op-pending) Toggles the region using blockwise comment | `gb[count]{motion}`
 
 Both `gc` and `gb` act as leaders, e.g. comment to end of line: `gc$` or comment out entire paragraph: `gcip`.
 
@@ -1816,16 +1818,16 @@ This even has Treesitter integration, e.g. `gcam` to comment out method!
 
 Source: <https://learnbyexample.github.io/tips/vim-tip-2/>
 
- Action                                                                       | Keymap/command
+  Action                                                                       | Keymap/command
  ------------------------------------------------------------------------------|------------------------------
- Indent the current line (normal, visual mode)                                | `>>`
- Indent the current line (insert mode)                                        | <kbd>Ctrl</kbd>+<kbd>t</kbd>
- Indent the current line and two lines below (same as `2>j`)                  | `3>>`
- Dedent the current line (normal, visual mode)                                | `<<`
- Dedent the current line (insert mode)                                        | <kbd>Ctrl</kbd>+<kbd>d</kbd>
- Auto-indent code, use motion commands to indicate the portion to be indented | `=`
- Auto-indent current line and 4 lines below                                   | `=4j`
- Auto-indent the current paragraph                                            | `=ip`
+  Indent the current line (normal, visual mode)                                | `>>`
+  Indent the current line (insert mode)                                        | <kbd>Ctrl</kbd>+<kbd>t</kbd>
+  Indent the current line and two lines below (same as `2>j`)                  | `3>>`
+  Dedent the current line (normal, visual mode)                                | `<<`
+  Dedent the current line (insert mode)                                        | <kbd>Ctrl</kbd>+<kbd>d</kbd>
+  Auto-indent code, use motion commands to indicate the portion to be indented | `=`
+  Auto-indent current line and 4 lines below                                   | `=4j`
+  Auto-indent the current paragraph                                            | `=ip`
 
 To change the amount text is shifted: `:set shiftwidth=4`.
 
@@ -1865,11 +1867,11 @@ If a pattern is used and there are any lines that do not match it, they will be 
 
 Source: <https://youtu.be/rubhH6v4lN0?feature=shared>
 
- Action                                                                                            | Keymap/command
----------------------------------------------------------------------------------------------------|----------------
- Join current and next line (replace EOL with space[^join] and remove indentation except for current) | <kbd>J</kbd>
- Join current and next 2 lines (replace EOL with space)                                            | `3J`
- Join current and next line (remove EOL and preserve indentation)                                  | `gJ`
+  Action                                                                                               | Keymap/command
+ ------------------------------------------------------------------------------------------------------|----------------
+  Join current and next line (replace EOL with space[^join] and remove indentation except for current) | <kbd>J</kbd>
+  Join current and next 2 lines (replace EOL with space)                                               | `3J`
+  Join current and next line (remove EOL and preserve indentation)                                     | `gJ`
 
 These also work in VISUAL or COMMAND-LINE mode.
 
@@ -1928,13 +1930,13 @@ In Visual mode, prefix with `g`, e.g. `g<C-a>` to increment the first number of 
 
 Some examples of using motions for editing:
 
- Action                                                | Keymap/command
--------------------------------------------------------|----------------
- Delete from current line to the end of the file       | `dG`
- Delete from current line to the beginning of the file | `dgg`
- Copy until next `c` in current line                   | `yfc`
- Copy until end of sentence                            | `y)`
- Indent until end of paragraph                         | `>}`
+  Action                                                | Keymap/command
+ -------------------------------------------------------|----------------
+  Delete from current line to the end of the file       | `dG`
+  Delete from current line to the beginning of the file | `dgg`
+  Copy until next `c` in current line                   | `yfc`
+  Copy until end of sentence                            | `y)`
+  Indent until end of paragraph                         | `>}`
 
 ### Text object selection
 
@@ -2239,18 +2241,18 @@ Use [`:helpgrep`](https://neovim.io/doc/user/helphelp.html#%3Ahelpgrep) to searc
 
 ##### Sources
 
- Filetype   | Sources (Priority)
- ------------|------------------------------------------------------------------------------------------------------------------------------------------------------------
- Default    | 1. nvim_lsp (100)<br>2. luasnip_choice (95)<br>3. luasnip (90)<br>4. unitex (80)
- Lua        | 1. lazydev[^ld] (100)<br>2. nvim_lsp (100)<br>3. luasnip_choice (95)<br>4. luasnip (90)<br>5. unitex (80)
- GitRebase  | 1. git (100)<br>2. async_path (70)<br>3. fuzzy_buffer (60)
- Search (`/`, `?`)     | 1. fuzzy_buffer (60)
- Cmdline (`:`)    | 1. cmdline (100)<br>2. async_path (80)<br>3. *fuzzy_buffer* (60)
- TeX        | 1. nvim_lsp (100)<br>2. luasnip_choice (95)<br>3. luasnip (90)<br>4. *async_path* (60)<br>5. *fuzzy_buffer* (50)
- Markdown   | 1. nvim_lsp (100)<br>2. luasnip_choice (95)<br>3. luasnip (90)<br>4. render-markdown (90)<br>5. unitex (80)<br>6. nerdfont (60)<br>
- R          | 1. cmp_r (100)<br>2. nvim_lsp (100)<br>3. luasnip_choice (95)<br>4. luasnip (90)<br>5. unitex (80)
- Quarto/RMD | Same as Markdown + cmp_r
- C# (.NET)  | 1. nvim_lsp (100)<br>2. easy-dotnet (95)<br>3. luasnip_choice (95)<br>4. luasnip (90)<br>5. unitex (80)
+  Filetype          | Sources (Priority)
+ -------------------|-------------------------------------------------------------------------------------------------------------------------------------
+  Default           | 1. nvim_lsp (100)<br>2. luasnip_choice (95)<br>3. luasnip (90)<br>4. unitex (80)
+  Lua               | 1. lazydev[^ld] (100)<br>2. nvim_lsp (100)<br>3. luasnip_choice (95)<br>4. luasnip (90)<br>5. unitex (80)
+  GitRebase         | 1. git (100)<br>2. async_path (70)<br>3. fuzzy_buffer (60)
+  Search (`/`, `?`) | 1. fuzzy_buffer (60)
+  Cmdline (`:`)     | 1. cmdline (100)<br>2. async_path (80)<br>3. *fuzzy_buffer* (60)
+  TeX               | 1. nvim_lsp (100)<br>2. luasnip_choice (95)<br>3. luasnip (90)<br>4. *async_path* (60)<br>5. *fuzzy_buffer* (50)
+  Markdown          | 1. nvim_lsp (100)<br>2. luasnip_choice (95)<br>3. luasnip (90)<br>4. render-markdown (90)<br>5. unitex (80)<br>6. nerdfont (60)<br>
+  R                 | 1. cmp_r (100)<br>2. nvim_lsp (100)<br>3. luasnip_choice (95)<br>4. luasnip (90)<br>5. unitex (80)
+  Quarto/RMD        | Same as Markdown + cmp_r
+  C# (.NET)         | 1. nvim_lsp (100)<br>2. easy-dotnet (95)<br>3. luasnip_choice (95)<br>4. luasnip (90)<br>5. unitex (80)
 
 [^ld]: Set group index to 0 to skip loading LuaLS completions.
 
@@ -2263,25 +2265,25 @@ Notes:
 
 ##### Keymaps
 
- Action                                                | Keymap
--------------------------------------------------------|-------------------------------------------------------------------------------
- Scroll documentation window back                      | `<C-b>`
- Scroll documentation window forward                   | `<C-f>`
- Close                                                 | `<C-e>`
- Next entry                                            | `<C-n>` OR `<Down>` OR <kbd>Tab</kbd>
- Previous entry                                        | `<C-p>` OR `<Up>` OR <kbd>Shift</kbd> + <kbd>Tab</kbd>
- Next choice (when snippet has choices)                | `<C-n>`
- Previous choice (when snippet has choices)            | `<C-p>`
- Accept suggestion                                     | <kbd>Enter</kbd>
- **Toggle documentation window**                       | `<C-d>`
- Invoke completion                                     | <kbd>Ctrl</kbd> + <kbd>Space</kbd>
- **Toggle autocompletion**                             | `<leader>tc`
- **Go to next snippet node**                           | `<C-k>`
- **Go to previous snippet node**                       | `<C-j>`
- **Select current entry (Insert, Commandline mode)**   | `<C-y>`
- **Complete common string (Insert, Commandline mode)** | `<C-l>`
- **Change choice for choice node**                     | `<C-c>`
- **List snippets**                                     | `<leader>sl`
+  Action                                                | Keymap
+ -------------------------------------------------------|--------------------------------------------------------
+  Scroll documentation window back                      | `<C-b>`
+  Scroll documentation window forward                   | `<C-f>`
+  Close                                                 | `<C-e>`
+  Next entry                                            | `<C-n>` OR `<Down>` OR <kbd>Tab</kbd>
+  Previous entry                                        | `<C-p>` OR `<Up>` OR <kbd>Shift</kbd> + <kbd>Tab</kbd>
+  Next choice (when snippet has choices)                | `<C-n>`
+  Previous choice (when snippet has choices)            | `<C-p>`
+  Accept suggestion                                     | <kbd>Enter</kbd>
+  **Toggle documentation window**                       | `<C-d>`
+  Invoke completion                                     | <kbd>Ctrl</kbd> + <kbd>Space</kbd>
+  **Toggle autocompletion**                             | `<leader>tc`
+  **Go to next snippet node**                           | `<C-k>`
+  **Go to previous snippet node**                       | `<C-j>`
+  **Select current entry (Insert, Commandline mode)**   | `<C-y>`
+  **Complete common string (Insert, Commandline mode)** | `<C-l>`
+  **Change choice for choice node**                     | `<C-c>`
+  **List snippets**                                     | `<leader>sl`
 
 > [!NOTE]
 > Actions in **bold** above are custom actions I added in addition to those to provided by NvChad.
@@ -2315,11 +2317,11 @@ Direction is one of: `horizontal`, `vvertical`, `float`, `tab`.
 
 ##### Sending lines to the terminal
 
- Action                                              | Keymap
------------------------------------------------------|----------------------------------
- Send current line to terminal 1                     | `:ToggleTermSendCurrentLine 1`
- Send all the (whole) lines in your visual selection | `:ToggleTermSendVisualLines`
- Sends only the visually selected text               | `:ToggleTermSendVisualSelection`
+  Action                                              | Keymap
+ -----------------------------------------------------|----------------------------------
+  Send current line to terminal 1                     | `:ToggleTermSendCurrentLine 1`
+  Send all the (whole) lines in your visual selection | `:ToggleTermSendVisualLines`
+  Sends only the visually selected text               | `:ToggleTermSendVisualSelection`
 
 Specifying a terminal in the above commands is optional. If missing, it defaults to the first terminal.
 
@@ -2341,110 +2343,110 @@ Below are some useful key maps for when the window is displayed.
 <details open>
   <summary>Root</summary>
 
-Action                          | Keymap
----------------------------------|----------------------------------
-**Change root to input path**   | <kbd>Alt</kbd> + <kbd>r</kbd>
-Change root to node             | <kbd>Ctrl</kbd> + <kbd>\]</kbd>
-**Change root to global cwd**   | <kbd>Ctrl</kbd> + <kbd>c</kbd>
+ Action                        | Keymap
+-------------------------------|---------------------------------
+ **Change root to input path** | <kbd>Alt</kbd> + <kbd>r</kbd>
+ Change root to node           | <kbd>Ctrl</kbd> + <kbd>\]</kbd>
+ **Change root to global cwd** | <kbd>Ctrl</kbd> + <kbd>c</kbd>  
 
 </details>
 
 <details open>
   <summary>File and Directory</summary>
 
-Action                          | Keymap
----------------------------------|----------------------------------
-**Launch Find Files**           | <kbd>Ctrl</kbd> + <kbd>f</kbd>
-**Launch Live Grep**            | <kbd>Ctrl</kbd> + <kbd>g</kbd>
-Open: Horizontal split          | <kbd>Ctrl</kbd> + <kbd>x</kbd>
-Open                            | <kbd>Enter</kbd>
-Open: Vertical split            | <kbd>Shift</kbd> + <kbd>l</kbd>
-Open: In place                  | <kbd>Ctrl</kbd> + <kbd>e</kbd>
-Run command                     | <kbd>.</kbd>
-Delete                          | <kbd>d</kbd> OR `<Del>`
-Rename (omit filename)          | <kbd>Ctrl</kbd> + <kbd>r</kbd>
-Rename: Basename                | <kbd>e</kbd>
-Create File Or Directory        | <kbd>a</kbd>
-Copy File Or Directory          | <kbd>c</kbd>
-Cut File Or Directory           | <kbd>x</kbd>
-Paste File Or Directory         | <kbd>p</kbd>
+ Action                   | Keymap
+--------------------------|---------------------------------
+ **Launch Find Files**    | <kbd>Ctrl</kbd> + <kbd>f</kbd>  
+ **Launch Live Grep**     | <kbd>Ctrl</kbd> + <kbd>g</kbd>  
+ Open: Horizontal split   | <kbd>Ctrl</kbd> + <kbd>x</kbd>  
+ Open                     | <kbd>Enter</kbd>
+ Open: Vertical split     | <kbd>Shift</kbd> + <kbd>l</kbd>
+ Open: In place           | <kbd>Ctrl</kbd> + <kbd>e</kbd>  
+ Run command              | <kbd>.</kbd>
+ Delete                   | <kbd>d</kbd> OR `<Del>`
+ Rename (omit filename)   | <kbd>Ctrl</kbd> + <kbd>r</kbd>  
+ Rename: Basename         | <kbd>e</kbd>
+ Create File Or Directory | <kbd>a</kbd>
+ Copy File Or Directory   | <kbd>c</kbd>
+ Cut File Or Directory    | <kbd>x</kbd>
+ Paste File Or Directory  | <kbd>p</kbd>
 
 </details>
 
 <details open>
   <summary>Info and preview</summary>
 
-Action                          | Keymap
----------------------------------|----------------------------------
-Show Info (pop-up)              | <kbd>Ctrl</kbd> + <kbd>k</kbd>
-**Print path**                  | <kbd>Ctrl</kbd> + <kbd>p</kbd>
-**Preview (Watch)**             | <kbd>Shift</kbd> + <kbd>Tab</kbd>
-**Close Preview/Unwatch**       | <kbd>Esc</kbd>
-Help                            | <kbd>g</kbd> + <kbd>?</kbd>
+ Action                    | Keymap
+---------------------------|-----------------------------------
+ Show Info (pop-up)        | <kbd>Ctrl</kbd> + <kbd>k</kbd>
+ **Print path**            | <kbd>Ctrl</kbd> + <kbd>p</kbd>
+ **Preview (Watch)**       | <kbd>Shift</kbd> + <kbd>Tab</kbd>
+ **Close Preview/Unwatch** | <kbd>Esc</kbd>
+ Help                      | <kbd>g</kbd> + <kbd>?</kbd>
 
 </details>
 
 <details open>
   <summary>git</summary>
 
-Action                          | Keymap
----------------------------------|----------------------------------
-Prev git                        | <kbd>\[</kbd> + <kbd>c</kbd>
-Next git                        | <kbd>\]</kbd> + <kbd>c</kbd>
-Stage/unstage Files             | <kbd>g</kbd> + <kbd>a</kbd>
+ Action              | Keymap
+---------------------|------------------------------
+ Prev git            | <kbd>\[</kbd> + <kbd>c</kbd>
+ Next git            | <kbd>\]</kbd> + <kbd>c</kbd>
+ Stage/unstage Files | <kbd>g</kbd> + <kbd>a</kbd>  
 
 </details>
 
 <details open>
   <summary>Navigation and Movement</summary>
 
-Action                          | Keymap
----------------------------------|----------------------------------
-Next sibling                    | <kbd>></kbd>
-Previous sibling                | <kbd><</kbd>
-First sibling                   | `K`
-Last sibling                    | `J`
-Move down                       | <kbd>j</kbd>
-Move up                         | <kbd>k</kbd>
-Prev diagnostic                 | <kbd>\[</kbd> + <kbd>e</kbd>
-Next diagnostic                 | <kbd>\]</kbd> + <kbd>e</kbd>
-Parent directory                | `P`
+ Action           | Keymap
+------------------|------------------------------
+ Next sibling     | <kbd>></kbd>
+ Previous sibling | <kbd><</kbd>
+ First sibling    | `K`
+ Last sibling     | `J`
+ Move down        | <kbd>j</kbd>
+ Move up          | <kbd>k</kbd>
+ Prev diagnostic  | <kbd>\[</kbd> + <kbd>e</kbd>
+ Next diagnostic  | <kbd>\]</kbd> + <kbd>e</kbd>
+ Parent directory | `P`
 
 </details>
 
 <details open>
   <summary>Bookmark</summary>
 
-Action                          | Keymap
----------------------------------|----------------------------------
-Toggle bookmark                 | <kbd>m</kbd>
-Delete bookmarked               | `bd`
-Trash bookmarked                | `bt`
-Move bookmarked                 | `bmv`
+ Action            | Keymap
+-------------------|--------------
+ Toggle bookmark   | <kbd>m</kbd>
+ Delete bookmarked | `bd`
+ Trash bookmarked  | `bt`
+ Move bookmarked   | `bmv`
 
 </details>
 
 <details open>
   <summary>Filter and view</summary>
 
-Action                          | Keymap
----------------------------------|----------------------------------
-**Expand folder or go to file** | <kbd>l</kbd>
-**Open folder or show preview** | <kbd>Tab</kbd>
-**Close parent folder**         | <kbd>h</kbd>
-Close Directory                 | <kbd>Backspace</kbd>
-Expand All                      | <kbd>Shift</kbd> + <kbd>e</kbd>
-Live Filter: Clear              | <kbd>Shift</kbd> + <kbd>f</kbd>
-Live Filter: Search             | <kbd>f</kbd>
-Toggle hidden files             | <kbd>Shift</kbd> + <kbd>h</kbd>
-**Toggle group empty**          | <kbd>g</kbd> +  <kbd>l</kbd>
-Collapse all                    | <kbd>Shift</kbd> + <kbd>w</kbd>
-**Collapse all (keep[^kp])**    | <kbd>Alt</kbd> + <kbd>w</kbd>
-**Collapse node**               | `[w`
-**Collapse node (keep[^kp])**   | `[W`
-**Expand node**                 | `]w`
-**Expand node (all)**           | `]W`
-Toggle bookmarks                | <kbd>Shift</kbd> + <kbd>m</kbd>
+ Action                          | Keymap
+---------------------------------|---------------------------------
+ **Expand folder or go to file** | <kbd>l</kbd>
+ **Open folder or show preview** | <kbd>Tab</kbd>
+ **Close parent folder**         | <kbd>h</kbd>
+ Close Directory                 | <kbd>Backspace</kbd>
+ Expand All                      | <kbd>Shift</kbd> + <kbd>e</kbd>
+ Live Filter: Clear              | <kbd>Shift</kbd> + <kbd>f</kbd>
+ Live Filter: Search             | <kbd>f</kbd>
+ Toggle hidden files             | <kbd>Shift</kbd> + <kbd>h</kbd>
+ **Toggle group empty**          | <kbd>g</kbd> +  <kbd>l</kbd>
+ Collapse all                    | <kbd>Shift</kbd> + <kbd>w</kbd>
+ **Collapse all (keep[^kp])**    | <kbd>Alt</kbd> + <kbd>w</kbd>
+ **Collapse node**               | `[w`
+ **Collapse node (keep[^kp])**   | `[W`
+ **Expand node**                 | `]w`
+ **Expand node (all)**           | `]W`
+ Toggle bookmarks                | <kbd>Shift</kbd> + <kbd>m</kbd>
 
 [^kp]: Keep directories with open buffers expanded.
 
@@ -2453,22 +2455,22 @@ Toggle bookmarks                | <kbd>Shift</kbd> + <kbd>m</kbd>
 <details open>
   <summary>Copy info</summary>
 
-Action                          | Keymap
----------------------------------|----------------------------------
-Copy Basename                   | <kbd>g</kbd> + <kbd>e</kbd>
-Copy absolute path              | <kbd>g</kbd> + <kbd>y</kbd>
-Copy name                       | <kbd>y</kbd>
-Copy relative path              | <kbd>Shift</kbd> + <kbd>y</kbd>
+ Action             | Keymap
+--------------------|---------------------------------
+ Copy Basename      | <kbd>g</kbd> + <kbd>e</kbd>
+ Copy absolute path | <kbd>g</kbd> + <kbd>y</kbd>
+ Copy name          | <kbd>y</kbd>
+ Copy relative path | <kbd>Shift</kbd> + <kbd>y</kbd>
 
 </details>
 
 <details open>
   <summary>Buffer</summary>
 
-Action                          | Keymap
----------------------------------|----------------------------------
-Wipe buffer                      | `BW`
-Delete buffer                    | `BD`
+ Action        | Keymap
+---------------|--------
+ Wipe buffer   | `BW`
+ Delete buffer | `BD`
 
 These commands work on the buffer for the current node if it exists.
 
@@ -2477,10 +2479,10 @@ These commands work on the buffer for the current node if it exists.
 <details open>
   <summary>AI</summary>
 
-Action                          | Keymap
----------------------------------|----------------------------------
-**Add file or directory to chat**   | `<leaber>ca`
-**Add file or directory to chat (pinned)**   | `<leaber>cp`
+ Action                                     | Keymap
+--------------------------------------------|--------------
+ **Add file or directory to chat**          | `<leaber>ca`
+ **Add file or directory to chat (pinned)** | `<leaber>cp`
 
 These require [codecompanion.nvim](#codecompanion).
 
@@ -2509,13 +2511,13 @@ To resume previous search: `<leader>rs`.
 
 <summary>DAP</summary>
 
- Action             | Keymap/command
---------------------|----------------
- List breakpoints   | `<leader>dlb`
- List commands      | `<leader>dlc`
- List configuration | `<leader>dlC`
- List frames        | `<leader>dlf`
- List variables     | `<leader>dlv`
+  Action             | Keymap/command
+ --------------------|----------------
+  List breakpoints   | `<leader>dlb`  
+  List commands      | `<leader>dlc`  
+  List configuration | `<leader>dlC`  
+  List frames        | `<leader>dlf`  
+  List variables     | `<leader>dlv`  
 
 </details>
 
@@ -2527,13 +2529,13 @@ This adds syntx highlighting to log files.
 
 [This plugin](https://github.com/christoomey/vim-tmux-navigator) provides seamless navigation between tmux panes and vim splits.
 
- Action         | Keymap/command
-----------------|---------------------------------
- Left           | <kbd>Ctrl</kbd> + <kbd>h</kbd>
- Right          | <kbd>Ctrl</kbd> + <kbd>l</kbd>
- Up             | <kbd>Ctrl</kbd> + <kbd>k</kbd>
- Down           | <kbd>Ctrl</kbd> + <kbd>j</kbd>
- Go to previous | <kbd>Ctrl</kbd> + <kbd>\\</kbd>
+  Action         | Keymap/command
+ ----------------|---------------------------------
+  Left           | <kbd>Ctrl</kbd> + <kbd>h</kbd>  
+  Right          | <kbd>Ctrl</kbd> + <kbd>l</kbd>  
+  Up             | <kbd>Ctrl</kbd> + <kbd>k</kbd>  
+  Down           | <kbd>Ctrl</kbd> + <kbd>j</kbd>  
+  Go to previous | <kbd>Ctrl</kbd> + <kbd>\\</kbd>
 
 You also need to setup the same mappings in your `.tmux.conf`. The easiest way to do is add this to the file:
 
@@ -2566,31 +2568,31 @@ Below are some of the commands with their respective keymaps:
 <details open>
   <summary>LSP</summary>
 
- Action                          | Keymap
- --------------------------------|--------------
- Next Reference                  | `]r`
- Prev Reference                  | `[r`
- Snacks LSP Diagnostics          | `<leader>lSD`
- Snacks LSP Diagnostics (Buffer) | `<leader>lSd`
- Lsp type definitions            | `<leader>ltd`
- Lsp document symbols            | `<leader>ls`
- Lsp workspace symbols           | `<leader>lws`
- Lsp Go to implementation        | `<leader>lI`
- Lsp Incoming calls              | `<leader>li`
- Lsp Outgoing calls              | `<leader>lo`
+  Action                          | Keymap
+ ---------------------------------|---------------
+  Next Reference                  | `]r`
+  Prev Reference                  | `[r`
+  Snacks LSP Diagnostics          | `<leader>lSD`
+  Snacks LSP Diagnostics (Buffer) | `<leader>lSd`
+  Lsp type definitions            | `<leader>ltd`
+  Lsp document symbols            | `<leader>ls`  
+  Lsp workspace symbols           | `<leader>lws`
+  Lsp Go to implementation        | `<leader>lI`  
+  Lsp Incoming calls              | `<leader>li`  
+  Lsp Outgoing calls              | `<leader>lo`  
 
 </details>
 
 <details open>
   <summary>Grep</summary>
 
- Action                          | Keymap
- --------------------------------|--------------
- Snacks Grep                     | `<leader>sgg`
- Snacks Grep (hidden)            | `<leader>sgh`
- Snacks Grep cwd                 | `<leader>sgc`
- Snacks Visual selection or word | `<leader>sw`
- Snacks Grep Open Buffers        | `<leader>sgB`
+  Action                          | Keymap
+ ---------------------------------|---------------
+  Snacks Grep                     | `<leader>sgg`
+  Snacks Grep (hidden)            | `<leader>sgh`
+  Snacks Grep cwd                 | `<leader>sgc`
+  Snacks Visual selection or word | `<leader>sw`  
+  Snacks Grep Open Buffers        | `<leader>sgB`
 
 </details>
 
@@ -2599,60 +2601,60 @@ Below are some of the commands with their respective keymaps:
 
 These are triggered by autocmd if busfer is in a git repo.
 
- Action                      | Keymap
- ----------------------------|---------------
- Git find files              | `<leader>gf`
- Git branches                | `<leader>gb`
- Git browse (open on remote) | `<leader>gB`
- Git diff (hunks)            | `<leader>gdh`
- Git log                     | `<leader>gL`
- Git log file                | `<leader>glf`
- Git log line                | `<leader>gll`
- Git status                  | `<leader>gS`
+  Action                      | Keymap
+ -----------------------------|---------------
+  Git find files              | `<leader>gf`  
+  Git branches                | `<leader>gb`  
+  Git browse (open on remote) | `<leader>gB`  
+  Git diff (hunks)            | `<leader>gdh`
+  Git log                     | `<leader>gL`  
+  Git log file                | `<leader>glf`
+  Git log line                | `<leader>gll`
+  Git status                  | `<leader>gS`  
 
 <details>
 
 <details open>
   <summary>General</summary>
 
- Action                      | Keymap
- ----------------------------|--------------
- Snacks picker builtins      | `<leader>sb`
- Snacks Command History      | `<leader>s:`
- Snacks Notification History | `<leader>sn`
- Snacks Find projects        | `<leader>sp`
- Snacks Find plugins         | `<leader>sP`
- Snacks Quickfix List        | `<leader>sq`
- Resume                      | `<leader>sR`
- Snacks Treesitter           | `<leader>st`
- Undo History                | `<leader>su`
- Snacks Zoxide               | `<leader>sz`
- Snacks Registers            | `<leader>s"`
- Snacks Search History       | `<leader>s/`
- Snacks Autocmds             | `<leader>sa`
- Snacks Colorschemes         | `<leader>sc`
- Snacks Commands             | `<leader>sC`
- Snacks Help Pages           | `<leader>s?`
- Snacks Highlights           | `<leader>sH`
- Snacks Jumps                | `<leader>sj`
- Snacks Keymaps              | `<leader>sk`
- Marks                       | `<leader>sm`
- Man Pages                   | `<leader>sM`
+  Action                      | Keymap
+ -----------------------------|--------------
+  Snacks picker builtins      | `<leader>sb`
+  Snacks Command History      | `<leader>s:`
+  Snacks Notification History | `<leader>sn`
+  Snacks Find projects        | `<leader>sp`
+  Snacks Find plugins         | `<leader>sP`
+  Snacks Quickfix List        | `<leader>sq`
+  Resume                      | `<leader>sR`
+  Snacks Treesitter           | `<leader>st`
+  Undo History                | `<leader>su`
+  Snacks Zoxide               | `<leader>sz`
+  Snacks Registers            | `<leader>s"`
+  Snacks Search History       | `<leader>s/`
+  Snacks Autocmds             | `<leader>sa`
+  Snacks Colorschemes         | `<leader>sc`
+  Snacks Commands             | `<leader>sC`
+  Snacks Help Pages           | `<leader>s?`
+  Snacks Highlights           | `<leader>sH`
+  Snacks Jumps                | `<leader>sj`
+  Snacks Keymaps              | `<leader>sk`
+  Marks                       | `<leader>sm`
+  Man Pages                   | `<leader>sM`
 
 </details>
 
 <details open>
   <summary>Files</summary>
 
- Action                            | Keymap
- ----------------------------------|---------------
- Snacks Find Old Files             | `<leader>sff`
- Snacks File Explorer              | `<leader>se`
- Snacks Find Config File           | `<leader>sfc`
- Snacks Recent                     | `<leader>sr`
- Delete current buffer             | `<leader>bd`
- Delete all buffers except current | `<leader>bD`
- Snacks Find Buffers               | `<leader>sB`
+  Action                            | Keymap
+ -----------------------------------|---------------
+  Snacks Find Old Files             | `<leader>sff`
+  Snacks File Explorer              | `<leader>se`  
+  Snacks Find Config File           | `<leader>sfc`
+  Snacks Recent                     | `<leader>sr`  
+  Delete current buffer             | `<leader>bd`  
+  Delete all buffers except current | `<leader>bD`  
+  Snacks Find Buffers               | `<leader>sB`  
 
 </details>
 
@@ -2667,23 +2669,23 @@ These are triggered by autocmd if busfer is in a git repo.
 
 #### yazi
 
- Action                         | Keymap/command
- -------------------------------|---------------
- Open yazi                      | `<leader>yy`
- Open yazi in current directory | `<leader>yw`
+  Action                         | Keymap/command
+ --------------------------------|----------------
+  Open yazi                      | `<leader>yy`
+  Open yazi in current directory | `<leader>yw`
 
 #### [vim-coach](https://github.com/shahshlok/vim-coach.nvim)
 
 This plugin provides an interactive, searchable reference for Vim commands with explanations, tips, and context-aware guidance.
 
- Action                             | Keymap/command
- -----------------------------------|-------------------------------------
- Open comprehensive help            | `<leader>?` OR `:VimCoach`
- Open help for motion commands      | `<leader>hm` OR `:VimCoach motions`
- Open help for editing commands     | `<leader>he` OR `:VimCoach editing`
- Open help for visual mode commands | `<leader>hv` OR `:VimCoach visual`
- Open help for plugin commands      | `<leader>hp` OR `:VimCoach plugins`
- Open help for all commands         | `<leader>hh` OR `:VimCoach all`
+  Action                             | Keymap/command
+ ------------------------------------|-------------------------------------
+  Open comprehensive help            | `<leader>?` OR `:VimCoach`
+  Open help for motion commands      | `<leader>hm` OR `:VimCoach motions`
+  Open help for editing commands     | `<leader>he` OR `:VimCoach editing`
+  Open help for visual mode commands | `<leader>hv` OR `:VimCoach visual`  
+  Open help for plugin commands      | `<leader>hp` OR `:VimCoach plugins`
+  Open help for all commands         | `<leader>hh` OR `:VimCoach all`
 
 > [!NOTE]
 > This plugin is currently disabled.
@@ -2719,66 +2721,66 @@ Below is an overview of how I have configured Lualine. It explains the structure
 <details open>
   <summary>lualine_a</summary>
 
- Name        | Description                                                                  | Click Action
--------------|------------------------------------------------------------------------------|--------------------------------------------------------------------------------
- mason       | Displays Mason status.                                                       | None
- diagnostics | Displays diagnostics for `error`, `warn`, `info`, and `hint` severity types. | **Left**: Opens diagnostics picker (Press <kbd>Ctrl</kbd> to get workspace level diagnostics. Default is buffer). <br> **Right**: Opens location list.
+   Name        | Description                                                                  | Click Action
+  -------------|------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------
+   mason       | Displays Mason status.                                                       | None
+   diagnostics | Displays diagnostics for `error`, `warn`, `info`, and `hint` severity types. | **Left**: Opens diagnostics picker (Press <kbd>Ctrl</kbd> to get workspace level diagnostics. Default is buffer). <br> **Right**: Opens location list.
 
 </details>
 
 <details open>
   <summary>lualine_b</summary>
 
- Name              | Description                                         | Click Action
--------------------|-----------------------------------------------------|-----------------------------------------------------------------------------------------------
- git | Displays the current Git branch.                    | **Left**: Opens Git branches picker. <br> **Other**: Opens Git log picker.
- diff            | Displays Git diff stats (added, modified, removed). | Opens `Diffview`.
+  Name | Description                                         | Click Action
+ ------|-----------------------------------------------------|----------------------------------------------------------------------------
+  git  | Displays the current Git branch.                    | **Left**: Opens Git branches picker. <br> **Other**: Opens Git log picker.
+  diff | Displays Git diff stats (added, modified, removed). | Opens `Diffview`.
 
 </details>
 
 <details open>
   <summary>lualine_c</summary>
 
- Name                   | Description                                                    | Click Action
-------------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------------------------
- file info        | Displays the filename with color based on its modified status. | Toggles `NvimTree`.
- screenkey            | Displays active keybindings if `vim.g.screenkey_statusline_component` is `true`.                  | None
- lsp status           | Displays LSP status with a spinner for ongoing operations.     | **Left**: `:LspInfo`. <br> **Other**: Use `trouble` to display LSP document symbols.
- Available Formatters | Lists available formatters from `conform` if `vim.g.show_formatters` is `true`.                     | None
- Linters      | Displays active linters from `nvim-lint` if `vim.g.show_linters`   is `true`.                      | None
+    Name                 | Description                                                                      | Click Action                                                                         
+   ----------------------|----------------------------------------------------------------------------------|--------------------------------------------------------------------------------------
+    file info            | Displays the filename with color based on its modified status.                   | Toggles `NvimTree`.
+    screenkey            | Displays active keybindings if `vim.g.screenkey_statusline_component` is `true`. | None
+    lsp status           | Displays LSP status with a spinner for ongoing operations.                       | **Left**: `:LspInfo`. <br> **Other**: Use `trouble` to display LSP document symbols.
+    Available Formatters | Lists available formatters from `conform` if `vim.g.show_formatters` is `true`.  | None
+    Linters              | Displays active linters from `nvim-lint` if `vim.g.show_linters`   is `true`.    | None
 
 </details>
 
 <details open>
   <summary>lualine_x</summary>
 
- Name             | Description                                              | Click Action
-------------------|----------------------------------------------------------|-----------------------------------------
- Code Companion | Displays a spinner for CodeCompanion operations.                    | None
- lazy   | Displays pending updates from `lazy.nvim`.               | Opens `Lazy` plugin manager.
- noice   | Displays mode and search status from `noice.nvim`.       | None
- encoding       | Displays file encoding.                                  | None
- file format    | Displays file format (e.g., Unix, DOS, Mac).             | None
- filetype       | Displays the filetype icon.                              | None
- yaml key/value | Displays the current YAML key and value (if applicable). | None
+  Name           | Description                                              | Click Action
+ ----------------|----------------------------------------------------------|------------------------------
+  Code Companion | Displays a spinner for CodeCompanion operations.         | None
+  lazy           | Displays pending updates from `lazy.nvim`.               | Opens `Lazy` plugin manager.
+  noice          | Displays mode and search status from `noice.nvim`.       | None
+  encoding       | Displays file encoding.                                  | None
+  file format    | Displays file format (e.g., Unix, DOS, Mac).             | None
+  filetype       | Displays the filetype icon.                              | None
+  yaml key/value | Displays the current YAML key and value (if applicable). | None
 
 </details>
 
 <details open>
   <summary>lualine_y</summary>
 
-Name      | Description                                  | Click Action
------------|----------------------------------------------|--------------
- r | Displays the status of the R plugin. | None
+  Name | Description                          | Click Action
+ ------|--------------------------------------|--------------
+  r    | Displays the status of the R plugin. | None
 
 </details>
 
 <details open>
   <summary>lualine_z</summary>
 
- Name     | Description                                                       | Click Action
+  Name     | Description                                                       | Click Action
  ----------|-------------------------------------------------------------------|--------------
- location | Displays the current cursor position in the format `line:column`. | None
+  location | Displays the current cursor position in the format `line:column`. | None
 
 </details>
 
@@ -2790,19 +2792,19 @@ Name      | Description                                  | Click Action
 
 [dropbar](https://github.com/Bekaboo/dropbar.nvim) provides an IDE-like, highly-customizable winbar with drop-down menu support.
 
- Action                         | Keymap
- -------------------------------|------------
- Pick symbols in winbar         | `<leader>;`
- Go to start of current context | `[;`
- Select next context            | `];`
+  Action                         | Keymap
+ --------------------------------|-------------
+  Pick symbols in winbar         | `<leader>;`
+  Go to start of current context | `[;`
+  Select next context            | `];`
 
 Keymaps when menu is active:
 
- Action       | Keymap
- -------------|------------------------
- Close        | `q` OR `<kbd>Esc</kbd>`
- Select       | `<CR>`
- Fuzzy-find   | `i`
+  Action     | Keymap
+ ------------|-------------------------
+  Close      | `q` OR `<kbd>Esc</kbd>`
+  Select     | `<CR>`
+  Fuzzy-find | `i`
 
 #### nvim-ufo
 
@@ -2812,14 +2814,14 @@ Keymaps when menu is active:
 
 [overlook.nvim](https://github.com/WilliamHsieh/overlook.nvim) provides stackable popups for Neovim. These popups are **buffers** - you can edit them, save them, etc.
 
-Action | Command/Keymap
---------|---------
-Peek defintion | `<leader>pd`
-Close all popups | `<leader>pc`
-Switch focus | `leader>pf`
-Open popup in tab | `<leader>pt`
-Restore popup | `<leader>pu`
-Restore all popups | `<leader>pU`
+ Action             | Command/Keymap
+--------------------|----------------
+ Peek defintion     | `<leader>pd`
+ Close all popups   | `<leader>pc`
+ Switch focus       | `leader>pf`
+ Open popup in tab  | `<leader>pt`
+ Restore popup      | `<leader>pu`
+ Restore all popups | `<leader>pU`
 
 ### AI
 
@@ -2829,16 +2831,16 @@ This is a Neovim plugin for GitHub Copilot.
 
 Assuming that you have GitHub Copilot access, run `:Copilot setup` to get started.
 
-Action | Command/Keymap
---------|---------
-Authenticate and enable GitHub Copilot. | `:Copilot setup`
-Globally disable Copilot inline suggestions. | `:Copilot disable`
-Re-enable GitHub Copilot. | `:Copilot enable`
-Sign out of GitHub Copilot. | `:Copilot signout`
-Check if GitHub Copilot is operational for the current buffer and report any issues. | `:Copilot status`
-Open a window with up to 10 completions for the current buffer.  Use `<CR>` to accept a completion. | `:Copilot panel`
-Show version information. | `:Copilot version`
-Accept suggestion | `<M-a>`
+  Action                                                                                              | Command/Keymap
+ -----------------------------------------------------------------------------------------------------|--------------------
+  Authenticate and enable GitHub Copilot.                                                             | `:Copilot setup`
+  Globally disable Copilot inline suggestions.                                                        | `:Copilot disable`
+  Re-enable GitHub Copilot.                                                                           | `:Copilot enable`  
+  Sign out of GitHub Copilot.                                                                         | `:Copilot signout`
+  Check if GitHub Copilot is operational for the current buffer and report any issues.                | `:Copilot status`  
+  Open a window with up to 10 completions for the current buffer.  Use `<CR>` to accept a completion. | `:Copilot panel`
+  Show version information.                                                                           | `:Copilot version`
+  Accept suggestion                                                                                   | `<M-a>`
 
 `:Copilot panel` is the default command if `:Copilot` is called without an argument.
 
@@ -2855,20 +2857,20 @@ Accept suggestion | `<M-a>`
 
 In the table below, actions in **bold** are courtesy of custom prompts.
 
- Action                             | Keymap
-------------------------------------|-------------
- Open chat buffer              | `<leader>cc` OR `:CodeCompanionChat [adapter]`
- Toggle chat buffer | `:CodeCompanionChat Toggle`
- Inline assistant | `<leader>ci` OR `:CodeCompanion [adapter] [prompt]`
- Create command in command-line mode | `<leader>cC` OR  `:CodeCompanionCmd`
- Add to chat (visual mode) | `<leader>cA` OR `:CodeCompanionChat Add`
- Actions palette | `<leader>ca` OR `:CodeCompanionActions`
- Fix code | `<leader>cf` OR `:'<,'>CodeCompanion /fix`
- LSP Diagnostics | `<leader>cl` OR `:'<,'>CodeCompanion /lsp`
- Generate Tests | `<leader>ct` OR `:'<,'>CodeCompanion /tests`
- **Generate Documentation** | `<leader>cd` OR `:'<,'>CodeCompanion /doc`
- **Generate a commit message (advanced)** | `<leader>cm`
- **Review code** | `<leader>cr`
+    Action                                   | Keymap                                              
+   ------------------------------------------|-----------------------------------------------------
+    Open chat buffer                         | `<leader>cc` OR `:CodeCompanionChat [adapter]`
+    Toggle chat buffer                       | `:CodeCompanionChat Toggle`
+    Inline assistant                         | `<leader>ci` OR `:CodeCompanion [adapter] [prompt]`
+    Create command in command-line mode      | `<leader>cC` OR  `:CodeCompanionCmd`
+    Add to chat (visual mode)                | `<leader>cA` OR `:CodeCompanionChat Add`
+    Actions palette                          | `<leader>ca` OR `:CodeCompanionActions`
+    Fix code                                 | `<leader>cf` OR `:'<,'>CodeCompanion /fix`
+    LSP Diagnostics                          | `<leader>cl` OR `:'<,'>CodeCompanion /lsp`
+    Generate Tests                           | `<leader>ct` OR `:'<,'>CodeCompanion /tests`
+    **Generate Documentation**               | `<leader>cd` OR `:'<,'>CodeCompanion /doc`
+    **Generate a commit message (advanced)** | `<leader>cm`
+    **Review code**                          | `<leader>cr`
 
 ##### Interactions
 
@@ -2905,18 +2907,18 @@ require("codecompanion").setup({
 
 > :bulb: To open a chat buffer for a specific adapter: `:CodeCompanionChat adapter=<adapter>`.
 
- Action                                      | Keymap
- --------------------------------------------|-----------------------------------
- Help                                        | `?`
- Close buffer                                | `<C-c>`
- Activate completion in INSERT mode.         | <kbd>Ctrl</kbd> + <kbd>Space</kbd>
- Change the adapter for the current chat.    | `ga`
- Clear the chat.                             | `gx`
- Debug the chat buffer's contents.           | `gd`
- Yank the last codeblock in the chat buffer. | `gy`
- Regenerate the last response.               | `gr`
- Toggle system prompt                        | `gs`
- Get Copilot usage stats.                    | `gS`
+  Action                                      | Keymap
+ ---------------------------------------------|------------------------------------
+  Help                                        | `?`
+  Close buffer                                | `<C-c>`
+  Activate completion in INSERT mode.         | <kbd>Ctrl</kbd> + <kbd>Space</kbd>
+  Change the adapter for the current chat.    | `ga`
+  Clear the chat.                             | `gx`
+  Debug the chat buffer's contents.           | `gd`
+  Yank the last codeblock in the chat buffer. | `gy`
+  Regenerate the last response.               | `gr`
+  Toggle system prompt                        | `gs`
+  Get Copilot usage stats.                    | `gS`
 
 See [here](https://codecompanion.olimorris.dev/usage/chat-buffer/#keymaps) for the full list of keymaps.
 
@@ -2924,11 +2926,11 @@ You can add context from your code base by using [*Variables*](https://codecompa
 
 You can configure slash commands to be triggered by keymaps:
 
- Slash Command | KeyMap
- --------------|-------------------------------
- buffer        | i: `<C-b>`. n : `<C-b>`, `gb`.
- fetch         | i: `<C-f>`. n : `<C-f>`, `gF`.
- help          | i: `<C-?>`. n : `<C-?>`, `g?`.
+  Slash Command | KeyMap
+ ---------------|--------------------------------
+  buffer        | i: `<C-b>`. n : `<C-b>`, `gb`.
+  fetch         | i: `<C-f>`. n : `<C-f>`, `gF`.
+  help          | i: `<C-?>`. n : `<C-?>`, `g?`.
 
 In order to allow for references to self-update, *all their content* can be *synced* (for files and buffers) using `gba` or just *the diff* can be *synced* (for buffers only) using `gbd`. See [here](https://codecompanion.olimorris.dev/usage/chat-buffer/#references) for more details. If you sync all the content of a buffer, then the whole contents of the buffer or file is added to the message stack before your current message. If you sync the diff, it will send only the added, edited or deleted lines to the LLM.
 
@@ -3078,13 +3080,13 @@ This plugin is a history management extension for codecompanion.
 
 See [here](https://github.com/ravitemer/codecompanion-history.nvim#add-history-extension-to-codecompanion-config) for adding this as an extension to **codecompanion.nvim**.
 
- Action                | Keymap
- ----------------------|------------------
- Browse chat history   | `gh`
- Save current chat     | `<LocalLeader>sc`
- Generate chat summary | `gcs`
- Browse chat summaries | `gbs`
- Preview chat summary  | `gps`
+  Action                | Keymap
+ -----------------------|-------------------
+  Browse chat history   | `gh`
+  Save current chat     | `<LocalLeader>sc`
+  Generate chat summary | `gcs`
+  Browse chat summaries | `gbs`
+  Preview chat summary  | `gps`
 
 ### Coding
 
@@ -3094,17 +3096,17 @@ See [here](https://github.com/ravitemer/codecompanion-history.nvim#add-history-e
 
 You can customize the display to show diagnostics, marks, search results, git information.
 
- Action                             | Keymap
-------------------------------------|-------------
- Toggle global minimap              | `<leader>mtg`
- Refresh global minimap             | `<leader>mrg`
- Toggle minimap for current window  | `<leader>mtw`
- Refresh minimap for current window | `<leader>mrw`
- Toggle minimap for current tab     | `<leader>mtt`
- Refresh minimap for current tab    | `<leader>mrt`
- Toggle minimap for current buffer  | `<leader>mtb`
- Refresh minimap for current buffer | `<leader>mrb`
- Toggle focus on minimap            | `<leader>mtf`
+  Action                             | Keymap
+ ------------------------------------|---------------
+  Toggle global minimap              | `<leader>mtg`
+  Refresh global minimap             | `<leader>mrg`
+  Toggle minimap for current window  | `<leader>mtw`
+  Refresh minimap for current window | `<leader>mrw`
+  Toggle minimap for current tab     | `<leader>mtt`
+  Refresh minimap for current tab    | `<leader>mrt`
+  Toggle minimap for current buffer  | `<leader>mtb`
+  Refresh minimap for current buffer | `<leader>mrb`
+  Toggle focus on minimap            | `<leader>mtf`
 
 #### Outline
 
@@ -3125,14 +3127,14 @@ You can use command modifiers `topleft`/`aboveleft`/`botright`/`belowright` on t
 
 - `:OutlineFollow[!]` goes to the corresponding node in the outline window based on the cursor position in code, and then switches focus on the outline window (use `!` to keep focus on original window).
 
- Action             | Keymap
- -------------------|---------------
- Outline Open       | `<leader>oo`
- Outline Close      | `<leader>oc`
- Outline Toggle     | `<leader>ot`
- Outline Focus      | `<leader>ofo`
- Outline Focus code | `<leader>ofc`
- Outline Follow     | `<leader>oF`
+  Action             | Keymap
+ --------------------|---------------
+  Outline Open       | `<leader>oo`  
+  Outline Close      | `<leader>oc`  
+  Outline Toggle     | `<leader>ot`  
+  Outline Focus      | `<leader>ofo`
+  Outline Focus code | `<leader>ofc`
+  Outline Follow     | `<leader>oF`  
 
 #### [lensline.nvim](https://github.com/oribarilan/lensline.nvim)
 
@@ -3158,12 +3160,12 @@ Use `[c` and `]c` to jump btw hunks.
 
 #### code_runner
 
- Action       | Keymap/command
- -------------|---------------
- Run code     | `<leader>rc`
- Run file     | `<leader>rf`
- Run project  | `<leader>rp`
- Close runner | `<leader>rx`
+  Action       | Keymap/command
+ --------------|----------------
+  Run code     | `<leader>rc`
+  Run file     | `<leader>rf`
+  Run project  | `<leader>rp`
+  Close runner | `<leader>rx`
 
 #### neotest
 
@@ -3179,24 +3181,24 @@ DAP stands for Debug Adapter Protocol.
 
 I tried to keep the shortcuts the same as those in Visual Studio as much as possible:
 
- Action            | Keymap/command
--------------------|-----------------------------------
- Toggle breakpoint | <kbd>F9</kbd>
- Clear breakpoints | <kbd>F8</kbd>
- Launch debugger   | <kbd>F5</kbd>
- Step over         | <kbd>F10</kbd>
- Step into         | <kbd>F11</kbd>
- Step out          | <kbd>Shift</kbd> + <kbd>F11</kbd>
- Toggle REPl       | `<leader>dr`
- DAP Hover         | `<leader>dh`
- DAP Preview       | `<leader>dp`
- REPL: Go to previous prompt | `[[`
- REPL: Go to next prompt | `]]`
- DAP Set conditional breakpoint | `<leader>dtc`
- DAP Log Message | `<leader>dl`
- Run To cursor | `<leader>dc`
- Go down stack frame | `<leader>dj`
- Go up stack frame | `<leader>dk`
+  Action                         | Keymap/command
+ --------------------------------|-----------------------------------
+  Toggle breakpoint              | <kbd>F9</kbd>
+  Clear breakpoints              | <kbd>F8</kbd>
+  Launch debugger                | <kbd>F5</kbd>
+  Step over                      | <kbd>F10</kbd>
+  Step into                      | <kbd>F11</kbd>
+  Step out                       | <kbd>Shift</kbd> + <kbd>F11</kbd>
+  Toggle REPl                    | `<leader>dr`
+  DAP Hover                      | `<leader>dh`
+  DAP Preview                    | `<leader>dp`
+  REPL: Go to previous prompt    | `[[`
+  REPL: Go to next prompt        | `]]`
+  DAP Set conditional breakpoint | `<leader>dtc`
+  DAP Log Message                | `<leader>dl`
+  Run To cursor                  | `<leader>dc`
+  Go down stack frame            | `<leader>dj`
+  Go up stack frame              | `<leader>dk`
 
  For Python, there is an additional keymap for **DAP Debug closest method to cursor**: `<leader>dt`.
 
@@ -3208,15 +3210,15 @@ This lets you save and automatically load breakpoints.
 
 This plugin helps manage breakpoints.
 
- Action                         | Keymap/command
- -------------------------------|---------------
- Set Hit Condition Breakpoint   | `<leader>dth`
- Load Breakpoints               | `<leader>dtL`
- Save Breakpoints               | `<leader>dtS`
- Edit Breakpoint Property       | `<leader>dte`
- Toggle Breakpoint Virtual Text | `<leader>dtv`
- Go to previous breakpoint      | `[,`
- Go to next breakpoint          | `],`
+  Action                         | Keymap/command
+ --------------------------------|----------------
+  Set Hit Condition Breakpoint   | `<leader>dth`  
+  Load Breakpoints               | `<leader>dtL`  
+  Save Breakpoints               | `<leader>dtS`  
+  Edit Breakpoint Property       | `<leader>dte`  
+  Toggle Breakpoint Virtual Text | `<leader>dtv`  
+  Go to previous breakpoint      | `[,`
+  Go to next breakpoint          | `],`
 
 ### Language-specific
 
@@ -3236,75 +3238,75 @@ To use radian, please refer to the instructions [here](https://github.com/randy3
 <details open>
 <summary>Start/Quit</summary>
 
- Action                                  | Keymap/command                       | Mode(s)
- ----------------------------------------|--------------------------------------|--------
- Install missing package                 | `<LocalLeader>ip` OR `:RPackages`    | n
- Quit R, saving the workspace            | `<LocalLeader>rw` OR `:RSaveClose`   | nv
- Quit R (save = 'no')                    | `<LocalLeader>rq` OR `:RClose`       | nv
- Ask user to enter parameters to start R | `<LocalLeader>rc` OR `:RCustomStart` | nv
- Start R or reopen terminal window       | `<LocalLeader>rf` OR `:RStart`       | nv
+  Action                                  | Keymap/command                       | Mode(s)
+ -----------------------------------------|--------------------------------------|---------
+  Install missing package                 | `<LocalLeader>ip` OR `:RPackages`    | n
+  Quit R, saving the workspace            | `<LocalLeader>rw` OR `:RSaveClose`   | nv
+  Quit R (save = 'no')                    | `<LocalLeader>rq` OR `:RClose`       | nv
+  Ask user to enter parameters to start R | `<LocalLeader>rc` OR `:RCustomStart` | nv
+  Start R or reopen terminal window       | `<LocalLeader>rf` OR `:RStart`       | nv
 
 </details>
 
 <details open>
 <summary>Edit</summary>
 
- Action                                                      | Keymap/command                            | Mode(s)
--------------------------------------------------------------|-------------------------------------------|---------
- Extract the Examples section and paste it in a split window | `<LocalLeader>re` OR `:RShowEx`           | nv
- Insert `\|>`                                                | `<LocalLeader>,` OR `:RInsertPipe`        | i
- Insert ` <- `                                               | `<M-->` OR `:RInsertAssign`               | i
- Replace all the `$` subsetting operators with `[[`          | `<LocalLeader>cs` OR `:RFormatSubsetting` | nv
- Add an 'L' suffix after numbers                             | `<LocalLeader>cn` OR `:RFormatNumbers`    | nv
- Split the file path or the url under the cursor             | `<LocalLeader>sp` OR `:RSeparatePath`     | nv
- Open the PDF generated from the current document            | `:ROpenPDF` | N/A
- Run dput(`<cword>`) and show the output in a new tab          | `<LocalLeader>td` OR `:RDputObj`          | nv
- Insert chunk delimiter                                      | `:RmdInsertChunk`                         | N/A
- View the data.frame or matrix under cursor in a new tab     | `<LocalLeader>rv` OR `:RViewDF`           | nv
+   Action                                                      | Keymap/command                            | Mode(s)
+  -------------------------------------------------------------|-------------------------------------------|---------
+   Extract the Examples section and paste it in a split window | `<LocalLeader>re` OR `:RShowEx`           | nv
+   Insert `\|>`                                                | `<LocalLeader>,` OR `:RInsertPipe`        | i
+   Insert ` <- `                                               | `<M-->` OR `:RInsertAssign`               | i
+   Replace all the `$` subsetting operators with `[[`          | `<LocalLeader>cs` OR `:RFormatSubsetting` | nv
+   Add an 'L' suffix after numbers                             | `<LocalLeader>cn` OR `:RFormatNumbers`    | nv
+   Split the file path or the url under the cursor             | `<LocalLeader>sp` OR `:RSeparatePath`     | nv
+   Open the PDF generated from the current document            | `:ROpenPDF`                               | N/A
+   Run dput(`<cword>`) and show the output in a new tab        | `<LocalLeader>td` OR `:RDputObj`          | nv
+   Insert chunk delimiter                                      | `:RmdInsertChunk`                         | N/A
+   View the data.frame or matrix under cursor in a new tab     | `<LocalLeader>rv` OR `:RViewDF`           | nv
 
 </details>
 
 <details open>
 <summary>Navigate</summary>
 
- Action                                                    | Keymap/command
------------------------------------------------------------|--------------------
- Go the corresponding line in the generated LaTeX document | `:RGoToTeX`
- SyncTeX forward                                           | `:RSyncFor`
- Go to the previous chunk of R code                        | `:RPreviousRChunk`
- Go to the next chunk of R code                            | `:RNextRChunk`
+  Action                                                    | Keymap/command
+ -----------------------------------------------------------|--------------------
+  Go the corresponding line in the generated LaTeX document | `:RGoToTeX`
+  SyncTeX forward                                           | `:RSyncFor`
+  Go to the previous chunk of R code                        | `:RPreviousRChunk`
+  Go to the next chunk of R code                            | `:RNextRChunk`
 
 </details>
 
 <details open>
 <summary>Send</summary>
 
- Action                                                                              | Keymap/command                            | Mode(s)
--------------------------------------------------------------------------------------|-------------------------------------------|---------
- Send to R the current chunk of R code and move down to next chunk                   | `:RDSendChunk`                            | N/A
- Send the current chunk of code to R                                                 | `:RSendChunk`                             | N/A
- Send the whole file to R                                                            | `<LocalLeader>aa` OR `:RSendFile`         | n
- Send to R all lines above the current one                                           | `<LocalLeader>su` OR `:RSendAboveLines`   | n
- Send to R the part of the line on the right of the cursor                           | `:RIRightPart`                            | N/A
- Send to R the part of the line on the left of the cursor                            | `:RILeftPart`                             | N/A
- Send to R the part of the line on the right of the cursor                           | `<LocalLeader>r<right>` OR `:RNRightPart` | n
- Send to R the part of the line on the left of the cursor                            | `<LocalLeader>r<left>` OR `:RNLeftPart`   | n
- Send to R the lines in a Vim motion                                                 | `<LocalLeader>m` OR `:RSendMotion`        | n
- Send the current line and open a new one                                            | `:RSendLAndOpenNewOne`                    | N/A
- Ask R to evaluate the line and insert the output as comments                        | `<LocalLeader>o` OR `:RInsertLineOutput`  | nv
- Send to R the current line and move down to next line                               | `<LocalLeader>d` OR `<Cr>` OR `:RDSendLine` | n
- Send the current line to R                                                          | `<LocalLeader>l` OR `:RSendLine`          | n
- Send to R the next sequence of consecutive non-empty lines                          | `<LocalLeader>pd` OR `:RDSendParagraph`   | n
- Send to R the next consecutive non-empty lines                                      | `<LocalLeader>pp` OR `:RSendParagraph`    | n
- Send to R visually selected lines or part of a line                                 | `<LocalLeader>sd` OR `<Cr>` OR `:RDSendSelection` | nv
- Send visually selected lines of part of a line                                      | `<LocalLeader>ss` OR `:RSendSelection`    | nv
- Send all chunks of R code from the document's begin up to here                      | `:RSendChunkFH`                           | N/A
- Send to R the above chain of piped commands                                         | `<LocalLeader>sc` OR `:RSendChain`        | nv
- Send to R the lines between two marks and move to next line                         | `<LocalLeader>bd` OR `:RDSendMBlock`      | n
- Send the current function and move the cursor to the end of the function definition | `<LocalLeader>fd` OR `:RDSendCurrentFun`  | nv
- Send the current function                                                           | `<LocalLeader>fc` OR `:RSendCurrentFun`   | nv
- Send all the top level functions in the current buffer                              | `<LocalLeader>fa` OR `:RSendAllFun`       | nv
- Send to R the lines between two marks                                               | `<LocalLeader>bb` OR `:RSendMBlock`       | n
+  Action                                                                              | Keymap/command                                    | Mode(s)
+ -------------------------------------------------------------------------------------|---------------------------------------------------|---------
+  Send to R the current chunk of R code and move down to next chunk                   | `:RDSendChunk`                                    | N/A
+  Send the current chunk of code to R                                                 | `:RSendChunk`                                     | N/A
+  Send the whole file to R                                                            | `<LocalLeader>aa` OR `:RSendFile`                 | n
+  Send to R all lines above the current one                                           | `<LocalLeader>su` OR `:RSendAboveLines`           | n
+  Send to R the part of the line on the right of the cursor                           | `:RIRightPart`                                    | N/A
+  Send to R the part of the line on the left of the cursor                            | `:RILeftPart`                                     | N/A
+  Send to R the part of the line on the right of the cursor                           | `<LocalLeader>r<right>` OR `:RNRightPart`         | n
+  Send to R the part of the line on the left of the cursor                            | `<LocalLeader>r<left>` OR `:RNLeftPart`           | n
+  Send to R the lines in a Vim motion                                                 | `<LocalLeader>m` OR `:RSendMotion`                | n
+  Send the current line and open a new one                                            | `:RSendLAndOpenNewOne`                            | N/A
+  Ask R to evaluate the line and insert the output as comments                        | `<LocalLeader>o` OR `:RInsertLineOutput`          | nv
+  Send to R the current line and move down to next line                               | `<LocalLeader>d` OR `<Cr>` OR `:RDSendLine`       | n
+  Send the current line to R                                                          | `<LocalLeader>l` OR `:RSendLine`                  | n
+  Send to R the next sequence of consecutive non-empty lines                          | `<LocalLeader>pd` OR `:RDSendParagraph`           | n
+  Send to R the next consecutive non-empty lines                                      | `<LocalLeader>pp` OR `:RSendParagraph`            | n
+  Send to R visually selected lines or part of a line                                 | `<LocalLeader>sd` OR `<Cr>` OR `:RDSendSelection` | nv
+  Send visually selected lines of part of a line                                      | `<LocalLeader>ss` OR `:RSendSelection`            | nv
+  Send all chunks of R code from the document's begin up to here                      | `:RSendChunkFH`                                   | N/A
+  Send to R the above chain of piped commands                                         | `<LocalLeader>sc` OR `:RSendChain`                | nv
+  Send to R the lines between two marks and move to next line                         | `<LocalLeader>bd` OR `:RDSendMBlock`              | n
+  Send the current function and move the cursor to the end of the function definition | `<LocalLeader>fd` OR `:RDSendCurrentFun`          | nv
+  Send the current function                                                           | `<LocalLeader>fc` OR `:RSendCurrentFun`           | nv
+  Send all the top level functions in the current buffer                              | `<LocalLeader>fa` OR `:RSendAllFun`               | nv
+  Send to R the lines between two marks                                               | `<LocalLeader>bb` OR `:RSendMBlock`               | n
 
 - If the cursor is between manually inserted marks, the plugin will send the lines between them to R if you press `<LocalLeader>bb`. The mark above the cursor is included and the mark below is excluded from the block to be sent to R.
 - If the cursor is above the first mark, the plugin will send from the beginning of the file to the mark.
@@ -3317,57 +3319,57 @@ Use `<LocalLeader>m` + `<motion>` to send motion to console, e.g. send paragraph
 <details open>
 <summary>Command</summary>
 
- Action                                                             | Keymap/command                        | Mode(s)
---------------------------------------------------------------------|---------------------------------------|---------
- Send to R: undebug                                                 | `<LocalLeader>ud` OR `:RUndebug`      | nv
- Send to R command to run summary and plot with `<cword>` as argument | `<LocalLeader>rb` OR `:RSPlot`        | nv
- Send to R: `plot(<cword)`                                          | `<LocalLeader>rg` OR `:RPlot`         | nv
- Send to R: `nvim.args(<cword)`                                     | `<LocalLeader>ra` OR `:RShowArgs`     | nv
- Get help for the object under cursor                 | `<LocalLeader>rh` OR `:RHelp`         | nv
- Send to R: `print(<cword>)`                                        | `<LocalLeader>rp` OR `:RObjectPr`     | nv
- Send to R: debug                                                   | `<LocalLeader>bg` OR `:RDebug`        | nv
- Send to R: `<Ctrl-L>`                                              | `<LocalLeader>rr` OR `:RClearConsole` | nv
- Send to R: `ls()`                                                    | `<LocalLeader>rl` OR `:RListSpace`    | nv
- Send to R: `nvim.names(<cword)`                                    | `<LocalLeader>rn` OR `:RObjectNames`  | nv
- Send to R: `rm(list = ls())`                                       | `<LocalLeader>rm` OR `:RClearAll`     | nv
- Set current directory to current document's                 | `<LocalLeader>rd` OR `:RSetwd`        | nv
- Send to R: `str(<cword)`                                           | `<LocalLeader>rt` OR `:RObjectStr`    | nv
- Send to R: `summary(<cword)`                                       | `<LocalLeader>rs` OR `:RSummary`      | nv
- Get file info | `<LocalLeader>fi` | n
- Close last graphics window | `<LocalLeader>cw` | n
+  Action                                                               | Keymap/command                        | Mode(s)
+ ----------------------------------------------------------------------|---------------------------------------|---------
+  Send to R: undebug                                                   | `<LocalLeader>ud` OR `:RUndebug`      | nv
+  Send to R command to run summary and plot with `<cword>` as argument | `<LocalLeader>rb` OR `:RSPlot`        | nv
+  Send to R: `plot(<cword)`                                            | `<LocalLeader>rg` OR `:RPlot`         | nv
+  Send to R: `nvim.args(<cword)`                                       | `<LocalLeader>ra` OR `:RShowArgs`     | nv
+  Get help for the object under cursor                                 | `<LocalLeader>rh` OR `:RHelp`         | nv
+  Send to R: `print(<cword>)`                                          | `<LocalLeader>rp` OR `:RObjectPr`     | nv
+  Send to R: debug                                                     | `<LocalLeader>bg` OR `:RDebug`        | nv
+  Send to R: `<Ctrl-L>`                                                | `<LocalLeader>rr` OR `:RClearConsole` | nv
+  Send to R: `ls()`                                                    | `<LocalLeader>rl` OR `:RListSpace`    | nv
+  Send to R: `nvim.names(<cword)`                                      | `<LocalLeader>rn` OR `:RObjectNames`  | nv
+  Send to R: `rm(list = ls())`                                         | `<LocalLeader>rm` OR `:RClearAll`     | nv
+  Set current directory to current document's                          | `<LocalLeader>rd` OR `:RSetwd`        | nv
+  Send to R: `str(<cword)`                                             | `<LocalLeader>rt` OR `:RObjectStr`    | nv
+  Send to R: `summary(<cword)`                                         | `<LocalLeader>rs` OR `:RSummary`      | nv
+  Get file info                                                        | `<LocalLeader>fi`                     | n
+  Close last graphics window                                           | `<LocalLeader>cw`                     | n
 
 </details>
 
 <details open>
 <summary>Weave</summary>
 
- Action                                                             | Keymap/command                         | Mode(s)
- -------------------------------------------------------------------|----------------------------------------|--------
- Delete files from knitr cache                                      | `:RKnitRmCache`                        | N/A
- Knit the document, run bibtex and generate the PDF                 | `:RBibTeXK`                            | N/A
- Sweave the document and run bibtex                                 | `:RBibTeX`                             | N/A
- Stop Quarto Preview                                                | `:RQuartoStop` OR `<LocalLeader>qs`    | n
- Preview Quarto                                                     | `:RQuartoPreview` OR `<LocalLeader>qp` | n
- Render Quarto                                                      | `:RQuartoRender` OR `<LocalLeader>qr`  | n
- Knit the document                                                  | `:RKnit`                               | N/A
- Knit the current document and generate an ODT document             | `<LocalLeader>ko` OR `:RMakeODT`       | nv
- Knit the current document and generate an HTML document            | `<LocalLeader>kh` OR `:RMakeHTML`      | nv
- Knit the current document and generate a Word document             | `<LocalLeader>kw` OR `:RMakeWord`      | nv
- Knit the current document and generate a beamer presentation       | `<LocalLeader>kl` OR `:RMakePDFKb`     | nv
- Knit the current document and generate the default document format | `<LocalLeader>kr` OR `:RMakeRmd`       | nv
- Knit the current document and generate a PDF document              | `<LocalLeader>kp` OR `:RMakePDFK`      | nv
- Knit the current document and generate all formats in the header   | `<LocalLeader>ka` OR `:RMakeAll`       | nv
+  Action                                                             | Keymap/command                         | Mode(s)
+ --------------------------------------------------------------------|----------------------------------------|---------
+  Delete files from knitr cache                                      | `:RKnitRmCache`                        | N/A
+  Knit the document, run bibtex and generate the PDF                 | `:RBibTeXK`                            | N/A
+  Sweave the document and run bibtex                                 | `:RBibTeX`                             | N/A
+  Stop Quarto Preview                                                | `:RQuartoStop` OR `<LocalLeader>qs`    | n
+  Preview Quarto                                                     | `:RQuartoPreview` OR `<LocalLeader>qp` | n
+  Render Quarto                                                      | `:RQuartoRender` OR `<LocalLeader>qr`  | n
+  Knit the document                                                  | `:RKnit`                               | N/A
+  Knit the current document and generate an ODT document             | `<LocalLeader>ko` OR `:RMakeODT`       | nv
+  Knit the current document and generate an HTML document            | `<LocalLeader>kh` OR `:RMakeHTML`      | nv
+  Knit the current document and generate a Word document             | `<LocalLeader>kw` OR `:RMakeWord`      | nv
+  Knit the current document and generate a beamer presentation       | `<LocalLeader>kl` OR `:RMakePDFKb`     | nv
+  Knit the current document and generate the default document format | `<LocalLeader>kr` OR `:RMakeRmd`       | nv
+  Knit the current document and generate a PDF document              | `<LocalLeader>kp` OR `:RMakePDFK`      | nv
+  Knit the current document and generate all formats in the header   | `<LocalLeader>ka` OR `:RMakeAll`       | nv
 
 </details>
 
 <details open>
 <summary>Object Browser</summary>
 
- Action                                                        | Keymap/command                        | Mode(s)
----------------------------------------------------------------|---------------------------------------|---------
- Close S4 objects, lists and data.frames in the Object Browser | `<LocalLeader>r-` OR `:ROBCloseLists` | nv
- Open S4 objects, lists and data.frames in the Object Browser  | `<LocalLeader>r=` OR `:ROBOpenLists`  | nv
- Toggle the Object Browser                                     | `<LocalLeader>ro` OR `:ROBToggle`     | nv
+  Action                                                        | Keymap/command                        | Mode(s)
+ ---------------------------------------------------------------|---------------------------------------|---------
+  Close S4 objects, lists and data.frames in the Object Browser | `<LocalLeader>r-` OR `:ROBCloseLists` | nv
+  Open S4 objects, lists and data.frames in the Object Browser  | `<LocalLeader>r=` OR `:ROBOpenLists`  | nv
+  Toggle the Object Browser                                     | `<LocalLeader>ro` OR `:ROBToggle`     | nv
 
 </details>
 
@@ -3400,22 +3402,22 @@ As the name suggests, this plugin provides functionality related to [marks](#mar
 
 Listed below are some useful actions with their default keymaps (can be modified in `setup()`):
 
- Action                                                                                                     | keymap
- -----------------------------------------------------------------------------------------------------------|-------------
-  Set mark                                                                                                   | `mx`
- Set the next available alphabetical (lowercase) mark                                                       | `m,`
- Toggle the next available mark at the current line                                                         | `m;`
- Delete mark `x`                                                                                            | `dmx`
- Delete all marks on the current line                                                                       | `dm-`
- Delete all marks in the current buffer                                                                     | `dm<space>`
- Move to next mark                                                                                          | `m]`
- Move to previous mark                                                                                      | `m[`
- Preview mark[^preview]                                                                                     | `m:`
- Add a bookmark from bookmark group[0-9].                                                                   | `m[0-9]`
- Delete all bookmarks from bookmark group[0-9].                                                             | `dm[0-9]`
- Move to the next bookmark having the same type as the current bookmark.[^wb]     | `m}`
- Move to the previous bookmark having the same type as the current bookmark.[^wb] | `m{`
- Delete the bookmark under the cursor.                                                                      | `dm=`
+  Action                                                                           | keymap
+ ----------------------------------------------------------------------------------|-------------
+  Set mark                                                                         | `mx`
+  Set the next available alphabetical (lowercase) mark                             | `m,`
+  Toggle the next available mark at the current line                               | `m;`
+  Delete mark `x`                                                                  | `dmx`
+  Delete all marks on the current line                                             | `dm-`
+  Delete all marks in the current buffer                                           | `dm<space>`
+  Move to next mark                                                                | `m]`
+  Move to previous mark                                                            | `m[`
+  Preview mark[^preview]                                                           | `m:`
+  Add a bookmark from bookmark group[0-9].                                         | `m[0-9]`
+  Delete all bookmarks from bookmark group[0-9].                                   | `dm[0-9]`
+  Move to the next bookmark having the same type as the current bookmark.[^wb]     | `m}`
+  Move to the previous bookmark having the same type as the current bookmark.[^wb] | `m{`
+  Delete the bookmark under the cursor.                                            | `dm=`
 
 [^wb]: Works across buffers.
 [^preview]: This will prompt you for a specific mark to preview; press `<cr>` to preview the next mark.
@@ -3424,12 +3426,12 @@ Listed below are some useful actions with their default keymaps (can be modified
 
 [mini.move](https://github.com/echasnovski/mini.move) lets you move lines in Normal/Visual mode.
 
- Action | Keymap/command
---------|-------------------------------
- Left   | <kbd>Alt</kbd> + <kbd>h</kbd>
- Right  | <kbd>Alt</kbd> + <kbd>l</kbd>
- Up     | <kbd>Alt</kbd> + <kbd>k</kbd>
- Down   | <kbd>Alt</kbd> + <kbd>j</kbd>
+   Action | Keymap/command
+  --------|-------------------------------
+   Left   | <kbd>Alt</kbd> + <kbd>h</kbd>
+   Right  | <kbd>Alt</kbd> + <kbd>l</kbd>
+   Up     | <kbd>Alt</kbd> + <kbd>k</kbd>
+   Down   | <kbd>Alt</kbd> + <kbd>j</kbd>
 
 #### nvim-spider
 
@@ -3438,13 +3440,13 @@ This plugin extends regular `web` motions to handle snake and camel case!
 > [!NOTE]
 > I have mapped the actions to different mappings to avoid clobbering the default mappings.
 
- Action                       | Keymap
-------------------------------|-------------------------------
- Move to next word            | <kbd>Alt</kbd> + <kbd>w</kbd>
- Move to end of word          | <kbd>Alt</kbd> + <kbd>e</kbd>
- Move to beginning of word    | <kbd>Alt</kbd> + <kbd>b</kbd>
- Move to end of previous word | <kbd>g</kbd> + <kbd>E</kbd>
- Move to number               | <kbd>1</kbd>
+  Action                       | Keymap
+ ------------------------------|-------------------------------
+  Move to next word            | <kbd>Alt</kbd> + <kbd>w</kbd>
+  Move to end of word          | <kbd>Alt</kbd> + <kbd>e</kbd>
+  Move to beginning of word    | <kbd>Alt</kbd> + <kbd>b</kbd>
+  Move to end of previous word | <kbd>g</kbd> + <kbd>E</kbd>
+  Move to number               | <kbd>1</kbd>
 
 #### [nvim-surround](https://github.com/kylechui/nvim-surround)
 
@@ -3460,17 +3462,17 @@ There are also insert-mode `<C-g>s` and visual-mode `S` mappings, that add the d
 
 For the following examples, `*` denotes the cursor position and `|` demarcates the start and end of a visual selection:
 
- Old text                                  | Command     | New text
--------------------------------------------|-------------|---------------------------
- `surr*ound_words`                         | `ysiw)`     | `(surround_words)`
- `*make strings`                           | `ys$"`      | `"make strings"`
- `[delete ar*ound me!]`                    | `ds]`       | `delete around me!`
- `remove <b>HTML t*ags</b>`                | `dst`       | `remove HTML tags`
- `'change quot*es'`                        | `cs'"`      | `"change quotes"`
- `<b>or tag* types</b>`                    | `csth1<CR>` | `<h1>or tag types</h1>`
- `delete(functi*on calls)`                 | `dsf`       | `function calls`
- `local str = *` (insert mode)             | `<C-g>s"`   | `local str = "*"`
- `local str = \|some text\|` (visual mode) | `S'`        | `local str = 'some text'`
+  Old text                                  | Command     | New text
+ -------------------------------------------|-------------|---------------------------
+  `surr*ound_words`                         | `ysiw)`     | `(surround_words)`
+  `*make strings`                           | `ys$"`      | `"make strings"`
+  `[delete ar*ound me!]`                    | `ds]`       | `delete around me!`
+  `remove <b>HTML t*ags</b>`                | `dst`       | `remove HTML tags`
+  `'change quot*es'`                        | `cs'"`      | `"change quotes"`
+  `<b>or tag* types</b>`                    | `csth1<CR>` | `<h1>or tag types</h1>`
+  `delete(functi*on calls)`                 | `dsf`       | `function calls`
+  `local str = *` (insert mode)             | `<C-g>s"`   | `local str = "*"`
+  `local str = \|some text\|` (visual mode) | `S'`        | `local str = 'some text'`
 
 Detailed information on how to use this plugin can be found in [`:h nvim-surround.usage`](https://github.com/kylechui/nvim-surround/blob/main/doc/nvim-surround.txt).
 
@@ -3480,43 +3482,43 @@ The  `yr`[^yr] operator is a special case for `ys`, and operates on the **curren
 
 [^yr]: I overrode the default mappings of `yss` and `ySS` with `yr` and `yR` to make this smoother and eliminate warnings about overlapping keymaps.
 
- Old text       | Command | New text
-----------------|---------|-------------------------------------------
- `hel*lo world` | `yr'`   | `'hello world'`
- `This is cool` | `yRtp`  | <code>\<p><br>This is cool<br>\<p></code>
+  Old text       | Command | New text
+ ----------------|---------|-------------------------------------------
+  `hel*lo world` | `yr'`   | `'hello world'`
+  `This is cool` | `yRtp`  | <code>\<p><br>This is cool<br>\<p></code>
 
 The `<C-g>S` insert-mode operator is analogous to `C-g>s`, but adds the delimiter pair on new lines.
 
- Old text                    | Command  | New text
-----------------------------|----------|------------------------------------
- `func_name*`  (insert mode) | `<C-g>s(` | <code>func\_name(<br>*<br>)</code>
+  Old text                    | Command   | New text
+ -----------------------------|-----------|------------------------------------
+  `func_name*`  (insert mode) | `<C-g>s(` | <code>func\_name(<br>*<br>)</code>
 
 The `cS` normal-mode operator is analogous to `cs`, but adds the replacement delimiter pair on new lines.
 
- Old text      | Command | New text
----------------|---------|---------------------------------
- `func(a*rgs)` | `cS))`  | <code>func(<br>args<br>)</code>
+  Old text      | Command | New text
+ ---------------|---------|---------------------------------
+  `func(a*rgs)` | `cS))`  | <code>func(<br>args<br>)</code>
 
 ##### Default pairs
 
 When using open-close pairs like `()`, adding a surround with opening character adds a space between character and text but using closing character does not.
 
- Old text | Command | New text
-----------|---------|-------------
- `hel*lo` | `ysiw)` | `(hello)`
- `hel*lo` | `ysiw(` | `( hello )`
+  Old text | Command | New text
+ ----------|---------|-------------
+  `hel*lo` | `ysiw)` | `(hello)`
+  `hel*lo` | `ysiw(` | `( hello )`
 
 This applies for `()`, `{}`, `[]`, and `<>` pairs.
 
 When deleting or changing open/close pairs, **the closing character always leaves whitespace intact**, while the opening character will try to remove a whitespace character (if it exists).
 
- Old text             | Command | New text
-----------------------|---------|-------------------
- `{( sa*mple_text )}` | `ds(`   | `{sample_text}`
- `{( sa*mple_text )}` | `ds)`   | `{ sample_text }`
- `(sa*mple_text)`     | `cs({`  | `{ sample_text }`
- `( sa*mple_text )`   | `cs)}`  | `{ sample_text }`
- `( sa*mple_text )`   | `cs){`  | `{ sample_text }`
+  Old text             | Command | New text
+ ----------------------|---------|-------------------
+  `{( sa*mple_text )}` | `ds(`   | `{sample_text}`
+  `{( sa*mple_text )}` | `ds)`   | `{ sample_text }`
+  `(sa*mple_text)`     | `cs({`  | `{ sample_text }`
+  `( sa*mple_text )`   | `cs)}`  | `{ sample_text }`
+  `( sa*mple_text )`   | `cs){`  | `{ sample_text }`
 
 There is an "insert" key, denoted by `i`. It queries the user for what should go on the left and right hand sides of a selection, and adds the delimiter pair to the buffer.
 
@@ -3529,11 +3531,11 @@ For example, typing `yri` for `Neo*vim` will bring up 2 prompts for left and rig
 
 The other type of alias is a "tabular alias" e.g. `q` is for quotes (`'`, `"`, `` ` ``). It will always work on nearest match.
 
- Old text             | Command | New text
-----------------------|---------|---------------------
- `"Nested '*quotes'"` | `dsq`   | `"Nested quotes"`
- `"Nes*ted 'quotes'"` | `dsq`   | `Nested 'quotes'`
- `"Nes*ted 'quotes'"` | `csqb`  | `(Nested 'quotes')`
+  Old text             | Command | New text
+ ----------------------|---------|---------------------
+  `"Nested '*quotes'"` | `dsq`   | `"Nested quotes"`
+  `"Nes*ted 'quotes'"` | `dsq`   | `Nested 'quotes'`
+  `"Nes*ted 'quotes'"` | `csqb`  | `(Nested 'quotes')`
 
 Here are the aliases based on the default configuration:
 
@@ -3558,14 +3560,14 @@ With [this plugin](https://github.com/smoka7/multicursors.nvim), you can edit an
 
 The plugin provides the following commands:
 
- Command           | Description
------------------|----------------------------------------------------------------------------------------------------------------
- `MCstart`         | Select the word under the cursor and start listening for the actions. In visual mode, it acts like `MCvisual`.
- `MCvisual`        | Select the last visual mode selection and start listening for the actions.
- `MCpattern`       | Prompts for a pattern and selects every match in the buffer.
- `MCvisualPattern` | Prompts for a pattern and selects every match in the visual selection.
- `MCunderCursor`   | Select the char under the cursor and start listening for the actions.
- `MCclear`         | Clears all the selections.
+  Command           | Description
+ -------------------|----------------------------------------------------------------------------------------------------------------
+  `MCstart`         | Select the word under the cursor and start listening for the actions. In visual mode, it acts like `MCvisual`.
+  `MCvisual`        | Select the last visual mode selection and start listening for the actions.
+  `MCpattern`       | Prompts for a pattern and selects every match in the buffer.
+  `MCvisualPattern` | Prompts for a pattern and selects every match in the visual selection.
+  `MCunderCursor`   | Select the char under the cursor and start listening for the actions.
+  `MCclear`         | Clears all the selections.
 
 Use one of the above commands to enter **Multicursor** mode. This mode will allow you to edit or execute commands on multiple selections at once.
 
@@ -3603,19 +3605,19 @@ Once you enter the Extend mode, you can expand or shrink your selections using V
 
 When you search via `/`, each match will have a corresponding label, e.g. `a`. Press the key(s) matching that label (here, <kbd>a</kbd>) to go to the search result.
 
- Command                 | Normal mode  | Visual/operator-pending mode
- -------------------------|--------------|----------------------------
- Flash jump              | `<leader>fs` | `fs`
- Flash jump (Treesitter) | `<leader>fT` | `fT`
- Flash forward           | `<leader>ff` | `ff`
- Flash backward          | `<leader>fb` | `fb`
- Flash continue          | `<leader>fc` | `fc`
- Flash diagnostics       | `<leader>fd` | `fd`
- Flash Treesitter search | **NA**       | `fR`
- Flash toggle search     | `<leader>ft` | **NA**
- Flash current word      | `<leader>fw` | **NA**
- Move next               | `;`          | **NA**
- Move previous           | `,`          | **NA**
+  Command                 | Normal mode  | Visual/operator-pending mode
+ -------------------------|--------------|------------------------------
+  Flash jump              | `<leader>fs` | `fs`
+  Flash jump (Treesitter) | `<leader>fT` | `fT`
+  Flash forward           | `<leader>ff` | `ff`
+  Flash backward          | `<leader>fb` | `fb`
+  Flash continue          | `<leader>fc` | `fc`
+  Flash diagnostics       | `<leader>fd` | `fd`
+  Flash Treesitter search | **NA**       | `fR`
+  Flash toggle search     | `<leader>ft` | **NA**
+  Flash current word      | `<leader>fw` | **NA**
+  Move next               | `;`          | **NA**
+  Move previous           | `,`          | **NA**
 
 For incremental search using Treesitter (normal, operator-pending mode), use `<C-Space>` to search for next and `<BS>` to search for previous.
 
@@ -3696,25 +3698,25 @@ Syntax aware text-objects, select, move, swap, and peek support.
 
 ##### Select
 
- Action                                            | Keymap
----------------------------------------------------|-----------
- Select outer part of an assignment                | `va=`
- Select inner part of an assignment                | `vi=`
- Select left hand side of an assignment            | `v=L`
- Select right hand side of an assignment           | `v=R`
- Select outer part of a parameter/argument         | `vaa`
- Select inner part of a parameter/argument         | `via`
- Select outer part of a conditional                | `vai`
- Select inner part of a conditional                | `vii`
- Select outer part of a loop                       | `val`
- Select inner part of a loop                       | `vil`
- Select outer part of a function call              | `vaf`
- Select inner part of a function call              | `vif`
- Select outer part of a method/function definition | `vaM`
- Select inner part of a method/function definition | `viM`
- Select outer part of a class                      | `vac`
- Select inner part of a class                      | `vic`
- ~~Select language scope~~                         | ~~`vaS`~~
+  Action                                            | Keymap
+ ---------------------------------------------------|-----------
+  Select outer part of an assignment                | `va=`
+  Select inner part of an assignment                | `vi=`
+  Select left hand side of an assignment            | `v=L`
+  Select right hand side of an assignment           | `v=R`
+  Select outer part of a parameter/argument         | `vaa`
+  Select inner part of a parameter/argument         | `via`
+  Select outer part of a conditional                | `vai`
+  Select inner part of a conditional                | `vii`
+  Select outer part of a loop                       | `val`
+  Select inner part of a loop                       | `vil`
+  Select outer part of a function call              | `vaf`
+  Select inner part of a function call              | `vif`
+  Select outer part of a method/function definition | `vaM`
+  Select inner part of a method/function definition | `viM`
+  Select outer part of a class                      | `vac`
+  Select inner part of a class                      | `vic`
+  ~~Select language scope~~                         | ~~`vaS`~~
 
 :bulb: Pattern is `v<selection_style><node>`.
 
@@ -3728,68 +3730,68 @@ An example: `]f` will navigate to **start** (`f` is lower case) of **next** (`]`
 
 ###### Goto next start
 
- Action                         | Keymap
---------------------------------|--------
- Next function call start       | `]f`
- Next method/function def start | `]m`
- Next class start               | `]c`
- Next conditional start         | `]i`
- Next loop start                | `]{`
+  Action                         | Keymap
+ --------------------------------|--------
+  Next function call start       | `]f`
+  Next method/function def start | `]m`
+  Next class start               | `]c`
+  Next conditional start         | `]i`
+  Next loop start                | `]{`
 
 ###### Goto next end
 
- Action                       | Keymap
-------------------------------|--------
- Next function call end       | `]F`
- Next method/function def end | `]M`
- Next class end               | `]C`
- Next conditional end         | `]I`
- Next loop end                | `]}`
+  Action                       | Keymap
+ ------------------------------|--------
+  Next function call end       | `]F`
+  Next method/function def end | `]M`
+  Next class end               | `]C`
+  Next conditional end         | `]I`
+  Next loop end                | `]}`
 
 ###### Goto previous start
 
- Action                             | Keymap
-------------------------------------|--------
- Previous function call start       | `[f`
- Previous method/function def start | `[m`
- Previous class start               | `[c`
- Previous conditional start         | `[i`
- Previous loop start                | `[{`
+  Action                             | Keymap
+ ------------------------------------|--------
+  Previous function call start       | `[f`
+  Previous method/function def start | `[m`
+  Previous class start               | `[c`
+  Previous conditional start         | `[i`
+  Previous loop start                | `[{`
 
 ###### Goto previous end
 
- Action                           | Keymap
-----------------------------------|-------
- Previous function call end       | `[F`
- Previous method/function def end | `[M`
- Previous class end               | `[C`
- Previous conditional end         | `[I`
- Previous loop end                | `[}`
+  Action                           | Keymap
+ ----------------------------------|--------
+  Previous function call end       | `[F`
+  Previous method/function def end | `[M`
+  Previous class end               | `[C`
+  Previous conditional end         | `[I`
+  Previous loop end                | `[}`
 
 ##### Swap
 
- Action                                | Keymap
---------------------------------------|--------------
- Swap with previous function           | `<leader>Sf`
- Swap with previous property           | `<leader>Sp`
- Swap with previous parameter/argument | `<leader>Sa`
- Swap with next function               | `<leader>SF`
- Swap with next property               | `<leader>SP`
- Swap with next parameter/argument     | `<leader>SA`
+  Action                                | Keymap
+ ---------------------------------------|--------------
+  Swap with previous function           | `<leader>Sf`
+  Swap with previous property           | `<leader>Sp`
+  Swap with previous parameter/argument | `<leader>Sa`
+  Swap with next function               | `<leader>SF`
+  Swap with next property               | `<leader>SP`
+  Swap with next parameter/argument     | `<leader>SA`
 
 ##### LSP interop
 
- Action                            | Keymap
------------------------------------|--------------
- Peek definition of outer class    | `<leader>pc`
- Peek definition of outer function | `<leader>pf`
+  Action                            | Keymap
+ -----------------------------------|--------------
+  Peek definition of outer class    | `<leader>pc`
+  Peek definition of outer function | `<leader>pf`
 
 #### nvim-treesitter-refactor
 
- Action               | Keymap
-----------------------|---------------------------------
- Go to next usage     | `]U`
- Go to previous usage | `[U`
+  Action               | Keymap
+ ----------------------|--------
+  Go to next usage     | `]U`
+  Go to previous usage | `[U`
 
 #### nvim-tree-pairs
 
@@ -3817,12 +3819,12 @@ This provides Markdown-related functionality.
 
 ##### Inline-style
 
- Action                                                 | Keymap
- -------------------------------------------------------|------------------------------------------------
- Toggle inline style                                    | `gs` (+ motion for normal mode) + `{emphasis}`
- Line-wise toggle inline style                          | `gss{emphasis}`
- Delete emphasis surrounding cursor                     | `ds{emphasis}`
- Change emphasis surrounding cursor from `from` to `to` | `cs{from}{to}`
+  Action                                                 | Keymap
+ --------------------------------------------------------|------------------------------------------------
+  Toggle inline style                                    | `gs` (+ motion for normal mode) + `{emphasis}`
+  Line-wise toggle inline style                          | `gss{emphasis}`
+  Delete emphasis surrounding cursor                     | `ds{emphasis}`
+  Change emphasis surrounding cursor from `from` to `to` | `cs{from}{to}`
 
 Emphasis can be one of the following:
 
@@ -3845,10 +3847,10 @@ For visual mode, I set up keyboard shortcuts identically to the ones for VS Code
 
 ##### Links
 
- Action       | Keymap
- -------------|--------
- Add link[^gl] | `gl`
- Follow link  | `gx`
+  Action        | Keymap
+ ---------------|--------
+  Add link[^gl] | `gl`
+  Follow link   | `gx`
 
 [^gl]: Use motion in normal mode, e.g. `gl$` to add link for text upto and including end of line.
 
@@ -3879,11 +3881,11 @@ You can omit headings by flagging them as shown below:
 
 These commands work in normal mode:
 
- Action                 | Keymap
- -----------------------|-------------
- Toggle task            | `<C-m><C-x>`
- Insert list item below | `<C-m><C-j>`
- Insert list item above | `<C-m><C-k>`
+  Action                 | Keymap
+ ------------------------|--------------
+  Toggle task            | `<C-m><C-x>`
+  Insert list item below | `<C-m><C-j>`
+  Insert list item above | `<C-m><C-k>`
 
 #### live-preview.nvim
 
@@ -3901,11 +3903,19 @@ Press `<leader>tm` to toggle rendering.
 
 Run `:RenderMarkdown config` to validate your configuration.
 
-### VimTex
+### LaTeX
+
+#### sigil.nvim
+
+[https://github.com/Prgebish/sigil.nvim] visually replaces text patterns with Unicode symbols while you edit, e.g. `\alpha` with `α`.
+
+You can toggle with `:Sigil` or use `:SigilEnable` (`:SigilDisable`) to enable (disable).
+
+#### VimTex
 
 [VimTeX](https://github.com/lervag/vimtex) is a filetype and syntax plugin for LaTeX files. Commands use `<LocalLeader>` (which I have mapped to `\`).
 
-#### Configuration
+##### Configuration
 
 Set `vim.g.vimtex_fold_enabled = 1` to enable folding.
 
@@ -3916,51 +3926,51 @@ vim.g.vimtex_view_method = "zathura_simple"
 vim.g.vimtex_view_general_viewer = "zathura"
 ```
 
-#### Basic Usage
+##### Basic Usage
 
- Action                  | Keymap/command
--------------------------|-------------------------------------
- Clean                   | `<LocalLeader>lc` OR `:VimtexClean`
- Clean (full)            | `<LocalLeader>lC` OR `:VimtexClean!`
- View errors             | `<LocalLeader>le`
- View status             | `<LocalLeader>lg` OR `:VimtexStatus`
- View status (all)       | `<LocalLeader>lG` OR `:VimtexStatus!`
- View info               | `<LocalLeader>li` OR `:VimtexInfo`
- View info (all)         | `<LocalLeader>lI` OR `:VimtexInfo!`
- Stop compile            | `<LocalLeader>lk` OR `:VimtexStop`
- Stop compile (all)      | `<LocalLeader>lK` OR `:VimtexStopAll`
- Compile                 | `<LocalLeader>ll` OR `:VimtexCompile`
- Imaps (insert mappings)[^imaps] | `<LocalLeader>lm` OR `:VimtexImapsList`
- Compile output          | `<LocalLeader>lo`
- View log                | `<LocalLeader>lq` OR `:VimtexLog`
- View TOC                | `<LocalLeader>lt`
- Forward search          | `<LocalLeader>lv`
+  Action                          | Keymap/command
+ ---------------------------------|-----------------------------------------
+  Clean                           | `<LocalLeader>lc` OR `:VimtexClean`
+  Clean (full)                    | `<LocalLeader>lC` OR `:VimtexClean!`
+  View errors                     | `<LocalLeader>le`
+  View status                     | `<LocalLeader>lg` OR `:VimtexStatus`
+  View status (all)               | `<LocalLeader>lG` OR `:VimtexStatus!`
+  View info                       | `<LocalLeader>li` OR `:VimtexInfo`
+  View info (all)                 | `<LocalLeader>lI` OR `:VimtexInfo!`
+  Stop compile                    | `<LocalLeader>lk` OR `:VimtexStop`
+  Stop compile (all)              | `<LocalLeader>lK` OR `:VimtexStopAll`
+  Compile                         | `<LocalLeader>ll` OR `:VimtexCompile`
+  Imaps (insert mappings)[^imaps] | `<LocalLeader>lm` OR `:VimtexImapsList`
+  Compile output                  | `<LocalLeader>lo`
+  View log                        | `<LocalLeader>lq` OR `:VimtexLog`
+  View TOC                        | `<LocalLeader>lt`
+  Forward search                  | `<LocalLeader>lv`
 
 [^imaps]: Only visible if `vim.g.vimtex_imaps_enabled=1`.
 
  `:VimtexInfo` shows information about the project including packages used.
 
-#### Motions and textobjects
+##### Motions and textobjects
 
 > [!NOTE]
 > The word `section` below refers to `\section`, `\subsection` or `\subsubsection`, whichever comes first.
 
 These motions support `count`, e.g. `2]]`.
 
-Motion                 | Keymap
------------------------|--------
-Go to next start of a section     | `]]`
-Go to previous start of section | `[[`
-Go to previous end of section | `[]`
-Go to next end of a section | `][`
-**Go to previous start of an environment** | `[e`
-**Go to next start of an environment** | `]e`
-**Go to previous end of an environment** | `[E`
-**Go to previous start of an environment** | `]E`
-Go to next start of a math zone     | `]n`
-Go to previous start of a math zone | `[n`
-Go to next end of of a math zone  | `]N`
-Go to previous end of a math zone  | `[N`
+  Motion                                     | Keymap
+ --------------------------------------------|--------
+  Go to next start of a section              | `]]`
+  Go to previous start of section            | `[[`
+  Go to previous end of section              | `[]`
+  Go to next end of a section                | `][`
+  **Go to previous start of an environment** | `[e`
+  **Go to next start of an environment**     | `]e`
+  **Go to previous end of an environment**   | `[E`
+  **Go to previous start of an environment** | `]E`
+  Go to next start of a math zone            | `]n`
+  Go to previous start of a math zone        | `[n`
+  Go to next end of of a math zone           | `]N`
+  Go to previous end of a math zone          | `[N`
 
 Go to next start of a LaTeX comment     | `]/`
 Go to previous start of a LaTeX comment | `[/`
@@ -3975,21 +3985,21 @@ Go to previous end of a LaTeX comment  | `[*`
 
 Use `%` to move between matching delimiters, inline-math `$` delimiters, and LaTeX environments.
 
-Text object |Keymap| Example
------------------------|--------|---
-Surrounding environment   | `se` | `dse` removes surrounding brackets.
-Inner environment | `ie` | `vie` selects inner text in environment
-Around environment | `ae` | `dae` deletes environment
-Toggle environment | `tse` | `tse` toggles environment.
-Surrounding command | `sc` | `csc` changes a command while preserving the command's argument(s).
-`*` in environments[^tss] | `tss` | Toggle `*`.
-Inner math environment | `i$ | `vi$` selects inner content of environment.
-Outer math environment | `a$ | `va$` selects outer content of environment.
-Inner section | `iP` | `viP` selects entire content below current section.
-Around section | `aP` | `daP` deletes whole section including `\section{...}`.
-Inner delimiter | `id`| `vid` applied to `{foo(1*+a)}` highlights `(1+a)`
-Around delimiter| `ad` | `dad` applied to `$\alpha = (1 + *\frac{2}{3})$` becomes `$alpha = $`.
-Surrounding delimiters  | `sd` | `tsd` toggles between `()` and `\left(\right)`.
+  Text object               | Keymap | Example
+ ---------------------------|--------|------------------------------------------------------------------------
+  Surrounding environment   | `se`   | `dse` removes surrounding brackets.
+  Inner environment         | `ie`   | `vie` selects inner text in environment
+  Around environment        | `ae`   | `dae` deletes environment
+  Toggle environment        | `tse`  | `tse` toggles environment.
+  Surrounding command       | `sc`   | `csc` changes a command while preserving the command's argument(s).
+  `*` in environments[^tss] | `tss`  | Toggle `*`.
+  Inner math environment    | `i$    | `vi$` selects inner content of environment.
+  Outer math environment    | `a$    | `va$` selects outer content of environment.
+  Inner section             | `iP`   | `viP` selects entire content below current section.
+  Around section            | `aP`   | `daP` deletes whole section including `\section{...}`.
+  Inner delimiter           | `id`   | `vid` applied to `{foo(1*+a)}` highlights `(1+a)`
+  Around delimiter          | `ad`   | `dad` applied to `$\alpha = (1 + *\frac{2}{3})$` becomes `$alpha = $`.
+  Surrounding delimiters    | `sd`   | `tsd` toggles between `()` and `\left(\right)`.
 
 :point_right: In the table above, `*` indicates cursor position.
 
