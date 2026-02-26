@@ -1489,9 +1489,10 @@ These work with editing, e.g. `d2↑` will delete 2 lines above current line.
 
 ### Line-based
 
- Action         | Keymap/command
-----------------|-----------------------
- Go to 3rd line | `:3` OR `3gg` OR `3G`
+ Action                      | Keymap/command
+ ----------------------------|----------------------
+ Go to 3rd line              | `:3` OR `3gg` OR `3G`
+ Go to 3rd line on first NBC | `3G`
 
 ### Word-based
 
@@ -1520,6 +1521,8 @@ A WORD is a sequence of NBCs separated by whitespace. A word is delimited by non
   Move to last NBC        | `g_`
   Move to 3rd character   | `3\|`
   Move to middle of line  | `gM`
+  Move left               | `h`
+  Move right              | `l`
 
 `80gM` to go to position at 80% of current line.
 
@@ -1531,12 +1534,14 @@ See `:h left-right-motions`.
 
 A line that is wrapped will have 2 or more screen lines.
 
-  Action                      | Keymap/command
- -----------------------------|----------------
-  Move to the first character | `g0`
-  Move to the first NBC       | `g^`
-  Move up screen line         | `gk` OR `g↑`
-  Move down screen line       | `gj` OR `g↓`
+  Action                        | Keymap/command
+ ------------------------------ |----------------
+  Move to the first character   | `g0`
+  Move to the last character    | `g$0$`
+  Move to the first NBC         | `g^`
+  Move up screen line           | `gk` OR `g↑`
+  Move down screen line         | `gj` OR `g↓`
+  Move to middle of screen line | `gm`
 
 `g2j` move down 2 screen lines.
 
@@ -1600,18 +1605,20 @@ To force a linewise motion to be charwise, use `v`.
 
 <kbd>h</kbd>, <kbd>l</kbd> are used for navigating left and right.
 
-  Action                                                                                       | Keymap/command
- ----------------------------------------------------------------------------------------------|----------------
-  Move to first NBC of first line                                                              | `gg`
-  Move to first NBC of last line                                                               | <kbd>G</kbd>
-  Moves to matching bracket (or end of current Treesitter node courtesy of `nvim-tree-pairs`s) | <kbd>%</kbd>
-  Moves to line at 40% of total lines                                                          | `40%`
-  Move to top of window                                                                        | <kbd>H</kbd>
-  Move to middle of window                                                                     | <kbd>M</kbd>
-  Move to bottom of window                                                                     | <kbd>L</kbd>
-  Move to first non-empty character 2 lines below                                              | `2+`
-  Move to first non-empty character 1 line above                                               | `-`
-  Go to `[count]` byte in buffer                                                               | `[count]go`
+ Action                              | Keymap/command
+ ------------------------------------|----------------
+ Move to first NBC of first line     | `gg`
+ Move to first NBC of last line      | <kbd>G</kbd>
+ Moves to matching bracket^[ntp]     | <kbd>%</kbd>
+ Moves to line at 40% of total lines | `40%`
+ Move to top of window               | <kbd>H</kbd>
+ Move to middle of window            | <kbd>M</kbd>
+ Move to bottom of window            | <kbd>L</kbd>
+ Move to first NBC 2 lines below     | `2+`
+ Move to first NBC 1 line above      | `-`
+ Go to `[count]` byte in buffer      | `[count]go`
+
+^[ntp]: or end of current Treesitter node courtesy of `nvim-tree-pairs`
 
 > [!TIP]
 > `H` stands for Home, `M` for Middle and `L` for Last.  Alternatively,
