@@ -2929,7 +2929,7 @@ require("codecompanion").setup({
 
 See [here](https://codecompanion.olimorris.dev/usage/chat-buffer/#keymaps) for the full list of keymaps.
 
-You can add context from your code base by using [*Variables*](https://codecompanion.olimorris.dev/getting-started.html#variables) and [*Slash Commands*](https://codecompanion.olimorris.dev/getting-started.html#slash-commands) in the chat buffer, e.g. `#{buffer:8-12}` shares lines 8-12 of current buffer while `/buffer` is a command to insert an open buffer.
+You can add context from your code base by using [*Editor Context*](https://codecompanion.olimorris.dev/getting-started.html#editor-context) and [*Slash Commands*](https://codecompanion.olimorris.dev/getting-started.html#slash-commands) in the chat buffer, e.g. `#{buffer:8-12}` shares lines 8-12 of current buffer while `/buffer` is a command to insert an open buffer.
 
 You can configure slash commands to be triggered by keymaps:
 
@@ -2955,19 +2955,19 @@ Here are some of the built-in tools:
 - `@{get_changed_files}` - enables an LLM to use `git diff` to get changes to files in the current working directory.
 - `@{grep_search}` - enables an LLM to search for text in the current working directory.
 - `@{file_search}`- enables an LLM to search for files in the current working directory.
-- `@{list_code_usages}`- needs LSP to be configured.
-- `@{next_edit_suggestion}` - The LLM can only suggest edits in files or buffers that have been shared with it as context.
 - `@{web_search}` - Need `$TAVILY_API_KEY` set. See <https://www.tavily.com/> for more information.
 
 Built-in tool groups:
 
-- [`@{files}`](https://codecompanion.olimorris.dev/usage/chat-buffer/tools#files) is a combination of file-related tools such as `@{create_file}`,`@{insert_edit_into_file}` and `@{read_file}`.
-- [`@{full_stack_dev}`](https://codecompanion.olimorris.dev/usage/chat-buffer/tools#full-stack-dev) contains tools to enable an LLM to create applications and understand and refactor code bases.
+- [`@{files}`](https://codecompanion.olimorris.dev/usage/chat-buffer/agents-tools#files) is a combination of file-related tools such as `@{create_file}`,`@{insert_edit_into_file}` and `@{read_file}`.
+- [`@{agent}`](https://codecompanion.olimorris.dev/usage/chat-buffer/agents-tools#agent) combines a curated set of tools with its own system prompt.
 
-For more information, see [Using Agents and Tools](https://codecompanion.olimorris.dev/usage/chat-buffer/agents.html).
+Groups become agents when they provide their own `system_prompt`. Combined with the `ignore_system_prompt` and `ignore_tool_system_prompt` opts, a group can completely replace the default system prompts with its own tailored instructions. This is how the built-in `@{agent}` group works.
+
+For more information, see [Using Agents and Tools](https://codecompanion.olimorris.dev/usage/chat-buffer/agents-tools).
 
 > [!IMPORTANT]
-> As of v17.5.0, tools and variables must be wrapped in curly braces, such as `@{grep_search}` or `#{lsp}`.
+> As of v17.5.0, tools and editor context must be wrapped in curly braces, such as `@{grep_search}` or `#{diagnostics}`.
 
 > [!NOTE]
 > The message history can be modified via the debug window (`gd`) in the chat buffer.
@@ -3000,7 +3000,7 @@ Prompts can be used inline or in chat buffer.
 
 To refresh markdown prompts: `:CodeCompanionActions refresh`.
 
-You can have multiple variables as part of a prompt, for example: `:CodeCompanion #{buffer} #{clipboard} analyze this code`.
+You can have multiple editor context items as part of a prompt, for example: `:CodeCompanion #{buffer} #{clipboard} analyze this code`.
 
 You can also [create keymaps for prompts](https://codecompanion.olimorris.dev/usage/prompt-library#keymaps), e.g. I have `<localleader>d` mapped to a prompt for generating documentation comments and `<localleader>D` mapped to a prompt for generating documentation.
 
