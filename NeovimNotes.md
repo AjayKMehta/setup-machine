@@ -566,6 +566,8 @@ For example, to delete from the current character to mark `a` position: ``d`a``.
   `]`     | Last character of the previously changed, deleted, or yanked content  
   `^`     | Position where you last used Insert mode.
   `"`     | Position you were at when you last closed the file.
+  `<`     | Start of the (previous) Visual area
+  `>`     | End of the (previous) Visual area
 
 You can go to these marks using `` ` `` or go to first non-blank character in containing line using `'`, e.g. `'"` goes to first non-blank character of line you were on when you last closed the file.
 
@@ -1106,7 +1108,11 @@ Examples of ranges:
 - `$` refers to the last line of buffer
 - `*` refers to last selection you made in visual mode.
 - `'a,'b` refers to range between mark `'a` and mark `'b`.
-- `?^Chapter?,/^Chapter` refers to range between previous occurrence of `^Chapter` and next occurrence of `^Chapter`.
+
+`/{pattern}[/]` refers to the next line where `{pattern}` matches.
+`?{pattern}[?]` refers to the previous line where `{pattern}` matches.
+
+So, `?^Chapter?,/^Chapter` refers to range between previous occurrence of `^Chapter` and next occurrence of `^Chapter`.
 
 #### Motion, editing
 
@@ -1749,7 +1755,12 @@ This even works with marks: `:'a,'bd` deletes from line with mark `a` to line wi
 
 ### Delete text in INSERT mode
 
-`<C-W>` deletes from cursor the beginning of word (or previous, if on first character of current word).
+`<C-h>` deletes the character before the cursor.
+
+`<C-w>` deletes from cursor the beginning of word (or previous, if on first character of current word).
+
+`<C-u>` deletes all characters that were entered after starting Insert
+mode and before the cursor in the current line. If no new characters, delete all characters before the cursor in the current line.
 
 `<BS>` works as expected.
 
@@ -2018,6 +2029,7 @@ Lower case with motion: `gu<motion>`, e.g. `gue`.
 Upper case with motion: `gU<motion>`, e.g. `gUiw`.
 
 To get ASCII value of current character: `ga`.
+To get byte sequence (UTF-8) for current character: `g8`.
 
 These work with `{count}` prefix, e.g. `2~`.
 
