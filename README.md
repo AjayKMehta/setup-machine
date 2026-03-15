@@ -130,6 +130,7 @@
     - [irace](#irace)
     - [Quarto](#quarto)
       - [Extras](#extras)
+      - [panache](#panache)
     - [Use OpenBLAS](#use-openblas)
   - [DotNet](#dotnet)
     - [NuGet](#nuget)
@@ -1659,6 +1660,10 @@ To support rendering of PDF documents that include SVG files, automatically conv
 ```powershell
 quarto install tinytex
 ```
+
+#### panache
+
+[pamache](https://github.com/jolars/panache) is a linter and formatter for Quarto, RMarkdown and Markdown. Install pre-built binary packages from the [releases page](https://github.com/jolars/panache/releases).
 
 ### Use OpenBLAS
 
