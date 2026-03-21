@@ -428,28 +428,25 @@ mise use -g usage
 mise completion bash > ~/.config/bash_completions.d/mise
 ```
 
-Install plugins:
+Install tools:
 
 ```shell
-mise use chezmoi@latest
-mise use delta@latest
-delta --generate-completion bash >  .config/bash_completions.d/delta
-mise use deno@latest
+mise use -g chezmoi@latest
+mise use -g delta@latest
+mise use -g deno@latest
 
-mise use difftastic@latest
+mise use -g difftastic@latest
 wget https://raw.githubusercontent.com/Wilfred/difftastic/master/difft.1
 sudo mv difft.1 /usr/share/man/man1/
 sudo mandb
 
-mise use docker-slim@latest
+mise use -g docker-slim@latest
 
-mise plugin add github-cli https://github.com/bartlomiejdanek/asdf-github-cli.git   
-mise use github-cli@latest
+mise use -g github-cli@latest
 
-mise plugin add actionlint
-mise use actionlint@latest
+mise use -g actionlint@latest
 
-mise use eza@latest
+mise use -g eza@latest
 
 # For man pages
 cd ~/tmp && gh release download --repo eza-community/eza --pattern man*.*
@@ -461,21 +458,21 @@ tmp="./target/${folder}/*"
 sudo chown root $tmp
 sudo mv $tmp /usr/share/man/man1
 # cleanup
-rmdir target
+rm -rf target
 rm "./$folder.tar.gz"
 cd -
 
-mise use fzf@latest
+mise use -g fzf@latest
 
-mise use go@latest
-mise use lua-language-server@latest
-mise use neovim@latest
-mise use stylua@latest
-mise use usage@latest
-mise use zoxide@latest
-mise use lazygit@latest
-mise use ripgrep@latest
-mise use direnv@latest
+mise use -g go@latest
+mise use -g lua-language-server@latest
+mise use -g neovim@latest
+mise use -g stylua@latest
+mise use -g usage@latest
+mise use -g zoxide@latest
+mise use -g lazygit@latest
+mise use -g ripgrep@latest
+mise use -g direnv@latest
 
 # Generate with sudo in /usr/share/..., get Permission denied error.
 rg --generate man > rg.1
