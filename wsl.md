@@ -79,6 +79,12 @@ After I did this, I am able to access Ollama running on Windows from WSL, i.e.  
 
 ## Troubleshooting Tips
 
+### Get default shell
+
+```bash
+getent passwd $USER | cut -d: -f7
+```
+
 ### [How can I use browser on host Windows machine?](https://superuser.com/questions/1262977/open-browser-in-host-system-from-windows-subsystem-for-linux)
 
 ```bash
@@ -415,6 +421,12 @@ Install: `curl <https://mise.run> | sh`.
 
 This will download to `~/.local/bin`.
 
+Update mise:
+
+```shell
+mise self-update
+```
+
 Add this to `~/.bashrc`:
 
 ```bash
@@ -424,11 +436,12 @@ echo 'eval "$(mise activate bash)"' >> ~/.bashrc
 For shell completion:
 
 ```bash
-mise use -g usage
 mise completion bash > ~/.config/bash_completions.d/mise
 ```
 
-Install tools:
+### Tools
+
+To Install a tool, use `mise use` or `mise install`. The former also updates the config file. The latter just installs it so you will need to update `mise.toml` yourself.
 
 ```shell
 mise use -g chezmoi@latest
@@ -486,16 +499,30 @@ Add to `~/.bash_profile`:
 eval "$(gh completion -s bash)"
 ```
 
-To list available versions of an *installed* plugin (here **lazygit**):
+To list available versions of an *installed* tool (here **lazygit**):
 
 ```bash
 mise ls-remote lazygit
 ```
 
-To list available tools to install:
+To upgrade tool version(s): `mise up[grade] [tool]`.
+
+To list tools aliased by default:
 
 ```bash
 mise registry
+```
+
+Example: `aws-cli` is alias for `aqua:aws/aws-cli` so you can type `mise use aws-cli` instead of `mise use aqua:aws/aws-cli`.
+
+### Plugins
+
+Historically plugins were the only way to add new tools (as the only backend was `asdf`). **Tool plugins should be avoided for security reasons.**
+
+To list installed plugins:
+
+```bash
+mise plugins --urls
 ```
 
 To list available plugins:
@@ -504,17 +531,15 @@ To list available plugins:
 mise plugins ls-remote
 ```
 
+### Configuration
+
 To list config files:
 
 ```bash
 mise config ls
 ```
 
-Update mise:
-
-```shell
-mise self-update
-```
+To see the order config files are loaded in: `mise config`.
 
 ## fzf
 
