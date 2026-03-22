@@ -515,6 +515,21 @@ mise registry
 
 Example: `aws-cli` is alias for `aqua:aws/aws-cli` so you can type `mise use aws-cli` instead of `mise use aqua:aws/aws-cli`.
 
+#### Check for `asdf` backend
+
+You can use this bash script to check for tool using `asdf` backend:
+
+```bash
+mise ls | cut -d' ' -f1 | sort -u |
+while read -r tool; do
+  if mise tool "$tool" --backend | grep -qi 'asdf'; then
+    echo "$tool"
+  fi
+done
+```
+
+If possible, uninstall and re-install using a different, more secure backend like `aqua`.
+
 ### Plugins
 
 Historically plugins were the only way to add new tools (as the only backend was `asdf`). **Tool plugins should be avoided for security reasons.**
