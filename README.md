@@ -21,7 +21,7 @@
   - [git](#git)
     - [GitExtensions](#gitextensions)
     - [git absorb](#git-absorb)
-    - [git-metrics](#git-metrics)
+    - [git-filter-repo](#git-filter-repo)
     - [git-interactive-rebase-tool](#git-interactive-rebase-tool)
     - [lefthook](#lefthook)
     - [GitHub](#github)
@@ -423,9 +423,11 @@ Install: `winget install tummychow.git-absorb`.
 
 Generate shell completions: `git absorb --gen-completions powershell | Out-File -Encoding utf8 ~\Documents\PowerShell\Scripts\ArgumentCompleters\git-absorb.ps1`.
 
-### git-metrics
+### git-filter-repo
 
-[git-metrics](https://github.com/steffen/git-metrics?tab=readme-ov-file) is a CLI tool that provides metrics about git repositories. You can install it by downloading a binary from the [releases page](https://github.com/steffen/git-metrics/releases).
+[git-filter-repo](https://github.com/newren/git-filter-repo) is an advanved tool for tool rewriting history, e.g. removing all commits with secrets or referencing files deleted in later commits.
+
+Install: `uv tool install git-filter-repo`.
 
 ### [git-interactive-rebase-tool](https://github.com/MitMaro/git-interactive-rebase-tool)
 
