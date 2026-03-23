@@ -964,10 +964,9 @@ In the above table:
 Install:
 
 ```shell
-bash <(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)
+curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
 
 # Skip if don't want to sync
-# 1/13/2024: DOESN't WORK
 # atuin register -u <USERNAME> -e <EMAIL>
 # atuin register -u AjayMehta -e ...
 ```
