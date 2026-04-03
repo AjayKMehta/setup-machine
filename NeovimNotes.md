@@ -39,6 +39,7 @@
   - [Modes](#modes)
     - [Insert Mode](#insert-mode)
     - [Visual Mode](#visual-mode)
+      - [Treesitter Incremental Selection](#treesitter-incremental-selection)
       - [Editing (Visual Mode)](#editing-visual-mode)
     - [Visual Block Mode](#visual-block-mode)
     - [Select mode](#select-mode)
@@ -984,6 +985,8 @@ To execute a normal mode command from insert mode in Neovim, you can use the `<C
 
 `<C-O>V` puts you in insert (visual block) mode, e.g. `<C-O>Vjc` will clear contents of current line and line below and allow you to type replacement text.
 
+`<C-N>` finds the next match for a word ending at the cursor, using the [sources specified](https://neovim.io/doc/user/options/#'complete').
+
 ### Visual Mode
 
 `v` selects the current character. Use any motion to extend selection, e.g. `ve` or `v$`.
@@ -997,6 +1000,19 @@ Use `V` to select the current line. This can be extended with motion or count, e
 Use `o` to move the cursor to the diagonally opposite corner of the visual selection.
 
 `Q` and `@` in Visual mode will execute the last recorded/executed macro for all visually selected lines.
+
+#### Treesitter Incremental Selection
+
+Starting with Neovim 0.12, you can select Treesitter nodes using keymaps:
+
+ Action                               | Keymap/command
+ -------------------------------------|----------------
+ Select parent node.                  | `an`
+ Select previous or first child node. | `in`
+ Select next node.                    | `]n`
+ Select previous node.                | `[n`
+
+These support `count`, e.g. `3]n`.
 
 #### Editing (Visual Mode)
 
