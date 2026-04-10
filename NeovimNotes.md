@@ -2793,7 +2793,6 @@ Below is an overview of how I have configured Lualine. It explains the structure
  ----------------|----------------------------------------------------------|------------------------------
   Code Companion | Displays a spinner for CodeCompanion operations.         | None
   lazy           | Displays pending updates from `lazy.nvim`.               | Opens `Lazy` plugin manager.
-  noice          | Displays mode and search status from `noice.nvim`.       | None
   encoding       | Displays file encoding.                                  | None
   file format    | Displays file format (e.g., Unix, DOS, Mac).             | None
   filetype       | Displays the filetype icon.                              | None
