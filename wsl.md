@@ -127,6 +127,14 @@ sudo apt install ntp
 sudo service ntp restart
 ```
 
+### inotify-tools
+
+This provides tools to watch and monitor filesystem events.
+
+```bash
+sudo apt install inotify-tools
+```
+
 ### ldd
 
 `ldd` lists all the libraries needed by a binary to execute. For example, if we run `ldd /bin/bash`:
