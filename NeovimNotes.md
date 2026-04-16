@@ -1,5 +1,4 @@
 - [Neovim](#neovim)
-  - [NvChad](#nvchad)
   - [Layout](#layout)
     - [Buffers](#buffers)
       - [Deleting buffers](#deleting-buffers)
@@ -261,14 +260,7 @@
 
 # Neovim
 
-These notes are based on my setup using NvChad. My Neovim config files can be found [here](https://github.com/AjayKMehta/WSL/tree/main/home/dot_config/nvim).
-
-## NvChad
-
-  Action       | Keymap
- --------------|------------------------------------------------
-  Change theme | <kbd>Space</kbd> + <kbd>t</kbd> + <kbd>h</kbd>
-  Cheatsheet   | <kbd>Space</kbd> + <kbd>c</kbd> + <kbd>h</kbd>
+These notes are based on my setup. My Neovim config files can be found [here](https://github.com/AjayKMehta/WSL/tree/main/home/dot_config/nvim).
 
 ## Layout
 
@@ -445,9 +437,6 @@ Append to file: `:w >> <file>`.
 Save all buffers: `:wall` or `wa`
 
 Run health checks: `:checkhealth`.
-
-[Close `nvterm`](https://github.com/NvChad/NvChad/issues/2704#issuecomment-1975743935
-): <kbd>Ctrl</kbd> + <kbd>x</kbd>,`leader` + <kbd>x</kbd>
 
 ### Options
 
@@ -2321,7 +2310,7 @@ Notes:
   **List snippets**                                     | `<leader>sl`
 
 > [!NOTE]
-> Actions in **bold** above are custom actions I added in addition to those to provided by NvChad.
+> Actions in **bold** above are custom actions I added.
 
 #### blink.cmp
 
