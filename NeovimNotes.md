@@ -3165,19 +3165,35 @@ This provides code lens for references, git information, diagnostics.
 
 #### Diffview
 
-[Diffview](https://github.com/sindrets/diffview.nvim) helps you view diffs for any git revision.
+[Diffview](https://github.com/dlyongemallo/diffview.nvim) helps you view diffs for any git revision.
 
 Diff working directory with commit: `:DiffviewOpen HEAD~2`
 
+Diff working directory with staged: `:DiffviewOpen --staged` OR `:DiffviewOpen --cached`
+
 Diff working directory with commit for file: `:DiffviewOpen HEAD~2 -- .gitignore`
 
-Toggle the file pane: `:DiffviewToggleFiles`
+Compare against merge-base (PR-style diff): `DiffviewOpen origin/main...HEAD --merge-base`.
 
-Hide untracked files: `:DiffviewOpen -uno`
+Toggle the file pane: `:DiffviewToggleFiles`.
 
-Exclude certain paths: `:DiffviewOpen -- :!exclude/this :!and/this`
+Hide untracked files: `:DiffviewOpen -uno`.
 
-Run as if git was started in a specific directory: `:DiffviewOpen -C/foo/bar/baz`
+Exclude certain paths: `:DiffviewOpen -- :!exclude/this :!and/this`.
+
+Run as if git was started in a specific directory: `:DiffviewOpen -C/foo/bar/baz`.
+
+List all commits affecting a file: `:DiffviewFileHistory [paths] [options]`.
+
+Show history for current file: `:DiffviewFileHistory %`.
+
+Compare aginst fixed base: `DiffviewFileHistory --base=HEAD~2`
+
+History over range: `:DiffviewFileHistory --range=origin/main..HEAD`
+
+Inspect diffs for Git stashes: `:DiffviewFileHistory -g --range=stash`.
+
+History for selection: `:'<,'>DiffviewFileHistor`.
 
 Use `[c` and `]c` to jump btw hunks.
 
