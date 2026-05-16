@@ -351,6 +351,8 @@ Install python: `uv python install 3.12`. Omit version to use latest.
 
 - To update: `rustup update`
 
+- Install the WASI (WebAssembly System Interface) Preview 1 compilation target for the Rust toolchain: `rustup target add wasm32-wasip1`
+
 - Shell completions:
 
     ```bash
