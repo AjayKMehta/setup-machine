@@ -368,6 +368,10 @@ Check for and install all updates: `cargo install-update -a`.
 
 You can also update specific crates: `cargo install-update crate1 crate2...`.
 
+### Binary installs
+
+[binstall](https://github.com/cargo-bins/cargo-binstall) installs Rust binaries as an alternative to building from source. It works well with [cargo-update](https://github.com/nabijaczleweli/cargo-update).
+
 ## git
 
 ```bash
