@@ -1050,6 +1050,7 @@ sudo ln -s $(which gh) /usr/local/bin/gh
 Instructions for installing are based on [here](https://cran.r-project.org/bin/linux/ubuntu).
 
 ```bash
+# update indices
 sudo apt update -qq
 # install two helper packages we need
 sudo apt install --no-install-recommends software-properties-common dirmngr
@@ -1057,8 +1058,10 @@ sudo apt install --no-install-recommends software-properties-common dirmngr
 # To verify key, run gpg --show-keys /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc 
 # Fingerprint: E298A3A825C0D65DFD57CBB651716619E084DAB9
 wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
+# add the repo from CRAN -- lsb_release adjusts to 'noble' or 'jammy' or ... as needed
 sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
-sudo apt install r-base r-base-dev -y
+# install R itself
+sudo apt install --no-install-recommends r-base
 ```
 
 ### Package prerequisites
