@@ -45,7 +45,6 @@ Install-WinGetPackage -Id wagoodman.dive
 Install-WinGetPackage -Id JesseDuffield.Lazydocker
 
 # Dev
-Install-WinGetPackage -Id wez.wezterm -Location "$CustomLocation\WezTerm"
 Install-WinGetPackage -Id WinMerge.WinMerge -Location "$CustomLocation\WinMerge"
 Install-WinGetPackage -Id Microsoft.VisualStudioCode -Location "$CustomLocation\VSCode"
 Install-WinGetPackage -Id OpenJS.NodeJS -Location "$CustomLocation\nodejs"

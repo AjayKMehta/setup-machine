@@ -73,8 +73,6 @@
     - [docker scout](#docker-scout)
     - [grype](#grype)
     - [Utilities](#utilities)
-  - [WezTerm](#wezterm)
-    - [Links](#links)
   - [Hadoop](#hadoop)
   - [AI](#ai)
     - [NVIDIA CUDA Toolkit](#nvidia-cuda-toolkit)
@@ -935,26 +933,6 @@ Install: `winget install Anchore.Grype`
 winget install wagoodman.dive
 winget install JesseDuffield.Lazydocker
 ```
-
-## [WezTerm](https://wezfurlong.org/wezterm/index.html)
-
-WezTerm is a powerful cross-platform terminal emulator and multiplexer.
-
-- Install:
-
-    ```powershell
-    winget install wez.wezterm -l D:\Apps\WezTerm
-    ```
-
-- (Optional) Add installation folder to `$Path`.
-
-### Links
-
-- <https://wezfurlong.org/wezterm/quickselect.html>
-- <https://wezfurlong.org/wezterm/copymode.html>
-- <https://wezfurlong.org/wezterm/config/launch.html>
-- <https://wezfurlong.org/wezterm/config/default-keys.html>
-- <https://wezfurlong.org/wezterm/config/lua/general.html#making-your-own-lua-modules>
 
 ## Hadoop
 
