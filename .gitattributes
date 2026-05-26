@@ -58,7 +58,7 @@
 
 # Serialisation
 *.json     text
-*.toml     text
+*.toml     text eol=lf
 *.xml      text
 *.yaml     text
 *.yml      text
