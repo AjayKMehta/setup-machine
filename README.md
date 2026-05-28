@@ -59,6 +59,8 @@
     - [difftastic](#difftastic)
     - [ast-grep](#ast-grep)
     - [Hurl](#hurl)
+    - [betterleaks](#betterleaks)
+    - [ccache](#ccache)
   - [Dot files](#dot-files)
     - [Encryption](#encryption)
   - [VS Code](#vs-code)
@@ -771,6 +773,16 @@ winget install Wilfred.difftastic -l D:\Apps\CLI
 [Hurl](https://hurl.dev/) is a command line tool that runs **HTTP requests** defined in a simple **plain text format**.
 
 Grab latest binary from [GitHub](https://github.com/Orange-OpenSource/hurl) and copy to install folder.
+
+### betterleaks
+
+[betterleaks](https://betterleaks.com/) is a fast and configurable secrets scanner.
+
+### ccache
+
+[ccache](https://ccache.dev/) is a fast C/C++ compiler cache.
+
+Install: `winget install ccache`.
 
 ## Dot files
 
