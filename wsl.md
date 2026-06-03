@@ -1013,7 +1013,6 @@ Add this to the appropriate `settings.json` file to reduce false positive diagno
 "Lua.workspace.library": [
     "${env:VIMRUNTIME}/lua/",
     "${env:VIMRUNTIME}/lua/vim/lsp",
-    "~/.local/share/nvim/lazy/ui/nvchad_types",
     "~/.local/share/nvim/lazy/lazy.nvim/lua/lazy"
 ],
 ```
@@ -1493,6 +1492,27 @@ Install: `mise use Ollama@latest`.
 If you want to change the download directory for models, then set `$OLLAMA_MODELS` ([source](https://github.com/ollama/ollama/issues/680#issuecomment-1996562577)).
 
 Instructions on how to add as startup service: [here](https://github.com/ollama/ollama/blob/main/docs/linux.md#adding-ollama-as-a-startup-service-recommended).
+
+## zellij
+
+[zellij](https://zellij.dev/) is a *terminal workspace with batteries included*. Significant upgrade over tmux.
+
+Install: `mise use zellij@latest -g`.
+
+List sessions: `zellij ls`.
+Attach to session: `zellij attach <SESSION>`.
+Delete session: `zellij delete-session <SESSION>`.
+Kill session: `zellij kill-session <SESSION>`.
+Kill all sessions:`zellij kill-all-sessions`.
+Toggle floating panes:`<A-f>`.
+Switch between panes: <kbd>Alt</kbd> + `<Arrow key>` OR <kbd>Alt</kbd> + `hjkl`.
+Open new pane: `<A-n>`.
+Session Manager:`<C-o> + w`.
+Multi-select panes:`Alt + left-click` (hold and drag to select multiple)
+
+### zellij-autolock
+
+[zellij-autolock](https://github.com/fresh2dev/zellij-autolock) is a zellij plugin that automatically switches between normal and locked modes by inspecting the command running within the focused pane. Refer to the online documentation for instructions on how to set this up.
 
 ## Misc
 
