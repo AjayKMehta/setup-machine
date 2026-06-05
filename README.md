@@ -80,7 +80,8 @@
     - [NVIDIA CUDA Toolkit](#nvidia-cuda-toolkit)
     - [CUDNN](#cudnn)
     - [Ollama](#ollama)
-      - [llm-checker](#llm-checker)
+      - [USing HuggingFace models with Ollama](#using-huggingface-models-with-ollama)
+    - [llm-checker](#llm-checker)
     - [aider-chat](#aider-chat)
     - [Open WebUI](#open-webui)
     - [HuggingFace Model Downloader](#huggingface-model-downloader)
@@ -100,14 +101,11 @@
       - [nbQA](#nbqa)
     - [GenAI](#genai)
       - [Cohere](#cohere)
-      - [Replicate](#replicate)
-      - [Weights \& Biases](#weights--biases)
       - [LLM](#llm)
       - [OpenAI](#openai)
       - [HuggingFace](#huggingface)
         - [Faster downloads](#faster-downloads)
         - [Check installation](#check-installation)
-      - [LangSmith](#langsmith)
   - [R](#r)
     - [Updating packages for version upgrade](#updating-packages-for-version-upgrade)
     - [RStudio](#rstudio)
@@ -1013,7 +1011,13 @@ curl http://localhost:11434/api/generate -d '{
 }'
 ```
 
-#### llm-checker
+#### USing HuggingFace models with Ollama
+
+See [here](https://huggingface.co/docs/hub/ollama) for details.
+
+Install HF model: `ollama pull hf.co/{username}/{repository}`, .e.g. `ollama pull batiai/gemma4-e2b:q4`.
+
+### llm-checker
 
 [llm-checker](https://github.com/Pavelevich/llm-checker) helps you find the right model based on your hardware.
 
@@ -1324,15 +1328,6 @@ Make sure that you configure environment variables for API keys.
 - Create API key at <https://dashboard.cohere.com/api-keys>.
 - Set `$COHERE_API_KEY` to API key.
 
-#### Replicate
-
-- Create token at <https://replicate.com/account/api-tokens>.
-- Set `$REPLICATE_API_TOKEN` to API token.
-
-#### Weights & Biases
-
-- Get API Key from <https://wandb.ai/settings> and set `$WANDB_API_KEY`.
-
 #### [LLM](https://llm.datasette.io/en/stable/index.html)
 
 To override the directory used to store prompt templates, etc., set `$LLM_USER_PATH` ([source](https://llm.datasette.io/en/stable/setup.html#setting-a-custom-directory-location)):
@@ -1387,10 +1382,6 @@ This command will fetch information from the Hub about the `gpt2` model. Output 
 ```text
 ModelInfo(id='openai-community/gpt2', author='openai-community', sha='607a30d783dfa663caf39e06633721c8d4cfcd7e', created_at=datetime.datetime(2022, 3, 2, 23, 29, 4, tzinfo=datetime.timezone.utc), last_modified=datetime.datetime(2024, 2, 19, 10, 57, 45, tzinfo=datetime.timezone.utc), private=False, disabled=False, downloads=12735669, downloads_all_time=None, gated=False, gguf=None, inference=None, likes=2327, library_name='transformers', tags=['transformers', 'pytorch', 'tf', 'jax', 'tflite', 'rust', 'onnx', 'safetensors', 'gpt2', 'text-generation', 'exbert', 'en', 'doi:10.57967/hf/0039', 'license:mit', 'autotrain_compatible', 'text-generation-inference', 'endpoints_compatible', 'region:us'], pipeline_tag='text-generation', mask_token=None, card_data={'base_model': None, 'datasets': None, 'eval_results': None, 'language': 'en', 'library_name': None, 'license': 'mit', 'license_name': None, 'license_link': None, 'metrics': None, 'model_name': None, 'pipeline_tag': None, 'tags': ['exbert']}, widget_data=[{'text': 'My name is Julien and I like to'}, {'text': 'My name is Thomas and my main'}, {'text': 'My name is Mariama, my favorite'}, {'text': 'My name is Clara and I am'}, {'text': 'My name is Lewis and I like to'}, {'text': 'My name is Merve and my favorite'}, {'text': 'My name is Teven and I am'}, {'text': 'Once upon a time,'}], model_index=None, config={'architectures': ['GPT2LMHeadModel'], 'model_type': 'gpt2', 'tokenizer_config': {}}, transformers_info=TransformersInfo(auto_model='AutoModelForCausalLM', custom_class=None, pipeline_tag='text-generation', processor='AutoTokenizer'), trending_score=None, siblings=[RepoSibling(rfilename='.gitattributes', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='64-8bits.tflite', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='64-fp16.tflite', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='64.tflite', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='README.md', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='config.json', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='flax_model.msgpack', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='generation_config.json', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='merges.txt', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='model.safetensors', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='onnx/config.json', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='onnx/decoder_model.onnx', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='onnx/decoder_model_merged.onnx', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='onnx/decoder_with_past_model.onnx', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='onnx/generation_config.json', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='onnx/merges.txt', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='onnx/special_tokens_map.json', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='onnx/tokenizer.json', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='onnx/tokenizer_config.json', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='onnx/vocab.json', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='pytorch_model.bin', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='rust_model.ot', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='tf_model.h5', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='tokenizer.json', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='tokenizer_config.json', size=None, blob_id=None, lfs=None), RepoSibling(rfilename='vocab.json', size=None, blob_id=None, lfs=None)], spaces=['open-llm-leaderboard/open_llm_leaderboard', 'microsoft/HuggingGPT', 'Gustavosta/MagicPrompt-Stable-Diffusion', 'shi-labs/Versatile-Diffusion', 'optimum/llm-perf-leaderboard', 'yizhangliu/Grounded-Segment-Anything', 'microsoft/Promptist', 'h2oai/h2ogpt-chatbot', 'aliabid94/AutoGPT', 'Manmay/tortoise-tts', 'Yntec/ToyWorld', 'jadechoghari/OpenMusic', 'h2oai/h2ogpt-chatbot2', 'wangrongsheng/ChatPaper', 'OFA-Sys/OFA-Image_Caption', 'Intel/low_bit_open_llm_leaderboard', 'eduagarcia/open_pt_llm_leaderboard', 'm-ric/beam_search_visualizer', 'exbert-project/exbert', 'OpenMotionLab/MotionGPT', 'ShiwenNi/ChatReviewer', 'Yntec/HuggingfaceDiffusion', 'doevent/Stable-Diffusion-prompt-generator', 'open-llm-leaderboard/blog', 'flax-community/image-captioning', 'BAAI/open_cn_llm_leaderboard', 'Yntec/PrintingPress', 'treadon/prompt-fungineer-355M', 'nateraw/lavila', 'yizhangliu/Text-to-Image', 'BadToBest/EchoMimic', 'fffiloni/EchoMimic', 'gsaivinay/open_llm_leaderboard', 'TMElyralab/MuseTalk', 'deepklarity/poster2plot', 'FrankZxShen/so-vits-svc-models-ba', 'maxmax20160403/sovits5.0', 'Nymbo/Compare-6', 'EleutherAI/magma', 'akhaliq/CLIP_prefix_captioning', 'OFA-Sys/OFA-Visual_Grounding', 'phenomenon1981/MagicPrompt-Stable-Diffusion', 'Yntec/ToyWorldXL', 'OFA-Sys/OFA-vqa', 'aubmindlab/Arabic-NLP', 'Gustavosta/MagicPrompt-Dalle', 'OFA-Sys/OFA-Generic_Interface', 'johko/capdec-image-captioning', 'ShiwenNi/ChatResponse', 'hkunlp/Binder', 'SeaLLMs/SeaLLM-Chat', 'bipin/image2story', 'Omnibus/Chatbot-Compare', 'LilyF/Generate_Text_and_Audio', 'Yntec/blitz_diffusion', 'society-ethics/model-card-regulatory-check', 'Nick088/Audio-SR', 'CISCai/gguf-editor', 'Catmeow/AI_story_writing', 'hahahafofo/image2text_prompt_generator', 'ethanchern/Anole', 'ICML2022/OFA', 'thirdai/BOLT2.5B', 'FrankZxShen/so-vits-svc-models-pcr', 'mshukor/UnIVAL', 'sohaibcs1/Image-to-Text-Summary', 'aliabid94/GPT-Golf', 'Hello-SimpleAI/chatgpt-detector-ling', 'llizhx/TinyGPT-V', 'lfoppiano/document-qa', 'fireredteam/FireRedTTS', 'TencentARC/ImageConductor', 'RitaParadaRamos/SmallCapDemo', 'liyucheng/selective_context', 'sasha/BiasDetection', 'phenixrhyder/NSFW-ToyWorld', 'gsarti/pecore', 'BoomerangGirl/MagicPrompt-Stable-Diffusion', 'architext/Architext_deployed', 'kmacdermid/RpgRoomGenerator', 'SeViLA/SeViLA', 'AnimaLab/bias-test-gpt-pairs', 'optimum/auto-benchmark', 'GTBench/GTBench', 'sonalkum/GAMA', 'John6666/Diffusion80XX4sg', 'stanfordnlp/Backpack-Demo', 'shangdatalab-ucsd/LDB', 'abdullahmeda/detect-ai-text', 'oceansweep/tldw', 'zeno-ml/chatbot-report', 'luis112/text-generation-webui', 'Kaludi/Stable-Diffusion-Prompt-Generator_App', 'freQuensy23/LLMhistory', 'Vikhrmodels/small-shlepa-lb', 'prometheus-eval/BiGGen-Bench-Leaderboard', 'dromerosm/gpt-info-extraction', 'hahahafofo/prompt_generator', 'ccolas/TastyPiano', 'sasha/WinoBiasCheck'], safetensors=SafeTensorsInfo(parameters={'F32': 137022720}, total=137022720))
 ```
-
-#### LangSmith
-
-To create an API key head to the [setting pages](https://smith.langchain.com/settings). Then click **Create API Key.**
 
 ## R
 
