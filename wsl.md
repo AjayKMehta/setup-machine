@@ -1493,6 +1493,14 @@ If you want to change the download directory for models, then set `$OLLAMA_MODEL
 
 Instructions on how to add as startup service: [here](https://github.com/ollama/ollama/blob/main/docs/linux.md#adding-ollama-as-a-startup-service-recommended).
 
+## [tirith](https://github.com/sheeki03/tirith)
+
+Install: `mise use tirith@latest -g`.
+
+Intercepts homograph URLs, pipe-to-shell, ANSI injection, obfuscated payloads, data exfiltration, and malicious AI skills/configs before they execute.
+
+Initialize in `~/.bashrc`: `eval "$(tirith init --shell bash)"`.
+
 ## zellij
 
 [zellij](https://zellij.dev/) is a *terminal workspace with batteries included*. Significant upgrade over tmux.

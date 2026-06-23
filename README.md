@@ -89,6 +89,7 @@
     - [grepai](#grepai)
       - [Usage](#usage)
       - [Skills](#skills)
+    - [tirith](#tirith)
   - [Python](#python)
     - [Build Tools](#build-tools)
     - [uv](#uv)
@@ -1109,6 +1110,14 @@ Install: `npx skills add yoanbernabeu/grepai-skills -g`.
 Check for updates: `npx skills check -g`.
 
 Location: `~/.agents/skills/`.
+
+### tirith
+
+[tirith](https://github.com/sheeki03/tirith) intercepts homograph URLs, pipe-to-shell, ANSI injection, obfuscated payloads, data exfiltration, and malicious AI skills/configs before they execute.
+
+Download and install latest release from GitHub repo.
+
+Create Powershell hook: `tirith init --shell powershell` and reference it in profile.
 
 ## Python
 
