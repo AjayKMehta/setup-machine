@@ -618,6 +618,10 @@ From [GitHub repo](https://github.com/Mic92/cntr?tab=readme-ov-file):
 
 Install: `cargo install cntr`.
 
+## Docker
+
+There is no need to install `docker` in WSL 2. See [Docker Desktop WSL 2 backend on Windows](https://docs.docker.com/desktop/features/wsl/) for details.
+
 ## tailspin
 
 [This](https://github.com/bensadeh/tailspin) is a log viewer with highlighting!
@@ -1513,9 +1517,12 @@ Delete session: `zellij delete-session <SESSION>`.
 Kill session: `zellij kill-session <SESSION>`.
 Kill all sessions:`zellij kill-all-sessions`.
 Toggle floating panes:`<A-f>`.
+Unlock: `<C-g>`.
 Switch between panes: <kbd>Alt</kbd> + `<Arrow key>` OR <kbd>Alt</kbd> + `hjkl`.
 Open new pane: `<A-n>`.
 Session Manager:`<C-o> + w`.
+Launch new session with filepicker: `zellij -l strider`
+Open filepicker in zellij: `<A-f>`
 Multi-select panes:`Alt + left-click` (hold and drag to select multiple)
 
 ### zellij-autolock
