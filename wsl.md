@@ -473,6 +473,8 @@ mise use -g github-cli@latest
 
 mise use -g actionlint@latest
 
+mise use -g hunk@latest
+
 mise use -g eza@latest
 
 # For man pages

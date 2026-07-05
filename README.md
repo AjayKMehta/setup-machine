@@ -24,6 +24,7 @@
     - [git-filter-repo](#git-filter-repo)
     - [git-interactive-rebase-tool](#git-interactive-rebase-tool)
     - [lefthook](#lefthook)
+    - [hunk](#hunk)
     - [GitHub](#github)
       - [Set up GPG and SSH keys](#set-up-gpg-and-ssh-keys)
       - [GitHub CLI](#github-cli)
@@ -440,6 +441,21 @@ git config --global sequence.editor interactive-rebase-tool
 [Lefthook](https://github.com/evilmartians/lefthook) is a Git hooks manager.
 
 Install: `winget install evilmartians.lefthook`.
+
+### hunk
+
+> Hunk is a review-first terminal diff viewer for agent-authored changesets, built on OpenTUI and Pierre diffs.
+
+Install: `npm install -g hunkdiff`.
+
+Create git aliases:
+
+```powershell
+git config --global alias.hdiff '-c core.pager="hunk pager" diff'
+git config --global alias.hshow '-c core.pager="hunk pager" show'
+```
+
+See [this document](https://github.com/modem-dev/hunk/blob/main/docs/agent-workflows.md) for how to use `hunk` with agents.
 
 ### GitHub
 
