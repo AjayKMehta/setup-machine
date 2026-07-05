@@ -2378,6 +2378,10 @@ Below are some useful key maps for when the window is displayed.
 <details open>
   <summary>File and Directory</summary>
 
+As of version 1.18.0, you can copy/cut/paste files between different Neovim instances.
+
+You simply select file(s), then use `c` to copy (or `x` to cut). Next, in the other instance use `p` to paste (or `gp` to paste while cutting).
+
  Action                   | Keymap
 --------------------------|---------------------------------
  **Launch Find Files**    | <kbd>Ctrl</kbd> + <kbd>f</kbd>  
@@ -2389,11 +2393,13 @@ Below are some useful key maps for when the window is displayed.
  Run command              | <kbd>.</kbd>
  Delete                   | <kbd>d</kbd> OR `<Del>`
  Rename (omit filename)   | <kbd>Ctrl</kbd> + <kbd>r</kbd>  
- Rename: Basename         | <kbd>e</kbd>
- Create File Or Directory | <kbd>a</kbd>
- Copy File Or Directory   | <kbd>c</kbd>
- Cut File Or Directory    | <kbd>x</kbd>
- Paste File Or Directory  | <kbd>p</kbd>
+ Rename: Basename         | `e`
+ Create File Or Directory | `a`
+ Copy File Or Directory   | `c`
+ Cut File Or Directory    | `x`
+ Paste File Or Directory  | `p`
+ Copy absolue path        | `gy`
+ Move                     | `gp`
 
 </details>
 
