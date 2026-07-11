@@ -951,6 +951,11 @@ Change color scheme:
 bleopt color_scheme=[default|base16|catppuccin_mocha]
 ```
 
+### blesh-contrib
+
+Install: `git clone <https://github.com/akinomyoga/blesh-contrib> ~/.local/share/blesh/contrib`.
+Update: `cd ~/.local/share/blesh/contrib && git pull`
+
 ### [Manual editing](https://github.com/akinomyoga/ble.sh/wiki/Manual-%C2%A74-Editing)
 
  Key combination       | Widget                                | Description
