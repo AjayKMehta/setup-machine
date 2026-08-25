@@ -431,6 +431,7 @@ Quit and save all: `:wqa`.
 
 Save and close: `ZZ`
 Close without saving: `ZQ`
+Restart: `:restart` or `ZR`.
 
 Append to file: `:w >> <file>`.
 
