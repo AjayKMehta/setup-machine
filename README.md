@@ -83,7 +83,6 @@
     - [Ollama](#ollama)
       - [USing HuggingFace models with Ollama](#using-huggingface-models-with-ollama)
     - [llm-checker](#llm-checker)
-    - [aider-chat](#aider-chat)
     - [Open WebUI](#open-webui)
     - [HuggingFace Model Downloader](#huggingface-model-downloader)
     - [RAG Crawler](#rag-crawler)
@@ -1043,23 +1042,6 @@ Install: `npm install -g llm-checker`.
 Check installed models: `llm-checker installed`.
 
 Recommend models: `llm-checker recommend`.
-
-### aider-chat
-
-Install:
-
-```shell
-uv tool install aider-chat
-```
-
-- Use `--vim` for vim keybindings.
-- To work with Ollama, set `$OLLAMA_API_BASE` to `http://127.0.0.1:11434`.
-
-> [!TIP]
-> To send long, multi-line messages in the chat:
->
-> - Use <kbd>Esc</kbd> + <kbd>Enter</kbd> to enter a new line without sending the message.
-> - Use `/editor` to edit message in your editor.
 
 ### [Open WebUI](https://github.com/open-webui/open-webui)
 
