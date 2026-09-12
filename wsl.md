@@ -1444,6 +1444,24 @@ sudo snap install tectonic
 
 ([Source](https://snapcraft.io/install/tectonic/ubuntu))
 
+## mandible
+
+mandible provides a TUI manual for every installed command-line tool you have.
+
+Install:
+
+```bash
+cargo install mandible
+```
+
+Usage:
+
+```bash
+mandible git
+```
+
+This will show you all the commands for git in left pane with details in right pane.
+
 ## [envx](https://github.com/mikeleppane/envx)
 
 Environment variable manager with TUI + CLI.
