@@ -89,7 +89,7 @@
     - [grepai](#grepai)
       - [Usage](#usage)
       - [Skills](#skills)
-    - [tirith](#tirith)
+    - [OpenCode](#opencode)
   - [Python](#python)
     - [Build Tools](#build-tools)
     - [uv](#uv)
@@ -1109,13 +1109,15 @@ Check for updates: `npx skills check -g`.
 
 Location: `~/.agents/skills/`.
 
-### tirith
+### OpenCode
 
-[tirith](https://github.com/sheeki03/tirith) intercepts homograph URLs, pipe-to-shell, ANSI injection, obfuscated payloads, data exfiltration, and malicious AI skills/configs before they execute.
+[OpenCode](https://opencode.ai) is an open source AI coding agent.
 
-Download and install latest release from GitHub repo.
+- Install: `winget install SST.opencode`.
 
-Create Powershell hook: `tirith init --shell powershell` and reference it in profile.
+- To add [SupoerPowers](https://github.com/obra/superpowers) as a plugin, see [here](https://github.com/obra/superpowers/blob/main/docs/README.opencode.md).
+
+- Create API Key: go to <https://opencode.ai/console>.
 
 ## Python
 
