@@ -108,7 +108,22 @@ sudo chmod +rx /mnt/wslg/runtime-dir
 ln -s /mnt/wslg/runtime-dir/wayland-0* /run/user/$UID/
 ```
 
-### Delete bash sessions
+### Fix xdg-open issue
+
+```bash
+xdg-open https://www.google.com
+```
+
+leads to error:
+
+```text
+Cannot open assembly '/mnt/c/Windows/System32/reg.exe': File does not contain a valid CIL image.
+...
+```
+
+Solution: `sudo update-binfmts --disable cli` ([source](https://github.com/microsoft/WSL/issues/9146))
+
+### Kill bash sessions
 
 ```bash
 # Get the terminal name of the current session
