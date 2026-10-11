@@ -920,6 +920,7 @@ Install LSP (requires `mason.nvim`): `:MasonInstall bash-language-server`
   Go to implementation                                         | `gri`
   Show references                                              | `grr`
   Show type definition                                         | `grt`
+  Run a code lens                                              | `grx`
   Show document symbols                                        | `gO`
   Displays hover information about the symbol under the cursor | `K`
   Code Action                                                  | `gra`
