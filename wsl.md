@@ -546,6 +546,14 @@ mise registry
 
 Example: `aws-cli` is alias for `aqua:aws/aws-cli` so you can type `mise use aws-cli` instead of `mise use aqua:aws/aws-cli`.
 
+Check GitHub token: `mise token github`.
+
+Generate or update lock-file: `mise lock [--global]`.
+
+Delete old tool versions: `mise prune --tools`.
+
+Check for outdated versions that can be bumped: `mise outdated --bump`.
+
 #### Check for `asdf` backend
 
 You can use this bash script to check for tool using `asdf` backend:
@@ -1199,6 +1207,13 @@ Install with `devtools`.
 ### RStan
 
 Instructions are from [here](https://github.com/stan-dev/rstan/wiki/Configuring-C-Toolchain-for-Linux):
+
+### arf
+
+[arf](https://github.com/eitsupi/arf) is a cross-platform R console written in Rust.
+
+Install: `cargo binstall --git <https://github.com/eitsupi/arf> arf-console`.
+Create config: `arf config init`.
 
 #### Ubuntu LTS
 

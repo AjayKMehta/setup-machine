@@ -792,6 +792,8 @@ Grab latest binary from [GitHub](https://github.com/Orange-OpenSource/hurl) and 
 
 [betterleaks](https://betterleaks.com/) is a fast and configurable secrets scanner.
 
+Install: `winget install betterleaks.betterleaks`.
+
 ### ccache
 
 [ccache](https://ccache.dev/) is a fast C/C++ compiler cache.
