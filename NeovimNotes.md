@@ -186,7 +186,7 @@
       - [mcphub](#mcphub)
       - [codecompanion-history](#codecompanion-history)
     - [Coding](#coding)
-      - [neominimap](#neominimap)
+      - [mini.map](#minimap)
       - [Outline](#outline)
         - [Outline Commands](#outline-commands)
       - [lensline.nvim](#lenslinenvim)
@@ -3122,23 +3122,20 @@ See [here](https://github.com/ravitemer/codecompanion-history.nvim#add-history-e
 
 ### Coding
 
-#### neominimap
+#### mini.map
 
-[This plugin](https://github.com/Isrothy/neominimap.nvim) provides a visual representation of your code structure on the side of your windows, similar to the minimap found in VS Code.
+[This plugin](https://github.com/nvim-mini/mini.map) provides a visual representation of your code structure on the side of your windows, similar to the minimap found in VS Code.
 
 You can customize the display to show diagnostics, marks, search results, git information.
 
-  Action                             | Keymap
- ------------------------------------|---------------
-  Toggle global minimap              | `<leader>mtg`
-  Refresh global minimap             | `<leader>mrg`
-  Toggle minimap for current window  | `<leader>mtw`
-  Refresh minimap for current window | `<leader>mrw`
-  Toggle minimap for current tab     | `<leader>mtt`
-  Refresh minimap for current tab    | `<leader>mrt`
-  Toggle minimap for current buffer  | `<leader>mtb`
-  Refresh minimap for current buffer | `<leader>mrb`
-  Toggle focus on minimap            | `<leader>mtf`
+  Action               | Keymap
+  ---------------------|---------------
+  Toggle minimap       | `<leader>mT`  
+  Refresh minimap      | `<leader>mr`  
+  Toggle minimap focus | `<leader>mtf`
+  Toggle minimap side  | `<leader>mts`
+  Open minimap         | `<leader>mo`  
+  Close minimap        | `<leader>mc`  
 
 #### Outline
 
