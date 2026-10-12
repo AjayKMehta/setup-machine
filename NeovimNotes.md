@@ -204,6 +204,7 @@
           - [Inserting and formatting code](#inserting-and-formatting-code)
       - [C#](#c)
     - [Editing](#editing)
+      - [celeste3z/celeste\_comment.nvim](#celeste3zceleste_commentnvim)
       - [marks.nvim](#marksnvim)
       - [mini.move](#minimove)
       - [nvim-spider](#nvim-spider)
@@ -3453,13 +3454,27 @@ The command `:RFormat` calls the function `styler::style_text()` to format the s
 
 ### Editing
 
+#### celeste3z/celeste_comment.nvim
+
+Enables VS-Code style commenting including block comments, comment textobjects.
+
+This plugin creates two custom textobjects: `a/` (outer comment) and `i/` (inner comment).
+
+  Action                 | Keymap
+  -----------------------|--------
+  Uncomment (auto)       | `g/u`  
+  Add comment line below | `g/o`  
+  Add comment line above | `g/O`  
+  Append comment at EOL  | `g/A`
+  Invert comment         | `g/I`
+
 #### [marks.nvim](https://github.com/chentoast/marks.nvim)
 
 As the name suggests, this plugin provides functionality related to [marks](#marks). You can display marks in the sign column, use keymaps for useful actions and set bookmarks.
 
 Listed below are some useful actions with their default keymaps (can be modified in `setup()`):
 
-  Action                                                                           | keymap
+  Action                                                                           | Keymap
  ----------------------------------------------------------------------------------|-------------
   Set mark                                                                         | `mx`
   Set the next available alphabetical (lowercase) mark                             | `m,`
