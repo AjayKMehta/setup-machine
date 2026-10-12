@@ -190,7 +190,7 @@
       - [Outline](#outline)
         - [Outline Commands](#outline-commands)
       - [lensline.nvim](#lenslinenvim)
-      - [Diffview](#diffview)
+      - [Diffview+](#diffview)
       - [code\_runner](#code_runner)
       - [neotest](#neotest)
       - [Debugging](#debugging)
@@ -2766,7 +2766,7 @@ Below is an overview of how I have configured Lualine. It explains the structure
   Name | Description                                         | Click Action
  ------|-----------------------------------------------------|----------------------------------------------------------------------------
   git  | Displays the current Git branch.                    | **Left**: Opens Git branches picker. <br> **Other**: Opens Git log picker.
-  diff | Displays Git diff stats (added, modified, removed). | Opens `Diffview`.
+  diff | Displays Git diff stats (added, modified, removed). | Opens `Diffview+`.
 
 </details>
 
@@ -3171,9 +3171,9 @@ You can use command modifiers `topleft`/`aboveleft`/`botright`/`belowright` on t
 
 This provides code lens for references, git information, diagnostics.
 
-#### Diffview
+#### Diffview+
 
-[Diffview](https://github.com/dlyongemallo/diffview.nvim) helps you view diffs for any git revision.
+[Diffview+](https://github.com/dlyongemallo/diffview-plus.nvim) helps you view diffs for any git revision.
 
 Diff working directory with commit: `:DiffviewOpen HEAD~2`
 
@@ -3204,6 +3204,16 @@ Inspect diffs for Git stashes: `:DiffviewFileHistory -g --range=stash`.
 History for selection: `:'<,'>DiffviewFileHistor`.
 
 Use `[c` and `]c` to jump btw hunks.
+
+  Action                               | Keymap/command
+  -------------------------------------|----------------
+  Toggle Diffview                      | `<leader>Dv`
+  Diffview close                       | `<leader>Dc`
+  Diffview open                        | `<leader>Doo`  
+  Diffview open (no untracked)         | `<leader>Don`  
+  Diffview File history (current file) | `<leader>Dh`
+  Diffview File history (repo)         | `<leader>DH`
+  Diffview Range history (Visual mode) | `<leader>dh`
 
 #### code_runner
 
