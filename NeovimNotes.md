@@ -185,12 +185,15 @@
         - [Rules](#rules)
       - [mcphub](#mcphub)
       - [codecompanion-history](#codecompanion-history)
+    - [git](#git)
+      - [Diffview+](#diffview)
+      - [zdiff.nvim](#zdiffnvim)
+      - [octo.nvim](#octonvim)
     - [Coding](#coding)
       - [mini.map](#minimap)
       - [Outline](#outline)
         - [Outline Commands](#outline-commands)
       - [lensline.nvim](#lenslinenvim)
-      - [Diffview+](#diffview)
       - [code\_runner](#code_runner)
       - [neotest](#neotest)
       - [Debugging](#debugging)
@@ -3120,6 +3123,69 @@ See [here](https://github.com/ravitemer/codecompanion-history.nvim#add-history-e
   Browse chat summaries | `gbs`
   Preview chat summary  | `gps`
 
+### git
+
+#### Diffview+
+
+[Diffview+](https://github.com/dlyongemallo/diffview-plus.nvim) helps you view diffs for any git revision.
+
+Diff working directory with commit: `:DiffviewOpen HEAD~2`
+
+Diff working directory with staged: `:DiffviewOpen --staged` OR `:DiffviewOpen --cached`
+
+Diff working directory with commit for file: `:DiffviewOpen HEAD~2 -- .gitignore`
+
+Compare against merge-base (PR-style diff): `DiffviewOpen origin/main...HEAD --merge-base`.
+
+Toggle the file pane: `:DiffviewToggleFiles`.
+
+Hide untracked files: `:DiffviewOpen -uno`.
+
+Exclude certain paths: `:DiffviewOpen -- :!exclude/this :!and/this`.
+
+Run as if git was started in a specific directory: `:DiffviewOpen -C/foo/bar/baz`.
+
+List all commits affecting a file: `:DiffviewFileHistory [paths] [options]`.
+
+Show history for current file: `:DiffviewFileHistory %`.
+
+Compare aginst fixed base: `DiffviewFileHistory --base=HEAD~2`
+
+History over range: `:DiffviewFileHistory --range=origin/main..HEAD`
+
+Inspect diffs for Git stashes: `:DiffviewFileHistory -g --range=stash`.
+
+History for selection: `:'<,'>DiffviewFileHistor`.
+
+Use `[c` and `]c` to jump btw hunks.
+
+  Action                               | Keymap/command
+  -------------------------------------|----------------
+  Toggle Diffview                      | `<leader>Dv`
+  Diffview close                       | `<leader>Dc`
+  Diffview open                        | `<leader>Doo`  
+  Diffview open (no untracked)         | `<leader>Don`  
+  Diffview File history (current file) | `<leader>Dh`
+  Diffview File history (repo)         | `<leader>DH`
+  Diffview Range history (Visual mode) | `<leader>dh`
+
+Please refer to [diffview_defaults.txt](https://github.com/dlyongemallo/diffview-plus.nvim/blob/main/doc/diffview_defaults.txt) for default keymaps.
+
+#### [zdiff.nvim](https://github.com/martindur/zdiff.nvim)
+
+Inspired by Zed's multi-buffer diff view. This plugin shows all files sequentially (collapsible) in a single, cohesive buffer.
+
+You can yank changes without including git markers or hunk headers.
+
+  Action              | Keymap
+  --------------------|-------------
+  Zdiff (uncommitted) | `<leader>zd`
+  Zdiff (vs main)     | `<leader>zD`
+
+Command: `:Zdiff [ref]`.
+
+#### octo.nvim
+
 ### Coding
 
 #### mini.map
@@ -3168,50 +3234,6 @@ You can use command modifiers `topleft`/`aboveleft`/`botright`/`belowright` on t
 #### [lensline.nvim](https://github.com/oribarilan/lensline.nvim)
 
 This provides code lens for references, git information, diagnostics.
-
-#### Diffview+
-
-[Diffview+](https://github.com/dlyongemallo/diffview-plus.nvim) helps you view diffs for any git revision.
-
-Diff working directory with commit: `:DiffviewOpen HEAD~2`
-
-Diff working directory with staged: `:DiffviewOpen --staged` OR `:DiffviewOpen --cached`
-
-Diff working directory with commit for file: `:DiffviewOpen HEAD~2 -- .gitignore`
-
-Compare against merge-base (PR-style diff): `DiffviewOpen origin/main...HEAD --merge-base`.
-
-Toggle the file pane: `:DiffviewToggleFiles`.
-
-Hide untracked files: `:DiffviewOpen -uno`.
-
-Exclude certain paths: `:DiffviewOpen -- :!exclude/this :!and/this`.
-
-Run as if git was started in a specific directory: `:DiffviewOpen -C/foo/bar/baz`.
-
-List all commits affecting a file: `:DiffviewFileHistory [paths] [options]`.
-
-Show history for current file: `:DiffviewFileHistory %`.
-
-Compare aginst fixed base: `DiffviewFileHistory --base=HEAD~2`
-
-History over range: `:DiffviewFileHistory --range=origin/main..HEAD`
-
-Inspect diffs for Git stashes: `:DiffviewFileHistory -g --range=stash`.
-
-History for selection: `:'<,'>DiffviewFileHistor`.
-
-Use `[c` and `]c` to jump btw hunks.
-
-  Action                               | Keymap/command
-  -------------------------------------|----------------
-  Toggle Diffview                      | `<leader>Dv`
-  Diffview close                       | `<leader>Dc`
-  Diffview open                        | `<leader>Doo`  
-  Diffview open (no untracked)         | `<leader>Don`  
-  Diffview File history (current file) | `<leader>Dh`
-  Diffview File history (repo)         | `<leader>DH`
-  Diffview Range history (Visual mode) | `<leader>dh`
 
 #### code_runner
 
