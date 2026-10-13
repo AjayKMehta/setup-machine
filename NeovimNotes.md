@@ -3186,6 +3186,29 @@ Command: `:Zdiff [ref]`.
 
 #### octo.nvim
 
+[octo.nvim](https://github.com/pwntester/octo.nvim) is a plugin for working with GutHub. This requires GitHub CLI to be installed.
+
+  Action                    | Keymap/Command
+  --------------------------|--------------
+  Octo                      | `<leader>)o` OR `:Octo`
+  List GitHub issues        | `<leader>Oi` OR `:Octo issue list`
+  List GitHub PR            | `<leader>Op` OR `:Octo pr list`
+  List GitHub discussions   | `<leader>Od` OR `:Octo discussion list`
+  List GitHub repos         | `<leader>Or` OR ``:Octo repo list`
+  List GitHub notifications | `<leader>On` OR ``:Octo notification list`
+
+> There is only an `Octo <object> <action> [arguments]` command.
+
+Mappings for the pickers:
+
+1. Open in Browser: `<C-b>`
+2. Copy URL: `<C-y>`.
+3. Copy SHA: `<C-e>`.
+4. Checkout PR:`<C-o>`
+5. Merge PR: `<C-r>`
+
+#### gitsigns.nvim
+
 ### Coding
 
 #### mini.map
