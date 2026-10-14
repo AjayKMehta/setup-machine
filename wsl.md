@@ -607,6 +607,14 @@ mise install fzf
 
 Open file in Neovim: `fzf --bind 'enter:become(nvim {})'`
 
+## gopass
+
+Password manager. Install: `mise use -g gopass@latest`.
+
+Initialize: `gopass init`.
+Check for issues: `gopass doctor`.
+Scan for weak/leaked passwords: `gopass audit`
+
 ## duckdb
 
 ```bash

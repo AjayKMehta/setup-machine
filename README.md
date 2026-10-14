@@ -9,6 +9,7 @@
   - [Notepad++](#notepad)
     - [Plugins](#plugins)
   - [OpenSSH](#openssh)
+  - [gpass](#gpass)
   - [KeePassXC](#keepassxc)
   - [PowerShell](#powershell)
     - [Modules](#modules)
@@ -227,6 +228,12 @@ See [here](https://learn.microsoft.com/en-us/windows-server/administration/opens
 ~~- Install: `winget install Microsoft.OpenSSH.Beta`~~
 
 ~~- Add install folder (C:\Program Files\OpenSSH) to $Path.~~
+
+## gpass
+
+[gopass](https://github.com/gopasspw/gopass) is a password manager.
+
+Install: `winget install gopass.gopass`.
 
 ## KeePassXC
 
