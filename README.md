@@ -9,7 +9,8 @@
   - [Notepad++](#notepad)
     - [Plugins](#plugins)
   - [OpenSSH](#openssh)
-  - [gpass](#gpass)
+  - [gopass](#gopass)
+  - [gopass-hibp](#gopass-hibp)
   - [KeePassXC](#keepassxc)
   - [PowerShell](#powershell)
     - [Modules](#modules)
@@ -123,6 +124,7 @@
     - [catboost](#catboost)
     - [INLA](#inla)
     - [irace](#irace)
+    - [Reticulate](#reticulate)
     - [Quarto](#quarto)
       - [Extras](#extras)
       - [panache](#panache)
@@ -229,11 +231,16 @@ See [here](https://learn.microsoft.com/en-us/windows-server/administration/opens
 
 ~~- Add install folder (C:\Program Files\OpenSSH) to $Path.~~
 
-## gpass
+## gopass
 
 [gopass](https://github.com/gopasspw/gopass) is a password manager.
 
 Install: `winget install gopass.gopass`.
+
+## gopass-hibp
+
+[gopass-hibp](https://github.com/gopasspw/gopass-hibp) integrates haveibeenpwnd.com with gopass to check for leaked secretes.
+Download latest release from GitHub.
 
 ## KeePassXC
 
@@ -1564,6 +1571,12 @@ See [here](https://www.r-inla.org/download-install).
 ### irace
 
 See [here](https://lopez-ibanez.eu/2024-redheur/#setup).
+
+### Reticulate
+
+Reticulate lets you call Python code from R. In order to make the experience smoother, you should set `$RETICULATE_PYTHON` to the path to the desired Python interpreter.
+
+> :bulb: This is especially true if you don't have a system Python or if you want to use a Python interpreter that is not in `$Path`
 
 ### Quarto
 
