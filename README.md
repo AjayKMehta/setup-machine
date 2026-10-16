@@ -237,6 +237,8 @@ See [here](https://learn.microsoft.com/en-us/windows-server/administration/opens
 
 Install: `winget install gopass.gopass`.
 
+See this [cheatsheet](https://woile.github.io/gopass-cheat-sheet/).
+
 ## gopass-hibp
 
 [gopass-hibp](https://github.com/gopasspw/gopass-hibp) integrates haveibeenpwnd.com with gopass to check for leaked secretes.

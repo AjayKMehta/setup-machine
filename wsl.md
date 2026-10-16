@@ -613,7 +613,13 @@ Password manager. Install: `mise use -g gopass@latest`.
 
 Initialize: `gopass init`.
 Check for issues: `gopass doctor`.
-Scan for weak/leaked passwords: `gopass audit`
+Scan for weak/leaked passwords: `gopass audit`.
+Add a remote to your existing local store: `gopass git init`.
+Attach an existing remote store: `gopass clone <git-repo-url>`.
+
+### rng-tools
+
+Install to speed up generating cryptographic keys: `sudo apt-get install rng-tools`.
 
 ## duckdb
 
