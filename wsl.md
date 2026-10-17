@@ -1382,6 +1382,9 @@ eval "$(oh-my-posh --init --shell bash --config /root/.cache/oh-my-posh/themes/{
     ghcup install stack latest
     ghcup install hls latest
     cabal update
+    
+    # Rust binary that wraps GHCi with a nice frontend
+    cargo install ghcitty
     ```
 
 - Set source for GHCup metadata:
