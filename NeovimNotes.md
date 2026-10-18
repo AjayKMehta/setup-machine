@@ -247,7 +247,6 @@
         - [Links](#links)
         - [Table of contents](#table-of-contents)
         - [Lists](#lists)
-      - [live-preview.nvim](#live-previewnvim)
       - [render-markdown.nvim](#render-markdownnvim)
     - [LaTeX](#latex)
       - [sigil.nvim](#sigilnvim)
@@ -4006,12 +4005,6 @@ These commands work in normal mode:
   Toggle task            | `<C-m><C-x>`
   Insert list item below | `<C-m><C-j>`
   Insert list item above | `<C-m><C-k>`
-
-#### live-preview.nvim
-
-[This plugin](https://github.com/brianhuster/live-preview.nvim) lets you preview Markdown files in your browser with synchronized scrolling.
-
-Use `:LivePreview start|pick` to preview Markdown files.
 
 #### render-markdown.nvim
 
