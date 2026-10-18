@@ -792,6 +792,24 @@ export PATH=$DOTNET_ROOT:$DOTNET_ROOT/tools:$PATH  # Add to .bashrc
 
 Confirm that it's working: `dotnet sdk check`.
 
+#### Using `mise`
+
+Install: `mise install -g dotnet@<sdk-version>`.
+
+After installing, you may need to add `$HOME$/.dotnet/tools` to `$PATH` if you don't want global .NET toools installed in mise install location.
+
+#### Using `dotnetup`
+
+`dotnetup` is like `rustup`. You can use it to install .NET toolchain.
+
+Install: `curl -fsSL <https://aka.ms/dotnetup/get-dotnetup.sh> | bash`.
+Add to `$PATH`: `echo 'export PATH="/home/ajay/.dotnetup:$PATH"' >> ~/.bashrc`.
+
+Initialize: `dotnetup init`.
+Check which SDKs are installed: `dotnetup list`.
+Update SDK to latest version: `dotnetup update`.
+Update `dotnetup` itself: `dotnetup self update`.
+
 ### Configure environment variables
 
 > [!NOTE]
