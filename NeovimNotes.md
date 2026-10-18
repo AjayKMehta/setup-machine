@@ -174,7 +174,6 @@
       - [nvim-ufo](#nvim-ufo)
       - [overlook.nvim](#overlooknvim)
     - [AI](#ai)
-      - [copilot.vim](#copilotvim)
       - [codecompanion](#codecompanion)
         - [Interactions](#interactions)
         - [Adapters](#adapters)
@@ -189,6 +188,7 @@
       - [Diffview+](#diffview)
       - [zdiff.nvim](#zdiffnvim)
       - [octo.nvim](#octonvim)
+      - [gitsigns.nvim](#gitsignsnvim)
     - [Coding](#coding)
       - [mini.map](#minimap)
       - [Outline](#outline)
@@ -2860,32 +2860,6 @@ Keymaps when menu is active:
 
 ### AI
 
-#### [copilot.vim](https://github.com/github/copilot.vim/)
-
-This is a Neovim plugin for GitHub Copilot.
-
-Assuming that you have GitHub Copilot access, run `:Copilot setup` to get started.
-
-  Action                                                                                              | Command/Keymap
- -----------------------------------------------------------------------------------------------------|--------------------
-  Authenticate and enable GitHub Copilot.                                                             | `:Copilot setup`
-  Globally disable Copilot inline suggestions.                                                        | `:Copilot disable`
-  Re-enable GitHub Copilot.                                                                           | `:Copilot enable`  
-  Sign out of GitHub Copilot.                                                                         | `:Copilot signout`
-  Check if GitHub Copilot is operational for the current buffer and report any issues.                | `:Copilot status`  
-  Open a window with up to 10 completions for the current buffer.  Use `<CR>` to accept a completion. | `:Copilot panel`
-  Show version information.                                                                           | `:Copilot version`
-  Accept suggestion                                                                                   | `<M-a>`
-
-`:Copilot panel` is the default command if `:Copilot` is called without an argument.
-
-:bulb: Set `vim.b.copilot_enabled` to `false` to disable Copilot for the current buffer.
-
-:bulb: To improve the quality of suggestions, you can set `vim.b.workspace_folder` for an individual buffer.
-
-> [!IMPORTANT]
-> This plugin is currently disabled as it's flaky and has outdated support for `nvim-cmp`.
-
 #### codecompanion
 
 [CodeCompanion](https://codecompanion.olimorris.dev/) is a plugin that enables AI-powered coding with LLMs.
@@ -2983,11 +2957,11 @@ Here are some of the built-in tools:
 - `@{get_changed_files}` - enables an LLM to use `git diff` to get changes to files in the current working directory.
 - `@{grep_search}` - enables an LLM to search for text in the current working directory.
 - `@{file_search}`- enables an LLM to search for files in the current working directory.
-- `@{web_search}` - Need `$TAVILY_API_KEY` set. See <https://www.tavily.com/> for more information.
+- `@{web_search}` - Uses DuckDuckGo.
 
 Built-in tool groups:
 
-- [`@{files}`](https://codecompanion.olimorris.dev/usage/chat-buffer/agents-tools#files) is a combination of file-related tools such as `@{create_file}`,`@{insert_edit_into_file}` and `@{read_file}`.
+- [`@{files}`](https://codecompanion.olimorris.dev/usage/chat-buffer/agents-tools#files) is a combination of file-related tools such as `@{create_file}`,`@{edit_file}` and `@{read_file}`.
 - [`@{agent}`](https://codecompanion.olimorris.dev/usage/chat-buffer/agents-tools#agent) combines a curated set of tools with its own system prompt.
 
 Groups become agents when they provide their own `system_prompt`. Combined with the `ignore_system_prompt` and `ignore_tool_system_prompt` opts, a group can completely replace the default system prompts with its own tailored instructions. This is how the built-in `@{agent}` group works.
@@ -3184,9 +3158,9 @@ You can yank changes without including git markers or hunk headers.
 
 Command: `:Zdiff [ref]`.
 
-#### octo.nvim
+#### [octo.nvim](https://github.com/pwntester/octo.nvim)
 
-[octo.nvim](https://github.com/pwntester/octo.nvim) is a plugin for working with GutHub. This requires GitHub CLI to be installed.
+octo.nvim is a plugin for working with GutHub. This requires GitHub CLI to be installed.
 
   Action                    | Keymap/Command
   --------------------------|--------------
@@ -3207,7 +3181,39 @@ Mappings for the pickers:
 4. Checkout PR:`<C-o>`
 5. Merge PR: `<C-r>`
 
-#### gitsigns.nvim
+#### [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+
+This plugin provides Git integration:
+
+- Adds signs to the sign column to indicate added, changed, and deleted lines.
+- Provides ability to stage/unstage/reset hunks.
+- blame
+- diff
+- Provides `ih` textobject for hunk.
+- Statusline integration
+
+It creates the following *buffer-level* keymaps:
+
+Mode | Action                               | Keymap
+-----|--------------------------------------|---------------
+n    | Stage hunk                           | `<leader>gsh`
+v    | Stage hunk (Selected lines)          | `<leader>gsh`
+n    | Stage buffer                         | `<leader>gsb`
+n    | Unstage all hunks for current buffer | `<leader>gU`  
+n    | Reset hunk                           | `<leader>gr`  
+v    | Reset hunk (Selected lines)          | `<leader>gr`  
+n    | Toggle current line blame            | `<leader>gBt`
+n    | Blame line                           | `<leader>gBl`
+n    | Blame line (ignore whitespace)       | `<leader>gBL`
+n    | Diff with index                      | `<leader>gdi`
+n    | Diff with previous commit            | `<leader>gdp`
+n, v | Go to previous hunk                  | `[h`
+n, v | Go to next hunk                      | `]h`
+n, v | Go to first hunk                     | `[H`
+n, v | Go to last hunk                      | `]H`
+n    | Preview hunk                         | `<leader>gp`  
+n    | Preview hunk inline                  | `<leader>gi`  
+n    | Populate quickfix list with hunks    | `<leader>gq`  
 
 ### Coding
 
@@ -3267,9 +3273,9 @@ This provides code lens for references, git information, diagnostics.
   Run project  | `<leader>rp`
   Close runner | `<leader>rx`
 
-#### neotest
+#### [neotest](https://github.com/nvim-neotest/neotest)
 
-[Neotest](https://github.com/nvim-neotest/neotest?tab=readme-ov-file#installation) is an extensible framework for managing tests.
+Neotest is an extensible framework for managing tests.
 
 See [here](https://github.com/nvim-neotest/neotest?tab=readme-ov-file#supported-runners) for supported runners.
 
