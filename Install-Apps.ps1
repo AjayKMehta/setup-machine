@@ -29,7 +29,6 @@ Install-WinGetPackage -Id Wilfred.difftastic
 Install-WinGetPackage -Id dalance.procs
 
 # Security
-Install-WinGetPackage -Id KeePassXCTeam.KeePassXC
 Install-WinGetPackage -Id GnuPG.GnuPG -Location "$CustomLocation\GnuPG"
 Install-WinGetPackage -Id GnuPG.Gpg4win -Location "$CustomLocation\Gpg4win"
 

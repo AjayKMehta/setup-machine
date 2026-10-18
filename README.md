@@ -11,7 +11,6 @@
   - [OpenSSH](#openssh)
   - [gopass](#gopass)
   - [gopass-hibp](#gopass-hibp)
-  - [KeePassXC](#keepassxc)
   - [PowerShell](#powershell)
     - [Modules](#modules)
     - [Secrets Management](#secrets-management)
@@ -88,8 +87,6 @@
     - [Open WebUI](#open-webui)
     - [HuggingFace Model Downloader](#huggingface-model-downloader)
     - [RAG Crawler](#rag-crawler)
-    - [grepai](#grepai)
-      - [Usage](#usage)
       - [Skills](#skills)
     - [OpenCode](#opencode)
   - [Python](#python)
@@ -243,24 +240,6 @@ See this [cheatsheet](https://woile.github.io/gopass-cheat-sheet/).
 
 [gopass-hibp](https://github.com/gopasspw/gopass-hibp) integrates haveibeenpwnd.com with gopass to check for leaked secretes.
 Download latest release from GitHub.
-
-## KeePassXC
-
-- Install KeePassXC:
-
-    ```powershell
-    winget install KeePassXCTeam.KeePassXC
-    ```
-
-- See [here](https://keepassxc.org/docs/KeePassXC_GettingStarted.html) for information on getting started.
-
-- Add installation folder to `$Path` if needed:
-
-    ```powershell
-    $path = [System.Environment]::GetEnvironmentVariable('Path', 'Machine')
-    $path += ';C:\Program Files\KeePassXC'
-    [System.Environment]::SetEnvironmentVariable('Path', $path, 'Machine')
-    ```
 
 ## PowerShell
 
@@ -1091,33 +1070,6 @@ Install: `winget install bodaay.hfdownloader`.
 Crawl a website to generate knowledge file for RAG.
 
 Install: `npm i -g rag-crawler`
-
-### grepai
-
-[grepai](https://yoanbernabeu.github.io/grepai/) indexes your code and lets you perform sematic search.
-
-Grab latest release from [GitHub](https://github.com/yoanbernabeu/grepai/releases).
-
-#### Usage
-
-- In your repo's root folder: `grepai init`.
-- To start indexing daemon: `grepai watch`.
-_ After index is built, you can search in new terminal: `grepai search <query>`.
-
-Alternatively, you can run daemon in background:
-
-```powershell
-# Start in background
-grepai watch --background
-
-# Check status
-grepai watch --status
-
-# Stop the background watcher gracefully
-grepai watch --stop
-```
-
-> :bulb: Logs are stored in `~/.local/state/grepai/logs/` and are **not rotated**.
 
 #### Skills
 
