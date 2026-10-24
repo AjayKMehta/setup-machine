@@ -1697,3 +1697,4 @@ sudo apt update && sudo apt install gum
 - <https://www.freecodecamp.org/news/how-to-set-an-environment-variable-in-linux>
 - <https://dev.to/anurag_pramanik/how-to-enable-undercurl-in-neovim-terminal-and-tmux-setup-guide-2ld7>
 - [tmux shortcuts & cheatsheet](https://gist.github.com/MohamedAlaa/2961058#gistcomment-5964565)
+- [Lazygit keybindings](https://github.com/jesseduffield/lazygit/blob/master/docs/keybindings/Keybindings_en.md)
