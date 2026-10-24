@@ -189,6 +189,7 @@
       - [zdiff.nvim](#zdiffnvim)
       - [octo.nvim](#octonvim)
       - [gitsigns.nvim](#gitsignsnvim)
+      - [DiffBandit](#diffbandit)
     - [Coding](#coding)
       - [mini.map](#minimap)
       - [Outline](#outline)
@@ -248,6 +249,7 @@
         - [Table of contents](#table-of-contents)
         - [Lists](#lists)
       - [render-markdown.nvim](#render-markdownnvim)
+      - [md-render.nvim](#md-rendernvim)
     - [LaTeX](#latex)
       - [sigil.nvim](#sigilnvim)
       - [VimTex](#vimtex)
@@ -3141,6 +3143,7 @@ Use `[c` and `]c` to jump btw hunks.
   Diffview File history (current file) | `<leader>Dh`
   Diffview File history (repo)         | `<leader>DH`
   Diffview Range history (Visual mode) | `<leader>dh`
+  Diffview worktrees                   | `<leader>Dw`
 
 Please refer to [diffview_defaults.txt](https://github.com/dlyongemallo/diffview-plus.nvim/blob/main/doc/diffview_defaults.txt) for default keymaps.
 
@@ -3169,6 +3172,7 @@ octo.nvim is a plugin for working with GutHub. This requires GitHub CLI to be in
   List GitHub discussions   | `<leader>Od` OR `:Octo discussion list`
   List GitHub repos         | `<leader>Or` OR ``:Octo repo list`
   List GitHub notifications | `<leader>On` OR ``:Octo notification list`
+  Search GitHub             | `<leader>Os`
 
 > There is only an `Octo <object> <action> [arguments]` command.
 
@@ -3213,6 +3217,10 @@ n, v | Go to last hunk                      | `]H`
 n    | Preview hunk                         | `<leader>gp`  
 n    | Preview hunk inline                  | `<leader>gi`  
 n    | Populate quickfix list with hunks    | `<leader>gq`  
+
+#### DiffBandit
+
+[DiffBandit](https://github.com/CoreyKaylor/diffbandit.nvim) is a modern diff viewer built to replicate the **JetBrains / Beyond Compare** side-by-side comparison model.
 
 ### Coding
 
@@ -3956,6 +3964,7 @@ Examples:
 
 1. Make current word bold: `gseb`.
 2. Italicize current line: `gssi`
+3. Change from bold to italic: `csbi`.
 
 For visual mode, I set up keyboard shortcuts identically to the ones for VS Code:
 
@@ -4015,6 +4024,22 @@ Install `latext2text` for LaTeX rendering: `uv tool install pylatexenc`.
 Press `<leader>tm` to toggle rendering.
 
 Run `:RenderMarkdown config` to validate your configuration.
+
+#### [md-render.nvim](https://github.com/delphinus/md-render.nvim)
+
+This differs from [render-markdown](#render-markdownnvim) in that it renders in a separate tab,
+
+Action                                                                                              | Command/KeyMap
+----------------------------------------------------------------------------------------------------|---------------------------------------
+Floating preview window                                                                             | `:MdRender` OR `<leader>mP`
+Toggle a floating preview window                                                                    | `:MdRender float`
+Toggle a tab preview                                                                                | `:MdRender tab` OR `<leader>mt`
+Toggle the current window between source and render mode in place                                   | ``:MdRender toggle`
+Open a split showing source and rendered Markdown (honors `:vert`, `:tab`, `:topleft`, `:botright`) | `:MdRender split`
+Auto-toggle source/render based on Insert mode (per buffer)                                         | `:MdRender auto [on\|off\|toggle]`
+Scale headings via the Kitty text sizing protocol (on by default)                                   | `:MdRender textsize [on\|off\|toggle]`
+Pager mode — full-screen, no chrome, q to quit Neovim                                               | `:MdRender pager`
+Show a demo window with all supported Markdown notations                                            | `:MdRender demo`
 
 ### LaTeX
 
