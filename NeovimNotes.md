@@ -183,7 +183,6 @@
         - [Workflows](#workflows)
         - [Rules](#rules)
       - [mcphub](#mcphub)
-      - [codecompanion-history](#codecompanion-history)
     - [git](#git)
       - [Diffview+](#diffview)
       - [zdiff.nvim](#zdiffnvim)
@@ -3083,20 +3082,6 @@ You can access MCP tools via the `@mcp` tool in the chat buffer or using their n
 With `make_vars = true`, MCPHub resources can be accessed as variables prefixed with `#mcp:`, e.g. `#mcp:lsp:get_diagnostics`.
 
 With `make_slash_commands = true`, MCPHub prompts are available as slash commands (`/mcp:<prompt>`).
-
-#### [codecompanion-history](https://github.com/ravitemer/codecompanion-history.nvim)
-
-This plugin is a history management extension for codecompanion.
-
-See [here](https://github.com/ravitemer/codecompanion-history.nvim#add-history-extension-to-codecompanion-config) for adding this as an extension to **codecompanion.nvim**.
-
-  Action                | Keymap
- -----------------------|-------------------
-  Browse chat history   | `gh`
-  Save current chat     | `<LocalLeader>sc`
-  Generate chat summary | `gcs`
-  Browse chat summaries | `gbs`
-  Preview chat summary  | `gps`
 
 ### git
 
