@@ -1083,7 +1083,7 @@ Location: `~/.agents/skills/`.
 
 [OpenCode](https://opencode.ai) is an open source AI coding agent.
 
-- Install: `winget install SST.opencode`.
+- Install: `npm install -g @opencode/cli@latest`.
 
 - To add [SupoerPowers](https://github.com/obra/superpowers) as a plugin, see [here](https://github.com/obra/superpowers/blob/main/docs/README.opencode.md).
 
