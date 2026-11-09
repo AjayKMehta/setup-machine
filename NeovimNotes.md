@@ -2928,6 +2928,13 @@ require("codecompanion").setup({
   Regenerate the last response.               | `gr`
   Toggle system prompt                        | `gs`
   Get Copilot usage stats.                    | `gS`
+  Clear cached tool approvals                 | `gtx`
+  Show the tool call under the cursor         | `K`
+  Send the message to the LLM                 | `<C-s>`
+  Stop the current request                    | `q`
+  Insert codeblock                            | `gc`
+  Send a follow-up while LLM is responding    | `gm`
+  Remove rules from the chat                  | `gM`
 
 See [here](https://codecompanion.olimorris.dev/usage/chat-buffer/#keymaps) for the full list of keymaps.
 
@@ -2941,11 +2948,13 @@ You can configure slash commands to be triggered by keymaps:
   fetch         | i: `<C-f>`. n : `<C-f>`, `gF`.
   help          | i: `<C-?>`. n : `<C-?>`, `g?`.
 
+`/tools` adds tools to the chat buffer without leaving an `@{tool}` reference in your message.
+
 In order to allow for references to self-update, *all their content* can be *synced* (for files and buffers) using `gba` or just *the diff* can be *synced* (for buffers only) using `gbd`. See [here](https://codecompanion.olimorris.dev/usage/chat-buffer/#references) for more details. If you sync all the content of a buffer, then the whole contents of the buffer or file is added to the message stack before your current message. If you sync the diff, it will send only the added, edited or deleted lines to the LLM.
 
 Use `gR` to go to the file under cursor (in a new tab).
 
-[*Tools*](https://codecompanion.olimorris.dev/usage/chat-buffer/tools), accessed via `@`, allow the LLM to function as an agent and carry out actions.
+Tools accessed via `@`, allow the LLM to function as an agent and carry out actions.
 
 Tools can also be grouped together to form *Agents*, which are also accessed via `@` in the chat buffer. When you include a tool group in the chat, all tools within that group become available to the LLM.
 
