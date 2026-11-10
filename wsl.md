@@ -1244,7 +1244,7 @@ Instructions are from [here](https://github.com/stan-dev/rstan/wiki/Configuring-
 
 [arf](https://github.com/eitsupi/arf) is a cross-platform R console written in Rust.
 
-Install: `cargo binstall --git <https://github.com/eitsupi/arf> arf-console`.
+Install: `cargo binstall --git https://github.com/eitsupi/arf arf-console`.
 Create config: `arf config init`.
 
 #### Ubuntu LTS

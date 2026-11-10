@@ -115,6 +115,7 @@
     - [Spark](#spark)
     - [Stan](#stan)
     - [cmdstanr](#cmdstanr)
+    - [arf](#arf)
     - [radian](#radian)
     - [Setup for VS Code](#setup-for-vs-code)
     - [Setup for Jupyter](#setup-for-jupyter)
@@ -1478,6 +1479,12 @@ cmdstanr::check_cmdstan_toolchain(fix = TRUE)
 cmdstanr::install_cmdstan(dir = "D:/Apps", version = "2.38.0", overwrite = TRUE, cores = 6, wsl = FALSE)
 cmdstanr::set_cmdstan_path() # D:/Apps/cmdstan-2.38.0
 ```
+
+### arf
+
+[arf](https://github.com/eitsupi/arf) is a cross-platform R console written in Rust.
+
+Install: `winget install eitsupi.arf`
 
 ### radian
 
